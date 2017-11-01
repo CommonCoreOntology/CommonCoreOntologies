@@ -1,0 +1,939 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology> rdf:type owl:Ontology ;
+                                                                                     owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
+                                                                                     rdfs:comment "This ontology is designed to represent standard measurement units that are used when measuring various attributes of entities."^^xsd:string ;
+                                                                                     rdfs:label "Units of Measure Ontology"^^xsd:string ;
+                                                                                     cco:content_license "The Creative Commons BY 3.0 License (https://creativecommons.org/licenses/by/3.0/)."^^xsd:string ;
+                                                                                     owl:versionInfo "August 1, 2017"^^xsd:string ;
+                                                                                     cco:code_license "The 3-Clause BSD License (https://opensource.org/licenses/BSD-3-Clause)."^^xsd:string ;
+                                                                                     cco:copyright "COPYRIGHT © 2017 CUBRC, Inc."^^xsd:string ;
+                                                                                     owl:versionInfo "Version 1.0.1"^^xsd:string .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfAcceleration
+cco:MeasurementUnitOfAcceleration rdf:type owl:Class ;
+                                  rdfs:subClassOf cco:MeasurementUnit ;
+                                  cco:definition "A Measurement Unit used in measurements of the rates at which objects change their velocities per unit of time."^^xsd:string ;
+                                  cco:example_of_usage "feet per second per second, kilometers per second per second"^^xsd:string ;
+                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                  rdfs:label "Measurement Unit of Acceleration"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfAngle
+cco:MeasurementUnitOfAngle rdf:type owl:Class ;
+                           rdfs:subClassOf cco:MeasurementUnit ;
+                           cco:definition "A Measurement Unit used in measurements of the angle between two lines or planes in relation to a vertex."^^xsd:string ;
+                           cco:example_of_usage "degrees, radians"^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                           rdfs:label "Measurement Unit of Angle"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfArea
+cco:MeasurementUnitOfArea rdf:type owl:Class ;
+                          rdfs:subClassOf cco:MeasurementUnit ;
+                          cco:definition "A Measurement Unit used in measurements of two-dimensional regions or Geospatial Regions."^^xsd:string ;
+                          cco:example_of_usage "square feet, square meters, acre, hectare"^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Measurement Unit of Area"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfEnergy
+cco:MeasurementUnitOfEnergy rdf:type owl:Class ;
+                            rdfs:subClassOf cco:MeasurementUnit ;
+                            cco:definition "A Measurement Unit used in measurements of the Amount of work that is available in an object."^^xsd:string ;
+                            cco:example_of_usage "ft-lbs, calorie, horsepower, kilowatt"^^xsd:string ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Measurement Unit of Energy"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfForce
+cco:MeasurementUnitOfForce rdf:type owl:Class ;
+                           rdfs:subClassOf cco:MeasurementUnit ;
+                           cco:definition "A Measurement Unit used in measurements of interactions in which the Motion or Velocity of an object are changed."^^xsd:string ;
+                           cco:example_of_usage "newton, dyne, pound force "^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                           rdfs:label "Measurement Unit of Force"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfFrequency
+cco:MeasurementUnitOfFrequency rdf:type owl:Class ;
+                               rdfs:subClassOf cco:MeasurementUnit ;
+                               cco:definition "A Measurement Unit used in measurements of the number of times an event repeats per unit of time."^^xsd:string ;
+                               cco:example_of_usage "hertz, revolutions per minute"^^xsd:string ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                               rdfs:label "Measurement Unit of Frequency"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfLength
+cco:MeasurementUnitOfLength rdf:type owl:Class ;
+                            rdfs:subClassOf cco:MeasurementUnit ;
+                            cco:definition "A Measurement Unit used in measurements of one-dimensional regions or Geospatial Regions."^^xsd:string ;
+                            cco:example_of_usage "foot, meter, kilometer, mile"^^xsd:string ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Measurement Unit of Length"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfMass
+cco:MeasurementUnitOfMass rdf:type owl:Class ;
+                          rdfs:subClassOf cco:MeasurementUnit ;
+                          cco:definition "A Measurement Unit used in measurements of an object's resistance to Acceleration when a Force is applied to the object."^^xsd:string ;
+                          cco:example_of_usage "ounce, gram, pound"^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Measurement Unit of Mass"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfPower
+cco:MeasurementUnitOfPower rdf:type owl:Class ;
+                           rdfs:subClassOf cco:MeasurementUnit ;
+                           cco:definition "A Measurement Unit used in measurements of rates of work."^^xsd:string ;
+                           cco:example_of_usage "watt, horsepower"^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                           rdfs:label "Measurement Unit of Power"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfPressure
+cco:MeasurementUnitOfPressure rdf:type owl:Class ;
+                              rdfs:subClassOf cco:MeasurementUnit ;
+                              cco:definition "A Measurement Unit used in measurements of Force applied perpendicular to a surface per unit area."^^xsd:string ;
+                              cco:example_of_usage "pascal, atmosphere, pound-force per square inch"^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Measurement Unit of Pressure"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfSoundLevel
+cco:MeasurementUnitOfSoundLevel rdf:type owl:Class ;
+                                rdfs:subClassOf cco:MeasurementUnit ;
+                                cco:definition "A Measurement Unit used in measurements of the level (the loudness) of sounds."^^xsd:string ;
+                                cco:example_of_usage "decibels, sones"^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                rdfs:label "Measurement Unit of Sound Level"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfSpeed
+cco:MeasurementUnitOfSpeed rdf:type owl:Class ;
+                           rdfs:subClassOf cco:MeasurementUnit ;
+                           cco:definition "A Measurement Unit used in measurements of the rates at which objects traverse distance."^^xsd:string ;
+                           cco:example_of_usage "miles per hour, kilometers per hour, knot, mach"^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                           rdfs:label "Measurement Unit of Speed"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfTemperature
+cco:MeasurementUnitOfTemperature rdf:type owl:Class ;
+                                 rdfs:subClassOf cco:MeasurementUnit ;
+                                 cco:definition "A Measurement Unit used in measurements of the thermal energy in an object."^^xsd:string ;
+                                 cco:example_of_usage "celsius, fahrenheit, kelvin"^^xsd:string ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                 rdfs:label "Measurement Unit of Temperature"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfTime
+cco:MeasurementUnitOfTime rdf:type owl:Class ;
+                          rdfs:subClassOf cco:MeasurementUnit ;
+                          cco:definition "A Measurement Unit used in measurements of temporal regions."^^xsd:string ;
+                          cco:example_of_usage "second, minute, hour, day"^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Measurement Unit of Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfVolume
+cco:MeasurementUnitOfVolume rdf:type owl:Class ;
+                            rdfs:subClassOf cco:MeasurementUnit ;
+                            cco:definition "A Measurement Unit used in measurements of sites or three-dimensional regions or Geospatial Regions."^^xsd:string ;
+                            cco:example_of_usage "cubic feet, cubic meter, quart, liter"^^xsd:string ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Measurement Unit of Volume"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementUnitOfWork
+cco:MeasurementUnitOfWork rdf:type owl:Class ;
+                          rdfs:subClassOf cco:MeasurementUnit ;
+                          cco:definition "A Measurement Unit used in measurements of displacements of points to which Forces have been applied."^^xsd:string ;
+                          cco:example_of_usage "joule, erg, kilowatt hour"^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Measurement Unit of Work"^^xsd:string .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AcreMeasurementUnit
+cco:AcreMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfArea ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Acre Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AtmosphereMeasurementUnit
+cco:AtmosphereMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfPressure ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Atmosphere Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BarMeasurementUnit
+cco:BarMeasurementUnit rdf:type owl:NamedIndividual ,
+                                cco:MeasurementUnitOfPressure ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                       rdfs:label "Bar Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BayreMeasurementUnit
+cco:BayreMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfPressure ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Bayre Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BinaryDegreeMeasurementUnit
+cco:BinaryDegreeMeasurementUnit rdf:type owl:NamedIndividual ,
+                                         cco:MeasurementUnitOfAngle ;
+                                cco:alternative_label "Binary Radian"^^xsd:string ,
+                                                      "Brad"^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                rdfs:label "Binary Degree Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BritishThermalUnitMeasurementUnit
+cco:BritishThermalUnitMeasurementUnit rdf:type owl:NamedIndividual ,
+                                               cco:MeasurementUnitOfEnergy ,
+                                               cco:MeasurementUnitOfPower ,
+                                               cco:MeasurementUnitOfWork ;
+                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                      rdfs:label "British Thermal Unit Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CalorieMeasurementUnit
+cco:CalorieMeasurementUnit rdf:type owl:NamedIndividual ,
+                                    cco:MeasurementUnitOfEnergy ,
+                                    cco:MeasurementUnitOfPower ,
+                                    cco:MeasurementUnitOfWork ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                           rdfs:label "Calorie Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CentigramMeasurementUnit
+cco:CentigramMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfMass ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Centigram Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CentiliterMeasurementUnit
+cco:CentiliterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfVolume ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Centiliter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CentimeterMeasurementUnit
+cco:CentimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfLength ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Centimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CubicCentimeterMeasurementUnit
+cco:CubicCentimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                            cco:MeasurementUnitOfVolume ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                   rdfs:label "Cubic Centimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CubicDecimeterMeasurementUnit
+cco:CubicDecimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                           cco:MeasurementUnitOfVolume ;
+                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                  rdfs:label "Cubic Decimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CubicFootMeasurementUnit
+cco:CubicFootMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfVolume ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Cubic Foot Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CubicInchMeasurementUnit
+cco:CubicInchMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfVolume ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Cubic Inch Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CubicMeterMeasurementUnit
+cco:CubicMeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfVolume ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Cubic Meter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CubicMillimeterMeasurementUnit
+cco:CubicMillimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                            cco:MeasurementUnitOfVolume ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                   rdfs:label "Cubic Millimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CubicYardMeasurementUnit
+cco:CubicYardMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfVolume ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Cubic Yard Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DayMeasurementUnit
+cco:DayMeasurementUnit rdf:type owl:NamedIndividual ,
+                                cco:MeasurementUnitOfTime ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                       rdfs:label "Day Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DecibelMeasurementUnit
+cco:DecibelMeasurementUnit rdf:type owl:NamedIndividual ,
+                                    cco:MeasurementUnitOfSoundLevel ;
+                           cco:alternative_label "dB"^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                           rdfs:label "Decibel Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DecigramMeasurementUnit
+cco:DecigramMeasurementUnit rdf:type owl:NamedIndividual ,
+                                     cco:MeasurementUnitOfMass ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Decigram Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DeciliterMeasurementUnit
+cco:DeciliterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfVolume ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Deciliter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DecimeterMeasurementUnit
+cco:DecimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfLength ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Decimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DegreeCelsiusMeasurementUnit
+cco:DegreeCelsiusMeasurementUnit rdf:type owl:NamedIndividual ,
+                                          cco:MeasurementUnitOfTemperature ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                 rdfs:label "Degree Celsius Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DegreeFahrenheitMeasurementUnit
+cco:DegreeFahrenheitMeasurementUnit rdf:type owl:NamedIndividual ,
+                                             cco:MeasurementUnitOfTemperature ;
+                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                    rdfs:label "Degree Fahhrenheit Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DegreeMeasurementUnit
+cco:DegreeMeasurementUnit rdf:type owl:NamedIndividual ,
+                                   cco:MeasurementUnitOfAngle ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Degree Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DyneMeasurementUnit
+cco:DyneMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfForce ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Dyne Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ErgMeasurementUnit
+cco:ErgMeasurementUnit rdf:type owl:NamedIndividual ,
+                                cco:MeasurementUnitOfEnergy ,
+                                cco:MeasurementUnitOfPower ,
+                                cco:MeasurementUnitOfWork ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                       rdfs:label "Erg Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FeetPerSecondMeasurementUnit
+cco:FeetPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                          cco:MeasurementUnitOfSpeed ;
+                                 cco:alternative_label "ft/s"^^xsd:string ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                 rdfs:label "Feet Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FeetPerSecondPerSecondMeasurementUnit
+cco:FeetPerSecondPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                                   cco:MeasurementUnitOfAcceleration ;
+                                          cco:alternative_label "ft/s/s"^^xsd:string ,
+                                                                "ft/s^2"^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                          rdfs:label "Feet Per Second Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FootMeasurementUnit
+cco:FootMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfLength ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Foot Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GallonMeasurementUnit
+cco:GallonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                   cco:MeasurementUnitOfVolume ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Gallon Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GigahertzMeasurementUnit
+cco:GigahertzMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfFrequency ;
+                             cco:alternative_label "GHz"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Gigahertz Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GradMeasurementUnit
+cco:GradMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfAngle ;
+                        cco:alternative_label "Gon"^^xsd:string ,
+                                              "Grade"^^xsd:string ,
+                                              "Gradian"^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Grad Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GramMeasurementUnit
+cco:GramMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfMass ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Gram Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HertzMeasurementUnit
+cco:HertzMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfFrequency ;
+                         cco:alternative_label "Hz"^^xsd:string ,
+                                               "cycles per second"^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Hertz Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HorsepowerMeasurementUnit
+cco:HorsepowerMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfEnergy ,
+                                       cco:MeasurementUnitOfPower ,
+                                       cco:MeasurementUnitOfWork ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Horsepower Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HourMeasurementUnit
+cco:HourMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfTime ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Hour Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InchMeasurementUnit
+cco:InchMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfLength ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Inch Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JouleMeasurementUnit
+cco:JouleMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfEnergy ,
+                                  cco:MeasurementUnitOfPower ,
+                                  cco:MeasurementUnitOfWork ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Joule Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilogramMeasurementUnit
+cco:KilogramMeasurementUnit rdf:type owl:NamedIndividual ,
+                                     cco:MeasurementUnitOfMass ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Kilogram Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilohertzMeasurementUnit
+cco:KilohertzMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfFrequency ;
+                             cco:alternative_label "kHz"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Kilohertz Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KiloliterMeasurementUnit
+cco:KiloliterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfVolume ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Kiloliter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilometerMeasurementUnit
+cco:KilometerMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfLength ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Kilometer Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilometersPerHourMeasurementUnit
+cco:KilometersPerHourMeasurementUnit rdf:type owl:NamedIndividual ,
+                                              cco:MeasurementUnitOfSpeed ;
+                                     cco:alternative_label "km/h"^^xsd:string ;
+                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                     rdfs:label "Kilometers Per Hour Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilometersPerSecondMeasurementUnit
+cco:KilometersPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                                cco:MeasurementUnitOfSpeed ;
+                                       cco:alternative_label "km/s"^^xsd:string ;
+                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                       rdfs:label "Kilometers Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilometersPerSecondPerSecondMeasurementUnit
+cco:KilometersPerSecondPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                                         cco:MeasurementUnitOfAcceleration ;
+                                                cco:alternative_label "km/s/s"^^xsd:string ;
+                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                                rdfs:label "Kilometers Per Second Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilonewtonMeasurementUnit
+cco:KilonewtonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfForce ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Kilonewton Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KilopondMeasurementUnit
+cco:KilopondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                     cco:MeasurementUnitOfForce ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Kilopond Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KnotMeasurementUnit
+cco:KnotMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfSpeed ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Knot Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LiterMeasurementUnit
+cco:LiterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfVolume ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Liter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LongTonMeasurementUnit
+cco:LongTonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                    cco:MeasurementUnitOfMass ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                           rdfs:label "Long Ton Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MachMeasurementUnit
+cco:MachMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfSpeed ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Mach Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MegahertzMeasurementUnit
+cco:MegahertzMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfFrequency ;
+                             cco:alternative_label "MHz"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Megahertz Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeterMeasurementUnit
+cco:MeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfLength ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Meter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MetersPerSecondMeasurementUnit
+cco:MetersPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                            cco:MeasurementUnitOfSpeed ;
+                                   cco:alternative_label "m/s"^^xsd:string ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                   rdfs:label "Meters Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MetersPerSecondPerSecondMeasurementUnit
+cco:MetersPerSecondPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                                     cco:MeasurementUnitOfAcceleration ;
+                                            cco:alternative_label "m/s/s"^^xsd:string ,
+                                                                  "m/s^2"^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                            rdfs:label "Meters Per Second Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MetricTonMeasurementUnit
+cco:MetricTonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfMass ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Metric Ton Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MileMeasurementUnit
+cco:MileMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfLength ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Mile Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilesPerHourMeasurementUnit
+cco:MilesPerHourMeasurementUnit rdf:type owl:NamedIndividual ,
+                                         cco:MeasurementUnitOfSpeed ;
+                                cco:alternative_label "mi/h"^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                rdfs:label "Miles Per Hour Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilesPerSecondMeasurementUnit
+cco:MilesPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                           cco:MeasurementUnitOfSpeed ;
+                                  cco:alternative_label "mi/s"^^xsd:string ;
+                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                  rdfs:label "Miles Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilesPerSecondPerSecondMeasurementUnit
+cco:MilesPerSecondPerSecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                                    cco:MeasurementUnitOfAcceleration ;
+                                           cco:alternative_label "mi/s/s"^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                           rdfs:label "Miles Per Second Per Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MillibarMeasurementUnit
+cco:MillibarMeasurementUnit rdf:type owl:NamedIndividual ,
+                                     cco:MeasurementUnitOfPressure ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Millibar Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilligramMeasurementUnit
+cco:MilligramMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfMass ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Milligram Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilliliterMeasurementUnit
+cco:MilliliterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfVolume ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Milliliter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MillimeterMeasurementUnit
+cco:MillimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfLength ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Millimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MinuteMeasurementUnit
+cco:MinuteMeasurementUnit rdf:type owl:NamedIndividual ,
+                                   cco:MeasurementUnitOfTime ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Minute Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MinuteOfArcMeasurementUnit
+cco:MinuteOfArcMeasurementUnit rdf:type owl:NamedIndividual ,
+                                        cco:MeasurementUnitOfAngle ;
+                               cco:alternative_label "Arcminute"^^xsd:string ,
+                                                     "MOA"^^xsd:string ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                               rdfs:label "Minute of Arc Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MonthMeasurementUnit
+cco:MonthMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfTime ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Month Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NauticalMileMeasurementUnit
+cco:NauticalMileMeasurementUnit rdf:type owl:NamedIndividual ,
+                                         cco:MeasurementUnitOfLength ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                rdfs:label "Nautical Mile Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NewtonMeasurementUnit
+cco:NewtonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                   cco:MeasurementUnitOfForce ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Newton Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OunceMeasurementUnit
+cco:OunceMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfMass ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Ounce Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PascalMeasurementUnit
+cco:PascalMeasurementUnit rdf:type owl:NamedIndividual ,
+                                   cco:MeasurementUnitOfPressure ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Pascal Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PhonMeasurementUnit
+cco:PhonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfSoundLevel ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Phon Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PintMeasurementUnit
+cco:PintMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfVolume ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Pint Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PoundForceMeasurementUnit
+cco:PoundForceMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfForce ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Pound Force Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PoundMeasurementUnit
+cco:PoundMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfMass ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Pound Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PoundsPerSquareInchMeasurementUnit
+cco:PoundsPerSquareInchMeasurementUnit rdf:type owl:NamedIndividual ,
+                                                cco:MeasurementUnitOfPressure ;
+                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                       rdfs:label "Pounds Per Square Inch Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/QuartMeasurementUnit
+cco:QuartMeasurementUnit rdf:type owl:NamedIndividual ,
+                                  cco:MeasurementUnitOfVolume ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                         rdfs:label "Quart Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RadianMeasurementUnit
+cco:RadianMeasurementUnit rdf:type owl:NamedIndividual ,
+                                   cco:MeasurementUnitOfAngle ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Radian Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RevolutionsPerMinuteMeasurementUnit
+cco:RevolutionsPerMinuteMeasurementUnit rdf:type owl:NamedIndividual ,
+                                                 cco:MeasurementUnitOfFrequency ;
+                                        cco:alternative_label "r/min"^^xsd:string ,
+                                                              "rpm"^^xsd:string ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                        rdfs:label "Revolutions Per Minute Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SecondMeasurementUnit
+cco:SecondMeasurementUnit rdf:type owl:NamedIndividual ,
+                                   cco:MeasurementUnitOfTime ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                          rdfs:label "Second Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SecondOfArcMeasurementUnit
+cco:SecondOfArcMeasurementUnit rdf:type owl:NamedIndividual ,
+                                        cco:MeasurementUnitOfAngle ;
+                               cco:alternative_label "Arcsecond"^^xsd:string ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                               rdfs:label "Second of Arc Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ShaftHorsepowerMeasurementUnit
+cco:ShaftHorsepowerMeasurementUnit rdf:type owl:NamedIndividual ,
+                                            cco:MeasurementUnitOfPower ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                   rdfs:label "Shaft Horsepower Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ShortTonMeasurementUnit
+cco:ShortTonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                     cco:MeasurementUnitOfMass ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Short Ton Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SoneMeasurementUnit
+cco:SoneMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfSoundLevel ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Sone Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareCentimeterMeasurementUnit
+cco:SquareCentimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                             cco:MeasurementUnitOfArea ;
+                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                    rdfs:label "Square Centimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareDecimeterMeasurementUnit
+cco:SquareDecimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                            cco:MeasurementUnitOfArea ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                   rdfs:label "Square Decimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareFootMeasurementUnit
+cco:SquareFootMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfArea ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Square Foot Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareInchMeasurementUnit
+cco:SquareInchMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfArea ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Square Inch Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareKilometerMeasurementUnit
+cco:SquareKilometerMeasurementUnit rdf:type owl:NamedIndividual ,
+                                            cco:MeasurementUnitOfArea ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                   rdfs:label "Square Kilometer Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareMeterMeasurementUnit
+cco:SquareMeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                        cco:MeasurementUnitOfArea ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                               rdfs:label "Square Meter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareMileMeasurementUnit
+cco:SquareMileMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfArea ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Square Mile Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareMillimeterMeasurementUnit
+cco:SquareMillimeterMeasurementUnit rdf:type owl:NamedIndividual ,
+                                             cco:MeasurementUnitOfArea ;
+                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                                    rdfs:label "Square Millimeter Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SquareYardMeasurementUnit
+cco:SquareYardMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfArea ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Square Yard Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TablespoonMeasurementUnit
+cco:TablespoonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                       cco:MeasurementUnitOfVolume ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                              rdfs:label "Tablespoon Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TeaspoonMeasurementUnit
+cco:TeaspoonMeasurementUnit rdf:type owl:NamedIndividual ,
+                                     cco:MeasurementUnitOfVolume ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                            rdfs:label "Teaspoon Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TerahertzMeasurementUnit
+cco:TerahertzMeasurementUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfFrequency ;
+                             cco:alternative_label "THz"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Terahertz Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TurnMeasurementUnit
+cco:TurnMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfAngle ;
+                        cco:alternative_label "Cycle"^^xsd:string ,
+                                              "Full Circle"^^xsd:string ,
+                                              "Revolution"^^xsd:string ,
+                                              "Rotation"^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Turn Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TwentyFootEquivalentUnit
+cco:TwentyFootEquivalentUnit rdf:type owl:NamedIndividual ,
+                                      cco:MeasurementUnitOfVolume ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                             rdfs:label "Twenty Foot Equivalent Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WattMeasurementUnit
+cco:WattMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfPower ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Watt Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WeekMeasurementUnit
+cco:WeekMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfTime ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Week Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/YardMeasurementUnit
+cco:YardMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfLength ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Yard Measurement Unit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/YearMeasurementUnit
+cco:YearMeasurementUnit rdf:type owl:NamedIndividual ,
+                                 cco:MeasurementUnitOfTime ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:string ;
+                        rdfs:label "Year Measurement Unit"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

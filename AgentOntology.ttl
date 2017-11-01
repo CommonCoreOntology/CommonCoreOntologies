@@ -1,0 +1,1637 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> rdf:type owl:Ontology ;
+                                                                            owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
+                                                                            rdfs:label "Agent Ontology"^^xsd:string ;
+                                                                            rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."^^xsd:string ;
+                                                                            cco:content_license "The Creative Commons BY 3.0 License (https://creativecommons.org/licenses/by/3.0/)."^^xsd:string ;
+                                                                            owl:versionInfo "August 1, 2017"^^xsd:string ;
+                                                                            cco:code_license "The 3-Clause BSD License (https://opensource.org/licenses/BSD-3-Clause)."^^xsd:string ;
+                                                                            cco:copyright "COPYRIGHT © 2017 CUBRC, Inc."^^xsd:string ;
+                                                                            owl:versionInfo "Version 1.0.1"^^xsd:string .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_capability
+cco:aggregate_has_capability rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf cco:aggregrate_bearer_of ;
+                             owl:inverseOf cco:capability_of_aggregate ;
+                             rdfs:domain cco:GroupOfAgents ;
+                             rdfs:range cco:AgentCapability ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                             rdfs:label "aggregate has capability"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/capability_of
+cco:capability_of rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf cco:realizable_entity_of ;
+                  owl:inverseOf cco:has_capability ;
+                  rdfs:domain cco:AgentCapability ;
+                  rdfs:range cco:Agent ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "capability of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/capability_of_aggregate
+cco:capability_of_aggregate rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf cco:inheres_in_aggregate ;
+                            rdfs:domain cco:AgentCapability ;
+                            rdfs:range cco:GroupOfAgents ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                            rdfs:label "capability of aggregate"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/delimits
+cco:delimits rdf:type owl:ObjectProperty ;
+             owl:inverseOf cco:is_delimited_by ;
+             rdf:type owl:FunctionalProperty ,
+                      owl:InverseFunctionalProperty ;
+             rdfs:domain cco:GeopoliticalEntity ;
+             rdfs:range cco:Organization ;
+             cco:definition "An instance of Geopolitical Entity gpe1 delimits some Government g1 iff gpe1 is the area with which g1 can legally exercies its authority."^^xsd:string ;
+             cco:definition_source "http://en.wikipedia.org/wiki/Delimitation"^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "delimits"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_affiliate
+cco:has_affiliate rdf:type owl:ObjectProperty ;
+                  owl:inverseOf cco:is_affiliated_with ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( cco:Agent
+                                              cco:Organization
+                                            )
+                              ] ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( cco:Agent
+                                             cco:Organization
+                                             cco:Person
+                                           )
+                             ] ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "has affiliate"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_aunt
+cco:has_aunt rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf cco:has_familial_relationship_to ;
+             owl:inverseOf cco:is_aunt_of ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "has aunt"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_brother
+cco:has_brother rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf cco:is_sibling_of ;
+                owl:inverseOf cco:is_brother_of ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "has brother"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_brother_in_law
+cco:has_brother_in_law rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:is_in_law_of ;
+                       owl:inverseOf cco:is_brother_in_law_of ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "has brother in law"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_capability
+cco:has_capability rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf cco:has_realizable_entity ;
+                   rdfs:domain cco:Agent ;
+                   rdfs:range cco:AgentCapability ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "has capability"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_daughter
+cco:has_daughter rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:is_parent_of ;
+                 owl:inverseOf cco:is_daughter_of ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "has daughter"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_daughter_in_law
+cco:has_daughter_in_law rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:is_in_law_of ;
+                        owl:inverseOf cco:is_daughter_in_law_of ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "has daughter in law"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_familial_relationship_to
+cco:has_familial_relationship_to rdf:type owl:ObjectProperty ;
+                                 rdfs:domain cco:Person ;
+                                 rdfs:range cco:Person ;
+                                 cco:definition "A relationship between persons by virtue of ancestry or legal union"^^xsd:string ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                                 rdfs:label "has familial relationship to"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_father
+cco:has_father rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:is_child_of ;
+               owl:inverseOf cco:is_father_of ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "has father"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_father_in_law
+cco:has_father_in_law rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_in_law_of ;
+                      owl:inverseOf cco:is_father_in_law_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "has father in law"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_granddaughter
+cco:has_granddaughter rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_grandparent_of ;
+                      owl:inverseOf cco:is_granddaughter_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "has granddaughter"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_grandfather
+cco:has_grandfather rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf cco:is_grandchild_of ;
+                    owl:inverseOf cco:is_grandfather_of ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:label "has grandfather"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_grandmother
+cco:has_grandmother rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf cco:is_grandchild_of ;
+                    owl:inverseOf cco:is_grandmother_of ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:label "has grandmother"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_grandson
+cco:has_grandson rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:is_grandparent_of ;
+                 owl:inverseOf cco:is_grandson_of ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "has grandson"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_half_brother
+cco:has_half_brother rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:is_half_sibling_of ;
+                     owl:inverseOf cco:is_half_brother_of ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "has half brother"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_half_sister
+cco:has_half_sister rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf cco:is_half_sibling_of ;
+                    owl:inverseOf cco:is_half_sister_of ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:label "has half sister"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_husband
+cco:has_husband rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf cco:is_spouse_of ;
+                owl:inverseOf cco:is_husband_of ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "has husband"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_maternal_aunt
+cco:has_maternal_aunt rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:has_aunt ;
+                      owl:inverseOf cco:is_maternal_aunt_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "has maternal aunt"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_maternal_first_cousin
+cco:has_maternal_first_cousin rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf cco:is_first_cousin_of ;
+                              owl:inverseOf cco:is_maternal_first_cousin_of ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                              rdfs:label "has maternal first cousin"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_maternal_grandfather
+cco:has_maternal_grandfather rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf cco:has_grandfather ;
+                             owl:inverseOf cco:is_maternal_grandfather_of ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                             rdfs:label "has maternal grandfather"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_maternal_grandmother
+cco:has_maternal_grandmother rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf cco:has_grandmother ;
+                             owl:inverseOf cco:is_maternal_grandmother_of ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                             rdfs:label "has maternal grandmother"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_maternal_uncle
+cco:has_maternal_uncle rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:has_uncle ;
+                       owl:inverseOf cco:is_maternal_uncle_of ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "has maternal uncle"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_mother
+cco:has_mother rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:is_child_of ;
+               owl:inverseOf cco:is_mother_of ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "has mother"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_mother_in_law
+cco:has_mother_in_law rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_in_law_of ;
+                      owl:inverseOf cco:is_mother_in_law_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "has mother in law"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_nephew
+cco:has_nephew rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:has_familial_relationship_to ;
+               owl:inverseOf cco:is_nephew_of ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "has nephew"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_niece
+cco:has_niece rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf cco:has_familial_relationship_to ;
+              owl:inverseOf cco:is_niece_of ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "has niece"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_organizational_context
+cco:has_organizational_context rdf:type owl:ObjectProperty ;
+                               owl:inverseOf cco:is_organizational_context_of ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                               rdfs:label "has organizational context"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_parent
+cco:has_parent rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:has_familial_relationship_to ;
+               owl:inverseOf cco:is_parent_of ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "has parent"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_paternal_aunt
+cco:has_paternal_aunt rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:has_aunt ;
+                      owl:inverseOf cco:is_paternal_aunt_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "has paternal aunt"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_paternal_first_cousin
+cco:has_paternal_first_cousin rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf cco:is_first_cousin_of ;
+                              owl:inverseOf cco:is_paternal_first_cousin_of ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                              rdfs:label "has paternal first cousin"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_paternal_grandfather
+cco:has_paternal_grandfather rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf cco:has_grandfather ;
+                             owl:inverseOf cco:is_paternal_grandfather_of ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                             rdfs:label "has paternal grandfather"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_paternal_grandmother
+cco:has_paternal_grandmother rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf cco:has_grandmother ;
+                             owl:inverseOf cco:is_paternal_grandmother_of ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                             rdfs:label "has paternal grandmother"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_paternal_uncle
+cco:has_paternal_uncle rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:has_uncle ;
+                       owl:inverseOf cco:is_paternal_uncle_of ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "has paternal uncle"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_recipient
+cco:has_recipient rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+                  owl:inverseOf cco:receives ;
+                  rdfs:range cco:Agent ;
+                  cco:definition "has_recipient is a relationship between an Act Of Communication c1 and an Agent a1 such that c1 has_recipient a1 iff a1 is the receiver and decoder of the InformationContentEntity participating in c1."^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "has recipient"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_sender
+cco:has_sender rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+               owl:inverseOf cco:sends ;
+               rdfs:range cco:Agent ;
+               cco:definition "has_sender is a relationship between an Act Of Communication c1 and an Agent a1 such that c1 has_sender a1 iff a1 is the initiator and encoder of the InformationContentEntity participating in c1."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "has sender"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_sister
+cco:has_sister rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:is_sibling_of ;
+               owl:inverseOf cco:is_sister_of ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "has sister"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_sister_in_law
+cco:has_sister_in_law rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_in_law_of ;
+                      owl:inverseOf cco:is_sister_in_law_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "has sister in law"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_son
+cco:has_son rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf cco:is_parent_of ;
+            owl:inverseOf cco:is_son_of ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+            rdfs:label "has son"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_son_in_law
+cco:has_son_in_law rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf cco:is_in_law_of ;
+                   owl:inverseOf cco:is_son_in_law_of ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "has son in law"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_step_brother
+cco:has_step_brother rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:is_step_sibling_of ;
+                     owl:inverseOf cco:is_step_brother_of ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "has step brother"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_step_sister
+cco:has_step_sister rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf cco:is_step_sibling_of ;
+                    owl:inverseOf cco:is_step_sister_of ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:label "has step sister"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_subsidiary
+cco:has_subsidiary rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf cco:has_affiliate ;
+                   rdfs:domain cco:Organization ;
+                   rdfs:range cco:Organization ;
+                   cco:definition "An Organization o1 has_subsidiary Organization o2 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies."^^xsd:string ;
+                   cco:definition_source " http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "has subsidiary"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_uncle
+cco:has_uncle rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf cco:has_familial_relationship_to ;
+              owl:inverseOf cco:is_uncle_of ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "has uncle"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_wife
+cco:has_wife rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf cco:is_spouse_of ;
+             owl:inverseOf cco:is_wife_of ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "has wife"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_affiliated_with
+cco:is_affiliated_with rdf:type owl:ObjectProperty ;
+                       rdfs:domain [ rdf:type owl:Class ;
+                                     owl:unionOf ( cco:Agent
+                                                   cco:Organization
+                                                   cco:Person
+                                                 )
+                                   ] ;
+                       rdfs:range [ rdf:type owl:Class ;
+                                    owl:unionOf ( cco:Agent
+                                                  cco:Organization
+                                                )
+                                  ] ;
+                       cco:definition "An Agent a1 is affiliated with some Agent a2 by virtue of their having any social or business relationship."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "is affiliated with"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_ancestor_of
+cco:is_ancestor_of rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                   owl:inverseOf cco:is_descendent_of ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "is ancestor of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_aunt_of
+cco:is_aunt_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:has_familial_relationship_to ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "is aunt of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_brother_in_law_of
+cco:is_brother_in_law_of rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf cco:is_in_law_of ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                         rdfs:label "is brother-in-law of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_brother_of
+cco:is_brother_of rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf cco:is_sibling_of ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "is brother of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_child_of
+cco:is_child_of rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                owl:inverseOf cco:is_parent_of ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "is child of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_daughter_in_law_of
+cco:is_daughter_in_law_of rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf cco:is_in_law_of ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                          rdfs:label "is daughter in-law of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_daughter_of
+cco:is_daughter_of rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf cco:is_child_of ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "is daughter of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_delimited_by
+cco:is_delimited_by rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ,
+                             owl:InverseFunctionalProperty ;
+                    rdfs:domain cco:Organization ;
+                    rdfs:range cco:GeopoliticalEntity ;
+                    cco:definition "An instance of Government g1 is_delimited_by some Geopolitical Entity gpe1 iff gpe1 is the area with which g1 can legally exercies its authority"^^xsd:string ;
+                    cco:definition_source "http://en.wikipedia.org/wiki/Delimitation"^^xsd:string ;
+                    rdfs:label "is delimited by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_descendent_of
+cco:is_descendent_of rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "is descendent of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_father_in_law_of
+cco:is_father_in_law_of rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:is_in_law_of ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "is father in-law of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_father_of
+cco:is_father_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:is_parent_of ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "is father of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_first_cousin_of
+cco:is_first_cousin_of rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                       owl:inverseOf cco:is_first_cousin_of ;
+                       rdf:type owl:SymmetricProperty ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "is first cousin of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_grandchild_of
+cco:is_grandchild_of rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                     owl:inverseOf cco:is_grandparent_of ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "is grandchild of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_granddaughter_of
+cco:is_granddaughter_of rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:is_grandchild_of ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "is granddaughter of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_grandfather_of
+cco:is_grandfather_of rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_grandparent_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "is grandfather of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_grandmother_of
+cco:is_grandmother_of rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_grandparent_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "is grandmother of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_grandparent_of
+cco:is_grandparent_of rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "is grandparent of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_grandson_of
+cco:is_grandson_of rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf cco:is_grandchild_of ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "is grandson of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_half_brother_of
+cco:is_half_brother_of rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:is_half_sibling_of ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "is half-brother of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_half_sibling_of
+cco:is_half_sibling_of rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                       owl:inverseOf cco:is_half_sibling_of ;
+                       rdf:type owl:SymmetricProperty ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "is half-sibling of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_half_sister_of
+cco:is_half_sister_of rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_half_sibling_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "is half sister of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_husband_of
+cco:is_husband_of rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf cco:is_spouse_of ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "is husband of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_in_law_of
+cco:is_in_law_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                 owl:inverseOf cco:is_in_law_of ;
+                 rdf:type owl:SymmetricProperty ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "is in-law of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_aunt_of
+cco:is_maternal_aunt_of rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:is_aunt_of ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "is maternal aunt of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_first_cousin_of
+cco:is_maternal_first_cousin_of rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf cco:is_first_cousin_of ;
+                                cco:definition "Person A is maternal first cousin of Person B iff Person B has mother M and M has sibling P and P is parent of Person A."^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                                rdfs:comment "Comment is_maternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"^^xsd:string ;
+                                rdfs:label "is maternal first cousin of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_grandfather_of
+cco:is_maternal_grandfather_of rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf cco:is_grandfather_of ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                               rdfs:label "is maternal grandfather of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_grandmother_of
+cco:is_maternal_grandmother_of rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf cco:is_grandmother_of ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                               rdfs:label "is maternal grandmother of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_uncle_of
+cco:is_maternal_uncle_of rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf cco:is_uncle_of ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                         rdfs:label "is maternal uncle of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_mother_in_law_of
+cco:is_mother_in_law_of rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:is_in_law_of ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "is mother in-law of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_mother_of
+cco:is_mother_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:is_parent_of ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "is mother of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_nephew_of
+cco:is_nephew_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "is nephew of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_niece_of
+cco:is_niece_of rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "is niece of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_organizational_context_of
+cco:is_organizational_context_of rdf:type owl:ObjectProperty ;
+                                 rdfs:domain cco:Organization ;
+                                 rdfs:range obo:BFO_0000023 ;
+                                 cco:definition "An Organization is a organizational context of a role if a person's affiliation with the organization is a prerequisite for being a bearer of the role or if the organization ascribes the role to some entity."^^xsd:string ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                                 rdfs:label "is organizational context of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_parent_of
+cco:is_parent_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                 rdfs:domain cco:Person ;
+                 rdfs:range cco:Person ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "is parent of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_paternal_aunt_of
+cco:is_paternal_aunt_of rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:is_aunt_of ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "is paternal aunt of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_paternal_first_cousin_of
+cco:is_paternal_first_cousin_of rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf cco:is_first_cousin_of ;
+                                cco:definition "Person A is paternal first cousin of Person B iff Person B has father F and F has sibling P and P is parent of Person A."^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                                rdfs:comment "Comment is_paternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"^^xsd:string ;
+                                rdfs:label "is paternal first cousin of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_paternal_grandfather_of
+cco:is_paternal_grandfather_of rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf cco:is_grandfather_of ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                               rdfs:label "is paternal grandfather of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_paternal_grandmother_of
+cco:is_paternal_grandmother_of rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf cco:is_grandmother_of ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                               rdfs:label "is paternal grandmother of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_paternal_uncle_of
+cco:is_paternal_uncle_of rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf cco:is_uncle_of ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                         rdfs:label "is paternal uncle of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_second_cousin_of
+cco:is_second_cousin_of rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                        owl:inverseOf cco:is_second_cousin_of ;
+                        rdf:type owl:SymmetricProperty ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "is second cousin of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_sibling_of
+cco:is_sibling_of rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                  owl:inverseOf cco:is_sibling_of ;
+                  rdf:type owl:SymmetricProperty ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "is sibling of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_sister_in_law_of
+cco:is_sister_in_law_of rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf cco:is_in_law_of ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                        rdfs:label "is sister-in-law of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_sister_of
+cco:is_sister_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:is_sibling_of ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "is sister of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_son_in_law_of
+cco:is_son_in_law_of rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:is_in_law_of ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "is son in-law of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_son_of
+cco:is_son_of rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf cco:is_child_of ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "is son of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_spouse_of
+cco:is_spouse_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                 owl:inverseOf cco:is_spouse_of ;
+                 rdf:type owl:SymmetricProperty ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "is spouse of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_step_brother_of
+cco:is_step_brother_of rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:is_step_sibling_of ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "is step-brother of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_step_sibling_of
+cco:is_step_sibling_of rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                       owl:inverseOf cco:is_step_sibling_of ;
+                       rdf:type owl:SymmetricProperty ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "is step-sibling of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_step_sister_of
+cco:is_step_sister_of rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf cco:is_step_sibling_of ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "is step-sister of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_subsidiary_of
+cco:is_subsidiary_of rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:is_affiliated_with ;
+                     rdfs:domain cco:Organization ;
+                     rdfs:range cco:Organization ;
+                     cco:definition "An Organization o2 is_subsidiary_of Organization o1 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies. "^^xsd:string ;
+                     cco:definition_source "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html)"^^xsd:string ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "is subsidiary of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_supervised_by
+cco:is_supervised_by rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:is_affiliated_with ;
+                     owl:inverseOf cco:supervises ;
+                     rdfs:domain cco:Person ;
+                     rdfs:range cco:Person ;
+                     cco:definition "A person p1 is supervised by a person p2 by virtue of their being directed, managed, or overseen by p2."^^xsd:string ;
+                     cco:definition_source "http://en.wiktionary.org/wiki/supervise)"^^xsd:string ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "is supervised by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_third_cousin_of
+cco:is_third_cousin_of rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                       owl:inverseOf cco:is_third_cousin_of ;
+                       rdf:type owl:SymmetricProperty ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "is third cousin of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_uncle_of
+cco:is_uncle_of rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf cco:has_familial_relationship_to ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "is uncle of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_used_by
+cco:is_used_by rdf:type owl:ObjectProperty ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "is used by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_wife_of
+cco:is_wife_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:is_spouse_of ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "is wife of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/receives
+cco:receives rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+             rdfs:domain cco:Agent ;
+             cco:definition "receives is a relationship between an Agent a1 and an Act Of Communication c1 such that a1 receives c1 iff a1 is the recipient and decoder of the InformationContentEntity participating in c1."^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "receives"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/sends
+cco:sends rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+          rdfs:domain cco:Agent ;
+          cco:definition "sends is a relationship between an Agent a1 and an Act Of Communication c1 and  such that a1 sends c1 iff a1 is the initiator and encoder of the InformationContentEntity participating in c1."^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+          rdfs:label "sends"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/supervises
+cco:supervises rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf cco:has_affiliate ;
+               rdfs:domain cco:Person ;
+               rdfs:range cco:Person ;
+               cco:definition "A person p1 supervises a person p2 by virtue of their directing, managing, or overseeing by p1."^^xsd:string ;
+               cco:definition_source "http://en.wiktionary.org/wiki/supervise)"^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "supervises"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/uses
+cco:uses rdf:type owl:ObjectProperty ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+         rdfs:label "uses"^^xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AcademicDegree
+cco:AcademicDegree rdf:type owl:Class ;
+                   rdfs:subClassOf cco:Certificate ;
+                   cco:definition "A Certificate issued by an Educational Organization to a Person to indicate that the Person has satisfactorily completed a course of study, or as an honorary recognition of the Person's achievement."^^xsd:string ;
+                   cco:definition_source "Derived from: http://www.dictionary.com/browse/degree #6"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Academic Degree"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Affordance
+cco:Affordance rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000017 ;
+               cco:definition "A Realizable Entity of an Independent Continuant that creates an opportunity for an Agent to realize some Capability or Disposition in some Act."^^xsd:string ;
+               cco:definition_source "https://en.wikipedia.org/wiki/Affordance"^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "Affordance"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Agent
+cco:Agent rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                       owl:unionOf ( cco:Organization
+                                                                     cco:Person
+                                                                   )
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.obofoundry.org/ro/ro.owl#agent_in> ;
+                                                       owl:someValuesFrom obo:BFO_0000015
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+          rdfs:subClassOf obo:BFO_0000004 ;
+          cco:definition "An Independent Continuant that is capable of performing Intentional Acts."^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+          rdfs:label "Agent"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability
+cco:AgentCapability rdf:type owl:Class ;
+                    rdfs:subClassOf obo:BFO_0000017 ;
+                    cco:definition "A Realizable Entity that inheres in an Agent to the extent of that Agent's capacity to realize it in Intentional Acts of a certain type."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:label "Agent Capability"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AllegianceRole
+cco:AllegianceRole rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000023 ;
+                   cco:definition "A Role that inheres in an Agent by virtue of the support it provides to Agents involved in some conflict."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Allegiance Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AlliedPerson
+cco:AlliedPerson rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty cco:has_role ;
+                                       owl:someValuesFrom cco:AllyRole
+                                     ] ;
+                 rdfs:subClassOf cco:Person ;
+                 cco:definition "A Person who is the bearer of some Ally Role."^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "Allied Person"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AllyRole
+cco:AllyRole rdf:type owl:Class ;
+             rdfs:subClassOf cco:AllegianceRole ;
+             cco:definition "An Allegiance Role that inheres in an Agent in virtue of that Agent performing Acts that support the Objectives of a particular Group of Agents."^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Ally Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ArmedForce
+cco:ArmedForce rdf:type owl:Class ;
+               rdfs:subClassOf cco:Organization ;
+               cco:definition "An Organization having the Objective to further the foreign and domestic policies of a Government and to defend that body and the nation it represents from external and internal aggressors."^^xsd:string ;
+               cco:definition_source "https://en.wikipedia.org/wiki/Armed_forces"^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "Armed Force"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BiologicalSex
+cco:BiologicalSex rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000019 ;
+                  cco:definition "A Quality inhering in a bearer by virtue of the bearer's ability to undergo sexual reproduction in order to differentiate the individuals or types involved."^^xsd:string ;
+                  cco:definition_source "Derived from: http://purl.org/obo/owl/PATO#PATO_0000047"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "Biological Sex"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BodilyComponent
+cco:BodilyComponent rdf:type owl:Class ;
+                    rdfs:subClassOf obo:BFO_0000024 ;
+                    cco:definition "A Fiat Object Part within or on the surface of an Agent, including anatomical structures, body flora, pathogens, toxins, and their combinations."^^xsd:string ;
+                    cco:definition_source "Derived from the mental functioning ontology MF_0000012, bodily component"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:label "Bodily Component"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CarrierAirWing
+cco:CarrierAirWing rdf:type owl:Class ;
+                   rdfs:subClassOf cco:MilitaryPersonnelForce ;
+                   cco:definition "A Military Force that is trained and equipped to conduct air operations while embarked on an aircraft carrier."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Carrier Air Wing"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Citizen
+cco:Citizen rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty cco:has_role ;
+                                  owl:someValuesFrom cco:CitizenRole
+                                ] ;
+            rdfs:subClassOf cco:Person ;
+            cco:definition "A Person who is the bearer of some Citizen Role."^^xsd:string ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+            rdfs:label "Citizen"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CitizenRole
+cco:CitizenRole rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000023 ;
+                cco:definition "A Role that inheres in a Person who is legally recognized as a member of a particular state, with associated rights and obligations."^^xsd:string ;
+                cco:definition_source "http://en.wikitionary.org/wiki/citizen"^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "Citizen Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilOrganization
+cco:CivilOrganization rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( cco:Organization
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty cco:has_role ;
+                                                                   owl:someValuesFrom cco:CivilianRole
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf cco:Organization ;
+                      cco:definition "An Organization that is not commercial or military and is the bearer of a Civilian Role."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "Civil Organization"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilianRole
+cco:CivilianRole rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000023 ;
+                 cco:definition "A Role that inheres in an Agent or Group of Agents who is not a member of either an Armed Force or police force."^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "Civilian Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CombatEquippedTroops
+cco:CombatEquippedTroops rdf:type owl:Class ;
+                         rdfs:subClassOf cco:GroupOfPersons ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                         rdfs:label "Combat Equipped Troops"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CommercialOrganization
+cco:CommercialOrganization rdf:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( cco:Organization
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty cco:has_role ;
+                                                                        owl:someValuesFrom cco:CommercialRole
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] ;
+                           rdfs:subClassOf cco:Organization ;
+                           cco:definition "An Organization that is the bearer of a Commercial Role and whose primary objective is to make a profit from the provision of goods or services."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                           rdfs:label "Commercial Organization"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CommercialRole
+cco:CommercialRole rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000023 ;
+                   cco:definition "A Role that inheres in an Organization by virtue of its establishment as a for-profit business."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Commercial Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ContractorRole
+cco:ContractorRole rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000023 ;
+                   cco:definition "A Role that inheres in an Agent or Group of Agents who enters into a Contract to provide materials or labor to perform a service or complete a task."^^xsd:string ;
+                   cco:elucidation "A Contractor Role differs from an Occupation Role in at least two ways. First, the Contract that binds the two parties together is not one of employment. Second, a Contractor Role is occupationally neutral in that an Agent can be contracted to perform any number of Occupational Roles."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Contractor Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Crew
+cco:Crew rdf:type owl:Class ;
+         rdfs:subClassOf cco:GroupOfPersons ;
+         cco:definition "A Group of Persons that operate some Vehicle."^^xsd:string ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+         rdfs:label "Crew"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Disability
+cco:Disability rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000019 ;
+               cco:definition "A Quality inhering in an Agent by virtue a physical or mental condition that limits the Agent's movements, senses, or activities."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "Disability"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Disease
+cco:Disease rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000016 ;
+            cco:definition "A Disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism."^^xsd:string ;
+            cco:definition_source "Ontology for General Medical Science http://purl.obolibrary.org/obo/OGMS_0000031"^^xsd:string ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+            rdfs:label "Disease"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EducationalOrganization
+cco:EducationalOrganization rdf:type owl:Class ;
+                            rdfs:subClassOf cco:Organization ;
+                            cco:definition "An Organization whose purpose is to provide training or otherwise facilitate learning or the acquisition of knowledge, Skills, values, beliefs, or habits."^^xsd:string ;
+                            cco:definition_source "Derived from: https://en.wikipedia.org/wiki/Education"^^xsd:string ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                            rdfs:label "Educational Organization"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Enemy
+cco:Enemy rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty cco:has_role ;
+                                owl:someValuesFrom cco:EnemyRole
+                              ] ;
+          rdfs:subClassOf cco:Person ;
+          cco:definition "A Person who is the bearer of some Enemy Role."^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+          rdfs:label "Enemy"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EnemyRole
+cco:EnemyRole rdf:type owl:Class ;
+              rdfs:subClassOf cco:AllegianceRole ;
+              cco:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent having committed offensive Acts or exhibited intent to perform such Acts towards a particular Group of Agents or has been declared as hostile by some appropriate authority."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "Enemy Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EthnicGroup
+cco:EthnicGroup rdf:type owl:Class ;
+                rdfs:subClassOf cco:GroupOfPersons ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty cco:aggregate_has_quality ;
+                                  owl:someValuesFrom cco:Ethnicity
+                                ] ;
+                cco:definition "A Group of Persons who identify with one another based on one or more shared inherited characteristics such as language, ancestry, nationality, culture, customs, religion, or social experiences."^^xsd:string ;
+                cco:definition_source "Derived from: https://en.wikipedia.org/wiki/Ethnic_group"^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "Ethnic Group"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Ethnicity
+cco:Ethnicity rdf:type owl:Class ;
+              rdfs:subClassOf obo:BFO_0000019 ;
+              cco:definition "A Quality that inheres in its bearers by virtue of a common heritage, often consisting of a common language, a common culture (often including a shared religion) and an ideology that stresses common ancestry or endogamy."^^xsd:string ;
+              cco:definition_source "http://en.wikipedia.org/wiki/Ethncity)"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "Ethnicity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Eye
+cco:Eye rdf:type owl:Class ;
+        rdfs:subClassOf cco:BodilyComponent ;
+        cco:definition "A Bodily Component that consists of an organ that canonically affords the Agent it is part of with the ability to receive visual stimuli necessary for sight."^^xsd:string ;
+        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+        rdfs:label "Eye"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EyeColor
+cco:EyeColor rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000019 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty cco:inheres_in ;
+                               owl:someValuesFrom cco:Iris
+                             ] ;
+             cco:definition "A Quality inhering in an Eye by virtue of the color of the Eye's Iris."^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Eye Color"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FacialHair
+cco:FacialHair rdf:type owl:Class ;
+               rdfs:subClassOf cco:BodilyComponent ;
+               cco:definition "A Bodily Component that consists of a portion of hair that grows on the face of a human (typically male) or other animal."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "Facial Hair"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Family
+cco:Family rdf:type owl:Class ;
+           rdfs:subClassOf cco:GroupOfPersons ;
+           cco:definition "A Group of Persons related to one another by ancestry or marriage."^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+           rdfs:label "Family"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FemaleSex
+cco:FemaleSex rdf:type owl:Class ;
+              rdfs:subClassOf cco:BiologicalSex ;
+              cco:definition "A Biological Sex inhering in an individual that only produces gametes that can be fertilised by male gametes."^^xsd:string ;
+              cco:definition_source "Derived from: http://purl.org/obo/owl/PATO#PATO_0000383"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "Female Sex"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FinancialValueOfProperty
+cco:FinancialValueOfProperty rdf:type owl:Class ;
+                             rdfs:subClassOf obo:BFO_0000019 ;
+                             cco:alternative_label "Property Value"^^xsd:string ;
+                             cco:definition "A Quality that inheres in a portion of real property (typically land or buildings) in virtue of the quantity of money that potential buyers are willing to spend to purchase it."^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                             rdfs:label "Financial Value of Property"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Government
+cco:Government rdf:type owl:Class ;
+               rdfs:subClassOf cco:Organization ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty cco:is_delimited_by ;
+                                 owl:someValuesFrom cco:GeopoliticalEntity
+                               ] ;
+               cco:definition "An Organization that exercises executive, legislative, or judicial authority over a Geopolitical Entity."^^xsd:string ;
+               cco:definition_source "https://en.wikipedia.org/wiki/Government"^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+               rdfs:label "Government"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentAgency
+cco:GovernmentAgency rdf:type owl:Class ;
+                     rdfs:subClassOf cco:Organization ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                                       owl:someValuesFrom cco:Government
+                                     ] ;
+                     cco:definition "An Organization that is part of a Government and is responsible for the oversight and administration of specific governmental functions."^^xsd:string ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                     rdfs:label "Government Agency"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfAgents
+cco:GroupOfAgents rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000027 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                    owl:someValuesFrom cco:Agent
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                    owl:allValuesFrom cco:Agent
+                                  ] ;
+                  cco:definition "An Object Aggregate that has only Agents as parts."^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "Group of Agents"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfOrganizations
+cco:GroupOfOrganizations rdf:type owl:Class ;
+                         rdfs:subClassOf cco:GroupOfAgents ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                           owl:someValuesFrom cco:Organization
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                           owl:allValuesFrom cco:Organization
+                                         ] ;
+                         cco:definition "A Group of Agents that has only Organizations as parts."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                         rdfs:label "Group of Organizations"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfPersons
+cco:GroupOfPersons rdf:type owl:Class ;
+                   rdfs:subClassOf cco:GroupOfAgents ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                     owl:someValuesFrom cco:Person
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                     owl:allValuesFrom cco:Person
+                                   ] ;
+                   cco:definition "A Group of Agents that has only Persons as parts."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Group of Persons"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HairColor
+cco:HairColor rdf:type owl:Class ;
+              rdfs:subClassOf obo:BFO_0000019 ;
+              cco:definition "A Quality inhering in a portion of Hair by virtue of its color."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "Hair Color"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Ideology
+cco:Ideology rdf:type owl:Class ;
+             rdfs:subClassOf cco:InformationContentEntity ;
+             cco:definition "An Information Content Entity that consists of a collection of claims about how some part of the world is or should be and which is accepted as true by an Agent or Group of Agents such that it forms the basis of their beliefs, goals, expectations, and motivations."^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Ideology"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IncorporatedOrganization
+cco:IncorporatedOrganization rdf:type owl:Class ;
+                             rdfs:subClassOf cco:Organization ;
+                             cco:alternative_label "Corporation"^^xsd:string ;
+                             cco:definition "An Organization formed by an Act of Incorporation that consists of an association of individuals, created by law or under authority of law, having a continuous existence independent of the existences of its members and owners, and having powers and liabilities distinct from those of its members and owners."^^xsd:string ;
+                             cco:definition_source "Derived from: http://www.dictionary.com/browse/corporation"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                             rdfs:label "Incorporated Organization"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InterpersonalRelationshipRole
+cco:InterpersonalRelationshipRole rdf:type owl:Class ;
+                                  rdfs:subClassOf obo:BFO_0000023 ;
+                                  cco:definition "A Role that inheres in a Person in virtue of the obligations, expectations, or social norms that govern that Person's Intentional Acts within the context of a relationship with another Person."^^xsd:string ;
+                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                                  rdfs:label "Interpersonal Relationship Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Iris
+cco:Iris rdf:type owl:Class ;
+         rdfs:subClassOf cco:BodilyComponent ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                           owl:someValuesFrom cco:Eye
+                         ] ;
+         cco:definition "A Bodily Component that consists of the part of an Eye that is a pigmented, round, contractile membrane, suspended between the cornea and lens and perforated by the pupil, and which canonically regulates the amount of light entering the Eye."^^xsd:string ;
+         cco:definition_source "Derived from: http://www.thefreedictionary.com/iris"^^xsd:string ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+         rdfs:label "Iris"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MaleSex
+cco:MaleSex rdf:type owl:Class ;
+            rdfs:subClassOf cco:BiologicalSex ;
+            cco:definition "A Biological Sex inhering in an individual whose sex organs contain only male gametes."^^xsd:string ;
+            cco:definition_source "http://purl.org/obo/owl/PATO#PATO_0000384"^^xsd:string ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+            rdfs:label "Male Sex"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilitaryPersonnelForce
+cco:MilitaryPersonnelForce rdf:type owl:Class ;
+                           rdfs:subClassOf cco:ArmedForce ;
+                           cco:definition "An Armed Force authorized to use deadly force, and weapons, to support the interests of the Government and some or all of its Citizens."^^xsd:string ;
+                           cco:definition_source "https://en.wikipedia.org/wiki/Military"^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                           rdfs:label "Military Personnel Force"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NeutralRole
+cco:NeutralRole rdf:type owl:Class ;
+                rdfs:subClassOf cco:AllegianceRole ;
+                cco:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent not performing Acts that have as their Objective to either support or undermine the Objectives of any Group of Agents involved in some conflict."^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                rdfs:label "Neutral Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NuclearFamily
+cco:NuclearFamily rdf:type owl:Class ;
+                  rdfs:subClassOf cco:Family ;
+                  cco:definition "A Family composed of parents and their children."^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                  rdfs:label "Nuclear Family"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Objective
+cco:Objective rdf:type owl:Class ;
+              rdfs:subClassOf cco:DirectiveInformationContentEntity ;
+              cco:definition "A Directive Information Content Entity that prescribes some projected state that some Agent intends to achieve."^^xsd:string ;
+              cco:definition_source "http://en.wikipedia.org/wiki/Objective_(goal)"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "Objective"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OccupationRole
+cco:OccupationRole rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000023 ;
+                   cco:definition "A Role that inheres in an Agent in virtue of the responsibilities that Agent is expected to fulfill within the context of some Act of Employment."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Occupation Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OperationalArea
+cco:OperationalArea rdf:type owl:Class ;
+                    rdfs:subClassOf cco:GeospatialLocation ;
+                    cco:definition "A Geospatial Location in which an Agent conducts some activity."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:comment "This is a general term that applies to both military and civilian activities, such as the Geospatial Region within which a company conducts its business."^^xsd:string ;
+                    rdfs:label "Operational Area"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OperatorRole
+cco:OperatorRole rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000023 ;
+                 cco:definition "A Role that inheres in an Agent by virtue of that Agent's responsibilities to operate or control some Artifact, such as a Vehicle."^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:label "Operator Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Organization
+cco:Organization rdf:type owl:Class ;
+                 rdfs:subClassOf cco:GroupOfAgents ;
+                 cco:definition "A Group of Agents which can be the bearer of roles, has members, and has a set of organization rules."^^xsd:string ;
+                 cco:definition_source "Derived from: the OBI Consortium (http://purl.obolibrary.org/obo/OBI_0000245)"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                 rdfs:comment "Members of organizations are either Organizations themselves or individual Persons. Members can bear specific Organization Member Roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the Organization by the organization members."^^xsd:string ;
+                 rdfs:label "Organization"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationCapability
+cco:OrganizationCapability rdf:type owl:Class ;
+                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                 owl:onProperty cco:capability_of ;
+                                                 owl:someValuesFrom cco:Organization
+                                               ] ;
+                           rdfs:subClassOf cco:AgentCapability ;
+                           cco:definition "An Agent Capability that inheres in an Organization to the extent of that Organization's capacity to realize it in Intentional Acts of a certain type."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                           rdfs:label "Organization Capability"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationMember
+cco:OrganizationMember rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty cco:has_role ;
+                                             owl:someValuesFrom cco:OrganizationMemberRole
+                                           ] ;
+                       rdfs:subClassOf cco:Person ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty cco:is_affiliated_with ;
+                                         owl:someValuesFrom cco:Organization
+                                       ] ;
+                       cco:definition "A Person who is affiliated with some Organization."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                       rdfs:label "Organization Member"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationMemberRole
+cco:OrganizationMemberRole rdf:type owl:Class ;
+                           rdfs:subClassOf obo:BFO_0000023 ;
+                           cco:definition "A Role that inheres in an Agent in virtue of the responsibilities that Agent is expected to fulfill as a member of some Organization."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                           rdfs:label "Organization Member Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ParamilitaryForce
+cco:ParamilitaryForce rdf:type owl:Class ;
+                      rdfs:subClassOf cco:ArmedForce ;
+                      cco:definition "An Armed Force whose organizational structure, training, subculture, and (often) function are similar to those of a professional Military, and which is not included as part of a Government's formal Armed Forces."^^xsd:string ;
+                      cco:definition_source "https://en.wikipedia.org/wiki/Paramilitary"^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "Paramilitary Force"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Person
+cco:Person rdf:type owl:Class ;
+           rdfs:subClassOf obo:BFO_0000030 ;
+           cco:definition "An Agent that is a human being."^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+           rdfs:label "Person"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PlanSpecification
+cco:PlanSpecification rdf:type owl:Class ;
+                      rdfs:subClassOf cco:DirectiveInformationContentEntity ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                        owl:someValuesFrom cco:Objective
+                                      ] ;
+                      cco:definition "A Directive Information Content Entity that prescribes some set of intended Intentional Acts through which some Agent expects to achieve some Objective."^^xsd:string ;
+                      cco:definition_source "http://en.wikipedia.org/wiki/Plan"^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                      rdfs:label "Plan"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PoliticalOrientation
+cco:PoliticalOrientation rdf:type owl:Class ;
+                         rdfs:subClassOf cco:Ideology ;
+                         cco:definition "An Ideology that characterizes the political thinking of an Agent or Group of Agents, usually with respect to the political environment within a particular nation."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                         rdfs:label "Political Orientation"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Populace
+cco:Populace rdf:type owl:Class ;
+             rdfs:subClassOf cco:GroupOfPersons ;
+             cco:definition "A Group of Persons forming the total population of some Geopolitical Entity."^^xsd:string ;
+             cco:definition_source "http://en.wikipedia.org/wiki/Populace"^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Populace"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Religion
+cco:Religion rdf:type owl:Class ;
+             rdfs:subClassOf cco:InformationContentEntity ;
+             cco:definition "An Information Content Entity that consists of a collection of claims about the meaning or origin of existence or about the existence or nature of one or more deities, an afterlife, or spiritual or sacred entities, and which is accepted as true by an Agent or Group of Agents."^^xsd:string ,
+                            "Derived from: http://www.dictionary.com/browse/religion"^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Religion"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Scalp
+cco:Scalp rdf:type owl:Class ;
+          rdfs:subClassOf cco:BodilyComponent ;
+          cco:definition "A Bodily Component that consists of the skin covering the top of the head of a human or other animal."^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+          rdfs:label "Scalp"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ScalpHair
+cco:ScalpHair rdf:type owl:Class ;
+              rdfs:subClassOf cco:BodilyComponent ;
+              cco:definition "A Bodily Component that consists of a portion of hair that grows on the scalp of a human or other animal."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "Scalp Hair"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Scar
+cco:Scar rdf:type owl:Class ;
+         rdfs:subClassOf cco:BodilyComponent ;
+         cco:definition "A Bodily Component that consists of a portion of fibrous connective tissue on skin or within body tissue and which formed due to an injury that has not healed completely."^^xsd:string ;
+         cco:definition_source "Derived from: https://en.wikipedia.org/wiki/Scar"^^xsd:string ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+         rdfs:label "Scar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ServiceProvider
+cco:ServiceProvider rdf:type owl:Class ;
+                    rdfs:subClassOf cco:Organization ;
+                    cco:definition "An Organization whose purpose is to provide a service to other Agents."^^xsd:string ;
+                    cco:definition_source "https://en.wikipedia.org/wiki/Service_provider"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                    rdfs:label "Service Provider"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SetOfEyes
+cco:SetOfEyes rdf:type owl:Class ;
+              rdfs:subClassOf cco:BodilyComponent ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                owl:someValuesFrom cco:Eye
+                              ] ;
+              cco:definition "A Bodily Component that consists of two or more Eyes that are part of a single Agent."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "Set of Eyes"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Skill
+cco:Skill rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty cco:capability_of ;
+                                owl:someValuesFrom cco:Person
+                              ] ;
+          rdfs:subClassOf cco:AgentCapability ;
+          obo:IAO_0000115 "An Agent Capability that inheres in a Person to the extent of that Person's capacity to realize it in Intentional Acts of a certain type."^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+          rdfs:label "Skill"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SkinType
+cco:SkinType rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000019 ;
+             cco:definition "A Quality inhering in a portion of skin by virtue of its color and natural tendency to respond to ultraviolet light as classified by the Fitzpatrick scale."^^xsd:string ;
+             cco:definition_source "See: https://en.wikipedia.org/wiki/Fitzpatrick_scale"^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Skin Type"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Tattoo
+cco:Tattoo rdf:type owl:Class ;
+           rdfs:subClassOf cco:BodilyComponent ;
+           cco:definition "A Bodily Component that consists of a typically permanent mark or design on a portion of skin that is created by a process of pricking and ingraining an indelible pigment or by raising scars."^^xsd:string ;
+           cco:definition_source "Derived from: http://www.thefreedictionary.com/tattoo"^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+           rdfs:label "Tattoo"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UnalliedPerson
+cco:UnalliedPerson rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty cco:has_role ;
+                                         owl:someValuesFrom cco:NeutralRole
+                                       ] ;
+                   rdfs:subClassOf cco:Person ;
+                   cco:definition "A Person who is the bearer of some Neutral Role."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+                   rdfs:label "Neutral"^^xsd:string .
+
+
+[ cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string
+] .
+
+[ cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string
+ ] .
+
+[ cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string
+ ] .
+
+[ cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string
+ ] .
+
+[ cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string
+ ] .
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

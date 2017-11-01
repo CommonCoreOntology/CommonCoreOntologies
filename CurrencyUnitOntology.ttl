@@ -1,0 +1,936 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology> rdf:type owl:Ontology ;
+                                                                                   owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
+                                                                                   rdfs:comment "This ontology is designed to represent currencies that are issued and used by countries."^^xsd:string ;
+                                                                                   cco:content_license "The Creative Commons BY 3.0 License (https://creativecommons.org/licenses/by/3.0/)."^^xsd:string ;
+                                                                                   owl:versionInfo "August 1, 2017"^^xsd:string ;
+                                                                                   cco:code_license "The 3-Clause BSD License (https://opensource.org/licenses/BSD-3-Clause)."^^xsd:string ;
+                                                                                   cco:copyright "COPYRIGHT © 2017 CUBRC, Inc."^^xsd:string ;
+                                                                                   owl:versionInfo "Version 1.0.1"^^xsd:string ;
+                                                                                   rdfs:label "Currency Unit Ontology"^^xsd:string .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CurrencyUnit
+cco:CurrencyUnit rdf:type owl:Class ;
+                 rdfs:subClassOf cco:MeasurementUnit ;
+                 cco:definition "A Measurement Unit used in measurements of financial values."^^xsd:string ;
+                 cco:example_of_usage "U.S. Dollar, Euro, Yuan, South African Rand"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Measurement Unit of Currency"^^xsd:string .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AfghanistanAfghani
+cco:AfghanistanAfghani rdf:type owl:NamedIndividual ,
+                                cco:CurrencyUnit ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                       rdfs:label "Afghanistan Afghani"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AlbaniaLek
+cco:AlbaniaLek rdf:type owl:NamedIndividual ,
+                        cco:CurrencyUnit ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+               rdfs:label "Albania Lek"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AlgerianDinar
+cco:AlgerianDinar rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Algerian Dinar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AngolanKwanza
+cco:AngolanKwanza rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Angolan Kwanza"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ArgentinePeso
+cco:ArgentinePeso rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Argentine Peso"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ArmenianDram
+cco:ArmenianDram rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Armenian Dram"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AustralianDollar
+cco:AustralianDollar rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Australian Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AzerbaijanManat
+cco:AzerbaijanManat rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Azerbaijan Manat"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BangladeshTaka
+cco:BangladeshTaka rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Bangladesh Taka"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BelarussianRuble
+cco:BelarussianRuble rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Belarussian Ruble"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BhutanNgultrum
+cco:BhutanNgultrum rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Bhutan Ngultrum"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BoliviaBoliviano
+cco:BoliviaBoliviano rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Bolivia Boliviano"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BosniaAndHerzegovinaConvertibleMark
+cco:BosniaAndHerzegovinaConvertibleMark rdf:type owl:NamedIndividual ,
+                                                 cco:CurrencyUnit ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                                        rdfs:label "Bosnia And Herzegovina Convertible Mark"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BotswanaPula
+cco:BotswanaPula rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Botswana Pula"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BrazilianReal
+cco:BrazilianReal rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Brazilian Real"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BruneiDollar
+cco:BruneiDollar rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Brunei Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BulgarianLev
+cco:BulgarianLev rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Bulgarian Lev"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BurundiFranc
+cco:BurundiFranc rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Burundi Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CFAFranc
+cco:CFAFranc rdf:type owl:NamedIndividual ,
+                      cco:CurrencyUnit ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+             rdfs:label "CFA Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CFPFranc
+cco:CFPFranc rdf:type owl:NamedIndividual ,
+                      cco:CurrencyUnit ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+             rdfs:label "CFP Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CambodianRiel
+cco:CambodianRiel rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Cambodian Riel"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CanadianDollar
+cco:CanadianDollar rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Canadian Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CapeVerdeEscudo
+cco:CapeVerdeEscudo rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Cape Verde Escudo"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ChileanPeso
+cco:ChileanPeso rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Chilean Peso"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ChineseRenminbi
+cco:ChineseRenminbi rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Chinese Renminbi"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ColombianPeso
+cco:ColombianPeso rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Colombian Peso"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ComorosFranc
+cco:ComorosFranc rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Comoros Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CostaRicaColon
+cco:CostaRicaColon rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Costa Rica Colon"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CroatiaKuna
+cco:CroatiaKuna rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Croatia Kuna"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CzechKoruna
+cco:CzechKoruna rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Czech Koruna"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DanishKrone
+cco:DanishKrone rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Danish Krone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DemocraticRepublicOfCongoFranc
+cco:DemocraticRepublicOfCongoFranc rdf:type owl:NamedIndividual ,
+                                            cco:CurrencyUnit ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                                   rdfs:label "Democratic Republic Of Congo Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DominicanPeso
+cco:DominicanPeso rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Dominican Peso"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EgyptianPound
+cco:EgyptianPound rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Egyptian Pound"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EthiopianBirr
+cco:EthiopianBirr rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Ethiopian Birr"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Euro
+cco:Euro rdf:type owl:NamedIndividual ,
+                  cco:CurrencyUnit ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+         rdfs:label "Euro"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FijiDollar
+cco:FijiDollar rdf:type owl:NamedIndividual ,
+                        cco:CurrencyUnit ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+               rdfs:label "Fiji Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GambianDalasi
+cco:GambianDalasi rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Gambian Dalasi"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeorgianLari
+cco:GeorgianLari rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Georgian Lari"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GhanaCedi
+cco:GhanaCedi rdf:type owl:NamedIndividual ,
+                       cco:CurrencyUnit ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+              rdfs:label "Ghana Cedi"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GuatemalaQuetzal
+cco:GuatemalaQuetzal rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Guatemala Quetzal"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GuineanFranc
+cco:GuineanFranc rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Guinean Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GuyanaDollar
+cco:GuyanaDollar rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Guyana Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HaitiGourde
+cco:HaitiGourde rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Haiti Gourde"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HondurasLempira
+cco:HondurasLempira rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Honduras Lempira"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HongKongDollar
+cco:HongKongDollar rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "HongKong Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HungaryForint
+cco:HungaryForint rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Hungary Forint"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IcelandKrona
+cco:IcelandKrona rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Iceland Krona"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IndianRupee
+cco:IndianRupee rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Indian Rupee"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IndonesiaRupiah
+cco:IndonesiaRupiah rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Indonesia Rupiah"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IranianRial
+cco:IranianRial rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Iranian Rial"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IsraelShekel
+cco:IsraelShekel rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Israel Shekel"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JamaicanDollar
+cco:JamaicanDollar rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Jamaican Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JapaneseYen
+cco:JapaneseYen rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Japanese Yen"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KazakhstanTenge
+cco:KazakhstanTenge rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Kazakhstan Tenge"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KenyanShilling
+cco:KenyanShilling rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Kenyan Shilling"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KuwaitiDinar
+cco:KuwaitiDinar rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Kuwaiti Dinar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KyrgyzstanSom
+cco:KyrgyzstanSom rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Kyrgyzstan Som"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LaosKip
+cco:LaosKip rdf:type owl:NamedIndividual ,
+                     cco:CurrencyUnit ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+            rdfs:label "Laos Kip"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LebanesePound
+cco:LebanesePound rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Lebanese Pound"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LesothoLoti
+cco:LesothoLoti rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Lesotho Loti"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LiberianDollar
+cco:LiberianDollar rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Liberian Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LibyanDinar
+cco:LibyanDinar rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Libyan Dinar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MacaoPataca
+cco:MacaoPataca rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Macao Pataca"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MacedonianDenar
+cco:MacedonianDenar rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Macedonian Denar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MadagascarMalagasyAriary
+cco:MadagascarMalagasyAriary rdf:type owl:NamedIndividual ,
+                                      cco:CurrencyUnit ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                             rdfs:label "Madagascar Malagasy Ariary"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MalawiKwacha
+cco:MalawiKwacha rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Malawi Kwacha"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MalaysiaRinggit
+cco:MalaysiaRinggit rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Malaysia Ringgit"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MauritaniaOuguiya
+cco:MauritaniaOuguiya rdf:type owl:NamedIndividual ,
+                               cco:CurrencyUnit ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                      rdfs:label "Mauritania Ouguiya"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MauritiusRupee
+cco:MauritiusRupee rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Mauritius Rupee"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MexicanPeso
+cco:MexicanPeso rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Mexican Peso"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MoldovanLeu
+cco:MoldovanLeu rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Moldovan Leu"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MongoliaTugrik
+cco:MongoliaTugrik rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Mongolia Tugrik"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MoroccoDirham
+cco:MoroccoDirham rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Morocco Dirham"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MozambiqueMetical
+cco:MozambiqueMetical rdf:type owl:NamedIndividual ,
+                               cco:CurrencyUnit ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                      rdfs:label "Mozambique Metical"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MyanmarKyat
+cco:MyanmarKyat rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Myanmar Kyat"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NamibiaDollar
+cco:NamibiaDollar rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Namibia Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NepaleseRupee
+cco:NepaleseRupee rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Nepalese Rupee"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NewZealandDollar
+cco:NewZealandDollar rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "New Zealand Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NicaraguaCordobaOro
+cco:NicaraguaCordobaOro rdf:type owl:NamedIndividual ,
+                                 cco:CurrencyUnit ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                        rdfs:label "Nicaragua Cordoba Oro"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NigeriaNaira
+cco:NigeriaNaira rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Nigeria Naira"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NorthKoreanWon
+cco:NorthKoreanWon rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "North Korean Won"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NorwegianKrone
+cco:NorwegianKrone rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Norwegian Krone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PakistaniRupee
+cco:PakistaniRupee rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Pakistani Rupee"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PapuaNewGuineaKina
+cco:PapuaNewGuineaKina rdf:type owl:NamedIndividual ,
+                                cco:CurrencyUnit ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                       rdfs:label "Papua New Guinea Kina"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ParaguayGuarani
+cco:ParaguayGuarani rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Paraguay Guarani"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PeruNuevoSol
+cco:PeruNuevoSol rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Peru Nuevo Sol"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PhilippinePeso
+cco:PhilippinePeso rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Philippine Peso"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PolandZloty
+cco:PolandZloty rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Poland Zloty"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RomanianLeu
+cco:RomanianLeu rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Romanian Leu"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RussianRouble
+cco:RussianRouble rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Russian Rouble"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RwandaFranc
+cco:RwandaFranc rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Rwanda Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SamoaTala
+cco:SamoaTala rdf:type owl:NamedIndividual ,
+                       cco:CurrencyUnit ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+              rdfs:label "Samoa Tala"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SaoTomePrincipeDobra
+cco:SaoTomePrincipeDobra rdf:type owl:NamedIndividual ,
+                                  cco:CurrencyUnit ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                         rdfs:label "Sao Tome Principe Dobra"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SerbianDinar
+cco:SerbianDinar rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Serbian Dinar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SeychellesRupee
+cco:SeychellesRupee rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Seychelles Rupee"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SierraLeoneLeone
+cco:SierraLeoneLeone rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Sierra Leone Leone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SingaporeDollar
+cco:SingaporeDollar rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "Singapore Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SolomonIslandDollar
+cco:SolomonIslandDollar rdf:type owl:NamedIndividual ,
+                                 cco:CurrencyUnit ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                        rdfs:label "Solomon Island Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SouthAfricaRand
+cco:SouthAfricaRand rdf:type owl:NamedIndividual ,
+                             cco:CurrencyUnit ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                    rdfs:label "South Africa Rand"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SouthKoreanWon
+cco:SouthKoreanWon rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "South Korean Won"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SouthSudanesePound
+cco:SouthSudanesePound rdf:type owl:NamedIndividual ,
+                                cco:CurrencyUnit ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                       rdfs:label "South Sudanese Pound"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SriLankaRupee
+cco:SriLankaRupee rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Sri Lanka Rupee"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/StHelenaPound
+cco:StHelenaPound rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "St Helena Pound"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SudanesePound
+cco:SudanesePound rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Sudanese Pound"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SurinameseDollar
+cco:SurinameseDollar rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Surinamese Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SwazilandLilangeni
+cco:SwazilandLilangeni rdf:type owl:NamedIndividual ,
+                                cco:CurrencyUnit ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                       rdfs:label "Swaziland Lilangeni"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SwedishKrona
+cco:SwedishKrona rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Swedish Krona"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SwissFranc
+cco:SwissFranc rdf:type owl:NamedIndividual ,
+                        cco:CurrencyUnit ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+               rdfs:label "Swiss Franc"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SyrianPound
+cco:SyrianPound rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Syrian Pound"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TajikistanSomoni
+cco:TajikistanSomoni rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Tajikistan Somoni"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TanzaniaShilling
+cco:TanzaniaShilling rdf:type owl:NamedIndividual ,
+                              cco:CurrencyUnit ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                     rdfs:label "Tanzania Shilling"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ThaiBaht
+cco:ThaiBaht rdf:type owl:NamedIndividual ,
+                      cco:CurrencyUnit ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+             rdfs:label "Thai Baht"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TongaPaanga
+cco:TongaPaanga rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Tonga Pa anga"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TrinidadandTobagoDollar
+cco:TrinidadandTobagoDollar rdf:type owl:NamedIndividual ,
+                                     cco:CurrencyUnit ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                            rdfs:label "Trinidad and Tobago Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TunisianDinar
+cco:TunisianDinar rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Tunisian Dinar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TurkishLira
+cco:TurkishLira rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Turkish Lira"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TurkmenistanManat
+cco:TurkmenistanManat rdf:type owl:NamedIndividual ,
+                               cco:CurrencyUnit ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                      rdfs:label "Turkmenistan Manat"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UgandaShilling
+cco:UgandaShilling rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Uganda Shilling"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UkraineHryvnia
+cco:UkraineHryvnia rdf:type owl:NamedIndividual ,
+                            cco:CurrencyUnit ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                   rdfs:label "Ukraine Hryvnia"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UnitedKingdomPound
+cco:UnitedKingdomPound rdf:type owl:NamedIndividual ,
+                                cco:CurrencyUnit ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                       rdfs:label "United Kingdom Pound"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UnitedStatesDollar
+cco:UnitedStatesDollar rdf:type owl:NamedIndividual ,
+                                cco:CurrencyUnit ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                       rdfs:label "United States Dollar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UruguayPeso
+cco:UruguayPeso rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Uruguay Peso"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UzbekistanSum
+cco:UzbekistanSum rdf:type owl:NamedIndividual ,
+                           cco:CurrencyUnit ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                  rdfs:label "Uzbekistan Sum"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/VanuatuVatu
+cco:VanuatuVatu rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Vanuatu Vatu"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/VietNamDong
+cco:VietNamDong rdf:type owl:NamedIndividual ,
+                         cco:CurrencyUnit ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                rdfs:label "Viet Nam Dong"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/YemeniRial
+cco:YemeniRial rdf:type owl:NamedIndividual ,
+                        cco:CurrencyUnit ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+               rdfs:label "Yemeni Rial"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ZambiaKwacha
+cco:ZambiaKwacha rdf:type owl:NamedIndividual ,
+                          cco:CurrencyUnit ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CurrencyUnitOntology"^^xsd:string ;
+                 rdfs:label "Zambia Kwacha"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

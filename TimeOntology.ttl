@@ -1,0 +1,489 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix bfo: <http://purl.obolibrary.org/obo#> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> rdf:type owl:Ontology ;
+                                                                           owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ExtendedRelationOntology> ;
+                                                                           cco:content_license "The Creative Commons BY 3.0 License (https://creativecommons.org/licenses/by/3.0/)."^^xsd:string ;
+                                                                           owl:versionInfo "August 1, 2017"^^xsd:string ;
+                                                                           cco:code_license "The 3-Clause BSD License (https://opensource.org/licenses/BSD-3-Clause)."^^xsd:string ;
+                                                                           rdfs:label "Time Ontology"^^xsd:string ;
+                                                                           cco:copyright "COPYRIGHT © 2017 CUBRC, Inc."^^xsd:string ;
+                                                                           rdfs:comment "This ontology is designed to represent temporal regions and the relations that hold between them."^^xsd:string ;
+                                                                           owl:versionInfo "Version 1.0.1"^^xsd:string .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_ending_instant
+cco:has_ending_instant rdf:type owl:ObjectProperty ;
+                       owl:inverseOf cco:is_ending_instant_of ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain obo:BFO_0000038 ;
+                       rdfs:range obo:BFO_0000148 ;
+                       cco:definition " For Temporal Interval t1 and Temporal Instant t2, t1 has ending instant t2 if and only if no Temporal Instant t3 that is part of t1 is after t2."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                       rdfs:label "has ending instant"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_inside_instant
+cco:has_inside_instant rdf:type owl:ObjectProperty ;
+                       owl:inverseOf cco:is_inside_instant_of ;
+                       rdfs:domain obo:BFO_0000038 ;
+                       rdfs:range obo:BFO_0000148 ;
+                       cco:definition " For Temporal Interval t1 and Temporal Instant t2, t1 has inside instant t2 if and only if there exists Temporal Instants t3 and t4, non-identical with t2, and part of t1 such that t3 is before t2 and t4 is after t2."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                       rdfs:label "has inside instant"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_starting_instant
+cco:has_starting_instant rdf:type owl:ObjectProperty ;
+                         owl:inverseOf cco:is_starting_instant_of ;
+                         rdf:type owl:FunctionalProperty ;
+                         rdfs:domain obo:BFO_0000038 ;
+                         rdfs:range obo:BFO_0000148 ;
+                         cco:definition " For Temporal Interval t1 and Temporal Instant t2, t1 has starting instant t2 if and only if no temporal instant t3 that is part of t1 is before t2."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                         rdfs:label "has starting instant"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/instant_is_after
+cco:instant_is_after rdf:type owl:ObjectProperty ;
+                     owl:inverseOf cco:instant_is_before ;
+                     rdf:type owl:TransitiveProperty ;
+                     rdfs:domain obo:BFO_0000148 ;
+                     rdfs:range obo:BFO_0000148 ;
+                     cco:definition " For type Temporal Instant, is_after is a primitive relationship. Informally, one temporal intstant t2 is after some temporal instant t1 if and only if there is some Connected Temporal Region t3 between t1 and t2."^^xsd:string ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                     rdfs:label "instant is after"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/instant_is_before
+cco:instant_is_before rdf:type owl:ObjectProperty ,
+                               owl:TransitiveProperty ;
+                      rdfs:domain obo:BFO_0000148 ;
+                      rdfs:range obo:BFO_0000148 ;
+                      cco:definition " For type Temporal Instant, is_before is a primitive relationship. Informally, one temporal intstant t1 is before another temporal instant t2 if and only if there is some Connected Temporal Region t3 between t1 and t2."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                      rdfs:label "instant is before"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_contains
+cco:interval_contains rdf:type owl:ObjectProperty ;
+                      owl:inverseOf cco:interval_during ;
+                      rdf:type owl:TransitiveProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      cco:definition " A Temporal Interval INT2 contains some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                      rdfs:label "interval contains"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_disjoint
+cco:interval_disjoint rdf:type owl:ObjectProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      owl:propertyDisjointWith cco:interval_overlapped_by ,
+                                               cco:interval_overlaps ;
+                      cco:definition " A Temporal Interval INT1 is disjoint with a Temporal Interval INT2 iff INT1 is before or meets INT2 OR INT2 is before or meets INT1. In other words, INT1 and INT2 are disjoint iff INT1 and INT2 do not overlap."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                      rdfs:label "interval disjoint"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_during
+cco:interval_during rdf:type owl:ObjectProperty ,
+                             owl:TransitiveProperty ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition " A Temporal Interval INT1 is during some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                    rdfs:label "interval during"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_equals
+cco:interval_equals rdf:type owl:ObjectProperty ,
+                             owl:SymmetricProperty ,
+                             owl:TransitiveProperty ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition " A Temporal Interval INT1 is equal to some Temporal Interval INT2 iff there exists Temporal Instants inst1 and inst2 such that inst1 is the starting instant of both INT1 and INT2 and inst2 is the ending instant of both INT1 and INT2."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                    rdfs:label "interval equals"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_finished_by
+cco:interval_finished_by rdf:type owl:ObjectProperty ;
+                         owl:inverseOf cco:interval_finishes ;
+                         rdfs:domain obo:BFO_0000038 ;
+                         rdfs:range obo:BFO_0000038 ;
+                         cco:definition " A Temporal Interval INT2 is finished by some Temporal Interval INT1 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                         rdfs:label "interval finished by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_finishes
+cco:interval_finishes rdf:type owl:ObjectProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      cco:definition " A Temporal Interval INT1 finishes some Temporal Interval INT2 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                      rdfs:label "interval finishes"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_is_after
+cco:interval_is_after rdf:type owl:ObjectProperty ;
+                      owl:inverseOf cco:interval_is_before ;
+                      rdf:type owl:TransitiveProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      cco:definition " A TemporalInterval INT2 is after some TemporalInterval INT1 iff there exists TemporalInstants inst2, inst1 such that inst2 is the starting instant of INT2 and inst1 is the ending instant of INT1 and inst2 is after inst1."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                      rdfs:label "interval is after"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_is_before
+cco:interval_is_before rdf:type owl:ObjectProperty ,
+                                owl:TransitiveProperty ;
+                       rdfs:domain obo:BFO_0000038 ;
+                       rdfs:range obo:BFO_0000038 ;
+                       cco:definition " A TemporalInterval INT1 is before some TemporalInterval INT2 iff there exists TemporalInstants inst1, inst2 such that inst1 is the ending instant of INT1 and inst2 is the starting instant of INT2 and inst1 is before inst2."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                       rdfs:label "interval is before"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_meets
+cco:interval_meets rdf:type owl:ObjectProperty ;
+                   owl:inverseOf cco:interval_met_by ;
+                   rdf:type owl:IrreflexiveProperty ;
+                   rdfs:domain obo:BFO_0000038 ;
+                   rdfs:range obo:BFO_0000038 ;
+                   cco:definition " A Temporal Interval INT1 meets some Temporal Interval INT2 iff there exists some Temporal Instant inst1 such that inst1 is the ending instant of INT1 and inst1 is the starting instant of INT2."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                   rdfs:label "interval meets"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_met_by
+cco:interval_met_by rdf:type owl:ObjectProperty ,
+                             owl:IrreflexiveProperty ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition " A Temporal Interval INT2 is met by some Temporal Interval INT1 iff there exists some Temporal Instant inst1 such that inst1 is the starting instant of INT2 and inst1 is the ending instant of INT1."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                    rdfs:label "interval met by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_overlapped_by
+cco:interval_overlapped_by rdf:type owl:ObjectProperty ;
+                           owl:inverseOf cco:interval_overlaps ;
+                           rdfs:domain obo:BFO_0000038 ;
+                           rdfs:range obo:BFO_0000038 ;
+                           cco:definition " A Temporal Interval INT2 is overlapped by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                           rdfs:label "interval overlapped by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_overlaps
+cco:interval_overlaps rdf:type owl:ObjectProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      cco:definition " A Temporal Interval INT1 overlaps some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                      rdfs:label "interval overlaps"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_started_by
+cco:interval_started_by rdf:type owl:ObjectProperty ;
+                        owl:inverseOf cco:interval_starts ;
+                        rdfs:domain obo:BFO_0000038 ;
+                        rdfs:range obo:BFO_0000038 ;
+                        cco:definition " A Temporal Interval INT2 is started by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                        rdfs:label "interval started by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_starts
+cco:interval_starts rdf:type owl:ObjectProperty ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition " A Temporal Interval INT1 starts some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                    rdfs:label "interval starts"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_ending_instant_of
+cco:is_ending_instant_of rdf:type owl:ObjectProperty ,
+                                  owl:InverseFunctionalProperty ;
+                         rdfs:domain obo:BFO_0000148 ;
+                         rdfs:range obo:BFO_0000038 ;
+                         cco:definition " For Temporal Instant t1 and Temporal Interval t2, t1 is ending instant of t2 if and only if no Temporal Instant t3 that is part of t2 is after t1."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                         rdfs:label "is ending instant of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_inside_instant_of
+cco:is_inside_instant_of rdf:type owl:ObjectProperty ;
+                         rdfs:domain obo:BFO_0000148 ;
+                         rdfs:range obo:BFO_0000038 ;
+                         cco:definition " For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                         rdfs:label "is inside instant of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_starting_instant_of
+cco:is_starting_instant_of rdf:type owl:ObjectProperty ,
+                                    owl:InverseFunctionalProperty ;
+                           rdfs:domain obo:BFO_0000148 ;
+                           rdfs:range obo:BFO_0000038 ;
+                           cco:definition " For Temporal Instant t1 and Temporal Interval t2, t1 is starting instant of t2 if and only if no Temporal Instant t3 that is part of t2 is before t1."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                           rdfs:label "is starting instant of"^^xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Afternoon
+cco:Afternoon rdf:type owl:Class ;
+              rdfs:subClassOf obo:BFO_0000038 ;
+              cco:definition "A one-dimensional temporal region that consists of the temporal regions between when the sun is at its apex (approximately 12:00pm) and when it sets (approximately 6:00pm)."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+              rdfs:label "Afternoon"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AxialRotationPeriod
+cco:AxialRotationPeriod rdf:type owl:Class ;
+                        rdfs:subClassOf obo:BFO_0000038 ;
+                        cco:definition "A One-Dimensional Temporal Region that is equal to the length of time required for a spinning Object to complete one Rotation around its Axis."^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                        rdfs:label "Axial Rotation Period"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Day
+cco:Day rdf:type owl:Class ;
+        rdfs:subClassOf obo:BFO_0000038 ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty cco:interval_during ;
+                          owl:someValuesFrom cco:Week
+                        ] ;
+        cco:definition " A type of temporal interval, indicated a period of twenty-four hours on the Gregorian calendar."^^xsd:string ;
+        cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=day)"^^xsd:string ;
+        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+        rdfs:label "Day"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Decade
+cco:Decade rdf:type owl:Class ;
+           rdfs:subClassOf obo:BFO_0000038 ;
+           cco:definition " A type of temporal interval, denoting a period of ten years."^^xsd:string ;
+           cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=decade"^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+           rdfs:label "Decade"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Evening
+cco:Evening rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000038 ;
+            cco:definition "A one-dimensional temporal region that consists of the temporal regions between when the sun sets (approximately 6:00pm) and when people typically retire to sleep (approximately 9:00pm)."^^xsd:string ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+            rdfs:label "Evening"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Hour
+cco:Hour rdf:type owl:Class ;
+         rdfs:subClassOf obo:BFO_0000038 ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty cco:interval_during ;
+                           owl:someValuesFrom cco:Day
+                         ] ;
+         cco:definition " A type of temporal interval, denoting a period of sixty minutes or 1/24  of a day. "^^xsd:string ;
+         cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=hour"^^xsd:string ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+         rdfs:label "Hour"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Minute
+cco:Minute rdf:type owl:Class ;
+           rdfs:subClassOf obo:BFO_0000038 ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty cco:interval_during ;
+                             owl:someValuesFrom cco:Hour
+                           ] ;
+           cco:definition " A type of temporal interval, equal to sixty seconds or 1/60 of an hour."^^xsd:string ;
+           cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=minute"^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+           rdfs:label "Minute"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Month
+cco:Month rdf:type owl:Class ;
+          rdfs:subClassOf obo:BFO_0000038 ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty cco:interval_during ;
+                            owl:someValuesFrom cco:Year
+                          ] ;
+          cco:definition " A type of temporal interval, denoting approximately four weeks or 1/12 of a standard year."^^xsd:string ;
+          cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=month"^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+          rdfs:label "Month"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Morning
+cco:Morning rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000038 ;
+            cco:definition "A one-dimensional temporal region that consists of the temporal regions between when the sun dawns (approximately 6:00am) and reaches its apex (approximately 12:00pm)."^^xsd:string ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+            rdfs:label "Morning"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiDayTemporalInterval
+cco:MultiDayTemporalInterval rdf:type owl:Class ;
+                             rdfs:subClassOf obo:BFO_0000038 ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty cco:interval_contains ;
+                                               owl:someValuesFrom cco:Day
+                                             ] ;
+                             cco:definition " A defined class composed of instances of temporal intervals measured in days and spanning more than 1 day."^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                             rdfs:label "Multi-Day Temporal Interval"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiHourTemporalInterval
+cco:MultiHourTemporalInterval rdf:type owl:Class ;
+                              rdfs:subClassOf obo:BFO_0000038 ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty cco:interval_contains ;
+                                                owl:someValuesFrom cco:Hour
+                                              ] ;
+                              cco:definition " A defined class composed of instances of temporal intervals measured in hours and spanning more than 1 hour."^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                              rdfs:label "Multi-Hour Temporal Interval"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiMinuteTemporalInterval
+cco:MultiMinuteTemporalInterval rdf:type owl:Class ;
+                                rdfs:subClassOf obo:BFO_0000038 ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty cco:interval_contains ;
+                                                  owl:someValuesFrom cco:Minute
+                                                ] ;
+                                cco:definition " A defined class composed of instances of temporal intervals measured in minutes and spanning more than 1 minute."^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                                rdfs:label "Part of Hour"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiMonthTemporalInterval
+cco:MultiMonthTemporalInterval rdf:type owl:Class ;
+                               rdfs:subClassOf obo:BFO_0000038 ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty cco:interval_contains ;
+                                                 owl:someValuesFrom cco:Month
+                                               ] ;
+                               cco:definition " A defined class composed of instances of temporal intervals measured in months and spanning more than 1 month."^^xsd:string ;
+                               cco:elucidation "Comment: Could also be used for seasons of year (e.g. Spring, Summer, etc.)"^^xsd:string ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                               rdfs:label "Multi-Month Temporal Interval"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiSecondTemporalInterval
+cco:MultiSecondTemporalInterval rdf:type owl:Class ;
+                                rdfs:subClassOf obo:BFO_0000038 ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty cco:interval_contains ;
+                                                  owl:someValuesFrom cco:Second
+                                                ] ;
+                                cco:definition " A defined class composed of instances of temporal intervals measured in seconds and spanning more than 1 second."^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                                rdfs:label "Part of Minute"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiWeekTemporalInterval
+cco:MultiWeekTemporalInterval rdf:type owl:Class ;
+                              rdfs:subClassOf obo:BFO_0000038 ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty cco:interval_contains ;
+                                                owl:someValuesFrom cco:Week
+                                              ] ;
+                              cco:definition " A defined class composed of instances of temporal intervals measured in weeks and spanning more than 1 week."^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                              rdfs:label "Multi-Week Temporal Interval"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiYearTemporalInterval
+cco:MultiYearTemporalInterval rdf:type owl:Class ;
+                              rdfs:subClassOf obo:BFO_0000038 ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty cco:interval_contains ;
+                                                owl:someValuesFrom cco:Year
+                                              ] ;
+                              cco:definition " A defined class composed of instances of temporal intervals measured in years and spanning more than 1 year."^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+                              rdfs:label "Multi-Year Temporal Interval"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Night
+cco:Night rdf:type owl:Class ;
+          rdfs:subClassOf obo:BFO_0000038 ;
+          cco:definition "A one-dimensional temporal region that consists of the temporal regions between when people typically retire to sleep (approximately 9:00pm) and when the sun dawns (approximately 6:00am)."^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+          rdfs:label "Night"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Second
+cco:Second rdf:type owl:Class ;
+           rdfs:subClassOf obo:BFO_0000038 ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty cco:interval_during ;
+                             owl:someValuesFrom cco:Minute
+                           ] ;
+           cco:definition " A type of temporal interval, the basic unit of time and time calculations; equal to 1/60 of a minute."^^xsd:string ;
+           cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=second"^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+           rdfs:label "Second"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TimeOfDay
+cco:TimeOfDay rdf:type owl:Class ;
+              rdfs:subClassOf obo:BFO_0000148 ;
+              cco:definition " A type of temporal instant, indicating the approximate time broken down into hours, minutes and seconds."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+              rdfs:label "Time of Day"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Week
+cco:Week rdf:type owl:Class ;
+         rdfs:subClassOf obo:BFO_0000038 ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty cco:interval_during ;
+                           owl:someValuesFrom cco:Month
+                         ] ;
+         cco:definition " A type of temporal interval, denoting a period of seven days or approximately 1/4 of a month."^^xsd:string ;
+         cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=week"^^xsd:string ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+         rdfs:label "Week"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Year
+cco:Year rdf:type owl:Class ;
+         rdfs:subClassOf obo:BFO_0000038 ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty cco:interval_during ;
+                           owl:someValuesFrom cco:Decade
+                         ] ;
+         cco:definition " A type of temporal interval, denoting a period of twelve months or 365 days."^^xsd:string ;
+         cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=year"^^xsd:string ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:string ;
+         rdfs:label "Year"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
