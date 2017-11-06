@@ -24,13 +24,6 @@
                                                                                         cco:acronym "INFO"^^xsd:string ;
                                                                                         rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string .
 
-#################################################################
-#    Datatypes
-#################################################################
-
-###  http://www.w3.org/2001/XMLSchema#date
-xsd:date rdf:type rdfs:Datatype .
-
 
 #################################################################
 #    Object Properties
@@ -456,7 +449,6 @@ cco:has_boolean_value rdf:type owl:DatatypeProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_date_value
 cco:has_date_value rdf:type owl:DatatypeProperty ;
                    rdfs:domain cco:InformationBearingEntity ;
-                   rdfs:range xsd:date ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                    rdfs:label "has date value"^^xsd:string .
 
@@ -554,7 +546,7 @@ cco:BoundingBoxPointIdentifier rdf:type owl:Class ;
                                                      owl:onProperty cco:designates ;
                                                      owl:someValuesFrom cco:BoundingBoxPoint
                                                    ] ;
-                               rdfs:subClassOf cco:SpatialRegionIdentifier ;
+                               rdfs:subClassOf cco:GeospatialPositionIdentifier ;
                                cco:definition "A Spatial Region Identifier that designates some Bounding Box Point."^^xsd:string ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                rdfs:label "Bounding Box Point Identifier"^^xsd:string .
@@ -870,7 +862,7 @@ cco:GeospatialBoundaryIdentifier rdf:type owl:Class ;
                                                        owl:onProperty cco:designates ;
                                                        owl:someValuesFrom cco:GeospatialBoundary
                                                      ] ;
-                                 rdfs:subClassOf cco:SiteIdentifier ;
+                                 rdfs:subClassOf cco:DesignativeInformationContentEntity ;
                                  cco:definition "A Spatial Region Identifier that designates some Geospatial Boundary."^^xsd:string ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                  rdfs:label "Geospatial Boundary Identifier"^^xsd:string .
@@ -896,13 +888,25 @@ cco:GeospatialLocationIdentifier rdf:type owl:Class ;
                                  rdfs:label "Geospatial Location Identifier"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPositionIdentifier
+cco:GeospatialPositionIdentifier rdf:type owl:Class ;
+                                 rdfs:subClassOf cco:DesignativeInformationContentEntity ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty cco:designates ;
+                                                   owl:someValuesFrom cco:GeospatialPosition
+                                                 ] ;
+                                 cco:definition "A Designative Information Content Entity that designates some Geospatial Position"^^xsd:string ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                 rdfs:label "Geospatial Position Identifier"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBoxIdentifier
 cco:GeospatialRegionBoundingBoxIdentifier rdf:type owl:Class ;
                                           owl:equivalentClass [ rdf:type owl:Restriction ;
                                                                 owl:onProperty cco:designates ;
                                                                 owl:someValuesFrom cco:GeospatialRegionBoundingBox
                                                               ] ;
-                                          rdfs:subClassOf cco:SpatialRegionIdentifier ;
+                                          rdfs:subClassOf cco:GeospatialBoundaryIdentifier ;
                                           cco:definition "A Spatial Region Identifier that designates some Geospatial Region Bounding Box."^^xsd:string ;
                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                           rdfs:label "Geospatial Region Bounding Box Identifier"^^xsd:string .
@@ -1822,8 +1826,8 @@ cco:WorldGeographicReferenceSystem rdf:type owl:NamedIndividual ,
                                    rdfs:label "World Geographic Reference System"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-3:30
-cco: rdf:type owl:NamedIndividual ,
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus0330
+cco:GMTminus0330 rdf:type owl:NamedIndividual ,
               cco:TimeZoneIdentifier ;
      cco:alternative_label "CNT"^^xsd:string ,
                            "Canada Newfoundland Time"^^xsd:string ;
@@ -1831,8 +1835,8 @@ cco: rdf:type owl:NamedIndividual ,
      rdfs:label "GMT-3:30"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus3:30
-cco: rdf:type owl:NamedIndividual ,
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0330
+cco:GMTplus0330 rdf:type owl:NamedIndividual ,
               cco:TimeZoneIdentifier ;
      cco:alternative_label "MET"^^xsd:string ,
                            "Middle East Time"^^xsd:string ;
@@ -1840,8 +1844,8 @@ cco: rdf:type owl:NamedIndividual ,
      rdfs:label "GMT+3:30"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus5:30
-cco: rdf:type owl:NamedIndividual ,
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0530
+cco:GMTplus0530 rdf:type owl:NamedIndividual ,
               cco:TimeZoneIdentifier ;
      cco:alternative_label "IST"^^xsd:string ,
                            "India Standard Time"^^xsd:string ;
@@ -1849,8 +1853,8 @@ cco: rdf:type owl:NamedIndividual ,
      rdfs:label "GMT+5:30"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus9:30
-cco: rdf:type owl:NamedIndividual ,
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0930
+cco:GMTplus0930 rdf:type owl:NamedIndividual ,
               cco:TimeZoneIdentifier ;
      cco:alternative_label "ACT"^^xsd:string ,
                            "Australia Central Time"^^xsd:string ;
