@@ -17,13 +17,12 @@
                                                                                                     <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
                                                                                         rdfs:label "Information Entity Ontology"^^xsd:string ;
                                                                                         cco:content_license "The Creative Commons BY 3.0 License (https://creativecommons.org/licenses/by/3.0/)."^^xsd:string ;
-                                                                                        owl:versionInfo "August 1, 2017"^^xsd:string ;
                                                                                         cco:code_license "The 3-Clause BSD License (https://opensource.org/licenses/BSD-3-Clause)."^^xsd:string ;
                                                                                         cco:copyright "COPYRIGHT © 2017 CUBRC, Inc."^^xsd:string ;
-                                                                                        owl:versionInfo "Version 1.0.1"^^xsd:string ;
+                                                                                        owl:versionInfo "Version 1.0.1"^^xsd:string ,
+                                                                                                        "December 14, 2017"^^xsd:string ;
                                                                                         cco:acronym "INFO"^^xsd:string ;
                                                                                         rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string .
-
 
 #################################################################
 #    Object Properties
@@ -1087,7 +1086,7 @@ cco:MeasurementInformationContentEntity rdf:type owl:Class ;
                                         rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
                                         owl:disjointWith cco:RepresentationalInformationContentEntity ;
                                         cco:alternative_label "Measurement ICE"^^xsd:string ;
-                                        cco:definition "A Descriptive Information Content Entity that consists of a symbol that is a measure of the extent, dimensions, quanity, or quality of an Entity relative to some standard."^^xsd:string ;
+                                        cco:definition "A Descriptive Information Content Entity that consists of a symbol that is a measure of the extent, dimensions, quantity, or quality of an Entity relative to some standard."^^xsd:string ;
                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                         rdfs:label "Measurement Information Content Entity"^^xsd:string .
 
@@ -1686,6 +1685,42 @@ cco:GMT-9 rdf:type owl:NamedIndividual ,
           rdfs:label "GMT-9"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus0330
+cco:GMTminus0330 rdf:type owl:NamedIndividual ,
+                          cco:TimeZoneIdentifier ;
+                 cco:alternative_label "CNT"^^xsd:string ,
+                                       "Canada Newfoundland Time"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:label "GMT-3:30"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0330
+cco:GMTplus0330 rdf:type owl:NamedIndividual ,
+                         cco:TimeZoneIdentifier ;
+                cco:alternative_label "MET"^^xsd:string ,
+                                      "Middle East Time"^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                rdfs:label "GMT+3:30"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0530
+cco:GMTplus0530 rdf:type owl:NamedIndividual ,
+                         cco:TimeZoneIdentifier ;
+                cco:alternative_label "IST"^^xsd:string ,
+                                      "India Standard Time"^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                rdfs:label "GMT+5:30"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0930
+cco:GMTplus0930 rdf:type owl:NamedIndividual ,
+                         cco:TimeZoneIdentifier ;
+                cco:alternative_label "ACT"^^xsd:string ,
+                                      "Australia Central Time"^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                rdfs:label "GMT+9:30"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus1
 cco:GMTplus1 rdf:type owl:NamedIndividual ,
                       cco:TimeZoneIdentifier ;
@@ -1824,42 +1859,6 @@ cco:WorldGeographicReferenceSystem rdf:type owl:NamedIndividual ,
                                    cco:acronym "WGRS"^^xsd:string ;
                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                    rdfs:label "World Geographic Reference System"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus0330
-cco:GMTminus0330 rdf:type owl:NamedIndividual ,
-              cco:TimeZoneIdentifier ;
-     cco:alternative_label "CNT"^^xsd:string ,
-                           "Canada Newfoundland Time"^^xsd:string ;
-     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-     rdfs:label "GMT-3:30"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0330
-cco:GMTplus0330 rdf:type owl:NamedIndividual ,
-              cco:TimeZoneIdentifier ;
-     cco:alternative_label "MET"^^xsd:string ,
-                           "Middle East Time"^^xsd:string ;
-     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-     rdfs:label "GMT+3:30"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0530
-cco:GMTplus0530 rdf:type owl:NamedIndividual ,
-              cco:TimeZoneIdentifier ;
-     cco:alternative_label "IST"^^xsd:string ,
-                           "India Standard Time"^^xsd:string ;
-     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-     rdfs:label "GMT+5:30"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0930
-cco:GMTplus0930 rdf:type owl:NamedIndividual ,
-              cco:TimeZoneIdentifier ;
-     cco:alternative_label "ACT"^^xsd:string ,
-                           "Australia Central Time"^^xsd:string ;
-     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-     rdfs:label "GMT+9:30"^^xsd:string .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
