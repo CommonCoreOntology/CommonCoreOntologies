@@ -7,19 +7,34 @@ CCO is designed as a mid-level extension of Basic Formal Ontology (BFO), an uppe
 
 The CCO provide semantics for concepts and relations that are used in most domains of interest. The utility of the CCO comes from preventing BFO compliant domain specific ontologies from needlessly duplicating common concepts or from forcing such ontologies to include concepts outside of their domain (e.g. organization in the Ontology of Biomedical Investigations). This utility has been realized by a number of projects in which either existing BFO compliant ontologies were aligned to the CCO or domain ontologies were created by using the CCO as a starting point and adding classes and properties as needed. Examples include:
 
-Affective State Ontology (http://obofoundry.org/ontology/mfoem.html)	
+Affective State Ontology (http://obofoundry.org/ontology/mfoem.html)
+
 Airforce Aircraft Maintenance Ontology
+
 Aircraft Ontology	
+
 Army Universal Task List Ontology
+
 Hydrographic Feature Ontology	
+
 Sensor Ontology
+
 Legal and Criminal Act Ontology	
+
 Skills Ontology
-Military Operations Ontology	
+
+Military Operations Ontology
+
 Space Object Ontology
+
 Mission Planning Ontology	
+
 Transportation Infrastructure Ontology
+
 Occupation Ontology	
+
 Undersea Warfare Ontology
+
 Physiographic Feature Ontology	
+
 Watercraft Ontology
