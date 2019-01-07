@@ -15,18 +15,28 @@
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
                                                                                         owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ,
                                                                                                     <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
+                                                                                        owl:versionInfo "Version 1.1"^^xsd:string ;
+                                                                                        cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                                        cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
+                                                                                        cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
                                                                                         rdfs:label "Information Entity Ontology"^^xsd:string ;
-                                                                                        cco:content_license "The Creative Commons BY 3.0 License (https://creativecommons.org/licenses/by/3.0/)."^^xsd:string ;
-                                                                                        cco:code_license "The 3-Clause BSD License (https://opensource.org/licenses/BSD-3-Clause)."^^xsd:string ;
-                                                                                        cco:copyright "COPYRIGHT © 2017 CUBRC, Inc."^^xsd:string ;
-                                                                                        owl:versionInfo "Version 1.0.1"^^xsd:string ,
-                                                                                                        "December 14, 2017"^^xsd:string ;
-                                                                                        cco:acronym "INFO"^^xsd:string ;
+                                                                                        owl:versionInfo "January 4, 2019"^^xsd:string ;
                                                                                         rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string .
 
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/condition_described_by
+cco:condition_described_by rdf:type owl:ObjectProperty ;
+                           owl:inverseOf cco:describes_condition ;
+                           owl:propertyChainAxiom ( cco:described_by
+                                                    ro:part_of
+                                                  ) ;
+                           cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                           rdfs:label "condition described by"^^xsd:string .
+
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/described_by
 cco:described_by rdf:type owl:ObjectProperty ;
@@ -51,10 +61,22 @@ cco:describes rdf:type owl:ObjectProperty ;
               rdfs:label "describes"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_condition
+cco:describes_condition rdf:type owl:ObjectProperty ;
+                        owl:propertyChainAxiom ( ro:has_part
+                                                 cco:describes
+                                               ) ;
+                        cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                        rdfs:label "describes condition"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with
 cco:describes_set_with rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf cco:describes ;
+                       owl:inverseOf cco:set_described_by ;
                        rdfs:domain cco:NominalMeasurementInformationContentEntity ;
+                       rdfs:range cco:MeasurementInformationContentEntity ;
                        cco:definition "For all Types T1 and T2, if T1 describes set with T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 further describes some entity described by t1 when compared to all the entities described by t1."^^xsd:string ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                        rdfs:label "describes set with"^^xsd:string .
@@ -63,8 +85,8 @@ cco:describes_set_with rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with_expected_element
 cco:describes_set_with_expected_element rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf cco:describes_set_with ;
+                                        owl:inverseOf cco:set_described_by_expected_element ;
                                         rdfs:domain cco:NominalMeasurementInformationContentEntity ;
-                                        rdfs:range cco:ExpectedNominalMeasurementInformation ;
                                         cco:definition "For all Types T1 and T2, if T1 describes set with expected element T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 indicates that an entity described by t1 is the most likely element to occur relative to the set of entities described by t1."^^xsd:string ;
                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                         rdfs:label "describes set with expected element"^^xsd:string .
@@ -73,6 +95,7 @@ cco:describes_set_with_expected_element rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with_ordinality
 cco:describes_set_with_ordinality rdf:type owl:ObjectProperty ;
                                   rdfs:subPropertyOf cco:describes_set_with ;
+                                  owl:inverseOf cco:set_described_by_ordinality ;
                                   rdfs:domain cco:NominalMeasurementInformationContentEntity ;
                                   rdfs:range cco:OrdinalMeasurementInformationContentEntity ;
                                   cco:definition "For all Types T1 and T2, if T1 describes set with ordinailty T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 indicates the rank order of an entity described by t1 with respect to the set of entities described by t1."^^xsd:string ;
@@ -83,8 +106,9 @@ cco:describes_set_with_ordinality rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with_proportion
 cco:describes_set_with_proportion rdf:type owl:ObjectProperty ;
                                   rdfs:subPropertyOf cco:describes_set_with ;
+                                  owl:inverseOf cco:set_described_by_proportion ;
                                   rdfs:domain cco:NominalMeasurementInformationContentEntity ;
-                                  rdfs:range cco:ProportionalRatioMeasurementInformation ;
+                                  rdfs:range cco:ProportionalRatioMeasurementInformationContentEntity ;
                                   cco:definition "For all Types T1 and T2, if T1 describes set with proportion T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 is a proportional measurement of a subset of entities described by t1 when compared to all the entities described by t1."^^xsd:string ;
                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                   rdfs:label "describes set with proportion"^^xsd:string .
@@ -117,7 +141,7 @@ cco:designates rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_denominator_measurement_of
 cco:has_denominator_measurement_of rdf:type owl:ObjectProperty ;
                                    rdfs:subPropertyOf cco:describes ;
-                                   rdfs:domain cco:ProportionalRatioMeasurementInformation ;
+                                   rdfs:domain cco:ProportionalRatioMeasurementInformationContentEntity ;
                                    rdfs:range obo:BFO_0000001 ;
                                    cco:definition "For all Types T1 and T2, if T1 has denominator measurement of T2, then there is some instance of T1, t1 that is a proportional measurement of some instance of T2, t2 such that t2 is the whole being compared to by some portion."^^xsd:string ;
                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -127,7 +151,7 @@ cco:has_denominator_measurement_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_numerator_measurement_of
 cco:has_numerator_measurement_of rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf cco:describes ;
-                                 rdfs:domain cco:ProportionalRatioMeasurementInformation ;
+                                 rdfs:domain cco:ProportionalRatioMeasurementInformationContentEntity ;
                                  rdfs:range obo:BFO_0000001 ;
                                  cco:definition "For all Types T1 and T2, if T1 has numerator measurement of T2, then there is some instance of T1, t1 that is a proportional measurement of some instance of T2, t2 such that t2 is the portion being compared to some whole."^^xsd:string ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -152,7 +176,7 @@ cco:is_a_measurement_of rdf:type owl:ObjectProperty ;
                         owl:inverseOf cco:is_measured_by ;
                         rdf:type owl:FunctionalProperty ;
                         rdfs:domain cco:MeasurementInformationContentEntity ;
-                        cco:definition "For all Types T1 and T2, if T1 is a measurement of T2 then there is some instance of T1, t1, that estimates some characteristic of some instance of T2, t2, relative to some scale or classification scheme."^^xsd:string ;
+                        cco:definition "For all Types T1 and T2, if T1 is a measurement of T2 then there is some instance of T1, t1, that describes some characteristic of some instance of T2, t2, relative to some scale or classification scheme."^^xsd:string ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                         rdfs:comment "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."^^xsd:string ;
                         rdfs:label "is a measurement of"^^xsd:string .
@@ -204,8 +228,8 @@ cco:is_about rdf:type owl:ObjectProperty ;
              owl:inverseOf cco:is_subject_of ;
              rdfs:domain cco:InformationContentEntity ;
              rdfs:range obo:BFO_0000001 ;
-             cco:definition "A primitive (i.e. undefined) relationship between an Information Content Entity and some Entity."^^xsd:string ;
-             cco:definition_source "Derived from IAO_0003136"^^xsd:string ;
+             cco:definition "A primitive relationship between an Information Content Entity and some Entity."^^xsd:string ;
+             cco:definition_source "http://purl.obolibrary.org/obo/IAO_0000136"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
              rdfs:label "is about"^^xsd:string .
 
@@ -221,7 +245,7 @@ cco:is_excerpted_from rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_geospatial_coordinate_reference_system_of
 cco:is_geospatial_coordinate_reference_system_of rdf:type owl:ObjectProperty ;
-                                                 rdfs:subPropertyOf cco:inheres_in ;
+                                                 rdfs:subPropertyOf cco:is_reference_system_of ;
                                                  owl:inverseOf cco:uses_geospatial_coordinate_reference_system ;
                                                  rdfs:domain cco:GeospatialCoordinateReferenceSystem ;
                                                  rdfs:range cco:InformationBearingEntity ;
@@ -305,6 +329,16 @@ cco:is_mentioned_by rdf:type owl:ObjectProperty ;
                     rdfs:label "is mentioned by"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_reference_system_of
+cco:is_reference_system_of rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf cco:inheres_in ;
+                           owl:inverseOf cco:uses_reference_system ;
+                           rdfs:domain cco:ReferenceSystem ;
+                           rdfs:range cco:InformationBearingEntity ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                           rdfs:label "is reference system of"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_subject_of
 cco:is_subject_of rdf:type owl:ObjectProperty ;
                   rdfs:range cco:InformationContentEntity ;
@@ -318,7 +352,8 @@ cco:language_used_in rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf cco:prescribes ;
                      owl:inverseOf cco:uses_language ;
                      rdfs:domain cco:Language ;
-                     rdfs:range cco:InformationQualityEntity ;
+                     rdfs:range cco:InformationBearingEntity ;
+                     cco:elucidation "A Language L is used in an Information Bearing Entity iff the literal value of that Information Bearing Entity is a string that is encoded according to the syntax of L."^^xsd:string ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                      rdfs:label "language used in"^^xsd:string .
 
@@ -328,7 +363,7 @@ cco:prescribed_by rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf cco:is_subject_of ;
                   owl:inverseOf cco:prescribes ;
                   rdfs:range cco:DirectiveInformationContentEntity ;
-                  cco:definition "The inverse of presecribes, which relates an Entity to some Directive Information Content Entity."^^xsd:string ;
+                  cco:definition "The inverse of prescribes, which relates an Entity to some Directive Information Content Entity."^^xsd:string ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                   rdfs:label "prescribed by"^^xsd:string .
 
@@ -370,19 +405,53 @@ cco:represents rdf:type owl:ObjectProperty ;
                rdfs:label "represents"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by
+cco:set_described_by rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf cco:described_by ;
+                     rdfs:domain cco:MeasurementInformationContentEntity ;
+                     rdfs:range cco:NominalMeasurementInformationContentEntity ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                     rdfs:label "set described by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by_expected_element
+cco:set_described_by_expected_element rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf cco:set_described_by ;
+                                      rdfs:range cco:NominalMeasurementInformationContentEntity ;
+                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                      rdfs:label "set described by expected element"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by_ordinality
+cco:set_described_by_ordinality rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf cco:set_described_by ;
+                                rdfs:domain cco:OrdinalMeasurementInformationContentEntity ;
+                                rdfs:range cco:NominalMeasurementInformationContentEntity ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                rdfs:label "set described by ordinality"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by_proportion
+cco:set_described_by_proportion rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf cco:set_described_by ;
+                                rdfs:domain cco:ProportionalRatioMeasurementInformationContentEntity ;
+                                rdfs:range cco:NominalMeasurementInformationContentEntity ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                rdfs:label "set described by proportion"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/time_zone_identifier_used_by
 cco:time_zone_identifier_used_by rdf:type owl:ObjectProperty ;
                                  owl:inverseOf cco:uses_time_zone_identifier ;
                                  rdfs:domain cco:TimeZoneIdentifier ;
                                  rdfs:range cco:InformationBearingEntity ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                 rdfs:comment "See 'uses time zone'."^^xsd:string ;
                                  rdfs:label "time zone identifier used by"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_geospatial_coordinate_reference_system
 cco:uses_geospatial_coordinate_reference_system rdf:type owl:ObjectProperty ;
-                                                rdfs:subPropertyOf cco:bearer_of ;
+                                                rdfs:subPropertyOf cco:uses_reference_system ;
                                                 rdfs:domain cco:InformationBearingEntity ;
                                                 rdfs:range cco:GeospatialCoordinateReferenceSystem ;
                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -392,8 +461,9 @@ cco:uses_geospatial_coordinate_reference_system rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_language
 cco:uses_language rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf cco:prescribed_by ;
-                  rdfs:domain cco:InformationQualityEntity ;
+                  rdfs:domain cco:InformationBearingEntity ;
                   rdfs:range cco:Language ;
+                  cco:elucidation "An Information Bearing Entity uses language L iff the literal value of that Information Bearing Entity is a string that is encoded according to the syntax of L."^^xsd:string ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                   rdfs:label "uses language"^^xsd:string .
 
@@ -408,6 +478,15 @@ cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
                           rdfs:label "uses measurement unit"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_reference_system
+cco:uses_reference_system rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf cco:bearer_of ;
+                          rdfs:domain cco:InformationBearingEntity ;
+                          rdfs:range cco:ReferenceSystem ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                          rdfs:label "uses reference system"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_time_zone_identifier
 cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
                               rdfs:domain cco:InformationBearingEntity ;
@@ -420,14 +499,6 @@ cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/contains_token_information
-cco:contains_token_information rdf:type owl:DatatypeProperty ;
-                               rdfs:domain cco:InformationBearingEntity ;
-                               rdfs:range xsd:string ;
-                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                               rdfs:label "contains token"^^xsd:string .
-
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_URI_value
 cco:has_URI_value rdf:type owl:DatatypeProperty ;
@@ -468,6 +539,14 @@ cco:has_decimal_value rdf:type owl:DatatypeProperty ;
                       rdfs:label "has decimal value"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_double_value
+cco:has_double_value rdf:type owl:DatatypeProperty ;
+                     rdfs:domain cco:InformationBearingEntity ;
+                     rdfs:range xsd:double ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                     rdfs:label "has double value"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_integer_value
 cco:has_integer_value rdf:type owl:DatatypeProperty ;
                       rdfs:domain cco:InformationBearingEntity ;
@@ -489,6 +568,23 @@ cco:has_text_value rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AbbreviatedName
+cco:AbbreviatedName rdf:type owl:Class ;
+                    rdfs:subClassOf cco:DesignativeName ;
+                    cco:definition "A Designative Name that is a shortened form of a Proper Name."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:label "Abbreviated Name"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Acronym
+cco:Acronym rdf:type owl:Class ;
+            rdfs:subClassOf cco:AbbreviatedName ;
+            cco:definition "An Abbreviated Name that combines the initial letters of a Designative Name and which is pronounced as a word."^^xsd:string ;
+            cco:example_of_usage "Wi-Fi, ASCII, OPSEC"^^xsd:string ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+            rdfs:label "Acronym"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Algorithm
 cco:Algorithm rdf:type owl:Class ;
               rdfs:subClassOf cco:DirectiveInformationContentEntity ;
@@ -508,6 +604,14 @@ cco:ArbitraryIdentifier rdf:type owl:Class ;
                         rdfs:label "Arbitrary Identifier"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ArtifactVersionOrdinality
+cco:ArtifactVersionOrdinality rdf:type owl:Class ;
+                              rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
+                              cco:definition "An Ordinal Measurement Information Content Entity that is about the form of an Artifact which differs in some respects from previous or future forms of that Artifact."^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                              rdfs:label "Artifact Version Ordinality"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArtificialLanguage
 cco:ArtificialLanguage rdf:type owl:Class ;
                        rdfs:subClassOf cco:Language ;
@@ -520,25 +624,6 @@ cco:ArtificialLanguage rdf:type owl:Class ;
                        rdfs:label "Artificial Language"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/AztecCode
-cco:AztecCode rdf:type owl:Class ;
-              rdfs:subClassOf cco:TwoDimensionalBarCode ;
-              cco:definition "A Two-Dimensional Barcode that is used by the transportation industry to scan tickets."^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-              rdfs:label "Aztec Code"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Barcode
-cco:Barcode rdf:type owl:Class ;
-            rdfs:subClassOf cco:CodeIdentifier ;
-            cco:definition "A Code Identifier whose concretizations consist of machine-readable symbols."^^xsd:string ;
-            cco:definition_source "http://en.wikipedia.org/wiki/Barcode"^^xsd:string ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-            cco:term_editor "Brian Donohue"^^xsd:string ;
-            rdfs:comment "For information on types of barcodes, see: https://www.scandit.com/types-barcodes-choosing-right-barcode/"^^xsd:string ;
-            rdfs:label "Barcode"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/BoundingBoxPointIdentifier
 cco:BoundingBoxPointIdentifier rdf:type owl:Class ;
                                owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -546,18 +631,37 @@ cco:BoundingBoxPointIdentifier rdf:type owl:Class ;
                                                      owl:someValuesFrom cco:BoundingBoxPoint
                                                    ] ;
                                rdfs:subClassOf cco:GeospatialPositionIdentifier ;
-                               cco:definition "A Spatial Region Identifier that designates some Bounding Box Point."^^xsd:string ;
+                               cco:definition "A Geospatial Position Identifier that designates some Bounding Box Point."^^xsd:string ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                rdfs:label "Bounding Box Point Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Certificate
-cco:Certificate rdf:type owl:Class ;
-                rdfs:subClassOf cco:InformationContentEntity ;
-                cco:definition "An Information Content Entity that attests to certain characteristics of an Object, Person, or Organization."^^xsd:string ;
-                cco:definition_source "https://en.wikipedia.org/wiki/Certification"^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                rdfs:label "Certificate" .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarDateIdentifier
+cco:CalendarDateIdentifier rdf:type owl:Class ;
+                           rdfs:subClassOf cco:DateIdentifier ;
+                           cco:definition "A Date Identifier that designates some Day by using a combination of Day, Week, Month, or Year Identifiers formatted according to an implementation of a Calendar System."^^xsd:string ;
+                           cco:example_of_usage "January 1, 2018; 1 January 2018; 01/01/18; 01Jan18"^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                           rdfs:label "Calendar Date Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarSystem
+cco:CalendarSystem rdf:type owl:Class ;
+                   rdfs:subClassOf cco:TemporalReferenceSystem ;
+                   cco:definition "A Temporal Reference System that is designed to organize and identify dates."^^xsd:string ;
+                   cco:elucidation "Calendars typically organize dates through the use of naming and temporal conventions based on Days, Weeks, Months, and Years."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:label "Calendar System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CartesianCoordinateSystem
+cco:CartesianCoordinateSystem rdf:type owl:Class ;
+                              rdfs:subClassOf cco:SpatialReferenceSystem ;
+                              cco:alternative_label "Rectangular Coordinate System"^^xsd:string ;
+                              cco:definition "A Spatial Reference System that identifies each point in a spatial region of n-dimensions using an ordered n-tuple of numerical coordinates that are the signed (i.e. positive or negative) distances measured in the same unit of length from the zero point where the fixed perpendicular Coordinate System Axes meet."^^xsd:string ;
+                              cco:definition_source "https://en.wikipedia.org/wiki/Cartesian_coordinate_system"^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                              rdfs:label "Cartesian Coordinate System"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CityIdentifier
@@ -584,36 +688,23 @@ cco:CityPartIdentifier rdf:type owl:Class ;
                        rdfs:label "City Part Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CodabarBarcode
-cco:CodabarBarcode rdf:type owl:Class ;
-                   rdfs:subClassOf cco:OneDimensionalBarcode ;
-                   cco:definition "A One-Dimensional Barcode that consists of numbers 0-9 and the characters -$:/.+ and is used by logistics and healthcare professionals."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                   rdfs:label "Codabar Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilTimeReferenceSystem
+cco:CivilTimeReferenceSystem rdf:type owl:Class ;
+                             rdfs:subClassOf cco:TemporalReferenceSystem ;
+                             cco:definition "A Temporal Reference System that is a statutory time scale as designated by civilian authorities to determine local time(s)."^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                             rdfs:comment "In traditional astronomical usage, civil time is mean solar time as calculated from midnight as the beginning of the Civil Day."^^xsd:string ,
+                                          "Note that Civil Time Reference System is more accurately represented as a Temporal Reference System that participates in an act of usage that is sanctioned by an appropriate civil authority. As such, it should be represented as a defined class."^^xsd:string ;
+                             rdfs:label "Civil Time Reference System"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Code128Barcode
-cco:Code128Barcode rdf:type owl:Class ;
-                   rdfs:subClassOf cco:OneDimensionalBarcode ;
-                   cco:definition "A One-Dimensional Barcode that consists of up to 128 ASCII characters and is used primarily in supply chains."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                   rdfs:label "Code 128 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Code39Barcode
-cco:Code39Barcode rdf:type owl:Class ;
-                  rdfs:subClassOf cco:OneDimensionalBarcode ;
-                  cco:definition "A One-Dimensional Barcode that consists of 39 characters that are numbers 0-9, capital letters A-Z, or the symbols -.$/+% and space and is used primarily in automotive and defense industries."^^xsd:string ;
-                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                  rdfs:label "Code 39 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Code93Barcode
-cco:Code93Barcode rdf:type owl:Class ;
-                  rdfs:subClassOf cco:OneDimensionalBarcode ;
-                  cco:definition "A One-Dimensional Barcode that consists of up to 93 ASCII characters and is used in logistics to identify packages in retail inventory, lable electornic components, and provide supplementary delivery information."^^xsd:string ;
-                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                  rdfs:label "Code 93 Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ClockTimeSystem
+cco:ClockTimeSystem rdf:type owl:Class ;
+                    rdfs:subClassOf cco:TemporalReferenceSystem ;
+                    cco:definition "A Temporal Reference System that is a convention for keeping and displaying the Time of Day."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:comment "A single Clock Time System does not provide a complete means for identifying or measuring times. Depending on the particular Clock Time System, it may be compatible for use with one or more other Temporal Reference Systems."^^xsd:string ;
+                    rdfs:label "Clock Time System"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CodeIdentifier
@@ -625,19 +716,6 @@ cco:CodeIdentifier rdf:type owl:Class ;
                    cco:definition "A Non-Name Identifier that consists of a string of characters that was created and assigned according to an encoding system such that metadata can be derived from the identifier."^^xsd:string ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                    rdfs:label "Code Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ConnectedTemporalRegionIdentifier
-cco:ConnectedTemporalRegionIdentifier rdf:type owl:Class ;
-                                      owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                            owl:onProperty cco:designates ;
-                                                            owl:someValuesFrom obo:BFO_0000008
-                                                          ] ;
-                                      rdfs:subClassOf cco:TemporalRegionIdentifier ;
-                                      cco:definition "A Temporal Region Identifier that designates some Connected Temporal Region."^^xsd:string ;
-                                      cco:elucidation "A Connected Temporal Region is a Temporal Region that is contiguous such that there are no gaps in the spanned period of time."^^xsd:string ;
-                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                      rdfs:label "Connected Temporal Region Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ContinentIdentifier
@@ -652,12 +730,12 @@ cco:ContinentIdentifier rdf:type owl:Class ;
                         rdfs:label "Continent Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CountMeasurement
-cco:CountMeasurement rdf:type owl:Class ;
-                     rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
-                     cco:definition "A Ratio Measurement Information Content Entity that measures the number of members of some aggregate."^^xsd:string ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                     rdfs:label "Count Measurement"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CountMeasurementInformationContentEntity
+cco:CountMeasurementInformationContentEntity rdf:type owl:Class ;
+                                             rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
+                                             cco:definition "A Ratio Measurement Information Content Entity that is a measurement of the number of members of some aggregate."^^xsd:string ;
+                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                             rdfs:label "Count Measurement Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CountryIdentifier
@@ -684,12 +762,12 @@ cco:CountryPartIdentifier rdf:type owl:Class ;
                           rdfs:label "Country Part Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/DataMatrixCode
-cco:DataMatrixCode rdf:type owl:Class ;
-                   rdfs:subClassOf cco:TwoDimensionalBarCode ;
-                   cco:definition "A Two-Dimensional Barcode that consists of cells arranged in rectangular patterns and is used for marking small items in logistics and operations."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                   rdfs:label "Data Matrix Code"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DataRangeIntervalEstimateInformationContentEntity
+cco:DataRangeIntervalEstimateInformationContentEntity rdf:type owl:Class ;
+                                                      rdfs:subClassOf cco:IntervalEstimateInformationContentEntity ;
+                                                      cco:definition "A Ratio Measurement Information Content Entity that is a measurement of a set of values and is equal to the absolute difference between the largest value and the smallest value in the set."^^xsd:string ;
+                                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                      rdfs:label "Data Range Interval Estimate Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DateIdentifier
@@ -699,6 +777,7 @@ cco:DateIdentifier rdf:type owl:Class ;
                                          owl:someValuesFrom cco:Day
                                        ] ;
                    rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                   cco:alternative_label "Day Identifier"^^xsd:string ;
                    cco:definition "A Temporal Interval Identifier that designates some Day."^^xsd:string ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                    rdfs:label "Date Identifier"^^xsd:string .
@@ -716,12 +795,25 @@ cco:DecadeIdentifier rdf:type owl:Class ;
                      rdfs:label "Decade Identifier"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DecimalDateIdentifier
+cco:DecimalDateIdentifier rdf:type owl:Class ;
+                          rdfs:subClassOf cco:DateIdentifier ;
+                          cco:definition "A Date Identifier that designates some Day by using a number to indicate the sequential ordering of the Day since a specified Reference Time."^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                          rdfs:label "Decimal Date Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DecimalTimeOfDayIdentifier
+cco:DecimalTimeOfDayIdentifier rdf:type owl:Class ;
+                               rdfs:subClassOf cco:TimeOfDayIdentifier ;
+                               cco:alternative_label "Fractional Time of Day Identifier"^^xsd:string ;
+                               cco:definition "A Time of Day Identifier that designates an approximate Temporal Instant that is part of some Day and is specified using a decimal value for the portion of the Day that preceded the Temporal Instant."^^xsd:string ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                               rdfs:label "Decimal Time of Day Identifier"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DescriptiveInformationContentEntity
 cco:DescriptiveInformationContentEntity rdf:type owl:Class ;
-                                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                              owl:onProperty cco:describes ;
-                                                              owl:someValuesFrom obo:BFO_0000001
-                                                            ] ;
                                         rdfs:subClassOf cco:InformationContentEntity ;
                                         owl:disjointWith cco:DesignativeInformationContentEntity ,
                                                          cco:DirectiveInformationContentEntity ;
@@ -755,6 +847,34 @@ cco:DesignativeName rdf:type owl:Class ;
                     rdfs:label "Designative Name"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DeviationMeasurementInformationContentEntity
+cco:DeviationMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                 rdfs:subClassOf cco:MeasurementInformationContentEntity ;
+                                                 cco:alternative_label "Conformance Measurement"^^xsd:string ,
+                                                                       "Degree of Conformance"^^xsd:string ,
+                                                                       "Degree of Deviation"^^xsd:string ,
+                                                                       "Deviation Measurement"^^xsd:string ;
+                                                 cco:definition "A Measurement Information Content Entity that is a measurement of the extent to which an entity conforms to how it is expected or supposed to be."^^xsd:string ;
+                                                 cco:elucidation "In order for a Deviation to exist, an entity must first be expected, represented, prescribed, or predicted as being a certain way. Then, at a future time, this value can be compared to its actual, reported, or measured value to determine the Deviation between these values."^^xsd:string ;
+                                                 cco:example_of_usage "a missile impact deviates from its target location by 100 feet"^^xsd:string ,
+                                                                      "a satellite deviaties from its predicted orbital path by 5 kilometers"^^xsd:string ,
+                                                                      "an overweight piece of luggage deviates from an airline's maximum allowed weight by +10 pounds"^^xsd:string ;
+                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                 rdfs:comment "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."^^xsd:string ,
+                                                              "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance (see: 'Reliability Measurement Information Content Entity'), correctness-of-information (see: 'Veracity Measurement Information Content Entity'), and adherance-to-expectations ('Deviation Measurement Information Content Entity')."^^xsd:string ;
+                                                 rdfs:label "Deviation Measurement Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DiminutiveName
+cco:DiminutiveName rdf:type owl:Class ;
+                   rdfs:subClassOf cco:AbbreviatedName ;
+                   cco:definition "An Abbreviated Name that is a familiar form of a Proper Name."^^xsd:string ;
+                   cco:elucidation "\"Familiar form of a Proper Name\" means: that the name is (originally) a short, affectionate version of the fuller name, used (originally) by family or friends."^^xsd:string ;
+                   cco:example_of_usage "Alex, Bob, Cathy"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:label "Diminutive Name"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DirectiveInformationContentEntity
 cco:DirectiveInformationContentEntity rdf:type owl:Class ;
                                       owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -768,55 +888,34 @@ cco:DirectiveInformationContentEntity rdf:type owl:Class ;
                                       rdfs:label "Directive Information Content Entity"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/DistanceMeasurement
-cco:DistanceMeasurement rdf:type owl:Class ;
-                        rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
-                        cco:definition "A Ratio Measurement Information Content Entity that describes a One-Dimensional Extent inhering in some Site that is externally connected to two Independent Continuants."^^xsd:string ;
-                        cco:elucidation "Displacement (vector) is the shortest possible distance (scalar) between two points. Further thought is needed to adequately handle measurements of distance traveled along a path, e.g., a circuitous path or an arc (such as the surface of a planet), versus the simple case of a direct, straight line between two points."^^xsd:string ,
-                                        "Distance is a measure between two reference points, which are located on or in, or in some manner part of, the two obejcts for which the length of the extent between is sought. For exmple, the center point of the indentation of a ball in the sand and the edge of the foul line, the forwardmost point on a car's bumper and the closest point on the 2-dimensional plane that serves as the fiat boundary of a crosswalk, the center of an antenna array and closest point on ground."^^xsd:string ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                        rdfs:label "Distance Measurement"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DistanceMeasurementInformationContentEntity
+cco:DistanceMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
+                                                cco:definition "A Ratio Measurement Information Content Entity that is a measurement of a One-Dimensional Extent inhering in some Site that is externally connected to two Independent Continuants."^^xsd:string ;
+                                                cco:elucidation "Displacement (vector) is the shortest possible distance (scalar) between two points. Further thought is needed to adequately handle measurements of distance traveled along a path, e.g., a circuitous path or an arc (such as the surface of a planet), versus the simple case of a direct, straight line between two points."^^xsd:string ,
+                                                                "Distance is a measure between two reference points, which are located on or in, or in some manner part of, the two obejcts for which the length of the extent between is sought. For exmple, the center point of the indentation of a ball in the sand and the edge of the foul line, the forwardmost point on a car's bumper and the closest point on the 2-dimensional plane that serves as the fiat boundary of a crosswalk, the center of an antenna array and closest point on ground."^^xsd:string ;
+                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                rdfs:label "Distance Measurement Information Content Entity"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN13Barcode
-cco:EAN13Barcode rdf:type owl:Class ;
-                 rdfs:subClassOf cco:EANBarcode ;
-                 cco:definition "An EAN Barcode that consists of 13 numerical digits and is used to designate products at the point of sale."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                 rdfs:label "EAN-13 Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EstimateInformationContentEntity
+cco:EstimateInformationContentEntity rdf:type owl:Class ;
+                                     rdfs:subClassOf cco:MeasurementInformationContentEntity ;
+                                     cco:alternative_label "Estimate"^^xsd:string ,
+                                                           "Estimate Measurement Information Content Entity"^^xsd:string ,
+                                                           "Estimated Value"^^xsd:string ;
+                                     cco:definition "A Measurement Information Content Entity that is a measurement of an entity based on partial information about that entity or an appropriately similar entity."^^xsd:string ;
+                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                     rdfs:label "Estimate Information Content Entity"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN8Barcode
-cco:EAN8Barcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:EANBarcode ;
-                cco:definition "An EAN Barcode that consists of 8 numerical digits and is used to designate products at the point of sale."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                rdfs:label "EAN-8 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/EANBarcode
-cco:EANBarcode rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of 8 or 13 numerical digits and is used to scan consumer goods."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-               rdfs:label "EAN Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ExpectedNominalMeasurementInformation
-cco:ExpectedNominalMeasurementInformation rdf:type owl:Class ;
-                                          rdfs:subClassOf cco:NominalMeasurementInformationContentEntity ;
-                                          cco:definition "A Nominal Measurement Information Content Entity that is a measure of some entity in virtue of it being the most likely element to occur relative to a nominally described set of like entities."^^xsd:string ;
-                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                          rdfs:label "Expected Nominal Measurement Information"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GS1DataBar
-cco:GS1DataBar rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of 12-14 numerical digits and is used in retail and healthcare."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-               rdfs:comment "Further variants of GS1 DataBar have not been defined here."^^xsd:string ;
-               rdfs:label "GS1 DataBar Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EventStatusNominalInformationContentEntity
+cco:EventStatusNominalInformationContentEntity rdf:type owl:Class ;
+                                               rdfs:subClassOf cco:NominalMeasurementInformationContentEntity ;
+                                               cco:definition "A Nominal Measurement Information Content Entity that is a measurement of the current state of a process."^^xsd:string ;
+                                               cco:example_of_usage "proposed, approved, planned, in progress, completed, failed, or successful"^^xsd:string ;
+                                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                               rdfs:label "Event Status Nominal Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityBorderIdentifier
@@ -862,15 +961,16 @@ cco:GeospatialBoundaryIdentifier rdf:type owl:Class ;
                                                        owl:someValuesFrom cco:GeospatialBoundary
                                                      ] ;
                                  rdfs:subClassOf cco:DesignativeInformationContentEntity ;
-                                 cco:definition "A Spatial Region Identifier that designates some Geospatial Boundary."^^xsd:string ;
+                                 cco:definition "A Designative Information Content Entity that designates some Geospatial Boundary."^^xsd:string ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                  rdfs:label "Geospatial Boundary Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialCoordinateReferenceSystem
 cco:GeospatialCoordinateReferenceSystem rdf:type owl:Class ;
-                                        rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
-                                        cco:definition "A Descriptive Information Content Entity that describes a set of standards for determining the location of a point at or near the surface of the Earth."^^xsd:string ;
+                                        rdfs:subClassOf cco:SpatialReferenceSystem ;
+                                        cco:alternative_label "Geographic Coordinate System"^^xsd:string ;
+                                        cco:definition "A Spatial Reference System that is used to determine and identify the location of a point or object at or near the surface of the Earth."^^xsd:string ;
                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                         rdfs:label "Geospatial Coordinate Reference System"^^xsd:string .
 
@@ -906,7 +1006,7 @@ cco:GeospatialRegionBoundingBoxIdentifier rdf:type owl:Class ;
                                                                 owl:someValuesFrom cco:GeospatialRegionBoundingBox
                                                               ] ;
                                           rdfs:subClassOf cco:GeospatialBoundaryIdentifier ;
-                                          cco:definition "A Spatial Region Identifier that designates some Geospatial Region Bounding Box."^^xsd:string ;
+                                          cco:definition "A Geospatial Boundary Identifier that designates some Geospatial Region Bounding Box."^^xsd:string ;
                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                           rdfs:label "Geospatial Region Bounding Box Identifier"^^xsd:string .
 
@@ -926,9 +1026,18 @@ cco:GeospatialRegionIdentifier rdf:type owl:Class ;
                                                      owl:someValuesFrom cco:GeospatialRegion
                                                    ] ;
                                rdfs:subClassOf cco:SiteIdentifier ;
-                               cco:definition "A Spatial Region Identifier that designates some Geospatial Region."^^xsd:string ;
+                               cco:definition "A Site Identifier that designates some Geospatial Region."^^xsd:string ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                rdfs:label "Geospatial Region Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GreenwichMeanTimeZoneIdentifier
+cco:GreenwichMeanTimeZoneIdentifier rdf:type owl:Class ;
+                                    rdfs:subClassOf cco:TimeZoneIdentifier ;
+                                    cco:definition "A Time Zone Identifier that designates a spatial region where the local time is calculated according to the specified offset from Greenwich Mean Time."^^xsd:string ;
+                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                    rdfs:comment "Greenwich Mean Time (GMT) is the mean solar time at the Royal Observatory in Greenwich, London and has been superseded by Coordinated Universal Time (UTC)."^^xsd:string ;
+                                    rdfs:label "Greenwich Mean Time Zone Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/HourIdentifier
@@ -943,30 +1052,6 @@ cco:HourIdentifier rdf:type owl:Class ;
                    rdfs:label "Hour Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ISBNBarcode
-cco:ISBNBarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:EANBarcode ;
-                cco:definition "An EAN Barcode that is used to designate books."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                rdfs:label "ISBN Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ISSNBarcode
-cco:ISSNBarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:EANBarcode ;
-                cco:definition "An EAN Barcode that is used to designate periodicals."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                rdfs:label "ISSN Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ITFBarcode
-cco:ITFBarcode rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of an even number of numerical characters and is used primarily in packaging and distribution."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-               rdfs:label "ITF Barcode"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
 cco:InformationBearingEntity rdf:type owl:Class ;
                              owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -976,7 +1061,7 @@ cco:InformationBearingEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000030 ;
                              cco:alternative_label "IBE"^^xsd:string ;
                              cco:definition "An Object upon which an Information Content Entity generically depends."^^xsd:string ;
-                             cco:definition_source "Derived from: http://purl/obolibrary.org/obo/IAO_0000178"^^xsd:string ;
+                             cco:definition_source "http://purl/obolibrary.org/obo/IAO_0000178"^^xsd:string ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                              rdfs:label "Information Bearing Entity"^^xsd:string .
 
@@ -990,7 +1075,7 @@ cco:InformationContentEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000031 ;
                              cco:alternative_label "ICE"^^xsd:string ;
                              cco:definition "A Generically Dependent Continuant that generically depends on some Information Bearing Entity and stands in relation of aboutness to some Entity."^^xsd:string ;
-                             cco:definition_source "Derived from: http://purl.obolibrary.org/obo/IAO_0000030"^^xsd:string ;
+                             cco:definition_source "http://purl.obolibrary.org/obo/IAO_0000030"^^xsd:string ;
                              cco:elucidation "Information Content Entity is here intended to be a class of Entities whose instances are the informational content of Information Bearing Entities. For example, three instances of information bearers -- such as a bar chart, color-coded map, and a written report -- each of which lists the GDP of Countries for the year 2010 are each different bearers of the same information content. It is this content that is generically dependent upon its bearer. This treatment of Informational Content Entity (cf. the Information Artifact Ontology) leads to a principle of subtyping based upon the relationship that ICE's have with the Entity they are about rather than characteristics such as format, language, measurement scale, or media. The latter are treated here as being Qualities of bearers."^^xsd:string ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                              rdfs:label "Information Content Entity"^^xsd:string .
@@ -1020,6 +1105,25 @@ cco:InformationStructureEntity rdf:type owl:Class ;
                                rdfs:label "Information Structure Entity"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Initialism
+cco:Initialism rdf:type owl:Class ;
+               rdfs:subClassOf cco:AbbreviatedName ;
+               cco:definition "An Abbreviated Name that consists of the initial letters of some words (or syllables) in a Designative Name, and in which each letter is pronounced separately."^^xsd:string ;
+               cco:example_of_usage "USA, CPU, BBC"^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+               rdfs:label "Initialism"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IntervalEstimateInformationContentEntity
+cco:IntervalEstimateInformationContentEntity rdf:type owl:Class ;
+                                             rdfs:subClassOf cco:EstimateInformationContentEntity ;
+                                             cco:alternative_label "Interval Estimate"^^xsd:string ,
+                                                                   "Interval Estimate Measurement Information Content Entity"^^xsd:string ;
+                                             cco:definition "An Estimate Information Content Entity that consists of an interval of possible (or probable) values for the measured entity."^^xsd:string ;
+                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                             rdfs:label "Interval Estimate Information Content Entity"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IntervalMeasurementInformationContentEntity
 cco:IntervalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                 owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -1030,17 +1134,53 @@ cco:IntervalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                 owl:disjointWith cco:NominalMeasurementInformationContentEntity ,
                                                                  cco:OrdinalMeasurementInformationContentEntity ,
                                                                  cco:RatioMeasurementInformationContentEntity ;
-                                                cco:definition "A Measurement Information Content Entity that consists of a symbol that places a Quality of an Entity onto some interval scale having no true zero value."^^xsd:string ;
+                                                cco:definition "A Measurement Information Content Entity that places a Quality of an Entity onto some interval scale having no true zero value."^^xsd:string ;
+                                                cco:example_of_usage "The sentence \"The temperature reached -27 degrees Fahrenheit on January 20, 1985 in Chicago, IL.\" is the bearer of an interval measurement as 0 degrees on the Fahrenheit scale does not describe absolute zero."^^xsd:string ;
                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"^^xsd:string ;
                                                 rdfs:label "Interval Measurement Information Content Entity"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/JAN13Barcode
-cco:JAN13Barcode rdf:type owl:Class ;
-                 rdfs:subClassOf cco:EANBarcode ;
-                 cco:definition "An EAN Barcode that consists of 13 numerical digits and is used primarily in Japan to designate products at the point of sale."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                 rdfs:label "JAN-13 Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JulianDateFraction
+cco:JulianDateFraction rdf:type owl:Class ;
+                       rdfs:subClassOf cco:DecimalTimeOfDayIdentifier ;
+                       cco:alternative_label "Julian Date Time Identifier"^^xsd:string ,
+                                             "Julian Day Fraction"^^xsd:string ;
+                       cco:definition "A Decimal Time of Day Identifier that designates an approximate Temporal Instant that is part of some Julian Day."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                       rdfs:label "Julian Date Fraction"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JulianDateIdentifier
+cco:JulianDateIdentifier rdf:type owl:Class ;
+                         rdfs:subClassOf cco:DecimalTimeOfDayIdentifier ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty ro:has_part ;
+                                           owl:someValuesFrom cco:JulianDateFraction
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty ro:has_part ;
+                                           owl:someValuesFrom cco:JulianDayNumber
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty cco:designates ;
+                                           owl:someValuesFrom cco:JulianDate
+                                         ] ;
+                         cco:definition "A Decimal Time of Day Identifier that designates a Julian Date and is composed of both a Julian Day Number and a Julian Date Fraction."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                         rdfs:label "Julian Date Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JulianDayNumber
+cco:JulianDayNumber rdf:type owl:Class ;
+                    rdfs:subClassOf cco:DecimalDateIdentifier ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty cco:designates ;
+                                      owl:someValuesFrom cco:JulianDay
+                                    ] ;
+                    cco:definition "A Decimal Date Identifier that designates some Julian Day by using a number to indicate the sequential ordering of the Day since the Julian Date epoch."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:label "Julian Day Number"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Language
@@ -1051,30 +1191,49 @@ cco:Language rdf:type owl:Class ;
              rdfs:label "Language"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LegalName
+cco:LegalName rdf:type owl:Class ;
+              rdfs:subClassOf cco:ProperName ;
+              cco:definition "A Proper Name that is an official name for the designated entity as determined by a Government or court of law."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "Legal Name"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LotNumber
 cco:LotNumber rdf:type owl:Class ;
               rdfs:subClassOf cco:CodeIdentifier ;
               cco:definition "A Code Identifier that designates a particular quantity or lot of material from a single manufacturer."^^xsd:string ;
               cco:definition_source "https://en.wikipedia.org/wiki/Lot_number"^^xsd:string ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-              cco:term_editor "Brian Donohue"^^xsd:string ;
               rdfs:label "Lot Number" .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MSIPlesseyBarcode
-cco:MSIPlesseyBarcode rdf:type owl:Class ;
-                      rdfs:subClassOf cco:OneDimensionalBarcode ;
-                      cco:definition "A One-Dimensional Barcode that consists of an indefinite number of numerical characters and is used for inventory control and marking storage containers and shelves in warehouse environments."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                      rdfs:label "MSI Plessey Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LunarCalendarSystem
+cco:LunarCalendarSystem rdf:type owl:Class ;
+                        rdfs:subClassOf cco:CalendarSystem ;
+                        cco:definition "A Calendar System that is designed to organize and identify dates based on the cycles of the Moon's phases."^^xsd:string ;
+                        cco:definition_source "https://en.wikipedia.org/wiki/Lunar_calendar"^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                        rdfs:label "Lunar Calendar System"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MaximumOrdinalMeasurementInformation
-cco:MaximumOrdinalMeasurementInformation rdf:type owl:Class ;
-                                         rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
-                                         cco:definition "An Ordinal Measurement Information Content Entity that is a measure of some entity in virtue of it being the largest or having the greatest amount relative to a nominally described set of like entities."^^xsd:string ;
-                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                         rdfs:label "Maximum Ordinal Measurement Information"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MaximumOrdinalMeasurementInformationContentEntity
+cco:MaximumOrdinalMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                      rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
+                                                      cco:definition "An Ordinal Measurement Information Content Entity that is a measurement of some entity in virtue of it being the largest or having the greatest amount relative to a nominally described set of like entities."^^xsd:string ;
+                                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                      rdfs:label "Maximum Ordinal Measurement Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MeanPointEstimateInformationContentEntity
+cco:MeanPointEstimateInformationContentEntity rdf:type owl:Class ;
+                                              rdfs:subClassOf cco:PointEstimateInformationContentEntity ;
+                                              cco:alternative_label "Arithmetic Mean"^^xsd:string ,
+                                                                    "Average"^^xsd:string ,
+                                                                    "Mean"^^xsd:string ;
+                                              cco:definition "A Ratio Measurement Information Content Entity that is a measurement of a set of values and is equal to the sum of all the values in the set divided by the total number of values in the set."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                              rdfs:label "Mean Point Estimate Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementInformationContentEntity
@@ -1086,7 +1245,7 @@ cco:MeasurementInformationContentEntity rdf:type owl:Class ;
                                         rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
                                         owl:disjointWith cco:RepresentationalInformationContentEntity ;
                                         cco:alternative_label "Measurement ICE"^^xsd:string ;
-                                        cco:definition "A Descriptive Information Content Entity that consists of a symbol that is a measure of the extent, dimensions, quantity, or quality of an Entity relative to some standard."^^xsd:string ;
+                                        cco:definition "A Descriptive Information Content Entity that describes the extent, dimensions, quantity, or quality of an Entity relative to some standard."^^xsd:string ;
                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                         rdfs:label "Measurement Information Content Entity"^^xsd:string .
 
@@ -1095,7 +1254,7 @@ cco:MeasurementInformationContentEntity rdf:type owl:Class ;
 cco:MeasurementUnit rdf:type owl:Class ;
                     rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
                     cco:definition "A Descriptive Information Content Entity that describes a definite magnitude of a physical quantity, defined and adopted by convention and/or by law, that is used as a standard for measurement of the same physical quantity."^^xsd:string ;
-                    cco:definition_source "Derived from http://en.wikipedia.org/wiki/Measurement_unit"^^xsd:string ;
+                    cco:definition_source "http://en.wikipedia.org/wiki/Measurement_unit"^^xsd:string ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                     rdfs:label "Measurement Unit"^^xsd:string .
 
@@ -1108,12 +1267,29 @@ cco:MeasurementUnitOfGeocoordinate rdf:type owl:Class ;
                                    rdfs:label "Measurement Unit of Geocoordinate"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MinimumOrdinalMeasurementInformation
-cco:MinimumOrdinalMeasurementInformation rdf:type owl:Class ;
-                                         rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
-                                         cco:definition "An Ordinal Measurement Information Content Entity that is a measure of some entity in virtue of it being the smallest or having the least amount relative to a nominally described set of like entities."^^xsd:string ;
-                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                         rdfs:label "Minimum Ordinal Measurement Information"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MedianPointEstimateInformationContentEntity
+cco:MedianPointEstimateInformationContentEntity rdf:type owl:Class ;
+                                                rdfs:subClassOf cco:PointEstimateInformationContentEntity ;
+                                                cco:alternative_label "Median"^^xsd:string ;
+                                                cco:definition "A Point Estimate of the 50th percentile of a measurement of some attribute of a population. that is a measurement of a set of values and is equal to the middle value (or, in a set containing an even number of values, the average of the two middle-most values) which separates the set into two equally populated upper and lower sets of values."^^xsd:string ;
+                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                rdfs:label "Median Point Estimate Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilitaryTimeZoneIdentifier
+cco:MilitaryTimeZoneIdentifier rdf:type owl:Class ;
+                               rdfs:subClassOf cco:TimeZoneIdentifier ;
+                               cco:definition "A Time Zone Identifier that designates a spatial region where the local time is calculated according to the specified offset from Zulu time, which has no offset from Coordinated Universal Time."^^xsd:string ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                               rdfs:label "Military Time Zone Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MinimumOrdinalMeasurementInformationContentEntity
+cco:MinimumOrdinalMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                      rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
+                                                      cco:definition "An Ordinal Measurement Information Content Entity that is a measurement of some entity in virtue of it being the smallest or having the least amount relative to a nominally described set of like entities."^^xsd:string ;
+                                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                      rdfs:label "Minimum Ordinal Measurement Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MinuteIdentifier
@@ -1126,6 +1302,17 @@ cco:MinuteIdentifier rdf:type owl:Class ;
                      cco:definition "A Temporal Interval Identifier that designates some Minute."^^xsd:string ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                      rdfs:label "Minute Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModePointEstimateInformationContentEntity
+cco:ModePointEstimateInformationContentEntity rdf:type owl:Class ;
+                                              rdfs:subClassOf cco:PointEstimateInformationContentEntity ;
+                                              cco:alternative_label "Mode"^^xsd:string ,
+                                                                    "Statistical Mode"^^xsd:string ;
+                                              cco:definition "A Nominal Measurement Information Content Entity that is a measurement of a set of values and is equal to the value(s) that occurs the most often in the set."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                              rdfs:comment "While there is always at least one Mode for every set of data, it is possible for any given set of data to have multiple Modes. The Mode is typically most useful when the members of the set are all Nominal Measurement Information Content Entities."^^xsd:string ;
+                                              rdfs:label "Mode Point Estimate Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MonthIdentifier
@@ -1239,7 +1426,8 @@ cco:NautralLanguage rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Nickname
 cco:Nickname rdf:type owl:Class ;
              rdfs:subClassOf cco:DesignativeName ;
-             cco:definition "A Designative Name that is used as a substitute for an entity's proper name."^^xsd:string ;
+             cco:definition "A Designative Name that is a familiar or humorous substitute for an entity's Proper Name."^^xsd:string ;
+             cco:example_of_usage "Ike, Chief, P-Fox"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
              rdfs:label "Nickname"^^xsd:string .
 
@@ -1254,7 +1442,9 @@ cco:NominalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                owl:disjointWith cco:OrdinalMeasurementInformationContentEntity ,
                                                                 cco:RatioMeasurementInformationContentEntity ;
                                                cco:definition "A Measurement Information Content Entity that consists of a symbol that classifies Entities according to some shared, possibly arbitrary, characteristic."^^xsd:string ;
+                                               cco:example_of_usage "The sentence \"January 20, 1985 was a cold day in Chicago, IL\" is the bearer of a nominal measurement."^^xsd:string ;
                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                               rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"^^xsd:string ;
                                                rdfs:label "Nominal Measurement Information Content Entity"^^xsd:string .
 
 
@@ -1268,12 +1458,15 @@ cco:NonNameIdentifier rdf:type owl:Class ;
                       rdfs:label "Non-Name Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/OneDimensionalBarcode
-cco:OneDimensionalBarcode rdf:type owl:Class ;
-                          rdfs:subClassOf cco:Barcode ;
-                          cco:definition "A Barcode whose concretizations consist of one-dimensional symbols arranged as parallel lines."^^xsd:string ;
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OrdinalDateIdentifier
+cco:OrdinalDateIdentifier rdf:type owl:Class ;
+                          rdfs:subClassOf cco:DecimalDateIdentifier ;
+                          cco:alternative_label "Ordinal Date"^^xsd:string ;
+                          cco:definition "A Decimal Date Identifier that designates some Day by using a number to indicate the sequential ordering of the Day since the beginning of the Year."^^xsd:string ;
+                          cco:definition_source "https://en.wikipedia.org/wiki/Ordinal_date"^^xsd:string ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                          rdfs:label "One-Dimensional Barcode"^^xsd:string .
+                          rdfs:comment "An Ordinal Date Identifier may or may not also contain a number indicating a specific Year. If both numbers are included, the ISO 8601 ordinal date format stipulates that the two numbers be formatted as YYYY-DDD or YYYYDDD where [YYYY] indicates a year and [DDD] is the day of that year, from 001 through 365 (or 366 in leap years)."^^xsd:string ;
+                          rdfs:label "Ordinal Date Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrdinalMeasurementInformationContentEntity
@@ -1285,16 +1478,10 @@ cco:OrdinalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                                owl:disjointWith cco:RatioMeasurementInformationContentEntity ;
                                                cco:definition "A Measurement Information Content Entity that consists of a symbol that places an Entity into some rank order."^^xsd:string ;
+                                               cco:example_of_usage "The sentence \"The coldest day in history in Chicago, IL. is January 20, 1985.\" is the bearer of an ordinal measurment."^^xsd:string ;
                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                               rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"^^xsd:string ;
                                                rdfs:label "Ordinal Measurement Information Content Entity"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PDF417Code
-cco:PDF417Code rdf:type owl:Class ;
-               rdfs:subClassOf cco:TwoDimensionalBarCode ;
-               cco:definition "A Two-Dimensional Barcode that is used in applications that require the storage of huge amounts of data."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-               rdfs:label "PDF417 Code"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PartNumber
@@ -1302,18 +1489,92 @@ cco:PartNumber rdf:type owl:Class ;
                rdfs:subClassOf cco:CodeIdentifier ;
                cco:definition "A Code Identifier that designates a type of part whose instances are designed to be part of some Artifact."^^xsd:string ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-               cco:term_editor "Brian Donohue"^^xsd:string ;
                rdfs:label "Part Number"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ProportionalRatioMeasurementInformation
-cco:ProportionalRatioMeasurementInformation rdf:type owl:Class ;
-                                            rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
-                                            obo:IAO_0000116 "We may want to add either a subclass for Percentage or a data property (has percentage value) that links the percentage expression for a proportion to the relevant IBE."^^xsd:string ;
-                                            cco:definition "A Ratio Measurement Information Content Entity that is a measure of a portion of a whole (described by the numerator) compared against that whole (described by the denominator) where the whole is a nominally described set of like entities."^^xsd:string ;
-                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                            rdfs:comment "A percentage is one way to express a proportional measure where the decimal expression of the proportion is multiplied by 100, thus giving the proportional value with respect to a whole of 100. E.g., the ratio of pigs to cows on a farm is 44 to 79 (44:79 or 44/79). The proportion of pigs to total animals is 44 to 123 or 44/123. The percentage of pigs is the decimal equivalent of the proportion (0.36) multiplied by a 100 (36%). The percentage can be expressed as a proportion where the numerator value is transformed for a denominator of 100, i.e., 36 of a 100 animals are pigs (36/100)."^^xsd:string ;
-                                            rdfs:label "Proportional Ratio Measurement Information"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PerformanceSpecification
+cco:PerformanceSpecification rdf:type owl:Class ;
+                             rdfs:subClassOf cco:DirectiveInformationContentEntity ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty cco:describes_condition ;
+                                               owl:someValuesFrom obo:BFO_0000001
+                                             ] ;
+                             cco:definition "A Directive Information Content Entity that prescibes some aspect of the behavior of a participant in a Process given one or more operating conditions."^^xsd:string ;
+                             cco:example_of_usage "Maximum Speed at high altitude; Rate of Ascent at 10 degrees celsius with nominal payload."^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                             rdfs:label "Performance Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PointEstimateInformationContentEntity
+cco:PointEstimateInformationContentEntity rdf:type owl:Class ;
+                                          rdfs:subClassOf cco:EstimateInformationContentEntity ;
+                                          cco:alternative_label "Best Estimate"^^xsd:string ,
+                                                                "Point Estimate"^^xsd:string ,
+                                                                "Point Estimate Measurement Information Content Entity"^^xsd:string ;
+                                          cco:definition "An Estimate Information Content Entity that consists of a single value for the measured entity."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                          rdfs:label "Point Estimate Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PredictiveInformationContentEntity
+cco:PredictiveInformationContentEntity rdf:type owl:Class ;
+                                       rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
+                                       cco:alternative_label "Prediction"^^xsd:string ,
+                                                             "Prediction Information Content Entity"^^xsd:string ;
+                                       cco:definition "A Descriptive Information Content Entity that describes an uncertain future event."^^xsd:string ;
+                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                       rdfs:comment "Since predictions are inherently about not-yet-existant things, the Modal Relation Ontology term 'describes' (i.e. mro:describes) should be used (instead of the standard cco:describes) to relate instances of Predictive Information Content Entity to the entities they are about."^^xsd:string ;
+                                       rdfs:label "Predictive Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PriorityMeasurementInformationContentEntity
+cco:PriorityMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
+                                                cco:alternative_label "Criticality Measurement"^^xsd:string ,
+                                                                      "Importance Measurement"^^xsd:string ,
+                                                                      "Priority Measurement"^^xsd:string ;
+                                                cco:definition "An Ordinal Measurement Information Content Entity that is a measurement of the relative importance of an entity."^^xsd:string ;
+                                                cco:example_of_usage "low, normal, high, urgent, or immediate priority"^^xsd:string ;
+                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                rdfs:label "Priority Measurement Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PriorityScale
+cco:PriorityScale rdf:type owl:Class ;
+                  rdfs:subClassOf cco:ReferenceSystem ;
+                  cco:definition "A Reference System that describes a scale used to rank or identify the importance of entities of the specified type."^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:label "Priority Scale"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ProbabilityMeasurementInformationContentEntity
+cco:ProbabilityMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                   rdfs:subClassOf cco:MeasurementInformationContentEntity ;
+                                                   cco:alternative_label "Likelihood Measurement"^^xsd:string ,
+                                                                         "Probability Measurement"^^xsd:string ;
+                                                   cco:definition "A Measurement Information Content Entity that is a measurement of the likelihood that a Process or Process Aggregate occurs."^^xsd:string ,
+                                                                  "https://en.wikipedia.org/wiki/Probability"^^xsd:string ;
+                                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                   rdfs:comment "Every probability measurement is made within a particular context given certain background assumptions."^^xsd:string ;
+                                                   rdfs:label "Probability Measurement Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ProperName
+cco:ProperName rdf:type owl:Class ;
+               rdfs:subClassOf cco:DesignativeName ;
+               cco:definition "A Designative Name that is an official name for a particular entity."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+               rdfs:label "Proper Name"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ProportionalRatioMeasurementInformationContentEntity
+cco:ProportionalRatioMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                         rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
+                                                         cco:definition "A Ratio Measurement Information Content Entity that is a measurement of a portion of a whole (described by the numerator) compared against that whole (described by the denominator) where the whole is a nominally described set of like entities."^^xsd:string ;
+                                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                         rdfs:comment "A percentage is one way to express a proportional measure where the decimal expression of the proportion is multiplied by 100, thus giving the proportional value with respect to a whole of 100. E.g., the ratio of pigs to cows on a farm is 44 to 79 (44:79 or 44/79). The proportion of pigs to total animals is 44 to 123 or 44/123. The percentage of pigs is the decimal equivalent of the proportion (0.36) multiplied by a 100 (36%). The percentage can be expressed as a proportion where the numerator value is transformed for a denominator of 100, i.e., 36 of a 100 animals are pigs (36/100)."^^xsd:string ,
+                                                                      "We may want to add either a subclass for Percentage or a data property (has percentage value) that links the percentage expression for a proportion to the relevant IBE."^^xsd:string ;
+                                                         rdfs:label "Proportional Ratio Measurement Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ProvinceIdentifier
@@ -1340,14 +1601,6 @@ cco:ProvincePartIdentifier rdf:type owl:Class ;
                            rdfs:label "Province Part Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/QRCode
-cco:QRCode rdf:type owl:Class ;
-           rdfs:subClassOf cco:TwoDimensionalBarCode ;
-           cco:definition "A Two-Dimensional Barcode that consists of numeric, alphanumeric, binary, or kanji information and is used primarily for tracking and marketing."^^xsd:string ;
-           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-           rdfs:label "QR Code"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RatioMeasurementInformationContentEntity
 cco:RatioMeasurementInformationContentEntity rdf:type owl:Class ;
                                              owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -1356,8 +1609,31 @@ cco:RatioMeasurementInformationContentEntity rdf:type owl:Class ;
                                                                  ] ;
                                              rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                              cco:definition "A Measurement Information Content Entity that consists of a symbol that places a Quality of an Entity onto an interval scale having a true zero value."^^xsd:string ;
+                                             cco:example_of_usage "The sentence \"The temperature reached 240.372 degrees Kelvin on January 20, 1985 in Chicago, IL.\" is the bearer of a ratio measurement as 0 degrees on the Kelvin scale does describe absolute zero."^^xsd:string ;
                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                             rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"^^xsd:string ;
                                              rdfs:label "Ratio Measurement Information Content Entity"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ReferenceSystem
+cco:ReferenceSystem rdf:type owl:Class ;
+                    rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
+                    cco:definition "A Descriptive Information Content Entity that describes a set of standards for organizing and understanding data of the specified type or domain."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:label "Reference System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ReliabilityMeasurementInformationContentEntity
+cco:ReliabilityMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                   rdfs:subClassOf cco:MeasurementInformationContentEntity ;
+                                                   cco:alternative_label "Accuracy of Process"^^xsd:string ,
+                                                                         "Reliability Measurement"^^xsd:string ;
+                                                   cco:definition "A Measurement Information Content Entity that is a measurement of the extent to which an entity can consistently produce an outcome."^^xsd:string ;
+                                                   cco:definition_source "https://en.wikipedia.org/wiki/Reliability_(statistics)"^^xsd:string ;
+                                                   cco:elucidation "Reliability concerns both a measure of past performance and the expectation that future performance will conform to the range of past performances."^^xsd:string ;
+                                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                   rdfs:comment "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance ('Reliability Measurement Information Content Entity'), correctness-of-information (see: 'Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."^^xsd:string ;
+                                                   rdfs:label "Reliability Measurement Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RepresentationalInformationContentEntity
@@ -1384,6 +1660,23 @@ cco:SecondIdentifier rdf:type owl:Class ;
                      rdfs:label "Second Identifier"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SequencePositionOrdinality
+cco:SequencePositionOrdinality rdf:type owl:Class ;
+                               rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
+                               cco:definition "An Ordinal Measurement Information Content Entity that is about the position of some entity in some ordered sequence."^^xsd:string ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                               rdfs:label "Sequence Position Ordinality"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SiderealTimeReferenceSystem
+cco:SiderealTimeReferenceSystem rdf:type owl:Class ;
+                                rdfs:subClassOf cco:TemporalReferenceSystem ;
+                                cco:definition "A Temporal Reference System that is based on Earth's rate of rotation measured relative to one or more fixed Stars (rather than the Sun)."^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                rdfs:comment "Sidereal Time is the angle measured from an observer's meridian along the celestial equator to the Great Circle that passes through the March equinox and both poles. This angle is usually expressed in Hours, Minutes, and Seconds."^^xsd:string ;
+                                rdfs:label "Sidereal Time Reference System"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SiteIdentifier
 cco:SiteIdentifier rdf:type owl:Class ;
                    owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -1396,6 +1689,37 @@ cco:SiteIdentifier rdf:type owl:Class ;
                    rdfs:label "Site Identifier"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SolarCalendarSystem
+cco:SolarCalendarSystem rdf:type owl:Class ;
+                        rdfs:subClassOf cco:CalendarSystem ;
+                        cco:definition "A Calendar System that is designed to organize and identify dates based on the cycles of an Astronomical Body's Orbit around the Sun."^^xsd:string ;
+                        cco:definition_source "https://en.wikipedia.org/wiki/Solar_calendar"^^xsd:string ;
+                        cco:elucidation "Unless otherwise specified, a Solar Calendar System is assumed to be relative to the Orbit of the Earth around the Sun."^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                        rdfs:label "Solar Calendar System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SolarTimeReferenceSystem
+cco:SolarTimeReferenceSystem rdf:type owl:Class ;
+                             rdfs:subClassOf cco:TemporalReferenceSystem ;
+                             cco:definition "A Temporal Reference System that is based on the position of the Sun in the sky."^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                             rdfs:label "Solar Time Reference System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SpatialReferenceSystem
+cco:SpatialReferenceSystem rdf:type owl:Class ;
+                           rdfs:subClassOf cco:ReferenceSystem ;
+                           cco:alternative_label "Coordinate System"^^xsd:string ,
+                                                 "Spatial Coordinate System"^^xsd:string ,
+                                                 "Spatial Reference Frame"^^xsd:string ;
+                           cco:definition "A Reference System that describes a set of standards for uniquely identifying the position of an entity or the direction of a vector within a defined spatial region by means of measurements along one or more Coordinate System Axes."^^xsd:string ;
+                           cco:definition_source "https://en.wikipedia.org/wiki/Coordinate_system"^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                           rdfs:comment "Note that, while reference systems and reference frames are treated as synonyms here, some people treat them as related but separate entities. See: http://www.ggos-portal.org/lang_en/GGOS-Portal/EN/Topics/GeodeticApplications/GeodeticReferenceSystemsAndFrames/GeodeticReferenceSystemsAndFrames.html"^^xsd:string ;
+                           rdfs:label "Spatial Reference System"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SpatialRegionIdentifier
 cco:SpatialRegionIdentifier rdf:type owl:Class ;
                             owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -1406,6 +1730,23 @@ cco:SpatialRegionIdentifier rdf:type owl:Class ;
                             cco:definition "A Designative Information Content Entity that designates some Spatial Region."^^xsd:string ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                             rdfs:label "Spatial Region Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SphericalCoordinateSystem
+cco:SphericalCoordinateSystem rdf:type owl:Class ;
+                              rdfs:subClassOf cco:SpatialReferenceSystem ;
+                              cco:definition "A Spatial Reference System for three-dimensional spatial regions that identifies each point using an ordered triple of numerical coordinates that consist of the radial distance of the point of interest from a fixed origin, its polar angle measured from a fixed zenith direction, and the azimuth angle of its orthogonal projection measured from a fixed direction on a reference plane that passes through the origin and is orthogonal to the zenith."^^xsd:string ;
+                              cco:definition_source "https://en.wikipedia.org/wiki/Spherical_coordinate_system"^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                              rdfs:label "Spherical Coordinate System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/StandardTimeOfDayIdentifier
+cco:StandardTimeOfDayIdentifier rdf:type owl:Class ;
+                                rdfs:subClassOf cco:TimeOfDayIdentifier ;
+                                cco:definition "A Time of Day Identifier that designates an approximate Temporal Instant that is part of some Day and is specified using the Hours, Minutes, and Seconds of the Day that preceded the Temporal Instant."^^xsd:string ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                rdfs:label "Standard Time of Day Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/StateIdentifier
@@ -1462,8 +1803,9 @@ cco:TemporalInstantIdentifier rdf:type owl:Class ;
                                                     owl:onProperty cco:designates ;
                                                     owl:someValuesFrom obo:BFO_0000148
                                                   ] ;
-                              rdfs:subClassOf cco:ConnectedTemporalRegionIdentifier ;
-                              cco:definition "A Connected Temporal Region Identifier that designates some Temporal Instant."^^xsd:string ;
+                              rdfs:subClassOf cco:TemporalRegionIdentifier ;
+                              cco:alternative_label "Zero-Dimensional Temporal Region Identifier"^^xsd:string ;
+                              cco:definition "A Temporal Region Identifier that designates some Zero-Dimensional Temporal Region."^^xsd:string ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                               rdfs:label "Temporal Instant Identifier"^^xsd:string .
 
@@ -1474,10 +1816,21 @@ cco:TemporalIntervalIdentifier rdf:type owl:Class ;
                                                      owl:onProperty cco:designates ;
                                                      owl:someValuesFrom obo:BFO_0000038
                                                    ] ;
-                               rdfs:subClassOf cco:ConnectedTemporalRegionIdentifier ;
-                               cco:definition "A Connected Temporal Region Identifier that designates some Temporal Interval."^^xsd:string ;
+                               rdfs:subClassOf cco:TemporalRegionIdentifier ;
+                               cco:alternative_label "One-Dimensional Temporal Region Identifier"^^xsd:string ;
+                               cco:definition "A Temporal Region Identifier that designates some One-Dimensional Temporal Region."^^xsd:string ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                rdfs:label "Temporal Interval Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TemporalReferenceSystem
+cco:TemporalReferenceSystem rdf:type owl:Class ;
+                            rdfs:subClassOf cco:ReferenceSystem ;
+                            cco:alternative_label "Temporal Reference Frame"^^xsd:string ,
+                                                  "Time Scale"^^xsd:string ;
+                            cco:definition "A Reference System that describes a set of standards for measuring time as well as understanding the context of and organizing temporal data."^^xsd:string ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                            rdfs:label "Temporal Reference System"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TemporalRegionIdentifier
@@ -1509,41 +1862,33 @@ cco:TimeZoneIdentifier rdf:type owl:Class ;
                        rdfs:subClassOf cco:SpatialRegionIdentifier ;
                        cco:definition "A Spatial Region Identifier that designates the region associated with some uniform standard time for legal, commercial, or social purposes."^^xsd:string ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                       cco:term_editor "Brian Donohue"^^xsd:string ;
-                       rdfs:comment "There is no class 'Time Zone' (the region), only 'Time Zone Identifier' (the designator for some region). Instnaces of 'Time Zone Identifier' should be related to instances of 'Information Bearing Entity' by means of the object properites 'uses time zone identifier' and 'time zone identifier used by' as appropriate. This is supposed to be analogous to the way we represent the relationship between measurement values and measurement units, where the relevant instance of Information Bearing Entity 'uses measurement unit' some instance of Measurement Unit (i.e., an instance of Information Content Entity)."^^xsd:string ;
+                       rdfs:comment """Standards of date, time, and time zone data formats:
+ISO/WD 8601-2 (http://www.loc.gov/standards/datetime/iso-tc154-wg5_n0039_iso_wd_8601-2_2016-02-16.pdf)
+W3C (https://www.w3.org/TR/NOTE-datetime)"""^^xsd:string ,
+                                    "There is no class 'Time Zone' (the region), only 'Time Zone Identifier' (the designator for some region). Instances of 'Time Zone Identifier' should be related to instances of 'Information Bearing Entity' by means of the object properites 'uses time zone identifier' and 'time zone identifier used by' as appropriate. This is supposed to be analogous to the way we represent the relationship between measurement values and measurement units, where the relevant instance of Information Bearing Entity 'uses measurement unit' some instance of Measurement Unit (i.e., an instance of Information Content Entity)."^^xsd:string ;
                        rdfs:label "Time Zone Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/TwoDimensionalBarCode
-cco:TwoDimensionalBarCode rdf:type owl:Class ;
-                          rdfs:subClassOf cco:Barcode ;
-                          cco:definition "A Barcode whose concretizations consist of two-dimensional symbol patterns."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                          rdfs:label "Two-Dimensional Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTimeReferenceSystem
+cco:UniversalTimeReferenceSystem rdf:type owl:Class ;
+                                 rdfs:subClassOf cco:SolarTimeReferenceSystem ;
+                                 cco:acronym "UT"^^xsd:string ;
+                                 cco:definition "A Solar Time Reference System that is based on the average speed of the Earth's rotation and which uses the prime meridian at 0° longitude as a reference point."^^xsd:string ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                 rdfs:label "Universal Time Reference System"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCABarcode
-cco:UPCABarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:UPCBarcode ;
-                cco:definition "A UPC Barcode that consists of 12 numerical digits."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                rdfs:label "UPC-A Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCBarcode
-cco:UPCBarcode rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of 6 or 12 numerical digits and is used to scan consumer goods."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-               rdfs:label "UPC Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCEBarcode
-cco:UPCEBarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:UPCBarcode ;
-                cco:definition "A UPC Barcode that consists of 6 numerical digits."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                rdfs:label "UPC-E Barcode"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/VeracityMeasurementInformationContentEntity
+cco:VeracityMeasurementInformationContentEntity rdf:type owl:Class ;
+                                                rdfs:subClassOf cco:MeasurementInformationContentEntity ;
+                                                cco:alternative_label "Accuracy of Information"^^xsd:string ,
+                                                                      "Trueness Measurement"^^xsd:string ,
+                                                                      "Veracity Measurement"^^xsd:string ;
+                                                cco:definition "A Measurement Information Content Entity that is a measurement of the extent to which a description conforms to the reality it describes."^^xsd:string ;
+                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                rdfs:comment "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."^^xsd:string ,
+                                                             "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance (see: 'Reliability Measurement Information Content Entity'), correctness-of-information ('Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."^^xsd:string ;
+                                                rdfs:label "Veracity Measurement Information Content Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WeekIdentifier
@@ -1574,156 +1919,270 @@ cco:YearIdentifier rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AlphaTimeZone
+cco:AlphaTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "A"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC+1"^^xsd:string ;
+                  rdfs:label "Alpha Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BarycentricCoordinateTime
+cco:BarycentricCoordinateTime rdf:type owl:NamedIndividual ,
+                                       cco:TemporalReferenceSystem ;
+                              cco:acronym "TCB"^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                              rdfs:comment """\"Barycentric Coordinate Time (TCB, from the French Temps-coordonnée barycentrique) is a coordinate time standard intended to be used as the independent variable of time for all calculations pertaining to orbits of planets, asteroids, comets, and interplanetary spacecraft in the Solar system. It is equivalent to the proper time experienced by a clock at rest in a coordinate frame co-moving with the barycenter of the Solar system: that is, a clock that performs exactly the same movements as the Solar system but is outside the system's gravity well. It is therefore not influenced by the gravitational time dilation caused by the Sun and the rest of the system.\"
+From: (https://en.wikipedia.org/wiki/Barycentric_Coordinate_Time)"""^^xsd:string ;
+                              rdfs:label "Barycentric Coordinate Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BarycentricDynamicalTime
+cco:BarycentricDynamicalTime rdf:type owl:NamedIndividual ,
+                                      cco:TemporalReferenceSystem ;
+                             cco:acronym "TDB"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                             rdfs:comment "TDB is a linear scaling of Barycentric Coordinate Time (TCB) and is a relativistic coordinate time scale used in astronomy as a time standard that accounts for time dilation when calculating Orbits and Ephemerides of Astronomical Bodies and interplanetary Spacecraft in the Solar System. TDB is a successor of Ephemeris Time (ET) and is nearly equivalent to the time scale Teph used for DE405 planetary and lunar ephemerides generated by the Jet Propulsion Laboratory."^^xsd:string ;
+                             rdfs:label "Barycentric Dynamical Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BravoTimeZone
+cco:BravoTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "B"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC+2"^^xsd:string ;
+                  rdfs:label "Bravo Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CharlieTimeZone
+cco:CharlieTimeZone rdf:type owl:NamedIndividual ,
+                             cco:MilitaryTimeZoneIdentifier ;
+                    cco:acronym "C"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:comment "Offset from Universal Coordinated Time = UTC+3"^^xsd:string ;
+                    rdfs:label "Charlie Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CoordinatedUniversalTime
+cco:CoordinatedUniversalTime rdf:type owl:NamedIndividual ,
+                                      cco:CivilTimeReferenceSystem ,
+                                      cco:UniversalTimeReferenceSystem ;
+                             cco:acronym "UTC"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                             rdfs:comment "UTC is a variant of Universal Time that is calculated by combining Universal Time 1 with International Atomic Time by occasionally adding leap seconds to TAI in order to maintain UTC within 0.9 seconds of UT1. The difference between UTC and UT1 is called DUT1 and always has a value between -0.9 seconds and +0.9 seconds. Coordinated Universal Time is the current basis for civil time and is the reference time for time zones, whose local times are defined based on an offset from UTC."^^xsd:string ;
+                             rdfs:label "Coordinated Universal Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DeltaTimeZone
+cco:DeltaTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "D"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC+4"^^xsd:string ;
+                  rdfs:label "Delta Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EarthCenteredEarthFixedCoordinateSystem
+cco:EarthCenteredEarthFixedCoordinateSystem rdf:type owl:NamedIndividual ,
+                                                     cco:CartesianCoordinateSystem ,
+                                                     cco:GeospatialCoordinateReferenceSystem ;
+                                            cco:alternative_label "Conventional Terrestrial Coordinate System"^^xsd:string ,
+                                                                  "ECEF"^^xsd:string ,
+                                                                  "ECR"^^xsd:string ,
+                                                                  "Earth Centered Earth Fixed"^^xsd:string ,
+                                                                  "Earth Centered Rotational Coordinate System"^^xsd:string ,
+                                                                  "Earth-Centered Earth-Fixed"^^xsd:string ,
+                                                                  "Earth-Centered, Earth-Fixed"^^xsd:string ;
+                                            cco:definition "A Geospatial and Cartesian Coordinate System that identifies positions using an x-axis, y-axis, and z-axis coordinate where the zero point is the center of the Earth, the z-Axis extends toward the North Pole but does not always coincide exactly with the Earth's Axis of Rotation, the x-Axis extends through the intersection of the Prime Meridian and the Equator, the y-Axis completes the right-handed system, and all three axes are fixed to the Earth such that they rotate along with the Earth."^^xsd:string ;
+                                            cco:definition_source "https://en.wikipedia.org/wiki/ECEF"^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                            rdfs:label "Earth-Centered Earth-Fixed Coordinate System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EchoTimeZone
+cco:EchoTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "E"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Offset from Universal Coordinated Time = UTC+5"^^xsd:string ;
+                 rdfs:label "Echo Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EphemerisTime
+cco:EphemerisTime rdf:type owl:NamedIndividual ,
+                           cco:TemporalReferenceSystem ;
+                  cco:acronym "ET"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "ET is an astronomical time scale that was adopted as a standard in 1952 by the IAU but has since been superseded and is no longer actively used. ET is based on the ephemeris second, which was defined as a fraction of the tropical year for 1900 January 01 as calculated using Newcomb's 1895 tables of the Sun. ET was designed to avoid problems caused by variations in Earth's rotational period and was used for Solar System ephemeris calculations until being replaced by Terrestrial Dynamical Time (TDT) in 1979."^^xsd:string ;
+                  rdfs:label "Ephemeris Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FoxtrotTimeZone
+cco:FoxtrotTimeZone rdf:type owl:NamedIndividual ,
+                             cco:MilitaryTimeZoneIdentifier ;
+                    cco:acronym "F"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:comment "Offset from Universal Coordinated Time = UTC+6"^^xsd:string ;
+                    rdfs:label "Foxtrot Time Zone"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT
 cco:GMT rdf:type owl:NamedIndividual ,
-                 cco:TimeZoneIdentifier ;
+                 cco:GreenwichMeanTimeZoneIdentifier ;
         cco:alternative_label "Greenwich Mean Time"^^xsd:string ;
         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+        rdfs:comment "Offset from Universal Coordinated Time = UTC+0"^^xsd:string ;
         rdfs:label "GMT"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-1
-cco:GMT-1 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "CAT"^^xsd:string ,
-                                "Central African Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-1"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-10
-cco:GMT-10 rdf:type owl:NamedIndividual ,
-                    cco:TimeZoneIdentifier ;
-           cco:alternative_label "HST"^^xsd:string ,
-                                 "Hawaii Standard Time"^^xsd:string ;
-           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-           rdfs:label "GMT-10"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-11
-cco:GMT-11 rdf:type owl:NamedIndividual ,
-                    cco:TimeZoneIdentifier ;
-           cco:alternative_label "MIT"^^xsd:string ,
-                                 "Midway Islands Time"^^xsd:string ;
-           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-           rdfs:label "GMT-11"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-2
-cco:GMT-2 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "BET"^^xsd:string ,
-                                "Brazil Eastern Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-2"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-3
-cco:GMT-3 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "AGT"^^xsd:string ,
-                                "Argentina Standard Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-3"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-4
-cco:GMT-4 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "PRT"^^xsd:string ,
-                                "Puerto Rico and US Virgin Islands Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-4"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-5
-cco:GMT-5 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "EST"^^xsd:string ,
-                                "Eastern Standard Time"^^xsd:string ,
-                                "IET"^^xsd:string ,
-                                "Indiana Eastern Standard Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-5"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-6
-cco:GMT-6 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "CST"^^xsd:string ,
-                                "Central Standard Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-6"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-7
-cco:GMT-7 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "MST"^^xsd:string ,
-                                "Mountain Standard Time"^^xsd:string ,
-                                "PNT"^^xsd:string ,
-                                "Phoenix Standard Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-7"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-8
-cco:GMT-8 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "PST"^^xsd:string ,
-                                "Pacific Standard Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-8"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GMT-9
-cco:GMT-9 rdf:type owl:NamedIndividual ,
-                   cco:TimeZoneIdentifier ;
-          cco:alternative_label "AST"^^xsd:string ,
-                                "Alaska Standard Time"^^xsd:string ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-          rdfs:label "GMT-9"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus0330
 cco:GMTminus0330 rdf:type owl:NamedIndividual ,
-                          cco:TimeZoneIdentifier ;
-                 cco:alternative_label "CNT"^^xsd:string ,
-                                       "Canada Newfoundland Time"^^xsd:string ;
+                          cco:GreenwichMeanTimeZoneIdentifier ;
+                 cco:acronym "NST"^^xsd:string ;
+                 cco:alternative_label "Newfoundland Standard Time"^^xsd:string ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                  rdfs:label "GMT-3:30"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus1
+cco:GMTminus1 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "CAT"^^xsd:string ,
+                                    "Central African Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-1"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus10
+cco:GMTminus10 rdf:type owl:NamedIndividual ,
+                        cco:GreenwichMeanTimeZoneIdentifier ;
+               cco:alternative_label "HST"^^xsd:string ,
+                                     "Hawaii Standard Time"^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+               rdfs:label "GMT-10"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus11
+cco:GMTminus11 rdf:type owl:NamedIndividual ,
+                        cco:GreenwichMeanTimeZoneIdentifier ;
+               cco:alternative_label "MIT"^^xsd:string ,
+                                     "Midway Islands Time"^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+               rdfs:label "GMT-11"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus2
+cco:GMTminus2 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "BET"^^xsd:string ,
+                                    "Brazil Eastern Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-2"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus3
+cco:GMTminus3 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "AGT"^^xsd:string ,
+                                    "Argentina Standard Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-3"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus4
+cco:GMTminus4 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "PRT"^^xsd:string ,
+                                    "Puerto Rico and US Virgin Islands Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-4"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus5
+cco:GMTminus5 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "EST"^^xsd:string ,
+                                    "Eastern Standard Time"^^xsd:string ,
+                                    "IET"^^xsd:string ,
+                                    "Indiana Eastern Standard Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-5"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus6
+cco:GMTminus6 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "CST"^^xsd:string ,
+                                    "Central Standard Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-6"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus7
+cco:GMTminus7 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "MST"^^xsd:string ,
+                                    "Mountain Standard Time"^^xsd:string ,
+                                    "PNT"^^xsd:string ,
+                                    "Phoenix Standard Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-7"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus8
+cco:GMTminus8 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "PST"^^xsd:string ,
+                                    "Pacific Standard Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-8"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTminus9
+cco:GMTminus9 rdf:type owl:NamedIndividual ,
+                       cco:GreenwichMeanTimeZoneIdentifier ;
+              cco:alternative_label "AST"^^xsd:string ,
+                                    "Alaska Standard Time"^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+              rdfs:label "GMT-9"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0330
 cco:GMTplus0330 rdf:type owl:NamedIndividual ,
-                         cco:TimeZoneIdentifier ;
-                cco:alternative_label "MET"^^xsd:string ,
-                                      "Middle East Time"^^xsd:string ;
+                         cco:GreenwichMeanTimeZoneIdentifier ;
+                cco:acronym "IRST"^^xsd:string ,
+                            "IT"^^xsd:string ;
+                cco:alternative_label "Iran Standard Time"^^xsd:string ,
+                                      "Iran Time"^^xsd:string ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                 rdfs:label "GMT+3:30"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0530
 cco:GMTplus0530 rdf:type owl:NamedIndividual ,
-                         cco:TimeZoneIdentifier ;
-                cco:alternative_label "IST"^^xsd:string ,
-                                      "India Standard Time"^^xsd:string ;
+                         cco:GreenwichMeanTimeZoneIdentifier ;
+                cco:acronym "IST"^^xsd:string ,
+                            "SLST"^^xsd:string ;
+                cco:alternative_label "Indian Standard Time"^^xsd:string ,
+                                      "Sri Lanka Standard Time"^^xsd:string ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                 rdfs:label "GMT+5:30"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus0930
 cco:GMTplus0930 rdf:type owl:NamedIndividual ,
-                         cco:TimeZoneIdentifier ;
-                cco:alternative_label "ACT"^^xsd:string ,
-                                      "Australia Central Time"^^xsd:string ;
+                         cco:GreenwichMeanTimeZoneIdentifier ;
+                cco:acronym "ACST"^^xsd:string ;
+                cco:alternative_label "Australian Central Standard Time"^^xsd:string ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                 rdfs:label "GMT+9:30"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus1
 cco:GMTplus1 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "ECT"^^xsd:string ,
                                    "European Central Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1732,7 +2191,7 @@ cco:GMTplus1 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus10
 cco:GMTplus10 rdf:type owl:NamedIndividual ,
-                       cco:TimeZoneIdentifier ;
+                       cco:GreenwichMeanTimeZoneIdentifier ;
               cco:alternative_label "AET"^^xsd:string ,
                                     "Australia Eastern Time"^^xsd:string ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1741,7 +2200,7 @@ cco:GMTplus10 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus11
 cco:GMTplus11 rdf:type owl:NamedIndividual ,
-                       cco:TimeZoneIdentifier ;
+                       cco:GreenwichMeanTimeZoneIdentifier ;
               cco:alternative_label "SST"^^xsd:string ,
                                     "Solomon Standard Time"^^xsd:string ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1750,7 +2209,7 @@ cco:GMTplus11 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus12
 cco:GMTplus12 rdf:type owl:NamedIndividual ,
-                       cco:TimeZoneIdentifier ;
+                       cco:GreenwichMeanTimeZoneIdentifier ;
               cco:alternative_label "NST"^^xsd:string ,
                                     "New Zealand Standard Time"^^xsd:string ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1759,7 +2218,7 @@ cco:GMTplus12 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus2
 cco:GMTplus2 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "EET"^^xsd:string ,
                                    "Eastern European Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1768,7 +2227,7 @@ cco:GMTplus2 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus3
 cco:GMTplus3 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "EAT"^^xsd:string ,
                                    "Eastern African Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1777,7 +2236,7 @@ cco:GMTplus3 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus4
 cco:GMTplus4 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "NET"^^xsd:string ,
                                    "Near East Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1786,7 +2245,7 @@ cco:GMTplus4 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus5
 cco:GMTplus5 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "PLT"^^xsd:string ,
                                    "Pakistan Lahore Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1795,7 +2254,7 @@ cco:GMTplus5 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus6
 cco:GMTplus6 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "BST"^^xsd:string ,
                                    "Bangladesh Standard Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1804,7 +2263,7 @@ cco:GMTplus6 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus7
 cco:GMTplus7 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "VST"^^xsd:string ,
                                    "Vietnam Standard Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1813,7 +2272,7 @@ cco:GMTplus7 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus8
 cco:GMTplus8 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "CTT"^^xsd:string ,
                                    "China Taiwan Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -1822,11 +2281,21 @@ cco:GMTplus8 rdf:type owl:NamedIndividual ,
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GMTplus9
 cco:GMTplus9 rdf:type owl:NamedIndividual ,
-                      cco:TimeZoneIdentifier ;
+                      cco:GreenwichMeanTimeZoneIdentifier ;
              cco:alternative_label "JST"^^xsd:string ,
                                    "Japan Standard Time"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
              rdfs:label "GMT+9"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeocentricCoordinateTime
+cco:GeocentricCoordinateTime rdf:type owl:NamedIndividual ,
+                                      cco:TemporalReferenceSystem ;
+                             cco:acronym "TCG"^^xsd:string ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                             rdfs:comment """\"TCG is a coordinate time standard intended to be used as the independent variable of time for all calculations pertaining to precession, nutation, the Moon, and artificial satellites of the Earth. It is equivalent to the proper time experienced by a clock at rest in a coordinate frame co-moving with the center of the Earth: that is, a clock that performs exactly the same movements as the Earth but is outside the Earth's gravity well. It is therefore not influenced by the gravitational time dilation caused by the Earth.\"
+From: (https://en.wikipedia.org/wiki/Geocentric_Coordinate_Time)"""^^xsd:string ;
+                             rdfs:label "Geocentric Coordinate Time"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GlobalAreaReferenceSystem
@@ -1837,6 +2306,294 @@ cco:GlobalAreaReferenceSystem rdf:type owl:NamedIndividual ,
                               rdfs:label "Global Area Reference System"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GolfTimeZone
+cco:GolfTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "G"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Offset from Universal Coordinated Time = UTC+7"^^xsd:string ;
+                 rdfs:label "Golf Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GregorianCalendar
+cco:GregorianCalendar rdf:type owl:NamedIndividual ,
+                               cco:SolarCalendarSystem ;
+                      cco:definition "A Solar Calendar System that has a regular Year of 365 24-Hour Days divided into 12 Months with a leap day added at the end of February every 4 Years except Years that are evenly divisible by 100 but not 400 such that there are 97 leap Years every 400 Years and the average length of a Gregorian Year is 365.2425 Days (365 Days 5 Hours 49 Minutes 12 Seconds)."^^xsd:string ;
+                      cco:definition_source "https://en.wikipedia.org/wiki/Gregorian_calendar"^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                      rdfs:comment "The Gregorian Calendar was instituted by Pope Gregory XIII via papal bull on 24 February 1582 as a reform of the Julian Calendar to stop the drift of the calendar with respect to the equinoxes and solstices. The Gregorian Calendar is currently the most widely used civil Calendar System in the world and is 13 days ahead of the Julian Calendar Date."^^xsd:string ;
+                      rdfs:label "Gregorian Calendar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HotelTimeZone
+cco:HotelTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "H"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC+8"^^xsd:string ;
+                  rdfs:label "Hotel Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/IndiaTimeZone
+cco:IndiaTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "I"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC+9"^^xsd:string ;
+                  rdfs:label "India Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InternationalAtomicTime
+cco:InternationalAtomicTime rdf:type owl:NamedIndividual ,
+                                     cco:TemporalReferenceSystem ;
+                            cco:acronym "TAI"^^xsd:string ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                            rdfs:comment "TAI is a time standard the values of which are generated by calculating the weighted average of the measurements of more than 400 atomic clocks and is based on the International System of Units (SI) definition of one second equals the time it takes a Cesium-133 atom at the ground state to oscillate exactly 9,192,631,770 times. TAI is extremely precise, but does not perfectly synchronize with Earth times, which is why TAI and UT1 are both used to determine UTC. TAI serves as the main realization of TT."^^xsd:string ;
+                            rdfs:label "International Atomic Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InternationalTerrestrialReferenceSystem
+cco:InternationalTerrestrialReferenceSystem rdf:type owl:NamedIndividual ,
+                                                     cco:GeospatialCoordinateReferenceSystem ;
+                                            cco:acronym "ITRS"^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                            rdfs:comment """The ITRS definition fulfills the following conditions:
+1. It is geocentric, the center of mass being defined for the whole earth, including oceans and atmosphere.
+2. The unit of length is the metre (SI). This scale is consistent with the TCG time coordinate for a geocentric local frame, in agreement with IAU and IUGG (1991) resolutions. This is obtained by appropriate relativistic modelling.
+3. Its orientation was initially given by the BIH orientation at 1984.0.
+4. The time evolution of the orientation is ensured by using a no-net-rotation condition with regards to horizontal tectonic motions over the whole earth.
+From: (https://www.iers.org/IERS/EN/Science/ITRS/ITRS.html)"""^^xsd:string ;
+                                            rdfs:label "International Terrestrial Reference System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JetPropulsionLaboratoryEphemerisTimeArgument
+cco:JetPropulsionLaboratoryEphemerisTimeArgument rdf:type owl:NamedIndividual ,
+                                                          cco:TemporalReferenceSystem ;
+                                                 cco:acronym "Teph"^^xsd:string ;
+                                                 cco:alternative_label "JPL Ephemeris Time"^^xsd:string ;
+                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                                 rdfs:comment "Teph (the 'eph' is written as subscript) is an ephemeris time argument developed and calculated at the Jet Propulsion Laboratory (JPL) and implemented in a series of numerically integrated Development Ephemerides (DE), including the currently used DE405. Teph is characterized as a relativistic coordinate time that is nearly equivalent to the IAU's definition of TCB, though Teph is not currently an IAU time standard. Teph is used by the JPL to generate the ephemerides it publishes to support spacecraft navigation and astronomy."^^xsd:string ;
+                                                 rdfs:label "Jet Propulsion Laboratory Ephemeris Time Argument"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JulianCalendar
+cco:JulianCalendar rdf:type owl:NamedIndividual ,
+                            cco:SolarCalendarSystem ;
+                   cco:definition "A Solar Calendar System that has a regular Year of 365 24-Hour Days divided into 12 Months with a leap day added at the end of February every 4 Years such that the average length of a Julian Year is 365.25 Days."^^xsd:string ;
+                   cco:definition_source "https://en.wikipedia.org/wiki/Julian_calendar"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "The Julian Calendar was proposed by Julius Caesar as a reform of the Roman Calendar, took effect on 1 January 46 BC, and was the predominant Calendar System in Europe until being largely replaced by the Gregorian Calendar."^^xsd:string ;
+                   rdfs:label "Julian Calendar"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JulietTimeZone
+cco:JulietTimeZone rdf:type owl:NamedIndividual ,
+                            cco:MilitaryTimeZoneIdentifier ;
+                   cco:acronym "J"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "Juliet time is used as an indexical to refer to local time without otherwise specifying the time zone."^^xsd:string ;
+                   rdfs:label "Juliet Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/KiloTimeZone
+cco:KiloTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "K"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Offset from Universal Coordinated Time = UTC+10"^^xsd:string ;
+                 rdfs:label "Kilo Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LimaTimeZone
+cco:LimaTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "L"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Offset from Universal Coordinated Time = UTC+11"^^xsd:string ;
+                 rdfs:label "Lima Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MikeTimeZone
+cco:MikeTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "M"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Mike Time Zone is the same local time as Yankee Time Zone, but is 1 Day (i.e. 24 Hours) ahead of Yankee Time Zone as they are on opposite sides of the International Date Line."^^xsd:string ,
+                              "Offset from Universal Coordinated Time = UTC+12"^^xsd:string ;
+                 rdfs:label "Mike Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NovemberTimeZone
+cco:NovemberTimeZone rdf:type owl:NamedIndividual ,
+                              cco:MilitaryTimeZoneIdentifier ;
+                     cco:acronym "N"^^xsd:string ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                     rdfs:comment "Offset from Universal Coordinated Time = UTC-1"^^xsd:string ;
+                     rdfs:label "November Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OscarTimeZone
+cco:OscarTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "O"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC-2"^^xsd:string ;
+                  rdfs:label "Oscar Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PapaTimeZone
+cco:PapaTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "P"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Offset from Universal Coordinated Time = UTC-3"^^xsd:string ;
+                 rdfs:label "Papa Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/QuebecTimeZone
+cco:QuebecTimeZone rdf:type owl:NamedIndividual ,
+                            cco:MilitaryTimeZoneIdentifier ;
+                   cco:acronym "Q"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "Offset from Universal Coordinated Time = UTC-4"^^xsd:string ;
+                   rdfs:label "Quebec Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RomeoTimeZone
+cco:RomeoTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "R"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC-5"^^xsd:string ;
+                  rdfs:label "Romeo Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SierraTimeZone
+cco:SierraTimeZone rdf:type owl:NamedIndividual ,
+                            cco:MilitaryTimeZoneIdentifier ;
+                   cco:acronym "S"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "Offset from Universal Coordinated Time = UTC-6"^^xsd:string ;
+                   rdfs:label "Sierra Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TangoTimeZone
+cco:TangoTimeZone rdf:type owl:NamedIndividual ,
+                           cco:MilitaryTimeZoneIdentifier ;
+                  cco:acronym "T"^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                  rdfs:comment "Offset from Universal Coordinated Time = UTC-7"^^xsd:string ;
+                  rdfs:label "Tango Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TerrestrialTime
+cco:TerrestrialTime rdf:type owl:NamedIndividual ,
+                             cco:TemporalReferenceSystem ;
+                    cco:acronym "TT"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:comment "TT is an astronomical time standard that is a theoretical ideal designed to be free of the irregularities in Earth's rotation and is primarily used for time measurements of astronomical observations made from the surface of Earth. It was formerly called Terrestrial Dynamical Time (TDT), which was formulated to replace Ephemeris Time (ET)."^^xsd:string ;
+                    rdfs:label "Terrestrial Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TwelveHourClockTimeSystem
+cco:TwelveHourClockTimeSystem rdf:type owl:NamedIndividual ,
+                                       cco:ClockTimeSystem ;
+                              cco:alternative_label "12-Hour Clock"^^xsd:string ,
+                                                    "12-Hour Clock Time System"^^xsd:string ,
+                                                    "Twelve Hour Clock"^^xsd:string ,
+                                                    "Twelve Hour Clock Time System"^^xsd:string ,
+                                                    "Twelve-Hour Clock"^^xsd:string ;
+                              cco:definition "A Clock Time System for keeping the Time of Day in which the Day runs from midnight to midnight and is divided into two intervals of 12 Hours each, where: the first interval begins at midnight, ends at noon, and is indicated by the suffix 'a.m.'; the second interval begins at noon, ends at midnight, and is indicated by the suffix 'p.m.'; and the midnight and noon Hours are numbered 12 with subsequent Hours numbered 1-11."^^xsd:string ;
+                              cco:definition_source "https://en.wikipedia.org/wiki/12-hour_clock"^^xsd:string ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                              rdfs:label "Twelve-Hour Clock Time System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TwentyFourHourClockTimeSystem
+cco:TwentyFourHourClockTimeSystem rdf:type owl:NamedIndividual ,
+                                           cco:ClockTimeSystem ;
+                                  cco:alternative_label "24-Hour Clock"^^xsd:string ,
+                                                        "24-Hour Clock Time System"^^xsd:string ,
+                                                        "Military Time"^^xsd:string ,
+                                                        "Military Time System"^^xsd:string ,
+                                                        "Twenty-Four Hour Clock Time System"^^xsd:string ,
+                                                        "Twenty-Four-Hour Clock"^^xsd:string ;
+                                  cco:definition "A Clock Time System for time keeping in which the Day runs from midnight to midnight and is divided into 24 Hours, indicated by the Hours passed since midnight, from 0 to 23."^^xsd:string ;
+                                  cco:definition_source "https://en.wikipedia.org/wiki/24-hour_clock"^^xsd:string ;
+                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                                  rdfs:label "Twenty-Four-Hour Clock Time System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniformTimeZone
+cco:UniformTimeZone rdf:type owl:NamedIndividual ,
+                             cco:MilitaryTimeZoneIdentifier ;
+                    cco:acronym "U"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:comment "Offset from Universal Coordinated Time = UTC-8"^^xsd:string ;
+                    rdfs:label "Uniform Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTime0
+cco:UniversalTime0 rdf:type owl:NamedIndividual ,
+                            cco:UniversalTimeReferenceSystem ;
+                   cco:acronym "UT0"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "UT0 is a variant of Universal Time that is measured by observing the diurnal motion of stars or extragalactic radio sources at a specific location on Earth. It does not take into consideration distorting factors, in particular polar motion, such that its value will differ based on the location it is measured at."^^xsd:string ;
+                   rdfs:label "Universal Time 0"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTime1
+cco:UniversalTime1 rdf:type owl:NamedIndividual ,
+                            cco:UniversalTimeReferenceSystem ;
+                   cco:acronym "UT1"^^xsd:string ;
+                   cco:alternative_label "Astronomical Time"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "UT1 is a derivation of UT0 that takes into account distortions caused by polar motion and is proportional to the rotation angle of the Earth with respect to distant quasars, specifically, the International Celestial Reference Frame (ICRF). UT1 is currently the most widely used variant of Universal Time and has the same value everywhere on Earth."^^xsd:string ;
+                   rdfs:label "Universal Time 1"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTime1A
+cco:UniversalTime1A rdf:type owl:NamedIndividual ,
+                             cco:UniversalTimeReferenceSystem ;
+                    cco:acronym "UT1A"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:label "Universal Time 1 A"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTime1D
+cco:UniversalTime1D rdf:type owl:NamedIndividual ,
+                             cco:UniversalTimeReferenceSystem ;
+                    cco:acronym "UT1D"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:label "Universal Time 1 D"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTime1F
+cco:UniversalTime1F rdf:type owl:NamedIndividual ,
+                             cco:UniversalTimeReferenceSystem ;
+                    cco:acronym "UT1F"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:label "Universal Time 1 F"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTime1R
+cco:UniversalTime1R rdf:type owl:NamedIndividual ,
+                             cco:UniversalTimeReferenceSystem ;
+                    cco:acronym "UT1R"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:comment "UT1R is a variant of Universal Time that is a smoothed version of UT1 by filtering out periodic variations due to tidal waves."^^xsd:string ;
+                    rdfs:label "Universal Time 1 R"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTime2
+cco:UniversalTime2 rdf:type owl:NamedIndividual ,
+                            cco:UniversalTimeReferenceSystem ;
+                   cco:acronym "UT2"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "UT2 is a variant of Universal Time that smooths UT1 by accounting for both polar motion and variations in Earth's rotation due to seasonal factors, such as changes in vegetation and water or snow distribution."^^xsd:string ;
+                   rdfs:label "Universal Time 2"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTransverseMercatorReferenceSystem
 cco:UniversalTransverseMercatorReferenceSystem rdf:type owl:NamedIndividual ,
                                                         cco:GeospatialCoordinateReferenceSystem ;
@@ -1845,12 +2602,41 @@ cco:UniversalTransverseMercatorReferenceSystem rdf:type owl:NamedIndividual ,
                                                rdfs:label "Universal Transverse Mercator Reference System"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/WorldGeodeticReferenceSystem84
-cco:WorldGeodeticReferenceSystem84 rdf:type owl:NamedIndividual ,
-                                            cco:GeospatialCoordinateReferenceSystem ;
-                                   cco:acronym "WGS-84"^^xsd:string ;
-                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                   rdfs:label "World Geodetic Reference System 84"^^xsd:string .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UnixTime
+cco:UnixTime rdf:type owl:NamedIndividual ,
+                      cco:TemporalReferenceSystem ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+             rdfs:comment """Unix Time is a Temporal Reference System for describing a point in time, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC) Thursday, 1 January 1970 minus the number of leap seconds that have taken place since then.
+(See: https://en.wikipedia.org/wiki/Unix_time)"""^^xsd:string ;
+             rdfs:label "Unix Time"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/VictorTimeZone
+cco:VictorTimeZone rdf:type owl:NamedIndividual ,
+                            cco:MilitaryTimeZoneIdentifier ;
+                   cco:acronym "V"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "Offset from Universal Coordinated Time = UTC-9"^^xsd:string ;
+                   rdfs:label "Victor Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WhiskeyTimeZone
+cco:WhiskeyTimeZone rdf:type owl:NamedIndividual ,
+                             cco:MilitaryTimeZoneIdentifier ;
+                    cco:acronym "W"^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                    rdfs:comment "Offset from Universal Coordinated Time = UTC-10"^^xsd:string ;
+                    rdfs:label "Whiskey Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WorldGeodeticSystem1984
+cco:WorldGeodeticSystem1984 rdf:type owl:NamedIndividual ,
+                                     cco:GeospatialCoordinateReferenceSystem ;
+                            cco:acronym "WGS 84"^^xsd:string ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                            rdfs:comment """\"WGS 84 is an Earth-centered, Earth-fixed terrestrial reference system and geodetic datum. WGS 84 is based on a consistent set of constants and model parameters that describe the Earth's size, shape, and gravity and geomagnetic fields. WGS 84 is the standard U.S. Department of Defense definition of a global reference system for geospatial information and is the reference system for the Global Positioning System (GPS). It is compatible with the International Terrestrial Reference System (ITRS).\"
+From: (http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf)"""^^xsd:string ;
+                            rdfs:label "World Geodetic System 1984"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WorldGeographicReferenceSystem
@@ -1859,6 +2645,34 @@ cco:WorldGeographicReferenceSystem rdf:type owl:NamedIndividual ,
                                    cco:acronym "WGRS"^^xsd:string ;
                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                    rdfs:label "World Geographic Reference System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/XRayTimeZone
+cco:XRayTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "X"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Offset from Universal Coordinated Time = UTC-11"^^xsd:string ;
+                 rdfs:label "X-ray Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/YankeeTimeZone
+cco:YankeeTimeZone rdf:type owl:NamedIndividual ,
+                            cco:MilitaryTimeZoneIdentifier ;
+                   cco:acronym "Y"^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                   rdfs:comment "Offset from Universal Coordinated Time = UTC-12"^^xsd:string ,
+                                "Yankee Time Zone is the same local time as Mike Time Zone, but is 1 Day (i.e. 24 Hours) behind Mike Time Zone as they are on opposite sides of the International Date Line."^^xsd:string ;
+                   rdfs:label "Yankee Time Zone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ZuluTimeZone
+cco:ZuluTimeZone rdf:type owl:NamedIndividual ,
+                          cco:MilitaryTimeZoneIdentifier ;
+                 cco:acronym "Z"^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
+                 rdfs:comment "Offset from Universal Coordinated Time = UTC+0"^^xsd:string ;
+                 rdfs:label "Zulu Time Zone"^^xsd:string .
 
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

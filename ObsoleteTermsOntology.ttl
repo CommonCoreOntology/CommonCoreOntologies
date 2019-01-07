@@ -1,0 +1,770 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ro: <http://www.obofoundry.org/ro/ro.owl#> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix iao: <http://purl.obolibrary.org/obo#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile> rdf:type owl:Ontology ;
+                                                                                        owl:versionInfo "Version 1.1"^^xsd:string ;
+                                                                                        rdfs:label "Obsolete Terms"^^xsd:string ;
+                                                                                        rdfs:comment "This file contains terms that have been deleted from the CCO."^^xsd:string ;
+                                                                                        owl:versionInfo "January 4, 2019"^^xsd:string ,
+                                                                                                        "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string .
+
+#################################################################
+#    Classes
+#################################################################
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ChemicalReactionArtifactFunctionSpecification
+cco:ChemicalReactionArtifactFunctionSpecification rdf:type owl:Class ;
+                                                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty cco:prescribes ;
+                                                                        owl:someValuesFrom cco:ChemicalReactionArtifactFunction
+                                                                      ] ;
+                                                  rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                                  cco:definition "An Artifact Function Specification that prescribes some Chemical Reaction Artifact Function."^^xsd:string ;
+                                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                  rdfs:label "Chemical Reaction Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CommunicationArtifactFunctionSpecification
+cco:CommunicationArtifactFunctionSpecification rdf:type owl:Class ;
+                                               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty cco:prescribes ;
+                                                                     owl:someValuesFrom cco:CommunicationArtifactFunction
+                                                                   ] ;
+                                               rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                               cco:definition "An Artifact Function Specification that prescribes some Communication Artifact Function."^^xsd:string ;
+                                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                               rdfs:label "Communication Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ContainingArtifactFunctionSpecification
+cco:ContainingArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:ContainingArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                            cco:definition "An Artifact Function Specification that prescribes some Containing Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Containing Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CoolingArtifactFunctionSpecification
+cco:CoolingArtifactFunctionSpecification rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:prescribes ;
+                                                               owl:someValuesFrom cco:CoolingArtifactFunction
+                                                             ] ;
+                                         rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                         cco:definition "An Artifact Function Specification that prescribes some Cooling Artifact Function."^^xsd:string ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                         rdfs:label "Cooling Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CoveringArtifactFunctionSpecification
+cco:CoveringArtifactFunctionSpecification rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:prescribes ;
+                                                                owl:someValuesFrom cco:CoveringArtifactFunction
+                                                              ] ;
+                                          rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                          cco:definition "An Artifact Function Specification that prescribes some Covering Artifact Function."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Covering Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DamagingArtifactFunctionSpecification
+cco:DamagingArtifactFunctionSpecification rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:prescribes ;
+                                                                owl:someValuesFrom cco:DamagingArtifactFunction
+                                                              ] ;
+                                          rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                          cco:definition "An Artifact Function Specification that prescribes some Damaging Artifact Function."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Damaging Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DeceptionArtifactFunctionSpecification
+cco:DeceptionArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:DeceptionArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                           cco:definition "An Artifact Function Specification that prescribes some Deception Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Deception Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DetonatingArtifactFunctionSpecification
+cco:DetonatingArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:DetonatingArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                            cco:definition "An Artifact Function Specification that prescribes some Detonating Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Detonating Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ElectromagneticShieldingArtifactFunctionSpecification
+cco:ElectromagneticShieldingArtifactFunctionSpecification rdf:type owl:Class ;
+                                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty cco:prescribes ;
+                                                                                owl:someValuesFrom cco:ElectromagneticShieldingArtifactFunction
+                                                                              ] ;
+                                                          rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                                          cco:definition "An Artifact Function Specification that prescribes some Electromagnetic Shielding Artifact Function."^^xsd:string ;
+                                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                          rdfs:label "Electromagnetic Shielding Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EnhancingArtifactFunctionSpecification
+cco:EnhancingArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:EnhancingArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                           cco:definition "An Artifact Function Specification that prescribes some Enhancing Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Enhancing Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FiltrationArtifactFunctionSpecification
+cco:FiltrationArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:FiltrationArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                            cco:definition "An Artifact Function Specification that prescribes some Filtration Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Filtration Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FragranceArtifactFunctionSpecification
+cco:FragranceArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:FragranceArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                           cco:definition "An Artifact Function Specification that prescribes some Fragrance Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Fragrance Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FuelArtifactFunctionSpecification
+cco:FuelArtifactFunctionSpecification rdf:type owl:Class ;
+                                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                            owl:onProperty cco:prescribes ;
+                                                            owl:someValuesFrom cco:FuelArtifactFunction
+                                                          ] ;
+                                      rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                      cco:definition "An Artifact Function Specification that prescribes some Fuel Artifact Function."^^xsd:string ;
+                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                      rdfs:label "Fuel Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HealingArtifactFunctionSpecification
+cco:HealingArtifactFunctionSpecification rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:prescribes ;
+                                                               owl:someValuesFrom cco:HealingArtifactFunction
+                                                             ] ;
+                                         rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                         cco:definition "An Artifact Function Specification that prescribes some Healing Artifact Function."^^xsd:string ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                         rdfs:label "Healing Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HeatingArtifactFunctionSpecification
+cco:HeatingArtifactFunctionSpecification rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:prescribes ;
+                                                               owl:someValuesFrom cco:HeatingArtifactFunction
+                                                             ] ;
+                                         rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                         cco:definition "An Artifact Function Specification that prescribes some Heating Artifact Function."^^xsd:string ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                         rdfs:label "Heating Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MotionArtifactFunctionSpecification
+cco:MotionArtifactFunctionSpecification rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty cco:prescribes ;
+                                                              owl:someValuesFrom cco:MotionArtifactFunction
+                                                            ] ;
+                                        rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                        cco:definition "An Artifact Function Specification that prescribes some Motion Artifact Function."^^xsd:string ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                        rdfs:label "Motion Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ObservationArtifactFunctionSpecification
+cco:ObservationArtifactFunctionSpecification rdf:type owl:Class ;
+                                             rdfs:subClassOf cco:ArtifactFunctionSpecification ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                                                               owl:someValuesFrom cco:ArtifactModel
+                                                             ] ,
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:prescribes ;
+                                                               owl:someValuesFrom cco:ObservationArtifactFunction
+                                                             ] ;
+                                             cco:definition "An Artifact Function Specification that prescribes an Observation Artifact Function and is part of some Artifact Model."^^xsd:string ;
+                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                             rdfs:label "Observation Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PayloadCapacitySpecification
+cco:PayloadCapacitySpecification rdf:type owl:Class ;
+                                 rdfs:subClassOf cco:ArtifactFunctionSpecification ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                                                   owl:someValuesFrom cco:ArtifactModel
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty cco:prescribes ;
+                                                   owl:someValuesFrom cco:PayloadCapacity
+                                                 ] ;
+                                 cco:definition "An Artifact Function Specification that prescribes a Payload Capacity and is part of some Artifact Model."^^xsd:string ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                 rdfs:label "Payload Capacity Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ResearchArtifactFunctionSpecification
+cco:ResearchArtifactFunctionSpecification rdf:type owl:Class ;
+                                          rdfs:subClassOf cco:ArtifactFunctionSpecification ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                                                            owl:someValuesFrom cco:ArtifactModel
+                                                          ] ,
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty cco:prescribes ;
+                                                            owl:someValuesFrom cco:ResearchArtifactFunction
+                                                          ] ;
+                                          cco:definition "An Artifact Function Specification that prescribes a Research Artifact Function and is part of some Artifact Model."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Research Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ServiceArtifactFunctionSpecification
+cco:ServiceArtifactFunctionSpecification rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:prescribes ;
+                                                               owl:someValuesFrom cco:ServiceArtifactFunction
+                                                             ] ;
+                                         rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                         cco:definition "An Artifact Function Specification that prescribes some Service Artifact Function."^^xsd:string ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                         rdfs:label "Service Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SubmersibleArtifactFunctionSpecification
+cco:SubmersibleArtifactFunctionSpecification rdf:type owl:Class ;
+                                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty cco:prescribes ;
+                                                                   owl:someValuesFrom cco:SubmersibleArtifactFunction
+                                                                 ] ;
+                                             rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                             cco:definition "An Artifact Function Specification that prescribes some Submersible Artifact Function."^^xsd:string ;
+                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                             rdfs:label "Submersible Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SwitchArtifactFunctionSpecification
+cco:SwitchArtifactFunctionSpecification rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty cco:prescribes ;
+                                                              owl:someValuesFrom cco:SwitchArtifactFunction
+                                                            ] ;
+                                        rdfs:subClassOf cco:ArtifactFunctionSpecification ;
+                                        cco:definition "An Artifact Function Specification that prescribes some Switch Artifact Function."^^xsd:string ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                        rdfs:label "Switch Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CatalystArtifactFunctionSpecification
+cco:CatalystArtifactFunctionSpecification rdf:type owl:Class ;
+                                          rdfs:subClassOf cco:ChemicalReactionArtifactFunctionSpecification ;
+                                          cco:definition "A Chemical Reaction Function Specification that prescribes some Catalyst Artifact Function."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Catalyst Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ConveyanceArtifactFunctionSpecification
+cco:ConveyanceArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:ConveyanceArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:MotionArtifactFunctionSpecification ;
+                                            cco:definition "A Motion Artifact Function Specification that prescribes some Conveyance Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Conveyance Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CrushingArtifactFunctionSpecification
+cco:CrushingArtifactFunctionSpecification rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:prescribes ;
+                                                                owl:someValuesFrom cco:CrushingArtifactFunction
+                                                              ] ;
+                                          rdfs:subClassOf cco:DamagingArtifactFunctionSpecification ;
+                                          cco:definition "A Damaging Artifact Function Specification that prescribes some Crushing Artifact Function."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Crushing Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CuttingArtifactFunctionSpecification
+cco:CuttingArtifactFunctionSpecification rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:prescribes ;
+                                                               owl:someValuesFrom cco:CuttingArtifactFunction
+                                                             ] ;
+                                         rdfs:subClassOf cco:DamagingArtifactFunctionSpecification ;
+                                         cco:definition "A Damaging Artifact Function Specification that prescribes some Cutting Artifact Function."^^xsd:string ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                         rdfs:label "Cutting Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DetergentArtifactFunctionSpecification
+cco:DetergentArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:DetergentArtifactFunctionSpecification
+                                                               ] ;
+                                           rdfs:subClassOf cco:SurfactantArtifactFunctionSpecification ;
+                                           cco:definition "A Surfactant Artifact Function Specification that prescribes some Detergent Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Detergent Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EducationArtifactFunctionSpecification
+cco:EducationArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:EducationArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                           cco:definition "A Service Artifact Function Specification that prescribes some Education Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Education Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ElectromagneticCommunicationArtifactFunctionSpecification
+cco:ElectromagneticCommunicationArtifactFunctionSpecification rdf:type owl:Class ;
+                                                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty cco:prescribes ;
+                                                                                    owl:someValuesFrom cco:ElectromagneticCommunicationArtifactFunction
+                                                                                  ] ;
+                                                              rdfs:subClassOf cco:CommunicationArtifactFunctionSpecification ;
+                                                              cco:definition "A Communication Artifact Function Specification that prescribes some Electromagnetic Communication Artifact Function."^^xsd:string ;
+                                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                              rdfs:label "Electromagnetic Communication Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EmulsifierArtifactFunctionSpecification
+cco:EmulsifierArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:EmulsifierArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:ChemicalReactionArtifactFunctionSpecification ;
+                                            cco:definition "A Chemical Reaction Function Specification that prescribes some Emulsifier Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Emulsifier Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ExplosiveArtifactFunctionSpecification
+cco:ExplosiveArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:ExplosiveArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:DamagingArtifactFunctionSpecification ;
+                                           cco:definition "A Damaging Artifact Function Specification that prescribes some Explosive Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Explosive Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FertilizerArtifactFunctionSpecification
+cco:FertilizerArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:FertilizerArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:EnhancingArtifactFunctionSpecification ;
+                                            cco:definition "An Enhancing Artifact Function Specification that prescribes some Fertilizer Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Fertilizer Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FinancialArtifactFunctionSpecification
+cco:FinancialArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:FinancialArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                           cco:definition "A Service Artifact Function Specification that prescribes some Financial Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Financial Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentArtifactFunctionSpecification
+cco:GovernmentArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:GovernmentArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                            cco:definition "A Service Artifact Function Specification that prescribes some Government Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Government Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HealthcareArtifactFunctionSpecification
+cco:HealthcareArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:HealthcareArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                            cco:definition "A Service Artifact Function Specification that prescribes some Healthcare Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Healthcare Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HospitalityArtifactFunctionSpecification
+cco:HospitalityArtifactFunctionSpecification rdf:type owl:Class ;
+                                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty cco:prescribes ;
+                                                                   owl:someValuesFrom cco:HospitalityArtifactFunction
+                                                                 ] ;
+                                             rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                             cco:definition "A Service Artifact Function Specification that prescribes some Hospitality Artifact Function."^^xsd:string ;
+                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                             rdfs:label "Hospitality Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LegalArtifactFunctionSpecification
+cco:LegalArtifactFunctionSpecification rdf:type owl:Class ;
+                                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:prescribes ;
+                                                             owl:someValuesFrom cco:LegalArtifactFunction
+                                                           ] ;
+                                       rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                       cco:definition "A Service Artifact Function Specification that prescribes some Legal Artifact Function."^^xsd:string ;
+                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                       rdfs:label "Legal Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MaximumSpeedArtifactFunctionSpecification
+cco:MaximumSpeedArtifactFunctionSpecification rdf:type owl:Class ;
+                                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:prescribes ;
+                                                                    owl:someValuesFrom cco:MaximumSpeedArtifactFunction
+                                                                  ] ;
+                                              rdfs:subClassOf cco:SpeedArtifactFunctionSpecification ;
+                                              cco:definition "A Speed Artifact Function Specification that prescribes some Maximum Speed Function."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                              rdfs:label "Maximum Speed Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MilitaryArtifactFunctionSpecification
+cco:MilitaryArtifactFunctionSpecification rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:prescribes ;
+                                                                owl:someValuesFrom cco:MilitaryArtifactFunction
+                                                              ] ;
+                                          rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                          cco:definition "A Service Artifact Function Specification that prescribes some Military Artifact Function."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Military Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MinimumSpeedArtifactFunctionSpecification
+cco:MinimumSpeedArtifactFunctionSpecification rdf:type owl:Class ;
+                                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:prescribes ;
+                                                                    owl:someValuesFrom cco:MinimumSpeedArtifactFunction
+                                                                  ] ;
+                                              rdfs:subClassOf cco:SpeedArtifactFunctionSpecification ;
+                                              cco:definition "A Speed Artifact Function Specification that prescribes some Minimum Speed Function."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                              rdfs:label "Minimum Speed Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NeutralizationArtifactFunctionSpecification
+cco:NeutralizationArtifactFunctionSpecification rdf:type owl:Class ;
+                                                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty cco:prescribes ;
+                                                                      owl:someValuesFrom cco:NeutralizationArtifactFunction
+                                                                    ] ;
+                                                rdfs:subClassOf cco:ChemicalReactionArtifactFunctionSpecification ;
+                                                cco:definition "A Chemical Reaction Function Specification that prescribes some Neutralization Artifact Function."^^xsd:string ;
+                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                rdfs:label "Neutralization Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NominalSpeedArtifactFunctionSpecification
+cco:NominalSpeedArtifactFunctionSpecification rdf:type owl:Class ;
+                                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:prescribes ;
+                                                                    owl:someValuesFrom cco:NominalSpeedArtifactFunction
+                                                                  ] ;
+                                              rdfs:subClassOf cco:SpeedArtifactFunctionSpecification ;
+                                              cco:definition "A Speed Artifact Function Specification that prescribes some Nominal Speed Artifact Function."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                              rdfs:label "Nominal Speed Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OpticalCommunicationArtifactFunctionSpecification
+cco:OpticalCommunicationArtifactFunctionSpecification rdf:type owl:Class ;
+                                                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty cco:prescribes ;
+                                                                            owl:someValuesFrom cco:OpticalCommunicationArtifactFunction
+                                                                          ] ;
+                                                      rdfs:subClassOf cco:ElectromagneticCommunicationArtifactFunctionSpecification ;
+                                                      cco:definition "An Electromagnetic Communication Artifact Function Specification that prescribes some Optical Communication Artifact Function."^^xsd:string ;
+                                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                      rdfs:label "Optical Communication Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OxidizerArtifactFunctionSpecification
+cco:OxidizerArtifactFunctionSpecification rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:prescribes ;
+                                                                owl:someValuesFrom cco:OxidizerArtifactFunction
+                                                              ] ;
+                                          rdfs:subClassOf cco:ChemicalReactionArtifactFunctionSpecification ;
+                                          cco:definition "A Chemical Reaction Function Specification that prescribes some Oxidizer Artifact Function."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Oxidizer Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PesticideArtifactFunctionSpecification
+cco:PesticideArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:PesticideArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:PoisonArtifactFunctionSpecification ;
+                                           cco:definition "A Poison Artifact Function Specification that prescribes some Pesticide Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Pesticide Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PoisonArtifactFunctionSpecification
+cco:PoisonArtifactFunctionSpecification rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty cco:prescribes ;
+                                                              owl:someValuesFrom cco:PoisonArtifactFunction
+                                                            ] ;
+                                        rdfs:subClassOf cco:DamagingArtifactFunctionSpecification ;
+                                        cco:definition "A Damaging Artifact Function Specification that prescribes some Poison Artifact Function."^^xsd:string ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                        rdfs:label "Poison Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PropulsionArtifactFunctionSpecification
+cco:PropulsionArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:PropulsionArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:MotionArtifactFunctionSpecification ;
+                                            cco:definition "A Motion Artifact Function Specification that prescribes some Propulsion Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Propulsion Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PublicSafetyArtifactFunctionSpecification
+cco:PublicSafetyArtifactFunctionSpecification rdf:type owl:Class ;
+                                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:prescribes ;
+                                                                    owl:someValuesFrom cco:PublicSafetyArtifactFunction
+                                                                  ] ;
+                                              rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                              cco:definition "A Service Artifact Function Specification that prescribes some Public Safety Artifact Function."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                              rdfs:label "Public Safety Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RadioCommunicationArtifactFunctionSpecification
+cco:RadioCommunicationArtifactFunctionSpecification rdf:type owl:Class ;
+                                                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty cco:prescribes ;
+                                                                          owl:someValuesFrom cco:RadioCommunicationArtifactFunction
+                                                                        ] ;
+                                                    rdfs:subClassOf cco:ElectromagneticCommunicationArtifactFunctionSpecification ;
+                                                    cco:definition "An Electromagnetic Communication Artifact Function Specification that prescribes some Radio Communication Artifact Function."^^xsd:string ;
+                                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                    rdfs:label "Radio Communication Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ReactantArtifactFunctionSpecification
+cco:ReactantArtifactFunctionSpecification rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:prescribes ;
+                                                                owl:someValuesFrom cco:ReactantArtifactFunction
+                                                              ] ;
+                                          rdfs:subClassOf cco:ChemicalReactionArtifactFunctionSpecification ;
+                                          cco:definition "A Chemical Reaction Function Specification that prescribes some Reactant Artifact Function."^^xsd:string ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                          rdfs:label "Reactant Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ReligiousArtifactFunctionSpecification
+cco:ReligiousArtifactFunctionSpecification rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty cco:prescribes ;
+                                                                 owl:someValuesFrom cco:ReligiousArtifactFunction
+                                                               ] ;
+                                           rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                           cco:definition "A Service Artifact Function Specification that prescribes some Religious Artifact Function."^^xsd:string ;
+                                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                           rdfs:label "Religious Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ResearchAndDevelopmentArtifactFunctionSpecification
+cco:ResearchAndDevelopmentArtifactFunctionSpecification rdf:type owl:Class ;
+                                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty cco:prescribes ;
+                                                                              owl:someValuesFrom cco:ResearchAndDevelopmentArtifactFunction
+                                                                            ] ;
+                                                        rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                                        cco:definition "A Service Artifact Function Specification that prescribes some Research and Development Artifact Function."^^xsd:string ;
+                                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                        rdfs:label "Research and Development Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ResidentialArtifactFunctionSpecification
+cco:ResidentialArtifactFunctionSpecification rdf:type owl:Class ;
+                                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty cco:prescribes ;
+                                                                   owl:someValuesFrom cco:ResidentialArtifactFunction
+                                                                 ] ;
+                                             rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                             cco:definition "A Service Artifact Function Specification that prescribes some Residential Artifact Function."^^xsd:string ;
+                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                             rdfs:label "Residential Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/RetailArtifactFunctionSpecification
+cco:RetailArtifactFunctionSpecification rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty cco:prescribes ;
+                                                              owl:someValuesFrom cco:RetailArtifactFunction
+                                                            ] ;
+                                        rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                        cco:definition "A Service Artifact Function Specification that prescribes some Retail Artifact Function."^^xsd:string ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                        rdfs:label "Retail Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SolventArtifactFunctionSpecification
+cco:SolventArtifactFunctionSpecification rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:prescribes ;
+                                                               owl:someValuesFrom cco:SolventArtifactFunction
+                                                             ] ;
+                                         rdfs:subClassOf cco:ChemicalReactionArtifactFunctionSpecification ;
+                                         cco:definition "A Chemical Reaction Function Specification that prescribes some Solvent Artifact Function."^^xsd:string ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                         rdfs:label "Solvent Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SpeedArtifactFunctionSpecification
+cco:SpeedArtifactFunctionSpecification rdf:type owl:Class ;
+                                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:prescribes ;
+                                                             owl:someValuesFrom cco:SpeedArtifactFunction
+                                                           ] ;
+                                       rdfs:subClassOf cco:MotionArtifactFunctionSpecification ;
+                                       cco:definition "A Motion Artifact Function Specification that prescribes some Speed Artifact Function."^^xsd:string ;
+                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                       rdfs:label "Speed Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SurfactantArtifactFunctionSpecification
+cco:SurfactantArtifactFunctionSpecification rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:prescribes ;
+                                                                  owl:someValuesFrom cco:SurfactantArtifactFunction
+                                                                ] ;
+                                            rdfs:subClassOf cco:EmulsifierArtifactFunctionSpecification ;
+                                            cco:definition "An Emulsifier Artifact Function Specification that prescribes some Surfactant Artifact Function."^^xsd:string ;
+                                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                            rdfs:label "Surfactant Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/VehicleEnduranceArtifactFunctionSpecification
+cco:VehicleEnduranceArtifactFunctionSpecification rdf:type owl:Class ;
+                                                  rdfs:subClassOf cco:MotionArtifactFunctionSpecification ;
+                                                  cco:definition "A Motion Artifact Function Specification that prescribes some Vehicle Endurance Artifact Function."^^xsd:string ;
+                                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                  rdfs:label "Vehicle Endurance Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/VehicleRangeArtifactFunctionSpecification
+cco:VehicleRangeArtifactFunctionSpecification rdf:type owl:Class ;
+                                              rdfs:subClassOf cco:MotionArtifactFunctionSpecification ;
+                                              cco:definition "A Motion Artifact Function Specification that prescribes some Vehicle Range Artifact Function."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                              rdfs:label "Vehicle Range Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WasteManagementArtifactFunctionSpecification
+cco:WasteManagementArtifactFunctionSpecification rdf:type owl:Class ;
+                                                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty cco:prescribes ;
+                                                                       owl:someValuesFrom cco:WasteManagementArtifactFunction
+                                                                     ] ;
+                                                 rdfs:subClassOf cco:ServiceArtifactFunctionSpecification ;
+                                                 cco:definition "A Service Artifact Function Specification that prescribes some Waste Management Artifact Function."^^xsd:string ;
+                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                 rdfs:label "Waste Management Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WettingAgentArtifactFunctionSpecification
+cco:WettingAgentArtifactFunctionSpecification rdf:type owl:Class ;
+                                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:prescribes ;
+                                                                    owl:someValuesFrom cco:WettingAgentArtifactFunction
+                                                                  ] ;
+                                              rdfs:subClassOf cco:SurfactantArtifactFunctionSpecification ;
+                                              cco:definition "A Surfactant Artifact Function Specification that prescribes some Wetting Agent Artifact Function."^^xsd:string ;
+                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                              rdfs:label "Wetting Agent Artifact Function Specification"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WiredCommunicationArtifactFunctionSpecification
+cco:WiredCommunicationArtifactFunctionSpecification rdf:type owl:Class ;
+                                                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty cco:prescribes ;
+                                                                          owl:someValuesFrom cco:WiredCommunicationArtifactFunction
+                                                                        ] ;
+                                                    rdfs:subClassOf cco:CommunicationArtifactFunctionSpecification ;
+                                                    cco:definition "A Communication Artifact Function Specification that prescribes some Wired Communication Artifact Function."^^xsd:string ;
+                                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTermFile"^^xsd:string ;
+                                                    rdfs:label "Wired Communication Artifact Function Specification"^^xsd:string .
+
+

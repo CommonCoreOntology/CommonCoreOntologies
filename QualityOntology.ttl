@@ -11,9 +11,11 @@
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology> a owl:Ontology ;
 	owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-	owl:versionInfo "COPYRIGHT © 2015 CUBRC, Inc."^^xsd:string ;
+	cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
+	cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
 	rdfs:comment "This ontology is designed to represent a range of attributes of entities especially qualities, realizable entities, and process profiles."^^xsd:string ;
-	owl:versionInfo "August 1, 2017"^^xsd:string , "Version 1.0.1"^^xsd:string ;
+	owl:versionInfo "January 4, 2019"^^xsd:string , "Version 1.1"^^xsd:string ;
+	cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
 	rdfs:label "Quality Ontology"^^xsd:string .
 # 
 # 
@@ -201,18 +203,18 @@ cco:ConvexShape a owl:Class ;
 # http://www.ontologyrepository.com/CommonCoreOntologies/CubeShape
 
 cco:CubeShape a owl:Class ;
-	rdfs:subClassOf cco:Cubiod ;
-	cco:definition "A Cubiod shape inhering in a bearer in virtue of it having six square faces."^^xsd:string ;
+	rdfs:subClassOf cco:Cuboidal ;
+	cco:definition "A Cuboidal shape inhering in a bearer in virtue of it having six Square faces."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Cube Shape"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Cubiod
+# http://www.ontologyrepository.com/CommonCoreOntologies/Cuboidal
 
-cco:Cubiod a owl:Class ;
+cco:Cuboidal a owl:Class ;
 	rdfs:subClassOf cco:ThreeDimensionalShape ;
-	cco:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having six rectangular faces."^^xsd:string ;
+	cco:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having six Rectangular faces."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Cubiod"^^xsd:string .
+	rdfs:label "Cuboidal"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Curved
 
@@ -272,57 +274,13 @@ cco:Drooping a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Drooping"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/ElectromagneticRadiationFrequency
-
-cco:ElectromagneticRadiationFrequency a owl:Class ;
-	rdfs:subClassOf cco:Frequency ;
-	cco:definition "A Frequency that is characterized by the rate of oscillations per second of an electromagnetic wave."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Electromagnetic_spectrum"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:comment "Divisions between EM radiation frequencies are fiat and sources vary on where to draw boundaries."^^xsd:string ;
-	rdfs:label "Electromagnetic Radiation Frequency"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/ElectromagneticRadiationProperty
 
 cco:ElectromagneticRadiationProperty a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000017 ;
-	cco:definition "A Realizable Entity that inheres in an bearer in virtue of how that bearer interacts with electromagnetic radiation."^^xsd:string ;
+	rdfs:subClassOf obo:BFO_0000016 ;
+	cco:definition "A Disposition that inheres in an bearer in virtue of how that bearer interacts with electromagnetic radiation."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Electromagnetic Radiation Property"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/ExtremeUltravioletLightFrequency
-
-cco:ExtremeUltravioletLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:UltravioletLightFrequency ;
-	cco:definition "An Ultraviolet Light Frequency of some Electromagnetic Wave, typically between 3 and 30 petahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Ultraviolet"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Extreme Ultraviolet Light Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/ExtremelyHighFrequency
-
-cco:ExtremelyHighFrequency a owl:Class ;
-	rdfs:subClassOf cco:MicrowaveFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 30 and 300 gigahertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Extremely High Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/ExtremelyLowFrequency
-
-cco:ExtremelyLowFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition_source "A Radio Freqeuncy of some Electromagnetic Wave, typically between 3 and 30 hertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Extremely Low Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/FarInfraredLightFrequency
-
-cco:FarInfraredLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:InfraredLightFrequency ;
-	cco:definition "An Infrared Light Freqeuncy of some Electromagnetic Wave, typically between 300 gigahertz and 20 terahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Electromagnetic_spectrum#Infrared_radiation"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Far Infrared Light Frequency"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Fatigability
 
@@ -357,34 +315,6 @@ cco:Folded a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Folded"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Frequency
-
-cco:Frequency a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000144 ;
-	cco:definition "A Process Profile that is characterized by the number of repetitive processes during a particular time period."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Frequency"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/FundamentalFrequency
-
-cco:FundamentalFrequency a owl:Class ;
-	rdfs:subClassOf cco:SoundFrequency ;
-	cco:definition "A Sound Frequency that is charaterized as the lowest frequency of a sound wave."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Fundamental Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/GammaRayFrequency
-
-cco:GammaRayFrequency a owl:Class ;
-	rdfs:subClassOf cco:ElectromagneticRadiationFrequency ;
-	cco:definition "An Electromagnetic Radiation Freqeuncy of some Electromagnetic Wave, typically above 30 exahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Gamma_ray"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:comment """Currently gamma radiation is distinguished from x-rays by their source--either inside or outside of the nucleus--rather than by frequency, energy, and wavelength.
-https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_terminology"""^^xsd:string ;
-	rdfs:label "Gamma Ray Frequency"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/GoldColor
 
 cco:GoldColor a owl:Class ;
@@ -408,14 +338,6 @@ cco:Grey a owl:Class ;
 	cco:definition "A Color between white and black colors."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Grey"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/HardXrayFrequency
-
-cco:HardXrayFrequency a owl:Class ;
-	rdfs:subClassOf cco:XrayFrequency ;
-	cco:definition "An X-Ray Freqeuncy of some Electromagnetic Wave, typically between 3 and 30 exahertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Hard X-ray Frequency"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Hardness
 
@@ -441,31 +363,6 @@ cco:Height a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Height"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/HighFrequency
-
-cco:HighFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 3 and 30 megahertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "High Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/InfraredLightFrequency
-
-cco:InfraredLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:ElectromagneticRadiationFrequency ;
-	cco:definition "An Electromagnetic Radiation Freqeuncy of some Electromagnetic Wave, typically between 300 gigahertz and 430 tetrahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Infrared"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Infrared Light Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/IntrasonicFrequency
-
-cco:IntrasonicFrequency a owl:Class ;
-	rdfs:subClassOf cco:SoundFrequency ;
-	cco:definition "A Sound Frequency that is below 20 hertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Intrasonic Frequency"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Length
 
 cco:Length a owl:Class ;
@@ -474,22 +371,6 @@ cco:Length a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Length"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Loudness
-
-cco:Loudness a owl:Class ;
-	rdfs:subClassOf cco:SoundProcessProfile ;
-	cco:definition "A Sound Process Profile that is characterized by the amplitude, frequency and power of translated sound waves, typically on a continuum from soft to loud."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Loudness"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/LowFrequency
-
-cco:LowFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 30 and 300 kilohertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Low Frequency"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/LuminescentProperty
 
 cco:LuminescentProperty a owl:Class ;
@@ -497,8 +378,7 @@ cco:LuminescentProperty a owl:Class ;
 	cco:definition "An Optical Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light, but which isn't the result of the bearer being heated."^^xsd:string ;
 	cco:definition_source "https://en.wikipedia.org/wiki/Luminescence"^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:comment """There are a variety of photometric measurements, such as luminous flux/power or luminous intensity, whose units are lumen and candela respectively, which attempt to describe properties associated with the perception of light. These are weighted measurements, typically by the luminosity function, as thus exist on the side of information content. It is a point of further development to add the needed intrinsic properties of radiation that such measurements are about.
-See: https:/en.wikipedia.org/wiki/Photometry_(optics)"""^^xsd:string ;
+	rdfs:comment "There are a variety of photometric measurements, such as luminous flux/power or luminous intensity, whose units are lumen and candela respectively, which attempt to describe properties associated with the perception of light. These are weighted measurements, typically by the luminosity function, as thus exist on the side of information content. It is a point of further development to add the needed intrinsic properties of radiation that such measurements are about."^^xsd:string ;
 	rdfs:label "Luminescent Property"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Magenta
@@ -512,8 +392,8 @@ cco:Magenta a owl:Class ;
 # http://www.ontologyrepository.com/CommonCoreOntologies/Magnetic
 
 cco:Magnetic a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000017 ;
-	cco:definition "A Realizable Entitiy that is realized when its bearer exerts a magnetic force on another entity."^^xsd:string ;
+	rdfs:subClassOf obo:BFO_0000016 ;
+	cco:definition "A Disposition that is realized when its bearer exerts a magnetic force on another entity."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Magnetism"^^xsd:string .
 # 
@@ -533,58 +413,6 @@ cco:Mass a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:comment "'Matter' here can also refer to the inertial energy of an object."^^xsd:string , "Typical unit of measure is the kilogram or pound."^^xsd:string ;
 	rdfs:label "Mass"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/MaximumPower
-
-cco:MaximumPower a owl:Class ;
-	rdfs:subClassOf cco:Power ;
-	cco:definition "A Process Profile which is characterized by the maximum rate of Work, or Energy consumed, done in a given time period."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Maximum Power"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/MediumFrequency
-
-cco:MediumFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 300 kilohertz and 3 megahertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Medium Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/MicrowaveFrequency
-
-cco:MicrowaveFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Frequency of some some Electromagnetic Wave, typically between 300 megahertz and 300 gigahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Microwave"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Microwave Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/MidInfraredLightFrequency
-
-cco:MidInfraredLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:InfraredLightFrequency ;
-	cco:definition "An Infrared Light Freqeuncy of some Electromagnetic Wave, typically between 20 to 214 terahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Electromagnetic_spectrum#Infrared_radiation"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Mid Infrared Light Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/NearInfraredLightFrequency
-
-cco:NearInfraredLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:InfraredLightFrequency ;
-	cco:definition "An Infrared Light Frequency of some Electromagnetic Wave, typically between 214 and 400 terahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Electromagnetic_spectrum#Infrared_radiation"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Near Infrared Light Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/NearUltravioletLightFrequency
-
-cco:NearUltravioletLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:UltravioletLightFrequency ;
-	cco:definition "An Ultraviolet Light Frequency of some Electromagnetic Wave, typically between 750 terahertz and 3 petahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Ultraviolet"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Near Ultraviolet Light Frequency"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Oblong
 
@@ -638,16 +466,6 @@ cco:Orange a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Orange"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Orientation
-
-cco:Orientation a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000145 ;
-	cco:alternative_label "Attitude"^^xsd:string , "Spatial Orientation"^^xsd:string ;
-	cco:definition "A Relational Quality that is the angle of Rotation of an Object relative to one or more Plane of Reference or Axis of Rotation."^^xsd:string ;
-	cco:definition_source "Adapted from: https://en.wikipedia.org/wiki/Orientation_(geometry)"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Orientation"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Perimeter
 
 cco:Perimeter a owl:Class ;
@@ -662,7 +480,7 @@ cco:PhaseAngle a owl:Class ;
 	rdfs:subClassOf obo:BFO_0000145 ;
 	cco:alternative_label "Orbital Phase Angle"^^xsd:string ;
 	cco:definition "A Relational Quality that is the angle between the light incident onto an observed Object and the light reflected from the Object."^^xsd:string ;
-	cco:definition_source "Adapted from: https://en.wikipedia.org/wiki/Phase_angle_(astronomy)"^^xsd:string ;
+	cco:definition_source "https://en.wikipedia.org/wiki/Phase_angle_(astronomy)"^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Phase Angle"^^xsd:string .
 # 
@@ -675,29 +493,23 @@ cco:Phosphorescence a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Phosphorescence"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Pitch
+# http://www.ontologyrepository.com/CommonCoreOntologies/PitchOrientation
 
-cco:Pitch a owl:Class ;
-	rdfs:subClassOf cco:SoundProcessProfile ;
-	cco:definition "A Sound Process Profile that is characterized by the frequency of translated sound waves, typically on a continuum from low to high."^^xsd:string ;
+cco:PitchOrientation a owl:Class ;
+	rdfs:subClassOf cco:SpatialOrientation ;
+	cco:alternative_label "Pitch"^^xsd:string ;
+	cco:definition "A Spatial Orientation of an Object relative to its Pitch Axis."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Pitch"^^xsd:string .
+	rdfs:label "Pitch Orientation"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/PointingOrientation
 
 cco:PointingOrientation a owl:Class ;
-	rdfs:subClassOf cco:Orientation ;
-	cco:definition "An Orientation of an Object in which one or more designated components of the Object are pointed toward a specified Target."^^xsd:string ;
+	rdfs:subClassOf cco:SpatialOrientation ;
+	cco:alternative_label "Facing Orientation"^^xsd:string ;
+	cco:definition "A Spatial Orientation of an Object in which one or more designated components of the Object are pointed toward a specified Target."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Pointing Orientation"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Power
-
-cco:Power a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000144 ;
-	cco:definition "A Process Profile which is characterized by the rate of Work, or Energy consumed, done in a given time period."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Power"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Protruding
 
@@ -747,15 +559,6 @@ cco:RadiationReflectivity a owl:Class ;
 	cco:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to scatter or reflect electromagnetic radiation of a given frequency."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Radiation Reflectivity"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/RadioFrequency
-
-cco:RadioFrequency a owl:Class ;
-	rdfs:subClassOf cco:ElectromagneticRadiationFrequency ;
-	cco:definition "An Electromagnetic Radiation Freqeuncy of some Electromagnetic Wave, typically between 3 hertz and 300 gigahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Radio_wave"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Radio Frequency"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Radioactive
 
@@ -817,6 +620,15 @@ cco:Refractivity a owl:Class ;
 	cco:definition_source "https://en.wikipedia.org/wiki/Refractive_index#Refractivity"^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Refractivity"^^xsd:string .
+# 
+# http://www.ontologyrepository.com/CommonCoreOntologies/RollOrientation
+
+cco:RollOrientation a owl:Class ;
+	rdfs:subClassOf cco:SpatialOrientation ;
+	cco:alternative_label "Roll"^^xsd:string ;
+	cco:definition "A Spatial Orientation of an Object relative to its Roll Axis."^^xsd:string ;
+	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
+	rdfs:label "Roll Orientation"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Rosy
 
@@ -892,59 +704,15 @@ cco:Sloped a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Sloped"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/SoftXrayFrequency
+# http://www.ontologyrepository.com/CommonCoreOntologies/SpatialOrientation
 
-cco:SoftXrayFrequency a owl:Class ;
-	rdfs:subClassOf cco:XrayFrequency ;
-	cco:definition "An X-Ray Freqeuncy of some Electromagnetic Wave, typically between 30 petahertz and 3 exahertz."^^xsd:string ;
+cco:SpatialOrientation a owl:Class ;
+	rdfs:subClassOf obo:BFO_0000145 ;
+	cco:alternative_label "Attitude"^^xsd:string ;
+	cco:definition "A Relational Quality that is the angle of Rotation of an Object relative to one or more Plane of Reference or Axis of Rotation."^^xsd:string ;
+	cco:definition_source "https://en.wikipedia.org/wiki/Orientation_(geometry)"^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Soft X-ray Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/SonicFrequency
-
-cco:SonicFrequency a owl:Class ;
-	rdfs:subClassOf cco:SoundFrequency ;
-	cco:definition "A Sound Frequency that is in the range of 20 hertz to 20 kilohertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Sonic Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/SoundFrequency
-
-cco:SoundFrequency a owl:Class ;
-	rdfs:subClassOf cco:Frequency ;
-	cco:definition "A Frequency that is characterized by the rate of oscillations per second of a sound wave."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Sound Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/SoundProcessProfile
-
-cco:SoundProcessProfile a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000144 ;
-	cco:alternative_label "Sound Quality"^^xsd:string ;
-	cco:definition "A Process Profile that is part of a sound reception process and is characterized by properties of incoming sound waves as they are translated by some sensory system."^^xsd:string ;
-	cco:definition_source "http://www.animations.physics.unsw.edu.au/waves-sound/quantifying/index.html"^^xsd:string , "https://en.wikipedia.org/wiki/Sound#Perception_of_sound"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Sound Process Profile"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/SoundWavelength
-
-cco:SoundWavelength a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000144 ;
-	cco:definition "A Process Profile that is characterized by the distance a sound wave travels per cycle of that wave."^^xsd:string ;
-	cco:definition_source "http://www.physicsclassroom.com/Class/waves/u10l2b.cfm"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:comment "Providing a non-dispersive media, wavelength will be the inverse of frequency."^^xsd:string ;
-	rdfs:label "Sound Wavelength"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Speed
-
-cco:Speed a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000144 ;
-	cco:definition "A Process Profile that is characterized by an object's change in position during some time period."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Velocity"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:comment "An object's speed is the scalar absolute value of it's Velocity."^^xsd:string ;
-	rdfs:label "Speed"^^xsd:string .
+	rdfs:label "Spatial Orientation"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Spherical
 
@@ -988,27 +756,11 @@ cco:Strength a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Strength"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/SuperHighFrequency
-
-cco:SuperHighFrequency a owl:Class ;
-	rdfs:subClassOf cco:MicrowaveFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 3 and 30 gigahertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Super High  Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/SuperLowFrequency
-
-cco:SuperLowFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 30 and 300 hertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Super Low Frequency"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/SurfaceTension
 
 cco:SurfaceTension a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000017 ;
-	cco:definition "A Realizable Entity that inheres in a liquid and is realized when the cohesive forces of the molecules in the bearer at the surface are greater than the adhesive forces of the molecules in the surrounding air."^^xsd:string ;
+	rdfs:subClassOf obo:BFO_0000016 ;
+	cco:definition "A Disposition that inheres in a liquid and is realized when the cohesive forces of the molecules in the bearer at the surface are greater than the adhesive forces of the molecules in the surrounding air."^^xsd:string ;
 	cco:definition_source "https://en.wikipedia.org/wiki/Surface_tension" ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Surface Tension"^^xsd:string .
@@ -1063,14 +815,6 @@ cco:ThreeDimensionalShape a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Three Dimensional Shape"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/Timbre
-
-cco:Timbre a owl:Class ;
-	rdfs:subClassOf cco:SoundProcessProfile ;
-	cco:definition "A Sound Process Profile that is characterized by the variation, spectrum, or envelope of translated sound waves, typically on a continuum from dull or dark to bright."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Timbre"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Translucent
 
 cco:Translucent a owl:Class ;
@@ -1086,16 +830,6 @@ cco:Transparent a owl:Class ;
 	cco:definition "An Opacity that inheres in a bearer in virtue of that bearer's capacity to transmit all or nearly all electromagnetic radiation of a given frequency through the bearer such that the bearer reflects, scatters, or absorbs little or no electromagnetic radiation of that frequency."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Transparent"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/TremendouslyHighFrequency
-
-cco:TremendouslyHighFrequency a owl:Class ;
-	rdfs:subClassOf cco:ElectromagneticRadiationFrequency ;
-	cco:alternative_label "Terahertz Radiation Frequency"^^xsd:string ;
-	cco:definition "An Electromagnetic Radiation Freqeuncy of some Electromagnetic Wave, typically between 300 gigahertz and 3 terahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Terahertz_radiation"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Tremendously High Frequency"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Triangular
 
@@ -1114,39 +848,6 @@ cco:TwoDimensionalExtent a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Two Dimensional Extent"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/UltraHighFrequency
-
-cco:UltraHighFrequency a owl:Class ;
-	rdfs:subClassOf cco:MicrowaveFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 300 megahertz and 3 gigahertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Ultra High Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/UltraLowFrequency
-
-cco:UltraLowFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 300 hertz and 3 kilohertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Ultra Low Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/UltrasonicFrequency
-
-cco:UltrasonicFrequency a owl:Class ;
-	rdfs:subClassOf cco:SoundFrequency ;
-	cco:definition "A Sound Rrequency that is greater than 20 kilohertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Ultrasonic Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/UltravioletLightFrequency
-
-cco:UltravioletLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:ElectromagneticRadiationFrequency ;
-	cco:definition "An Electromagnetic Radiation Freqeuncy of some Electromagnetic Wave, typically between 750 terahertz and 30 petahertz."^^xsd:string ;
-	cco:definition_source "https://en.wikipedia.org/wiki/Ultraviolet"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Ultraviolet Light Frequency"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Vermilion
 
 cco:Vermilion a owl:Class ;
@@ -1154,22 +855,6 @@ cco:Vermilion a owl:Class ;
 	cco:definition "A Color consisting of red and orange hue with a slight amount of gray."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Vermilion"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/VeryHighFrequency
-
-cco:VeryHighFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 30 and 300 megahertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Very High Frequency"^^xsd:string .
-# 
-# http://www.ontologyrepository.com/CommonCoreOntologies/VeryLowFrequency
-
-cco:VeryLowFrequency a owl:Class ;
-	rdfs:subClassOf cco:RadioFrequency ;
-	cco:definition "A Radio Freqeuncy of some Electromagnetic Wave, typically between 3 and 30 kilohertz."^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Very Low Frequency"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Violet
 
@@ -1179,20 +864,11 @@ cco:Violet a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Violet"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/VisibleLightFrequency
-
-cco:VisibleLightFrequency a owl:Class ;
-	rdfs:subClassOf cco:ElectromagneticRadiationFrequency ;
-	cco:definition "An Electromagnetic Radiation Frequency of some Electromagnetic Wave, typically in the range of 400 to 800 terahertz."^^xsd:string ;
-	cco:definition_source "Visible light overlaps with near infrared and near ultraviolet."^^xsd:string , "https://en.wikipedia.org/wiki/Light"^^xsd:string ;
-	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "Visible Light Frequency"^^xsd:string .
-# 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Vulnerability
 
 cco:Vulnerability a owl:Class ;
-	rdfs:subClassOf obo:BFO_0000017 ;
-	cco:definition "A realizable entity that inheres in a bearer in virtue of its being susceptible to having its otherwise reliable participation in processes of a certain type disrupted by a process of another type."^^xsd:string ;
+	rdfs:subClassOf obo:BFO_0000016 ;
+	cco:definition "A Disposition that inheres in a bearer in virtue of its being susceptible to having its otherwise reliable participation in processes of a certain type disrupted by a process of another type."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Vulnerability"^^xsd:string .
 # 
@@ -1247,13 +923,14 @@ cco:Width a owl:Class ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
 	rdfs:label "Width"^^xsd:string .
 # 
-# http://www.ontologyrepository.com/CommonCoreOntologies/XrayFrequency
+# http://www.ontologyrepository.com/CommonCoreOntologies/YawOrientation
 
-cco:XrayFrequency a owl:Class ;
-	rdfs:subClassOf cco:ElectromagneticRadiationFrequency ;
-	cco:definition "An Electromagnetic Radiation Freqeuncy of some Electromagnetic Wave, typically between 30 petahertz and 30 exahertz."^^xsd:string ;
+cco:YawOrientation a owl:Class ;
+	rdfs:subClassOf cco:SpatialOrientation ;
+	cco:alternative_label "Yaw"^^xsd:string ;
+	cco:definition "A Spatial Orientation of an Object relative to its Yaw Axis."^^xsd:string ;
 	cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:string ;
-	rdfs:label "X-ray Frequency"^^xsd:string .
+	rdfs:label "Yaw Orientation"^^xsd:string .
 # 
 # http://www.ontologyrepository.com/CommonCoreOntologies/Yellow
 
