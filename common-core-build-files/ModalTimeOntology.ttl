@@ -1,0 +1,277 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology/> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix mro: <http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology> rdf:type owl:Ontology ;
+                                                                                owl:versionInfo "December 22, 2017"^^xsd:string ,
+                                                                                                "COPYRIGHT © 2015 CUBRC, Inc."^^xsd:string ;
+                                                                                rdfs:comment "The counterpart modal relations to those contained in the Time Ontology."^^xsd:string ;
+                                                                                rdfs:label "Modal Time Ontology"^^xsd:string ;
+                                                                                owl:versionInfo "Version 1.0.1"^^xsd:string .
+
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_ending_instant
+mro:has_ending_instant rdf:type owl:ObjectProperty ;
+                       owl:inverseOf mro:is_ending_instant_of ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain obo:BFO_0000038 ;
+                       rdfs:range obo:BFO_0000148 ;
+                       cco:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has ending instant t2 if and only if no Temporal Instant t3 that is part of t1 is after t2."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                       rdfs:label "has ending instant"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_inside_instant
+mro:has_inside_instant rdf:type owl:ObjectProperty ;
+                       owl:inverseOf mro:is_inside_instant_of ;
+                       rdfs:domain obo:BFO_0000038 ;
+                       rdfs:range obo:BFO_0000148 ;
+                       cco:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has inside instant t2 if and only if there exists Temporal Instants t3 and t4 that are part of t1 and non-identical with t2, such that t3 is before t2 and t4 is after t2."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                       rdfs:label "has inside instant"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_inside_interval
+mro:has_inside_interval rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf mro:interval_contains ;
+                        owl:inverseOf mro:interval_during ;
+                        rdfs:domain obo:BFO_0000038 ;
+                        rdfs:range obo:BFO_0000038 ;
+                        cco:definition "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                        rdfs:label "has inside interval"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_starting_instant
+mro:has_starting_instant rdf:type owl:ObjectProperty ;
+                         owl:inverseOf mro:is_starting_instant_of ;
+                         rdf:type owl:FunctionalProperty ;
+                         rdfs:domain obo:BFO_0000038 ;
+                         rdfs:range obo:BFO_0000148 ;
+                         cco:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has starting instant t2 if and only if no temporal instant t3 that is part of t1 is before t2."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                         rdfs:label "has starting instant"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/instant_is_after
+mro:instant_is_after rdf:type owl:ObjectProperty ;
+                     owl:inverseOf mro:instant_is_before ;
+                     rdf:type owl:TransitiveProperty ;
+                     rdfs:domain obo:BFO_0000148 ;
+                     rdfs:range obo:BFO_0000148 ;
+                     cco:elucidation "'instant is after' is a primitive relationship. Informally, a temporal instant t2 is after some temporal instant t1 if and only if t1 precedes t2."^^xsd:string ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                     rdfs:label "instant is after"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/instant_is_before
+mro:instant_is_before rdf:type owl:ObjectProperty ,
+                               owl:TransitiveProperty ;
+                      rdfs:domain obo:BFO_0000148 ;
+                      rdfs:range obo:BFO_0000148 ;
+                      cco:elucidation "'instant is before' is a primitive relationship. Informally, a temporal instant t1 is before some temporal instant t2 if and only if t1 precedes t2."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                      rdfs:label "instant is before"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_contained_by
+mro:interval_contained_by rdf:type owl:ObjectProperty ;
+                          owl:inverseOf mro:interval_contains ;
+                          rdfs:domain obo:BFO_0000038 ;
+                          rdfs:range obo:BFO_0000038 ;
+                          owl:propertyDisjointWith cco:interval_disjoint ;
+                          cco:definition "A Temporal Interval INT1 is contained by some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, inst2 is before or identical to inst4, and it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                          rdfs:label "interval contained by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_contains
+mro:interval_contains rdf:type owl:ObjectProperty ,
+                               owl:TransitiveProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      owl:propertyDisjointWith cco:interval_disjoint ;
+                      cco:definition "A Temporal Interval INT2 contains some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, and inst2 is before or identical to inst4, but it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                      rdfs:label "interval contains"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_disjoint
+mro:interval_disjoint rdf:type owl:ObjectProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      owl:propertyDisjointWith cco:interval_equals ,
+                                               cco:interval_overlapped_by ,
+                                               cco:interval_overlaps ;
+                      cco:definition "A Temporal Interval INT1 is disjoint with a Temporal Interval INT2 iff INT1 is before or meets INT2 OR INT2 is before or meets INT1. In other words, INT1 and INT2 are disjoint iff INT1 and INT2 do not overlap, contain, or equal one another."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                      rdfs:label "interval disjoint"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_during
+mro:interval_during rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf mro:interval_contained_by ;
+                    rdf:type owl:TransitiveProperty ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition "A Temporal Interval INT1 is during some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                    rdfs:label "interval during"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_equals
+mro:interval_equals rdf:type owl:ObjectProperty ,
+                             owl:SymmetricProperty ,
+                             owl:TransitiveProperty ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition "A Temporal Interval INT1 is equal to some Temporal Interval INT2 iff there exists Temporal Instants inst1 and inst2 such that inst1 is the starting instant of both INT1 and INT2 and inst2 is the ending instant of both INT1 and INT2."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                    rdfs:label "interval equals"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_finished_by
+mro:interval_finished_by rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf mro:interval_contains ;
+                         owl:inverseOf mro:interval_finishes ;
+                         rdfs:domain obo:BFO_0000038 ;
+                         rdfs:range obo:BFO_0000038 ;
+                         cco:definition "A Temporal Interval INT2 is finished by some Temporal Interval INT1 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                         rdfs:label "interval finished by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_finishes
+mro:interval_finishes rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf mro:interval_contained_by ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      cco:definition "A Temporal Interval INT1 finishes some Temporal Interval INT2 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                      rdfs:label "interval finishes"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_is_after
+mro:interval_is_after rdf:type owl:ObjectProperty ;
+                      owl:inverseOf mro:interval_is_before ;
+                      rdf:type owl:TransitiveProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      cco:definition "A TemporalInterval INT2 is after some TemporalInterval INT1 iff there exists TemporalInstants inst2, inst1 such that inst2 is the starting instant of INT2 and inst1 is the ending instant of INT1 and inst2 is after inst1."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                      rdfs:label "interval is after"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_is_before
+mro:interval_is_before rdf:type owl:ObjectProperty ,
+                                owl:TransitiveProperty ;
+                       rdfs:domain obo:BFO_0000038 ;
+                       rdfs:range obo:BFO_0000038 ;
+                       cco:definition "A TemporalInterval INT1 is before some TemporalInterval INT2 iff there exists TemporalInstants inst1, inst2 such that inst1 is the ending instant of INT1 and inst2 is the starting instant of INT2 and inst1 is before inst2."^^xsd:string ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                       rdfs:label "interval is before"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_meets
+mro:interval_meets rdf:type owl:ObjectProperty ;
+                   owl:inverseOf mro:interval_met_by ;
+                   rdf:type owl:IrreflexiveProperty ;
+                   rdfs:domain obo:BFO_0000038 ;
+                   rdfs:range obo:BFO_0000038 ;
+                   cco:definition "A Temporal Interval INT1 meets some Temporal Interval INT2 iff there exists some Temporal Instant inst1 such that inst1 is the ending instant of INT1 and inst1 is the starting instant of INT2."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                   rdfs:label "interval meets"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_met_by
+mro:interval_met_by rdf:type owl:ObjectProperty ,
+                             owl:IrreflexiveProperty ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition "A Temporal Interval INT2 is met by some Temporal Interval INT1 iff there exists some Temporal Instant inst1 such that inst1 is the starting instant of INT2 and inst1 is the ending instant of INT1."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                    rdfs:label "interval met by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_overlapped_by
+mro:interval_overlapped_by rdf:type owl:ObjectProperty ;
+                           owl:inverseOf mro:interval_overlaps ;
+                           rdfs:domain obo:BFO_0000038 ;
+                           rdfs:range obo:BFO_0000038 ;
+                           cco:definition "A Temporal Interval INT2 is overlapped by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                           rdfs:label "interval overlapped by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_overlaps
+mro:interval_overlaps rdf:type owl:ObjectProperty ;
+                      rdfs:domain obo:BFO_0000038 ;
+                      rdfs:range obo:BFO_0000038 ;
+                      cco:definition "A Temporal Interval INT1 overlaps some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                      rdfs:label "interval overlaps"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_started_by
+mro:interval_started_by rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf mro:interval_contains ;
+                        owl:inverseOf mro:interval_starts ;
+                        rdfs:domain obo:BFO_0000038 ;
+                        rdfs:range obo:BFO_0000038 ;
+                        cco:definition "A Temporal Interval INT2 is started by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."^^xsd:string ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                        rdfs:label "interval started by"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/interval_starts
+mro:interval_starts rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf mro:interval_contained_by ;
+                    rdfs:domain obo:BFO_0000038 ;
+                    rdfs:range obo:BFO_0000038 ;
+                    cco:definition "A Temporal Interval INT1 starts some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."^^xsd:string ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                    rdfs:label "interval starts"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_ending_instant_of
+mro:is_ending_instant_of rdf:type owl:ObjectProperty ,
+                                  owl:InverseFunctionalProperty ;
+                         rdfs:domain obo:BFO_0000148 ;
+                         rdfs:range obo:BFO_0000038 ;
+                         cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is ending instant of t2 if and only if no Temporal Instant t3 that is part of t2 is after t1."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                         rdfs:label "is ending instant of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_inside_instant_of
+mro:is_inside_instant_of rdf:type owl:ObjectProperty ;
+                         rdfs:domain obo:BFO_0000148 ;
+                         rdfs:range obo:BFO_0000038 ;
+                         cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."^^xsd:string ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                         rdfs:label "is inside instant of"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_starting_instant_of
+mro:is_starting_instant_of rdf:type owl:ObjectProperty ,
+                                    owl:InverseFunctionalProperty ;
+                           rdfs:domain obo:BFO_0000148 ;
+                           rdfs:range obo:BFO_0000038 ;
+                           cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is starting instant of t2 if and only if no Temporal Instant t3 that is part of t2 is before t1."^^xsd:string ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalTimeOntology"^^xsd:string ;
+                           rdfs:label "is starting instant of"^^xsd:string .
+
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
