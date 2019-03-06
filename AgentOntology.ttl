@@ -12,13 +12,13 @@
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> rdf:type owl:Ontology ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-                                                                            owl:versionInfo "Version 1.1"^^xsd:string ;
-                                                                            cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                             cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                             cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
-                                                                            rdfs:label "Agent Ontology"^^xsd:string ;
+                                                                            cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."^^xsd:string ;
-                                                                            owl:versionInfo "January 4, 2019"^^xsd:string .
+                                                                            rdfs:label "Agent Ontology"^^xsd:string ;
+                                                                            owl:versionInfo "March 6, 2019"^^xsd:string ,
+                                                                                            "Version 1.1.1"^^xsd:string .
 
 #################################################################
 #    Object Properties
@@ -1086,8 +1086,8 @@ cco:Affordance rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Agent
 cco:Agent rdf:type owl:Class ;
           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                       owl:unionOf ( cco:Organization
-                                                                     cco:Person
+                                                       owl:unionOf ( cco:Animal
+                                                                     cco:Organization
                                                                    )
                                                      ]
                                                      [ rdf:type owl:Restriction ;
@@ -1137,6 +1137,15 @@ cco:AllyRole rdf:type owl:Class ;
              cco:definition "An Allegiance Role that inheres in an Agent in virtue of that Agent's commitment to perform Acts that support the Objectives of a particular Agent or Group of Agents."^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
              rdfs:label "Ally Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Animal
+cco:Animal rdf:type owl:Class ;
+           rdfs:subClassOf cco:Organism ;
+           cco:definition "An Organism that is multicellular, eukaryotic, heterotrophic, and capable of motility for part of its life."^^xsd:string ;
+           cco:definition_source "https://en.wikipedia.org/wiki/Animal"^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+           rdfs:label "Animal"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArmedForce
@@ -1599,6 +1608,14 @@ cco:OperatorRole rdf:type owl:Class ;
                  rdfs:label "Operator Role"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Organism
+cco:Organism rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000030 ;
+             cco:definition "An Object that is an Animal or Plant."^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Organism"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Organization
 cco:Organization rdf:type owl:Class ;
                  rdfs:subClassOf cco:GroupOfAgents ;
@@ -1656,8 +1673,10 @@ cco:ParamilitaryForce rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Person
 cco:Person rdf:type owl:Class ;
-           rdfs:subClassOf obo:BFO_0000030 ;
-           cco:definition "An Agent that is a human being."^^xsd:string ;
+           rdfs:subClassOf cco:Animal ;
+           cco:alternative_label "Human"^^xsd:string ;
+           cco:definition "An Animal that is a member of the species Homo sapiens."^^xsd:string ;
+           cco:definition_source "https://en.wikipedia.org/wiki/Human"^^xsd:string ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
            rdfs:label "Person"^^xsd:string .
 
@@ -1673,6 +1692,15 @@ cco:PlanSpecification rdf:type owl:Class ;
                       cco:definition_source "http://en.wikipedia.org/wiki/Plan"^^xsd:string ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
                       rdfs:label "Plan"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Plant
+cco:Plant rdf:type owl:Class ;
+          rdfs:subClassOf cco:Organism ;
+          cco:definition "An Organism that is multicellular, eukaryotic, autotrophic, and has cells that contain chloroplasts and walls made of cellulose."^^xsd:string ;
+          cco:definition_source "https://en.wikipedia.org/wiki/Plant"^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+          rdfs:label "Plant"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PoliticalOrientation
@@ -1798,4 +1826,4 @@ cco:UnalliedPerson rdf:type owl:Class ;
                    rdfs:label "Neutral"^^xsd:string .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
