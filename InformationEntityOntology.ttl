@@ -13,15 +13,15 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
-                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ,
-                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
-                                                                                        owl:versionInfo "Version 1.1"^^xsd:string ;
-                                                                                        cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ,
+                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ;
                                                                                         cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                                         cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
+                                                                                        cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string ;
                                                                                         rdfs:label "Information Entity Ontology"^^xsd:string ;
-                                                                                        owl:versionInfo "January 4, 2019"^^xsd:string ;
-                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string .
+                                                                                        owl:versionInfo "April 4, 2019"^^xsd:string ,
+																										"Version 1.1.1"^^xsd:string .
 
 #################################################################
 #    Object Properties
@@ -31,7 +31,7 @@
 cco:condition_described_by rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:describes_condition ;
                            owl:propertyChainAxiom ( cco:described_by
-                                                    ro:part_of
+                                                    obo:BFO_0000050
                                                   ) ;
                            cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -63,7 +63,7 @@ cco:describes rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_condition
 cco:describes_condition rdf:type owl:ObjectProperty ;
-                        owl:propertyChainAxiom ( ro:has_part
+                        owl:propertyChainAxiom ( obo:BFO_0000051
                                                  cco:describes
                                                ) ;
                         cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
@@ -305,7 +305,7 @@ cco:is_measured_by_ratio rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measurement_unit_of
 cco:is_measurement_unit_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf cco:inheres_in ;
+                           rdfs:subPropertyOf obo:RO_0010001 ;
                            owl:inverseOf cco:uses_measurement_unit ;
                            rdfs:domain cco:MeasurementUnit ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -331,7 +331,7 @@ cco:is_mentioned_by rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_reference_system_of
 cco:is_reference_system_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf cco:inheres_in ;
+                           rdfs:subPropertyOf obo:RO_0010001 ;
                            owl:inverseOf cco:uses_reference_system ;
                            rdfs:domain cco:ReferenceSystem ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -442,6 +442,7 @@ cco:set_described_by_proportion rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/time_zone_identifier_used_by
 cco:time_zone_identifier_used_by rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf obo:RO_0010001 ;
                                  owl:inverseOf cco:uses_time_zone_identifier ;
                                  rdfs:domain cco:TimeZoneIdentifier ;
                                  rdfs:range cco:InformationBearingEntity ;
@@ -470,7 +471,7 @@ cco:uses_language rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_measurement_unit
 cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf cco:bearer_of ;
+                          rdfs:subPropertyOf obo:RO_0010002 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:MeasurementUnit ;
                           cco:elucidation "An Information Bearing Entity carries the content of some corresponding Information Content Entity. In some cases of measurements, this content is composed of both some amount and the scale according to which the measurement was made."^^xsd:string ;
@@ -480,7 +481,7 @@ cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_reference_system
 cco:uses_reference_system rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf cco:bearer_of ;
+                          rdfs:subPropertyOf obo:RO_0010002 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:ReferenceSystem ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -489,6 +490,7 @@ cco:uses_reference_system rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_time_zone_identifier
 cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf obo:RO_0010002 ;
                               rdfs:domain cco:InformationBearingEntity ;
                               rdfs:range cco:TimeZoneIdentifier ;
                               cco:definition "An object property holding between an Information Bearing Entity and a Time Zone Identifier which designates which time zone is being referred to in the date time string attached to the Information Bearing Entity."^^xsd:string ;
@@ -1055,7 +1057,7 @@ cco:HourIdentifier rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
 cco:InformationBearingEntity rdf:type owl:Class ;
                              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                   owl:onProperty cco:bearer_of ;
+                                                   owl:onProperty obo:RO_0010002 ;
                                                    owl:someValuesFrom cco:InformationContentEntity
                                                  ] ;
                              rdfs:subClassOf obo:BFO_0000030 ;
@@ -1085,7 +1087,7 @@ cco:InformationContentEntity rdf:type owl:Class ;
 cco:InformationQualityEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000019 ,
                                              [ rdf:type owl:Restriction ;
-                                               owl:onProperty cco:inheres_in ;
+                                               owl:onProperty obo:RO_0000052 ;
                                                owl:someValuesFrom cco:InformationBearingEntity
                                              ] ;
                              cco:alternative_label "IQE"^^xsd:string ;
@@ -1155,11 +1157,11 @@ cco:JulianDateFraction rdf:type owl:Class ;
 cco:JulianDateIdentifier rdf:type owl:Class ;
                          rdfs:subClassOf cco:DecimalTimeOfDayIdentifier ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty ro:has_part ;
+                                           owl:onProperty obo:BFO_0000051 ;
                                            owl:someValuesFrom cco:JulianDateFraction
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty ro:has_part ;
+                                           owl:onProperty obo:BFO_0000051 ;
                                            owl:someValuesFrom cco:JulianDayNumber
                                          ] ,
                                          [ rdf:type owl:Restriction ;
@@ -1552,8 +1554,8 @@ cco:ProbabilityMeasurementInformationContentEntity rdf:type owl:Class ;
                                                    rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                                    cco:alternative_label "Likelihood Measurement"^^xsd:string ,
                                                                          "Probability Measurement"^^xsd:string ;
-                                                   cco:definition "A Measurement Information Content Entity that is a measurement of the likelihood that a Process or Process Aggregate occurs."^^xsd:string ,
-                                                                  "https://en.wikipedia.org/wiki/Probability"^^xsd:string ;
+                                                   cco:definition "A Measurement Information Content Entity that is a measurement of the likelihood that a Process or Process Aggregate occurs."^^xsd:string ;
+                                                   cco:definition_source "https://en.wikipedia.org/wiki/Probability"^^xsd:string ;
                                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                                    rdfs:comment "Every probability measurement is made within a particular context given certain background assumptions."^^xsd:string ;
                                                    rdfs:label "Probability Measurement Information Content Entity"^^xsd:string .
@@ -2675,4 +2677,4 @@ cco:ZuluTimeZone rdf:type owl:NamedIndividual ,
                  rdfs:label "Zulu Time Zone"^^xsd:string .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

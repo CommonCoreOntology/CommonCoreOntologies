@@ -13,14 +13,13 @@
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology> rdf:type owl:Ontology ;
                                                                                owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-                                                                               rdfs:comment "This ontology is designed to represent artifacts that are common to multiple domains along with their models, specifications, and functions."^^xsd:string ;
-                                                                               owl:versionInfo "Version 1.1"^^xsd:string ;
-                                                                               cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                                cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                                cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
+                                                                               cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                               rdfs:comment "This ontology is designed to represent artifacts that are common to multiple domains along with their models, specifications, and functions."^^xsd:string ;
                                                                                rdfs:label "Artifact Ontology"^^xsd:string ;
-                                                                               owl:versionInfo "January 4, 2019"^^xsd:string .
-
+                                                                               owl:versionInfo "April 4, 2019"^^xsd:string ,
+                                                                                               "Version 1.1.1"^^xsd:string .
 
 #################################################################
 #    Classes
@@ -241,7 +240,7 @@ cco:ArtifactDimensionSpecification rdf:type owl:Class ;
 cco:ArtifactFunction rdf:type owl:Class ;
                      rdfs:subClassOf obo:BFO_0000034 ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty cco:inheres_in ;
+                                       owl:onProperty obo:RO_0000052 ;
                                        owl:someValuesFrom cco:Artifact
                                      ] ;
                      cco:definition "A Function that inheres in some Artifact in virtue of that Artifact being designed to be used in processes that require that Function to be realized."^^xsd:string ;
@@ -285,7 +284,7 @@ cco:ArtifactIdentifier rdf:type owl:Class ;
 cco:ArtifactLocation rdf:type owl:Class ;
                      owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000029
                                                                 [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty <http://www.obofoundry.org/ro/ro.owl#location_of> ;
+                                                                  owl:onProperty obo:RO_0001015 ;
                                                                   owl:someValuesFrom cco:Artifact
                                                                 ]
                                                               ) ;
@@ -363,12 +362,30 @@ cco:AutopilotSystem rdf:type owl:Class ;
                     rdfs:label "Autopilot System"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AztecCode
+cco:AztecCode rdf:type owl:Class ;
+              rdfs:subClassOf cco:TwoDimensionalBarCode ;
+              cco:definition "A Two-Dimensional Barcode that is used by the transportation industry to scan tickets."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+              rdfs:label "Aztec Code"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Banknote
 cco:Banknote rdf:type owl:Class ;
              rdfs:subClassOf cco:PortionOfCash ;
              cco:definition "A Portion of Cash that consists of a portable slips of paper or fabric designed to bear some specified Financial Value."^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
              rdfs:label "Banknote"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Barcode
+cco:Barcode rdf:type owl:Class ;
+            rdfs:subClassOf cco:InformationBearingArtifact ;
+            cco:definition "An Information Bearing Artifact that consist of machine-readable symbols."^^xsd:string ;
+            cco:definition_source "http://en.wikipedia.org/wiki/Barcode"^^xsd:string ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+            rdfs:comment "For information on types of barcodes, see: https://www.scandit.com/types-barcodes-choosing-right-barcode/"^^xsd:string ;
+            rdfs:label "Barcode"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/BaseOfOperations
@@ -682,6 +699,38 @@ cco:CleaningArtifactFunction rdf:type owl:Class ;
                              cco:definition "An Artifact Function that is realized in processes in which some Artifact is used to remove foreign objects from another object."^^xsd:string ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
                              rdfs:label "Cleaning Artifact Function"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CodabarBarcode
+cco:CodabarBarcode rdf:type owl:Class ;
+                   rdfs:subClassOf cco:OneDimensionalBarcode ;
+                   cco:definition "A One-Dimensional Barcode that consists of numbers 0-9 and the characters -$:/.+ and is used by logistics and healthcare professionals."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                   rdfs:label "Codabar Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Code128Barcode
+cco:Code128Barcode rdf:type owl:Class ;
+                   rdfs:subClassOf cco:OneDimensionalBarcode ;
+                   cco:definition "A One-Dimensional Barcode that consists of up to 128 ASCII characters and is used primarily in supply chains."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                   rdfs:label "Code 128 Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Code39Barcode
+cco:Code39Barcode rdf:type owl:Class ;
+                  rdfs:subClassOf cco:OneDimensionalBarcode ;
+                  cco:definition "A One-Dimensional Barcode that consists of 39 characters that are numbers 0-9, capital letters A-Z, or the symbols -.$/+% and space and is used primarily in automotive and defense industries."^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                  rdfs:label "Code 39 Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Code93Barcode
+cco:Code93Barcode rdf:type owl:Class ;
+                  rdfs:subClassOf cco:OneDimensionalBarcode ;
+                  cco:definition "A One-Dimensional Barcode that consists of up to 93 ASCII characters and is used in logistics to identify packages in retail inventory, lable electornic components, and provide supplementary delivery information."^^xsd:string ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                  rdfs:label "Code 93 Barcode"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CodeList
@@ -1043,6 +1092,14 @@ cco:DamagingArtifactFunction rdf:type owl:Class ;
                              rdfs:label "Damaging Artifact Function"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DataMatrixCode
+cco:DataMatrixCode rdf:type owl:Class ;
+                   rdfs:subClassOf cco:TwoDimensionalBarCode ;
+                   cco:definition "A Two-Dimensional Barcode that consists of cells arranged in rectangular patterns and is used for marking small items in logistics and operations."^^xsd:string ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                   rdfs:label "Data Matrix Code"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Database
 cco:Database rdf:type owl:Class ;
              rdfs:subClassOf cco:InformationBearingArtifact ;
@@ -1199,6 +1256,30 @@ cco:Document rdf:type owl:Class ;
              cco:definition_source "https://en.wikipedia.org/wiki/Document"^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
              rdfs:label "Document"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN13Barcode
+cco:EAN13Barcode rdf:type owl:Class ;
+                 rdfs:subClassOf cco:EANBarcode ;
+                 cco:definition "An EAN Barcode that consists of 13 numerical digits and is used to designate products at the point of sale."^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                 rdfs:label "EAN-13 Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN8Barcode
+cco:EAN8Barcode rdf:type owl:Class ;
+                rdfs:subClassOf cco:EANBarcode ;
+                cco:definition "An EAN Barcode that consists of 8 numerical digits and is used to designate products at the point of sale."^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                rdfs:label "EAN-8 Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EANBarcode
+cco:EANBarcode rdf:type owl:Class ;
+               rdfs:subClassOf cco:OneDimensionalBarcode ;
+               cco:definition "A One-Dimensional Barcode that consists of 8 or 13 numerical digits and is used to scan consumer goods."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+               rdfs:label "EAN Barcode"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EducationArtifactFunction
@@ -1857,6 +1938,15 @@ cco:FungicideArtifactFunction rdf:type owl:Class ;
                               rdfs:label "Fungicide Artifact Function"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GS1DataBar
+cco:GS1DataBar rdf:type owl:Class ;
+               rdfs:subClassOf cco:OneDimensionalBarcode ;
+               cco:definition "A One-Dimensional Barcode that consists of 12-14 numerical digits and is used in retail and healthcare."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+               rdfs:comment "Further variants of GS1 DataBar have not been defined here."^^xsd:string ;
+               rdfs:label "GS1 DataBar Barcode"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GammaRayTelescope
 cco:GammaRayTelescope rdf:type owl:Class ;
                       rdfs:subClassOf cco:Telescope ;
@@ -2229,6 +2319,30 @@ cco:HydroelectricPowerPlant rdf:type owl:Class ;
                             rdfs:label "Hydroelectric Power Plant"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ISBNBarcode
+cco:ISBNBarcode rdf:type owl:Class ;
+                rdfs:subClassOf cco:EANBarcode ;
+                cco:definition "An EAN Barcode that is used to designate books."^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                rdfs:label "ISBN Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ISSNBarcode
+cco:ISSNBarcode rdf:type owl:Class ;
+                rdfs:subClassOf cco:EANBarcode ;
+                cco:definition "An EAN Barcode that is used to designate periodicals."^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                rdfs:label "ISSN Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ITFBarcode
+cco:ITFBarcode rdf:type owl:Class ;
+               rdfs:subClassOf cco:OneDimensionalBarcode ;
+               cco:definition "A One-Dimensional Barcode that consists of an even number of numerical characters and is used primarily in packaging and distribution."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+               rdfs:label "ITF Barcode"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IdentificationFriendOrFoeTransponder
 cco:IdentificationFriendOrFoeTransponder rdf:type owl:Class ;
                                          rdfs:subClassOf cco:RadioTransponder ;
@@ -2324,7 +2438,7 @@ cco:InfantryFightingVehicle rdf:type owl:Class ;
 cco:InformationBearingArtifact rdf:type owl:Class ;
                                rdfs:subClassOf cco:Artifact ,
                                                [ rdf:type owl:Restriction ;
-                                                 owl:onProperty cco:bearer_of ;
+                                                 owl:onProperty obo:RO_0010002 ;
                                                  owl:someValuesFrom cco:InformationContentEntity
                                                ] ;
                                cco:definition "An Artifact that is designed to bear some Information Content Entity and which does, in fact, bear one."^^xsd:string ;
@@ -2445,6 +2559,14 @@ cco:Interphone rdf:type owl:Class ;
                cco:definition "An Intercommunication System that that is designed to facilitate some Act of Communication between agents by means of audio messages."^^xsd:string ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
                rdfs:label "Interphone"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JAN13Barcode
+cco:JAN13Barcode rdf:type owl:Class ;
+                 rdfs:subClassOf cco:EANBarcode ;
+                 cco:definition "An EAN Barcode that consists of 13 numerical digits and is used primarily in Japan to designate products at the point of sale."^^xsd:string ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                 rdfs:label "JAN-13 Barcode"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/JetEngine
@@ -2613,6 +2735,14 @@ cco:LubricationSystem rdf:type owl:Class ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
                       rdfs:comment "A Lubrication System typical consists of a reservoir, pump, heat exchanger, filter, regulator, valves, sensors, pipes, and hoses. In some cases it also includes the passageways and openings within the artifact it is designed to lubricate. For example, the oil holes in a bearing and crankshaft."^^xsd:string ;
                       rdfs:label "Lubrication System"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MSIPlesseyBarcode
+cco:MSIPlesseyBarcode rdf:type owl:Class ;
+                      rdfs:subClassOf cco:OneDimensionalBarcode ;
+                      cco:definition "A One-Dimensional Barcode that consists of an indefinite number of numerical characters and is used for inventory control and marking storage containers and shelves in warehouse environments."^^xsd:string ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                      rdfs:label "MSI Plessey Barcode"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MachineBearing
@@ -3058,6 +3188,14 @@ cco:OfficeBuilding rdf:type owl:Class ;
                    rdfs:label "Office Building"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OneDimensionalBarcode
+cco:OneDimensionalBarcode rdf:type owl:Class ;
+                          rdfs:subClassOf cco:Barcode ;
+                          cco:definition "A Barcode whose concretizations consist of one-dimensional symbols arranged as parallel lines."^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                          rdfs:label "One-Dimensional Barcode"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OpenPitMine
 cco:OpenPitMine rdf:type owl:Class ;
                 rdfs:subClassOf cco:Mine ;
@@ -3167,6 +3305,14 @@ cco:OxidizerArtifactFunction rdf:type owl:Class ;
                              rdfs:label "Oxidizer Artifact Function"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PDF417Code
+cco:PDF417Code rdf:type owl:Class ;
+               rdfs:subClassOf cco:TwoDimensionalBarCode ;
+               cco:definition "A Two-Dimensional Barcode that is used in applications that require the storage of huge amounts of data."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+               rdfs:label "PDF417 Code"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ParabolicAntenna
 cco:ParabolicAntenna rdf:type owl:Class ;
                      rdfs:subClassOf cco:RadioAntenna ;
@@ -3229,7 +3375,7 @@ cco:Payload rdf:type owl:Class ;
 cco:PayloadCapacity rdf:type owl:Class ;
                     rdfs:subClassOf cco:ArtifactFunction ,
                                     [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:inheres_in ;
+                                      owl:onProperty obo:RO_0000052 ;
                                       owl:someValuesFrom cco:Vehicle
                                     ] ;
                     cco:definition "An Artifact Function that inheres in a Vehicle that is designed to transport Payload, and which is typically characterized by the maximum Weight, Mass, or Volume of Payload that the Vehicle can transport."^^xsd:string ;
@@ -3899,6 +4045,14 @@ cco:PumpingStation rdf:type owl:Class ;
                    rdfs:label "Pumping Station"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/QRCode
+cco:QRCode rdf:type owl:Class ;
+           rdfs:subClassOf cco:TwoDimensionalBarCode ;
+           cco:definition "A Two-Dimensional Barcode that consists of numeric, alphanumeric, binary, or kanji information and is used primarily for tracking and marketing."^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+           rdfs:label "QR Code"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/QualitySpecification
 cco:QualitySpecification rdf:type owl:Class ;
                          owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -4541,7 +4695,7 @@ cco:SensorDeploymentArtifactFunction rdf:type owl:Class ;
 cco:SensorModalityFunction rdf:type owl:Class ;
                            rdfs:subClassOf cco:SensorArtifactFunction ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty cco:inheres_in ;
+                                             owl:onProperty obo:RO_0000052 ;
                                              owl:someValuesFrom cco:Sensor
                                            ] ;
                            cco:definition "A Sensor Artifact Function that inheres in some Sensor in virtue of the type of energy the Sensor is capable of converting into an output signal."^^xsd:string ;
@@ -4934,7 +5088,7 @@ cco:TelecommunicationNetwork rdf:type owl:Class ;
 cco:TelecommunicationNetworkNode rdf:type owl:Class ;
                                  rdfs:subClassOf cco:TelecommunicationInfrastructure ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                                                   owl:onProperty obo:BFO_0000050 ;
                                                    owl:someValuesFrom cco:TelecommunicationNetwork
                                                  ] ;
                                  cco:definition "A Telecommunication Infrastructure Artifact that consists of a connection point, redistribution point, or endpoint within a Telecommunication Network and can be either active or passive."^^xsd:string ;
@@ -5259,6 +5413,38 @@ cco:TurbojetAirBreathingJetEngine rdf:type owl:Class ;
                                   cco:definition_source "https://en.wikipedia.org/wiki/Turbojet"^^xsd:string ;
                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
                                   rdfs:label "Turbojet Air-Breathing Jet Engine"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TwoDimensionalBarCode
+cco:TwoDimensionalBarCode rdf:type owl:Class ;
+                          rdfs:subClassOf cco:Barcode ;
+                          cco:definition "A Barcode whose concretizations consist of two-dimensional symbol patterns."^^xsd:string ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                          rdfs:label "Two-Dimensional Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCABarcode
+cco:UPCABarcode rdf:type owl:Class ;
+                rdfs:subClassOf cco:UPCBarcode ;
+                cco:definition "A UPC Barcode that consists of 12 numerical digits."^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                rdfs:label "UPC-A Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCBarcode
+cco:UPCBarcode rdf:type owl:Class ;
+               rdfs:subClassOf cco:OneDimensionalBarcode ;
+               cco:definition "A One-Dimensional Barcode that consists of 6 or 12 numerical digits and is used to scan consumer goods."^^xsd:string ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+               rdfs:label "UPC Barcode"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCEBarcode
+cco:UPCEBarcode rdf:type owl:Class ;
+                rdfs:subClassOf cco:UPCBarcode ;
+                cco:definition "A UPC Barcode that consists of 6 numerical digits."^^xsd:string ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
+                rdfs:label "UPC-E Barcode"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UltraHighFrequencyCommunicationInstrument
@@ -5597,11 +5783,11 @@ cco:WiredCommunicationReceptionArtifactFunction rdf:type owl:Class ;
 cco:WiredCommunicationRelayArtifactFunction rdf:type owl:Class ;
                                             rdfs:subClassOf cco:CommunicationRelayArtifactFunction ,
                                                             [ rdf:type owl:Restriction ;
-                                                              owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                                              owl:onProperty obo:BFO_0000051 ;
                                                               owl:someValuesFrom cco:RadioCommunicationArtifactFunction
                                                             ] ,
                                                             [ rdf:type owl:Restriction ;
-                                                              owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                                              owl:onProperty obo:BFO_0000051 ;
                                                               owl:someValuesFrom cco:RadioCommunicationReceptionArtifactFunction
                                                             ] ;
                                             cco:definition "A Communication Relay Artifact Function that is realized during events in which an Artifact is used to first receive and then transmit information by means of wires from one Artifact to another for the purpose of communiction."^^xsd:string ;
@@ -5637,191 +5823,4 @@ cco:XRayTelescope rdf:type owl:Class ;
                   rdfs:label "X-ray Telescope"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/AztecCode
-cco:AztecCode rdf:type owl:Class ;
-              rdfs:subClassOf cco:TwoDimensionalBarCode ;
-              cco:definition "A Two-Dimensional Barcode that is used by the transportation industry to scan tickets."^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-              rdfs:label "Aztec Code"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Barcode
-cco:Barcode rdf:type owl:Class ;
-            rdfs:subClassOf cco:InformationBearingArtifact ;
-            cco:definition "An Information Bearing Artifact that consist of machine-readable symbols."^^xsd:string ;
-            cco:definition_source "http://en.wikipedia.org/wiki/Barcode"^^xsd:string ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-            rdfs:comment "For information on types of barcodes, see: https://www.scandit.com/types-barcodes-choosing-right-barcode/"^^xsd:string ;
-            rdfs:label "Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CodabarBarcode
-cco:CodabarBarcode rdf:type owl:Class ;
-                   rdfs:subClassOf cco:OneDimensionalBarcode ;
-                   cco:definition "A One-Dimensional Barcode that consists of numbers 0-9 and the characters -$:/.+ and is used by logistics and healthcare professionals."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                   rdfs:label "Codabar Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Code128Barcode
-cco:Code128Barcode rdf:type owl:Class ;
-                   rdfs:subClassOf cco:OneDimensionalBarcode ;
-                   cco:definition "A One-Dimensional Barcode that consists of up to 128 ASCII characters and is used primarily in supply chains."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                   rdfs:label "Code 128 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Code39Barcode
-cco:Code39Barcode rdf:type owl:Class ;
-                  rdfs:subClassOf cco:OneDimensionalBarcode ;
-                  cco:definition "A One-Dimensional Barcode that consists of 39 characters that are numbers 0-9, capital letters A-Z, or the symbols -.$/+% and space and is used primarily in automotive and defense industries."^^xsd:string ;
-                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                  rdfs:label "Code 39 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Code93Barcode
-cco:Code93Barcode rdf:type owl:Class ;
-                  rdfs:subClassOf cco:OneDimensionalBarcode ;
-                  cco:definition "A One-Dimensional Barcode that consists of up to 93 ASCII characters and is used in logistics to identify packages in retail inventory, lable electornic components, and provide supplementary delivery information."^^xsd:string ;
-                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                  rdfs:label "Code 93 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/DataMatrixCode
-cco:DataMatrixCode rdf:type owl:Class ;
-                   rdfs:subClassOf cco:TwoDimensionalBarCode ;
-                   cco:definition "A Two-Dimensional Barcode that consists of cells arranged in rectangular patterns and is used for marking small items in logistics and operations."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                   rdfs:label "Data Matrix Code"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN13Barcode
-cco:EAN13Barcode rdf:type owl:Class ;
-                 rdfs:subClassOf cco:EANBarcode ;
-                 cco:definition "An EAN Barcode that consists of 13 numerical digits and is used to designate products at the point of sale."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                 rdfs:label "EAN-13 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN8Barcode
-cco:EAN8Barcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:EANBarcode ;
-                cco:definition "An EAN Barcode that consists of 8 numerical digits and is used to designate products at the point of sale."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                rdfs:label "EAN-8 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/EANBarcode
-cco:EANBarcode rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of 8 or 13 numerical digits and is used to scan consumer goods."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-               rdfs:label "EAN Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GS1DataBar
-cco:GS1DataBar rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of 12-14 numerical digits and is used in retail and healthcare."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-               rdfs:comment "Further variants of GS1 DataBar have not been defined here."^^xsd:string ;
-               rdfs:label "GS1 DataBar Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ISBNBarcode
-cco:ISBNBarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:EANBarcode ;
-                cco:definition "An EAN Barcode that is used to designate books."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                rdfs:label "ISBN Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ISSNBarcode
-cco:ISSNBarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:EANBarcode ;
-                cco:definition "An EAN Barcode that is used to designate periodicals."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                rdfs:label "ISSN Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ITFBarcode
-cco:ITFBarcode rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of an even number of numerical characters and is used primarily in packaging and distribution."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-               rdfs:label "ITF Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/JAN13Barcode
-cco:JAN13Barcode rdf:type owl:Class ;
-                 rdfs:subClassOf cco:EANBarcode ;
-                 cco:definition "An EAN Barcode that consists of 13 numerical digits and is used primarily in Japan to designate products at the point of sale."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                 rdfs:label "JAN-13 Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MSIPlesseyBarcode
-cco:MSIPlesseyBarcode rdf:type owl:Class ;
-                      rdfs:subClassOf cco:OneDimensionalBarcode ;
-                      cco:definition "A One-Dimensional Barcode that consists of an indefinite number of numerical characters and is used for inventory control and marking storage containers and shelves in warehouse environments."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                      rdfs:label "MSI Plessey Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/OneDimensionalBarcode
-cco:OneDimensionalBarcode rdf:type owl:Class ;
-                          rdfs:subClassOf cco:Barcode ;
-                          cco:definition "A Barcode whose concretizations consist of one-dimensional symbols arranged as parallel lines."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                          rdfs:label "One-Dimensional Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PDF417Code
-cco:PDF417Code rdf:type owl:Class ;
-               rdfs:subClassOf cco:TwoDimensionalBarCode ;
-               cco:definition "A Two-Dimensional Barcode that is used in applications that require the storage of huge amounts of data."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-               rdfs:label "PDF417 Code"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/QRCode
-cco:QRCode rdf:type owl:Class ;
-           rdfs:subClassOf cco:TwoDimensionalBarCode ;
-           cco:definition "A Two-Dimensional Barcode that consists of numeric, alphanumeric, binary, or kanji information and is used primarily for tracking and marketing."^^xsd:string ;
-           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-           rdfs:label "QR Code"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/TwoDimensionalBarCode
-cco:TwoDimensionalBarCode rdf:type owl:Class ;
-                          rdfs:subClassOf cco:Barcode ;
-                          cco:definition "A Barcode whose concretizations consist of two-dimensional symbol patterns."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                          rdfs:label "Two-Dimensional Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCABarcode
-cco:UPCABarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:UPCBarcode ;
-                cco:definition "A UPC Barcode that consists of 12 numerical digits."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                rdfs:label "UPC-A Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCBarcode
-cco:UPCBarcode rdf:type owl:Class ;
-               rdfs:subClassOf cco:OneDimensionalBarcode ;
-               cco:definition "A One-Dimensional Barcode that consists of 6 or 12 numerical digits and is used to scan consumer goods."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-               rdfs:label "UPC Barcode"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCEBarcode
-cco:UPCEBarcode rdf:type owl:Class ;
-                rdfs:subClassOf cco:UPCBarcode ;
-                cco:definition "A UPC Barcode that consists of 6 numerical digits."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:string ;
-                rdfs:label "UPC-E Barcode"^^xsd:string .
-
-
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
