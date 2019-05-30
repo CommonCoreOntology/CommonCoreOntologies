@@ -1,25 +1,24 @@
 @prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> rdf:type owl:Ontology ;
+                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-05-02/ExtendedRelationOntology> ;
                                                                                        owl:imports obo:bfo.owl ,
-                                                                                                   cco:cco-ro-import.owl ;
+                                                                                                   <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ;
                                                                                        cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                                        cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
                                                                                        cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                                        rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."^^xsd:string ;
                                                                                        rdfs:label "Extended Relation Ontology"^^xsd:string ;
-                                                                                       owl:versionInfo "April 4, 2019"^^xsd:string ,
-																									   "Version 1.1.1"^^xsd:string .
+                                                                                       owl:versionInfo "May 2, 2019"^^xsd:string ,
+                                                                                                       "Version 1.1.1"^^xsd:string .
 
 #################################################################
 #    Annotation properties
@@ -394,13 +393,6 @@ cco:has_process_part rdf:type owl:ObjectProperty ;
                      rdfs:label "has process part"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_proper_part
-cco:has_proper_part rdf:type owl:ObjectProperty ;
-                    cco:definition "TO DO"^^xsd:string ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                    rdfs:label "has proper part"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/inheres_in_aggregate
 cco:inheres_in_aggregate rdf:type owl:ObjectProperty ;
                          rdfs:domain [ rdf:type owl:Class ;
@@ -503,6 +495,7 @@ cco:is_predecessor_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_site_of
 cco:is_site_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000067 ;
                owl:inverseOf cco:occurs_at ;
                rdfs:domain [ rdf:type owl:Class ;
                              owl:unionOf ( obo:BFO_0000006
@@ -536,6 +529,7 @@ cco:is_temporal_region_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/occurs_at
 cco:occurs_at rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf obo:BFO_0000066 ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range [ rdf:type owl:Class ;
                            owl:unionOf ( obo:BFO_0000006
@@ -554,13 +548,6 @@ cco:occurs_on rdf:type owl:ObjectProperty ;
               cco:definition "An instance level relation which holds between some Processual Entity and some Temporal Region whenever the duration of the Processual Entity is contained by the Temporal Region"^^xsd:string ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
               rdfs:label "occurs on"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/proper_part_of
-cco:proper_part_of rdf:type owl:ObjectProperty ;
-                   cco:definition "TO DO"^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                   rdfs:label "proper part of"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/quality_of_aggregate
@@ -583,4 +570,4 @@ cco:role_of_aggregate rdf:type owl:ObjectProperty ;
                       rdfs:label "role of aggregate"^^xsd:string .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi

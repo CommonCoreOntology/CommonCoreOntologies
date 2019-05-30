@@ -1,18 +1,15 @@
 @prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix ro: <http://www.obofoundry.org/ro/ro.owl#> .
-@prefix bfo: <http://purl.obolibrary.org/obo#> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
+                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-05-02/InformationEntityOntology> ;
                                                                                         owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ,
                                                                                                     <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ;
                                                                                         cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
@@ -20,8 +17,8 @@
                                                                                         cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                                         rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string ;
                                                                                         rdfs:label "Information Entity Ontology"^^xsd:string ;
-                                                                                        owl:versionInfo "April 4, 2019"^^xsd:string ,
-																										"Version 1.1.1"^^xsd:string .
+                                                                                        owl:versionInfo "May 2, 2019"^^xsd:string ,
+                                                                                                        "Version 1.1.1"^^xsd:string .
 
 #################################################################
 #    Object Properties
@@ -762,6 +759,18 @@ cco:CountryPartIdentifier rdf:type owl:Class ;
                           cco:definition "A Geopolitical Entity Part Identifier that designates some Country Part."^^xsd:string ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                           rdfs:label "Country Part Identifier"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CountyIdentifier
+cco:CountyIdentifier rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty cco:designates ;
+                                           owl:someValuesFrom cco:County
+                                         ] ;
+                     rdfs:subClassOf cco:SubNationalEntityIdentifier ;
+                     cco:definition "A Sub-National Entity Identifier that designates some County."^^xsd:string ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                     rdfs:label "County Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DataRangeIntervalEstimateInformationContentEntity
@@ -1777,10 +1786,6 @@ cco:StatePartIdentifier rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SubNationalEntityIdentifier
 cco:SubNationalEntityIdentifier rdf:type owl:Class ;
-                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                      owl:onProperty cco:designates ;
-                                                      owl:someValuesFrom cco:FirstOrderAdministrativeRegion
-                                                    ] ;
                                 rdfs:subClassOf cco:GeopoliticalEntityIdentifier ;
                                 cco:definition "A Geopolitical Entity Identifier that designates some Sub-National Entity."^^xsd:string ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -2677,4 +2682,4 @@ cco:ZuluTimeZone rdf:type owl:NamedIndividual ,
                  rdfs:label "Zulu Time Zone"^^xsd:string .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
