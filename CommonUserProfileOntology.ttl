@@ -1,0 +1,332 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology/> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology> rdf:type owl:Ontology ;
+                                                                                           owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/2019-05-24/CommonUserProfileOntology> ;
+                                                                                           owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AllCoreOntology> ;
+                                                                                           cco:code_license "https://opensource.org/licenses/BSD-3-Clause"^^xsd:anyURI ;
+                                                                                           cco:content_license "https://creativecommons.org/licenses/by/3.0/"^^xsd:anyURI ;
+                                                                                           rdfs:comment "This ontology contains terms needed to implement the Common User Profile that are not contained in All Core Ontology." ;
+                                                                                           rdfs:label "Common User Profile Ontology" ;
+                                                                                           owl:versionInfo "Version 0.1" .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:DatatypeProperty ;
+         rdfs:comment "Used to support scenarios in data ingestion where a literal results in class insanitation." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BankOrganization
+cco:BankOrganization rdf:type owl:Class ;
+                     rdfs:subClassOf cco:IncorporatedOrganization ;
+                     cco:definition "An Organization that accepts deposits, offers credit, and preforms other financial services for customers." ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology" ;
+                     rdfs:label "Bank Organization" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Contract
+cco:Contract rdf:type owl:Class ;
+             rdfs:subClassOf cco:DirectiveInformationContentEntity ;
+             cco:definition "A Directive Information Content Entity that details an agreement having a lawful object entered into voluntarily by two or more parties, each of whom intends to create one or more legal obligations between them." ;
+             cco:definition_source "https://en.wikipedia.org/wiki/Contract" ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+             rdfs:label "Contract" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Cuisine
+cco:Cuisine rdf:type owl:Class ;
+            rdfs:subClassOf cco:DirectiveInformationContentEntity ;
+            cco:definition "A Directive Information Content Entity that prescribes the style of prepared foods associated with particular cultures, and includes generic details such as preparation methods, ingredients used, presentation, and naming convections, along with other social aspects of the culinary experience." ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+            rdfs:label "Cuisine" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EmailAddress
+cco:EmailAddress rdf:type owl:Class ;
+                 rdfs:subClassOf cco:TelecommunicationNetworkIdentifier ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty cco:designates ;
+                                   owl:someValuesFrom cco:EmailBox
+                                 ] ;
+                 cco:definition "A Telecommunication Network Identifier that uniquely identifies an Email Box, is used to direct Email Messages to the designated Email Box, and consists of a local name part followed by '@' followed by a domain name part." ;
+                 cco:definition_source "https://en.wikipedia.org/wiki/Email_address"^^xsd:anyURI ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                 rdfs:label "Email Address" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FamilyNameBearingEntityPart
+cco:FamilyNameBearingEntityPart rdf:type owl:Class ;
+                                rdfs:subClassOf cco:ProperNameBearingEntityPart ;
+                                cco:definition "A Proper Name Bearing Entity Part that has value of a Person's family name." ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                rdfs:label "Family Name Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FinancialLiability
+cco:FinancialLiability rdf:type owl:Class ;
+                       rdfs:subClassOf obo:BFO_0000017 ;
+                       cco:definition "A Realizable Entity that inheres in some Person in virtue of their predicted ability to repay loans within the context of an Economy." ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                       rdfs:label "Financial Liability" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialIdentifierBearingEntityPart
+cco:GeospatialIdentifierBearingEntityPart rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty obo:BFO_0000050 ;
+                                                                owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty obo:RO_0010002 ;
+                                                                                     owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty cco:designates ;
+                                                                                                          owl:someValuesFrom cco:GeospatialPosition
+                                                                                                        ]
+                                                                                   ]
+                                                              ] ;
+                                          rdfs:subClassOf cco:InformationBearingEntityPart ;
+                                          cco:definition "An Information Bearing Entity Part that is part of an Information Bearing Entity which is carrier of a Geospatial Position Identifier." ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                          rdfs:label "Geospatial Identifier Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GivenNameBearingEntityPart
+cco:GivenNameBearingEntityPart rdf:type owl:Class ;
+                               rdfs:subClassOf cco:ProperNameBearingEntityPart ;
+                               cco:definition "A Proper Name Bearing Entity Part that has value of a Person's given name." ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                               rdfs:label "Given Name Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntityPart
+cco:InformationBearingEntityPart rdf:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000030
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty obo:BFO_0000050 ;
+                                                                              owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty obo:RO_0010002 ;
+                                                                                                   owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                        owl:onProperty cco:is_about ;
+                                                                                                                        owl:someValuesFrom obo:BFO_0000001
+                                                                                                                      ]
+                                                                                                 ]
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ] ;
+                                 rdfs:subClassOf obo:BFO_0000030 ;
+                                 cco:definition "An Object that is part of an Information Bearing Entity." ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                 rdfs:label "Information Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InsuranceCompany
+cco:InsuranceCompany rdf:type owl:Class ;
+                     rdfs:subClassOf cco:Organization ;
+                     cco:definition "An Organization that sells and administers Insurance Contracts." ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                     rdfs:label "Insurance Company" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InsuranceContract
+cco:InsuranceContract rdf:type owl:Class ;
+                      rdfs:subClassOf cco:Contract ;
+                      cco:definition "A contract that prescribes the conditions for what the insurer is required to pay the insured." ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                      rdfs:label "Insurance Contract" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LatitudeBearingEntityPart
+cco:LatitudeBearingEntityPart rdf:type owl:Class ;
+                              rdfs:subClassOf cco:GeospatialIdentifierBearingEntityPart ;
+                              cco:definition "A Geospatial Identifier Bearing Entity Part that has value of a position's latitude." ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                              rdfs:label "Latitude Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LongitudeBearingEntityPart
+cco:LongitudeBearingEntityPart rdf:type owl:Class ;
+                               rdfs:subClassOf cco:GeospatialIdentifierBearingEntityPart ;
+                               cco:definition "A Geospatial Identifier Bearing Entity Part that has value of a position's longitude." ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                               rdfs:label "Longitude Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MiddleNameBearingEntityPart
+cco:MiddleNameBearingEntityPart rdf:type owl:Class ;
+                                rdfs:subClassOf cco:ProperNameBearingEntityPart ;
+                                cco:definition "An Information Bearing Entity Part that has value of a Person's middle name." ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                rdfs:label "Middle Name Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PersonIdentifier
+cco:PersonIdentifier rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty cco:designates ;
+                                           owl:someValuesFrom cco:Person
+                                         ] ;
+                     rdfs:subClassOf cco:DesignativeInformationContentEntity ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                     rdfs:comment "A Designative Information Content Entity that designates a Person." ;
+                     rdfs:label "Person Identifier" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PostalCode
+cco:PostalCode rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty cco:designates ;
+                                     owl:someValuesFrom cco:PostalZone
+                                   ] ;
+               rdfs:subClassOf cco:CodeIdentifier ;
+               cco:alternative_label "Zip Code" ;
+               cco:definition "A Code Identifier that designates some Postal Zone." ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+               rdfs:label "Postal Code" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PostalZone
+cco:PostalZone rdf:type owl:Class ;
+               rdfs:subClassOf cco:GeopoliticalEntity ;
+               cco:definition "A Local Administrative Region that delimits a set of delivery points within a postal system of some government." ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+               rdfs:label "Postal Zone" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Preference
+cco:Preference rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000016 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty obo:RO_0000052 ;
+                                 owl:someValuesFrom cco:Agent
+                               ] ;
+               cco:definition "A Disposition inhering in an Agent that induces that Agent to choose certain states of affairs, rather than others." ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+               rdfs:label "Preference" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ProperNameBearingEntityPart
+cco:ProperNameBearingEntityPart rdf:type owl:Class ;
+                                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                      owl:onProperty obo:BFO_0000050 ;
+                                                      owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty obo:RO_0010002 ;
+                                                                           owl:someValuesFrom cco:ProperName
+                                                                         ]
+                                                    ] ;
+                                rdfs:subClassOf cco:InformationBearingEntityPart ;
+                                cco:definition "An Information Bearing Entity Part that is part of an Information Bearing Entity which is carrier of a Proper Name." ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                rdfs:label "Proper Name Bearing Entity Part" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SocialSecurityNumber
+cco:SocialSecurityNumber rdf:type owl:Class ;
+                         rdfs:subClassOf cco:CodeIdentifier ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty cco:designates ;
+                                           owl:someValuesFrom cco:Person
+                                         ] ;
+                         cco:alternative_label "A Code Identifier that is issued by the United States Social Security Administration for the purpose designating a Person." ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                         rdfs:label "Social Security Number" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/StasisOfTelecommunicationEndpointAssignment
+cco:StasisOfTelecommunicationEndpointAssignment rdf:type owl:Class ;
+                                                rdfs:subClassOf cco:Stasis ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty obo:RO_0000057 ;
+                                                                  owl:someValuesFrom cco:TelecommunicationEndpoint
+                                                                ] ;
+                                                cco:definition "A Stasis wherein a Telecommunication Endpoint is assigned to a telecommunication device." ;
+                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                                rdfs:label "Stasis of Telecommunication Endpoint Assignment" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/StatePostalAbbreviation
+cco:StatePostalAbbreviation rdf:type owl:Class ;
+                            rdfs:subClassOf cco:AbbreviatedName ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty cco:designates ;
+                                              owl:someValuesFrom cco:State
+                                            ] ;
+                            cco:definition "An Abbreviated Name that designates a State." ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                            rdfs:label "State Postal Abbreviation" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/StreetAddress
+cco:StreetAddress rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty cco:designates ;
+                                        owl:someValuesFrom cco:Facility
+                                      ] ;
+                  rdfs:subClassOf cco:DesignativeInformationContentEntity ;
+                  cco:definition "A Designative Information Content Entity that identifies a Facility located in some Geospatial Region that is near to or adjacent to a Street and part of a Geopolitical Entity." ;
+                  cco:elucidation "Minimally, a building number and street name. Numbers for apartments, sub-units, or other distinct facilities within a larger complex are also included in a Street Address." ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                  rdfs:comment "There are cases where a street address is assigned to an empty lot before a facility is built, or remains after one has been removed. These do not invalidate the description here for an instance of a Street Address is exactly and only information that is used to designate a facility." ;
+                  rdfs:label "Street Address" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TelecommunicationNetworkIdentifier
+cco:TelecommunicationNetworkIdentifier rdf:type owl:Class ;
+                                       rdfs:subClassOf cco:DesignativeInformationContentEntity ;
+                                       cco:definition "A Designative Information Content Entity that uniquely identifies a Telecommunication Network or some set of information inhering in such a network, often for the purpose of exchanging information with the identified entity." ;
+                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                       rdfs:label "Telecommunication Network Identifier" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TelecommunicationsNetworkAccount
+cco:TelecommunicationsNetworkAccount rdf:type owl:Class ;
+                                     rdfs:subClassOf cco:Contract ;
+                                     cco:definition "A Contract between an Agent and a Telecommunications Service Provider consisting, at least in part, of a set of permissions recorded in a telecommunications system that govern the Agent's ability to interact with a determined portion of that system." ;
+                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                                     rdfs:label "Telecommunications Network Account" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TelephoneAccount
+cco:TelephoneAccount rdf:type owl:Class ;
+                     rdfs:subClassOf cco:TelecommunicationsNetworkAccount ;
+                     cco:definition "A Telecommunications Network Account between an Agent and a Telephone Service Provider, which prescribes the assignment of one or more Telephone Number and Telecommunication Endpoint to allow the Agent to utilize telephony and data communications services." ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                     rdfs:label "Telephone Account" .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TelephoneNumber
+cco:TelephoneNumber rdf:type owl:Class ;
+                    rdfs:subClassOf cco:TelecommunicationNetworkIdentifier ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty cco:designates ;
+                                      owl:someValuesFrom cco:TelecommunicationEndpoint
+                                    ] ;
+                    cco:definition "A Telecommunication Network Identifier that uniquely identifies a Telecommunication Endpoint, which is typically assigned to a Telephone, as prescribed by a Telephone Account." ;
+                    cco:definition_source "https://en.wikipedia.org/wiki/Telephone_number" ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI ;
+                    rdfs:label "Telephone Number" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MexicanCuisine
+cco:MexicanCuisine rdf:type owl:NamedIndividual ,
+                            cco:Cuisine ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Domain/CommonUserProfileOntology"^^xsd:anyURI .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
