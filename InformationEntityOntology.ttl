@@ -1,27 +1,23 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix ro: <http://www.obofoundry.org/ro/ro.owl#> .
-@prefix bfo: <http://purl.obolibrary.org/obo#> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology#> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
-                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ,
-                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
-                                                                                        owl:versionInfo "Version 1.1"^^xsd:string ;
-                                                                                        cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-08-29/InformationEntityOntology> ;
+                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ,
+                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ;
                                                                                         cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                                         cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
+                                                                                        cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string ;
                                                                                         rdfs:label "Information Entity Ontology"^^xsd:string ;
-                                                                                        owl:versionInfo "January 4, 2019"^^xsd:string ;
-                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."^^xsd:string .
+                                                                                        owl:versionInfo "Version 1.2"^^xsd:string .
 
 #################################################################
 #    Object Properties
@@ -31,9 +27,9 @@
 cco:condition_described_by rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:describes_condition ;
                            owl:propertyChainAxiom ( cco:described_by
-                                                    ro:part_of
+                                                    obo:BFO_0000050
                                                   ) ;
-                           cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
+                           cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                            rdfs:label "condition described by"^^xsd:string .
 
@@ -63,10 +59,10 @@ cco:describes rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_condition
 cco:describes_condition rdf:type owl:ObjectProperty ;
-                        owl:propertyChainAxiom ( ro:has_part
+                        owl:propertyChainAxiom ( obo:BFO_0000051
                                                  cco:describes
                                                ) ;
-                        cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
+                        cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."^^xsd:string ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                         rdfs:label "describes condition"^^xsd:string .
 
@@ -305,7 +301,7 @@ cco:is_measured_by_ratio rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measurement_unit_of
 cco:is_measurement_unit_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf cco:inheres_in ;
+                           rdfs:subPropertyOf obo:RO_0010001 ;
                            owl:inverseOf cco:uses_measurement_unit ;
                            rdfs:domain cco:MeasurementUnit ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -331,7 +327,7 @@ cco:is_mentioned_by rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_reference_system_of
 cco:is_reference_system_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf cco:inheres_in ;
+                           rdfs:subPropertyOf obo:RO_0010001 ;
                            owl:inverseOf cco:uses_reference_system ;
                            rdfs:domain cco:ReferenceSystem ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -442,6 +438,7 @@ cco:set_described_by_proportion rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/time_zone_identifier_used_by
 cco:time_zone_identifier_used_by rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf obo:RO_0010001 ;
                                  owl:inverseOf cco:uses_time_zone_identifier ;
                                  rdfs:domain cco:TimeZoneIdentifier ;
                                  rdfs:range cco:InformationBearingEntity ;
@@ -470,7 +467,7 @@ cco:uses_language rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_measurement_unit
 cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf cco:bearer_of ;
+                          rdfs:subPropertyOf obo:RO_0010002 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:MeasurementUnit ;
                           cco:elucidation "An Information Bearing Entity carries the content of some corresponding Information Content Entity. In some cases of measurements, this content is composed of both some amount and the scale according to which the measurement was made."^^xsd:string ;
@@ -480,7 +477,7 @@ cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_reference_system
 cco:uses_reference_system rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf cco:bearer_of ;
+                          rdfs:subPropertyOf obo:RO_0010002 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:ReferenceSystem ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
@@ -489,6 +486,7 @@ cco:uses_reference_system rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_time_zone_identifier
 cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf obo:RO_0010002 ;
                               rdfs:domain cco:InformationBearingEntity ;
                               rdfs:range cco:TimeZoneIdentifier ;
                               cco:definition "An object property holding between an Information Bearing Entity and a Time Zone Identifier which designates which time zone is being referred to in the date time string attached to the Information Bearing Entity."^^xsd:string ;
@@ -588,10 +586,10 @@ cco:Acronym rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Algorithm
 cco:Algorithm rdf:type owl:Class ;
               rdfs:subClassOf cco:DirectiveInformationContentEntity ;
-              cco:definition "A Directive Information Content Entity that prescribes the inputs and output of mathematical functions as well as workflow of execution for achieving an predefined objective." ;
-              cco:definition_source "http://purl.obolibrary.org/obo/IAO_0000064"^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-              rdfs:label "Algorithm"^^xsd:string .
+              cco:definition "A Directive Information Content Entity that prescribes the inputs and output of mathematical functions as well as workflow of execution for achieving a predefined objective." ;
+              cco:definition_source "http://purl.obolibrary.org/obo/IAO_0000064"^^xsd:anyURI ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+              rdfs:label "Algorithm" .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArbitraryIdentifier
@@ -624,18 +622,6 @@ cco:ArtificialLanguage rdf:type owl:Class ;
                        rdfs:label "Artificial Language"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/BoundingBoxPointIdentifier
-cco:BoundingBoxPointIdentifier rdf:type owl:Class ;
-                               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                     owl:onProperty cco:designates ;
-                                                     owl:someValuesFrom cco:BoundingBoxPoint
-                                                   ] ;
-                               rdfs:subClassOf cco:GeospatialPositionIdentifier ;
-                               cco:definition "A Geospatial Position Identifier that designates some Bounding Box Point."^^xsd:string ;
-                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                               rdfs:label "Bounding Box Point Identifier"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarDateIdentifier
 cco:CalendarDateIdentifier rdf:type owl:Class ;
                            rdfs:subClassOf cco:DateIdentifier ;
@@ -662,30 +648,6 @@ cco:CartesianCoordinateSystem rdf:type owl:Class ;
                               cco:definition_source "https://en.wikipedia.org/wiki/Cartesian_coordinate_system"^^xsd:string ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                               rdfs:label "Cartesian Coordinate System"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CityIdentifier
-cco:CityIdentifier rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty cco:designates ;
-                                         owl:someValuesFrom cco:City
-                                       ] ;
-                   rdfs:subClassOf cco:SubNationalEntityIdentifier ;
-                   cco:definition "A Sub-National Entity Identifier that designates some City."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                   rdfs:label "City Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CityPartIdentifier
-cco:CityPartIdentifier rdf:type owl:Class ;
-                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                             owl:onProperty cco:designates ;
-                                             owl:someValuesFrom cco:CityPart
-                                           ] ;
-                       rdfs:subClassOf cco:GeopoliticalEntityPartIdentifier ;
-                       cco:definition "A Geopolitical Entity Part Identifier that designates some City Part."^^xsd:string ;
-                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                       rdfs:label "City Part Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilTimeReferenceSystem
@@ -718,48 +680,12 @@ cco:CodeIdentifier rdf:type owl:Class ;
                    rdfs:label "Code Identifier"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ContinentIdentifier
-cco:ContinentIdentifier rdf:type owl:Class ;
-                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                              owl:onProperty cco:designates ;
-                                              owl:someValuesFrom cco:Continent
-                                            ] ;
-                        rdfs:subClassOf cco:GeospatialRegionIdentifier ;
-                        cco:definition "A Geospatial Region Identifier that designates some Continent."^^xsd:string ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                        rdfs:label "Continent Identifier"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CountMeasurementInformationContentEntity
 cco:CountMeasurementInformationContentEntity rdf:type owl:Class ;
                                              rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
                                              cco:definition "A Ratio Measurement Information Content Entity that is a measurement of the number of members of some aggregate."^^xsd:string ;
                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                              rdfs:label "Count Measurement Information Content Entity"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CountryIdentifier
-cco:CountryIdentifier rdf:type owl:Class ;
-                      owl:equivalentClass [ rdf:type owl:Restriction ;
-                                            owl:onProperty cco:designates ;
-                                            owl:someValuesFrom cco:Country
-                                          ] ;
-                      rdfs:subClassOf cco:GeopoliticalEntityIdentifier ;
-                      cco:definition "A Geopolitical Entity Identifier that designates some Country."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                      rdfs:label "Country Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CountryPartIdentifier
-cco:CountryPartIdentifier rdf:type owl:Class ;
-                          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                owl:onProperty cco:designates ;
-                                                owl:someValuesFrom cco:CountryPart
-                                              ] ;
-                          rdfs:subClassOf cco:GeopoliticalEntityPartIdentifier ;
-                          cco:definition "A Geopolitical Entity Part Identifier that designates some Country Part."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                          rdfs:label "Country Part Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DataRangeIntervalEstimateInformationContentEntity
@@ -918,54 +844,6 @@ cco:EventStatusNominalInformationContentEntity rdf:type owl:Class ;
                                                rdfs:label "Event Status Nominal Information Content Entity"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityBorderIdentifier
-cco:GeopoliticalEntityBorderIdentifier rdf:type owl:Class ;
-                                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                             owl:onProperty cco:designates ;
-                                                             owl:someValuesFrom cco:GeopoliticalEntityBorder
-                                                           ] ;
-                                       rdfs:subClassOf cco:GeospatialBoundaryIdentifier ;
-                                       cco:definition "A Geospatial Boundary Identifier that designates some Geopolitical Entity Border."^^xsd:string ;
-                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                       rdfs:label "Geopolitical Entity Border Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityIdentifier
-cco:GeopoliticalEntityIdentifier rdf:type owl:Class ;
-                                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                       owl:onProperty cco:designates ;
-                                                       owl:someValuesFrom cco:GeopoliticalEntity
-                                                     ] ;
-                                 rdfs:subClassOf cco:GeospatialRegionIdentifier ;
-                                 cco:definition "A Geospatial Region Identifier that desginates some Geopolitical Entity."^^xsd:string ;
-                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                 rdfs:label "Geopolitical Entity Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityPartIdentifier
-cco:GeopoliticalEntityPartIdentifier rdf:type owl:Class ;
-                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                           owl:onProperty cco:designates ;
-                                                           owl:someValuesFrom cco:GeopoliticalEntityPart
-                                                         ] ;
-                                     rdfs:subClassOf cco:GeospatialRegionIdentifier ;
-                                     cco:definition "A Geospatial Region Identifier that designates some Geopolitical Entity Part."^^xsd:string ;
-                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                     rdfs:label "Geopolitical Entity Part Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundaryIdentifier
-cco:GeospatialBoundaryIdentifier rdf:type owl:Class ;
-                                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                       owl:onProperty cco:designates ;
-                                                       owl:someValuesFrom cco:GeospatialBoundary
-                                                     ] ;
-                                 rdfs:subClassOf cco:DesignativeInformationContentEntity ;
-                                 cco:definition "A Designative Information Content Entity that designates some Geospatial Boundary."^^xsd:string ;
-                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                 rdfs:label "Geospatial Boundary Identifier"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialCoordinateReferenceSystem
 cco:GeospatialCoordinateReferenceSystem rdf:type owl:Class ;
                                         rdfs:subClassOf cco:SpatialReferenceSystem ;
@@ -975,60 +853,12 @@ cco:GeospatialCoordinateReferenceSystem rdf:type owl:Class ;
                                         rdfs:label "Geospatial Coordinate Reference System"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLocationIdentifier
-cco:GeospatialLocationIdentifier rdf:type owl:Class ;
-                                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                       owl:onProperty cco:designates ;
-                                                       owl:someValuesFrom cco:GeospatialLocation
-                                                     ] ;
-                                 rdfs:subClassOf cco:GeospatialRegionIdentifier ;
-                                 cco:definition "A Geospatial Region Identifier that designates some Geospatial Location."^^xsd:string ;
-                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                 rdfs:label "Geospatial Location Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPositionIdentifier
-cco:GeospatialPositionIdentifier rdf:type owl:Class ;
-                                 rdfs:subClassOf cco:DesignativeInformationContentEntity ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty cco:designates ;
-                                                   owl:someValuesFrom cco:GeospatialPosition
-                                                 ] ;
-                                 cco:definition "A Designative Information Content Entity that designates some Geospatial Position"^^xsd:string ;
-                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                 rdfs:label "Geospatial Position Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBoxIdentifier
-cco:GeospatialRegionBoundingBoxIdentifier rdf:type owl:Class ;
-                                          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                owl:onProperty cco:designates ;
-                                                                owl:someValuesFrom cco:GeospatialRegionBoundingBox
-                                                              ] ;
-                                          rdfs:subClassOf cco:GeospatialBoundaryIdentifier ;
-                                          cco:definition "A Geospatial Boundary Identifier that designates some Geospatial Region Bounding Box."^^xsd:string ;
-                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                          rdfs:label "Geospatial Region Bounding Box Identifier"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBoxIdentifierList
 cco:GeospatialRegionBoundingBoxIdentifierList rdf:type owl:Class ;
                                               rdfs:subClassOf cco:MeasurementUnitOfGeocoordinate ;
                                               cco:definition "A Measurement Unit of Geocoordinate that is comprised of 4 pairs of coordinates, one for each of the 4 defining points (North, West, South, East) of a Geospatial Region Bounding Box."^^xsd:string ;
                                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                               rdfs:label "Geospatial Region Bounding Box Identifier List"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionIdentifier
-cco:GeospatialRegionIdentifier rdf:type owl:Class ;
-                               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                     owl:onProperty cco:designates ;
-                                                     owl:someValuesFrom cco:GeospatialRegion
-                                                   ] ;
-                               rdfs:subClassOf cco:SiteIdentifier ;
-                               cco:definition "A Site Identifier that designates some Geospatial Region."^^xsd:string ;
-                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                               rdfs:label "Geospatial Region Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GreenwichMeanTimeZoneIdentifier
@@ -1055,7 +885,7 @@ cco:HourIdentifier rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
 cco:InformationBearingEntity rdf:type owl:Class ;
                              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                   owl:onProperty cco:bearer_of ;
+                                                   owl:onProperty obo:RO_0010002 ;
                                                    owl:someValuesFrom cco:InformationContentEntity
                                                  ] ;
                              rdfs:subClassOf obo:BFO_0000030 ;
@@ -1085,7 +915,7 @@ cco:InformationContentEntity rdf:type owl:Class ;
 cco:InformationQualityEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000019 ,
                                              [ rdf:type owl:Restriction ;
-                                               owl:onProperty cco:inheres_in ;
+                                               owl:onProperty obo:RO_0000052 ;
                                                owl:someValuesFrom cco:InformationBearingEntity
                                              ] ;
                              cco:alternative_label "IQE"^^xsd:string ;
@@ -1155,11 +985,11 @@ cco:JulianDateFraction rdf:type owl:Class ;
 cco:JulianDateIdentifier rdf:type owl:Class ;
                          rdfs:subClassOf cco:DecimalTimeOfDayIdentifier ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty ro:has_part ;
+                                           owl:onProperty obo:BFO_0000051 ;
                                            owl:someValuesFrom cco:JulianDateFraction
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty ro:has_part ;
+                                           owl:onProperty obo:BFO_0000051 ;
                                            owl:someValuesFrom cco:JulianDayNumber
                                          ] ,
                                          [ rdf:type owl:Restriction ;
@@ -1552,8 +1382,8 @@ cco:ProbabilityMeasurementInformationContentEntity rdf:type owl:Class ;
                                                    rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                                    cco:alternative_label "Likelihood Measurement"^^xsd:string ,
                                                                          "Probability Measurement"^^xsd:string ;
-                                                   cco:definition "A Measurement Information Content Entity that is a measurement of the likelihood that a Process or Process Aggregate occurs."^^xsd:string ,
-                                                                  "https://en.wikipedia.org/wiki/Probability"^^xsd:string ;
+                                                   cco:definition "A Measurement Information Content Entity that is a measurement of the likelihood that a Process or Process Aggregate occurs."^^xsd:string ;
+                                                   cco:definition_source "https://en.wikipedia.org/wiki/Probability"^^xsd:string ;
                                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                                    rdfs:comment "Every probability measurement is made within a particular context given certain background assumptions."^^xsd:string ;
                                                    rdfs:label "Probability Measurement Information Content Entity"^^xsd:string .
@@ -1575,30 +1405,6 @@ cco:ProportionalRatioMeasurementInformationContentEntity rdf:type owl:Class ;
                                                          rdfs:comment "A percentage is one way to express a proportional measure where the decimal expression of the proportion is multiplied by 100, thus giving the proportional value with respect to a whole of 100. E.g., the ratio of pigs to cows on a farm is 44 to 79 (44:79 or 44/79). The proportion of pigs to total animals is 44 to 123 or 44/123. The percentage of pigs is the decimal equivalent of the proportion (0.36) multiplied by a 100 (36%). The percentage can be expressed as a proportion where the numerator value is transformed for a denominator of 100, i.e., 36 of a 100 animals are pigs (36/100)."^^xsd:string ,
                                                                       "We may want to add either a subclass for Percentage or a data property (has percentage value) that links the percentage expression for a proportion to the relevant IBE."^^xsd:string ;
                                                          rdfs:label "Proportional Ratio Measurement Information Content Entity"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ProvinceIdentifier
-cco:ProvinceIdentifier rdf:type owl:Class ;
-                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                             owl:onProperty cco:designates ;
-                                             owl:someValuesFrom cco:Province
-                                           ] ;
-                       rdfs:subClassOf cco:SubNationalEntityIdentifier ;
-                       cco:definition "A Sub-National Entity Identifier that designates some Province."^^xsd:string ;
-                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                       rdfs:label "Province Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ProvincePartIdentifier
-cco:ProvincePartIdentifier rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty cco:designates ;
-                                                 owl:someValuesFrom cco:ProvincePart
-                                               ] ;
-                           rdfs:subClassOf cco:GeopoliticalEntityPartIdentifier ;
-                           cco:definition "A Geopolitical Entity Part Identifier that designates some Province Part."^^xsd:string ;
-                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                           rdfs:label "Province Part Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RatioMeasurementInformationContentEntity
@@ -1677,18 +1483,6 @@ cco:SiderealTimeReferenceSystem rdf:type owl:Class ;
                                 rdfs:label "Sidereal Time Reference System"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/SiteIdentifier
-cco:SiteIdentifier rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty cco:designates ;
-                                         owl:someValuesFrom obo:BFO_0000029
-                                       ] ;
-                   rdfs:subClassOf cco:DesignativeInformationContentEntity ;
-                   cco:definition "A Designative Information Content Entity that designates some Site."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                   rdfs:label "Site Identifier"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SolarCalendarSystem
 cco:SolarCalendarSystem rdf:type owl:Class ;
                         rdfs:subClassOf cco:CalendarSystem ;
@@ -1747,54 +1541,6 @@ cco:StandardTimeOfDayIdentifier rdf:type owl:Class ;
                                 cco:definition "A Time of Day Identifier that designates an approximate Temporal Instant that is part of some Day and is specified using the Hours, Minutes, and Seconds of the Day that preceded the Temporal Instant."^^xsd:string ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
                                 rdfs:label "Standard Time of Day Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/StateIdentifier
-cco:StateIdentifier rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Restriction ;
-                                          owl:onProperty cco:designates ;
-                                          owl:someValuesFrom cco:State
-                                        ] ;
-                    rdfs:subClassOf cco:SubNationalEntityIdentifier ;
-                    cco:definition "A Sub-National Entity Identifier that designates some State."^^xsd:string ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                    rdfs:label "State Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/StatePartIdentifier
-cco:StatePartIdentifier rdf:type owl:Class ;
-                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                              owl:onProperty cco:designates ;
-                                              owl:someValuesFrom cco:StatePart
-                                            ] ;
-                        rdfs:subClassOf cco:GeopoliticalEntityPartIdentifier ;
-                        cco:definition "A Geopolitical Entity Part Identifier that designates some State Part."^^xsd:string ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                        rdfs:label "State Part Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/SubNationalEntityIdentifier
-cco:SubNationalEntityIdentifier rdf:type owl:Class ;
-                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                      owl:onProperty cco:designates ;
-                                                      owl:someValuesFrom cco:FirstOrderAdministrativeRegion
-                                                    ] ;
-                                rdfs:subClassOf cco:GeopoliticalEntityIdentifier ;
-                                cco:definition "A Geopolitical Entity Identifier that designates some Sub-National Entity."^^xsd:string ;
-                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                                rdfs:label "Sub-National Entity Identifier"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/SubcontinentIdentifier
-cco:SubcontinentIdentifier rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty cco:designates ;
-                                                 owl:someValuesFrom cco:Subcontinent
-                                               ] ;
-                           rdfs:subClassOf cco:GeospatialRegionIdentifier ;
-                           cco:definition "A Geospatial Region Identifier that designates some Subcontinent."^^xsd:string ;
-                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:string ;
-                           rdfs:label "Subcontinent Identifier"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TemporalInstantIdentifier
@@ -2675,4 +2421,4 @@ cco:ZuluTimeZone rdf:type owl:NamedIndividual ,
                  rdfs:label "Zulu Time Zone"^^xsd:string .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi

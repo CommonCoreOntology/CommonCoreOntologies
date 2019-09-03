@@ -1,28 +1,35 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology#> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> rdf:type owl:Ontology ;
+                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-08-29/AgentOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-                                                                            owl:versionInfo "Version 1.1"^^xsd:string ;
-                                                                            cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                             cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                             cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
-                                                                            rdfs:label "Agent Ontology"^^xsd:string ;
+                                                                            cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."^^xsd:string ;
-                                                                            owl:versionInfo "January 4, 2019"^^xsd:string .
+                                                                            rdfs:label "Agent Ontology"^^xsd:string ;
+                                                                            owl:versionInfo "Version 1.2"^^xsd:string .
 
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/agent_in
+cco:agent_in rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf obo:RO_0000056 ;
+             owl:inverseOf cco:has_agent ;
+             cco:definition "TO DO"^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "agent in"^^xsd:string .
+
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_capability
 cco:aggregate_has_capability rdf:type owl:ObjectProperty ;
@@ -36,7 +43,7 @@ cco:aggregate_has_capability rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/capability_of
 cco:capability_of rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf cco:realizable_entity_of ;
+                  rdfs:subPropertyOf obo:RO_0000052 ;
                   owl:inverseOf cco:has_capability ;
                   rdfs:domain cco:AgentCapability ;
                   rdfs:range cco:Agent ;
@@ -85,6 +92,14 @@ cco:has_affiliate rdf:type owl:ObjectProperty ;
                   rdfs:label "has affiliate"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_agent
+cco:has_agent rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf obo:RO_0000057 ;
+              cco:definition "As for has_participant, but with the additional condition that the component instance is causally active in the relevant process."^^xsd:string ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+              rdfs:label "has agent"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_aunt
 cco:has_aunt rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf cco:has_familial_relationship_to ;
@@ -111,7 +126,7 @@ cco:has_brother_in_law rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_capability
 cco:has_capability rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf cco:has_realizable_entity ;
+                   rdfs:subPropertyOf obo:RO_0000053 ;
                    rdfs:domain cco:Agent ;
                    rdfs:range cco:AgentCapability ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
@@ -346,7 +361,7 @@ cco:has_paternal_uncle rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_recipient
 cco:has_recipient rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+                  rdfs:subPropertyOf obo:RO_0000057 ;
                   owl:inverseOf cco:receives ;
                   rdfs:range cco:Agent ;
                   cco:definition "has_recipient is a relationship between an Act Of Communication c1 and an Agent a1 such that c1 has_recipient a1 iff a1 is the receiver and decoder of the InformationContentEntity participating in c1."^^xsd:string ;
@@ -356,7 +371,7 @@ cco:has_recipient rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_sender
 cco:has_sender rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
                owl:inverseOf cco:sends ;
                rdfs:range cco:Agent ;
                cco:definition "has_sender is a relationship between an Act Of Communication c1 and an Agent a1 such that c1 has_sender a1 iff a1 is the initiator and encoder of the InformationContentEntity participating in c1."^^xsd:string ;
@@ -965,7 +980,7 @@ cco:prohibits rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/receives
 cco:receives rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+             rdfs:subPropertyOf obo:RO_0000056 ;
              rdfs:domain cco:Agent ;
              cco:definition "receives is a relationship between an Agent a1 and an Act Of Communication c1 such that a1 receives c1 iff a1 is the recipient and decoder of the InformationContentEntity participating in c1."^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
@@ -986,7 +1001,7 @@ cco:requires rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/sends
 cco:sends rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+          rdfs:subPropertyOf obo:RO_0000056 ;
           rdfs:domain cco:Agent ;
           cco:definition "sends is a relationship between an Agent a1 and an Act Of Communication c1 and  such that a1 sends c1 iff a1 is the initiator and encoder of the InformationContentEntity participating in c1."^^xsd:string ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
@@ -1086,12 +1101,12 @@ cco:Affordance rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Agent
 cco:Agent rdf:type owl:Class ;
           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                       owl:unionOf ( cco:Organization
-                                                                     cco:Person
+                                                       owl:unionOf ( cco:Animal
+                                                                     cco:Organization
                                                                    )
                                                      ]
                                                      [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://www.obofoundry.org/ro/ro.owl#agent_in> ;
+                                                       owl:onProperty cco:agent_in ;
                                                        owl:someValuesFrom obo:BFO_0000015
                                                      ]
                                                    ) ;
@@ -1122,7 +1137,7 @@ cco:AllegianceRole rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AlliedPerson
 cco:AlliedPerson rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty cco:has_role ;
+                                       owl:onProperty obo:RO_0000087 ;
                                        owl:someValuesFrom cco:AllyRole
                                      ] ;
                  rdfs:subClassOf cco:Person ;
@@ -1137,6 +1152,15 @@ cco:AllyRole rdf:type owl:Class ;
              cco:definition "An Allegiance Role that inheres in an Agent in virtue of that Agent's commitment to perform Acts that support the Objectives of a particular Agent or Group of Agents."^^xsd:string ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
              rdfs:label "Ally Role"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Animal
+cco:Animal rdf:type owl:Class ;
+           rdfs:subClassOf cco:Organism ;
+           cco:definition "An Organism that is multicellular, eukaryotic, heterotrophic, and capable of motility for part of its life."^^xsd:string ;
+           cco:definition_source "https://en.wikipedia.org/wiki/Animal"^^xsd:string ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+           rdfs:label "Animal"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArmedForce
@@ -1187,7 +1211,7 @@ cco:CarrierAirWing rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Citizen
 cco:Citizen rdf:type owl:Class ;
             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty cco:has_role ;
+                                  owl:onProperty obo:RO_0000087 ;
                                   owl:someValuesFrom cco:CitizenRole
                                 ] ;
             rdfs:subClassOf cco:Person ;
@@ -1209,7 +1233,7 @@ cco:CitizenRole rdf:type owl:Class ;
 cco:CivilOrganization rdf:type owl:Class ;
                       owl:equivalentClass [ owl:intersectionOf ( cco:Organization
                                                                  [ rdf:type owl:Restriction ;
-                                                                   owl:onProperty cco:has_role ;
+                                                                   owl:onProperty obo:RO_0000087 ;
                                                                    owl:someValuesFrom cco:CivilianRole
                                                                  ]
                                                                ) ;
@@ -1233,7 +1257,7 @@ cco:CivilianRole rdf:type owl:Class ;
 cco:CommercialOrganization rdf:type owl:Class ;
                            owl:equivalentClass [ owl:intersectionOf ( cco:Organization
                                                                       [ rdf:type owl:Restriction ;
-                                                                        owl:onProperty cco:has_role ;
+                                                                        owl:onProperty obo:RO_0000087 ;
                                                                         owl:someValuesFrom cco:CommercialRole
                                                                       ]
                                                                     ) ;
@@ -1299,7 +1323,7 @@ cco:EducationalOrganization rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Enemy
 cco:Enemy rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty cco:has_role ;
+                                owl:onProperty obo:RO_0000087 ;
                                 owl:someValuesFrom cco:EnemyRole
                               ] ;
           rdfs:subClassOf cco:Person ;
@@ -1350,7 +1374,7 @@ cco:Eye rdf:type owl:Class ;
 cco:EyeColor rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000019 ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty cco:inheres_in ;
+                               owl:onProperty obo:RO_0000052 ;
                                owl:someValuesFrom cco:Iris
                              ] ;
              cco:definition "A Quality inhering in an Eye by virtue of the color of the Eye's Iris."^^xsd:string ;
@@ -1417,7 +1441,7 @@ cco:Government rdf:type owl:Class ;
 cco:GovernmentAgency rdf:type owl:Class ;
                      rdfs:subClassOf cco:Organization ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                                       owl:onProperty obo:BFO_0000050 ;
                                        owl:someValuesFrom cco:Government
                                      ] ;
                      cco:definition "An Organization that is part of a Government and is responsible for the oversight and administration of specific governmental functions."^^xsd:string ;
@@ -1429,11 +1453,11 @@ cco:GovernmentAgency rdf:type owl:Class ;
 cco:GroupOfAgents rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000027 ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                    owl:onProperty obo:BFO_0000051 ;
                                     owl:someValuesFrom cco:Agent
                                   ] ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                    owl:onProperty obo:BFO_0000051 ;
                                     owl:allValuesFrom cco:Agent
                                   ] ;
                   cco:definition "An Object Aggregate that has only Agents as parts."^^xsd:string ;
@@ -1445,11 +1469,11 @@ cco:GroupOfAgents rdf:type owl:Class ;
 cco:GroupOfOrganizations rdf:type owl:Class ;
                          rdfs:subClassOf cco:GroupOfAgents ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                           owl:onProperty obo:BFO_0000051 ;
                                            owl:someValuesFrom cco:Organization
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                           owl:onProperty obo:BFO_0000051 ;
                                            owl:allValuesFrom cco:Organization
                                          ] ;
                          cco:definition "A Group of Agents that has only Organizations as parts."^^xsd:string ;
@@ -1461,11 +1485,11 @@ cco:GroupOfOrganizations rdf:type owl:Class ;
 cco:GroupOfPersons rdf:type owl:Class ;
                    rdfs:subClassOf cco:GroupOfAgents ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                     owl:onProperty obo:BFO_0000051 ;
                                      owl:someValuesFrom cco:Person
                                    ] ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                     owl:onProperty obo:BFO_0000051 ;
                                      owl:allValuesFrom cco:Person
                                    ] ;
                    cco:definition "A Group of Agents that has only Persons as parts."^^xsd:string ;
@@ -1511,7 +1535,7 @@ cco:InterpersonalRelationshipRole rdf:type owl:Class ;
 cco:Iris rdf:type owl:Class ;
          rdfs:subClassOf cco:BodilyComponent ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty <http://www.obofoundry.org/ro/ro.owl#part_of> ;
+                           owl:onProperty obo:BFO_0000050 ;
                            owl:someValuesFrom cco:Eye
                          ] ;
          cco:definition "A Bodily Component that consists of the part of an Eye that is a pigmented, round, contractile membrane, suspended between the cornea and lens and perforated by the pupil, and which canonically regulates the amount of light entering the Eye."^^xsd:string ;
@@ -1599,6 +1623,14 @@ cco:OperatorRole rdf:type owl:Class ;
                  rdfs:label "Operator Role"^^xsd:string .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Organism
+cco:Organism rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000030 ;
+             cco:definition "An Object that is an Animal or Plant."^^xsd:string ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+             rdfs:label "Organism"^^xsd:string .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Organization
 cco:Organization rdf:type owl:Class ;
                  rdfs:subClassOf cco:GroupOfAgents ;
@@ -1624,7 +1656,7 @@ cco:OrganizationCapability rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationMember
 cco:OrganizationMember rdf:type owl:Class ;
                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                             owl:onProperty cco:has_role ;
+                                             owl:onProperty obo:RO_0000087 ;
                                              owl:someValuesFrom cco:OrganizationMemberRole
                                            ] ;
                        rdfs:subClassOf cco:Person ,
@@ -1656,8 +1688,10 @@ cco:ParamilitaryForce rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Person
 cco:Person rdf:type owl:Class ;
-           rdfs:subClassOf obo:BFO_0000030 ;
-           cco:definition "An Agent that is a human being."^^xsd:string ;
+           rdfs:subClassOf cco:Animal ;
+           cco:alternative_label "Human"^^xsd:string ;
+           cco:definition "An Animal that is a member of the species Homo sapiens."^^xsd:string ;
+           cco:definition_source "https://en.wikipedia.org/wiki/Human"^^xsd:string ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
            rdfs:label "Person"^^xsd:string .
 
@@ -1666,13 +1700,22 @@ cco:Person rdf:type owl:Class ;
 cco:PlanSpecification rdf:type owl:Class ;
                       rdfs:subClassOf cco:DirectiveInformationContentEntity ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                        owl:onProperty obo:BFO_0000051 ;
                                         owl:someValuesFrom cco:Objective
                                       ] ;
                       cco:definition "A Directive Information Content Entity that prescribes some set of intended Intentional Acts through which some Agent expects to achieve some Objective."^^xsd:string ;
                       cco:definition_source "http://en.wikipedia.org/wiki/Plan"^^xsd:string ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
                       rdfs:label "Plan"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Plant
+cco:Plant rdf:type owl:Class ;
+          rdfs:subClassOf cco:Organism ;
+          cco:definition "An Organism that is multicellular, eukaryotic, autotrophic, and has cells that contain chloroplasts and walls made of cellulose."^^xsd:string ;
+          cco:definition_source "https://en.wikipedia.org/wiki/Plant"^^xsd:string ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:string ;
+          rdfs:label "Plant"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PoliticalOrientation
@@ -1739,7 +1782,7 @@ cco:ServiceProvider rdf:type owl:Class ;
 cco:SetOfEyes rdf:type owl:Class ;
               rdfs:subClassOf cco:BodilyComponent ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty <http://www.obofoundry.org/ro/ro.owl#has_part> ;
+                                owl:onProperty obo:BFO_0000051 ;
                                 owl:someValuesFrom cco:Eye
                               ] ;
               cco:definition "A Bodily Component that consists of two or more Eyes that are part of a single Agent."^^xsd:string ;
@@ -1789,7 +1832,7 @@ cco:Tattoo rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UnalliedPerson
 cco:UnalliedPerson rdf:type owl:Class ;
                    owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty cco:has_role ;
+                                         owl:onProperty obo:RO_0000087 ;
                                          owl:someValuesFrom cco:NeutralRole
                                        ] ;
                    rdfs:subClassOf cco:Person ;
@@ -1798,4 +1841,4 @@ cco:UnalliedPerson rdf:type owl:Class ;
                    rdfs:label "Neutral"^^xsd:string .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi

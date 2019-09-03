@@ -1,0 +1,595 @@
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> .
+
+<http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> rdf:type owl:Ontology ;
+                                                                         owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/2019-08-29/ROImport> ;
+                                                                         rdfs:comment "An import module containing a subset of relations from the OBO Relation Ontology (RO) for use in CCO."^^xsd:string ;
+                                                                         rdfs:label "Relations Ontology Import"^^xsd:string ;
+                                                                         owl:versionInfo "August 29, 2019"^^xsd:string .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000111
+obo:IAO_0000111 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000112
+obo:IAO_0000112 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000114
+obo:IAO_0000114 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000116
+obo:IAO_0000116 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000117
+obo:IAO_0000117 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000118
+obo:IAO_0000118 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000119
+obo:IAO_0000119 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000232
+obo:IAO_0000232 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000600
+obo:IAO_0000600 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001900
+obo:RO_0001900 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0040042
+obo:RO_0040042 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+<http://purl.org/dc/elements/1.1/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+<http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#inSubset
+<http://www.geneontology.org/formats/oboInOwl#inSubset> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000050
+obo:BFO_0000050 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000051 ;
+                rdf:type owl:TransitiveProperty ;
+                obo:IAO_0000111 "is part of"@en ;
+                obo:IAO_0000112 "my brain is part of my body (continuant parthood, two material entities)"@en ,
+                                "my stomach cavity is part of my stomach (continuant parthood, immaterial entity is part of material entity)"@en ,
+                                "this day is part of this year (occurrent parthood)"@en ;
+                obo:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
+                obo:IAO_0000116 "Everything is part of itself. Any part of any part of a thing is itself part of that thing. Two distinct things cannot be part of each other."@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ,
+                                """Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
+
+A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."""@en ;
+                obo:IAO_0000118 "part_of"@en ;
+                obo:RO_0001900 obo:RO_0001901 ;
+                obo:RO_0040042 obo:BFO_0000002 ,
+                               obo:BFO_0000003 ,
+                               obo:BFO_0000004 ,
+                               obo:BFO_0000017 ,
+                               obo:BFO_0000019 ,
+                               obo:BFO_0000020 ,
+                               obo:BFO_0000031 ;
+                rdfs:label "part of"@en ;
+                rdfs:seeAlso <http://ontologydesignpatterns.org/wiki/Community:Parts_and_Collections> ,
+                             <http://ontologydesignpatterns.org/wiki/Submissions:PartOf> ,
+                             "http://www.obofoundry.org/ro/#OBO_REL:part_of" .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000051
+obo:BFO_0000051 rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                obo:IAO_0000111 "has part"@en ;
+                obo:IAO_0000112 "my body has part my brain (continuant parthood, two material entities)"@en ,
+                                "my stomach has part my stomach cavity (continuant parthood, material entity has part immaterial entity)"@en ,
+                                "this year has part this day (occurrent parthood)"@en ;
+                obo:IAO_0000115 "a core relation that holds between a whole and its part"@en ;
+                obo:IAO_0000116 "Everything has itself as a part. Any part of any part of a thing is itself part of that thing. Two distinct things cannot have each other as a part."@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ,
+                                """Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
+
+A continuant cannot have an occurrent as part: use 'participates in'. An occurrent cannot have a continuant as part: use 'has participant'. An immaterial entity cannot have a material entity as part: use 'location of'. An independent continuant cannot have a specifically dependent continuant as part: use 'bearer of'. A specifically dependent continuant cannot have an independent continuant as part: use 'inheres in'."""@en ;
+                obo:IAO_0000118 "has_part"@en ;
+                obo:RO_0001900 obo:RO_0001901 ;
+                rdfs:label "has part"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000054
+obo:BFO_0000054 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000055 ;
+                rdfs:domain obo:BFO_0000017 ;
+                rdfs:range obo:BFO_0000015 ;
+                obo:IAO_0000111 "realized in"@en ;
+                obo:IAO_0000112 "this disease is realized in this disease course"@en ,
+                                "this fragility is realized in this shattering"@en ,
+                                "this investigator role is realized in this investigation"@en ;
+                obo:IAO_0000118 "is realized by"@en ,
+                                "realized_in"@en ;
+                obo:IAO_0000600 "[copied from inverse property 'realizes'] to say that b realizes c at t is to assert that there is some material entity d & b is a process which has participant d at t & c is a disposition or role of which d is bearer_of at t& the type instantiated by b is correlated with the type instantiated by c. (axiom label in BFO2 Reference: [059-003])"@en ;
+                rdfs:comment "Paraphrase of elucidation: a relation between a realizable entity and a process, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process" ;
+                rdfs:isDefinedBy obo:bfo.owl ;
+                rdfs:label "realized in"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000055
+obo:BFO_0000055 rdf:type owl:ObjectProperty ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000017 ;
+                obo:IAO_0000111 "realizes"@en ;
+                obo:IAO_0000112 "this disease course realizes this disease"@en ,
+                                "this investigation realizes this investigator role"@en ,
+                                "this shattering realizes this fragility"@en ;
+                obo:IAO_0000600 "to say that b realizes c at t is to assert that there is some material entity d & b is a process which has participant d at t & c is a disposition or role of which d is bearer_of at t& the type instantiated by b is correlated with the type instantiated by c. (axiom label in BFO2 Reference: [059-003])"@en ;
+                rdfs:comment "Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process" ;
+                rdfs:isDefinedBy obo:iao.owl ;
+                rdfs:label "realizes"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000066
+obo:BFO_0000066 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:BFO_0000067 ;
+                rdfs:domain obo:BFO_0000003 ;
+                rdfs:range obo:BFO_0000004 ;
+                owl:propertyChainAxiom ( obo:BFO_0000050
+                                         obo:BFO_0000066
+                                       ) ,
+                                       ( obo:BFO_0000066
+                                         obo:BFO_0000050
+                                       ) ;
+                obo:IAO_0000111 "occurs in"@en ;
+                obo:IAO_0000115 "b occurs_in c =def b is a process and c is a material entity or immaterial entity& there exists a spatiotemporal region r and b occupies_spatiotemporal_region r.& forall(t) if b exists_at t then c exists_at t & there exist spatial regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region s’ at t& s is a proper_continuant_part_of s’ at t"@en ;
+                obo:IAO_0000118 "occurs_in"@en ,
+                                "unfolds in"@en ,
+                                "unfolds_in"@en ;
+                rdfs:comment "Paraphrase of definition: a relation between a process and an independent continuant, in which the process takes place entirely within the independent continuant" ;
+                rdfs:isDefinedBy obo:bfo.owl ;
+                rdfs:label "occurs in"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000067
+obo:BFO_0000067 rdf:type owl:ObjectProperty ;
+                obo:IAO_0000111 "site of"@en ;
+                obo:IAO_0000115 "[copied from inverse property 'occurs in'] b occurs_in c =def b is a process and c is a material entity or immaterial entity& there exists a spatiotemporal region r and b occupies_spatiotemporal_region r.& forall(t) if b exists_at t then c exists_at t & there exist spatial regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region s’ at t& s is a proper_continuant_part_of s’ at t"@en ;
+                rdfs:comment "Paraphrase of definition: a relation between an independent continuant and a process, in which the process takes place entirely within the independent continuant" ;
+                rdfs:isDefinedBy obo:bfo.owl ;
+                rdfs:label "contains process"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000052
+obo:RO_0000052 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000053 ;
+               obo:IAO_0000111 "inheres in"@en ;
+               obo:IAO_0000112 "this fragility inheres in this vase"@en ,
+                               "this red color inheres in this apple"@en ;
+               obo:IAO_0000115 "a relation between a specifically dependent continuant (the dependent) and an independent continuant (the bearer), in which the dependent specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A dependent inheres in its bearer at all times for which the dependent exists."@en ;
+               obo:IAO_0000118 "inheres_in"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:label "inheres in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000053
+obo:RO_0000053 rdf:type owl:ObjectProperty ;
+               rdfs:range obo:BFO_0000020 ;
+               obo:IAO_0000111 "bearer of"@en ;
+               obo:IAO_0000112 "this apple is bearer of this red color"@en ,
+                               "this vase is bearer of this fragility"@en ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a specifically dependent continuant (the dependent), in which the dependent specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A bearer can have many dependents, and its dependents can exist for different periods of time, but none of its dependents can exist when the bearer does not exist."@en ;
+               obo:IAO_0000118 "bearer_of"@en ,
+                               "is bearer of"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:label "bearer of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000056
+obo:RO_0000056 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000057 ;
+               rdfs:domain obo:BFO_0000002 ;
+               rdfs:range obo:BFO_0000003 ;
+               obo:IAO_0000111 "participates in"@en ;
+               obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en ,
+                               "this input material (or this output material) participates in this process"@en ,
+                               "this investigator participates in this investigation"@en ;
+               obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
+               obo:IAO_0000118 "participates_in"@en ;
+               rdfs:label "participates in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000057
+obo:RO_0000057 rdf:type owl:ObjectProperty ;
+               rdfs:domain obo:BFO_0000003 ;
+               rdfs:range obo:BFO_0000002 ;
+               owl:propertyChainAxiom ( obo:BFO_0000051
+                                        obo:BFO_0000055
+                                        obo:RO_0000052
+                                      ) ,
+                                      ( obo:BFO_0000051
+                                        obo:RO_0000057
+                                      ) ;
+               obo:IAO_0000111 "has participant"@en ;
+               obo:IAO_0000112 "this blood coagulation has participant this blood clot"@en ,
+                               "this investigation has participant this investigator"@en ,
+                               "this process has participant this input material (or this output material)"@en ;
+               obo:IAO_0000115 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en ;
+               obo:IAO_0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time."@en ;
+               obo:IAO_0000118 "has_participant"@en ;
+               <http://purl.org/dc/elements/1.1/source> "http://www.obofoundry.org/ro/#OBO_REL:has_participant" ;
+               rdfs:label "has participant"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000058
+obo:RO_0000058 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0000059 ;
+               rdfs:domain obo:BFO_0000031 ;
+               rdfs:range obo:BFO_0000020 ;
+               obo:IAO_0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)."@en ,
+                               "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)."@en ;
+               obo:IAO_0000115 "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants."@en ;
+               rdfs:label "is concretized as"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000059
+obo:RO_0000059 rdf:type owl:ObjectProperty ;
+               rdfs:domain obo:BFO_0000020 ;
+               rdfs:range obo:BFO_0000031 ;
+               obo:IAO_0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)."@en ,
+                               "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)."@en ;
+               obo:IAO_0000115 "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant."@en ;
+               rdfs:label "concretizes"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000079
+obo:RO_0000079 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               owl:inverseOf obo:RO_0000085 ;
+               rdfs:domain obo:BFO_0000034 ;
+               obo:IAO_0000112 "this catalysis function is a function of this enzyme"@en ;
+               obo:IAO_0000115 "a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A function inheres in its bearer at all times for which the function exists, however the function need not be realized at all the times that the function exists."@en ;
+               obo:IAO_0000118 "function_of"@en ,
+                               "is function of"@en ;
+               rdfs:label "function of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000080
+obo:RO_0000080 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               owl:inverseOf obo:RO_0000086 ;
+               obo:IAO_0000112 "this red color is a quality of this apple"@en ;
+               obo:IAO_0000115 "a relation between a quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A quality inheres in its bearer at all times for which the quality exists."@en ;
+               obo:IAO_0000118 "is quality of"@en ,
+                               "quality_of"@en ;
+               rdfs:label "quality of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000081
+obo:RO_0000081 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               owl:inverseOf obo:RO_0000087 ;
+               obo:IAO_0000112 "this investigator role is a role of this person"@en ;
+               obo:IAO_0000115 "a relation between a role and an independent continuant (the bearer), in which the role specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A role inheres in its bearer at all times for which the role exists, however the role need not be realized at all the times that the role exists."@en ;
+               obo:IAO_0000118 "is role of"@en ,
+                               "role_of"@en ;
+               rdfs:label "role of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000085
+obo:RO_0000085 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:BFO_0000034 ;
+               obo:IAO_0000112 "this enzyme has function this catalysis function (more colloquially: this enzyme has this catalysis function)"@en ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A bearer can have many functions, and its functions can exist for different periods of time, but none of its functions can exist when the bearer does not exist. A function need not be realized at all the times that the function exists."@en ;
+               obo:IAO_0000118 "has_function"@en ;
+               rdfs:label "has function"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000086
+obo:RO_0000086 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               rdfs:range obo:BFO_0000019 ;
+               obo:IAO_0000112 "this apple has quality this red color"@en ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A bearer can have many qualities, and its qualities can exist for different periods of time, but none of its qualities can exist when the bearer does not exist."@en ;
+               obo:IAO_0000118 "has_quality"@en ;
+               rdfs:label "has quality"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000087
+obo:RO_0000087 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:BFO_0000023 ;
+               obo:IAO_0000112 "this person has role this investigator role (more colloquially: this person has this role of investigator)"@en ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000116 "A bearer can have many roles, and its roles can exist for different periods of time, but none of its roles can exist when the bearer does not exist. A role need not be realized at all the times that the role exists."@en ;
+               obo:IAO_0000118 "has_role"@en ;
+               rdfs:label "has role"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000091
+obo:RO_0000091 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000053 ;
+               owl:inverseOf obo:RO_0000092 ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:BFO_0000016 ;
+               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence"@en ;
+               rdfs:label "has disposition"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000092
+obo:RO_0000092 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0000052 ;
+               obo:IAO_0000115 "inverse of has disposition" ;
+               <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:RO_0002259 ;
+               rdfs:label "disposition of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001000
+obo:RO_0001000 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0001001 ;
+               obo:IAO_0000112 "this cell derives from this parent cell (cell division)"@en ,
+                               "this nucleus derives from this parent nucleus (nuclear division)"@en ;
+               obo:IAO_0000114 obo:IAO_0000125 ;
+               obo:IAO_0000115 "a relation between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity"@en ;
+               obo:IAO_0000116 "This is a very general relation. More specific relations are preferred when applicable, such as 'directly develops from'."@en ;
+               obo:IAO_0000118 "derives_from"@en ;
+               obo:IAO_0000232 "This relation is taken from the RO2005 version of RO. It may be obsoleted and replaced by relations with different definitions. See also the 'develops from' family of relations." ;
+               <http://www.geneontology.org/formats/oboInOwl#inSubset> <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+               rdfs:label "derives from"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001001
+obo:RO_0001001 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000112 "this parent cell derives into this cell (cell division)"@en ,
+                               "this parent nucleus derives into this nucleus (nuclear division)"@en ;
+               obo:IAO_0000114 obo:IAO_0000125 ;
+               obo:IAO_0000115 "a relation between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity"@en ;
+               obo:IAO_0000116 "This is a very general relation. More specific relations are preferred when applicable, such as 'directly develops into'. To avoid making statements about a future that may not come to pass, it is often better to use the backward-looking 'derives from' rather than the forward-looking 'derives into'."@en ;
+               obo:IAO_0000118 "derives_into"@en ;
+               <http://www.geneontology.org/formats/oboInOwl#inSubset> <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+               rdfs:label "derives into"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001015
+obo:RO_0001015 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0001025 ;
+               rdf:type owl:TransitiveProperty ;
+               obo:IAO_0000111 "is location of"@en ;
+               obo:IAO_0000112 "my head is the location of my brain"@en ,
+                               "this cage is the location of this rat"@en ;
+               obo:IAO_0000115 "a relation between two independent continuants, the location and the target, in which the target is entirely within the location"@en ;
+               obo:IAO_0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ;
+               obo:IAO_0000118 "location_of"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:label "location of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001018
+obo:RO_0001018 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0001019 ;
+               rdfs:domain obo:BFO_0000040 ;
+               rdfs:range obo:BFO_0000004 ;
+               owl:propertyChainAxiom ( obo:RO_0001025
+                                        obo:BFO_0000050
+                                      ) ;
+               obo:IAO_0000111 "contained in"@en ;
+               obo:IAO_0000116 "Containment is location not involving parthood, and arises only where some immaterial continuant is involved." ,
+                               "Containment obtains in each case between material and immaterial continuants, for instance: lung contained_in thoracic cavity; bladder contained_in pelvic cavity. Hence containment is not a transitive relation.    If c part_of c1 at t then we have also, by our definition and by the axioms of mereology applied to spatial regions, c located_in c1 at t. Thus, many examples of instance-level location relations for continuants are in fact cases of instance-level parthood. For material continuants location and parthood coincide. Containment is location not involving parthood, and arises only where some immaterial continuant is involved. To understand this relation, we first define overlap for continuants as follows:    c1 overlap c2 at t =def for some c, c part_of c1 at t and c part_of c2 at t. The containment relation on the instance level can then be defined (see definition):"@en ,
+                               """Intended meaning:
+domain: material entity
+range: spatial region or site (immaterial continuant)
+        """@en ;
+               obo:IAO_0000118 "contained_in"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               <http://www.geneontology.org/formats/oboInOwl#inSubset> <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+               rdfs:label "contained in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001019
+obo:RO_0001019 rdf:type owl:ObjectProperty ;
+               obo:IAO_0000111 "contains"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               <http://www.geneontology.org/formats/oboInOwl#inSubset> <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+               rdfs:label "contains"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0001025
+obo:RO_0001025 rdf:type owl:ObjectProperty ,
+                        owl:TransitiveProperty ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:BFO_0000004 ;
+               obo:IAO_0000111 "located in"@en ;
+               obo:IAO_0000112 "my brain is located in my head"@en ,
+                               "this rat is located in this cage"@en ;
+               obo:IAO_0000115 "a relation between two independent continuants, the target and the location, in which the target is entirely within the location"@en ;
+               obo:IAO_0000116 "Location as a relation between instances: The primitive instance-level relation c located_in r at t reflects the fact that each continuant is at any given time associated with exactly one spatial region, namely its exact location. Following we can use this relation to define a further instance-level location relation - not between a continuant and the region which it exactly occupies, but rather between one continuant and another. c is located in c1, in this sense, whenever the spatial region occupied by c is part_of the spatial region occupied by c1.    Note that this relation comprehends both the relation of exact location between one continuant and another which obtains when r and r1 are identical (for example, when a portion of fluid exactly fills a cavity), as well as those sorts of inexact location relations which obtain, for example, between brain and head or between ovum and uterus"@en ,
+                               "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ;
+               obo:IAO_0000118 "located_in"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               <http://purl.org/dc/elements/1.1/source> "http://www.obofoundry.org/ro/#OBO_REL:located_in" ;
+               rdfs:label "located in"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002000
+obo:RO_0002000 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0002002 ;
+               obo:IAO_0000112 "the surface of my skin is a 2D boundary of my body"@en ;
+               obo:IAO_0000115 "a relation between a 2D immaterial entity (the boundary) and a material entity, in which the boundary delimits the material entity"@en ;
+               obo:IAO_0000116 "A 2D boundary may have holes and gaps, but it must be a single connected entity, not an aggregate of several disconnected parts."@en ,
+                               "Although the boundary is two-dimensional, it exists in three-dimensional space and thus has a 3D shape."@en ;
+               obo:IAO_0000118 "2D_boundary_of"@en ,
+                               "boundary of"@en ,
+                               "is 2D boundary of"@en ,
+                               "is boundary of"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:label "2D boundary of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002002
+obo:RO_0002002 rdf:type owl:ObjectProperty ;
+               rdfs:domain obo:BFO_0000040 ;
+               rdfs:range obo:BFO_0000141 ;
+               obo:IAO_0000112 "my body has 2D boundary the surface of my skin"@en ;
+               obo:IAO_0000115 "a relation between a material entity and a 2D immaterial entity (the boundary), in which the boundary delimits the material entity"@en ;
+               obo:IAO_0000116 "A 2D boundary may have holes and gaps, but it must be a single connected entity, not an aggregate of several disconnected parts."@en ,
+                               "Although the boundary is two-dimensional, it exists in three-dimensional space and thus has a 3D shape."@en ;
+               obo:IAO_0000117 "David Osumi-Sutherland" ;
+               obo:IAO_0000118 "has boundary"@en ,
+                               "has_2D_boundary"@en ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:label "has 2D boundary"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002350
+obo:RO_0002350 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000050 ;
+               owl:inverseOf obo:RO_0002351 ;
+               obo:IAO_0000112 "An organism that is a member of a population of organisms" ;
+               obo:IAO_0000115 "is member of is a mereological relation between a item and a collection." ;
+               obo:IAO_0000118 "is member of" ,
+                               "member part of" ;
+               obo:IAO_0000119 "SIO" ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:label "member of"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002351
+obo:RO_0002351 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000051 ;
+               rdf:type owl:IrreflexiveProperty ;
+               obo:IAO_0000115 "has member is a mereological relation between a collection and an item." ;
+               obo:IAO_0000119 "SIO" ;
+               obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:label "has member"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0010001
+obo:RO_0010001 rdf:type owl:ObjectProperty ;
+               owl:inverseOf obo:RO_0010002 ;
+               rdfs:domain obo:BFO_0000031 ;
+               rdfs:range obo:BFO_0000004 ;
+               owl:propertyChainAxiom ( obo:RO_0000052
+                                        obo:RO_0000058
+                                      ) ;
+               obo:IAO_0000112 "Genetic information generically depend on molecules of DNA." ,
+                               "The novel *War and Peace* generically depends on this copy of the novel." ,
+                               "The pattern shared by chess boards generically depends on any chess board." ,
+                               "The score of a symphony g-depends on a copy of the score." ,
+                               "This pdf file generically depends on this server." ;
+               obo:IAO_0000115 "A generically dependent continuant *b* generically depends on an independent continuant *c* at time *t* means: there inheres in *c* a specifically deendent continuant which concretizes *b* at *t*." ;
+               obo:IAO_0000119 "[072-ISO]" ;
+               <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "g-depends on" ;
+               rdfs:label "generically depends on" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0010002
+obo:RO_0010002 rdf:type owl:ObjectProperty ;
+               rdfs:domain obo:BFO_0000004 ;
+               rdfs:range obo:BFO_0000031 ;
+               owl:propertyChainAxiom ( obo:RO_0000059
+                                        obo:RO_0000053
+                                      ) ;
+               obo:IAO_0000112 "Molecules of DNA are carriers of genetic information." ,
+                               "This copy of *War and Peace* is carrier of the novel written by Tolstoy." ,
+                               "This hard drive is carrier of these data items." ;
+               obo:IAO_0000115 "*b* is carrier of *c* at time *t* if and only if *c* *g-depends on* *b* at *t*" ;
+               obo:IAO_0000119 "[072-ISO]" ;
+               rdfs:label "is carrier of"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000002
+obo:BFO_0000002 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000003
+obo:BFO_0000003 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000004
+obo:BFO_0000004 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000015
+obo:BFO_0000015 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000016
+obo:BFO_0000016 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000017
+obo:BFO_0000017 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000019
+obo:BFO_0000019 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000020
+obo:BFO_0000020 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000023
+obo:BFO_0000023 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000031
+obo:BFO_0000031 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000034
+obo:BFO_0000034 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000040
+obo:BFO_0000040 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000141
+obo:BFO_0000141 rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi

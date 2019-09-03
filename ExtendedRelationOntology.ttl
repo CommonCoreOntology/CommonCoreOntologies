@@ -1,24 +1,23 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology#> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> rdf:type owl:Ontology ;
-                                                                                       owl:imports <http://www.obofoundry.org/ro/ro.owl> ;
-                                                                                       rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."^^xsd:string ;
-                                                                                       cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-08-29/ExtendedRelationOntology> ;
+                                                                                       owl:imports obo:bfo.owl ,
+                                                                                                   <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ;
                                                                                        cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                                        cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
+                                                                                       cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
+                                                                                       rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."^^xsd:string ;
                                                                                        rdfs:label "Extended Relation Ontology"^^xsd:string ;
-                                                                                       owl:versionInfo "January 4, 2019"^^xsd:string ,
-                                                                                                       "Version 1.1"^^xsd:string .
+                                                                                       owl:versionInfo "Version 1.2"^^xsd:string .
 
 #################################################################
 #    Annotation properties
@@ -222,17 +221,9 @@ cco:term_editor rdf:type owl:AnnotationProperty ;
 #    Object Properties
 #################################################################
 
-###  http://www.obofoundry.org/ro/ro.owl#has_participant
-<http://www.obofoundry.org/ro/ro.owl#has_participant> rdf:type owl:ObjectProperty .
-
-
-###  http://www.obofoundry.org/ro/ro.owl#participates_in
-<http://www.obofoundry.org/ro/ro.owl#participates_in> rdf:type owl:ObjectProperty .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/accessory_in
 cco:accessory_in rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+                 rdfs:subPropertyOf obo:RO_0000056 ;
                  owl:inverseOf cco:has_accessory ;
                  rdfs:domain obo:BFO_0000040 ;
                  rdfs:range obo:BFO_0000015 ;
@@ -244,7 +235,7 @@ cco:accessory_in rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/accomplice_in
 cco:accomplice_in rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+                  rdfs:subPropertyOf obo:RO_0000056 ;
                   owl:inverseOf cco:has_accomplice ;
                   rdfs:domain obo:BFO_0000040 ;
                   rdfs:range obo:BFO_0000015 ;
@@ -256,7 +247,7 @@ cco:accomplice_in rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/affects
 cco:affects rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+            rdfs:subPropertyOf obo:RO_0000057 ;
             owl:inverseOf cco:is_affected_by ;
             rdfs:domain obo:BFO_0000015 ;
             rdfs:range obo:BFO_0000002 ;
@@ -308,20 +299,6 @@ cco:aggregrate_bearer_of rdf:type owl:ObjectProperty ;
                          rdfs:label "aggregate bearer of"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/bearer_of
-cco:bearer_of rdf:type owl:ObjectProperty ;
-              owl:inverseOf cco:inheres_in ;
-              rdfs:domain obo:BFO_0000004 ;
-              rdfs:range [ rdf:type owl:Class ;
-                           owl:unionOf ( obo:BFO_0000020
-                                         obo:BFO_0000031
-                                       )
-                         ] ;
-              cco:definition "Inverse of inheres in."^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-              rdfs:label "bearer of"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/caused_by
 cco:caused_by rdf:type owl:ObjectProperty ;
               owl:inverseOf cco:is_cause_of ;
@@ -330,18 +307,6 @@ cco:caused_by rdf:type owl:ObjectProperty ;
               cco:definition "For types of Processual Entities P1 and P2, P1 caused by P2 if and only if for all instances p1 of P1 there is some instance p2 of P2 such that p1 is the consequence of p2. Inverse of is_cause_of."^^xsd:string ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
               rdfs:label "caused by"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/disposition_of
-cco:disposition_of rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf cco:realizable_entity_of ;
-                   owl:inverseOf cco:has_disposition ;
-                   rdfs:domain obo:BFO_0000016 ;
-                   rdfs:range obo:BFO_0000004 ;
-                   cco:definition "For types D and E where D is a type of Disposition and E is a type of Entity, D disposition of E if and only if for every instance d of D, there is some instance e of E such that d \"disposition of\" e. Here \"disposition of\" denotes the primitive instance level relation."^^xsd:string ;
-                   cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro_proposed/ro_proposed.owl"^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                   rdfs:label "disposition of"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/disposition_of_aggregate
@@ -354,21 +319,9 @@ cco:disposition_of_aggregate rdf:type owl:ObjectProperty ;
                              rdfs:label "disposition of aggregate"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/function_of
-cco:function_of rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:disposition_of ;
-                owl:inverseOf cco:has_function ;
-                rdfs:domain obo:BFO_0000034 ;
-                rdfs:range obo:BFO_0000004 ;
-                cco:definition "A relation between a function F and an entity E. F function_of E iff: F inheres_in E and F is a function"^^xsd:string ;
-                cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro_proposed/ro_proposed.owl"^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                rdfs:label "function of"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_accessory
 cco:has_accessory rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+                  rdfs:subPropertyOf obo:RO_0000057 ;
                   rdfs:domain obo:BFO_0000015 ;
                   rdfs:range obo:BFO_0000040 ;
                   cco:definition "A Processual Entity p1 has_accessory some Agent a1 iff a1 assists in the commission of p1, is not located at the location of p1, and is not agent_in p1."^^xsd:string ;
@@ -379,7 +332,7 @@ cco:has_accessory rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_accomplice
 cco:has_accomplice rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+                   rdfs:subPropertyOf obo:RO_0000057 ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range obo:BFO_0000040 ;
                    cco:definition "An Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."^^xsd:string ;
@@ -388,44 +341,15 @@ cco:has_accomplice rdf:type owl:ObjectProperty ;
                    rdfs:label "has accomplice"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_disposition
-cco:has_disposition rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf cco:has_realizable_entity ;
-                    rdfs:domain obo:BFO_0000004 ;
-                    rdfs:range obo:BFO_0000016 ;
-                    cco:definition "For types E and D where E is a type of Entity and D is a type of Disposition, E has disposition D if and only if for all instances e of E there is some instance d of D such that e \"has disposition\" d. Here \"has disposition\" denotes the primitive instance level relation. Inverse of disposition_of."^^xsd:string ;
-                    cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro-proposed/ro_proposed.owl"^^xsd:string ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                    rdfs:label "has disposition"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_function
-cco:has_function rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf cco:has_disposition ;
-                 rdfs:domain obo:BFO_0000004 ;
-                 rdfs:range obo:BFO_0000034 ;
-                 cco:definition "Inverse of is function of"^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                 rdfs:label "has function"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_input
 cco:has_input rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+              rdfs:subPropertyOf obo:RO_0000057 ;
               owl:inverseOf cco:is_input_of ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000002 ;
               cco:definition "Inverse of is_input_of, a relation between a Processual Entity and a Continuant such that the presence of the Continuant at the beginning of the Processual Entity is a necessary condition for the start of the Processual Entity."^^xsd:string ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
               rdfs:label "has input"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_member
-cco:has_member rdf:type owl:ObjectProperty ;
-               owl:inverseOf cco:member_of ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:comment "Inverse of member_of."^^xsd:string ;
-               rdfs:label "has member"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_member_of_located_in
@@ -439,7 +363,7 @@ cco:has_member_of_located_in rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_object
 cco:has_object rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
                owl:inverseOf cco:is_object_of ;
                cco:definition "If p is a process and c is a continuant, then p has object c if and only if the c is part of the projected state that the agent intends to achieve by performing p."^^xsd:string ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology" ;
@@ -448,7 +372,7 @@ cco:has_object rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_output
 cco:has_output rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#has_participant> ;
+               rdfs:subPropertyOf obo:RO_0000057 ;
                owl:inverseOf cco:is_output_of ;
                rdfs:domain obo:BFO_0000015 ;
                rdfs:range obo:BFO_0000002 ;
@@ -463,57 +387,9 @@ cco:has_process_part rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:is_part_of_process ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range obo:BFO_0000015 ;
-                     cco:definition "For processes P1 and P2, P1 has process part P2 if and only if P2 occurs on a temporal interval that is during the temporal interval of P1 and P2 either provides an input to P1, recieves an output of P1 or both."^^xsd:string ;
+                     cco:definition "For processes P1 and P2, P1 has process part P2 if and only if P2 occurs on a temporal interval that is during the temporal interval of P1 and P2 either provides an input to P1, receives an output of P1, or both."^^xsd:string ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
                      rdfs:label "has process part"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_quality
-cco:has_quality rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:bearer_of ;
-                owl:inverseOf cco:quality_of ;
-                rdfs:domain obo:BFO_0000004 ;
-                rdfs:range obo:BFO_0000019 ;
-                cco:definition "For types E and Q where E is a type of Entity and Q is a type of Quality, E has quality Q if and only if for every instance e of E there is some instance q of Q such that e \"has quality\" q. Here \"has quality\" denotes the primitive instance level relation. Inverse of quality_of."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                rdfs:label "has quality"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_realizable_entity
-cco:has_realizable_entity rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf cco:bearer_of ;
-                          owl:inverseOf cco:realizable_entity_of ;
-                          rdfs:domain obo:BFO_0000004 ;
-                          rdfs:range obo:BFO_0000017 ;
-                          cco:definition "For types E and R where E is a type of Entity and R is a type of Realizable Entity, E has realizable entity R if and only if for all instances e of E there is some instance r of R such that e \"has realizable entity\" r. Here \"has realizable entity\" denotes the primitive instance level relation. Inverse of realizable_entity_of."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                          rdfs:label "has realizable entity"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_role
-cco:has_role rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf cco:has_realizable_entity ;
-             owl:inverseOf cco:role_of ;
-             rdfs:domain obo:BFO_0000004 ;
-             rdfs:range obo:BFO_0000023 ;
-             cco:definition "For types E and R where E is a type of Entity and R is a type of Role, E has role R if and only if for all instances e of E there is some instance r of R such that e \"has role\" r. Here \"has role\" denotes the primitive instance level relation. Inverse of role_of."^^xsd:string ;
-             cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro-proposed/ro_proposed.owl"^^xsd:string ;
-             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-             rdfs:label "has role"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/inheres_in
-cco:inheres_in rdf:type owl:ObjectProperty ;
-               rdfs:domain [ rdf:type owl:Class ;
-                             owl:unionOf ( obo:BFO_0000020
-                                           obo:BFO_0000031
-                                         )
-                           ] ;
-               rdfs:range obo:BFO_0000004 ;
-               cco:definition "For types T1 and T2, if T1 inheres in T2, then for all instances of T1, t1, there is some instance of T2, t2, such that t1 \"inheres in\" t2. Here, \"inheres in\" denotes the primitive instance level relation."^^xsd:string ;
-               cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro_proposed/ro_proposed.owl "^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:label "inheres in"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/inheres_in_aggregate
@@ -531,7 +407,7 @@ cco:inheres_in_aggregate rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by
 cco:is_affected_by rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+                   rdfs:subPropertyOf obo:RO_0000056 ;
                    rdfs:domain obo:BFO_0000002 ;
                    rdfs:range obo:BFO_0000015 ;
                    cco:definition "If c is a continuant and p is a process, the c is affected by p if and only if c undergoes some change as a result of the occurrence of p."^^xsd:string ;
@@ -550,7 +426,7 @@ cco:is_cause_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of
 cco:is_input_of rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+                rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
                 cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the begining of the Processual Entity is a necessary condition for the start of the Processual Entity."^^xsd:string ;
@@ -580,7 +456,7 @@ cco:is_material_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_object_of
 cco:is_object_of rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+                 rdfs:subPropertyOf obo:RO_0000056 ;
                  cco:definition "If p is a process and c is a continuant, then c is object of p if and only if the c is part of the projected state that the agent intends to achieve by performing p."^^xsd:string ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology" ;
                  rdfs:label "is object of"^^xsd:string .
@@ -588,7 +464,7 @@ cco:is_object_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of
 cco:is_output_of rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://www.obofoundry.org/ro/ro.owl#participates_in> ;
+                 rdfs:subPropertyOf obo:RO_0000056 ;
                  rdfs:domain obo:BFO_0000002 ;
                  rdfs:range obo:BFO_0000015 ;
                  cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the end of the Processual Entity is a necessary condition for the completion of the Processual Entity."^^xsd:string ;
@@ -600,7 +476,7 @@ cco:is_output_of rdf:type owl:ObjectProperty ;
 cco:is_part_of_process rdf:type owl:ObjectProperty ;
                        rdfs:domain obo:BFO_0000015 ;
                        rdfs:range obo:BFO_0000015 ;
-                       cco:definition "Inverse of has process part"^^xsd:string ;
+                       cco:definition "For processes P1 and P2, P1 is part of process P2 if and only if P1 occurs on a temporal interval that is during the temporal interval of P2 and P1 either provides an input to P2, receives an output of P2, or both."^^xsd:string ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
                        rdfs:label "is part of process"^^xsd:string .
 
@@ -618,6 +494,7 @@ cco:is_predecessor_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_site_of
 cco:is_site_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000067 ;
                owl:inverseOf cco:occurs_at ;
                rdfs:domain [ rdf:type owl:Class ;
                              owl:unionOf ( obo:BFO_0000006
@@ -649,16 +526,9 @@ cco:is_temporal_region_of rdf:type owl:ObjectProperty ;
                           rdfs:label "is temporal region of"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/member_of
-cco:member_of rdf:type owl:ObjectProperty ;
-              cco:definition "An entity E1 is member_of some aggregate A1 iff E1 is of type T, A1 is a collection of individuals of type T, and E1 is one of the individuals in that collection."^^xsd:string ;
-              cco:definition_source "http://purl.obolibrary.org/obo/RO_0002351"^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-              rdfs:label "member of"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/occurs_at
 cco:occurs_at rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf obo:BFO_0000066 ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range [ rdf:type owl:Class ;
                            owl:unionOf ( obo:BFO_0000006
@@ -679,17 +549,6 @@ cco:occurs_on rdf:type owl:ObjectProperty ;
               rdfs:label "occurs on"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/quality_of
-cco:quality_of rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf cco:inheres_in ;
-               rdfs:domain obo:BFO_0000019 ;
-               rdfs:range obo:BFO_0000004 ;
-               cco:definition "For types Q and E where Q is a type of Quality and E is a type of Entity, if Q is a quality of E, then for all instances q of Q there is some instance e of E such that q \"quality of\" e. Here, \"quality of\" denotes the primitive instance level relation."^^xsd:string ;
-               cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro_proposed/ro_proposed.owl)"^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:label "quality of"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/quality_of_aggregate
 cco:quality_of_aggregate rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf cco:inheres_in_aggregate ;
@@ -698,47 +557,6 @@ cco:quality_of_aggregate rdf:type owl:ObjectProperty ;
                          cco:definition "An instance of a Quality is quality_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Quality that is quality_of each and every member of the Object Aggregate instance."^^xsd:string ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
                          rdfs:label "quality of aggregate"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/realizable_entity_of
-cco:realizable_entity_of rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf cco:inheres_in ;
-                         rdfs:domain obo:BFO_0000017 ;
-                         rdfs:range obo:BFO_0000004 ;
-                         cco:definition "For types R and E where R is a type of Realizable Entity and E is a type of Entity, R realizable entity of E if and only if for every instance r of R, there is some instance e of E such that r \"realizable entity of\" e. Here \"realizable entity of\" denotes the primitive instance level relation."^^xsd:string ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                         rdfs:label "realizable entity of"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/realized_by
-cco:realized_by rdf:type owl:ObjectProperty ;
-                owl:inverseOf cco:realizes ;
-                rdfs:domain obo:BFO_0000017 ;
-                rdfs:range obo:BFO_0000015 ;
-                cco:definition "A relation between a Realizable Entity and a Processual Entity, inverse of realizes."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                rdfs:label "realized by"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/realizes
-cco:realizes rdf:type owl:ObjectProperty ;
-             rdfs:domain obo:BFO_0000015 ;
-             rdfs:range obo:BFO_0000017 ;
-             cco:definition "A Relation between a Process and a Function, where the unfolding of the process requires the execution of the function. Class level: P realizes F iff: given any p that instantiates P, there exists some f, t such that f instantiates F at t and p *realizes* f. Here, *realizes* is the primitive instance level relation"^^xsd:string ;
-             cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro_proposed/ro_proposed.owl"^^xsd:string ;
-             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-             rdfs:label "realizes"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/role_of
-cco:role_of rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf cco:realizable_entity_of ;
-            rdfs:domain obo:BFO_0000023 ;
-            rdfs:range obo:BFO_0000004 ;
-            cco:definition "For types R and E where R is a type of Role and E is a type of Entity, if R role of E, then for all instances r of R there is some instance e of E such that r \"role of\" e. Here, \"role of\" denotes the primitive instance level relation."^^xsd:string ;
-            cco:definition_source "http://www.berkeleybop.org/ontologies/obo-all/ro_proposed/ro_proposed.owl"^^xsd:string ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-            rdfs:label "role of"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/role_of_aggregate
@@ -751,15 +569,4 @@ cco:role_of_aggregate rdf:type owl:ObjectProperty ;
                       rdfs:label "role of aggregate"^^xsd:string .
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ObsoleteClass
-cco:ObsoleteClass rdf:type owl:Class ;
-                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                  rdfs:comment "Definition: A class used only as a parent class of obsoleted classes. It is understood that subclasses of this class are classified as such incorrectly. The obsoleted classes are instances of the parent class, not subclasses." ;
-                  rdfs:label "Obsolete Class" .
-
-
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
