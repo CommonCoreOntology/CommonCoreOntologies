@@ -1,4 +1,4 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology/> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology#> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,15 +9,14 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> rdf:type owl:Ontology ;
-                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-05-02/GeospatialOntology> ;
+                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-08-29/GeospatialOntology> ;
                                                                                  owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> ;
                                                                                  cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
                                                                                  cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
                                                                                  cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
                                                                                  rdfs:comment "This ontology is designed to represent sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them."^^xsd:string ;
                                                                                  rdfs:label "Geospatial Ontology"^^xsd:string ;
-                                                                                 owl:versionInfo "May 2, 2019"^^xsd:string ,
-                                                                                                 "Version 1.1.1"^^xsd:string .
+                                                                                 owl:versionInfo "Version 1.2"^^xsd:string .
 
 #################################################################
 #    Object Properties
@@ -247,21 +246,6 @@ cco:City rdf:type owl:Class ;
          rdfs:label "City"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CityPart
-cco:CityPart rdf:type owl:Class ;
-             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                   owl:onProperty obo:BFO_0000050 ;
-                                   owl:someValuesFrom cco:City
-                                 ] ;
-             rdfs:subClassOf cco:GeopoliticalEntityPart ;
-             cco:definition "A Geopolitical Entity Part that consists of one or more fiat sub-sections of a City."^^xsd:string ;
-             cco:example_of_usage "the Flatbush neighorhood of New York City"^^xsd:string ,
-                                  "the French Quarter of New Orleans"^^xsd:string ;
-             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:string ;
-             rdfs:comment "This defined class should be used for instances that are sections of a City demarcated based on cultural, historic, or demographic reasons."^^xsd:string ;
-             rdfs:label "City Part"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ConstructedFeature
 cco:ConstructedFeature rdf:type owl:Class ;
                        rdfs:subClassOf cco:AnthropogenicFeature ;
@@ -296,21 +280,6 @@ cco:Country rdf:type owl:Class ;
             rdfs:label "Country"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CountryPart
-cco:CountryPart rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty obo:BFO_0000050 ;
-                                      owl:someValuesFrom cco:Country
-                                    ] ;
-                rdfs:subClassOf cco:GeopoliticalEntityPart ;
-                cco:definition "A Geopolitical Entity Part that consists of one or more fiat sub-sections of a Country."^^xsd:string ;
-                cco:example_of_usage "Northern Iraq"^^xsd:string ,
-                                     "Southeastern United States"^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:string ;
-                rdfs:comment "This defined class should be used for instances which are not proper sub-national entities (e.g. it should not be used for Cities, Provinces, or States)."^^xsd:string ;
-                rdfs:label "Country Part"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/County
 cco:County rdf:type owl:Class ;
            rdfs:subClassOf cco:GeopoliticalEntity ;
@@ -318,6 +287,21 @@ cco:County rdf:type owl:Class ;
            cco:definition_source "https://en.wikipedia.org/wiki/County"^^xsd:anyURI ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
            rdfs:label "County"^^xsd:string .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DivisonOfGeopoliticalEntity
+cco:DivisonOfGeopoliticalEntity rdf:type owl:Class ;
+                                rdfs:subClassOf cco:GeospatialRegion ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty obo:BFO_0000050 ;
+                                                  owl:someValuesFrom cco:GeopoliticalEntity
+                                                ] ;
+                                owl:disjointWith cco:GeopoliticalEntity ;
+                                cco:definition "A Geospatial Region that is a fiat division of a Geopolitical Entity and not a Geopolitical Entity."^^xsd:string ;
+                                cco:example_of_usage "Flatbush, French Quarter, Western New York, Texas Panhandle, Greater Montreal Area of Quebec, Pacific Northwest, southwest area of Al Anbar Province, Northern Iraq." ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                                rdfs:comment "Instances of this class are not proper geopolitical entities, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood." ;
+                                rdfs:label "Division of Geopolitical Entity"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EnvironmentalFeature
@@ -378,18 +362,6 @@ cco:GeopoliticalEntityBorder rdf:type owl:Class ;
                              cco:definition_source "http://en.wikipedia.org/wiki/International_border"^^xsd:string ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:string ;
                              rdfs:label "Geopolitical Entity Border"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityPart
-cco:GeopoliticalEntityPart rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty obo:BFO_0000050 ;
-                                                 owl:someValuesFrom cco:GeopoliticalEntity
-                                               ] ;
-                           rdfs:subClassOf cco:GeospatialRegion ;
-                           cco:definition "A Geospatial Region that consists of one or more fiat sub-sections of a Geopolitical Entity."^^xsd:string ;
-                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:string ;
-                           rdfs:label "Geopolitical Entity Part"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary
@@ -630,21 +602,6 @@ cco:Province rdf:type owl:Class ;
              rdfs:label "Province"^^xsd:string .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ProvincePart
-cco:ProvincePart rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty obo:BFO_0000050 ;
-                                       owl:someValuesFrom cco:Province
-                                     ] ;
-                 rdfs:subClassOf cco:GeopoliticalEntityPart ;
-                 cco:definition "A Geopolitical Entity Part that consists of one or more fiat sub-sections of a Province."^^xsd:string ;
-                 cco:example_of_usage "the Greater Montreal Area of Quebec"^^xsd:string ,
-                                      "the southwest area of Al Anbar Province"^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:string ;
-                 rdfs:comment "This defined class should be used for instances that are sections of a Province demarcated based on cultural, historic, or demographic reasons."^^xsd:string ;
-                 rdfs:label "Province Part"^^xsd:string .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RollAxis
 cco:RollAxis rdf:type owl:Class ;
              rdfs:subClassOf cco:AxisOfRotation ;
@@ -699,21 +656,6 @@ cco:State rdf:type owl:Class ;
           cco:definition_source "https://en.wikipedia.org/wiki/Constituent_state"^^xsd:string ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:string ;
           rdfs:label "State"^^xsd:string .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/StatePart
-cco:StatePart rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000050 ;
-                                    owl:someValuesFrom cco:State
-                                  ] ;
-              rdfs:subClassOf cco:GeopoliticalEntityPart ;
-              cco:definition "A Geopolitical Entity Part that consists of one or more fiat sub-sections of a State."^^xsd:string ;
-              cco:example_of_usage "the Texas Panhandle"^^xsd:string ,
-                                   "the Western New York Region"^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:string ;
-              rdfs:comment "This defined class should be used for instances that are sections of a State demarcated based on cultural, historic, or demographic reasons."^^xsd:string ;
-              rdfs:label "State Part"^^xsd:string .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent

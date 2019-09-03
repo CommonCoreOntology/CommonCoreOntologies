@@ -10,12 +10,11 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> rdf:type owl:Ontology ;
-                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-05-02/ModalRelationOntology> ;
+                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-08-29/ModalRelationOntology> ;
                                                                                     rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO), including those CCO imports from the OBO Relation Ontology (RO)."^^xsd:string ;
                                                                                     rdfs:label "Modal Relation Ontology"^^xsd:string ;
-                                                                                    owl:versionInfo "May 2, 2019"^^xsd:string ,
-                                                                                                    "COPYRIGHT © 2015-2019 CUBRC Inc."^^xsd:string ,
-                                                                                                    "Version 1.1.2"^^xsd:string .
+                                                                                    owl:versionInfo "COPYRIGHT © 2015-2019 CUBRC Inc."^^xsd:string ,
+                                                                                                    "Version 1.2"^^xsd:string .
 
 #################################################################
 #    Annotation properties
@@ -701,7 +700,7 @@ mro:condition_described_by rdf:type owl:ObjectProperty ;
                            owl:propertyChainAxiom ( mro:described_by
                                                     mro:BFO_0000050
                                                   ) ;
-                           cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p." ;
+                           cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p." ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                            rdfs:label "condition described by" .
 
@@ -756,7 +755,7 @@ mro:describes_condition rdf:type owl:ObjectProperty ;
                         owl:propertyChainAxiom ( mro:BFO_0000051
                                                  mro:describes
                                                ) ;
-                        cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and c is an entity that is causally relevant to s existing as prescribed by p." ;
+                        cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p." ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                         rdfs:label "describes condition" .
 
@@ -1274,7 +1273,7 @@ mro:has_process_part rdf:type owl:ObjectProperty ;
                      owl:inverseOf mro:is_part_of_process ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range obo:BFO_0000015 ;
-                     cco:definition "For processes P1 and P2, P1 has process part P2 if and only if P2 occurs on a temporal interval that is during the temporal interval of P1 and P2 either provides an input to P1, recieves an output of P1 or both." ;
+                     cco:definition "For processes P1 and P2, P1 has process part P2 if and only if P2 occurs on a temporal interval that is during the temporal interval of P1 and P2 either provides an input to P1, receives an output of P1, or both." ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                      rdfs:label "has process part" .
 
@@ -2150,7 +2149,7 @@ mro:is_parent_of rdf:type owl:ObjectProperty ;
 mro:is_part_of_process rdf:type owl:ObjectProperty ;
                        rdfs:domain obo:BFO_0000015 ;
                        rdfs:range obo:BFO_0000015 ;
-                       cco:definition "Inverse of has process part" ;
+                       cco:definition "For processes P1 and P2, P1 is part of process P2 if and only if P1 occurs on a temporal interval that is during the temporal interval of P2 and P1 either provides an input to P2, receives an output of P2, or both." ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                        rdfs:label "is part of process" .
 
