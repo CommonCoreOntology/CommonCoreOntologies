@@ -9,15 +9,15 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> rdf:type owl:Ontology ;
-                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-08-29/ExtendedRelationOntology> ;
+                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-12-20/ExtendedRelationOntology> ;
                                                                                        owl:imports obo:bfo.owl ,
                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ;
-                                                                                       cco:code_license "The 3-Clause BSD License: https://opensource.org/licenses/BSD-3-Clause"^^xsd:string ;
-                                                                                       cco:content_license "The Creative Commons BY 3.0 License: https://creativecommons.org/licenses/by/3.0/"^^xsd:string ;
-                                                                                       cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."^^xsd:string ;
-                                                                                       rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."^^xsd:string ;
-                                                                                       rdfs:label "Extended Relation Ontology"^^xsd:string ;
-                                                                                       owl:versionInfo "Version 1.2"^^xsd:string .
+                                                                                       cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
+                                                                                       cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
+                                                                                       cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."@en ;
+                                                                                       rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."@en ;
+                                                                                       rdfs:label "Extended Relation Ontology"@en ;
+                                                                                       owl:versionInfo "Version 1.2"@en .
 
 #################################################################
 #    Annotation properties
@@ -25,196 +25,196 @@
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/acronym
 cco:acronym rdf:type owl:AnnotationProperty ;
-            cco:definition "An Alternative Label that consists of a shortened or abbreviated form of the rdfs:label and is used to denote the entity."^^xsd:string ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-            rdfs:label "acronym"^^xsd:string ;
+            cco:definition "An Alternative Label that consists of a shortened or abbreviated form of the rdfs:label and is used to denote the entity."@en ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+            rdfs:label "acronym"@en ;
             rdfs:subPropertyOf cco:alternative_label .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/alternative_label
 cco:alternative_label rdf:type owl:AnnotationProperty ;
-                      cco:definition "A term or phrase that may be used in place of the stated rdfs:label to denote the entity in question."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                      rdfs:label "alternative label"^^xsd:string .
+                      cco:definition "A term or phrase that may be used in place of the stated rdfs:label to denote the entity in question."@en ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                      rdfs:label "alternative label"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/code_license
 cco:code_license rdf:type owl:AnnotationProperty ;
-                 cco:definition "The name and description of the license under which the .owl file is released."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                 rdfs:label "code license"^^xsd:string .
+                 cco:definition "The name and description of the license under which the .owl file is released."@en ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                 rdfs:label "code license"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/content_license
 cco:content_license rdf:type owl:AnnotationProperty ;
-                    cco:definition "The name and description of the license under which the ideas, concepts and other informational content expressed in the .owl file are released."^^xsd:string ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                    rdfs:label "content license"^^xsd:string .
+                    cco:definition "The name and description of the license under which the ideas, concepts and other informational content expressed in the .owl file are released."@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                    rdfs:label "content license"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/copyright
 cco:copyright rdf:type owl:AnnotationProperty ;
-              cco:definition "An assertion of copyright"^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-              rdfs:label "copyright"^^xsd:string .
+              cco:definition "An assertion of copyright"@en ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+              rdfs:label "copyright"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/definition
 cco:definition rdf:type owl:AnnotationProperty ;
-               cco:definition "A natural language explication of the meaning of the term."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:label "definition"^^xsd:string .
+               cco:definition "A natural language explication of the meaning of the term."@en ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+               rdfs:label "definition"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/definition_source
 cco:definition_source rdf:type owl:AnnotationProperty ;
-                      cco:definition "A citation of where all or some of the information used to create the term's Definition was acquired from."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                      rdfs:label "definition source"^^xsd:string .
+                      cco:definition "A citation of where all or some of the information used to create the term's Definition was acquired from."@en ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                      rdfs:label "definition source"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/designator_annotation
 cco:designator_annotation rdf:type owl:AnnotationProperty ;
-                          cco:definition "A name or other identifier that is used to designate an individual."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                          rdfs:label "designator annotation"^^xsd:string .
+                          cco:definition "A name or other identifier that is used to designate an individual."@en ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                          rdfs:label "designator annotation"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/doctrinal_acronym
 cco:doctrinal_acronym rdf:type owl:AnnotationProperty ;
-                      cco:definition "An Acronym that is used by a Doctrinal Source to denote the entity."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                      rdfs:label "doctrinal acronym"^^xsd:string ;
+                      cco:definition "An Acronym that is used by a Doctrinal Source to denote the entity."@en ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                      rdfs:label "doctrinal acronym"@en ;
                       rdfs:subPropertyOf cco:acronym .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/doctrinal_definition
 cco:doctrinal_definition rdf:type owl:AnnotationProperty ;
-                         cco:definition "A Definition that is taken directly from a Doctrinal Source."^^xsd:string ;
-                         cco:elucidation "There is only one definition for any given term in an ontology; however, a Doctrinal Definition may be provided in addition to the asserted Definition if the preservation of this information is important. When both a Definition and a Doctrinal Definition are provided for a term, the Definition takes precedence."^^xsd:string ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                         rdfs:label "doctrinal definition"^^xsd:string ;
+                         cco:definition "A Definition that is taken directly from a Doctrinal Source."@en ;
+                         cco:elucidation "There is only one definition for any given term in an ontology; however, a Doctrinal Definition may be provided in addition to the asserted Definition if the preservation of this information is important. When both a Definition and a Doctrinal Definition are provided for a term, the Definition takes precedence."@en ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                         rdfs:label "doctrinal definition"@en ;
                          rdfs:subPropertyOf cco:definition .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/doctrinal_label
 cco:doctrinal_label rdf:type owl:AnnotationProperty ;
-                    cco:definition "An Alternative Label that consists of the preferred term or phrase used by a Doctrinal Source to denote the entity."^^xsd:string ;
-                    cco:elucidation "When the cco:doctrinal_label is identical to the rdfs:label, the cco:doctrinal_label annotation is superfluous. As a subclass of 'alternative label', 'doctrinal label' is intended to be used to provide additional information about the entity when its preferred doctrinal designator is ambiguous or otherwise inappropriate for use as the rdfs:label."^^xsd:string ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                    rdfs:label "doctrinal label"^^xsd:string ;
+                    cco:definition "An Alternative Label that consists of the preferred term or phrase used by a Doctrinal Source to denote the entity."@en ;
+                    cco:elucidation "When the cco:doctrinal_label is identical to the rdfs:label, the cco:doctrinal_label annotation is superfluous. As a subclass of 'alternative label', 'doctrinal label' is intended to be used to provide additional information about the entity when its preferred doctrinal designator is ambiguous or otherwise inappropriate for use as the rdfs:label."@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                    rdfs:label "doctrinal label"@en ;
                     rdfs:subPropertyOf cco:alternative_label .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/doctrinal_source
 cco:doctrinal_source rdf:type owl:AnnotationProperty ;
-                     cco:definition "A Definition Source that consists of a formalized doctrine in which the term is authoritatively defined."^^xsd:string ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                     rdfs:label "doctrinal source"^^xsd:string ;
+                     cco:definition "A Definition Source that consists of a formalized doctrine in which the term is authoritatively defined."@en ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                     rdfs:label "doctrinal source"@en ;
                      rdfs:subPropertyOf cco:definition_source .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/elucidation
 cco:elucidation rdf:type owl:AnnotationProperty ;
-                cco:definition "A clarification or further explanation of a term beyond what is included in the Definition or which is used when the term is primitive such that no non-circular definition can be given for it."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                rdfs:label "elucidation"^^xsd:string .
+                cco:definition "A clarification or further explanation of a term beyond what is included in the Definition or which is used when the term is primitive such that no non-circular definition can be given for it."@en ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                rdfs:label "elucidation"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/example_of_usage
 cco:example_of_usage rdf:type owl:AnnotationProperty ;
-                     cco:definition "A phrase, sentence or set of terms intended to convey the conventional usage of the term."^^xsd:string ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                     rdfs:label "example of usage"^^xsd:string .
+                     cco:definition "A phrase, sentence or set of terms intended to convey the conventional usage of the term."@en ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                     rdfs:label "example of usage"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_token_unit
 cco:has_token_unit rdf:type owl:AnnotationProperty ;
-                   cco:definition "A relation between an information content entity and a widely used measurement unit of the token used to express it."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                   rdfs:label "has token unit"^^xsd:string .
+                   cco:definition "A relation between an information content entity and a widely used measurement unit of the token used to express it."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                   rdfs:label "has token unit"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/http_query_string
 cco:http_query_string rdf:type owl:AnnotationProperty ;
-                      cco:definition "The text of an HTTP request that can be sent to a SPARQL Protocol service."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                      rdfs:label "http query string"^^xsd:string .
+                      cco:definition "The text of an HTTP request that can be sent to a SPARQL Protocol service."@en ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                      rdfs:label "http query string"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/interval_measurement_annotation
 cco:interval_measurement_annotation rdf:type owl:AnnotationProperty ;
-                                    cco:definition "A interval measurement value of an instance of a quality, realizable or process profile "^^xsd:string ;
-                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                                    rdfs:label "interval measurement annotation"^^xsd:string ;
+                                    cco:definition "A interval measurement value of an instance of a quality, realizable or process profile "@en ;
+                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                                    rdfs:label "interval measurement annotation"@en ;
                                     rdfs:subPropertyOf cco:measurement_annotation .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_curated_in_ontology
 cco:is_curated_in_ontology rdf:type owl:AnnotationProperty ;
-                           cco:definition "An annotation property that links a class, property, or named individual to the URI of the ontology where it is located."^^xsd:string ;
-                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                           rdfs:label "is curated in ontology"^^xsd:string .
+                           cco:definition "An annotation property that links a class, property, or named individual to the URI of the ontology where it is located."@en ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                           rdfs:label "is curated in ontology"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_tokenized_by
 cco:is_tokenized_by rdf:type owl:AnnotationProperty ;
-                    cco:definition "A relation between an information content entity and a widely used token used to express it."^^xsd:string ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                    rdfs:label "is tokenized by"^^xsd:string .
+                    cco:definition "A relation between an information content entity and a widely used token used to express it."@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                    rdfs:label "is tokenized by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/measurement_annotation
 cco:measurement_annotation rdf:type owl:AnnotationProperty ;
-                           cco:definition "A measurement value of an instance of a quality, reazlizable or process profile"^^xsd:string ;
-                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                           rdfs:label "measurement annotation"^^xsd:string .
+                           cco:definition "A measurement value of an instance of a quality, reazlizable or process profile"@en ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                           rdfs:label "measurement annotation"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/nominal_measurement_annotation
 cco:nominal_measurement_annotation rdf:type owl:AnnotationProperty ;
-                                   cco:definition "A nominal measurement value of an instance of a quality, realizable or process profile"^^xsd:string ;
-                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                                   rdfs:label "nominal measurement annotation"^^xsd:string ;
+                                   cco:definition "A nominal measurement value of an instance of a quality, realizable or process profile"@en ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                                   rdfs:label "nominal measurement annotation"@en ;
                                    rdfs:subPropertyOf cco:measurement_annotation .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ordinal_measurement_annotation
 cco:ordinal_measurement_annotation rdf:type owl:AnnotationProperty ;
-                                   cco:definition "An ordinal measurement value of an instance of a quality, realizable or process profile"^^xsd:string ;
-                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                                   rdfs:label "ordinal measurement annotation"^^xsd:string ;
+                                   cco:definition "An ordinal measurement value of an instance of a quality, realizable or process profile"@en ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                                   rdfs:label "ordinal measurement annotation"@en ;
                                    rdfs:subPropertyOf cco:measurement_annotation .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/query_text
 cco:query_text rdf:type owl:AnnotationProperty ;
-               cco:definition "The text of a query that is associated with a class"^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:label "query text"^^xsd:string .
+               cco:definition "The text of a query that is associated with a class"@en ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+               rdfs:label "query text"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ratio_measurement_annotation
 cco:ratio_measurement_annotation rdf:type owl:AnnotationProperty ;
-                                 cco:definition "A ratio measurement value of an instance of a quality, realizable or process profile"^^xsd:string ;
-                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                                 rdfs:label "ratio measurement annotation"^^xsd:string ;
+                                 cco:definition "A ratio measurement value of an instance of a quality, realizable or process profile"@en ;
+                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                                 rdfs:label "ratio measurement annotation"@en ;
                                  rdfs:subPropertyOf cco:measurement_annotation .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/term_creator
 cco:term_creator rdf:type owl:AnnotationProperty ;
-                 cco:definition "The name of the Term Editor who added the term to the ontology."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                 rdfs:label "term creator"^^xsd:string ;
+                 cco:definition "The name of the Term Editor who added the term to the ontology."@en ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                 rdfs:label "term creator"@en ;
                  rdfs:subPropertyOf cco:term_editor .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/term_editor
 cco:term_editor rdf:type owl:AnnotationProperty ;
-                cco:definition "The name of a person who contributed to the development or enhancement of the term."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                rdfs:label "term editor"^^xsd:string .
+                cco:definition "The name of a person who contributed to the development or enhancement of the term."@en ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                rdfs:label "term editor"@en .
 
 
 #################################################################
@@ -227,10 +227,10 @@ cco:accessory_in rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:has_accessory ;
                  rdfs:domain obo:BFO_0000040 ;
                  rdfs:range obo:BFO_0000015 ;
-                 cco:definition "An agent a1 is accessory_in some Processual Entity p1 iff a1 assists in the commission of p1, is not located_at the location of p1, and is not agent_in p1. "^^xsd:string ;
-                 cco:definition_source "http://en.wikipedia.org/wiki/Accessory_(legal_term)"^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                 rdfs:label "accessory in"^^xsd:string .
+                 cco:definition "An agent a1 is accessory_in some Processual Entity p1 iff a1 assists in the commission of p1, is not located_at the location of p1, and is not agent_in p1. "@en ;
+                 cco:definition_source "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                 rdfs:label "accessory in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/accomplice_in
@@ -239,10 +239,10 @@ cco:accomplice_in rdf:type owl:ObjectProperty ;
                   owl:inverseOf cco:has_accomplice ;
                   rdfs:domain obo:BFO_0000040 ;
                   rdfs:range obo:BFO_0000015 ;
-                  cco:definition "An agent a1 is accomplice_in some Processual Entity p1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."^^xsd:string ;
-                  cco:definition_source "http://en.wikipedia.org/wiki/Accomplice"^^xsd:string ;
-                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                  rdfs:label "accomplice in"^^xsd:string .
+                  cco:definition "An agent a1 is accomplice_in some Processual Entity p1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
+                  cco:definition_source "http://en.wikipedia.org/wiki/Accomplice" ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                  rdfs:label "accomplice in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/affects
@@ -251,9 +251,9 @@ cco:affects rdf:type owl:ObjectProperty ;
             owl:inverseOf cco:is_affected_by ;
             rdfs:domain obo:BFO_0000015 ;
             rdfs:range obo:BFO_0000002 ;
-            cco:definition "If p is a process and c is a continuant, then p affects c if and only if p influences c in some manner, most often by producing a change in c."^^xsd:string ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-            rdfs:label "affects"^^xsd:string .
+            cco:definition "If p is a process and c is a continuant, then p affects c if and only if p influences c in some manner, most often by producing a change in c."@en ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+            rdfs:label "affects"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_disposition
@@ -261,9 +261,9 @@ cco:aggregate_has_disposition rdf:type owl:ObjectProperty ;
                               rdfs:subPropertyOf cco:aggregrate_bearer_of ;
                               rdfs:domain obo:BFO_0000027 ;
                               rdfs:range obo:BFO_0000016 ;
-                              cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_disposition of some instance of a Disposition if and only if every member of the Object Aggregate instance has_disposition some instance of the Disposition."^^xsd:string ;
-                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                              rdfs:label "aggregate has disposition"^^xsd:string .
+                              cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_disposition of some instance of a Disposition if and only if every member of the Object Aggregate instance has_disposition some instance of the Disposition."@en ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                              rdfs:label "aggregate has disposition"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_quality
@@ -271,9 +271,9 @@ cco:aggregate_has_quality rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf cco:aggregrate_bearer_of ;
                           rdfs:domain obo:BFO_0000027 ;
                           rdfs:range obo:BFO_0000019 ;
-                          cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_quality of some instance of a Quality if and only if every member of the Object Aggregate instance has_quality some instance of the Quality."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                          rdfs:label "aggregate has quality"^^xsd:string .
+                          cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_quality of some instance of a Quality if and only if every member of the Object Aggregate instance has_quality some instance of the Quality."@en ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                          rdfs:label "aggregate has quality"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_role
@@ -281,9 +281,9 @@ cco:aggregate_has_role rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf cco:aggregrate_bearer_of ;
                        rdfs:domain obo:BFO_0000027 ;
                        rdfs:range obo:BFO_0000023 ;
-                       cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_role of some instance of a Role if and only if every member of the Object Aggregate instance has_role some instance of the Role."^^xsd:string ;
-                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                       rdfs:label "aggregate has role"^^xsd:string .
+                       cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_role of some instance of a Role if and only if every member of the Object Aggregate instance has_role some instance of the Role."@en ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                       rdfs:label "aggregate has role"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregrate_bearer_of
@@ -294,9 +294,9 @@ cco:aggregrate_bearer_of rdf:type owl:ObjectProperty ;
                                                     obo:BFO_0000031
                                                   )
                                     ] ;
-                         cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_bearer_of some instance of a Dependent Continuant (or any of its subtypes) if and only if every member of the Object Aggregate instance is bearer_of some instance of the Dependent Continuant"^^xsd:string ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                         rdfs:label "aggregate bearer of"^^xsd:string .
+                         cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_bearer_of some instance of a Dependent Continuant (or any of its subtypes) if and only if every member of the Object Aggregate instance is bearer_of some instance of the Dependent Continuant"@en ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                         rdfs:label "aggregate bearer of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/caused_by
@@ -304,9 +304,9 @@ cco:caused_by rdf:type owl:ObjectProperty ;
               owl:inverseOf cco:is_cause_of ;
               rdfs:domain obo:BFO_0000003 ;
               rdfs:range obo:BFO_0000001 ;
-              cco:definition "For types of Processual Entities P1 and P2, P1 caused by P2 if and only if for all instances p1 of P1 there is some instance p2 of P2 such that p1 is the consequence of p2. Inverse of is_cause_of."^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-              rdfs:label "caused by"^^xsd:string .
+              cco:definition "For types of Processual Entities P1 and P2, P1 caused by P2 if and only if for all instances p1 of P1 there is some instance p2 of P2 such that p1 is the consequence of p2. Inverse of is_cause_of."@en ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+              rdfs:label "caused by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/disposition_of_aggregate
@@ -314,9 +314,9 @@ cco:disposition_of_aggregate rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf cco:inheres_in_aggregate ;
                              rdfs:domain obo:BFO_0000016 ;
                              rdfs:range obo:BFO_0000027 ;
-                             cco:definition "An instance of a Disposition is disposition_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Disposition that is disposition_of each and every member of the Object Aggregate instance."^^xsd:string ;
-                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                             rdfs:label "disposition of aggregate"^^xsd:string .
+                             cco:definition "An instance of a Disposition is disposition_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Disposition that is disposition_of each and every member of the Object Aggregate instance."@en ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                             rdfs:label "disposition of aggregate"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_accessory
@@ -324,10 +324,10 @@ cco:has_accessory rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf obo:RO_0000057 ;
                   rdfs:domain obo:BFO_0000015 ;
                   rdfs:range obo:BFO_0000040 ;
-                  cco:definition "A Processual Entity p1 has_accessory some Agent a1 iff a1 assists in the commission of p1, is not located at the location of p1, and is not agent_in p1."^^xsd:string ;
-                  cco:definition_source "http://en.wikipedia.org/wiki/Accessory_(legal_term)"^^xsd:string ;
-                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                  rdfs:label "has accessory"^^xsd:string .
+                  cco:definition "A Processual Entity p1 has_accessory some Agent a1 iff a1 assists in the commission of p1, is not located at the location of p1, and is not agent_in p1."@en ;
+                  cco:definition_source "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                  rdfs:label "has accessory"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_accomplice
@@ -335,10 +335,10 @@ cco:has_accomplice rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf obo:RO_0000057 ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range obo:BFO_0000040 ;
-                   cco:definition "An Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."^^xsd:string ;
-                   cco:definition_source "http://en.wikipedia.org/wiki/Accomplice"^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                   rdfs:label "has accomplice"^^xsd:string .
+                   cco:definition "An Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
+                   cco:definition_source "http://en.wikipedia.org/wiki/Accomplice" ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                   rdfs:label "has accomplice"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_input
@@ -347,27 +347,27 @@ cco:has_input rdf:type owl:ObjectProperty ;
               owl:inverseOf cco:is_input_of ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000002 ;
-              cco:definition "Inverse of is_input_of, a relation between a Processual Entity and a Continuant such that the presence of the Continuant at the beginning of the Processual Entity is a necessary condition for the start of the Processual Entity."^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-              rdfs:label "has input"^^xsd:string .
+              cco:definition "Inverse of is_input_of, a relation between a Processual Entity and a Continuant such that the presence of the Continuant at the beginning of the Processual Entity is a necessary condition for the start of the Processual Entity."@en ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+              rdfs:label "has input"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_member_of_located_in
 cco:has_member_of_located_in rdf:type owl:ObjectProperty ;
                              rdfs:domain obo:BFO_0000027 ;
                              rdfs:range obo:BFO_0000040 ;
-                             cco:definition "An instance of an Object Aggregate 'has member of located in' an instance of some material entity if and only if every member of that Aggregate is located in the same instance of that material entity."^^xsd:string ;
-                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                             rdfs:label "has member of located in"^^xsd:string .
+                             cco:definition "An instance of an Object Aggregate 'has member of located in' an instance of some material entity if and only if every member of that Aggregate is located in the same instance of that material entity."@en ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                             rdfs:label "has member of located in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_object
 cco:has_object rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000057 ;
                owl:inverseOf cco:is_object_of ;
-               cco:definition "If p is a process and c is a continuant, then p has object c if and only if the c is part of the projected state that the agent intends to achieve by performing p."^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology" ;
-               rdfs:label "has object"^^xsd:string .
+               cco:definition "If p is a process and c is a continuant, then p has object c if and only if the c is part of the projected state that the agent intends to achieve by performing p."@en ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+               rdfs:label "has object"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_output
@@ -376,10 +376,10 @@ cco:has_output rdf:type owl:ObjectProperty ;
                owl:inverseOf cco:is_output_of ;
                rdfs:domain obo:BFO_0000015 ;
                rdfs:range obo:BFO_0000002 ;
-               cco:definition "Inverse of is_output_of, a relation between a Processual Entity and a Continuant such that the presence of the Continuant at the end of the Processual Entity is a necessary condition for the completion of the Processual Entity"^^xsd:string ;
-               cco:definition_source "https://en.wikipedia.org/wiki/IPO_model"^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:label "has output"^^xsd:string .
+               cco:definition "Inverse of is_output_of, a relation between a Processual Entity and a Continuant such that the presence of the Continuant at the end of the Processual Entity is a necessary condition for the completion of the Processual Entity"@en ;
+               cco:definition_source "https://en.wikipedia.org/wiki/IPO_model" ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+               rdfs:label "has output"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part
@@ -387,9 +387,9 @@ cco:has_process_part rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:is_part_of_process ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range obo:BFO_0000015 ;
-                     cco:definition "For processes P1 and P2, P1 has process part P2 if and only if P2 occurs on a temporal interval that is during the temporal interval of P1 and P2 either provides an input to P1, receives an output of P1, or both."^^xsd:string ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                     rdfs:label "has process part"^^xsd:string .
+                     cco:definition "For processes P1 and P2, P1 has process part P2 if and only if P2 occurs on a temporal interval that is during the temporal interval of P1 and P2 either provides an input to P1, receives an output of P1, or both."@en ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                     rdfs:label "has process part"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/inheres_in_aggregate
@@ -400,9 +400,9 @@ cco:inheres_in_aggregate rdf:type owl:ObjectProperty ;
                                                    )
                                      ] ;
                          rdfs:range obo:BFO_0000027 ;
-                         cco:definition "An instance of a Dependent Continuant inheres_in_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Dependent Continuant that inhere_in each and every member of the Object Aggregate instance."^^xsd:string ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                         rdfs:label "inheres in aggregate"^^xsd:string .
+                         cco:definition "An instance of a Dependent Continuant inheres_in_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Dependent Continuant that inhere_in each and every member of the Object Aggregate instance."@en ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                         rdfs:label "inheres in aggregate"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by
@@ -410,18 +410,18 @@ cco:is_affected_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf obo:RO_0000056 ;
                    rdfs:domain obo:BFO_0000002 ;
                    rdfs:range obo:BFO_0000015 ;
-                   cco:definition "If c is a continuant and p is a process, the c is affected by p if and only if c undergoes some change as a result of the occurrence of p."^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                   rdfs:label "is affected by"^^xsd:string .
+                   cco:definition "If c is a continuant and p is a process, the c is affected by p if and only if c undergoes some change as a result of the occurrence of p."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                   rdfs:label "is affected by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of
 cco:is_cause_of rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range obo:BFO_0000003 ;
-                cco:definition "For types of Processual Entities P1 and P2, P1 is cause of P2 if and only if for all instances p1 of P1 there is some instance p2 of P2 such that p1 is a causal factor in p2."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                rdfs:label "is cause of"^^xsd:string .
+                cco:definition "For types of Processual Entities P1 and P2, P1 is cause of P2 if and only if for all instances p1 of P1 there is some instance p2 of P2 such that p1 is a causal factor in p2."@en ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                rdfs:label "is cause of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of
@@ -429,9 +429,9 @@ cco:is_input_of rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
-                cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the begining of the Processual Entity is a necessary condition for the start of the Processual Entity."^^xsd:string ;
-                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                rdfs:label "is input of"^^xsd:string .
+                cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the begining of the Processual Entity is a necessary condition for the start of the Processual Entity."@en ;
+                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                rdfs:label "is input of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_made_of
@@ -440,26 +440,26 @@ cco:is_made_of rdf:type owl:ObjectProperty ;
                owl:inverseOf cco:is_material_of ;
                rdfs:domain obo:BFO_0000030 ;
                rdfs:range obo:BFO_0000030 ;
-               cco:definition "An object o is made of an object m when m is the material that o consists of and that material does not undergo a change of kind during the creation of o"^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:label "is made of"^^xsd:string .
+               cco:definition "An object o is made of an object m when m is the material that o consists of and that material does not undergo a change of kind during the creation of o"@en ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+               rdfs:label "is made of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_material_of
 cco:is_material_of rdf:type owl:ObjectProperty ;
                    rdfs:domain obo:BFO_0000030 ;
                    rdfs:range obo:BFO_0000030 ;
-                   cco:definition "An object m is material of an object o when m is the material of which o consists and that material does not undergo a change of kind during the creation of o"^^xsd:string ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                   rdfs:label "is material of"^^xsd:string .
+                   cco:definition "An object m is material of an object o when m is the material of which o consists and that material does not undergo a change of kind during the creation of o"@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                   rdfs:label "is material of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_object_of
 cco:is_object_of rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:RO_0000056 ;
-                 cco:definition "If p is a process and c is a continuant, then c is object of p if and only if the c is part of the projected state that the agent intends to achieve by performing p."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology" ;
-                 rdfs:label "is object of"^^xsd:string .
+                 cco:definition "If p is a process and c is a continuant, then c is object of p if and only if the c is part of the projected state that the agent intends to achieve by performing p."@en ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                 rdfs:label "is object of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of
@@ -467,18 +467,18 @@ cco:is_output_of rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:RO_0000056 ;
                  rdfs:domain obo:BFO_0000002 ;
                  rdfs:range obo:BFO_0000015 ;
-                 cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the end of the Processual Entity is a necessary condition for the completion of the Processual Entity."^^xsd:string ;
-                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                 rdfs:label "is output of"^^xsd:string .
+                 cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the end of the Processual Entity is a necessary condition for the completion of the Processual Entity."@en ;
+                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                 rdfs:label "is output of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process
 cco:is_part_of_process rdf:type owl:ObjectProperty ;
                        rdfs:domain obo:BFO_0000015 ;
                        rdfs:range obo:BFO_0000015 ;
-                       cco:definition "For processes P1 and P2, P1 is part of process P2 if and only if P1 occurs on a temporal interval that is during the temporal interval of P2 and P1 either provides an input to P2, receives an output of P2, or both."^^xsd:string ;
-                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                       rdfs:label "is part of process"^^xsd:string .
+                       cco:definition "For processes P1 and P2, P1 is part of process P2 if and only if P1 occurs on a temporal interval that is during the temporal interval of P2 and P1 either provides an input to P2, receives an output of P2, or both."@en ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                       rdfs:label "is part of process"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_predecessor_of
@@ -486,10 +486,10 @@ cco:is_predecessor_of rdf:type owl:ObjectProperty ;
                       owl:inverseOf cco:is_successor_of ;
                       rdfs:domain obo:BFO_0000004 ;
                       rdfs:range obo:BFO_0000004 ;
-                      cco:definition "A continuant c1 is a predecessor of some continuant c2 iff there is some process p1 and c1 is an input to p1 and c2 is an output of p1."^^xsd:string ;
-                      cco:elucidation "More informally, c1 is a predecessor of c2 iff c1 has been followed or replaced by c2."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                      rdfs:label "is predecessor of"^^xsd:string .
+                      cco:definition "A continuant c1 is a predecessor of some continuant c2 iff there is some process p1 and c1 is an input to p1 and c2 is an output of p1."@en ;
+                      cco:elucidation "More informally, c1 is a predecessor of c2 iff c1 has been followed or replaced by c2."@en ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                      rdfs:label "is predecessor of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_site_of
@@ -502,18 +502,18 @@ cco:is_site_of rdf:type owl:ObjectProperty ;
                                          )
                            ] ;
                rdfs:range obo:BFO_0000015 ;
-               cco:definition "A relation between some Spatial Region and some Processual Entity which holds whenever the Processual Entity occurs at that Spatial Region"^^xsd:string ;
-               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-               rdfs:label "is site of"^^xsd:string .
+               cco:definition "A relation between some Spatial Region and some Processual Entity which holds whenever the Processual Entity occurs at that Spatial Region"@en ;
+               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+               rdfs:label "is site of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_successor_of
 cco:is_successor_of rdf:type owl:ObjectProperty ;
                     rdfs:domain obo:BFO_0000004 ;
                     rdfs:range obo:BFO_0000004 ;
-                    cco:definition "A continuant c2 is a successor of some continuant c1 iff there is some process p1 and c1 is an input to p1 and c2 is an output of p1. Inverse of is predecessor. "^^xsd:string ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                    rdfs:label "is successor of"^^xsd:string .
+                    cco:definition "A continuant c2 is a successor of some continuant c1 iff there is some process p1 and c1 is an input to p1 and c2 is an output of p1. Inverse of is predecessor. "@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                    rdfs:label "is successor of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_temporal_region_of
@@ -521,9 +521,9 @@ cco:is_temporal_region_of rdf:type owl:ObjectProperty ;
                           owl:inverseOf cco:occurs_on ;
                           rdfs:domain obo:BFO_0000008 ;
                           rdfs:range obo:BFO_0000015 ;
-                          cco:definition "Inverse of occurs on."^^xsd:string ;
-                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                          rdfs:label "is temporal region of"^^xsd:string .
+                          cco:definition "Inverse of occurs on."@en ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                          rdfs:label "is temporal region of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/occurs_at
@@ -535,18 +535,18 @@ cco:occurs_at rdf:type owl:ObjectProperty ;
                                          obo:BFO_0000029
                                        )
                          ] ;
-              cco:definition "An instance level relation that holds between instances of Processual Entities and Spatial Regions whevever some spatial region is the site of some processual entity."^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-              rdfs:label "occurs at"^^xsd:string .
+              cco:definition "An instance level relation that holds between instances of Processual Entities and Spatial Regions whevever some spatial region is the site of some processual entity."@en ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+              rdfs:label "occurs at"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/occurs_on
 cco:occurs_on rdf:type owl:ObjectProperty ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000008 ;
-              cco:definition "An instance level relation which holds between some Processual Entity and some Temporal Region whenever the duration of the Processual Entity is contained by the Temporal Region"^^xsd:string ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-              rdfs:label "occurs on"^^xsd:string .
+              cco:definition "An instance level relation which holds between some Processual Entity and some Temporal Region whenever the duration of the Processual Entity is contained by the Temporal Region"@en ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+              rdfs:label "occurs on"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/quality_of_aggregate
@@ -554,9 +554,9 @@ cco:quality_of_aggregate rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf cco:inheres_in_aggregate ;
                          rdfs:domain obo:BFO_0000019 ;
                          rdfs:range obo:BFO_0000027 ;
-                         cco:definition "An instance of a Quality is quality_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Quality that is quality_of each and every member of the Object Aggregate instance."^^xsd:string ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                         rdfs:label "quality of aggregate"^^xsd:string .
+                         cco:definition "An instance of a Quality is quality_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Quality that is quality_of each and every member of the Object Aggregate instance."@en ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                         rdfs:label "quality of aggregate"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/role_of_aggregate
@@ -564,9 +564,9 @@ cco:role_of_aggregate rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf cco:inheres_in_aggregate ;
                       rdfs:domain obo:BFO_0000023 ;
                       rdfs:range obo:BFO_0000027 ;
-                      cco:definition "An instance of a Role is role_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Role that is role_of each and every member of the Object Aggregate instance."^^xsd:string ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:string ;
-                      rdfs:label "role of aggregate"^^xsd:string .
+                      cco:definition "An instance of a Role is role_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Role that is role_of each and every member of the Object Aggregate instance."@en ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                      rdfs:label "role of aggregate"@en .
 
 
 ###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
