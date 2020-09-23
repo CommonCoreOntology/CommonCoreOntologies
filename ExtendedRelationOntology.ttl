@@ -9,15 +9,15 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> rdf:type owl:Ontology ;
-                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-12-20/ExtendedRelationOntology> ;
+                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-09-23/ExtendedRelationOntology> ;
                                                                                        owl:imports obo:bfo.owl ,
                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ;
                                                                                        cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                        cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                                       cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."@en ;
+                                                                                       cco:copyright "COPYRIGHT © 2015-2020 CUBRC, Inc."@en ;
                                                                                        rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."@en ;
                                                                                        rdfs:label "Extended Relation Ontology"@en ;
-                                                                                       owl:versionInfo "Version 1.2"@en .
+                                                                                       owl:versionInfo "Version 1.3"@en .
 
 #################################################################
 #    Annotation properties
@@ -227,7 +227,7 @@ cco:accessory_in rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:has_accessory ;
                  rdfs:domain obo:BFO_0000040 ;
                  rdfs:range obo:BFO_0000015 ;
-                 cco:definition "An agent a1 is accessory_in some Processual Entity p1 iff a1 assists in the commission of p1, is not located_at the location of p1, and is not agent_in p1. "@en ;
+                 cco:definition "y is_accessory_in x iff x is an instance of Process and y is an instance of Agent, such that y assists another agent in the commission of x, and y was not located at the location of x when x occurred, and y was not an agent_in x."@en ;
                  cco:definition_source "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                  rdfs:label "accessory in"@en .
@@ -251,60 +251,62 @@ cco:affects rdf:type owl:ObjectProperty ;
             owl:inverseOf cco:is_affected_by ;
             rdfs:domain obo:BFO_0000015 ;
             rdfs:range obo:BFO_0000002 ;
-            cco:definition "If p is a process and c is a continuant, then p affects c if and only if p influences c in some manner, most often by producing a change in c."@en ;
+            cco:definition "p affects c iff p is an instance of a Process and c is an instance of a Continuant, such that p influences c in some manner, most often by producing a change in c."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
             rdfs:label "affects"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_bearer_of
+cco:aggregate_bearer_of rdf:type owl:ObjectProperty ;
+                        owl:inverseOf cco:inheres_in_aggregate ;
+                        rdfs:domain obo:BFO_0000027 ;
+                        rdfs:range [ rdf:type owl:Class ;
+                                     owl:unionOf ( obo:BFO_0000020
+                                                   obo:BFO_0000031
+                                                 )
+                                   ] ;
+                        cco:definition "x aggregate_bearer_of y iff x is an instance of Object Aggregate and y is an instance of Specifically Dependent Continuant and z is an instance of Object, such that z bearer of y, and all other members of x are bearers of a unique instance of the same type as y."@en ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                        rdfs:label "aggregate bearer of"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_disposition
 cco:aggregate_has_disposition rdf:type owl:ObjectProperty ;
-                              rdfs:subPropertyOf cco:aggregrate_bearer_of ;
+                              rdfs:subPropertyOf cco:aggregate_bearer_of ;
+                              owl:inverseOf cco:disposition_of_aggregate ;
                               rdfs:domain obo:BFO_0000027 ;
                               rdfs:range obo:BFO_0000016 ;
-                              cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_disposition of some instance of a Disposition if and only if every member of the Object Aggregate instance has_disposition some instance of the Disposition."@en ;
+                              cco:definition "x aggregate_has_disposition y iff x is an instance of Object Aggregate and y is an instance of Disposition, such that x aggregate_bearer_of y."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                               rdfs:label "aggregate has disposition"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_quality
 cco:aggregate_has_quality rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf cco:aggregrate_bearer_of ;
+                          rdfs:subPropertyOf cco:aggregate_bearer_of ;
                           rdfs:domain obo:BFO_0000027 ;
                           rdfs:range obo:BFO_0000019 ;
-                          cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_quality of some instance of a Quality if and only if every member of the Object Aggregate instance has_quality some instance of the Quality."@en ;
+                          cco:definition "x aggregate_has_quality y iff x is an instance of Object Aggregate and y is an instance of Quality, such that x aggregate_bearer_of y."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                           rdfs:label "aggregate has quality"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_role
 cco:aggregate_has_role rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf cco:aggregrate_bearer_of ;
+                       rdfs:subPropertyOf cco:aggregate_bearer_of ;
                        rdfs:domain obo:BFO_0000027 ;
                        rdfs:range obo:BFO_0000023 ;
-                       cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_has_role of some instance of a Role if and only if every member of the Object Aggregate instance has_role some instance of the Role."@en ;
+                       cco:definition "x aggregate_has_role y iff x is an instance of Object Aggregate and y is an instance of Role, such that x aggregate_bearer_of y."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                        rdfs:label "aggregate has role"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregrate_bearer_of
-cco:aggregrate_bearer_of rdf:type owl:ObjectProperty ;
-                         rdfs:domain obo:BFO_0000027 ;
-                         rdfs:range [ rdf:type owl:Class ;
-                                      owl:unionOf ( obo:BFO_0000020
-                                                    obo:BFO_0000031
-                                                  )
-                                    ] ;
-                         cco:definition "An instance of an Object Aggregate (or any of its subtypes) is aggregate_bearer_of some instance of a Dependent Continuant (or any of its subtypes) if and only if every member of the Object Aggregate instance is bearer_of some instance of the Dependent Continuant"@en ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-                         rdfs:label "aggregate bearer of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/caused_by
 cco:caused_by rdf:type owl:ObjectProperty ;
               owl:inverseOf cco:is_cause_of ;
               rdfs:domain obo:BFO_0000003 ;
-              rdfs:range obo:BFO_0000001 ;
-              cco:definition "For types of Processual Entities P1 and P2, P1 caused by P2 if and only if for all instances p1 of P1 there is some instance p2 of P2 such that p1 is the consequence of p2. Inverse of is_cause_of."@en ;
+              rdfs:range obo:BFO_0000003 ;
+              cco:definition "x caused_by y iff x and y are instances of occurrents, and x is a consequence of y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
               rdfs:label "caused by"@en .
 
@@ -314,7 +316,7 @@ cco:disposition_of_aggregate rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf cco:inheres_in_aggregate ;
                              rdfs:domain obo:BFO_0000016 ;
                              rdfs:range obo:BFO_0000027 ;
-                             cco:definition "An instance of a Disposition is disposition_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Disposition that is disposition_of each and every member of the Object Aggregate instance."@en ;
+                             cco:definition "x disposition_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Disposition, such that x disposition_of_aggregate y."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                              rdfs:label "disposition of aggregate"@en .
 
@@ -324,7 +326,7 @@ cco:has_accessory rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf obo:RO_0000057 ;
                   rdfs:domain obo:BFO_0000015 ;
                   rdfs:range obo:BFO_0000040 ;
-                  cco:definition "A Processual Entity p1 has_accessory some Agent a1 iff a1 assists in the commission of p1, is not located at the location of p1, and is not agent_in p1."@en ;
+                  cco:definition "x has_accessory y iff x is an instance of Process and y is an instance of Agent, such that y assists another agent in the commission of x, and y was not located at the location of x when x occurred, and y was not an agent_in x."@en ;
                   cco:definition_source "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                   rdfs:label "has accessory"@en .
@@ -347,7 +349,7 @@ cco:has_input rdf:type owl:ObjectProperty ;
               owl:inverseOf cco:is_input_of ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000002 ;
-              cco:definition "Inverse of is_input_of, a relation between a Processual Entity and a Continuant such that the presence of the Continuant at the beginning of the Processual Entity is a necessary condition for the start of the Processual Entity."@en ;
+              cco:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
               rdfs:label "has input"@en .
 
@@ -376,7 +378,7 @@ cco:has_output rdf:type owl:ObjectProperty ;
                owl:inverseOf cco:is_output_of ;
                rdfs:domain obo:BFO_0000015 ;
                rdfs:range obo:BFO_0000002 ;
-               cco:definition "Inverse of is_output_of, a relation between a Processual Entity and a Continuant such that the presence of the Continuant at the end of the Processual Entity is a necessary condition for the completion of the Processual Entity"@en ;
+               cco:definition "y has_output x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the end of y is a necessary condition for the completion of y."@en ;
                cco:definition_source "https://en.wikipedia.org/wiki/IPO_model" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                rdfs:label "has output"@en .
@@ -384,10 +386,11 @@ cco:has_output rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part
 cco:has_process_part rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf obo:BFO_0000051 ;
                      owl:inverseOf cco:is_part_of_process ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range obo:BFO_0000015 ;
-                     cco:definition "For processes P1 and P2, P1 has process part P2 if and only if P2 occurs on a temporal interval that is during the temporal interval of P1 and P2 either provides an input to P1, receives an output of P1, or both."@en ;
+                     cco:definition "x has_process_part y iff x and y are instances of Process, such that y occurs during the temporal interval of x, and y either provides an input to x or receives an output of x, or both."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                      rdfs:label "has process part"@en .
 
@@ -400,7 +403,7 @@ cco:inheres_in_aggregate rdf:type owl:ObjectProperty ;
                                                    )
                                      ] ;
                          rdfs:range obo:BFO_0000027 ;
-                         cco:definition "An instance of a Dependent Continuant inheres_in_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Dependent Continuant that inhere_in each and every member of the Object Aggregate instance."@en ;
+                         cco:definition "x inheres_in_aggregate y iff x is an instance of Specifically Dependent Continuant and y is an instance of Object Aggregate and z is an instance of Object, such that z bearer_of x, and all other members of y are bearers of a unique instance of the same type as x."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                          rdfs:label "inheres in aggregate"@en .
 
@@ -410,16 +413,16 @@ cco:is_affected_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf obo:RO_0000056 ;
                    rdfs:domain obo:BFO_0000002 ;
                    rdfs:range obo:BFO_0000015 ;
-                   cco:definition "If c is a continuant and p is a process, the c is affected by p if and only if c undergoes some change as a result of the occurrence of p."@en ;
+                   cco:definition "c is_affected_by p iff p is an instance of a Process and c is an instance of a Continuant, such that p influences c in some manner, most often by producing a change in c."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                    rdfs:label "is affected by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of
 cco:is_cause_of rdf:type owl:ObjectProperty ;
-                rdfs:domain obo:BFO_0000001 ;
+                rdfs:domain obo:BFO_0000003 ;
                 rdfs:range obo:BFO_0000003 ;
-                cco:definition "For types of Processual Entities P1 and P2, P1 is cause of P2 if and only if for all instances p1 of P1 there is some instance p2 of P2 such that p1 is a causal factor in p2."@en ;
+                cco:definition "x is_cause_of y iff x and y are instances of occurrents, and y is a consequence of x."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                 rdfs:label "is cause of"@en .
 
@@ -429,7 +432,7 @@ cco:is_input_of rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
-                cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the begining of the Processual Entity is a necessary condition for the start of the Processual Entity."@en ;
+                cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                 rdfs:label "is input of"@en .
 
@@ -467,16 +470,17 @@ cco:is_output_of rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:RO_0000056 ;
                  rdfs:domain obo:BFO_0000002 ;
                  rdfs:range obo:BFO_0000015 ;
-                 cco:definition "A relation between a Continuant and a Processual Entity in which the Continuant participates. The presence of the Continuant at the end of the Processual Entity is a necessary condition for the completion of the Processual Entity."@en ;
+                 cco:definition "x is_output_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the end of y is a necessary condition for the completion of y."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                  rdfs:label "is output of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process
 cco:is_part_of_process rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf obo:BFO_0000050 ;
                        rdfs:domain obo:BFO_0000015 ;
                        rdfs:range obo:BFO_0000015 ;
-                       cco:definition "For processes P1 and P2, P1 is part of process P2 if and only if P1 occurs on a temporal interval that is during the temporal interval of P2 and P1 either provides an input to P2, receives an output of P2, or both."@en ;
+                       cco:definition "x is_part_of_process y iff x and y are instances of Process, such that x occurs during the temporal interval of y, and x either provides an input to y or receives an output of y."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                        rdfs:label "is part of process"@en .
 
@@ -502,7 +506,7 @@ cco:is_site_of rdf:type owl:ObjectProperty ;
                                          )
                            ] ;
                rdfs:range obo:BFO_0000015 ;
-               cco:definition "A relation between some Spatial Region and some Processual Entity which holds whenever the Processual Entity occurs at that Spatial Region"@en ;
+               cco:definition "x is_site_of y iff x is an instance of Site and y is an instance of Process, such that y occurs in x."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                rdfs:label "is site of"@en .
 
@@ -521,7 +525,7 @@ cco:is_temporal_region_of rdf:type owl:ObjectProperty ;
                           owl:inverseOf cco:occurs_on ;
                           rdfs:domain obo:BFO_0000008 ;
                           rdfs:range obo:BFO_0000015 ;
-                          cco:definition "Inverse of occurs on."@en ;
+                          cco:definition "x is_temporal_region_of y iff y is an instance of a process or process boundary and x is an instance of a temporal region, such that the duration of x temporally projects on y."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                           rdfs:label "is temporal region of"@en .
 
@@ -535,7 +539,7 @@ cco:occurs_at rdf:type owl:ObjectProperty ;
                                          obo:BFO_0000029
                                        )
                          ] ;
-              cco:definition "An instance level relation that holds between instances of Processual Entities and Spatial Regions whevever some spatial region is the site of some processual entity."@en ;
+              cco:definition "x occurs_at y iff x is an instance of Process and y is an instance of Site, such that x occurs in y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
               rdfs:label "occurs at"@en .
 
@@ -544,9 +548,28 @@ cco:occurs_at rdf:type owl:ObjectProperty ;
 cco:occurs_on rdf:type owl:ObjectProperty ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000008 ;
-              cco:definition "An instance level relation which holds between some Processual Entity and some Temporal Region whenever the duration of the Processual Entity is contained by the Temporal Region"@en ;
+              cco:definition "x occurs_on y iff x is an instance of a process or process boundary and y is an instance of a temporal region, such that the duration of x temporally projects on y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
               rdfs:label "occurs on"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/process_started_by
+cco:process_started_by rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf cco:caused_by ;
+                       owl:inverseOf cco:process_starts ;
+                       cco:definition "x process_started_by y iff x and y are instances of processes, and x is caused_by y, and i is an instance of a temporal instant, and r is an instant of a temporal interval, and x has starting instance i, and y occurs on r, and r interval contains i."@en ;
+                       cco:elucidation "A process x is started by another process y when y causes x while y is still occurring."@en ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                       rdfs:label "process started by"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/process_starts
+cco:process_starts rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf cco:is_cause_of ;
+                   cco:definition "x process_starts y iff x and y are instances of processes, and x is_cause_of y, and i is an instance of a temporal instant, and r is an instant of a temporal interval, and y has starting instance i, and x occurs on r, and r interval contains i."@en ;
+                   cco:elucidation "A process x starts another process y when x causes y while x is still occurring."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                   rdfs:label "process starts"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/quality_of_aggregate
@@ -554,7 +577,7 @@ cco:quality_of_aggregate rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf cco:inheres_in_aggregate ;
                          rdfs:domain obo:BFO_0000019 ;
                          rdfs:range obo:BFO_0000027 ;
-                         cco:definition "An instance of a Quality is quality_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Quality that is quality_of each and every member of the Object Aggregate instance."@en ;
+                         cco:definition "x quality_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Quality, such that x disposition_of_aggregate y."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                          rdfs:label "quality of aggregate"@en .
 
@@ -564,7 +587,7 @@ cco:role_of_aggregate rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf cco:inheres_in_aggregate ;
                       rdfs:domain obo:BFO_0000023 ;
                       rdfs:range obo:BFO_0000027 ;
-                      cco:definition "An instance of a Role is role_of_aggregate some instance of a Object Aggregate if and only if there are distinct instances of the Role that is role_of each and every member of the Object Aggregate instance."@en ;
+                      cco:definition "x role_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Role, such that x disposition_of_aggregate y."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                       rdfs:label "role of aggregate"@en .
 

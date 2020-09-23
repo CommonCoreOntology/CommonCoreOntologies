@@ -9,14 +9,14 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology> rdf:type owl:Ontology ;
-                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-12-20/EventOntology> ;
+                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-09-23/EventOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
                                                                             cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                             cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                            cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."@en ;
+                                                                            cco:copyright "COPYRIGHT © 2015-2020 CUBRC, Inc."@en ;
                                                                             rdfs:comment "This ontology is designed to represent processual entities, especially those performed by agents, that occur within multiple domains."@en ;
                                                                             rdfs:label "Event Ontology"@en ;
-                                                                            owl:versionInfo "Version 1.2"@en .
+                                                                            owl:versionInfo "Version 1.3"@en .
 
 #################################################################
 #    Object Properties
@@ -1004,6 +1004,14 @@ cco:ActOfSuicide rdf:type owl:Class ;
                  rdfs:label "Act of Suicide"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfTargeting
+cco:ActOfTargeting rdf:type owl:Class ;
+                   rdfs:subClassOf cco:IntentionalAct ;
+                   cco:definition "An Intentional Act wherein some Agent maintains one or more entities as the objects of potential action given some operational requirement."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                   rdfs:label "Act of Targeting"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfTerrorism
 cco:ActOfTerrorism rdf:type owl:Class ;
                    rdfs:subClassOf cco:ActOfViolence ;
@@ -1324,9 +1332,12 @@ cco:CurvilinearMotion rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DamagedStasis
 cco:DamagedStasis rdf:type owl:Class ;
                   rdfs:subClassOf cco:StasisOfSpecificallyDependentContinuant ;
-                  cco:alternative_label "Damaged"@en ;
+                  cco:alternative_label "Compromised"@en ,
+                                        "Damaged"@en ,
+                                        "Injured"@en ;
                   cco:definition "A Stasis of Specifically Dependent Continuant in which some Independent Continuant bears a Quality or Realizable Entity that has suffered impairment (i.e., a decrease or loss) due to a previous action or event such that the Independent Continuant is now of lesser value, usefulness, or functionality."@en ;
                   cco:definition_source "http://www.thefreedictionary.com/damaged" ;
+                  cco:elucidation "This class can be used to instantiate instances that might otherwise be treated by defined classes such as Damaged Vehicle or Wounded Person. The Independent Continuant and Quality or Realizable Entity are participants of the stasis which can in turn be related to the temporal interval via the occurs on property. "@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                   rdfs:label "Damaged Stasis"@en .
 
@@ -1680,7 +1691,7 @@ cco:Funeral rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GainOfDependentContinuant
 cco:GainOfDependentContinuant rdf:type owl:Class ;
                               rdfs:subClassOf cco:Change ;
-                              cco:definition "A Change in which an Independent Continuant becomes the bearer of some Dependent Continuant."@en ;
+                              cco:definition "A Change in which an Independent Continuant becomes the bearer or carrier of some Dependent Continuant."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                               rdfs:label "Gain of Dependent Continuant"@en .
 
@@ -1739,7 +1750,7 @@ cco:GainOfGenericallyDependentContinuant rdf:type owl:Class ;
                                                                                 rdf:type owl:Class
                                                                               ]
                                                          ] ;
-                                         cco:definition "A Gain of Dependent Continuant wherein some Independent Continuant becomes the bearer of some Generically Dependent Continuant."@en ;
+                                         cco:definition "A Gain of Dependent Continuant wherein some Independent Continuant becomes the carrier of some Generically Dependent Continuant."@en ;
                                          cco:example_of_usage "A Person forms a Plan, A Person is initiated into a Religion, A photgraphic image is produced." ;
                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                                          rdfs:label "Gain of Generically Dependent Continuant"@en .
@@ -2024,7 +2035,7 @@ cco:LongitudinalWaveProfile rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LossOfDependentContinuant
 cco:LossOfDependentContinuant rdf:type owl:Class ;
                               rdfs:subClassOf cco:Change ;
-                              cco:definition "A Change in which some Independent Continuant ceases to be the bearer of some Dependent Continuant."@en ;
+                              cco:definition "A Change in which some Independent Continuant ceases to be the bearer or carrier of some Dependent Continuant."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                               rdfs:label "Loss of Dependent Continuant"@en .
 
@@ -2048,7 +2059,7 @@ cco:LossOfFunction rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LossOfGenericallyDependentContinuant
 cco:LossOfGenericallyDependentContinuant rdf:type owl:Class ;
                                          rdfs:subClassOf cco:LossOfDependentContinuant ;
-                                         cco:definition "A Loss of Dependent Continuant in which some Independent Continuant ceases to be the bearer of some Generically Dependent Continuant."@en ;
+                                         cco:definition "A Loss of Dependent Continuant in which some Independent Continuant ceases to be the carrier of some Generically Dependent Continuant."@en ;
                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                                          rdfs:label "Loss of Generically Dependent Continuant"@en .
 
@@ -2575,8 +2586,8 @@ cco:SoundWavelength rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Speed
 cco:Speed rdf:type owl:Class ;
           rdfs:subClassOf obo:BFO_0000144 ;
-          cco:definition "A Process Profile that is characterized by the rate of an object's change in position during some time period."@en ;
-          cco:definition_source "https://en.wikipedia.org/wiki/Velocity" ;
+          cco:definition "A Process Profile that is characterized by the magnitude of an object's motion with respect to a frame of reference during some time period."@en ;
+          cco:definition_source "https://en.wikipedia.org/wiki/Speed" ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
           rdfs:comment "An object's speed is the scalar absolute value of it's Velocity."@en ;
           rdfs:label "Speed"@en .
@@ -2774,9 +2785,18 @@ cco:SurfaceWaveProfile rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Target
 cco:Target rdf:type owl:Class ;
-           rdfs:subClassOf obo:BFO_0000001 ;
-           cco:definition "An Entity that has the role of Target in virtue of its being involved in the Objective of some Intentional Act or in the described outcome of some Plan."@en ;
+           owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty cco:is_object_of ;
+                                                        owl:someValuesFrom cco:ActOfTargeting
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf obo:BFO_0000040 ;
+           cco:definition "A Material Entity that is the object of an Act of Targeting."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+           rdfs:comment "Although people speak of targeting a process, say, a parade, what in fact are being targeted are the material participants of that process. The disruption or ceasing of the process is the objective of some plan, but not technically a target. Only material things can be targeted for action. Even if some dependent entity is described as being the target, the material thing for which that dependent entity depends is the object of a targeting process."@en ;
            rdfs:label "Target"@en .
 
 
@@ -2976,6 +2996,7 @@ cco:UpperMidrangeFrequency rdf:type owl:Class ;
 cco:Velocity rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000144 ;
              cco:definition "A Process Profile of an object's Motion that describes its Speed and direction with respect to a frame of reference."@en ;
+             cco:definition_source "https://en.wikipedia.org/wiki/Velocity" ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
              rdfs:label "Velocity"@en .
 

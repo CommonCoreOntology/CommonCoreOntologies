@@ -9,15 +9,15 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
-                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-12-20/InformationEntityOntology> ;
+                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-09-23/InformationEntityOntology> ;
                                                                                         owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ,
                                                                                                     <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ;
                                                                                         cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                         cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                                        cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."@en ;
+                                                                                        cco:copyright "COPYRIGHT © 2015-2020 CUBRC, Inc."@en ;
                                                                                         rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en ;
                                                                                         rdfs:label "Information Entity Ontology"@en ;
-                                                                                        owl:versionInfo "Version 1.2"@en .
+                                                                                        owl:versionInfo "Version 1.3"@en .
 
 #################################################################
 #    Object Properties
@@ -39,7 +39,7 @@ cco:described_by rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:is_subject_of ;
                  owl:inverseOf cco:describes ;
                  rdfs:range cco:DescriptiveInformationContentEntity ;
-                 cco:definition "The inverse of describes, which relates an Entity to some Descriptive Information Content Entity."@en ;
+                 cco:definition "x described_by y iff y is an instance of Information Content Entity, and x is an instance of Entity, such that y is about the characteristics by which y can be recognized or visualized."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                  rdfs:label "described by"@en .
 
@@ -48,10 +48,10 @@ cco:described_by rdf:type owl:ObjectProperty ;
 cco:describes rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf cco:is_about ;
               rdfs:domain cco:DescriptiveInformationContentEntity ;
-              cco:definition "For all Types T1 and T2, if T1 describes T2 then there is some instance of T1, t1 that presents the characteristics by which some instance of T2, t2 can be recognized or visualized."@en ;
-              cco:example_of_usage "a newspaper article describes some current event" ,
-                                   "a visitor's log describes some facility visit" ,
-                                   "an accident report describes some accident" ;
+              cco:definition "x describes y iff x is an instance of Information Content Entity, and y is an instance of Entity, such that x is about the characteristics by which y can be recognized or visualized."@en ;
+              cco:example_of_usage "the content of a newspaper article describes some current event" ,
+                                   "the content of a visitor's log describes some facility visit" ,
+                                   "the content of an accident report describes some accident" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
               rdfs:comment "It is possible that this relation should be a functional property, that is for all x, y, z if x describes y and x describes z then y = z. For example, if a financial report x describes the quarterly results of a company y and that same financial report describes the quarterly results of a company z, then it should be inferred that companies y and z are the same. We refrained from classifying the relation as a functional property on the concern that descriptions are multifaceted and so consequently it may be that the same report would contain descriptions of multiple entities."@en ;
               rdfs:label "describes"@en .
@@ -67,56 +67,13 @@ cco:describes_condition rdf:type owl:ObjectProperty ;
                         rdfs:label "describes condition"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with
-cco:describes_set_with rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf cco:describes ;
-                       owl:inverseOf cco:set_described_by ;
-                       rdfs:domain cco:NominalMeasurementInformationContentEntity ;
-                       rdfs:range cco:MeasurementInformationContentEntity ;
-                       cco:definition "For all Types T1 and T2, if T1 describes set with T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 further describes some entity described by t1 when compared to all the entities described by t1."@en ;
-                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                       rdfs:label "describes set with"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with_expected_element
-cco:describes_set_with_expected_element rdf:type owl:ObjectProperty ;
-                                        rdfs:subPropertyOf cco:describes_set_with ;
-                                        owl:inverseOf cco:set_described_by_expected_element ;
-                                        rdfs:domain cco:NominalMeasurementInformationContentEntity ;
-                                        cco:definition "For all Types T1 and T2, if T1 describes set with expected element T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 indicates that an entity described by t1 is the most likely element to occur relative to the set of entities described by t1."@en ;
-                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                        rdfs:label "describes set with expected element"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with_ordinality
-cco:describes_set_with_ordinality rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf cco:describes_set_with ;
-                                  owl:inverseOf cco:set_described_by_ordinality ;
-                                  rdfs:domain cco:NominalMeasurementInformationContentEntity ;
-                                  rdfs:range cco:OrdinalMeasurementInformationContentEntity ;
-                                  cco:definition "For all Types T1 and T2, if T1 describes set with ordinailty T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 indicates the rank order of an entity described by t1 with respect to the set of entities described by t1."@en ;
-                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                  rdfs:label "describes set with ordinality"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_set_with_proportion
-cco:describes_set_with_proportion rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf cco:describes_set_with ;
-                                  owl:inverseOf cco:set_described_by_proportion ;
-                                  rdfs:domain cco:NominalMeasurementInformationContentEntity ;
-                                  rdfs:range cco:ProportionalRatioMeasurementInformationContentEntity ;
-                                  cco:definition "For all Types T1 and T2, if T1 describes set with proportion T2, then there is some instance of T1, t1 such that t1 nominally describes a set of like entities where some instance of T2, t2 is a proportional measurement of a subset of entities described by t1 when compared to all the entities described by t1."@en ;
-                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                  rdfs:label "describes set with proportion"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/designated_by
 cco:designated_by rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf cco:is_subject_of ;
                   owl:inverseOf cco:designates ;
                   rdf:type owl:InverseFunctionalProperty ;
                   rdfs:range cco:DesignativeInformationContentEntity ;
-                  cco:definition "The inverse of designates, which relates an Entity to some Designative Information Content Entity."@en ;
+                  cco:definition "x designated_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that given some context, y uniquely distinguishes x from other entities."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                   rdfs:label "designated by"@en .
 
@@ -126,32 +83,12 @@ cco:designates rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf cco:is_about ;
                rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:DesignativeInformationContentEntity ;
-               cco:definition "For all types T1 and T2, if T1 designates T2, then there is some instance of T1, t1, by which some instance of T2, t2,  is called, or classified, distinguished from others."@en ;
-               cco:example_of_usage "a URL identifies the location of a Web Page on the internet" ,
+               cco:definition "x designates y iff x is an instance of an Information Content Entity, and y is an instance of an Entity, such that given some context, x uniquely distinguishes y from other entities."@en ;
+               cco:example_of_usage "a URL designates the location of a Web Page on the internet" ,
                                     "a person's name designates that person" ,
                                     "a vehicle identification number designates some vehicle" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                rdfs:label "designates"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_denominator_measurement_of
-cco:has_denominator_measurement_of rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf cco:describes ;
-                                   rdfs:domain cco:ProportionalRatioMeasurementInformationContentEntity ;
-                                   rdfs:range obo:BFO_0000001 ;
-                                   cco:definition "For all Types T1 and T2, if T1 has denominator measurement of T2, then there is some instance of T1, t1 that is a proportional measurement of some instance of T2, t2 such that t2 is the whole being compared to by some portion."@en ;
-                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                   rdfs:label "has denominator measurement of"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_numerator_measurement_of
-cco:has_numerator_measurement_of rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf cco:describes ;
-                                 rdfs:domain cco:ProportionalRatioMeasurementInformationContentEntity ;
-                                 rdfs:range obo:BFO_0000001 ;
-                                 cco:definition "For all Types T1 and T2, if T1 has numerator measurement of T2, then there is some instance of T1, t1 that is a proportional measurement of some instance of T2, t2 such that t2 is the portion being compared to some whole."@en ;
-                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                 rdfs:label "has numerator measurement of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_a_interval_measurement_of
@@ -160,7 +97,7 @@ cco:is_a_interval_measurement_of rdf:type owl:ObjectProperty ;
                                  owl:inverseOf cco:is_measured_by_interval ;
                                  rdf:type owl:FunctionalProperty ;
                                  rdfs:domain cco:IntervalMeasurementInformationContentEntity ;
-                                 cco:definition "For all Types T1 and T2, if T1 is a interval measurement of T2 then there is some instance of T1, t1, that places some instance of T2, t2, onto a scale which has uniform intervals but has a zero value that does not correspond to an absence of the quality being measured."@en ;
+                                 cco:definition "x is_a_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
                                  cco:example_of_usage "a measurement of air temperature on the Celsius scale." ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                  rdfs:label "is a interval measurement of"@en .
@@ -172,7 +109,7 @@ cco:is_a_measurement_of rdf:type owl:ObjectProperty ;
                         owl:inverseOf cco:is_measured_by ;
                         rdf:type owl:FunctionalProperty ;
                         rdfs:domain cco:MeasurementInformationContentEntity ;
-                        cco:definition "For all Types T1 and T2, if T1 is a measurement of T2 then there is some instance of T1, t1, that describes some characteristic of some instance of T2, t2, relative to some scale or classification scheme."@en ;
+                        cco:definition "x is_a_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                         rdfs:comment "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."@en ;
                         rdfs:label "is a measurement of"@en .
@@ -184,10 +121,7 @@ cco:is_a_nominal_measurement_of rdf:type owl:ObjectProperty ;
                                 owl:inverseOf cco:is_measured_by_nominal ;
                                 rdf:type owl:FunctionalProperty ;
                                 rdfs:domain cco:NominalMeasurementInformationContentEntity ;
-                                cco:definition "For all Types T1 and T2, if T1 is a nominal measurement of T2 then there is some instance of T1, t1, that classifies some instance of T2, t2, relative to some set of shared, possibly arbitrary, characteristics."@en ;
-                                cco:example_of_usage "classifying automobiles as sedans, coupes, hatchbacks, or convertibles" ,
-                                                     "classifying military intelligence as strategic, operational, or tactical" ,
-                                                     "classifying rocks as igneous, sedimentary, or metamorphic" ;
+                                cco:definition "x is_a_nominal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                 rdfs:label "is a nominal measurement of"@en .
 
@@ -198,9 +132,7 @@ cco:is_a_ordinal_measurement_of rdf:type owl:ObjectProperty ;
                                 owl:inverseOf cco:is_measured_by_ordinal ;
                                 rdf:type owl:FunctionalProperty ;
                                 rdfs:domain cco:OrdinalMeasurementInformationContentEntity ;
-                                cco:definition "For all Types T1 and T2, if T1 is an ordinal measurement of T2 then there is some instance of T1, t1, that places some instance of T2, t2, onto a rank order."@en ;
-                                cco:example_of_usage "placing Geospatial Regions into a rank order of small, medium, large" ,
-                                                     "placing military units onto a readiness rank order of red, yellow, green" ;
+                                cco:definition "x is_a_ordinal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                 rdfs:label "is a ordinal measurement of"@en .
 
@@ -211,10 +143,7 @@ cco:is_a_ratio_measurement_of rdf:type owl:ObjectProperty ;
                               owl:inverseOf cco:is_measured_by_ratio ;
                               rdf:type owl:FunctionalProperty ;
                               rdfs:domain cco:RatioMeasurementInformationContentEntity ;
-                              cco:definition "For all Types T1 and T2, if T1 is a ratio measurement of T2 then there is some instance of T1, t1, that places some instance of T2, t2, onto a scale having equal unit values and a zero value that corresponds to the absence of the quality being measured."@en ;
-                              cco:example_of_usage "the barometric pressure at 1,000 feet above sea level" ,
-                                                   "the measure of air temperature on the Kelvin scale" ,
-                                                   "the number of members in an Organization" ;
+                              cco:definition "x is_a_ratio_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                               rdfs:label "is a ratio measurement of"@en .
 
@@ -234,7 +163,7 @@ cco:is_about rdf:type owl:ObjectProperty ;
 cco:is_excerpted_from rdf:type owl:ObjectProperty ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range cco:InformationBearingEntity ;
-                      cco:definition "An Information Bearing Entity b1 is excerpted from another Information Bearing Entity B2 iff b1 is part of some Information Bearing Entity B1 that is the bearer of some Information Content Entity C1, B2 is the bearer of some Information Content Entity C2, C1 is not identical with C2, b1 is the bearer of some Information Content Entity c1, b2 is an Information Bearing Entity that is part of B2 and b2 is the bearer of c1 (i.e. the same Information Content Entity as borne by b1)."@en ;
+                      cco:definition "An Information Bearing Entity b1 is excerpted from another Information Bearing Entity B2 iff b1 is part of some Information Bearing Entity B1 that is carrier of some Information Content Entity C1, B2 is carrier of some Information Content Entity C2, C1 is not identical with C2, b1 is carrier of some Information Content Entity c1, b2 is an Information Bearing Entity that is part of B2 and b2 is carrier of c1 (i.e. the same Information Content Entity as borne by b1)."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                       rdfs:label "is excerpted from"@en .
 
@@ -245,6 +174,7 @@ cco:is_geospatial_coordinate_reference_system_of rdf:type owl:ObjectProperty ;
                                                  owl:inverseOf cco:uses_geospatial_coordinate_reference_system ;
                                                  rdfs:domain cco:GeospatialCoordinateReferenceSystem ;
                                                  rdfs:range cco:InformationBearingEntity ;
+                                                 cco:definition "x is_geospatial_coordinate_reference_system_of y iff y is an instance of Information Bearing Entity and x is an instance of Geospatial Coordinate Reference System, such that x describes the set of standards mentioned in y."@en ;
                                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                  rdfs:label "is geospatial coordinate reference system of"@en .
 
@@ -254,7 +184,7 @@ cco:is_measured_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf cco:described_by ;
                    rdf:type owl:InverseFunctionalProperty ;
                    rdfs:range cco:MeasurementInformationContentEntity ;
-                   cco:definition "The inverse of is a measurement of, which relates an Entity to some Measurement Information Content Entity."@en ;
+                   cco:definition "y is_measured_by x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                    rdfs:label "is measured by"@en .
 
@@ -264,7 +194,7 @@ cco:is_measured_by_interval rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf cco:is_measured_by ;
                             rdf:type owl:InverseFunctionalProperty ;
                             rdfs:range cco:IntervalMeasurementInformationContentEntity ;
-                            cco:definition "The inverse of is a interval measurement of, which relates an Entity to some Interval Measurement Information Content Entity."@en ;
+                            cco:definition "y is_measured_by_interval x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                             rdfs:label "is measured by interval"@en .
 
@@ -274,7 +204,7 @@ cco:is_measured_by_nominal rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf cco:is_measured_by ;
                            rdf:type owl:InverseFunctionalProperty ;
                            rdfs:range cco:NominalMeasurementInformationContentEntity ;
-                           cco:definition "The inverse of is a nominal measurement of, which relates an Entity to some Nominal Measurement Information Content Entity."@en ;
+                           cco:definition "y is_measured_by_nominal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                            rdfs:label "is measured by nominal"@en .
 
@@ -284,7 +214,7 @@ cco:is_measured_by_ordinal rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf cco:is_measured_by ;
                            rdf:type owl:InverseFunctionalProperty ;
                            rdfs:range cco:OrdinalMeasurementInformationContentEntity ;
-                           cco:definition "The inverse of is a ordinal measurement of, which relates an Entity to some Ordinal Measurement Information Content Entity."@en ;
+                           cco:definition "y is_measured_by_ordinal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                            rdfs:label "is measured by ordinal"@en .
 
@@ -294,7 +224,7 @@ cco:is_measured_by_ratio rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf cco:is_measured_by ;
                          rdf:type owl:InverseFunctionalProperty ;
                          rdfs:range cco:RatioMeasurementInformationContentEntity ;
-                         cco:definition "The inverse of is a ratio measurement of, which relates an Entity to some Ratio Measurement Information Content Entity."@en ;
+                         cco:definition "y is_measured_by_ratio x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                          rdfs:label "is measured by ratio"@en .
 
@@ -305,7 +235,7 @@ cco:is_measurement_unit_of rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:uses_measurement_unit ;
                            rdfs:domain cco:MeasurementUnit ;
                            rdfs:range cco:InformationBearingEntity ;
-                           cco:elucidation "An Information Bearing Entity carries the content of some corresponding Information Content Entity. In some cases of measurements, this content is composed of both some amount and the scale according to which the measurement was made."@en ;
+                           cco:definition "x is_measurement_unit_of y iff y is an instance of Information Bearing Entity and x is an instance of Measurement Unit, such that x describes the magnitude of measured physical quantity mentioned in y."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                            rdfs:label "is measurement unit of"@en .
 
@@ -313,14 +243,14 @@ cco:is_measurement_unit_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_mention_of
 cco:is_mention_of rdf:type owl:ObjectProperty ;
                   owl:inverseOf cco:is_mentioned_by ;
-                  cco:definition "An instance b1 of a Information Bearing Entity is mention of some instance c1 of some Entity or Event iff b1 is used as a reference to c1."@en ;
+                  cco:definition "x is_mention_of y iff x is an instance Information Bearing Entity and y is an instance Entity, such that x is used as a reference to y."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                   rdfs:label "is mention of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_mentioned_by
 cco:is_mentioned_by rdf:type owl:ObjectProperty ;
-                    cco:definition "An instance c1 of a Entity or Event is mentioned by an instance b1 of some Information Bearing Entity iff b1 is used as a reference to c1."@en ;
+                    cco:definition "y is_mention_by x iff x is an instance Information Bearing Entity and y is an instance Entity, such that x is used as a reference to y."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                     rdfs:label "is mentioned by"@en .
 
@@ -331,6 +261,7 @@ cco:is_reference_system_of rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:uses_reference_system ;
                            rdfs:domain cco:ReferenceSystem ;
                            rdfs:range cco:InformationBearingEntity ;
+                           cco:definition "x is_reference_system_of y iff y is an instance of Information Bearing Entity and x is an instance of Reference System, such that x describes the set of standards mentioned in y."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                            rdfs:label "is reference system of"@en .
 
@@ -338,7 +269,7 @@ cco:is_reference_system_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_subject_of
 cco:is_subject_of rdf:type owl:ObjectProperty ;
                   rdfs:range cco:InformationContentEntity ;
-                  cco:definition "The inverse of is about, which relates an Entity to some Information Content Entity."@en ;
+                  cco:definition "A primitive relationship between an instance of an Entity and an instance of an Information Content Entity."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                   rdfs:label "is subject of"@en .
 
@@ -349,7 +280,7 @@ cco:language_used_in rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:uses_language ;
                      rdfs:domain cco:Language ;
                      rdfs:range cco:InformationBearingEntity ;
-                     cco:elucidation "A Language L is used in an Information Bearing Entity iff the literal value of that Information Bearing Entity is a string that is encoded according to the syntax of L."@en ;
+                     cco:definition "x language_used_by y iff y is an instance of Information Bearing Entity and x is an instance of Language, such that the literal value of y is a string that is encoded according to the syntax of x."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                      rdfs:label "language used in"@en .
 
@@ -359,7 +290,7 @@ cco:prescribed_by rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf cco:is_subject_of ;
                   owl:inverseOf cco:prescribes ;
                   rdfs:range cco:DirectiveInformationContentEntity ;
-                  cco:definition "The inverse of prescribes, which relates an Entity to some Directive Information Content Entity."@en ;
+                  cco:definition "x prescribed_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y serves as a rule or guide for x if x is an Occurrent, or y serves as a model for x if x is a Continuant."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                   rdfs:label "prescribed by"@en .
 
@@ -368,7 +299,7 @@ cco:prescribed_by rdf:type owl:ObjectProperty ;
 cco:prescribes rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf cco:is_about ;
                rdfs:domain cco:DirectiveInformationContentEntity ;
-               cco:definition "For all types T1 and T2, if T1 prescribes T2, then there is some instance of T1, t1, that serves as a rule or guide to some instance of T2, t2 (if T2 is a type of bfo:Occurrent) or that serves as a model for some instance of T2, t2 (if T2 is a type of bfo:Continuant)."@en ;
+               cco:definition "x prescribes y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x serves as a rule or guide for y if y an Occurrent, or x serves as a model for y if y is a Continuant."@en ;
                cco:example_of_usage "a blueprint serves as a model of some Artifact or Facility" ,
                                     "a professional code of conduct serves as a set of rules to be followed while acting in a role within that profession" ,
                                     "an Operations Plan serves as a guide for the tasks that need to be performed to achieve the Objectives of the Operation" ;
@@ -382,7 +313,7 @@ cco:represented_by rdf:type owl:ObjectProperty ;
                    owl:inverseOf cco:represents ;
                    rdf:type owl:InverseFunctionalProperty ;
                    rdfs:range cco:RepresentationalInformationContentEntity ;
-                   cco:definition "The inverse of designates, which relates an Entity to some Representational Information Content Entity."@en ;
+                   cco:definition "x represented_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y presents the characteristics by which x can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                    rdfs:label "represented by"@en .
 
@@ -392,48 +323,10 @@ cco:represents rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf cco:describes ;
                rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:RepresentationalInformationContentEntity ;
-               cco:definition "For all Types T1 and T2, if T1 represents T2 then there is some instance of T1, t1, that presents the characteristics by which some instance of T2, t2, can be recognized or visualized and moreover, there is a one-to-one correspondence between the components of t1 and t2."@en ;
-               cco:elucidation "The relationship that is being defined here is that between a photographic image and its object, or between a written transcript and the verbal event that it transcribes."@en ;
-               cco:example_of_usage "a court transcript represents a courtroom proceeding" ,
-                                    "a photograph of the Statue of Liberty represents the Statue of Liberty" ,
-                                    "a video of a sporting event represents that sporting event" ;
+               cco:definition "x represents y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x presents the characteristics by which y can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+               cco:elucidation "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                rdfs:label "represents"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by
-cco:set_described_by rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf cco:described_by ;
-                     rdfs:domain cco:MeasurementInformationContentEntity ;
-                     rdfs:range cco:NominalMeasurementInformationContentEntity ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                     rdfs:label "set described by"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by_expected_element
-cco:set_described_by_expected_element rdf:type owl:ObjectProperty ;
-                                      rdfs:subPropertyOf cco:set_described_by ;
-                                      rdfs:range cco:NominalMeasurementInformationContentEntity ;
-                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                      rdfs:label "set described by expected element"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by_ordinality
-cco:set_described_by_ordinality rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf cco:set_described_by ;
-                                rdfs:domain cco:OrdinalMeasurementInformationContentEntity ;
-                                rdfs:range cco:NominalMeasurementInformationContentEntity ;
-                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                rdfs:label "set described by ordinality"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/set_described_by_proportion
-cco:set_described_by_proportion rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf cco:set_described_by ;
-                                rdfs:domain cco:ProportionalRatioMeasurementInformationContentEntity ;
-                                rdfs:range cco:NominalMeasurementInformationContentEntity ;
-                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                rdfs:label "set described by proportion"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/time_zone_identifier_used_by
@@ -442,6 +335,7 @@ cco:time_zone_identifier_used_by rdf:type owl:ObjectProperty ;
                                  owl:inverseOf cco:uses_time_zone_identifier ;
                                  rdfs:domain cco:TimeZoneIdentifier ;
                                  rdfs:range cco:InformationBearingEntity ;
+                                 cco:definition "x time_zone_identifier_used_by y iff y is an instance of Information Bearing Entity and x is an instance of Time Zone Identifier, such that x designates the spatial region associated with the time zone mentioned in y."@en ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                  rdfs:label "time zone identifier used by"@en .
 
@@ -451,6 +345,7 @@ cco:uses_geospatial_coordinate_reference_system rdf:type owl:ObjectProperty ;
                                                 rdfs:subPropertyOf cco:uses_reference_system ;
                                                 rdfs:domain cco:InformationBearingEntity ;
                                                 rdfs:range cco:GeospatialCoordinateReferenceSystem ;
+                                                cco:definition "y uses_geospatial_coordinate_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Geospatial Coordinate Reference System, such that x describes the set of standards mentioned in y."@en ;
                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                 rdfs:label "uses geospatial coordinate reference system"@en .
 
@@ -460,7 +355,7 @@ cco:uses_language rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf cco:prescribed_by ;
                   rdfs:domain cco:InformationBearingEntity ;
                   rdfs:range cco:Language ;
-                  cco:elucidation "An Information Bearing Entity uses language L iff the literal value of that Information Bearing Entity is a string that is encoded according to the syntax of L."@en ;
+                  cco:definition "x uses_language y iff x is an instance of an Information Bearing Entity and y is an instance of a Language such that the literal value of x is a string that is encoded according to the syntax of y."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                   rdfs:label "uses language"@en .
 
@@ -470,7 +365,7 @@ cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf obo:RO_0010002 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:MeasurementUnit ;
-                          cco:elucidation "An Information Bearing Entity carries the content of some corresponding Information Content Entity. In some cases of measurements, this content is composed of both some amount and the scale according to which the measurement was made."@en ;
+                          cco:definition "y uses_measurement_unit x iff y is an instance of Information Bearing Entity and x is an instance of Measurement Unit, such that x describes the magnitude of measured physical quantity mentioned in y."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                           rdfs:label "uses measurement unit"@en .
 
@@ -480,6 +375,7 @@ cco:uses_reference_system rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf obo:RO_0010002 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:ReferenceSystem ;
+                          cco:definition "y uses_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Reference System, such that x describes the set of standards mentioned in y."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                           rdfs:label "uses reference system"@en .
 
@@ -489,7 +385,7 @@ cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
                               rdfs:subPropertyOf obo:RO_0010002 ;
                               rdfs:domain cco:InformationBearingEntity ;
                               rdfs:range cco:TimeZoneIdentifier ;
-                              cco:definition "An object property holding between an Information Bearing Entity and a Time Zone Identifier which designates which time zone is being referred to in the date time string attached to the Information Bearing Entity."@en ;
+                              cco:definition "x uses_time_zone_identifier y iff x is an instance of Information Bearing Entity and y is an instance of Time Zone Identifier, such that y designates the spatial region associated with the time zone mentioned in x."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                               rdfs:label "uses time zone identifier"@en .
 
@@ -891,7 +787,7 @@ cco:InformationBearingEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000030 ;
                              cco:alternative_label "IBE"@en ;
                              cco:definition "An Object upon which an Information Content Entity generically depends."@en ;
-                             cco:definition_source "http://purl/obolibrary.org/obo/IAO_0000178" ;
+                             cco:definition_source "http://purl.obolibrary.org/obo/IAO_0000178"^^xsd:anyURI ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                              rdfs:label "Information Bearing Entity"@en .
 
@@ -906,7 +802,7 @@ cco:InformationContentEntity rdf:type owl:Class ;
                              cco:alternative_label "ICE"@en ;
                              cco:definition "A Generically Dependent Continuant that generically depends on some Information Bearing Entity and stands in relation of aboutness to some Entity."@en ;
                              cco:definition_source "http://purl.obolibrary.org/obo/IAO_0000030" ;
-                             cco:elucidation "Information Content Entity is here intended to be a class of Entities whose instances are the informational content of Information Bearing Entities. For example, three instances of information bearers -- such as a bar chart, color-coded map, and a written report -- each of which lists the GDP of Countries for the year 2010 are each different bearers of the same information content. It is this content that is generically dependent upon its bearer. This treatment of Informational Content Entity (cf. the Information Artifact Ontology) leads to a principle of subtyping based upon the relationship that ICE's have with the Entity they are about rather than characteristics such as format, language, measurement scale, or media. The latter are treated here as being Qualities of bearers."@en ;
+                             cco:elucidation "Information Content Entity is here intended to be a class of Entities whose instances are the informational content of Information Bearing Entities. For example, three instances of information bearers -- such as a bar chart, color-coded map, and a written report -- each of which lists the GDP of Countries for the year 2010 are each different carriers of the same information content. It is this content that is generically dependent upon its carrier. This treatment of Informational Content Entity (cf. the Information Artifact Ontology) leads to a principle of subtyping based upon the relationship that ICE's have with the Entity they are about rather than characteristics such as format, language, measurement scale, or media. The latter are treated here as being Qualities of bearers."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                              rdfs:label "Information Content Entity"@en .
 
@@ -923,16 +819,6 @@ cco:InformationQualityEntity rdf:type owl:Class ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                              rdfs:comment "Typically, an IQE will be a complex pattern made up of multiple qualities joined together spatially."@en ;
                              rdfs:label "Information Quality Entity"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationStructureEntity
-cco:InformationStructureEntity rdf:type owl:Class ;
-                               rdfs:subClassOf obo:BFO_0000031 ;
-                               cco:definition "A Generically Dependent Continuant that is not an Information Content Entity (ICE) but which is complemented or complementable by some ICE to create another ICE."@en ;
-                               cco:example_of_usage "a blank page in a document" ,
-                                                    "a cell in a spreadsheet" ;
-                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                               rdfs:label "Information Structure Entity"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Initialism
@@ -965,7 +851,7 @@ cco:IntervalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                                  cco:OrdinalMeasurementInformationContentEntity ,
                                                                  cco:RatioMeasurementInformationContentEntity ;
                                                 cco:definition "A Measurement Information Content Entity that places a Quality of an Entity onto some interval scale having no true zero value."@en ;
-                                                cco:example_of_usage "The sentence \"The temperature reached -27 degrees Fahrenheit on January 20, 1985 in Chicago, IL.\" is the bearer of an interval measurement as 0 degrees on the Fahrenheit scale does not describe absolute zero." ;
+                                                cco:example_of_usage "The sentence \"The temperature reached -27 degrees Fahrenheit on January 20, 1985 in Chicago, IL.\" is the carrier of an interval measurement as 0 degrees on the Fahrenheit scale does not describe absolute zero."@en ;
                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                 rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                                                 rdfs:label "Interval Measurement Information Content Entity"@en .
@@ -1272,7 +1158,10 @@ cco:NominalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                owl:disjointWith cco:OrdinalMeasurementInformationContentEntity ,
                                                                 cco:RatioMeasurementInformationContentEntity ;
                                                cco:definition "A Measurement Information Content Entity that consists of a symbol that classifies Entities according to some shared, possibly arbitrary, characteristic."@en ;
-                                               cco:example_of_usage "The sentence \"January 20, 1985 was a cold day in Chicago, IL\" is the bearer of a nominal measurement." ;
+                                               cco:example_of_usage "The sentence \"January 20, 1985 was a cold day in Chicago, IL\" is the carrier of a nominal measurement."@en ,
+                                                                    "a measurement that classifies automobiles as sedans, coupes, hatchbacks, or convertibles" ,
+                                                                    "a measurement that classifies military intelligence as strategic, operational, or tactical" ,
+                                                                    "a measurement that classifies rocks as igneous, sedimentary, or metamorphic" ;
                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                                                rdfs:label "Nominal Measurement Information Content Entity"@en .
@@ -1308,7 +1197,9 @@ cco:OrdinalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                                owl:disjointWith cco:RatioMeasurementInformationContentEntity ;
                                                cco:definition "A Measurement Information Content Entity that consists of a symbol that places an Entity into some rank order."@en ;
-                                               cco:example_of_usage "The sentence \"The coldest day in history in Chicago, IL. is January 20, 1985.\" is the bearer of an ordinal measurment." ;
+                                               cco:example_of_usage "The sentence \"The coldest day in history in Chicago, IL. is January 20, 1985.\" is the carrier of an ordinal measurment."@en ,
+                                                                    "a measurement that places Geospatial Regions into a rank order of small, medium, large" ,
+                                                                    "a measurement that places military units onto a readiness rank order of red, yellow, green" ;
                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                                                rdfs:label "Ordinal Measurement Information Content Entity"@en .
@@ -1415,7 +1306,10 @@ cco:RatioMeasurementInformationContentEntity rdf:type owl:Class ;
                                                                  ] ;
                                              rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                              cco:definition "A Measurement Information Content Entity that consists of a symbol that places a Quality of an Entity onto an interval scale having a true zero value."@en ;
-                                             cco:example_of_usage "The sentence \"The temperature reached 240.372 degrees Kelvin on January 20, 1985 in Chicago, IL.\" is the bearer of a ratio measurement as 0 degrees on the Kelvin scale does describe absolute zero." ;
+                                             cco:example_of_usage "The sentence \"The temperature reached 240.372 degrees Kelvin on January 20, 1985 in Chicago, IL.\" is the carrier of a ratio measurement as 0 degrees on the Kelvin scale does describe absolute zero."@en ,
+                                                                  "a measurement of the barometric pressure at 1,000 feet above sea level" ,
+                                                                  "a measurement of the measure of air temperature on the Kelvin scale" ,
+                                                                  "a measurement of the number of members in an Organization" ;
                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                              rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                                              rdfs:label "Ratio Measurement Information Content Entity"@en .
@@ -1449,7 +1343,10 @@ cco:RepresentationalInformationContentEntity rdf:type owl:Class ;
                                                                    owl:someValuesFrom obo:BFO_0000001
                                                                  ] ;
                                              rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
-                                             cco:definition "A Descriptive Information Content Entity that consists of a set of propositions or an image that represents some Entity."@en ;
+                                             cco:definition "A Descriptive Information Content Entity that consists of a set of propositions or the content of an image that represents some Entity."@en ;
+                                             cco:example_of_usage "the content of a court transcript represents a courtroom proceeding" ,
+                                                                  "the content of a photograph of the Statue of Liberty represents the Statue of Liberty" ,
+                                                                  "the content of a video of a sporting event represents that sporting event" ;
                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                              rdfs:label "Representational Information Content Entity"@en .
 
