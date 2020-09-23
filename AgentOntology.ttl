@@ -9,14 +9,14 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> rdf:type owl:Ontology ;
-                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2019-12-20/AgentOntology> ;
+                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-09-23/AgentOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
                                                                             cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                             cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                            cco:copyright "COPYRIGHT © 2015-2019 CUBRC, Inc."@en ;
+                                                                            cco:copyright "COPYRIGHT © 2015-2020 CUBRC, Inc."@en ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."@en ;
                                                                             rdfs:label "Agent Ontology"@en ;
-                                                                            owl:versionInfo "Version 1.2"@en .
+                                                                            owl:versionInfo "Version 1.3"@en .
 
 #################################################################
 #    Object Properties
@@ -26,17 +26,18 @@
 cco:agent_in rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf obo:RO_0000056 ;
              owl:inverseOf cco:has_agent ;
-             cco:definition "TO DO"@en ;
+             cco:definition "x agent_in y iff y is an instance of Process and x is an instance of Agent, such that x is causally active in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "agent in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_capability
 cco:aggregate_has_capability rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf cco:aggregrate_bearer_of ;
+                             rdfs:subPropertyOf cco:aggregate_bearer_of ;
                              owl:inverseOf cco:capability_of_aggregate ;
                              rdfs:domain cco:GroupOfAgents ;
                              rdfs:range cco:AgentCapability ;
+                             cco:definition "x aggregate_has_capability y iff x is an instance of Object Aggregate and y is an instance of Agent Capability, such that x is aggregate bearer of y."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                              rdfs:label "aggregate has capability"@en .
 
@@ -47,6 +48,7 @@ cco:capability_of rdf:type owl:ObjectProperty ;
                   owl:inverseOf cco:has_capability ;
                   rdfs:domain cco:AgentCapability ;
                   rdfs:range cco:Agent ;
+                  cco:definition "x capability_of y iff y is an instance of Agent and x is an instance of Agent Capability, such that x inheres in y."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                   rdfs:label "capability of"@en .
 
@@ -56,6 +58,7 @@ cco:capability_of_aggregate rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf cco:inheres_in_aggregate ;
                             rdfs:domain cco:AgentCapability ;
                             rdfs:range cco:GroupOfAgents ;
+                            cco:definition "x capability_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                             rdfs:label "capability of aggregate"@en .
 
@@ -67,7 +70,7 @@ cco:delimits rdf:type owl:ObjectProperty ;
                       owl:InverseFunctionalProperty ;
              rdfs:domain cco:GeopoliticalEntity ;
              rdfs:range cco:Organization ;
-             cco:definition "An instance of Geopolitical Entity gpe1 delimits some Government g1 iff gpe1 is the area within which g1 can legally exercies its authority."@en ;
+             cco:definition "An instance of Geopolitical Entity gpe1 delimits some Organization o1 iff gpe1 is the area within which o1 can legally operate."@en ;
              cco:definition_source "http://en.wikipedia.org/wiki/Delimitation" ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "delimits"@en .
@@ -88,6 +91,7 @@ cco:has_affiliate rdf:type owl:ObjectProperty ;
                                              cco:Person
                                            )
                              ] ;
+                  cco:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                   rdfs:label "has affiliate"@en .
 
@@ -95,7 +99,7 @@ cco:has_affiliate rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_agent
 cco:has_agent rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf obo:RO_0000057 ;
-              cco:definition "As for has_participant, but with the additional condition that the component instance is causally active in the relevant process."@en ;
+              cco:definition "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
               rdfs:label "has agent"@en .
 
@@ -129,6 +133,7 @@ cco:has_capability rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf obo:RO_0000053 ;
                    rdfs:domain cco:Agent ;
                    rdfs:range cco:AgentCapability ;
+                   cco:definition "x has_capability y iff x is an instance of Agent and y is an instance of Agent Capability, such that x bearer of y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                    rdfs:label "has capability"@en .
 
@@ -307,6 +312,7 @@ cco:has_organizational_context rdf:type owl:ObjectProperty ;
                                owl:inverseOf cco:is_organizational_context_of ;
                                rdfs:domain obo:BFO_0000023 ;
                                rdfs:range cco:Organization ;
+                               cco:definition "x has_organizational_context y iff y is an instance of an Organization and x is an instance of a Role and z is an instance of a Person, such that z's affiliation with y is a prerequisite for z bearing x or y ascribes x to the bearer of x."@en ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                rdfs:label "has organizational context"@en .
 
@@ -364,7 +370,7 @@ cco:has_recipient rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf obo:RO_0000057 ;
                   owl:inverseOf cco:receives ;
                   rdfs:range cco:Agent ;
-                  cco:definition "has_recipient is a relationship between an Act Of Communication c1 and an Agent a1 such that c1 has_recipient a1 iff a1 is the receiver and decoder of the InformationContentEntity participating in c1."@en ;
+                  cco:definition "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                   rdfs:label "has recipient"@en .
 
@@ -374,7 +380,7 @@ cco:has_sender rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000057 ;
                owl:inverseOf cco:sends ;
                rdfs:range cco:Agent ;
-               cco:definition "has_sender is a relationship between an Act Of Communication c1 and an Agent a1 such that c1 has_sender a1 iff a1 is the initiator and encoder of the InformationContentEntity participating in c1."@en ;
+               cco:definition "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                rdfs:label "has sender"@en .
 
@@ -479,7 +485,7 @@ cco:is_affiliated_with rdf:type owl:ObjectProperty ;
                                                   cco:Person
                                                 )
                                   ] ;
-                       cco:definition "An Agent a1 is affiliated with some Agent a2 by virtue of their having any social or business relationship."@en ;
+                       cco:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                        rdfs:label "is affiliated with"@en .
 
@@ -541,7 +547,7 @@ cco:is_delimited_by rdf:type owl:ObjectProperty ,
                              owl:InverseFunctionalProperty ;
                     rdfs:domain cco:Organization ;
                     rdfs:range cco:GeopoliticalEntity ;
-                    cco:definition "An instance of Government g1 is_delimited_by some Geopolitical Entity gpe1 iff gpe1 is the area with which g1 can legally exercies its authority"@en ;
+                    cco:definition "An instance of Organization o1 is_delimited_by some Geopolitical Entity gpe1 iff gpe1 is the area within which o1 can legally operate."@en ;
                     cco:definition_source "http://en.wikipedia.org/wiki/Delimitation" ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                     rdfs:label "is delimited by"@en .
@@ -728,7 +734,7 @@ cco:is_niece_of rdf:type owl:ObjectProperty ;
 cco:is_organizational_context_of rdf:type owl:ObjectProperty ;
                                  rdfs:domain cco:Organization ;
                                  rdfs:range obo:BFO_0000023 ;
-                                 cco:definition "An Organization is a organizational context of a role if a person's affiliation with the organization is a prerequisite for being a bearer of the role or if the organization ascribes the role to some entity."@en ;
+                                 cco:definition "x is_organizational_context_of y iff x is an instance of an Organization and y is an instance of a Role and z is an instance of a Person, such that z's affiliation with x is a prerequisite for z bearing y, or x ascribes y to the bearer of y."@en ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                  rdfs:label "is organizational context of"@en .
 
@@ -787,6 +793,7 @@ cco:is_permitted_by rdf:type owl:ObjectProperty ;
                              owl:IrreflexiveProperty ;
                     rdfs:domain obo:BFO_0000015 ;
                     rdfs:range cco:ActionRegulation ;
+                    cco:definition "y is_permitted_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                     rdfs:label "is permitted by"@en .
 
@@ -799,6 +806,7 @@ cco:is_prohibited_by rdf:type owl:ObjectProperty ;
                               owl:IrreflexiveProperty ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range cco:ActionRegulation ;
+                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                      rdfs:label "is prohibited by"@en .
 
@@ -811,6 +819,7 @@ cco:is_required_by rdf:type owl:ObjectProperty ;
                             owl:IrreflexiveProperty ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range cco:ActionRegulation ;
+                   cco:definition "y is_required_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                    rdfs:label "is required by"@en .
 
@@ -897,6 +906,7 @@ cco:is_step_sister_of rdf:type owl:ObjectProperty ;
 cco:is_subordinate_role_to rdf:type owl:ObjectProperty ;
                            rdfs:domain obo:BFO_0000023 ;
                            rdfs:range obo:BFO_0000023 ;
+                           cco:definition "For all x,y,t: y is subordinate role to x at t iff: x is an instance of bfo:BFO_0000023 (Role) at time t, and y is an instance of bfo:BFO_0000023 (Role) at time t, and there is some z such that x is realized by z and z is an instance of Act which creates, modifies, transfers, or eliminates some u such that u is an Action Regulation at time t, and u is addressed to the bearer of y."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                            rdfs:label "is subordinate role to"@en .
 
@@ -943,6 +953,7 @@ cco:is_uncle_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_used_by
 cco:is_used_by rdf:type owl:ObjectProperty ;
                owl:inverseOf cco:uses ;
+               cco:definition "x is_used_by y iff y is an instance of an Agent and x is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein y attempts to accomplish a goal by manipulating, deploying, leveraging some attribute of y."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                rdfs:label "is used by"@en .
 
@@ -961,7 +972,7 @@ cco:permits rdf:type owl:ObjectProperty ;
                      owl:IrreflexiveProperty ;
             rdfs:domain cco:ActionRegulation ;
             rdfs:range obo:BFO_0000015 ;
-            cco:definition "For all x,y,t: x permits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
+            cco:definition "x permits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
             rdfs:label "permits"@en .
 
@@ -973,7 +984,7 @@ cco:prohibits rdf:type owl:ObjectProperty ;
                        owl:IrreflexiveProperty ;
               rdfs:domain cco:ActionRegulation ;
               rdfs:range obo:BFO_0000015 ;
-              cco:definition "For all x,y,t: x prohibits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
+              cco:definition "x prohibits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
               rdfs:label "prohibits"@en .
 
@@ -982,7 +993,7 @@ cco:prohibits rdf:type owl:ObjectProperty ;
 cco:receives rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf obo:RO_0000056 ;
              rdfs:domain cco:Agent ;
-             cco:definition "receives is a relationship between an Agent a1 and an Act Of Communication c1 such that a1 receives c1 iff a1 is the recipient and decoder of the InformationContentEntity participating in c1."@en ;
+             cco:definition "x receives y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the recipient and decoder of the InformationContentEntity intended for communication in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "receives"@en .
 
@@ -994,7 +1005,7 @@ cco:requires rdf:type owl:ObjectProperty ;
                       owl:IrreflexiveProperty ;
              rdfs:domain cco:ActionRegulation ;
              rdfs:range obo:BFO_0000015 ;
-             cco:definition "For all x,y,t: x requires y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
+             cco:definition "x requires y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "requires"@en .
 
@@ -1003,7 +1014,7 @@ cco:requires rdf:type owl:ObjectProperty ;
 cco:sends rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf obo:RO_0000056 ;
           rdfs:domain cco:Agent ;
-          cco:definition "sends is a relationship between an Agent a1 and an Act Of Communication c1 and  such that a1 sends c1 iff a1 is the initiator and encoder of the InformationContentEntity participating in c1."@en ;
+          cco:definition "x sends y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
           rdfs:label "sends"@en .
 
@@ -1021,6 +1032,7 @@ cco:supervises rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses
 cco:uses rdf:type owl:ObjectProperty ;
+         cco:definition "x uses y iff x is an instance of an Agent and y is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein x attempts to accomplish a goal by manipulating, deploying, or leveraging some attribute of y."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
          rdfs:label "uses"@en .
 
@@ -1452,13 +1464,16 @@ cco:GovernmentAgency rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfAgents
 cco:GroupOfAgents rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000027 ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000051 ;
-                                    owl:someValuesFrom cco:Agent
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000051 ;
-                                    owl:allValuesFrom cco:Agent
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0002351 ;
+                                                           owl:someValuesFrom cco:Agent
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty obo:RO_0002351 ;
+                                                           owl:allValuesFrom cco:Agent
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
                                   ] ;
                   cco:definition "An Object Aggregate that has only Agents as parts."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
