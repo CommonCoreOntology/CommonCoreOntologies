@@ -1449,14 +1449,6 @@ cco:DeltaV rdf:type owl:Class ;
            rdfs:label "Delta-v"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Economy
-cco:Economy rdf:type owl:Class ;
-            rdfs:subClassOf cco:ProcessAggregate ;
-            cco:definition "A Process Aggregate comprising the production, exchange, distribution and consumption of goods that occurs at some Geopolitical Entity."@en ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-            rdfs:label "Economy"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Effect
 cco:Effect rdf:type owl:Class ;
            owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -1562,15 +1554,6 @@ cco:EnhancedStasis rdf:type owl:Class ;
                    rdfs:label "Enhanced Stasis"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/EssentialServiceProvision
-cco:EssentialServiceProvision rdf:type owl:Class ;
-                              rdfs:subClassOf cco:ProcessAggregate ;
-                              cco:definition "A Process Aggregate comprising the delivery of one or more essential services."@en ;
-                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                              rdfs:comment "An essential service is defined here as being one of: medical care, food and water, shelter, or sanitation."@en ;
-                              rdfs:label "Essential Service Provision"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ExtremeUltravioletLightFrequency
 cco:ExtremeUltravioletLightFrequency rdf:type owl:Class ;
                                      rdfs:subClassOf cco:UltravioletLightFrequency ;
@@ -1633,14 +1616,6 @@ cco:FarInfraredLightFrequency rdf:type owl:Class ;
                               cco:definition_source "https://en.wikipedia.org/wiki/Electromagnetic_spectrum#Infrared_radiation" ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                               rdfs:label "Far Infrared Light Frequency"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/FiatProcessPart
-cco:FiatProcessPart rdf:type owl:Class ;
-                    rdfs:subClassOf obo:BFO_0000015 ;
-                    cco:definition "A Process that is part of another Process and is differentiated from the whole conceptually."@en ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                    rdfs:label "Fiat Process Part"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FixedLineNetworkTelephoneCall
@@ -2005,18 +1980,6 @@ cco:LegalSystemAct rdf:type owl:Class ;
                    rdfs:label "Legal System Act"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/LifeEvent
-cco:LifeEvent rdf:type owl:Class ;
-              rdfs:subClassOf cco:FiatProcessPart ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty obo:BFO_0000050 ;
-                                owl:someValuesFrom cco:BiographicalLife
-                              ] ;
-              cco:definition "A Fiat Process Part participated in by the Agent of some Biographical Life."@en ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-              rdfs:label "Life Event"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LongitudinalWaveProfile
 cco:LongitudinalWaveProfile rdf:type owl:Class ;
                             rdfs:subClassOf cco:WaveProcessProfile ,
@@ -2281,10 +2244,12 @@ cco:OperationalStasis rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OscillationProcess
 cco:OscillationProcess rdf:type owl:Class ;
-                       rdfs:subClassOf cco:ProcessRecurrenceAggregate ;
+                       rdfs:subClassOf cco:Change ;
                        cco:alternative_label "Oscillation"@en ;
-                       cco:definition "A Process Recurrence Aggregate that consists of the repetitive variation of some entity between two or more states that surround a central state toward which the entity tends."@en ;
+                       cco:definition "A Change in which the dependent entity alternates between two or more stases."@en ;
+                       cco:definition_source "https://en.wikipedia.org/w/index.php?title=Oscillation&oldid=1002978272"^^xsd:anyURI ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                       rdfs:comment "Oscillation is often thought of in the sense of motion, e.g., a swinging clock pendulum. However, the repetitive variation in location around a central point is technically a process of vibration, sometimes refereed to as mechanical oscillation. Use the term Vibration Motion for those cases."@en ;
                        rdfs:label "Oscillation Process"@en .
 
 
@@ -2329,14 +2294,6 @@ cco:PrivateNetworkTelephoneCall rdf:type owl:Class ;
                                 rdfs:label "Private Network Telephone Call"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ProcessAggregate
-cco:ProcessAggregate rdf:type owl:Class ;
-                     rdfs:subClassOf obo:BFO_0000003 ;
-                     cco:definition "An Occurrent that is a collection of processes."@en ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                     rdfs:label "Process Aggregate"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ProcessBeginning
 cco:ProcessBeginning rdf:type owl:Class ;
                      rdfs:subClassOf obo:BFO_0000035 ;
@@ -2351,25 +2308,6 @@ cco:ProcessEnding rdf:type owl:Class ;
                   cco:definition "A Process Boundary that occurs on a Zero-Dimensional Temporal Region that is the ending instant of the One-Dimensional Temporal Region on which the Process, of which the Process Boundary is a part, occurs."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                   rdfs:label "Process Ending"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ProcessHistory
-cco:ProcessHistory rdf:type owl:Class ;
-                   rdfs:subClassOf cco:ProcessAggregate ;
-                   cco:definition "A Process Aggregate that consists of the sum of all Processes that are part of or otherwise involved in the primary Process (i.e., the Process for which the history is being represented) and which are bounded by the Spatiotemporal Region in which the primary Process occurs."@en ;
-                   cco:elucidation "While a History is, roughly, the sum of all Processes involving a particular Independent Continuant, a Process History is, roughly, the sum of all Processes involved with a particular Process, which often includes other Processes that the Agents and Participants in the primary Process are participating in during the same Temporal Region."@en ;
-                   cco:example_of_usage "The Process History of a particular passenger flight includes the processes of refueling, takeoff, landing, passenger and luggage loading and unloading, flight attendants serving refreshments and peanuts, passengers sitting, pilots operating the flight controls, air rushing past the plane, communications with air traffic control, sensor operations, and many more." ,
-                                        "The Process History of a particular sporting event includes the processes of the fans arriving, cheering, booing, holding up signs, buying food and merchandise, and leaving as well as the processes that the coaches, players, and referees engage in during the sporting event." ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                   rdfs:label "Process History"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ProcessRecurrenceAggregate
-cco:ProcessRecurrenceAggregate rdf:type owl:Class ;
-                               rdfs:subClassOf cco:ProcessAggregate ;
-                               cco:definition "A Process Aggregate that consists of the collection of subprocesses that are all instances of a single type of Process and are parts of a given History or Process History."@en ;
-                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                               rdfs:label "Process Recurrence Aggregate"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ProperAcceleration
@@ -3027,12 +2965,14 @@ cco:VeryLowFrequency rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/VibrationProcess
 cco:VibrationProcess rdf:type owl:Class ;
-                     rdfs:subClassOf cco:OscillationProcess ;
+                     rdfs:subClassOf cco:MotionProcess ;
                      cco:alternative_label "Mechanical Oscillation"@en ,
+                                           "Oscillation Motion"@en ,
                                            "Vibration"@en ;
-                     cco:definition "An Oscillation Process that occurs around an equilibrium point in a material medium such that there is variation over time in the position of the material medium or its parts relative to that point."@en ;
+                     cco:definition "A Motion wherein some participant repetitively deviates from a central location to two surrounding locations."@en ;
+                     cco:definition_source "https://physicsabout.com/motion/"^^xsd:anyURI ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                     rdfs:label "Vibration Process"@en .
+                     rdfs:label "Vibration Motion"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/VisibleLightFrequency
@@ -3067,8 +3007,8 @@ cco:VisibleObservation rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WaveCycle
 cco:WaveCycle rdf:type owl:Class ;
-              rdfs:subClassOf cco:FiatProcessPart ;
-              cco:definition "A Fiat Process Part that consists of a portion of a Wave Process that begins at an arbitrary point of the Wave Process and ends at the next point when the pattern of the Wave Process begins to repeat."@en ;
+              rdfs:subClassOf cco:WaveProcess ;
+              cco:definition "A Wave Process that consists of a portion of a Wave Process that begins at an arbitrary point of the Wave Process and ends at the next point when the pattern of the Wave Process begins to repeat."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
               rdfs:label "Wave Cycle"@en .
 
@@ -3076,10 +3016,6 @@ cco:WaveCycle rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WaveProcess
 cco:WaveProcess rdf:type owl:Class ;
                 rdfs:subClassOf cco:NaturalProcess ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty cco:has_process_part ;
-                                  owl:someValuesFrom cco:OscillationProcess
-                                ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty cco:has_process_part ;
                                   owl:someValuesFrom cco:WaveProcessProfile
@@ -3184,4 +3120,4 @@ cco:XrayFrequency rdf:type owl:Class ;
                   rdfs:label "X-ray Frequency"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
