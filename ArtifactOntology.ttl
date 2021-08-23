@@ -169,10 +169,10 @@ cco:ArticleOfSolidWaste rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Artifact
 cco:Artifact rdf:type owl:Class ;
-             rdfs:subClassOf obo:BFO_0000030 ;
-             cco:definition "An Object that was designed by some Agent to realize a certain Function."@en ;
+             rdfs:subClassOf obo:BFO_0000040 ;
+             cco:definition "A Material Entity that was designed by some Agent to realize a certain Function."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-             rdfs:label "Artifact"@en .
+             rdfs:label "Material Artifact"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArtifactDesignContentEntity
@@ -350,8 +350,8 @@ cco:Barcode rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/BatteryTerminal
 cco:BatteryTerminal rdf:type owl:Class ;
-                    rdfs:subClassOf cco:ElectricalPowerSourceComponent ;
-                    cco:definition "An Electrical Power Source Component that is designed to connect a load or charger to a single or multiple-cell Battery."@en ;
+                    rdfs:subClassOf cco:Artifact ;
+                    cco:definition "A Material Artifact that is designed to connect a load or charger to a single or multiple-cell Battery."@en ;
                     cco:definition_source "https://en.wikipedia.org/wiki/Battery_terminal" ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                     rdfs:label "Battery Terminal"@en .
@@ -439,8 +439,8 @@ cco:Bow rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Brake
 cco:Brake rdf:type owl:Class ;
-          rdfs:subClassOf cco:VehicleControlSystemComponent ;
-          cco:definition "A Vehicle Control System Component that is designed to inhibit the Vehicle's Motion by absorbing energy from a moving system."@en ;
+          rdfs:subClassOf cco:Artifact ;
+          cco:definition "A Material Artifact that is designed to inhibit the Vehicle's Motion by absorbing energy from a moving system."@en ;
           cco:definition_source "https://en.wikipedia.org/wiki/Brake" ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
           rdfs:label "Brake"@en .
@@ -601,8 +601,8 @@ cco:ChemicalWeapon rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CircuitBreaker
 cco:CircuitBreaker rdf:type owl:Class ;
-                   rdfs:subClassOf cco:ElectricalPowerSourceComponent ;
-                   cco:definition "An Electrical Power Source Component that is designed to protect an electrical circuit from damage caused by excess current from an overload or short circuit."@en ;
+                   rdfs:subClassOf cco:Artifact ;
+                   cco:definition "A Material Artifact that is designed to protect an electrical circuit from damage caused by excess current from an overload or short circuit."@en ;
                    cco:definition_source "https://en.wikipedia.org/wiki/Circuit_breaker" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Circuit Breaker"@en .
@@ -819,8 +819,8 @@ cco:ContainingArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ControlSurface
 cco:ControlSurface rdf:type owl:Class ;
-                   rdfs:subClassOf cco:SteeringControlComponent ;
-                   cco:definition "A Steering Control Component that is designed to deflect air, water, or another medium around its surface in order to change the Attitude of a Vehicle by rotating the Vehicle on one or more of its Axes of Rotation."@en ;
+                   rdfs:subClassOf cco:Artifact ;
+                   cco:definition "A Material Artifact that is designed to deflect air, water, or another medium around its surface in order to change the Attitude of a Vehicle by rotating the Vehicle on one or more of its Axes of Rotation."@en ;
                    cco:definition_source "https://en.wikipedia.org/wiki/Flight_control_surfaces" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Control Surface"@en .
@@ -923,8 +923,8 @@ cco:CounterfeitLegalInstrument rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Coupling
 cco:Coupling rdf:type owl:Class ;
-             rdfs:subClassOf cco:MachineElement ;
-             cco:definition "A Machine Element that is designed to connect two Shafts together at their ends for the purpose of transmitting power."@en ;
+             rdfs:subClassOf cco:Artifact ;
+             cco:definition "A Material Artifact that is designed to connect two Shafts together at their ends for the purpose of transmitting power."@en ;
              cco:definition_source "https://en.wikipedia.org/wiki/Coupling" ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
              rdfs:label "Coupling"@en .
@@ -1275,14 +1275,6 @@ cco:ElectricalPowerSource rdf:type owl:Class ;
                           rdfs:label "Electrical Power Source"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ElectricalPowerSourceComponent
-cco:ElectricalPowerSourceComponent rdf:type owl:Class ;
-                                   rdfs:subClassOf cco:PowerSourceComponent ;
-                                   cco:definition "A Power Source Component that is designed to be a component of some Electrical Power Source."@en ;
-                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                                   rdfs:label "Electrical Power Source Component"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ElectricalPowerStorageArtifactFunction
 cco:ElectricalPowerStorageArtifactFunction rdf:type owl:Class ;
                                            rdfs:subClassOf cco:ElectricalArtifactFunction ;
@@ -1342,15 +1334,6 @@ cco:ElectronicCash rdf:type owl:Class ;
                    cco:definition "A Portion of Cash that consists of Bytes."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Electronic Cash"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ElectronicComponent
-cco:ElectronicComponent rdf:type owl:Class ;
-                        rdfs:subClassOf cco:Artifact ;
-                        cco:definition "An Artifact that consists of a basic discrete device or physical entity in an electronic system that is used to affect electrons or their associated fields."@en ;
-                        cco:definition_source "https://en.wikipedia.org/wiki/Electronic_component" ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                        rdfs:label "Electronic Component"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ElectronicSignalProcessingArtifactFunction
@@ -1451,8 +1434,8 @@ cco:EquipmentCoolingSystem rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EquipmentMount
 cco:EquipmentMount rdf:type owl:Class ;
-                   rdfs:subClassOf cco:MachineElement ;
-                   cco:definition "A Machine Element that is designed to support an Artifact."@en ;
+                   rdfs:subClassOf cco:Artifact ;
+                   cco:definition "A Material Artifact that is designed to support an Artifact."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Equipment Mount"@en .
 
@@ -1594,14 +1577,6 @@ cco:FluidControlArtifact rdf:type owl:Class ;
                          rdfs:label "Fluid Control Artifact"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/FluidControlArtifactComponent
-cco:FluidControlArtifactComponent rdf:type owl:Class ;
-                                  rdfs:subClassOf cco:Artifact ;
-                                  cco:definition "An Artifact that is designed to be a component of some Fluid Control Artifact."@en ;
-                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                                  rdfs:label "Fluid Control Artifact Component"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FluidControlArtifactFunction
 cco:FluidControlArtifactFunction rdf:type owl:Class ;
                                  rdfs:subClassOf cco:ArtifactFunction ;
@@ -1692,14 +1667,6 @@ cco:FuelSystem rdf:type owl:Class ;
                rdfs:label "Fuel System"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/FuelSystemComponent
-cco:FuelSystemComponent rdf:type owl:Class ;
-                        rdfs:subClassOf cco:Artifact ;
-                        cco:definition "An Artifact that is designed to be a component of some Fuel System."@en ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                        rdfs:label "Fuel System Component"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FuelTank
 cco:FuelTank rdf:type owl:Class ;
              rdfs:subClassOf cco:Container ;
@@ -1710,16 +1677,16 @@ cco:FuelTank rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FuelTransferSystem
 cco:FuelTransferSystem rdf:type owl:Class ;
-                       rdfs:subClassOf cco:FuelSystemComponent ;
-                       cco:definition "A Fuel System Component that is designed to facilitate the transfer of some Portion of Fuel from the Fuel Tank for use in some Engine."@en ;
+                       rdfs:subClassOf cco:FluidControlArtifact ;
+                       cco:definition "A Fluid Control Artifact that is designed to facilitate the transfer of some Portion of Fuel from the Fuel Tank for use in some Engine."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                        rdfs:label "Fuel Transfer System"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FuelVentilationSystem
 cco:FuelVentilationSystem rdf:type owl:Class ;
-                          rdfs:subClassOf cco:FuelSystemComponent ;
-                          cco:definition "A Fuel System Component that is designed to allow air into the Fuel Tank to take the place of burned fuel."@en ;
+                          rdfs:subClassOf cco:FluidControlArtifact ;
+                          cco:definition "A Fluid Control Artifact that is designed to allow air into the Fuel Tank to take the place of burned fuel."@en ;
                           cco:definition_source "https://en.wikipedia.org/wiki/Aircraft_fuel_system" ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                           rdfs:label "Fuel Ventilation System"@en .
@@ -1780,8 +1747,8 @@ cco:GasTurbine rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeneratorControlUnit
 cco:GeneratorControlUnit rdf:type owl:Class ;
-                         rdfs:subClassOf cco:ElectricalPowerSourceComponent ;
-                         cco:definition "An Electrical Power Source Component that is designed to regulate the voltage of some Electrical Power Source."@en ;
+                         rdfs:subClassOf cco:ControlSystem ;
+                         cco:definition "A Control System that is designed to regulate the voltage of some Electrical Power Source."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                          rdfs:label "Generator Control Unit"@en .
 
@@ -2001,8 +1968,8 @@ cco:Howitzer rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/HydraulicFluidReservoir
 cco:HydraulicFluidReservoir rdf:type owl:Class ;
-                            rdfs:subClassOf cco:HydraulicPowerSourceComponent ;
-                            cco:definition "A Hydraulic Power Source Component that is designed to store some hydraulic fluid for use in some Hyrdraulic Power Source."@en ;
+                            rdfs:subClassOf cco:Container ;
+                            cco:definition "A Container that is designed to store some hydraulic fluid for use in some Hyrdraulic Power Source."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                             rdfs:label "Hydraulic Fluid Reservoir"@en .
 
@@ -2024,18 +1991,10 @@ cco:HydraulicPowerSource rdf:type owl:Class ;
                          rdfs:label "Hydraulic Power Source"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/HydraulicPowerSourceComponent
-cco:HydraulicPowerSourceComponent rdf:type owl:Class ;
-                                  rdfs:subClassOf cco:PowerSourceComponent ;
-                                  cco:definition "A Power Source Component that is designed to be a component of some Hydraulic Power Source."@en ;
-                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                                  rdfs:label "Hydraulic Power Source Component"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/HydraulicPowerTransferUnit
 cco:HydraulicPowerTransferUnit rdf:type owl:Class ;
-                               rdfs:subClassOf cco:HydraulicPowerSourceComponent ;
-                               cco:definition "A Hydraulic Power Source Component that is designed to transfer hydraulic power from one of an Aircraft's hydraulic systems to another in the event that a system has failed or been turned off."@en ;
+                               rdfs:subClassOf cco:Artifact ;
+                               cco:definition "A Material Artifact that is designed to transfer hydraulic power from one of an Aircraft's hydraulic systems to another in the event that a system has failed or been turned off."@en ;
                                cco:definition_source "https://en.wikipedia.org/wiki/Power_transfer_unit" ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                rdfs:label "Hydraulic Power Transfer Unit"@en .
@@ -2043,8 +2002,8 @@ cco:HydraulicPowerTransferUnit rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/HydraulicValve
 cco:HydraulicValve rdf:type owl:Class ;
-                   rdfs:subClassOf cco:HydraulicPowerSourceComponent ;
-                   cco:definition "A Hydraulic Power Source Component that is designed to regulate, direct, or control the flow of a liquid by opening, closing, or partially obstructing various passageways."@en ;
+                   rdfs:subClassOf cco:Valve ;
+                   cco:definition "A Valve that is designed to regulate, direct, or control the flow of a liquid by opening, closing, or partially obstructing various passageways."@en ;
                    cco:definition_source "https://en.wikipedia.org/wiki/Valve" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Hydraulic Valve"@en .
@@ -2493,20 +2452,11 @@ cco:MSIPlesseyBarcode rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MachineBearing
 cco:MachineBearing rdf:type owl:Class ;
-                   rdfs:subClassOf cco:MachineElement ;
-                   cco:definition "A Machine Element that is designed to constrain relative motion to only desired motion and reduces friction between moving parts."@en ;
+                   rdfs:subClassOf cco:Artifact ;
+                   cco:definition "A Material Artifact that is designed to constrain relative motion to only desired motion and reduces friction between moving parts."@en ;
                    cco:definition_source "https://en.wikipedia.org/wiki/Bearing_(mechanical)" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Machine Bearing"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MachineElement
-cco:MachineElement rdf:type owl:Class ;
-                   rdfs:subClassOf cco:Artifact ;
-                   cco:definition "An Artifact that is designed to be an elementary component of some Machine."@en ;
-                   cco:definition_source "https://en.wikipedia.org/wiki/Machine_element" ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                   rdfs:label "Machine Element"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ManualTool
@@ -2743,26 +2693,18 @@ cco:Nozzle rdf:type owl:Class ;
            rdfs:label "Nozzle"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/NozzleComponent
-cco:NozzleComponent rdf:type owl:Class ;
-                    rdfs:subClassOf cco:FluidControlArtifactComponent ;
-                    cco:definition "A Fluid Control Artifact Component that is designed to be part of a Nozzle."@en ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                    rdfs:label "Nozzle Component"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/NozzleMouth
 cco:NozzleMouth rdf:type owl:Class ;
-                rdfs:subClassOf cco:NozzleComponent ;
-                cco:definition "A Nozzle Component that consists of the portion of a Nozzle at the end that is designed to be where the flow of fluid exits the Nozzle."@en ;
+                rdfs:subClassOf cco:FluidControlArtifact ;
+                cco:definition "A Fluid Control Artifact that consists of the portion of a Nozzle at the end that is designed to be where the flow of fluid exits the Nozzle."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                 rdfs:label "Nozzle Mouth"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/NozzleThroat
 cco:NozzleThroat rdf:type owl:Class ;
-                 rdfs:subClassOf cco:NozzleComponent ;
-                 cco:definition "A Nozzle Component that consists of the narrowest portion of a Nozzle that is designed to converge the flow of fluid in order to increase the Velocity of the flow."@en ;
+                 rdfs:subClassOf cco:FluidControlArtifact ;
+                 cco:definition "A Fluid Control Artifact that consists of the narrowest portion of a Nozzle that is designed to converge the flow of fluid in order to increase the Velocity of the flow."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                  rdfs:label "Nozzle Throat"@en .
 
@@ -3294,8 +3236,8 @@ cco:PowerInvertingArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PowerRectifier
 cco:PowerRectifier rdf:type owl:Class ;
-                   rdfs:subClassOf cco:ElectricalPowerSourceComponent ;
-                   cco:definition "An Electrical Power Source Component that is designed to convert alternating current (AC) to direct current (DC)."@en ;
+                   rdfs:subClassOf cco:Artifact ;
+                   cco:definition "A Material Artifact that is designed to convert alternating current (AC) to direct current (DC)."@en ;
                    cco:definition_source "https://en.wikipedia.org/wiki/Rectifier" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Power Rectifier"@en .
@@ -3318,14 +3260,6 @@ cco:PowerSource rdf:type owl:Class ;
                 rdfs:label "Power Source"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PowerSourceComponent
-cco:PowerSourceComponent rdf:type owl:Class ;
-                         rdfs:subClassOf cco:Artifact ;
-                         cco:definition "An Artifact that is designed to be a component of some Power Source."@en ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                         rdfs:label "Power Source Component"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PowerTool
 cco:PowerTool rdf:type owl:Class ;
               rdfs:subClassOf cco:Tool ;
@@ -3337,8 +3271,8 @@ cco:PowerTool rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PowerTransformer
 cco:PowerTransformer rdf:type owl:Class ;
-                     rdfs:subClassOf cco:ElectricalPowerSourceComponent ;
-                     cco:definition "An Electrical Power Source Component that is designed to transfer electrical energy between two or more circuits through electromagnetic induction."@en ;
+                     rdfs:subClassOf cco:Artifact ;
+                     cco:definition "A Material Artifact that is designed to transfer electrical energy between two or more circuits through electromagnetic induction."@en ;
                      cco:definition_source "https://en.wikipedia.org/wiki/Transformer" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                      rdfs:label "Power Transformer"@en .
@@ -3346,9 +3280,9 @@ cco:PowerTransformer rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PowerTransformerRectifierUnit
 cco:PowerTransformerRectifierUnit rdf:type owl:Class ;
-                                  rdfs:subClassOf cco:ElectricalPowerSourceComponent ;
+                                  rdfs:subClassOf cco:Artifact ;
                                   cco:alternative_label "TRU"@en ;
-                                  cco:definition "An Electrical Power Source Component that is designed to perform the functions of both a Rectifier and a Transformer."@en ;
+                                  cco:definition "A Material Artifact that is designed to perform the functions of both a Rectifier and a Transformer."@en ;
                                   cco:definition_source "http://www.skybrary.aero/index.php/Transformer_Rectifier_Unit_(TRU)" ;
                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                   rdfs:label "Power Transformer Rectifier Unit"@en .
@@ -3356,8 +3290,8 @@ cco:PowerTransformerRectifierUnit rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PowerTransmissionArtifact
 cco:PowerTransmissionArtifact rdf:type owl:Class ;
-                              rdfs:subClassOf cco:PropulsionSystemComponent ;
-                              cco:definition "A Propulsion System Component that is designed to transfer and regulate Power flow from a Power Source to an application point."@en ;
+                              rdfs:subClassOf cco:Artifact ;
+                              cco:definition "A Material Artifact that is designed to transfer and regulate Power flow from a Power Source to an application point."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                               rdfs:label "Power Transmission Artifact"@en .
 
@@ -3426,9 +3360,9 @@ cco:ProjectileLauncher rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Propeller
 cco:Propeller rdf:type owl:Class ;
-              rdfs:subClassOf cco:PropulsionSystemComponent ;
+              rdfs:subClassOf cco:Artifact ;
               cco:alternative_label "Propelling Screw"@en ;
-              cco:definition "A Propulsion System Component that is designed to convert rotary motion from an Engine or other mechanical Power Source into propulsive Force."@en ;
+              cco:definition "A Material Artifact that is designed to convert rotary motion from an Engine or other mechanical Power Source into propulsive Force."@en ;
               cco:definition_source "https://en.wikipedia.org/wiki/Propeller_(aeronautics)" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
               rdfs:label "Propeller"@en .
@@ -3468,14 +3402,6 @@ cco:PropulsionSystem rdf:type owl:Class ;
                      cco:definition_source "https://en.wikipedia.org/wiki/Propulsion" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                      rdfs:label "Propulsion System"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PropulsionSystemComponent
-cco:PropulsionSystemComponent rdf:type owl:Class ;
-                              rdfs:subClassOf cco:Artifact ;
-                              cco:definition "An Artifact that is designed to be a component of some Propulsion System."@en ;
-                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                              rdfs:label "Propulsion System Component"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Prosthesis
@@ -4145,8 +4071,8 @@ cco:ServiceArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Shaft
 cco:Shaft rdf:type owl:Class ;
-          rdfs:subClassOf cco:MachineElement ;
-          cco:definition "A Machine Element that is designed to rotate and transmit Torque, Power, or Rotational Motion from one machine element to another."@en ;
+          rdfs:subClassOf cco:Artifact ;
+          cco:definition "A Material Artifact that is designed to rotate and transmit Torque, Power, or Rotational Motion from one machine element to another."@en ;
           cco:definition_source "https://en.wikipedia.org/wiki/Shaft" ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
           rdfs:comment "A Shaft is usually used to connect other components of a drive train that cannot be connected directly either because of the distance between them or the need to allow for relative movement between those components."@en ;
@@ -4300,14 +4226,6 @@ cco:SteamEngine rdf:type owl:Class ;
                 cco:definition_source "https://en.wikipedia.org/wiki/Steam_engine" ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                 rdfs:label "Steam Engine"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/SteeringControlComponent
-cco:SteeringControlComponent rdf:type owl:Class ;
-                             rdfs:subClassOf cco:VehicleControlSystemComponent ;
-                             cco:definition "An Vehicle Control System Component that is designed to be a component of a Steering Control System."@en ;
-                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                             rdfs:label "Steering Control Component"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SteeringControlSystem
@@ -4559,8 +4477,8 @@ cco:TemperatureMeasurementArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TerminalBoard
 cco:TerminalBoard rdf:type owl:Class ;
-                  rdfs:subClassOf cco:ElectricalPowerSourceComponent ;
-                  cco:definition "An Electrical Power Source Component that is designed to join electrical terminations and create an electrical circuit by means of a block which connects individual wires without a splice or physically joining the ends."@en ;
+                  rdfs:subClassOf cco:Artifact ;
+                  cco:definition "A Material Artifact that is designed to join electrical terminations and create an electrical circuit by means of a block which connects individual wires without a splice or physically joining the ends."@en ;
                   cco:definition_source "https://en.wikipedia.org/wiki/Electrical_connector#Terminal_blocks" ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                   rdfs:label "Terminal Board"@en .
@@ -4869,14 +4787,6 @@ cco:VehicleControlSystem rdf:type owl:Class ;
                          rdfs:label "Vehicle Control System"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/VehicleControlSystemComponent
-cco:VehicleControlSystemComponent rdf:type owl:Class ;
-                                  rdfs:subClassOf cco:Artifact ;
-                                  cco:definition "An Artifact that is designed to be a component of a Vehicle Control System."@en ;
-                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                                  rdfs:label "Vehicle Control System Component"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/VehicleFrame
 cco:VehicleFrame rdf:type owl:Class ;
                  rdfs:subClassOf cco:Artifact ;
@@ -4884,14 +4794,6 @@ cco:VehicleFrame rdf:type owl:Class ;
                  cco:definition_source "https://en.wikipedia.org/wiki/Vehicle_frame" ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                  rdfs:label "Vehicle Frame"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/VehicleFramePart
-cco:VehicleFramePart rdf:type owl:Class ;
-                     rdfs:subClassOf cco:Artifact ;
-                     cco:definition "An Artifact that is designed to be part of some Vehicle Frame."@en ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                     rdfs:label "Vehicle Frame Part"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/VehicleTrack
