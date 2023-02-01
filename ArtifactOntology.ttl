@@ -710,6 +710,7 @@ cco:CommunicationArtifactFunction rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CommunicationInstrument
 cco:CommunicationInstrument rdf:type owl:Class ;
                             rdfs:subClassOf cco:Artifact ;
+                            obo:IAO_0000116 "refactor to comm. artifact"@en ;
                             cco:definition "An Artifact that is designed to facilitate communication between at least two entities."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                             rdfs:label "Communication Instrument"@en .
@@ -2247,7 +2248,6 @@ cco:InfrastructureElement rdf:type owl:Class ;
                                                 owl:someValuesFrom cco:InfrastructureRole
                                               ] ;
                           rdfs:subClassOf obo:BFO_0000040 ;
-                          obo:IAO_0000116 "Subclasses should be refactored out from under this where possible."@en ;
                           cco:definition "A Material Entity that bears an Infrastructure Role."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                           rdfs:label "Infrastructure Element"@en .
@@ -4479,8 +4479,9 @@ cco:TelecommunicationInstrument rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TelecommunicationNetwork
 cco:TelecommunicationNetwork rdf:type owl:Class ;
-                             rdfs:subClassOf cco:TelecommunicationInfrastructure ;
-                             cco:definition "A Telecommunication Infrastructure Artifact that is a system of Telecommunication Network Nodes and Lines, and is designed to enable the transmission of information over significant distances between Telecommunication Endpoints."@en ;
+                             rdfs:subClassOf cco:CommunicationSystem ;
+                             obo:IAO_0000116 "How is this diff from Comm system?"@en ;
+                             cco:definition "A Communication System that is designed to enable the transmission of information over significant distances between Telecommunication Endpoints via Telecommunication Network Nodes and Lines."@en ;
                              cco:definition_source "https://en.wikipedia.org/wiki/Telecommunications_network" ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                              rdfs:label "Telecommunication Network"@en .
@@ -4488,8 +4489,8 @@ cco:TelecommunicationNetwork rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TelecommunicationNetworkLine
 cco:TelecommunicationNetworkLine rdf:type owl:Class ;
-                                 rdfs:subClassOf cco:InfrastructureElement ;
-                                 cco:definition "A Telecommunication Infrastructure Artifact that is designed to be the physical transmission medium that connects two or more Telecommunication Network Nodes within a Telecommunication Network to facilitate communication between the Nodes."@en ;
+                                 rdfs:subClassOf cco:CommunicationInstrument ;
+                                 cco:definition "A Communication Artifact that is designed to be the physical transmission medium that connects two or more Telecommunication Network Nodes within a Telecommunication Network to facilitate communication between the Nodes."@en ;
                                  cco:definition_source "https://en.wikipedia.org/wiki/Telecommunications_link" ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                  rdfs:label "Telecommunication Network Line"@en .
@@ -4497,12 +4498,12 @@ cco:TelecommunicationNetworkLine rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TelecommunicationNetworkNode
 cco:TelecommunicationNetworkNode rdf:type owl:Class ;
-                                 rdfs:subClassOf cco:InfrastructureElement ,
+                                 rdfs:subClassOf cco:CommunicationInstrument ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty obo:BFO_0000050 ;
                                                    owl:someValuesFrom cco:TelecommunicationNetwork
                                                  ] ;
-                                 cco:definition "A Telecommunication Infrastructure Artifact that consists of a connection point, redistribution point, or endpoint that is designed to be part of a Telecommunication Network and can be either active or passive."@en ;
+                                 cco:definition "A Communication Artifact that consists of a connection point, redistribution point, or endpoint that is designed to be part of a Telecommunication Network and can be either active or passive."@en ;
                                  cco:definition_source "https://en.wikipedia.org/wiki/Node_(networking)" ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                  rdfs:label "Telecommunication Network Node"@en .
