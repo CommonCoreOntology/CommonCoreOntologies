@@ -456,8 +456,8 @@ cco:BrakeControlSystem rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Bridge
 cco:Bridge rdf:type owl:Class ;
-           rdfs:subClassOf cco:InfrastructureElement ;
-           cco:definition "A Transportation Infrastructure Artifact that is designed to span physical obstacles without closing the way underneath to enable Persons or Ground Vehicles to pass over the obstacles."@en ;
+           rdfs:subClassOf cco:LandTransportationArtifact ;
+           cco:definition "A Land Transportation Artifact that is designed to span physical obstacles without closing the way underneath to enable Persons or Ground Vehicles to pass over the obstacles."@en ;
            cco:definition_source "https://en.wikipedia.org/wiki/Bridge" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
            rdfs:label "Bridge"@en .
@@ -501,8 +501,8 @@ cco:Camera rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Canal
 cco:Canal rdf:type owl:Class ;
-          rdfs:subClassOf cco:InfrastructureElement ;
-          cco:definition "A Transportation Infrastructure Artifact that is an artificial Hydrographic Feature designed to convey water or enable Watercraft to travel inland."@en ;
+          rdfs:subClassOf cco:WaterTransportationArtifact ;
+          cco:definition "A Water Transportation Artifact that is an artificial Hydrographic Feature designed to convey water or enable Watercraft to travel inland."@en ;
           cco:definition_source "https://en.wikipedia.org/wiki/Canal" ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
           rdfs:label "Canal"@en .
@@ -2359,6 +2359,14 @@ cco:LandMine rdf:type owl:Class ;
              rdfs:label "Land Mine"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LandTransportationArtifact
+cco:LandTransportationArtifact rdf:type owl:Class ;
+                               rdfs:subClassOf cco:Artifact ;
+                               cco:definition "An Artifact that is fixed in place and designed to enable the movement of Vehicles and Animals from one location to another via land."@en ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
+                               rdfs:label "Land Transportation Artifact"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LandlineTelephone
 cco:LandlineTelephone rdf:type owl:Class ;
                       rdfs:subClassOf cco:Telephone ;
@@ -3739,8 +3747,8 @@ cco:Railcar rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Railway
 cco:Railway rdf:type owl:Class ;
-            rdfs:subClassOf cco:InfrastructureElement ;
-            cco:definition "A Transportation Infrastructure Artifact that is designed to enable Trains to transport passengers and goods."@en ;
+            rdfs:subClassOf cco:LandTransportationArtifact ;
+            cco:definition "A Land Transportation Artifact that is designed to enable Trains to transport passengers and goods."@en ;
             cco:definition_source "https://en.wikipedia.org/wiki/Rail_transport" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
             rdfs:label "Railway"@en .
@@ -3748,9 +3756,9 @@ cco:Railway rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RailwayCrossing
 cco:RailwayCrossing rdf:type owl:Class ;
-                    rdfs:subClassOf cco:InfrastructureElement ;
+                    rdfs:subClassOf cco:LandTransportationArtifact ;
                     cco:alternative_label "Level Crossing"@en ;
-                    cco:definition "A Transportation Infrastructure Artifact that is designed to enable Persons or Ground Vehicles to cross a Railway when traveling along a road or path that is perpendicular to and at the same elevation as the Railway at the point where they overlap."@en ;
+                    cco:definition "A Land Transportation Artifact that is designed to enable Persons or Ground Vehicles to cross a Railway when traveling along a road or path that is perpendicular to and at the same elevation as the Railway at the point where they overlap."@en ;
                     cco:definition_source "https://en.wikipedia.org/wiki/Level_crossing" ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                     rdfs:label "Railway Crossing"@en .
@@ -3758,8 +3766,8 @@ cco:RailwayCrossing rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RailwayJunction
 cco:RailwayJunction rdf:type owl:Class ;
-                    rdfs:subClassOf cco:InfrastructureElement ;
-                    cco:definition "A Transportation Infrastructure Artifact that is designed to enable a Train to switch between the tracks of two routes."@en ;
+                    rdfs:subClassOf cco:LandTransportationArtifact ;
+                    cco:definition "A Land Transportation Artifact that is designed to enable a Train to switch between the tracks of two routes."@en ;
                     cco:definition_source "https://en.wikipedia.org/wiki/Junction_(rail)" ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                     rdfs:label "Railway Junction"@en .
@@ -3984,8 +3992,8 @@ cco:Rifle rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Road
 cco:Road rdf:type owl:Class ;
-         rdfs:subClassOf cco:InfrastructureElement ;
-         cco:definition "A Transportation Infrastructure Artifact that is designed to enable Ground Vehicles to travel from one location to another."@en ;
+         rdfs:subClassOf cco:LandTransportationArtifact ;
+         cco:definition "A Land Transportation Artifact that is designed to enable Ground Vehicles to travel from one location to another."@en ;
          cco:definition_source "https://en.wikipedia.org/wiki/Road" ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
          rdfs:label "Road"@en .
@@ -3993,8 +4001,8 @@ cco:Road rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RoadJunction
 cco:RoadJunction rdf:type owl:Class ;
-                 rdfs:subClassOf cco:InfrastructureElement ;
-                 cco:definition "A Transportation Infrastructure Artifact that is designed to enable Ground Vehicles to exit one Road and enter another."@en ;
+                 rdfs:subClassOf cco:LandTransportationArtifact ;
+                 cco:definition "A Land Transportation Artifact that is designed to enable Ground Vehicles to exit one Road and enter another."@en ;
                  cco:definition_source "https://en.wikipedia.org/wiki/Junction_(road)" ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                  rdfs:label "Road Junction"@en .
@@ -4653,8 +4661,8 @@ cco:TorpedoTube rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Trail
 cco:Trail rdf:type owl:Class ;
-          rdfs:subClassOf cco:InfrastructureElement ;
-          cco:definition "A Transportation Infrastructure Artifact that is designed to enable transport through rough country, such as a forest or moor."@en ;
+          rdfs:subClassOf cco:LandTransportationArtifact ;
+          cco:definition "A Land Transportation Artifact that is designed to enable transport through rough country, such as a forest or moor."@en ;
           cco:definition_source "https://en.wikipedia.org/wiki/Trail" ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
           rdfs:label "Trail"@en .
@@ -4747,8 +4755,8 @@ cco:Truck rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Tunnel
 cco:Tunnel rdf:type owl:Class ;
-           rdfs:subClassOf cco:InfrastructureElement ;
-           cco:definition "A Transportation Infrastructure Artifact that is designed to enable Ground Vehicles to travel underneath a surrounding soil, earth, or rock formation."@en ;
+           rdfs:subClassOf cco:LandTransportationArtifact ;
+           cco:definition "A Land Transportation Artifact that is designed to enable Ground Vehicles to travel underneath a surrounding soil, earth, or rock formation."@en ;
            cco:definition_source "https://en.wikipedia.org/wiki/Tunnel" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
            rdfs:label "Tunnel"@en .
@@ -5003,6 +5011,14 @@ cco:WasteManagementArtifactFunction rdf:type owl:Class ;
                                     cco:definition_source "https://en.wikipedia.org/wiki/Waste_management" ;
                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                     rdfs:label "Waste Management Artifact Function"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WaterTransportationArtifact
+cco:WaterTransportationArtifact rdf:type owl:Class ;
+                                rdfs:subClassOf cco:Artifact ;
+                                cco:definition "An Artifact that is fixed in place and designed to enable the movement of Vehicles and Animals from one location to another via water."@en ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
+                                rdfs:label "Water Transportation Artifact"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Watercraft
