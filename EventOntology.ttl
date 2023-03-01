@@ -24,7 +24,7 @@
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/process_preceded_by
 cco:process_preceded_by rdf:type owl:ObjectProperty ;
                         owl:inverseOf cco:process_precedes ;
-                        cco:definition "P preceded_by P' if and only if: given any process p that instantiates P at a time t, there is some process p' such that p' instantiates P' at time t', and t' is earlier than t."@en ;
+                        cco:definition "p1 preceded_by p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t2 interval_is_before t1 or t2 interval_meets t1."@en ;
                         cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#preceded_by" ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                         rdfs:label "process preceded by"@en ;
@@ -33,7 +33,7 @@ cco:process_preceded_by rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/process_precedes
 cco:process_precedes rdf:type owl:ObjectProperty ;
-                     cco:definition "Inverse of process preceded by."@en ;
+                     cco:definition "p1 process_precedes p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t1 interval_is_before t2 or t1 interval_meets t2."@en ;
                      cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#precedes" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                      rdfs:label "process precedes"@en ;
