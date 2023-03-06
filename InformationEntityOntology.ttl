@@ -608,18 +608,6 @@ cco:DateIdentifier rdf:type owl:Class ;
                    rdfs:label "Date Identifier"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/DecadeIdentifier
-cco:DecadeIdentifier rdf:type owl:Class ;
-                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                           owl:onProperty cco:designates ;
-                                           owl:someValuesFrom cco:Decade
-                                         ] ;
-                     rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                     cco:definition "A Temporal Interval Identifier that designates some Decade."@en ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                     rdfs:label "Decade Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DecimalDateIdentifier
 cco:DecimalDateIdentifier rdf:type owl:Class ;
                           rdfs:subClassOf cco:DateIdentifier ;
@@ -775,18 +763,6 @@ cco:GreenwichMeanTimeZoneIdentifier rdf:type owl:Class ;
                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                     rdfs:comment "Greenwich Mean Time (GMT) is the mean solar time at the Royal Observatory in Greenwich, London and has been superseded by Coordinated Universal Time (UTC)."@en ;
                                     rdfs:label "Greenwich Mean Time Zone Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/HourIdentifier
-cco:HourIdentifier rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty cco:designates ;
-                                         owl:someValuesFrom cco:Hour
-                                       ] ;
-                   rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                   cco:definition "A Temporal Interval Identifier that designates some Hour."@en ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                   rdfs:label "Hour Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
@@ -1035,18 +1011,6 @@ cco:MinimumOrdinalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                       rdfs:label "Minimum Ordinal Measurement Information Content Entity"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MinuteIdentifier
-cco:MinuteIdentifier rdf:type owl:Class ;
-                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                           owl:onProperty cco:designates ;
-                                           owl:someValuesFrom cco:Minute
-                                         ] ;
-                     rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                     cco:definition "A Temporal Interval Identifier that designates some Minute."@en ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                     rdfs:label "Minute Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModePointEstimateInformationContentEntity
 cco:ModePointEstimateInformationContentEntity rdf:type owl:Class ;
                                               rdfs:subClassOf cco:PointEstimateInformationContentEntity ;
@@ -1056,102 +1020,6 @@ cco:ModePointEstimateInformationContentEntity rdf:type owl:Class ;
                                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                               rdfs:comment "While there is always at least one Mode for every set of data, it is possible for any given set of data to have multiple Modes. The Mode is typically most useful when the members of the set are all Nominal Measurement Information Content Entities."@en ;
                                               rdfs:label "Mode Point Estimate Information Content Entity"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MonthIdentifier
-cco:MonthIdentifier rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Restriction ;
-                                          owl:onProperty cco:designates ;
-                                          owl:someValuesFrom cco:Month
-                                        ] ;
-                    rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                    cco:definition "A Temporal Interval Identifier that designates some Month."@en ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                    rdfs:label "Month Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiDayTemporalIntervalIdentifier
-cco:MultiDayTemporalIntervalIdentifier rdf:type owl:Class ;
-                                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                             owl:onProperty cco:designates ;
-                                                             owl:someValuesFrom cco:MultiDayTemporalInterval
-                                                           ] ;
-                                       rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                                       cco:definition "A Temporal Interval Identifier that designates some Multi-Day Temporal Interval."@en ;
-                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                       rdfs:label "Multi-Day Temporal Interval Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiHourTemporalIntervalIdentifier
-cco:MultiHourTemporalIntervalIdentifier rdf:type owl:Class ;
-                                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                              owl:onProperty cco:designates ;
-                                                              owl:someValuesFrom cco:MultiHourTemporalInterval
-                                                            ] ;
-                                        rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                                        cco:definition "A Temporal Interval Identifier that designates some Multi-Hour Temporal Interval."@en ;
-                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                        rdfs:label "Multi-Hour Temporal Interval Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiMinuteTemporalIntervalIdentifier
-cco:MultiMinuteTemporalIntervalIdentifier rdf:type owl:Class ;
-                                          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                owl:onProperty cco:designates ;
-                                                                owl:someValuesFrom cco:MultiMinuteTemporalInterval
-                                                              ] ;
-                                          rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                                          cco:definition "A Temporal Interval Identifier that designates some Multi-Minute Temporal Interval."@en ;
-                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                          rdfs:label "Multi-Minute Temporal Interval Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiMonthTemporalIntervalIdentifier
-cco:MultiMonthTemporalIntervalIdentifier rdf:type owl:Class ;
-                                         owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                               owl:onProperty cco:designates ;
-                                                               owl:someValuesFrom cco:MultiMonthTemporalInterval
-                                                             ] ;
-                                         rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                                         cco:definition "A Temporal Interval Identifier that designates some Multi-Month Temporal Interval."@en ;
-                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                         rdfs:label "Multi-Month Temporal Interval Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiSecondTemporalIntervalIdentifier
-cco:MultiSecondTemporalIntervalIdentifier rdf:type owl:Class ;
-                                          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                owl:onProperty cco:designates ;
-                                                                owl:someValuesFrom cco:MultiSecondTemporalInterval
-                                                              ] ;
-                                          rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                                          cco:definition "A Temporal Interval Identifier that designates some Multi-Second Temporal Interval."@en ;
-                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                          rdfs:label "Multi-Second Temporal Interval Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiWeekTemporalIntervalIdentifier
-cco:MultiWeekTemporalIntervalIdentifier rdf:type owl:Class ;
-                                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                              owl:onProperty cco:designates ;
-                                                              owl:someValuesFrom cco:MultiWeekTemporalInterval
-                                                            ] ;
-                                        rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                                        cco:definition "A Temporal Interval Identifier that designates some Multi-Week Temporal Interval."@en ;
-                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                        rdfs:label "Multi-Week Temporal Interval Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiYearTemporalIntervalIdentifier
-cco:MultiYearTemporalIntervalIdentifier rdf:type owl:Class ;
-                                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                              owl:onProperty cco:designates ;
-                                                              owl:someValuesFrom cco:MultiYearTemporalInterval
-                                                            ] ;
-                                        rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                                        cco:definition "A Temporal Interval Identifier that designates some Multi-Year Temporal Interval."@en ;
-                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                                        rdfs:label "Multi-Year Temporal Interval Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/NautralLanguage
@@ -1394,18 +1262,6 @@ cco:RepresentationalInformationContentEntity rdf:type owl:Class ;
                                              rdfs:label "Representational Information Content Entity"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/SecondIdentifier
-cco:SecondIdentifier rdf:type owl:Class ;
-                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                           owl:onProperty cco:designates ;
-                                           owl:someValuesFrom cco:Second
-                                         ] ;
-                     rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                     cco:definition "A Temporal Interval Identifier that designates some Second."@en ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                     rdfs:label "Second Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SequencePositionOrdinality
 cco:SequencePositionOrdinality rdf:type owl:Class ;
                                rdfs:subClassOf cco:OrdinalMeasurementInformationContentEntity ;
@@ -1595,30 +1451,6 @@ cco:VeracityMeasurementInformationContentEntity rdf:type owl:Class ;
                                                 rdfs:comment "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."@en ,
                                                              "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance (see: 'Reliability Measurement Information Content Entity'), correctness-of-information ('Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."@en ;
                                                 rdfs:label "Veracity Measurement Information Content Entity"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/WeekIdentifier
-cco:WeekIdentifier rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty cco:designates ;
-                                         owl:someValuesFrom cco:Week
-                                       ] ;
-                   rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                   cco:definition "A Temporal Interval Identifier that designates some Week."@en ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                   rdfs:label "Week Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/YearIdentifier
-cco:YearIdentifier rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty cco:designates ;
-                                         owl:someValuesFrom cco:Year
-                                       ] ;
-                   rdfs:subClassOf cco:TemporalIntervalIdentifier ;
-                   cco:definition "A Temporal Interval Identifier that designates some Year."@en ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                   rdfs:label "Year Identifier"@en .
 
 
 #################################################################
