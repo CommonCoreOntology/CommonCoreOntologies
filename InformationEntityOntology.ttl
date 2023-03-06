@@ -593,9 +593,13 @@ cco:DataRangeIntervalEstimateInformationContentEntity rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DateIdentifier
 cco:DateIdentifier rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty cco:designates ;
-                                         owl:someValuesFrom cco:Day
+                   owl:equivalentClass [ owl:intersectionOf ( cco:TemporalIntervalIdentifier
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:designates ;
+                                                                owl:someValuesFrom cco:Day
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
                                        ] ;
                    rdfs:subClassOf cco:TemporalIntervalIdentifier ;
                    cco:alternative_label "Day Identifier"@en ;
@@ -646,9 +650,13 @@ cco:DescriptiveInformationContentEntity rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DesignativeInformationContentEntity
 cco:DesignativeInformationContentEntity rdf:type owl:Class ;
-                                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                              owl:onProperty cco:designates ;
-                                                              owl:someValuesFrom obo:BFO_0000001
+                                        owl:equivalentClass [ owl:intersectionOf ( cco:InformationContentEntity
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty cco:designates ;
+                                                                                     owl:someValuesFrom obo:BFO_0000001
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
                                                             ] ;
                                         rdfs:subClassOf cco:InformationContentEntity ;
                                         owl:disjointWith cco:DirectiveInformationContentEntity ;
@@ -698,9 +706,13 @@ cco:DiminutiveName rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DirectiveInformationContentEntity
 cco:DirectiveInformationContentEntity rdf:type owl:Class ;
-                                      owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                            owl:onProperty cco:prescribes ;
-                                                            owl:someValuesFrom obo:BFO_0000001
+                                      owl:equivalentClass [ owl:intersectionOf ( cco:InformationContentEntity
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty cco:prescribes ;
+                                                                                   owl:someValuesFrom obo:BFO_0000001
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
                                                           ] ;
                                       rdfs:subClassOf cco:InformationContentEntity ;
                                       cco:alternative_label "Directive ICE"@en ;
@@ -779,9 +791,13 @@ cco:HourIdentifier rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
 cco:InformationBearingEntity rdf:type owl:Class ;
-                             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                   owl:onProperty obo:RO_0010002 ;
-                                                   owl:someValuesFrom cco:InformationContentEntity
+                             owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000030
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty obo:RO_0010002 ;
+                                                                          owl:someValuesFrom cco:InformationContentEntity
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
                                                  ] ;
                              rdfs:subClassOf obo:BFO_0000030 ;
                              cco:alternative_label "IBE"@en ;
@@ -793,9 +809,13 @@ cco:InformationBearingEntity rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationContentEntity
 cco:InformationContentEntity rdf:type owl:Class ;
-                             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                   owl:onProperty cco:is_about ;
-                                                   owl:someValuesFrom obo:BFO_0000001
+                             owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000031
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty cco:is_about ;
+                                                                          owl:someValuesFrom obo:BFO_0000001
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
                                                  ] ;
                              rdfs:subClassOf obo:BFO_0000031 ;
                              cco:alternative_label "ICE"@en ;
@@ -841,9 +861,13 @@ cco:IntervalEstimateInformationContentEntity rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IntervalMeasurementInformationContentEntity
 cco:IntervalMeasurementInformationContentEntity rdf:type owl:Class ;
-                                                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty cco:is_a_interval_measurement_of ;
-                                                                      owl:someValuesFrom obo:BFO_0000001
+                                                owl:equivalentClass [ owl:intersectionOf ( cco:MeasurementInformationContentEntity
+                                                                                           [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty cco:is_a_interval_measurement_of ;
+                                                                                             owl:someValuesFrom obo:BFO_0000001
+                                                                                           ]
+                                                                                         ) ;
+                                                                      rdf:type owl:Class
                                                                     ] ;
                                                 rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                                 owl:disjointWith cco:NominalMeasurementInformationContentEntity ,
@@ -953,9 +977,13 @@ cco:MeanPointEstimateInformationContentEntity rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MeasurementInformationContentEntity
 cco:MeasurementInformationContentEntity rdf:type owl:Class ;
-                                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                              owl:onProperty cco:is_a_measurement_of ;
-                                                              owl:someValuesFrom obo:BFO_0000001
+                                        owl:equivalentClass [ owl:intersectionOf ( cco:DescriptiveInformationContentEntity
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty cco:is_a_measurement_of ;
+                                                                                     owl:someValuesFrom obo:BFO_0000001
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
                                                             ] ;
                                         rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
                                         owl:disjointWith cco:RepresentationalInformationContentEntity ;
@@ -1149,9 +1177,13 @@ cco:Nickname rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/NominalMeasurementInformationContentEntity
 cco:NominalMeasurementInformationContentEntity rdf:type owl:Class ;
-                                               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty cco:is_a_nominal_measurement_of ;
-                                                                     owl:someValuesFrom obo:BFO_0000001
+                                               owl:equivalentClass [ owl:intersectionOf ( cco:MeasurementInformationContentEntity
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty cco:is_a_nominal_measurement_of ;
+                                                                                            owl:someValuesFrom obo:BFO_0000001
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
                                                                    ] ;
                                                rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                                owl:disjointWith cco:OrdinalMeasurementInformationContentEntity ,
@@ -1189,9 +1221,13 @@ cco:OrdinalDateIdentifier rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrdinalMeasurementInformationContentEntity
 cco:OrdinalMeasurementInformationContentEntity rdf:type owl:Class ;
-                                               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty cco:is_a_ordinal_measurement_of ;
-                                                                     owl:someValuesFrom obo:BFO_0000001
+                                               owl:equivalentClass [ owl:intersectionOf ( cco:MeasurementInformationContentEntity
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty cco:is_a_ordinal_measurement_of ;
+                                                                                            owl:someValuesFrom obo:BFO_0000001
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
                                                                    ] ;
                                                rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                                owl:disjointWith cco:RatioMeasurementInformationContentEntity ;
@@ -1299,9 +1335,13 @@ cco:ProportionalRatioMeasurementInformationContentEntity rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RatioMeasurementInformationContentEntity
 cco:RatioMeasurementInformationContentEntity rdf:type owl:Class ;
-                                             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                   owl:onProperty cco:is_a_ratio_measurement_of ;
-                                                                   owl:someValuesFrom obo:BFO_0000001
+                                             owl:equivalentClass [ owl:intersectionOf ( cco:MeasurementInformationContentEntity
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty cco:is_a_ratio_measurement_of ;
+                                                                                          owl:someValuesFrom obo:BFO_0000001
+                                                                                        ]
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
                                                                  ] ;
                                              rdfs:subClassOf cco:MeasurementInformationContentEntity ;
                                              cco:definition "A Measurement Information Content Entity that consists of a symbol that places a Quality of an Entity onto an interval scale having a true zero value."@en ;
@@ -1337,9 +1377,13 @@ cco:ReliabilityMeasurementInformationContentEntity rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RepresentationalInformationContentEntity
 cco:RepresentationalInformationContentEntity rdf:type owl:Class ;
-                                             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                   owl:onProperty cco:represents ;
-                                                                   owl:someValuesFrom obo:BFO_0000001
+                                             owl:equivalentClass [ owl:intersectionOf ( cco:DescriptiveInformationContentEntity
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty cco:represents ;
+                                                                                          owl:someValuesFrom obo:BFO_0000001
+                                                                                        ]
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
                                                                  ] ;
                                              rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
                                              cco:definition "A Descriptive Information Content Entity that consists of a set of propositions or the content of an image that represents some Entity."@en ;
@@ -1412,9 +1456,13 @@ cco:SpatialReferenceSystem rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SpatialRegionIdentifier
 cco:SpatialRegionIdentifier rdf:type owl:Class ;
-                            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                  owl:onProperty cco:designates ;
-                                                  owl:someValuesFrom obo:BFO_0000006
+                            owl:equivalentClass [ owl:intersectionOf ( cco:DesignativeInformationContentEntity
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty cco:designates ;
+                                                                         owl:someValuesFrom obo:BFO_0000006
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
                                                 ] ;
                             rdfs:subClassOf cco:DesignativeInformationContentEntity ;
                             cco:definition "A Designative Information Content Entity that designates some Spatial Region."@en ;
@@ -1441,9 +1489,13 @@ cco:StandardTimeOfDayIdentifier rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TemporalInstantIdentifier
 cco:TemporalInstantIdentifier rdf:type owl:Class ;
-                              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                    owl:onProperty cco:designates ;
-                                                    owl:someValuesFrom obo:BFO_0000148
+                              owl:equivalentClass [ owl:intersectionOf ( cco:TemporalRegionIdentifier
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty cco:designates ;
+                                                                           owl:someValuesFrom obo:BFO_0000148
+                                                                         ]
+                                                                       ) ;
+                                                    rdf:type owl:Class
                                                   ] ;
                               rdfs:subClassOf cco:TemporalRegionIdentifier ;
                               cco:alternative_label "Zero-Dimensional Temporal Region Identifier"@en ;
@@ -1454,9 +1506,13 @@ cco:TemporalInstantIdentifier rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TemporalIntervalIdentifier
 cco:TemporalIntervalIdentifier rdf:type owl:Class ;
-                               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                     owl:onProperty cco:designates ;
-                                                     owl:someValuesFrom obo:BFO_0000038
+                               owl:equivalentClass [ owl:intersectionOf ( cco:TemporalRegionIdentifier
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty cco:designates ;
+                                                                            owl:someValuesFrom obo:BFO_0000038
+                                                                          ]
+                                                                        ) ;
+                                                     rdf:type owl:Class
                                                    ] ;
                                rdfs:subClassOf cco:TemporalRegionIdentifier ;
                                cco:alternative_label "One-Dimensional Temporal Region Identifier"@en ;
@@ -1477,9 +1533,13 @@ cco:TemporalReferenceSystem rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TemporalRegionIdentifier
 cco:TemporalRegionIdentifier rdf:type owl:Class ;
-                             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                   owl:onProperty cco:designates ;
-                                                   owl:someValuesFrom obo:BFO_0000008
+                             owl:equivalentClass [ owl:intersectionOf ( cco:DesignativeInformationContentEntity
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty cco:designates ;
+                                                                          owl:someValuesFrom obo:BFO_0000008
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
                                                  ] ;
                              rdfs:subClassOf cco:DesignativeInformationContentEntity ;
                              cco:definition "A Designative Information Content Entity that designates some Temporal Region."@en ;
@@ -1489,9 +1549,13 @@ cco:TemporalRegionIdentifier rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TimeOfDayIdentifier
 cco:TimeOfDayIdentifier rdf:type owl:Class ;
-                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                              owl:onProperty cco:designates ;
-                                              owl:someValuesFrom cco:TimeOfDay
+                        owl:equivalentClass [ owl:intersectionOf ( cco:TemporalInstantIdentifier
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty cco:designates ;
+                                                                     owl:someValuesFrom cco:TimeOfDay
+                                                                   ]
+                                                                 ) ;
+                                              rdf:type owl:Class
                                             ] ;
                         rdfs:subClassOf cco:TemporalInstantIdentifier ;
                         cco:definition "A Temporal Instant Identifier that designates some Time of Day."@en ;
