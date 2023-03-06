@@ -308,23 +308,25 @@ cco:prescribes rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/represented_by
 cco:represented_by rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf cco:described_by ;
+                   rdfs:subPropertyOf cco:is_subject_of ;
                    owl:inverseOf cco:represents ;
                    rdf:type owl:InverseFunctionalProperty ;
                    rdfs:range cco:RepresentationalInformationContentEntity ;
-                   cco:definition "x represented_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y presents the characteristics by which x can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+                   cco:definition "y represented_by x iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                   rdfs:comment "See notes for inverse property." ;
                    rdfs:label "represented by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/represents
 cco:represents rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf cco:describes ;
+               rdfs:subPropertyOf cco:is_about ;
                rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:RepresentationalInformationContentEntity ;
-               cco:definition "x represents y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x presents the characteristics by which y can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+               cco:definition "x represents y iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                cco:elucidation "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+               rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., groves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding standards for images." ;
                rdfs:label "represents"@en .
 
 
@@ -1253,8 +1255,8 @@ cco:RepresentationalInformationContentEntity rdf:type owl:Class ;
                                                                                       ) ;
                                                                    rdf:type owl:Class
                                                                  ] ;
-                                             rdfs:subClassOf cco:DescriptiveInformationContentEntity ;
-                                             cco:definition "A Descriptive Information Content Entity that consists of a set of propositions or the content of an image that represents some Entity."@en ;
+                                             rdfs:subClassOf cco:InformationContentEntity ;
+                                             cco:definition "An Information Content Entity that represents some Entity."@en ;
                                              cco:example_of_usage "the content of a court transcript represents a courtroom proceeding" ,
                                                                   "the content of a photograph of the Statue of Liberty represents the Statue of Liberty" ,
                                                                   "the content of a video of a sporting event represents that sporting event" ;
