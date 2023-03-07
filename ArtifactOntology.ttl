@@ -210,9 +210,13 @@ cco:ArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArtifactFunctionSpecification
 cco:ArtifactFunctionSpecification rdf:type owl:Class ;
-                                  owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                        owl:onProperty cco:prescribes ;
-                                                        owl:someValuesFrom cco:ArtifactFunction
+                                  owl:equivalentClass [ owl:intersectionOf ( cco:DirectiveInformationContentEntity
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty cco:prescribes ;
+                                                                               owl:someValuesFrom cco:ArtifactFunction
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
                                                       ] ;
                                   rdfs:subClassOf cco:DirectiveInformationContentEntity ;
                                   cco:definition "A Directive Information Content Entity that prescribes some Artifact Function and which is part of some Artifact Model."@en ;
@@ -230,9 +234,13 @@ cco:ArtifactHistory rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArtifactIdentifier
 cco:ArtifactIdentifier rdf:type owl:Class ;
-                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                             owl:onProperty cco:designates ;
-                                             owl:someValuesFrom cco:Artifact
+                       owl:equivalentClass [ owl:intersectionOf ( cco:DesignativeInformationContentEntity
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:designates ;
+                                                                    owl:someValuesFrom cco:Artifact
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
                                            ] ;
                        rdfs:subClassOf cco:DesignativeInformationContentEntity ;
                        cco:definition "A Designative Information Content Entity which designates some Artifact."@en ;
@@ -266,9 +274,13 @@ cco:ArtifactModel rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArtifactModelName
 cco:ArtifactModelName rdf:type owl:Class ;
-                      owl:equivalentClass [ rdf:type owl:Restriction ;
-                                            owl:onProperty cco:designates ;
-                                            owl:someValuesFrom cco:ArtifactModel
+                      owl:equivalentClass [ owl:intersectionOf ( cco:DesignativeInformationContentEntity
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty cco:designates ;
+                                                                   owl:someValuesFrom cco:ArtifactModel
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
                                           ] ;
                       rdfs:subClassOf cco:DesignativeInformationContentEntity ;
                       cco:definition "A Designative Information Content Entity that designates some Artifact Model."@en ;
@@ -3498,9 +3510,13 @@ cco:QRCode rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/QualitySpecification
 cco:QualitySpecification rdf:type owl:Class ;
-                         owl:equivalentClass [ rdf:type owl:Restriction ;
-                                               owl:onProperty cco:prescribes ;
-                                               owl:someValuesFrom obo:BFO_0000019
+                         owl:equivalentClass [ owl:intersectionOf ( cco:DirectiveInformationContentEntity
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty cco:prescribes ;
+                                                                      owl:someValuesFrom obo:BFO_0000019
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
                                              ] ;
                          rdfs:subClassOf cco:DirectiveInformationContentEntity ;
                          cco:definition "A Directive Information Content Entity that prescribes some Quality."@en ;

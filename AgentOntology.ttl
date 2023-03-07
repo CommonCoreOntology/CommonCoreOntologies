@@ -1111,11 +1111,7 @@ cco:Affordance rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Agent
 cco:Agent rdf:type owl:Class ;
-          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                       owl:unionOf ( cco:Animal
-                                                                     cco:Organization
-                                                                   )
-                                                     ]
+          owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
                                                      [ rdf:type owl:Restriction ;
                                                        owl:onProperty cco:agent_in ;
                                                        owl:someValuesFrom obo:BFO_0000015
@@ -1147,9 +1143,13 @@ cco:AllegianceRole rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AlliedPerson
 cco:AlliedPerson rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty obo:RO_0000087 ;
-                                       owl:someValuesFrom cco:AllyRole
+                 owl:equivalentClass [ owl:intersectionOf ( cco:Person
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty obo:RO_0000087 ;
+                                                              owl:someValuesFrom cco:AllyRole
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
                                      ] ;
                  rdfs:subClassOf cco:Person ;
                  cco:definition "A Person who is the bearer of some Ally Role."@en ;
@@ -1221,9 +1221,13 @@ cco:CarrierAirWing rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Citizen
 cco:Citizen rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty obo:RO_0000087 ;
-                                  owl:someValuesFrom cco:CitizenRole
+            owl:equivalentClass [ owl:intersectionOf ( cco:Person
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:RO_0000087 ;
+                                                         owl:someValuesFrom cco:CitizenRole
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
                                 ] ;
             rdfs:subClassOf cco:Person ;
             cco:definition "A Person who is the bearer of some Citizen Role."@en ;
@@ -1333,9 +1337,13 @@ cco:EducationalOrganization rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Enemy
 cco:Enemy rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty obo:RO_0000087 ;
-                                owl:someValuesFrom cco:EnemyRole
+          owl:equivalentClass [ owl:intersectionOf ( cco:Person
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty obo:RO_0000087 ;
+                                                       owl:someValuesFrom cco:EnemyRole
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
                               ] ;
           rdfs:subClassOf cco:Person ;
           cco:definition "A Person who is the bearer of some Enemy Role."@en ;
@@ -1657,9 +1665,13 @@ cco:Organization rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationCapability
 cco:OrganizationCapability rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty cco:capability_of ;
-                                                 owl:someValuesFrom cco:Organization
+                           owl:equivalentClass [ owl:intersectionOf ( cco:AgentCapability
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty cco:capability_of ;
+                                                                        owl:someValuesFrom cco:Organization
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
                                                ] ;
                            rdfs:subClassOf cco:AgentCapability ;
                            cco:definition "An Agent Capability that inheres in an Organization to the extent of that Organization's capacity to realize it in Intentional Acts of a certain type."@en ;
@@ -1669,9 +1681,13 @@ cco:OrganizationCapability rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationMember
 cco:OrganizationMember rdf:type owl:Class ;
-                       owl:equivalentClass [ rdf:type owl:Restriction ;
-                                             owl:onProperty obo:RO_0000087 ;
-                                             owl:someValuesFrom cco:OrganizationMemberRole
+                       owl:equivalentClass [ owl:intersectionOf ( cco:Person
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty obo:RO_0000087 ;
+                                                                    owl:someValuesFrom cco:OrganizationMemberRole
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
                                            ] ;
                        rdfs:subClassOf cco:Person ,
                                        [ rdf:type owl:Restriction ;
@@ -1806,9 +1822,13 @@ cco:SetOfEyes rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Skill
 cco:Skill rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty cco:capability_of ;
-                                owl:someValuesFrom cco:Person
+          owl:equivalentClass [ owl:intersectionOf ( cco:AgentCapability
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty cco:capability_of ;
+                                                       owl:someValuesFrom cco:Person
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
                               ] ;
           rdfs:subClassOf cco:AgentCapability ;
           cco:definition "An Agent Capability that inheres in a Person to the extent of that Person's capacity to realize it in Intentional Acts of a certain type."@en ;
@@ -1844,14 +1864,19 @@ cco:Tattoo rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UnalliedPerson
 cco:UnalliedPerson rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty obo:RO_0000087 ;
-                                         owl:someValuesFrom cco:NeutralRole
+                   owl:equivalentClass [ owl:intersectionOf ( cco:Person
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty obo:RO_0000087 ;
+                                                                owl:someValuesFrom cco:NeutralRole
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
                                        ] ;
                    rdfs:subClassOf cco:Person ;
+                   cco:alternative_label "Unallied Person" ;
                    cco:definition "A Person who is the bearer of some Neutral Role."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Neutral"@en .
+                   rdfs:label "Neutral Person"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
