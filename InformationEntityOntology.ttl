@@ -1,4 +1,4 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology#> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,13 +9,12 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
-                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/InformationEntityOntology> ;
+                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-03-08/InformationEntityOntology> ;
                                                                                         owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ,
                                                                                                     <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
                                                                                         rdfs:label "Information Entity Ontology"@en ;
-                                                                                        cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                        owl:versionInfo "Version 1.3"@en ;
-                                                                                        cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
+                                                                                        <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
+                                                                                        owl:versionInfo "Version 1.4"@en ;
                                                                                         rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en .
 
 #################################################################
@@ -323,7 +322,7 @@ cco:represents rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf cco:is_about ;
                rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:RepresentationalInformationContentEntity ;
-               cco:definition "x represents y iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+               cco:definition "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                cco:elucidation "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
