@@ -9,13 +9,12 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology> rdf:type owl:Ontology ;
-                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/EventOntology> ;
+                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-03-06/EventOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
                                                                             cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                            cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
                                                                             rdfs:comment "This ontology is designed to represent processual entities, especially those performed by agents, that occur within multiple domains."@en ;
                                                                             rdfs:label "Event Ontology"@en ;
-                                                                            owl:versionInfo "Version 1.3"@en .
+                                                                            owl:versionInfo "Version 1.4"@en .
 
 #################################################################
 #    Object Properties
@@ -24,7 +23,7 @@
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/process_preceded_by
 cco:process_preceded_by rdf:type owl:ObjectProperty ;
                         owl:inverseOf cco:process_precedes ;
-                        cco:definition "P preceded_by P' if and only if: given any process p that instantiates P at a time t, there is some process p' such that p' instantiates P' at time t', and t' is earlier than t."@en ;
+                        cco:definition "p1 preceded_by p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t2 interval_is_before t1 or t2 interval_meets t1."@en ;
                         cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#preceded_by" ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                         rdfs:label "process preceded by"@en ;
@@ -33,7 +32,7 @@ cco:process_preceded_by rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/process_precedes
 cco:process_precedes rdf:type owl:ObjectProperty ;
-                     cco:definition "Inverse of process preceded by."@en ;
+                     cco:definition "p1 process_precedes p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t1 interval_is_before t2 or t1 interval_meets t2."@en ;
                      cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#precedes" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                      rdfs:label "process precedes"@en ;
@@ -1965,9 +1964,10 @@ cco:InstantMessaging rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IntentionalAct
 cco:IntentionalAct rdf:type owl:Class ;
                    rdfs:subClassOf cco:Act ;
+                   cco:alternative_label "Intentional Act"@en ;
                    cco:definition "An Act in which at least one Agent plays a causative role and which is prescribed by some Directive Information Content Entity held by at least one of the Agents."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                   rdfs:label "Intentional Act"@en .
+                   rdfs:label "Planned Act"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InverseSawtoothWaveform
@@ -2924,9 +2924,10 @@ cco:UnderActiveControl rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UnintentionalAct
 cco:UnintentionalAct rdf:type owl:Class ;
                      rdfs:subClassOf cco:Act ;
+                     cco:alternative_label "Unintentional Act"@en ;
                      cco:definition "An Act in which at least one Agent plays a causative role and which is not prescribed by some Objective held by any of the Agents."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                     rdfs:label "Unintentional Act"@en .
+                     rdfs:label "Unplanned Act"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UpperMidrangeFrequency
