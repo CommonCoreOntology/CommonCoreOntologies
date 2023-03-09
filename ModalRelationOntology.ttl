@@ -1,4 +1,5 @@
 @prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix mro: <http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
@@ -10,23 +11,15 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> rdf:type owl:Ontology ;
-                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/ModalRelationOntology> ;
-                                                                                    cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                    cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                                    rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO), including those CCO imports from the OBO Relation Ontology (RO)."@en ;
-                                                                                    rdfs:label "Modal Relation Ontology"@en ;
-                                                                                    owl:versionInfo "Version 1.3"@en .
+                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-03-08/ModalRelationOntology> ;
+                                                                                    rdfs:label "Modal Relation Ontology" ;
+                                                                                    owl:versionInfo "Version 1.4" ;
+                                                                                    rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO), including those CCO imports from the OBO Relation Ontology (RO)."@en .
+
 
 #################################################################
 #    Object Properties
 #################################################################
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/ModalObjectProperty
-mro:ModalObjectProperty rdf:type owl:ObjectProperty ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology"^^xsd:anyURI ;
-                        rdfs:comment "A term to group all types of modal properties, which is helpful for application purposes."@en ;
-                        rdfs:label "Modal Object Property"@en .
-
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/BFO_0000050
 mro:BFO_0000050 rdf:type owl:ObjectProperty ;
@@ -39,19 +32,16 @@ mro:BFO_0000050 rdf:type owl:ObjectProperty ;
                                 "this day is part of this year (occurrent parthood)"@en ;
                 obo:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
                 obo:IAO_0000116 "Everything is part of itself. Any part of any part of a thing is itself part of that thing. Two distinct things cannot be part of each other."@en ,
-                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ,
                                 """Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
 
 A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."""@en ;
                 obo:IAO_0000118 "part_of"@en ;
                 obo:RO_0001900 obo:RO_0001901 ;
-                obo:RO_0040042 obo:BFO_0000002 ,
-                               obo:BFO_0000003 ,
-                               obo:BFO_0000004 ,
-                               obo:BFO_0000017 ,
-                               obo:BFO_0000019 ,
-                               obo:BFO_0000020 ,
-                               obo:BFO_0000031 ;
+                <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:valid_for_go_annotation_extension ,
+                                                                        obo:valid_for_go_gp2term ,
+                                                                        obo:valid_for_go_ontology ,
+                                                                        obo:valid_for_gocam ;
                 rdfs:label "part of"@en ;
                 rdfs:seeAlso <http://ontologydesignpatterns.org/wiki/Community:Parts_and_Collections> ,
                              <http://ontologydesignpatterns.org/wiki/Submissions:PartOf> ,
@@ -68,12 +58,15 @@ mro:BFO_0000051 rdf:type owl:ObjectProperty ;
                                 "this year has part this day (occurrent parthood)"@en ;
                 obo:IAO_0000115 "a core relation that holds between a whole and its part"@en ;
                 obo:IAO_0000116 "Everything has itself as a part. Any part of any part of a thing is itself part of that thing. Two distinct things cannot have each other as a part."@en ,
-                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ,
                                 """Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
 
 A continuant cannot have an occurrent as part: use 'participates in'. An occurrent cannot have a continuant as part: use 'has participant'. An immaterial entity cannot have a material entity as part: use 'location of'. An independent continuant cannot have a specifically dependent continuant as part: use 'bearer of'. A specifically dependent continuant cannot have an independent continuant as part: use 'inheres in'."""@en ;
                 obo:IAO_0000118 "has_part"@en ;
                 obo:RO_0001900 obo:RO_0001901 ;
+                <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:valid_for_go_annotation_extension ,
+                                                                        obo:valid_for_go_ontology ,
+                                                                        obo:valid_for_gocam ;
                 rdfs:label "has part"@en .
 
 
@@ -127,6 +120,9 @@ mro:BFO_0000066 rdf:type owl:ObjectProperty ;
                 obo:IAO_0000118 "occurs_in"@en ,
                                 "unfolds in"@en ,
                                 "unfolds_in"@en ;
+                <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:valid_for_go_annotation_extension ,
+                                                                        obo:valid_for_go_ontology ,
+                                                                        obo:valid_for_gocam ;
                 rdfs:comment "Paraphrase of definition: a relation between a process and an independent continuant, in which the process takes place entirely within the independent continuant" ;
                 rdfs:isDefinedBy obo:bfo.owl ;
                 rdfs:label "occurs in"@en .
@@ -142,33 +138,43 @@ mro:BFO_0000067 rdf:type owl:ObjectProperty ;
                 rdfs:label "contains process"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/ModalObjectProperty
+mro:ModalObjectProperty rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf mro:ModalObjectProperty ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology"^^xsd:anyURI ;
+                        rdfs:comment "A term to group all types of modal properties, which is helpful for application purposes."@en ;
+                        rdfs:label "Modal Object Property"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/RO_0000052
 mro:RO_0000052 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf mro:ModalObjectProperty ;
                owl:inverseOf mro:RO_0000053 ;
+               rdf:type owl:FunctionalProperty ;
                obo:IAO_0000111 "inheres in"@en ;
-               obo:IAO_0000112 "this fragility inheres in this vase"@en ,
-                               "this red color inheres in this apple"@en ;
-               obo:IAO_0000115 "a relation between a specifically dependent continuant (the dependent) and an independent continuant (the bearer), in which the dependent specifically depends on the bearer for its existence"@en ;
-               obo:IAO_0000116 "A dependent inheres in its bearer at all times for which the dependent exists."@en ;
+               obo:IAO_0000112 "this fragility is a characteristic of this vase"@en ,
+                               "this red color is a characteristic of this apple"@en ;
+               obo:IAO_0000115 "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence."@en ;
                obo:IAO_0000118 "inheres_in"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
-               rdfs:label "inheres in"@en .
+               rdfs:comment "Note that this relation was previously called \"inheres in\", but was changed to be called \"characteristic of\" because BFO2 uses \"inheres in\" in a more restricted fashion. This relation differs from BFO2:inheres_in in two respects: (1) it does not impose a range constraint, and thus it allows qualities of processes, as well as of information entities, whereas BFO2 restricts inheres_in to only apply to independent continuants (2) it is declared functional, i.e. something can only be a characteristic of one thing." ;
+               rdfs:label "characteristic of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/RO_0000053
 mro:RO_0000053 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf mro:ModalObjectProperty ;
+               rdf:type owl:InverseFunctionalProperty ;
                rdfs:range obo:BFO_0000020 ;
                obo:IAO_0000111 "bearer of"@en ;
                obo:IAO_0000112 "this apple is bearer of this red color"@en ,
                                "this vase is bearer of this fragility"@en ;
-               obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a specifically dependent continuant (the dependent), in which the dependent specifically depends on the bearer for its existence"@en ;
+               obo:IAO_0000115 "Inverse of characteristic_of"@en ;
                obo:IAO_0000116 "A bearer can have many dependents, and its dependents can exist for different periods of time, but none of its dependents can exist when the bearer does not exist."@en ;
                obo:IAO_0000118 "bearer_of"@en ,
                                "is bearer of"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
-               rdfs:label "bearer of"@en .
+               rdfs:label "has characteristic"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/RO_0000056
@@ -205,7 +211,7 @@ mro:RO_0000057 rdf:type owl:ObjectProperty ;
                obo:IAO_0000115 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en ;
                obo:IAO_0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time."@en ;
                obo:IAO_0000118 "has_participant"@en ;
-               <http://purl.org/dc/elements/1.1/source> "http://www.obofoundry.org/ro/#OBO_REL:has_participant" ;
+               dc:source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" ;
                rdfs:label "has participant"@en .
 
 
@@ -242,6 +248,7 @@ mro:RO_0000079 rdf:type owl:ObjectProperty ;
                obo:IAO_0000116 "A function inheres in its bearer at all times for which the function exists, however the function need not be realized at all the times that the function exists."@en ;
                obo:IAO_0000118 "function_of"@en ,
                                "is function of"@en ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "function of"@en .
 
 
@@ -254,6 +261,7 @@ mro:RO_0000080 rdf:type owl:ObjectProperty ;
                obo:IAO_0000116 "A quality inheres in its bearer at all times for which the quality exists."@en ;
                obo:IAO_0000118 "is quality of"@en ,
                                "quality_of"@en ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "quality of"@en .
 
 
@@ -266,6 +274,7 @@ mro:RO_0000081 rdf:type owl:ObjectProperty ;
                obo:IAO_0000116 "A role inheres in its bearer at all times for which the role exists, however the role need not be realized at all the times that the role exists."@en ;
                obo:IAO_0000118 "is role of"@en ,
                                "role_of"@en ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "role of"@en .
 
 
@@ -319,6 +328,7 @@ mro:RO_0000092 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf mro:RO_0000052 ;
                obo:IAO_0000115 "inverse of has disposition" ;
                <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:RO_0002259 ;
+               rdfs:comment "This relation is modeled after the BFO relation of the same name which was in BFO2, but is used in a more restricted sense - specifically, we model this relation as functional (inherited from characteristic-of). Note that this relation is now removed from BFO2020." ;
                rdfs:label "disposition of"@en .
 
 
@@ -359,7 +369,7 @@ mro:RO_0001015 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "my head is the location of my brain"@en ,
                                "this cage is the location of this rat"@en ;
                obo:IAO_0000115 "a relation between two independent continuants, the location and the target, in which the target is entirely within the location"@en ;
-               obo:IAO_0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ;
+               obo:IAO_0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
                obo:IAO_0000118 "location_of"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
                rdfs:label "location of"@en .
@@ -410,10 +420,11 @@ mro:RO_0001025 rdf:type owl:ObjectProperty ;
                                "this rat is located in this cage"@en ;
                obo:IAO_0000115 "a relation between two independent continuants, the target and the location, in which the target is entirely within the location"@en ;
                obo:IAO_0000116 "Location as a relation between instances: The primitive instance-level relation c located_in r at t reflects the fact that each continuant is at any given time associated with exactly one spatial region, namely its exact location. Following we can use this relation to define a further instance-level location relation - not between a continuant and the region which it exactly occupies, but rather between one continuant and another. c is located in c1, in this sense, whenever the spatial region occupied by c is part_of the spatial region occupied by c1.    Note that this relation comprehends both the relation of exact location between one continuant and another which obtains when r and r1 are identical (for example, when a portion of fluid exactly fills a cavity), as well as those sorts of inexact location relations which obtain, for example, between brain and head or between ovum and uterus"@en ,
-                               "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ;
+                               "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
                obo:IAO_0000118 "located_in"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
-               <http://purl.org/dc/elements/1.1/source> "http://www.obofoundry.org/ro/#OBO_REL:located_in" ;
+               dc:source "http://www.obofoundry.org/ro/#OBO_REL:located_in" ;
+               <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:valid_for_go_gp2term ;
                rdfs:label "located in"@en .
 
 
@@ -428,7 +439,8 @@ mro:RO_0002000 rdf:type owl:ObjectProperty ;
                obo:IAO_0000118 "2D_boundary_of"@en ,
                                "boundary of"@en ,
                                "is 2D boundary of"@en ,
-                               "is boundary of"@en ;
+                               "is boundary of"@en ,
+                               "surface of"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
                rdfs:label "2D boundary of"@en .
 
@@ -442,7 +454,7 @@ mro:RO_0002002 rdf:type owl:ObjectProperty ;
                obo:IAO_0000115 "a relation between a material entity and a 2D immaterial entity (the boundary), in which the boundary delimits the material entity"@en ;
                obo:IAO_0000116 "A 2D boundary may have holes and gaps, but it must be a single connected entity, not an aggregate of several disconnected parts."@en ,
                                "Although the boundary is two-dimensional, it exists in three-dimensional space and thus has a 3D shape."@en ;
-               obo:IAO_0000117 "David Osumi-Sutherland" ;
+               obo:IAO_0000117 <https://orcid.org/0000-0002-7073-9172> ;
                obo:IAO_0000118 "has boundary"@en ,
                                "has_2D_boundary"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
@@ -2481,7 +2493,7 @@ mro:prescribes rdf:type owl:ObjectProperty ;
 mro:process_preceded_by rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf mro:ModalObjectProperty ;
                         owl:inverseOf mro:process_precedes ;
-                        cco:definition "P preceded_by P' if and only if: given any process p that instantiates P at a time t, there is some process p' such that p' instantiates P' at time t', and t' is earlier than t."@en ;
+                        cco:definition "p1 preceded_by p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t2 interval_is_before t1 or t2 interval_meets t1."@en ;
                         cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#preceded_by" ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                         rdfs:label "process preceded by"@en ;
@@ -2491,7 +2503,7 @@ mro:process_preceded_by rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/process_precedes
 mro:process_precedes rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf mro:ModalObjectProperty ;
-                     cco:definition "Inverse of process preceded by."@en ;
+                     cco:definition "p1 process_precedes p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t1 interval_is_before t2 or t1 interval_meets t2."@en ;
                      cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#precedes" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                      rdfs:label "process precedes"@en ;
@@ -2550,23 +2562,25 @@ mro:receives rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/represented_by
 mro:represented_by rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf mro:described_by ;
+                   rdfs:subPropertyOf mro:is_subject_of ;
                    owl:inverseOf mro:represents ;
                    rdf:type owl:InverseFunctionalProperty ;
                    rdfs:range cco:RepresentationalInformationContentEntity ;
-                   cco:definition "x represented_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y presents the characteristics by which x can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+                   cco:definition "y represented_by x iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                   rdfs:comment "See notes for inverse property." ;
                    rdfs:label "represented by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/represents
 mro:represents rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf mro:describes ;
+               rdfs:subPropertyOf mro:is_about ;
                rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:RepresentationalInformationContentEntity ;
-               cco:definition "x represents y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x presents the characteristics by which y can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+               cco:definition "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                cco:elucidation "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+               rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
                rdfs:label "represents"@en .
 
 
@@ -2806,9 +2820,15 @@ mro:has_text_value rdf:type owl:DatatypeProperty ;
                    rdfs:label "has text value"@en .
 
 
-###  Class stub to make Protege play nice
+#########################################
+### Class stubs to make Protege play nice
+#########################################
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
 cco:InformationBearingEntity rdf:type owl:Class .
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationContentEntity
+cco:InformationContentEntity rdf:type owl:Class .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
