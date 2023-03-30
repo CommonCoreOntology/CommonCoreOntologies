@@ -6,15 +6,41 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> rdf:type owl:Ontology ;
                                                                             owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-03-08/AgentOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-                                                                            <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                            rdfs:label "Agent Ontology"@en ;
+                                                                            dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."@en ;
+                                                                            rdfs:label "Agent Ontology"@en ;
                                                                             owl:versionInfo "Version 1.4"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
@@ -66,9 +92,9 @@ cco:delimits rdf:type owl:ObjectProperty ;
              owl:inverseOf cco:is_delimited_by ;
              rdf:type owl:FunctionalProperty ,
                       owl:InverseFunctionalProperty ;
-             rdfs:domain cco:GeopoliticalEntity ;
+             rdfs:domain cco:DelimitingDomain ;
              rdfs:range cco:Organization ;
-             cco:definition "An instance of Geopolitical Entity gpe1 delimits some Organization o1 iff gpe1 is the area within which o1 can legally operate."@en ;
+             cco:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "delimits"@en .
@@ -231,6 +257,21 @@ cco:has_husband rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:is_husband_of ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                 rdfs:label "has husband"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_interest_in
+cco:has_interest_in rdf:type owl:ObjectProperty ;
+                    owl:inverseOf cco:is_interest_of ;
+                    rdfs:domain cco:Agent ;
+                    rdfs:range obo:BFO_0000015 ;
+                    dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                    dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                    cco:definition "A relation between an entity and some process where the entity has an interest in that process."@en ;
+                    cco:elucidation "There are four conditions in which an entity has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                    rdfs:label "has interest in"@en ;
+                    skos:editorialNote "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the entity, or historically of evolutionary benefit to the entity's ancestors, or facilitates a process the entity has an interest in for the prior two reasons. The process an entity has an interest could in many or all ways be harmful to the entity."@en ;
+                    skos:prefLabel "has interest in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_maternal_aunt
@@ -544,8 +585,8 @@ cco:is_delimited_by rdf:type owl:ObjectProperty ,
                              owl:FunctionalProperty ,
                              owl:InverseFunctionalProperty ;
                     rdfs:domain cco:Organization ;
-                    rdfs:range cco:GeopoliticalEntity ;
-                    cco:definition "An instance of Organization o1 is_delimited_by some Geopolitical Entity gpe1 iff gpe1 is the area within which o1 can legally operate."@en ;
+                    rdfs:range cco:DelimitingDomain ;
+                    cco:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                     rdfs:label "is delimited by"@en .
@@ -661,6 +702,18 @@ cco:is_in_law_of rdf:type owl:ObjectProperty ;
                  rdf:type owl:SymmetricProperty ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                  rdfs:label "is in-law of"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_interest_of
+cco:is_interest_of rdf:type owl:ObjectProperty ;
+                   rdfs:domain obo:BFO_0000015 ;
+                   rdfs:range cco:Agent ;
+                   dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                   dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                   cco:definition "The inverse of has_interest_in. " ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                   rdfs:label "is interest of"@en ;
+                   skos:prefLabel "is interest of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_aunt_of
@@ -1243,6 +1296,18 @@ cco:CitizenRole rdf:type owl:Class ;
                 rdfs:label "Citizen Role"@en .
 
 
+
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/City
+cco:City rdf:type owl:Class ;
+         rdfs:subClassOf cco:LocalAdministrativeRegion ;
+         cco:definition "A Local Administrative Region in which a relatively large human population permanently resides; is designated as a city based on a particular administrative, legal, or historical status; and which delimits a local Government that typically oversees the provision of systems for sanitation, utilities, land usage, housing, and transportation."@en ;
+         cco:definition_source "https://en.wikipedia.org/w/index.php?title=City&oldid=1062635325"^^xsd:anyURI ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+         rdfs:label "City"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilOrganization
 cco:CivilOrganization rdf:type owl:Class ;
                       owl:equivalentClass [ owl:intersectionOf ( cco:Organization
@@ -1300,12 +1365,74 @@ cco:ContractorRole rdf:type owl:Class ;
                    rdfs:label "Contractor Role"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Country
+cco:Country rdf:type owl:Class ;
+            rdfs:subClassOf cco:GeopoliticalEntity ;
+            dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+            cco:definition "A Government Domain that is associated with certain distinct political, ethnic, or cultural characteristics, and which delimits a Government that has legitimate authority over a Populace."@en ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+            rdfs:label "Domain of a Country"@en ;
+            skos:editorialNote "'Country' is an unclear term. Does it refer to the people, the government, the site, or the material in the site? Thus, instead of defining 'Country' we have defined four country elements found under the class 'Country Element'. We leave it to the users to define 'Country' as it suites their purposes."@en ,
+                               "What is properly referred to as a 'Country' is highly dependent on the classification practices of the international community. For example: The United Kingdom is a sovereign country that has Wales, a non-sovereign Country, as a member. Vatican City is a sovereign country that is landlocked by a city: Rome, Italy. Puerto Rico is not a county (it's a territory) but has a government, a distinct culture, and so on."@en ;
+            skos:prefLabel "Domain of a Country"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CountryElement
+cco:CountryElement rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( cco:Country
+                                                       cco:GovernmentOfACountry
+                                                       cco:MaterialTerritoryOfACountry
+                                                       cco:Populace
+                                                     )
+                                       ] ;
+                   rdfs:subClassOf cco:ElementOfAPoliticalGeographicalEntity ;
+                   dcterms:created "2023-02-17T19:02:16-05:00"^^xsd:dateTime ;
+                   dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                   cco:alternative_label "Elements of a Country"@en ;
+                   cco:definition "An Element of a Political Geographical Entity that exists, if a Country exists: If a Country exists, then there is a Domain of a Country, within which there is a Material Territory of a Country (land, air, water), and there is a Government of a Country delimited by that domain, and a Populace whom that Government has legitimate authority over."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                   rdfs:label "Country Element"@en ;
+                   skos:editorialNote "'Country' is exceedingly ambiguous. However, the notion is too common and useful to ignore. Thus, we define 'Country Element' and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
+                   skos:prefLabel "Country Element"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/County
+cco:County rdf:type owl:Class ;
+           rdfs:subClassOf cco:GeopoliticalEntity ;
+           cco:definition "A Government Domain that is part of either a First-Order or Second-Order Administrative Region."@en ;
+           cco:definition_source "https://en.wikipedia.org/w/index.php?title=County&oldid=1062817834"^^xsd:anyURI ;
+           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+           rdfs:label "County"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Crew
 cco:Crew rdf:type owl:Class ;
          rdfs:subClassOf cco:GroupOfPersons ;
          cco:definition "A Group of Persons that bear Roles realized by the operation of the specified Vehicle."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
          rdfs:label "Crew"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DelimitingDomain
+cco:DelimitingDomain rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( cco:GeospatialRegion
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty cco:delimits ;
+                                                                  owl:someValuesFrom cco:Organization
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf cco:GeospatialRegion ;
+                     owl:disjointWith cco:DivisonOfGeopoliticalEntity ;
+                     dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                     dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                     cco:alternative_label "Delimiting Domain"@en ;
+                     cco:definition "A Geospatial Region that delimits the authority of an Organization to exercise its control within the bounded area."@en ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                     rdfs:label "Delimiting Domain"@en ;
+                     skos:prefLabel "Delimiting Domain"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Disability
@@ -1325,6 +1452,20 @@ cco:Disease rdf:type owl:Class ;
             rdfs:label "Disease"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DivisonOfGeopoliticalEntity
+cco:DivisonOfGeopoliticalEntity rdf:type owl:Class ;
+                                rdfs:subClassOf cco:GeospatialRegion ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty obo:BFO_0000050 ;
+                                                  owl:someValuesFrom cco:DelimitingDomain
+                                                ] ;
+                                cco:definition "A Geospatial Region that is a fiat division of a Delimiting Domain and not a Delimiting Domain."@en ;
+                                cco:example_of_usage "Flatbush, French Quarter, Western New York, Texas Panhandle, Greater Montreal Area of Quebec, Pacific Northwest, southwest area of Al Anbar Province, Northern Iraq." ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                rdfs:comment "Instances of this class are not proper Delimiting Domains, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
+                                rdfs:label "Division of Delimiting Domain"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EducationalOrganization
 cco:EducationalOrganization rdf:type owl:Class ;
                             rdfs:subClassOf cco:Organization ;
@@ -1332,6 +1473,25 @@ cco:EducationalOrganization rdf:type owl:Class ;
                             cco:definition_source "https://en.wikipedia.org/w/index.php?title=Education&oldid=1064011752"^^xsd:anyURI ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                             rdfs:label "Educational Organization"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ElementOfAPoliticalGeographicalEntity
+cco:ElementOfAPoliticalGeographicalEntity rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Class ;
+                                                                owl:unionOf ( cco:GeopoliticalEntity
+                                                                              cco:Government
+                                                                              cco:MaterialTerritoryOfAGovernmentDomain
+                                                                              cco:Populace
+                                                                            )
+                                                              ] ;
+                                          rdfs:subClassOf obo:BFO_0000004 ;
+                                          dcterms:created "2023-02-17T18:57:10-05:00"^^xsd:dateTime ;
+                                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                                          cco:definition "An independent continuant that exists, if a Political Geographical Entity exists: If a Political Geographical Entity exists, then there is Government Domain, within which there is a Material Territory of a Government Domain (land, air, water), and there is an Government delimited by that Government Domain, and a Populace whom that Government has legitimate authority over."@en ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                          rdfs:label "Element Of A Political Geographical Entity"@en ;
+                                          skos:editorialNote "As a parent term to 'Country', 'Political Geographical Entity' is exceedingly ambiguous. However, the notion, like 'Country', is too common and useful to ignore. Thus, we define the elements of a Political Geographical Entity and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
+                                          skos:prefLabel "Element Of A Political Geographical Entity"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Enemy
@@ -1419,7 +1579,7 @@ cco:Family rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FemaleSex
 cco:FemaleSex rdf:type owl:Class ;
               rdfs:subClassOf cco:BiologicalSex ;
-              cco:definition "A Biological Sex inhering in an individual that only produces gametes that can be fertilised by male gametes."@en ;
+              cco:definition "A Biological Sex inhering in an individual that only produces gametes that can be fertilized by male gametes."@en ;
               cco:definition_source "http://purl.org/obo/owl/PATO#PATO_0000383" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
               rdfs:label "Female Sex"@en .
@@ -1442,17 +1602,102 @@ cco:FinancialValueOfProperty rdf:type owl:Class ;
                              rdfs:label "Financial Value of Property"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FirstOrderAdministrativeRegion
+cco:FirstOrderAdministrativeRegion rdf:type owl:Class ;
+                                   rdfs:subClassOf cco:GeopoliticalEntity ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty obo:BFO_0000050 ;
+                                                     owl:someValuesFrom cco:Country
+                                                   ] ;
+                                   cco:definition "A Government Domain that is a primary administrative division of a Country."@en ;
+                                   cco:definition_source "http://www.geonames.org/export/codes.html" ;
+                                   cco:example_of_usage "a state in the United States" ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                   rdfs:label "First-Order Administrative Region"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/FourthOrderAdministrativeRegion
+cco:FourthOrderAdministrativeRegion rdf:type owl:Class ;
+                                    rdfs:subClassOf cco:GeopoliticalEntity ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty obo:BFO_0000050 ;
+                                                      owl:someValuesFrom cco:ThirdOrderAdministrativeRegion
+                                                    ] ;
+                                    cco:definition "A Government Domain that is a subdivision of a Third-Order Administrative Region."@en ;
+                                    cco:definition_source "http://www.geonames.org/export/codes.html" ;
+                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                    rdfs:label "Fourth-Order Administrative Region"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntity
+cco:GeopoliticalEntity rdf:type owl:Class ;
+                       owl:equivalentClass [ owl:intersectionOf ( cco:DelimitingDomain
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:delimits ;
+                                                                    owl:someValuesFrom cco:Government
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ] ;
+                       rdfs:subClassOf cco:DelimitingDomain ;
+                       cco:definition "A Delimiting Domain that delimits the authority of a Government to exercise its control within the bounded area."@en ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                       rdfs:label "Government Domain"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityBorder
+cco:GeopoliticalEntityBorder rdf:type owl:Class ;
+                             rdfs:subClassOf cco:GeospatialBoundary ;
+                             cco:definition "A Geospatial Boundary that is a boundary of some Government Domain."@en ;
+                             cco:definition_source "https://en.wikipedia.org/w/index.php?title=Border&oldid=1061275162"^^xsd:anyURI ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                             rdfs:label "Government Domain Border"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalOrganization
+cco:GeopoliticalOrganization rdf:type owl:Class ;
+                             owl:equivalentClass [ owl:intersectionOf ( cco:Organization
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty obo:RO_0000053 ;
+                                                                          owl:someValuesFrom cco:GeopoliticalPowerRole
+                                                                        ]
+                                                                      ) ;
+                                                   rdf:type owl:Class
+                                                 ] ;
+                             rdfs:subClassOf cco:Organization ;
+                             dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                             dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                             cco:definition "An Organization that bears a Geopolitical Power Role."@en ;
+                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                             rdfs:label "Geopolitical Organization"@en ;
+                             skos:prefLabel "Geopolitical Organization"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalPowerRole
+cco:GeopoliticalPowerRole rdf:type owl:Class ;
+                          rdfs:subClassOf obo:BFO_0000023 ;
+                          dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                          cco:definition "A Role had by an Organization that is perceived by an International Community as capable of performing influential acts in that community and is realized in performing such acts."@en ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                          rdfs:label "Geopolitical Power Role"@en ;
+                          skos:prefLabel "Geopolitical Power Role"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Government
 cco:Government rdf:type owl:Class ;
                rdfs:subClassOf cco:Organization ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty cco:is_delimited_by ;
-                                 owl:someValuesFrom cco:GeopoliticalEntity
+                                 owl:someValuesFrom cco:DelimitingDomain
                                ] ;
-               cco:definition "An Organization that exercises executive, legislative, or judicial authority over a Geopolitical Entity."@en ;
+               dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+               cco:definition "An Organization that is the highest legitimate authority delimited by some Delimiting Domain and that exercises executive, legislative, or judicial authority in that Domain."@en ;
                cco:definition_source "https://en.wikipedia.org/w/index.php?title=Government&oldid=1063736308"^^xsd:anyURI ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "Government"@en .
+               rdfs:label "Government"@en ;
+               skos:editorialNote "Highest legitimate authority should not be confused with highest legitimate authority of a particular kind. For example, while the judicial branch of the United States government has the highest judicial authority in a Delimiting Domain, it is not the highest legitimate authority delimited by that domain. The combination of executive, judicial, and legislative branches is higher because it wields more legitimate authority than any branch on its own."@en ,
+                                  "Importantly, the definition states \"highest legitimate authority delimited by some Delimiting Domain\" and not \"highest legitimate authority in some Delimiting Domain.\" The government of Wales is the highest legitimate authority delimited by some Delimiting Domain but it is not the highest legitimate authority in that domain, which would be the government of the United Kingdom."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentAgency
@@ -1464,7 +1709,26 @@ cco:GovernmentAgency rdf:type owl:Class ;
                                      ] ;
                      cco:definition "An Organization that is part of a Government and is responsible for the oversight and administration of specific governmental functions."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "Government Agency"@en .
+                     rdfs:label "Government Organization"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentOfACountry
+cco:GovernmentOfACountry rdf:type owl:Class ;
+                         owl:equivalentClass [ owl:intersectionOf ( cco:Government
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty cco:is_delimited_by ;
+                                                                      owl:someValuesFrom cco:Country
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ] ;
+                         rdfs:subClassOf cco:Government ;
+                         dcterms:created "2023-02-08T19:54:46-05:00"^^xsd:dateTime ;
+                         dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                         cco:definition "A Government that has legitimate authority within and is delimited by a Domain of a Country."@en ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                         rdfs:label "Government of a Country"@en ;
+                         skos:prefLabel "Government of a Country"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfAgents
@@ -1544,6 +1808,17 @@ cco:IncorporatedOrganization rdf:type owl:Class ;
                              rdfs:label "Incorporated Organization"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InternationalCommunity
+cco:InternationalCommunity rdf:type owl:Class ;
+                           rdfs:subClassOf cco:GroupOfAgents ;
+                           dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                           cco:definition "A maximal Group of Geopolitical Organizations engaged in geopolitics with one another."@en ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                           rdfs:label "International Community"@en ;
+                           skos:prefLabel "International Community"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InterpersonalRelationshipRole
 cco:InterpersonalRelationshipRole rdf:type owl:Class ;
                                   rdfs:subClassOf obo:BFO_0000023 ;
@@ -1573,6 +1848,15 @@ cco:LanguageSkill rdf:type owl:Class ;
                   rdfs:label "Language Skill"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/LocalAdministrativeRegion
+cco:LocalAdministrativeRegion rdf:type owl:Class ;
+                              rdfs:subClassOf cco:GeopoliticalEntity ;
+                              cco:alternative_label "Locality"@en ;
+                              cco:definition "A Government Domain that delimits a local Government."@en ;
+                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                              rdfs:label "Local Administrative Region"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MaleSex
 cco:MaleSex rdf:type owl:Class ;
             rdfs:subClassOf cco:BiologicalSex ;
@@ -1580,6 +1864,42 @@ cco:MaleSex rdf:type owl:Class ;
             cco:definition_source "http://purl.org/obo/owl/PATO#PATO_0000384" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
             rdfs:label "Male Sex"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MaterialTerritoryOfACountry
+cco:MaterialTerritoryOfACountry rdf:type owl:Class ;
+                                rdfs:subClassOf cco:MaterialTerritoryOfAGovernmentDomain ,
+                                                [ owl:intersectionOf ( cco:MaterialTerritoryOfAGovernmentDomain
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty obo:RO_0001018 ;
+                                                                         owl:someValuesFrom cco:Country
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
+                                                ] ;
+                                dcterms:created "2023-02-06T10:14:09-05:00"@en ;
+                                cco:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a The Domain of a Country."@en ;
+                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                rdfs:label "Material Territory of a Country"@en ;
+                                skos:prefLabel "Material Territory of a Country"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MaterialTerritoryOfAGovernmentDomain
+cco:MaterialTerritoryOfAGovernmentDomain rdf:type owl:Class ;
+                                         rdfs:subClassOf cco:PortionOfGeosphere ,
+                                                         [ owl:intersectionOf ( cco:PortionOfGeosphere
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty obo:RO_0001018 ;
+                                                                                  owl:someValuesFrom cco:GeopoliticalEntity
+                                                                                ]
+                                                                              ) ;
+                                                           rdf:type owl:Class
+                                                         ] ;
+                                         dcterms:created "2023-02-06T10:14:09-05:00"@en ;
+                                         cco:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a The Government Domain"@en ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                         rdfs:label "Material Territory of a Government Domain"@en ;
+                                         skos:prefLabel "Material Territory of a Government Domain"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MilitaryPersonnelForce
@@ -1594,7 +1914,7 @@ cco:MilitaryPersonnelForce rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/NeutralRole
 cco:NeutralRole rdf:type owl:Class ;
                 rdfs:subClassOf cco:AllegianceRole ;
-                cco:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent not performing or being committed to perfoming Acts that have as their Objective to either support or undermine the Objectives of an Agent or Group of Agents involved in some conflict."@en ;
+                cco:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent not performing or being committed to performing Acts that have as their Objective to either support or undermine the Objectives of an Agent or Group of Agents involved in some conflict."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                 rdfs:label "Neutral Role"@en .
 
@@ -1715,6 +2035,40 @@ cco:ParamilitaryForce rdf:type owl:Class ;
                       rdfs:label "Paramilitary Force"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PermanentResident
+cco:PermanentResident rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( cco:Person
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty obo:RO_0000087 ;
+                                                                   owl:someValuesFrom cco:PermanentResidentRole
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf cco:Person ;
+                      cco:definition "A person with a Permanent Residence Role."@en ;
+                      dcterms:created "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
+                      dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                      skos:prefLabel "Permanent Resident"@en ;
+                      rdfs:label "Permanent Resident"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PermanentResidentRole
+cco:PermanentResidentRole rdf:type owl:Class ;
+                          rdfs:subClassOf obo:BFO_0000023 ;
+                          dcterms:created "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
+                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                          dcterms:bibliographicCitation "Permanent Residency - Wikipedia. https://en.wikipedia.org/wiki/Permanent_residency. Accessed 10 Feb. 2023." ;
+                          cco:definition "A role inhering in a person who is recognized as having legal resident status in a Government Domain in which that person is not a citizen but where they have the right to reside on a permanent basis."@en ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                          skos:prefLabel "PermanentResidentRole"@en ;
+                          rdfs:label "Permanent Resident Role"@en .
+
+
+
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Person
 cco:Person rdf:type owl:Class ;
            rdfs:subClassOf cco:Animal ;
@@ -1758,10 +2112,22 @@ cco:PoliticalOrientation rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Populace
 cco:Populace rdf:type owl:Class ;
              rdfs:subClassOf cco:GroupOfPersons ;
-             cco:definition "A Group of Persons forming the total population of some Geopolitical Entity."@en ;
+             cco:definition "A Group of Persons forming the total population of some Government Domain."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Population&oldid=1059148871"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "Populace"@en .
+
+
+
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Province
+cco:Province rdf:type owl:Class ;
+             rdfs:subClassOf cco:FirstOrderAdministrativeRegion ;
+             cco:definition "A First-Order Administrative Region that is part of a Country and delimits the authority of a magistrate who holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the Province."@en ;
+             cco:definition_source "https://en.wikipedia.org/w/index.php?title=Province&oldid=1062496131"^^xsd:anyURI ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+             rdfs:label "Province"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Religion
@@ -1796,6 +2162,19 @@ cco:Scar rdf:type owl:Class ;
          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Scar&oldid=1057179533"^^xsd:anyURI ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
          rdfs:label "Scar"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SecondOrderAdministrativeRegion
+cco:SecondOrderAdministrativeRegion rdf:type owl:Class ;
+                                    rdfs:subClassOf cco:GeopoliticalEntity ,
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty obo:BFO_0000050 ;
+                                                      owl:someValuesFrom cco:FirstOrderAdministrativeRegion
+                                                    ] ;
+                                    cco:definition "A Government Domain that is a subdivision of a First-Order Administrative Region."@en ;
+                                    cco:definition_source "http://www.geonames.org/export/codes.html" ;
+                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                    rdfs:label "Second-Order Administrative Region"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ServiceProvider
@@ -1852,6 +2231,16 @@ cco:SocialNetwork rdf:type owl:Class ;
                   rdfs:label "Social Network"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/State
+cco:State rdf:type owl:Class ;
+          rdfs:subClassOf cco:FirstOrderAdministrativeRegion ;
+          cco:alternative_label "State"@en ;
+          cco:definition "A First-Order Administrative Region that is part of a Country and delimits a centralized regional Government that holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the State."@en ;
+          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Constituent_state&oldid=1063662102"^^xsd:anyURI ;
+          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+          rdfs:label "Constituent State"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Tattoo
 cco:Tattoo rdf:type owl:Class ;
            rdfs:subClassOf cco:BodilyComponent ;
@@ -1859,6 +2248,28 @@ cco:Tattoo rdf:type owl:Class ;
            cco:definition_source "http://www.thefreedictionary.com/tattoo" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
            rdfs:label "Tattoo"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ThirdOrderAdministrativeRegion
+cco:ThirdOrderAdministrativeRegion rdf:type owl:Class ;
+                                   rdfs:subClassOf cco:GeopoliticalEntity ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty obo:BFO_0000050 ;
+                                                     owl:someValuesFrom cco:SecondOrderAdministrativeRegion
+                                                   ] ;
+                                   cco:definition "A Government Domain that is a subdivision of a Second-Order Administrative Region."@en ;
+                                   cco:definition_source "http://www.geonames.org/export/codes.html" ;
+                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                   rdfs:label "Third-Order Administrative Region"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Town
+cco:Town rdf:type owl:Class ;
+         rdfs:subClassOf cco:LocalAdministrativeRegion ;
+         cco:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a Village but smaller than that of a City; is designated as a town based on a particular administrative, legal, or historical status; and which delimits a local Government that typically exercises less power than that of a City Government."@en ;
+         cco:definition_source "http://www.dictionary.com/browse/town" ;
+         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+         rdfs:label "Town"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UnalliedPerson
@@ -1878,4 +2289,13 @@ cco:UnalliedPerson rdf:type owl:Class ;
                    rdfs:label "Neutral Person"@en .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Village
+cco:Village rdf:type owl:Class ;
+            rdfs:subClassOf cco:LocalAdministrativeRegion ;
+            cco:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a hamlet but smaller than that of a Town."@en ;
+            cco:definition_source "http://www.merriam-webster.com/dictionary/village" ;
+            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+            rdfs:label "Village"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
