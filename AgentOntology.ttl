@@ -1296,9 +1296,6 @@ cco:CitizenRole rdf:type owl:Class ;
                 rdfs:label "Citizen Role"@en .
 
 
-
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/City
 cco:City rdf:type owl:Class ;
          rdfs:subClassOf cco:LocalAdministrativeRegion ;
@@ -1675,7 +1672,11 @@ cco:GeopoliticalOrganization rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalPowerRole
 cco:GeopoliticalPowerRole rdf:type owl:Class ;
-                          rdfs:subClassOf obo:BFO_0000023 ;
+                          rdfs:subClassOf obo:BFO_0000023 ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty obo:RO_0000052 ;
+                                            owl:someValuesFrom cco:Organization
+                                          ] ;
                           dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                           cco:definition "A Role had by an Organization that is perceived by an International Community as capable of performing influential acts in that community and is realized in performing such acts."@en ;
@@ -2046,27 +2047,24 @@ cco:PermanentResident rdf:type owl:Class ;
                                             rdf:type owl:Class
                                           ] ;
                       rdfs:subClassOf cco:Person ;
-                      cco:definition "A person with a Permanent Residence Role."@en ;
                       dcterms:created "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
                       dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                      cco:definition "A person with a Permanent Residence Role."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      skos:prefLabel "Permanent Resident"@en ;
-                      rdfs:label "Permanent Resident"@en .
+                      rdfs:label "Permanent Resident"@en ;
+                      skos:prefLabel "Permanent Resident"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PermanentResidentRole
 cco:PermanentResidentRole rdf:type owl:Class ;
                           rdfs:subClassOf obo:BFO_0000023 ;
+                          dcterms:bibliographicCitation "Permanent Residency - Wikipedia. https://en.wikipedia.org/wiki/Permanent_residency. Accessed 10 Feb. 2023." ;
                           dcterms:created "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                          dcterms:bibliographicCitation "Permanent Residency - Wikipedia. https://en.wikipedia.org/wiki/Permanent_residency. Accessed 10 Feb. 2023." ;
                           cco:definition "A role inhering in a person who is recognized as having legal resident status in a Government Domain in which that person is not a citizen but where they have the right to reside on a permanent basis."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                          skos:prefLabel "PermanentResidentRole"@en ;
-                          rdfs:label "Permanent Resident Role"@en .
-
-
-
+                          rdfs:label "Permanent Resident Role"@en ;
+                          skos:prefLabel "Permanent Resident Role"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Person
@@ -2116,9 +2114,6 @@ cco:Populace rdf:type owl:Class ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Population&oldid=1059148871"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "Populace"@en .
-
-
-
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Province
