@@ -1361,8 +1361,10 @@ cco:ContractorRole rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Country
 cco:Country rdf:type owl:Class ;
             rdfs:subClassOf cco:GeopoliticalEntity ;
+            dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
             dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
             cco:definition "A Government Domain that is associated with certain distinct political, ethnic, or cultural characteristics, and which delimits a Government that has legitimate authority over a Populace."@en ;
+            cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
             rdfs:label "Domain of a Country"@en ;
             skos:editorialNote "'Country' is an unclear term. Does it refer to the people, the government, the site, or the material in the site? Thus, instead of defining 'Country' we have defined four country elements found under the class 'Country Element'. We leave it to the users to define 'Country' as it suites their purposes."@en ,
@@ -1380,10 +1382,12 @@ cco:CountryElement rdf:type owl:Class ;
                                                      )
                                        ] ;
                    rdfs:subClassOf cco:ElementOfPoliticalGeographicalEntity ;
+                   dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                    dcterms:created "2023-02-17T19:02:16-05:00"^^xsd:dateTime ;
                    dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                    cco:alternative_label "Elements of a Country"@en ;
                    cco:definition "An Element of Political Geographical Entity that exists, if a Country exists: If a Country exists, then there is a Domain of a Country, within which there is a Material Territory of a Country (land, air, water), and there is a Government of a Country delimited by that domain, and a Populace whom that Government has legitimate authority over."@en ;
+                   cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                    rdfs:label "Country Element"@en ;
                    skos:editorialNote "'Country' is exceedingly ambiguous. However, the notion is too common and useful to ignore. Thus, we define 'Country Element' and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
@@ -1421,7 +1425,6 @@ cco:DelimitingDomain rdf:type owl:Class ;
                      owl:disjointWith cco:DivisonOfGeopoliticalEntity ;
                      dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                      dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                     cco:alternative_label "Delimiting Domain"@en ;
                      cco:definition "A Geospatial Region that delimits the authority of an Organization to exercise its control within the bounded area."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                      rdfs:label "Delimiting Domain"@en ;
@@ -1478,9 +1481,11 @@ cco:ElementOfPoliticalGeographicalEntity rdf:type owl:Class ;
                                                                            )
                                                              ] ;
                                          rdfs:subClassOf obo:BFO_0000004 ;
+                                         dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                                          dcterms:created "2023-02-17T18:57:10-05:00"^^xsd:dateTime ;
                                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                                          cco:definition "An independent continuant that exists, if a Political Geographical Entity exists: If a Political Geographical Entity exists, then there is Government Domain, within which there is a Material Territory of a Government Domain (land, air, water), and there is an Government delimited by that Government Domain, and a Populace whom that Government has legitimate authority over."@en ;
+                                         cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                          rdfs:label "Element Of Political Geographical Entity"@en ;
                                          skos:editorialNote "As a parent term to 'Country', 'Political Geographical Entity' is exceedingly ambiguous. However, the notion, like 'Country', is too common and useful to ignore. Thus, we define the elements of a Political Geographical Entity and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
@@ -1658,9 +1663,13 @@ cco:GeopoliticalOrganization rdf:type owl:Class ;
                                                    rdf:type owl:Class
                                                  ] ;
                              rdfs:subClassOf cco:Organization ;
+                             dcterms:bibliographicCitation "Lee, David S., and Brad Glosserman. “How Companies Can Navigate Today’s Geopolitical Risks.” Harvard Business Review, 28 Nov. 2022. hbr.org, https://hbr.org/2022/11/how-companies-can-navigate-todays-geopolitical-risks." ,
+                                                           "University, Utah State. Geopolitical Power | Aggies GO. https://chass.usu.edu/international-studies/aggies-go/power. Accessed 6 Apr. 2023." ;
                              dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                              dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                              cco:definition "An Organization that bears a Geopolitical Power Role."@en ;
+                             cco:definition_source "https://chass.usu.edu/international-studies/aggies-go/power" ,
+                                                   "https://hbr.org/2022/11/how-companies-can-navigate-todays-geopolitical-risks" ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                              rdfs:label "Geopolitical Organization"@en ;
                              skos:prefLabel "Geopolitical Organization"@en .
@@ -1673,9 +1682,11 @@ cco:GeopoliticalPowerRole rdf:type owl:Class ;
                                             owl:onProperty obo:RO_0000052 ;
                                             owl:someValuesFrom cco:Organization
                                           ] ;
+                          dcterms:bibliographicCitation "University, Utah State. Geopolitical Power | Aggies GO. https://chass.usu.edu/international-studies/aggies-go/power. Accessed 6 Apr. 2023." ;
                           dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                           cco:definition "A Role had by an Organization, that is perceived by an International Community as capable of performing influential acts in that community, and which would be realized in performing such acts."@en ;
+                          cco:definition_source "https://chass.usu.edu/international-studies/aggies-go/power" ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                           rdfs:label "Geopolitical Power Role"@en ;
                           skos:prefLabel "Geopolitical Power Role"@en .
@@ -1720,9 +1731,11 @@ cco:GovernmentOfACountry rdf:type owl:Class ;
                                                rdf:type owl:Class
                                              ] ;
                          rdfs:subClassOf cco:Government ;
+                         dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                          dcterms:created "2023-02-08T19:54:46-05:00"^^xsd:dateTime ;
                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                          cco:definition "A Government that has legitimate authority within and is delimited by a Domain of a Country."@en ;
+                         cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                          rdfs:label "Government of a Country"@en ;
                          skos:prefLabel "Government of a Country"@en .
@@ -1808,9 +1821,11 @@ cco:IncorporatedOrganization rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InternationalCommunity
 cco:InternationalCommunity rdf:type owl:Class ;
                            rdfs:subClassOf cco:GroupOfAgents ;
+                           dcterms:bibliographicCitation "The International Community. 5 Apr. 2023, https://dictionary.cambridge.org/us/dictionary/english/international-community." ;
                            dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                            dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                            cco:definition "A maximal Group of Geopolitical Organizations engaged in geopolitics with one another."@en ;
+                           cco:definition_source "https://dictionary.cambridge.org/us/dictionary/english/international-community" ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                            rdfs:label "International Community"@en ;
                            skos:prefLabel "International Community"@en .
@@ -1874,8 +1889,10 @@ cco:MaterialTerritoryOfACountry rdf:type owl:Class ;
                                                                      ) ;
                                                   rdf:type owl:Class
                                                 ] ;
+                                dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                                 dcterms:created "2023-02-06T10:14:09-05:00"@en ;
                                 cco:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a The Domain of a Country."@en ;
+                                cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                 rdfs:label "Material Territory of a Country"@en ;
                                 skos:prefLabel "Material Territory of a Country"@en .
@@ -1892,8 +1909,10 @@ cco:MaterialTerritoryOfAGovernmentDomain rdf:type owl:Class ;
                                                                               ) ;
                                                            rdf:type owl:Class
                                                          ] ;
+                                         dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                                          dcterms:created "2023-02-06T10:14:09-05:00"@en ;
                                          cco:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain"@en ;
+                                         cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                          rdfs:label "Material Territory of a Government Domain"@en ;
                                          skos:prefLabel "Material Territory of a Government Domain"@en .
@@ -2058,6 +2077,7 @@ cco:PermanentResidentRole rdf:type owl:Class ;
                           dcterms:created "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                           cco:definition "A role inhering in a person who is recognized as having legal resident status in a Government Domain in which that person is not a citizen but where they have the right to reside on a permanent basis."@en ;
+                          cco:definition_source "https://en.wikipedia.org/wiki/Permanent_residency" ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                           rdfs:label "Permanent Resident Role"@en ;
                           skos:prefLabel "Permanent Resident Role"@en .
