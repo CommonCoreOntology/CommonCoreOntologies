@@ -90,8 +90,6 @@ cco:capability_of_aggregate rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/delimits
 cco:delimits rdf:type owl:ObjectProperty ;
              owl:inverseOf cco:is_delimited_by ;
-             rdf:type owl:FunctionalProperty ,
-                      owl:InverseFunctionalProperty ;
              rdfs:domain cco:DelimitingDomain ;
              rdfs:range cco:Organization ;
              cco:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
@@ -581,9 +579,7 @@ cco:is_daughter_of rdf:type owl:ObjectProperty ;
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_delimited_by
-cco:is_delimited_by rdf:type owl:ObjectProperty ,
-                             owl:FunctionalProperty ,
-                             owl:InverseFunctionalProperty ;
+cco:is_delimited_by rdf:type owl:ObjectProperty ;
                     rdfs:domain cco:Organization ;
                     rdfs:range cco:DelimitingDomain ;
                     cco:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
@@ -707,7 +703,6 @@ cco:is_in_law_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_interest_of
 cco:is_interest_of rdf:type owl:ObjectProperty ;
                    rdfs:domain obo:BFO_0000015 ;
-                   owl:inverseOf cco:has_interest_in ;
                    rdfs:range cco:Agent ;
                    dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                    dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
@@ -1475,21 +1470,21 @@ cco:EducationalOrganization rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ElementOfPoliticalGeographicalEntity
 cco:ElementOfPoliticalGeographicalEntity rdf:type owl:Class ;
-                                          owl:equivalentClass [ rdf:type owl:Class ;
-                                                                owl:unionOf ( cco:GeopoliticalEntity
-                                                                              cco:Government
-                                                                              cco:MaterialTerritoryOfAGovernmentDomain
-                                                                              cco:Populace
-                                                                            )
-                                                              ] ;
-                                          rdfs:subClassOf obo:BFO_0000004 ;
-                                          dcterms:created "2023-02-17T18:57:10-05:00"^^xsd:dateTime ;
-                                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                                          cco:definition "An independent continuant that exists, if a Political Geographical Entity exists: If a Political Geographical Entity exists, then there is Government Domain, within which there is a Material Territory of a Government Domain (land, air, water), and there is an Government delimited by that Government Domain, and a Populace whom that Government has legitimate authority over."@en ;
-                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                          rdfs:label "Element Of Political Geographical Entity"@en ;
-                                          skos:editorialNote "As a parent term to 'Country', 'Political Geographical Entity' is exceedingly ambiguous. However, the notion, like 'Country', is too common and useful to ignore. Thus, we define the elements of a Political Geographical Entity and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
-                                          skos:prefLabel "Element Of Political Geographical Entity"@en .
+                                         owl:equivalentClass [ rdf:type owl:Class ;
+                                                               owl:unionOf ( cco:GeopoliticalEntity
+                                                                             cco:Government
+                                                                             cco:MaterialTerritoryOfAGovernmentDomain
+                                                                             cco:Populace
+                                                                           )
+                                                             ] ;
+                                         rdfs:subClassOf obo:BFO_0000004 ;
+                                         dcterms:created "2023-02-17T18:57:10-05:00"^^xsd:dateTime ;
+                                         dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                                         cco:definition "An independent continuant that exists, if a Political Geographical Entity exists: If a Political Geographical Entity exists, then there is Government Domain, within which there is a Material Territory of a Government Domain (land, air, water), and there is an Government delimited by that Government Domain, and a Populace whom that Government has legitimate authority over."@en ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                                         rdfs:label "Element Of Political Geographical Entity"@en ;
+                                         skos:editorialNote "As a parent term to 'Country', 'Political Geographical Entity' is exceedingly ambiguous. However, the notion, like 'Country', is too common and useful to ignore. Thus, we define the elements of a Political Geographical Entity and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
+                                         skos:prefLabel "Element Of Political Geographical Entity"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Enemy
