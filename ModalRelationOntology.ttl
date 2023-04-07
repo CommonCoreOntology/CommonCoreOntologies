@@ -1,5 +1,4 @@
 @prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix mro: <http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
@@ -11,10 +10,11 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> rdf:type owl:Ontology ;
-                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-03-08/ModalRelationOntology> ;
-                                                                                    rdfs:label "Modal Relation Ontology" ;
-                                                                                    owl:versionInfo "Version 1.4" ;
-                                                                                    rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO), including those CCO imports from the OBO Relation Ontology (RO)."@en .
+                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/ModalRelationOntology> ;
+                                                                                    rdfs:label "Modal Relation Ontology"@en ;
+                                                                                    owl:versionInfo "Version 1.4"@en ;
+                                                                                    rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO) and those imported from the OBO Foundry Relation Ontology (RO)."@en .
+
 
 
 #################################################################
@@ -32,7 +32,7 @@ mro:BFO_0000050 rdf:type owl:ObjectProperty ;
                                 "this day is part of this year (occurrent parthood)"@en ;
                 obo:IAO_0000115 "a core relation that holds between a part and its whole"@en ;
                 obo:IAO_0000116 "Everything is part of itself. Any part of any part of a thing is itself part of that thing. Two distinct things cannot be part of each other."@en ,
-                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ,
                                 """Parthood requires the part and the whole to have compatible classes: only an occurrent can be part of an occurrent; only a process can be part of a process; only a continuant can be part of a continuant; only an independent continuant can be part of an independent continuant; only an immaterial entity can be part of an immaterial entity; only a specifically dependent continuant can be part of a specifically dependent continuant; only a generically dependent continuant can be part of a generically dependent continuant. (This list is not exhaustive.)
 
 A continuant cannot be part of an occurrent: use 'participates in'. An occurrent cannot be part of a continuant: use 'has participant'. A material entity cannot be part of an immaterial entity: use 'has location'. A specifically dependent continuant cannot be part of an independent continuant: use 'inheres in'. An independent continuant cannot be part of a specifically dependent continuant: use 'bearer of'."""@en ;
@@ -65,7 +65,7 @@ mro:BFO_0000051 rdf:type owl:ObjectProperty ;
                                 "this year has part this day (occurrent parthood)"@en ;
                 obo:IAO_0000115 "a core relation that holds between a whole and its part"@en ;
                 obo:IAO_0000116 "Everything has itself as a part. Any part of any part of a thing is itself part of that thing. Two distinct things cannot have each other as a part."@en ,
-                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ,
+                                "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ,
                                 """Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
 
 A continuant cannot have an occurrent as part: use 'participates in'. An occurrent cannot have a continuant as part: use 'has participant'. An immaterial entity cannot have a material entity as part: use 'location of'. An independent continuant cannot have a specifically dependent continuant as part: use 'bearer of'. A specifically dependent continuant cannot have an independent continuant as part: use 'inheres in'."""@en ;
@@ -218,7 +218,7 @@ mro:RO_0000057 rdf:type owl:ObjectProperty ;
                obo:IAO_0000115 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en ;
                obo:IAO_0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time."@en ;
                obo:IAO_0000118 "has_participant"@en ;
-               dc:source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" ;
+               <http://purl.org/dc/elements/1.1/source> "http://www.obofoundry.org/ro/#OBO_REL:has_participant" ;
                rdfs:label "has participant"@en .
 
 
@@ -372,7 +372,7 @@ mro:RO_0001015 rdf:type owl:ObjectProperty ;
                obo:IAO_0000112 "my head is the location of my brain"@en ,
                                "this cage is the location of this rat"@en ;
                obo:IAO_0000115 "a relation between two independent continuants, the location and the target, in which the target is entirely within the location"@en ;
-               obo:IAO_0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
+               obo:IAO_0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ;
                obo:IAO_0000118 "location_of"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
                rdfs:label "location of"@en .
@@ -423,10 +423,10 @@ mro:RO_0001025 rdf:type owl:ObjectProperty ;
                                "this rat is located in this cage"@en ;
                obo:IAO_0000115 "a relation between two independent continuants, the target and the location, in which the target is entirely within the location"@en ;
                obo:IAO_0000116 "Location as a relation between instances: The primitive instance-level relation c located_in r at t reflects the fact that each continuant is at any given time associated with exactly one spatial region, namely its exact location. Following we can use this relation to define a further instance-level location relation - not between a continuant and the region which it exactly occupies, but rather between one continuant and another. c is located in c1, in this sense, whenever the spatial region occupied by c is part_of the spatial region occupied by c1.    Note that this relation comprehends both the relation of exact location between one continuant and another which obtains when r and r1 are identical (for example, when a portion of fluid exactly fills a cavity), as well as those sorts of inexact location relations which obtain, for example, between brain and head or between ovum and uterus"@en ,
-                               "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en ;
+                               "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See https://code.google.com/p/obo-relations/wiki/ROAndTime"@en ;
                obo:IAO_0000118 "located_in"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
-               dc:source "http://www.obofoundry.org/ro/#OBO_REL:located_in" ;
+               <http://purl.org/dc/elements/1.1/source> "http://www.obofoundry.org/ro/#OBO_REL:located_in" ;
                rdfs:label "located in"@en .
 
 
@@ -441,8 +441,7 @@ mro:RO_0002000 rdf:type owl:ObjectProperty ;
                obo:IAO_0000118 "2D_boundary_of"@en ,
                                "boundary of"@en ,
                                "is 2D boundary of"@en ,
-                               "is boundary of"@en ,
-                               "surface of"@en ;
+                               "is boundary of"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
                rdfs:label "2D boundary of"@en .
 
@@ -456,7 +455,7 @@ mro:RO_0002002 rdf:type owl:ObjectProperty ;
                obo:IAO_0000115 "a relation between a material entity and a 2D immaterial entity (the boundary), in which the boundary delimits the material entity"@en ;
                obo:IAO_0000116 "A 2D boundary may have holes and gaps, but it must be a single connected entity, not an aggregate of several disconnected parts."@en ,
                                "Although the boundary is two-dimensional, it exists in three-dimensional space and thus has a 3D shape."@en ;
-               obo:IAO_0000117 <https://orcid.org/0000-0002-7073-9172> ;
+               obo:IAO_0000117 "David Osumi-Sutherland" ;
                obo:IAO_0000118 "has boundary"@en ,
                                "has_2D_boundary"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
@@ -694,11 +693,9 @@ mro:connected_with rdf:type owl:ObjectProperty ;
 mro:delimits rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf mro:ModalObjectProperty ;
              owl:inverseOf mro:is_delimited_by ;
-             rdf:type owl:FunctionalProperty ,
-                      owl:InverseFunctionalProperty ;
-             rdfs:domain cco:GeopoliticalEntity ;
+             rdfs:domain cco:DelimitingDomain ;
              rdfs:range cco:Organization ;
-             cco:definition "An instance of Geopolitical Entity gpe1 delimits some Organization o1 iff gpe1 is the area within which o1 can legally operate."@en ;
+             cco:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
              rdfs:label "delimits"@en .
@@ -783,6 +780,22 @@ mro:disposition_of_aggregate rdf:type owl:ObjectProperty ;
                              rdfs:label "disposition of aggregate"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/disrupts
+mro:disrupts rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf mro:ModalObjectProperty ;
+             owl:inverseOf mro:is_disrupted_by ;
+             rdfs:domain obo:BFO_0000015 ;
+             rdfs:range obo:BFO_0000015 ;
+             <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+             <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+             cco:definition "A relation where one process disrupts another process from occurring as it would have."@en ;
+             cco:elucidation "A process can disrupt another process from occurring as it would have by 1) preventing a disposition or role from being realized by that process, 2) lowering the grade of the process, or 3) stopping the process from continuing to occur."@en ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+             rdfs:label "disrupts"@en ;
+             <http://www.w3.org/2004/02/skos/core#editorialNote> "To lower the grade of a process is to lower the quality of a process according to some standard, for example when realizing a capability or a function."@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "disrupts"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/externally_connects_with
 mro:externally_connects_with rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf mro:connected_with ;
@@ -810,7 +823,7 @@ mro:has_accomplice rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf mro:RO_0000057 ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range obo:BFO_0000040 ;
-                   cco:definition "An Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
+                   cco:definition "A Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
                    cco:definition_source "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                    rdfs:label "has accomplice"@en .
@@ -995,7 +1008,7 @@ mro:has_input rdf:type owl:ObjectProperty ;
               owl:inverseOf mro:is_input_of ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000002 ;
-              cco:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+              cco:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
               rdfs:label "has input"@en .
 
@@ -1020,6 +1033,22 @@ mro:has_inside_interval rdf:type owl:ObjectProperty ;
                         cco:definition "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                         rdfs:label "has inside interval"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_interest_in
+mro:has_interest_in rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf mro:ModalObjectProperty ;
+                    owl:inverseOf mro:is_interest_of ;
+                    rdfs:domain cco:Agent ;
+                    rdfs:range obo:BFO_0000015 ;
+                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                    cco:definition "A relation between an entity and some process where the entity has an interest in that process."@en ;
+                    cco:elucidation "There are four conditions in which an entity has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                    rdfs:label "has interest in"@en ;
+                    <http://www.w3.org/2004/02/skos/core#editorialNote> "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the entity, or historically of evolutionary benefit to the entity's ancestors, or facilitates a process the entity has an interest in for the prior two reasons. The process an entity has an interest could in many or all ways be harmful to the entity."@en ;
+                    <http://www.w3.org/2004/02/skos/core#prefLabel> "has interest in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_maternal_aunt
@@ -1717,11 +1746,9 @@ mro:is_daughter_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_delimited_by
 mro:is_delimited_by rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf mro:ModalObjectProperty ;
-                    rdf:type owl:FunctionalProperty ,
-                             owl:InverseFunctionalProperty ;
                     rdfs:domain cco:Organization ;
-                    rdfs:range cco:GeopoliticalEntity ;
-                    cco:definition "An instance of Organization o1 is_delimited_by some Geopolitical Entity gpe1 iff gpe1 is the area within which o1 can legally operate."@en ;
+                    rdfs:range cco:DelimitingDomain ;
+                    cco:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                     rdfs:label "is delimited by"@en .
@@ -1732,6 +1759,19 @@ mro:is_descendent_of rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf mro:has_familial_relationship_to ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                      rdfs:label "is descendent of"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_disrupted_by
+mro:is_disrupted_by rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf mro:ModalObjectProperty ;
+                    rdfs:domain obo:BFO_0000015 ;
+                    rdfs:range obo:BFO_0000015 ;
+                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                    cco:definition "Inverse of disrupts." ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                    rdfs:label "is disrupted by"@en ;
+                    <http://www.w3.org/2004/02/skos/core#prefLabel> "is disrupted by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_ending_instant_of
@@ -1876,7 +1916,7 @@ mro:is_input_of rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:RO_0000056 ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
-                cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+                cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                 rdfs:label "is input of"@en .
 
@@ -1889,6 +1929,19 @@ mro:is_inside_instant_of rdf:type owl:ObjectProperty ;
                          cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                          rdfs:label "is inside instant of"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_interest_of
+mro:is_interest_of rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf mro:ModalObjectProperty ;
+                   rdfs:domain obo:BFO_0000015 ;
+                   rdfs:range cco:Agent ;
+                   <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                   <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                   cco:definition "The inverse of has_interest_in. " ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                   rdfs:label "is interest of"@en ;
+                   <http://www.w3.org/2004/02/skos/core#prefLabel> "is interest of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_made_of
@@ -2831,6 +2884,5 @@ cco:InformationBearingEntity rdf:type owl:Class .
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationContentEntity
 cco:InformationContentEntity rdf:type owl:Class .
-
 
 ###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
