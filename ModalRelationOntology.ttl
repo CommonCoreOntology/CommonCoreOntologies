@@ -10,23 +10,16 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> rdf:type owl:Ontology ;
-                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/ModalRelationOntology> ;
-                                                                                    cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                    cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                                    rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO), including those CCO imports from the OBO Relation Ontology (RO)."@en ;
+                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/ModalRelationOntology> ;
                                                                                     rdfs:label "Modal Relation Ontology"@en ;
-                                                                                    owl:versionInfo "Version 1.3"@en .
+                                                                                    owl:versionInfo "Version 1.4"@en ;
+                                                                                    rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO) and those imported from the OBO Foundry Relation Ontology (RO)."@en .
+
+
 
 #################################################################
 #    Object Properties
 #################################################################
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/ModalObjectProperty
-mro:ModalObjectProperty rdf:type owl:ObjectProperty ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology"^^xsd:anyURI ;
-                        rdfs:comment "A term to group all types of modal properties, which is helpful for application purposes."@en ;
-                        rdfs:label "Modal Object Property"@en .
-
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/BFO_0000050
 mro:BFO_0000050 rdf:type owl:ObjectProperty ;
@@ -52,6 +45,10 @@ A continuant cannot be part of an occurrent: use 'participates in'. An occurrent
                                obo:BFO_0000019 ,
                                obo:BFO_0000020 ,
                                obo:BFO_0000031 ;
+                <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:valid_for_go_annotation_extension ,
+                                                                        obo:valid_for_go_gp2term ,
+                                                                        obo:valid_for_go_ontology ,
+                                                                        obo:valid_for_gocam ;
                 rdfs:label "part of"@en ;
                 rdfs:seeAlso <http://ontologydesignpatterns.org/wiki/Community:Parts_and_Collections> ,
                              <http://ontologydesignpatterns.org/wiki/Submissions:PartOf> ,
@@ -74,6 +71,9 @@ mro:BFO_0000051 rdf:type owl:ObjectProperty ;
 A continuant cannot have an occurrent as part: use 'participates in'. An occurrent cannot have a continuant as part: use 'has participant'. An immaterial entity cannot have a material entity as part: use 'location of'. An independent continuant cannot have a specifically dependent continuant as part: use 'bearer of'. A specifically dependent continuant cannot have an independent continuant as part: use 'inheres in'."""@en ;
                 obo:IAO_0000118 "has_part"@en ;
                 obo:RO_0001900 obo:RO_0001901 ;
+                <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:valid_for_go_annotation_extension ,
+                                                                        obo:valid_for_go_ontology ,
+                                                                        obo:valid_for_gocam ;
                 rdfs:label "has part"@en .
 
 
@@ -127,6 +127,9 @@ mro:BFO_0000066 rdf:type owl:ObjectProperty ;
                 obo:IAO_0000118 "occurs_in"@en ,
                                 "unfolds in"@en ,
                                 "unfolds_in"@en ;
+                <http://www.geneontology.org/formats/oboInOwl#inSubset> obo:valid_for_go_annotation_extension ,
+                                                                        obo:valid_for_go_ontology ,
+                                                                        obo:valid_for_gocam ;
                 rdfs:comment "Paraphrase of definition: a relation between a process and an independent continuant, in which the process takes place entirely within the independent continuant" ;
                 rdfs:isDefinedBy obo:bfo.owl ;
                 rdfs:label "occurs in"@en .
@@ -142,6 +145,14 @@ mro:BFO_0000067 rdf:type owl:ObjectProperty ;
                 rdfs:label "contains process"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/ModalObjectProperty
+mro:ModalObjectProperty rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf mro:ModalObjectProperty ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology"^^xsd:anyURI ;
+                        rdfs:comment "A term to group all types of modal properties, which is helpful for application purposes."@en ;
+                        rdfs:label "Modal Object Property"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/RO_0000052
 mro:RO_0000052 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf mro:ModalObjectProperty ;
@@ -153,6 +164,7 @@ mro:RO_0000052 rdf:type owl:ObjectProperty ;
                obo:IAO_0000116 "A dependent inheres in its bearer at all times for which the dependent exists."@en ;
                obo:IAO_0000118 "inheres_in"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:comment "NOTE: This is term is used within the CCO ecosystem based on it previous intended meaning, which is consistent with BFO in that an SDC must inhere in an IC which is not a Spatial Region."@en ;
                rdfs:label "inheres in"@en .
 
 
@@ -168,6 +180,7 @@ mro:RO_0000053 rdf:type owl:ObjectProperty ;
                obo:IAO_0000118 "bearer_of"@en ,
                                "is bearer of"@en ;
                obo:RO_0001900 obo:RO_0001901 ;
+               rdfs:comment "NOTE: This is term is used within the CCO ecosystem based on it previous intended meaning, which is consistent with BFO in that an SDC must inhere in an IC which is not a Spatial Region."@en ;
                rdfs:label "bearer of"@en .
 
 
@@ -680,11 +693,9 @@ mro:connected_with rdf:type owl:ObjectProperty ;
 mro:delimits rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf mro:ModalObjectProperty ;
              owl:inverseOf mro:is_delimited_by ;
-             rdf:type owl:FunctionalProperty ,
-                      owl:InverseFunctionalProperty ;
-             rdfs:domain cco:GeopoliticalEntity ;
+             rdfs:domain cco:DelimitingDomain ;
              rdfs:range cco:Organization ;
-             cco:definition "An instance of Geopolitical Entity gpe1 delimits some Organization o1 iff gpe1 is the area within which o1 can legally operate."@en ;
+             cco:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
              rdfs:label "delimits"@en .
@@ -769,6 +780,22 @@ mro:disposition_of_aggregate rdf:type owl:ObjectProperty ;
                              rdfs:label "disposition of aggregate"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/disrupts
+mro:disrupts rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf mro:ModalObjectProperty ;
+             owl:inverseOf mro:is_disrupted_by ;
+             rdfs:domain obo:BFO_0000015 ;
+             rdfs:range obo:BFO_0000015 ;
+             <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+             <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+             cco:definition "A relation where one process disrupts another process from occurring as it would have."@en ;
+             cco:elucidation "A process can disrupt another process from occurring as it would have by 1) preventing a disposition or role from being realized by that process, 2) lowering the grade of the process, or 3) stopping the process from continuing to occur."@en ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+             rdfs:label "disrupts"@en ;
+             <http://www.w3.org/2004/02/skos/core#editorialNote> "To lower the grade of a process is to lower the quality of a process according to some standard, for example when realizing a capability or a function."@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "disrupts"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/externally_connects_with
 mro:externally_connects_with rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf mro:connected_with ;
@@ -796,7 +823,7 @@ mro:has_accomplice rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf mro:RO_0000057 ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range obo:BFO_0000040 ;
-                   cco:definition "An Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
+                   cco:definition "A Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
                    cco:definition_source "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                    rdfs:label "has accomplice"@en .
@@ -981,7 +1008,7 @@ mro:has_input rdf:type owl:ObjectProperty ;
               owl:inverseOf mro:is_input_of ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000002 ;
-              cco:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+              cco:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
               rdfs:label "has input"@en .
 
@@ -1006,6 +1033,22 @@ mro:has_inside_interval rdf:type owl:ObjectProperty ;
                         cco:definition "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                         rdfs:label "has inside interval"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_interest_in
+mro:has_interest_in rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf mro:ModalObjectProperty ;
+                    owl:inverseOf mro:is_interest_of ;
+                    rdfs:domain cco:Agent ;
+                    rdfs:range obo:BFO_0000015 ;
+                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                    cco:definition "A relation between an entity and some process where the entity has an interest in that process."@en ;
+                    cco:elucidation "There are four conditions in which an entity has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                    rdfs:label "has interest in"@en ;
+                    <http://www.w3.org/2004/02/skos/core#editorialNote> "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the entity, or historically of evolutionary benefit to the entity's ancestors, or facilitates a process the entity has an interest in for the prior two reasons. The process an entity has an interest could in many or all ways be harmful to the entity."@en ;
+                    <http://www.w3.org/2004/02/skos/core#prefLabel> "has interest in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_maternal_aunt
@@ -1703,11 +1746,9 @@ mro:is_daughter_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_delimited_by
 mro:is_delimited_by rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf mro:ModalObjectProperty ;
-                    rdf:type owl:FunctionalProperty ,
-                             owl:InverseFunctionalProperty ;
                     rdfs:domain cco:Organization ;
-                    rdfs:range cco:GeopoliticalEntity ;
-                    cco:definition "An instance of Organization o1 is_delimited_by some Geopolitical Entity gpe1 iff gpe1 is the area within which o1 can legally operate."@en ;
+                    rdfs:range cco:DelimitingDomain ;
+                    cco:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                     rdfs:label "is delimited by"@en .
@@ -1718,6 +1759,19 @@ mro:is_descendent_of rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf mro:has_familial_relationship_to ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                      rdfs:label "is descendent of"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_disrupted_by
+mro:is_disrupted_by rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf mro:ModalObjectProperty ;
+                    rdfs:domain obo:BFO_0000015 ;
+                    rdfs:range obo:BFO_0000015 ;
+                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                    cco:definition "Inverse of disrupts." ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                    rdfs:label "is disrupted by"@en ;
+                    <http://www.w3.org/2004/02/skos/core#prefLabel> "is disrupted by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_ending_instant_of
@@ -1862,7 +1916,7 @@ mro:is_input_of rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:RO_0000056 ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
-                cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+                cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                 rdfs:label "is input of"@en .
 
@@ -1875,6 +1929,19 @@ mro:is_inside_instant_of rdf:type owl:ObjectProperty ;
                          cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                          rdfs:label "is inside instant of"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_interest_of
+mro:is_interest_of rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf mro:ModalObjectProperty ;
+                   rdfs:domain obo:BFO_0000015 ;
+                   rdfs:range cco:Agent ;
+                   <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                   <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                   cco:definition "The inverse of has_interest_in. " ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                   rdfs:label "is interest of"@en ;
+                   <http://www.w3.org/2004/02/skos/core#prefLabel> "is interest of"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/is_made_of
@@ -2481,7 +2548,7 @@ mro:prescribes rdf:type owl:ObjectProperty ;
 mro:process_preceded_by rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf mro:ModalObjectProperty ;
                         owl:inverseOf mro:process_precedes ;
-                        cco:definition "P preceded_by P' if and only if: given any process p that instantiates P at a time t, there is some process p' such that p' instantiates P' at time t', and t' is earlier than t."@en ;
+                        cco:definition "p1 preceded_by p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t2 interval_is_before t1 or t2 interval_meets t1."@en ;
                         cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#preceded_by" ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                         rdfs:label "process preceded by"@en ;
@@ -2491,7 +2558,7 @@ mro:process_preceded_by rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/process_precedes
 mro:process_precedes rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf mro:ModalObjectProperty ;
-                     cco:definition "Inverse of process preceded by."@en ;
+                     cco:definition "p1 process_precedes p2 if and only if p1 and p2 are instances of processes, and t1 and t2 are instances of temporal regions, and p1 occurs_on t1, and p2 occurs_on t2, and t1 interval_is_before t2 or t1 interval_meets t2."@en ;
                      cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#precedes" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                      rdfs:label "process precedes"@en ;
@@ -2550,23 +2617,25 @@ mro:receives rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/represented_by
 mro:represented_by rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf mro:described_by ;
+                   rdfs:subPropertyOf mro:is_subject_of ;
                    owl:inverseOf mro:represents ;
                    rdf:type owl:InverseFunctionalProperty ;
                    rdfs:range cco:RepresentationalInformationContentEntity ;
-                   cco:definition "x represented_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y presents the characteristics by which x can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+                   cco:definition "y represented_by x iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+                   rdfs:comment "See notes for inverse property." ;
                    rdfs:label "represented by"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/represents
 mro:represents rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf mro:describes ;
+               rdfs:subPropertyOf mro:is_about ;
                rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:RepresentationalInformationContentEntity ;
-               cco:definition "x represents y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x presents the characteristics by which y can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+               cco:definition "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                cco:elucidation "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
+               rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
                rdfs:label "represents"@en .
 
 
@@ -2806,9 +2875,14 @@ mro:has_text_value rdf:type owl:DatatypeProperty ;
                    rdfs:label "has text value"@en .
 
 
-###  Class stub to make Protege play nice
+#########################################
+### Class stubs to make Protege play nice
+#########################################
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
 cco:InformationBearingEntity rdf:type owl:Class .
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationContentEntity
+cco:InformationContentEntity rdf:type owl:Class .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

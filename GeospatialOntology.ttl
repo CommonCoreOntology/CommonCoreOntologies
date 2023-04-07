@@ -1,4 +1,4 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology#> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -6,15 +6,34 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> rdf:type owl:Ontology ;
-                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-03-06/GeospatialOntology> ;
+                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/GeospatialOntology> ;
                                                                                  owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> ;
-                                                                                 <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
+
+                                                                                 dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                  rdfs:comment "This ontology is designed to represent sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them."@en ;
                                                                                  rdfs:label "Geospatial Ontology"@en ;
                                                                                  owl:versionInfo "Version 1.4"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
@@ -239,13 +258,6 @@ cco:CenterOfMass rdf:type owl:Class ;
                  rdfs:label "Center of Mass"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/City
-cco:City rdf:type owl:Class ;
-         rdfs:subClassOf cco:LocalAdministrativeRegion ;
-         cco:definition "A Local Administrative Region in which a relatively large human population permanently resides; is designated as a city based on a particular administrative, legal, or historical status; and which delimits a local Government that typically oversees the provision of systems for sanitation, utilities, land usage, housing, and transportation."@en ;
-         cco:definition_source "https://en.wikipedia.org/w/index.php?title=City&oldid=1062635325"^^xsd:anyURI ;
-         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-         rdfs:label "City"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ConstructedFeature
@@ -273,37 +285,18 @@ cco:CoordinateSystemAxis rdf:type owl:Class ;
                          rdfs:label "Coordinate System Axis"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Country
-cco:Country rdf:type owl:Class ;
-            rdfs:subClassOf cco:GeopoliticalEntity ;
-            cco:alternative_label "Sovereign State"@en ;
-            cco:definition "A Geopolitical Entity that delimits a Government with effective internal and external sovereignty over the region and its population, and which is not dependent on or subject to any other power or Geopolitical Entity."@en ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-            rdfs:label "Country"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/County
-cco:County rdf:type owl:Class ;
-           rdfs:subClassOf cco:GeopoliticalEntity ;
-           cco:definition "A Geopolitical Entity that is part of either a First-Order or Second-Order Administrative Region."@en ;
-           cco:definition_source "https://en.wikipedia.org/w/index.php?title=County&oldid=1062817834"^^xsd:anyURI ;
-           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-           rdfs:label "County"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/DivisonOfGeopoliticalEntity
-cco:DivisonOfGeopoliticalEntity rdf:type owl:Class ;
-                                rdfs:subClassOf cco:GeospatialRegion ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty obo:BFO_0000050 ;
-                                                  owl:someValuesFrom cco:GeopoliticalEntity
-                                                ] ;
-                                owl:disjointWith cco:GeopoliticalEntity ;
-                                cco:definition "A Geospatial Region that is a fiat division of a Geopolitical Entity and not a Geopolitical Entity."@en ;
-                                cco:example_of_usage "Flatbush, French Quarter, Western New York, Texas Panhandle, Greater Montreal Area of Quebec, Pacific Northwest, southwest area of Al Anbar Province, Northern Iraq." ;
-                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                                rdfs:comment "Instances of this class are not proper geopolitical entities, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
-                                rdfs:label "Division of Geopolitical Entity"@en .
+
+
+
+
+
+
+
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EnvironmentalFeature
@@ -314,31 +307,10 @@ cco:EnvironmentalFeature rdf:type owl:Class ;
                          rdfs:label "Environmental Feature"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/FirstOrderAdministrativeRegion
-cco:FirstOrderAdministrativeRegion rdf:type owl:Class ;
-                                   rdfs:subClassOf cco:GeopoliticalEntity ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty obo:BFO_0000050 ;
-                                                     owl:someValuesFrom cco:Country
-                                                   ] ;
-                                   cco:definition "A Geopolitical Entity that is a primary administrative division of a Country."@en ;
-                                   cco:definition_source "http://www.geonames.org/export/codes.html" ;
-                                   cco:example_of_usage "a state in the United States" ;
-                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                                   rdfs:label "First-Order Administrative Region"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/FourthOrderAdministrativeRegion
-cco:FourthOrderAdministrativeRegion rdf:type owl:Class ;
-                                    rdfs:subClassOf cco:GeopoliticalEntity ,
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty obo:BFO_0000050 ;
-                                                      owl:someValuesFrom cco:ThirdOrderAdministrativeRegion
-                                                    ] ;
-                                    cco:definition "A Geopolitical Entity that is a subdivision of a Third-Order Administrative Region."@en ;
-                                    cco:definition_source "http://www.geonames.org/export/codes.html" ;
-                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                                    rdfs:label "Fourth-Order Administrative Region"@en .
+
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeographicFeature
@@ -349,21 +321,10 @@ cco:GeographicFeature rdf:type owl:Class ;
                       rdfs:label "Geographic Feature"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntity
-cco:GeopoliticalEntity rdf:type owl:Class ;
-                       rdfs:subClassOf cco:GeospatialRegion ;
-                       cco:definition "A Geospatial Region that delimits the authority of a formally constituted Government to exercise its control within the bounded area."@en ;
-                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                       rdfs:label "Geopolitical Entity"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityBorder
-cco:GeopoliticalEntityBorder rdf:type owl:Class ;
-                             rdfs:subClassOf cco:GeospatialBoundary ;
-                             cco:definition "A Geospatial Boundary that is a boundary of some Geopolitical Entity."@en ;
-                             cco:definition_source "https://en.wikipedia.org/w/index.php?title=Border&oldid=1061275162"^^xsd:anyURI ;
-                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                             rdfs:label "Geopolitical Entity Border"@en .
+
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary
@@ -490,13 +451,7 @@ cco:HydrographicFeature rdf:type owl:Class ;
                         rdfs:label "Hydrographic Feature"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/LocalAdministrativeRegion
-cco:LocalAdministrativeRegion rdf:type owl:Class ;
-                              rdfs:subClassOf cco:GeopoliticalEntity ;
-                              cco:alternative_label "Locality"@en ;
-                              cco:definition "A Geopolitical Entity that delimits a local Government."@en ;
-                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                              rdfs:label "Local Administrative Region"@en .
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LowDensityResidentialArea
@@ -514,6 +469,12 @@ cco:MajorAxis rdf:type owl:Class ;
               cco:definition "A One-Dimensional Spatial Region that is the longest line segment that connects two points on the edge of an Ellipse."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
               rdfs:label "Major Axis"@en .
+
+
+
+
+
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MinorAxis
@@ -595,13 +556,52 @@ cco:PopulatedPlace rdf:type owl:Class ;
                    rdfs:label "Populated place"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Province
-cco:Province rdf:type owl:Class ;
-             rdfs:subClassOf cco:FirstOrderAdministrativeRegion ;
-             cco:definition "A First-Order Administrative Region that is part of a Country and delimits the authority of a magistrate who holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the Province."@en ;
-             cco:definition_source "https://en.wikipedia.org/w/index.php?title=Province&oldid=1062496131"^^xsd:anyURI ;
-             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-             rdfs:label "Province"@en .
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfAtmosphere
+cco:PortionOfAtmosphere rdf:type owl:Class ;
+                        rdfs:subClassOf obo:BFO_0000024 ;
+                        cco:definition "A fiat object part of the layer of gas or layers of gases that envelop a natural satellite."@en ;
+                        cco:definition_source "https://en.wikipedia.org/w/index.php?title=Atmosphere&oldid=1135486662"^^xsd:anyURI ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                        rdfs:label "Portion of Atmosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfCryosphere
+cco:PortionOfCryosphere rdf:type owl:Class ;
+                        rdfs:subClassOf obo:BFO_0000024 ;
+                        cco:definition "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
+                        cco:definition_source "https://oceanservice.noaa.gov/facts/cryosphere.html (accessed 03/06/2023)"^^xsd:anyURI ;
+                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                        rdfs:label "Portion of Cryosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfGeosphere
+cco:PortionOfGeosphere rdf:type owl:Class ;
+                       rdfs:subClassOf obo:BFO_0000024 ;
+                       cco:definition "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
+                       cco:definition_source "https://en.wikipedia.org/w/index.php?title=Geosphere&oldid=1137306949"^^xsd:anyURI ;
+                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                       rdfs:label "Portion of Geosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfHydrosphere
+cco:PortionOfHydrosphere rdf:type owl:Class ;
+                         rdfs:subClassOf obo:BFO_0000024 ;
+                         cco:definition "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
+                         cco:definition_source "https://en.wikipedia.org/w/index.php?title=Hydrosphere&oldid=1128848972"^^xsd:anyURI ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                         rdfs:label "Portion of Hydrosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfLithosphere
+cco:PortionOfLithosphere rdf:type owl:Class ;
+                         rdfs:subClassOf obo:BFO_0000024 ;
+                         cco:definition "A fiat object part of the rigid, outermost rocky shell of a natural satellite."@en ;
+                         cco:definition_source "https://en.wikipedia.org/w/index.php?title=Lithosphere&oldid=1143215085"^^xsd:anyURI ;
+                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                         rdfs:label "Portion of Lithosphere"@en .
+
+
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RollAxis
@@ -621,17 +621,7 @@ cco:SeaLevel rdf:type owl:Class ;
              rdfs:label "Sea Level"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/SecondOrderAdministrativeRegion
-cco:SecondOrderAdministrativeRegion rdf:type owl:Class ;
-                                    rdfs:subClassOf cco:GeopoliticalEntity ,
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty obo:BFO_0000050 ;
-                                                      owl:someValuesFrom cco:FirstOrderAdministrativeRegion
-                                                    ] ;
-                                    cco:definition "A Geopolitical Entity that is a subdivision of a First-Order Administrative Region."@en ;
-                                    cco:definition_source "http://www.geonames.org/export/codes.html" ;
-                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                                    rdfs:label "Second-Order Administrative Region"@en .
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SemiMajorAxis
@@ -650,14 +640,7 @@ cco:SemiMinorAxis rdf:type owl:Class ;
                   rdfs:label "Semi-Minor Axis"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/State
-cco:State rdf:type owl:Class ;
-          rdfs:subClassOf cco:FirstOrderAdministrativeRegion ;
-          cco:alternative_label "Constituent State"@en ;
-          cco:definition "A First-Order Administrative Region that is part of a Country and delimits a centralized regional Government that holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the State."@en ;
-          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Constituent_state&oldid=1063662102"^^xsd:anyURI ;
-          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-          rdfs:label "State"@en .
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent
@@ -669,17 +652,7 @@ cco:Subcontinent rdf:type owl:Class ;
                  rdfs:label "Subcontinent"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ThirdOrderAdministrativeRegion
-cco:ThirdOrderAdministrativeRegion rdf:type owl:Class ;
-                                   rdfs:subClassOf cco:GeopoliticalEntity ,
-                                                   [ rdf:type owl:Restriction ;
-                                                     owl:onProperty obo:BFO_0000050 ;
-                                                     owl:someValuesFrom cco:SecondOrderAdministrativeRegion
-                                                   ] ;
-                                   cco:definition "A Geopolitical Entity that is a subdivision of a Second-Order Administrative Region."@en ;
-                                   cco:definition_source "http://www.geonames.org/export/codes.html" ;
-                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                                   rdfs:label "Third-Order Administrative Region"@en .
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ThreeDimensionalPath
@@ -703,22 +676,8 @@ cco:ThreeDimensionalPosition rdf:type owl:Class ;
                              rdfs:label "Three-Dimensional Position"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Town
-cco:Town rdf:type owl:Class ;
-         rdfs:subClassOf cco:LocalAdministrativeRegion ;
-         cco:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a Village but smaller than that of a City; is designated as a town based on a particular administrative, legal, or historical status; and which delimits a local Government that typically exercises less power than that of a City Government."@en ;
-         cco:definition_source "http://www.dictionary.com/browse/town" ;
-         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-         rdfs:label "Town"@en .
 
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/Village
-cco:Village rdf:type owl:Class ;
-            rdfs:subClassOf cco:LocalAdministrativeRegion ;
-            cco:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a hamlet but smaller than that of a Town."@en ;
-            cco:definition_source "http://www.merriam-webster.com/dictionary/village" ;
-            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-            rdfs:label "Village"@en .
+         
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/YawAxis
@@ -761,51 +720,6 @@ cco:zAxis rdf:type owl:Class ;
           cco:definition "A Coordinate System Axis designated by the variable 'z'."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
           rdfs:label "z-Axis"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfAtmosphere
-:PortionOfAtmosphere rdf:type owl:Class ;
-                     rdfs:subClassOf obo:BFO_0000024 ;
-                     cco:definition "A fiat object part of the layer of gas or layers of gases that envelop a natural satellite."@en ;
-                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Atmosphere&oldid=1135486662"^^xsd:anyURI ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                     rdfs:label "Portion of Atmosphere"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfCryosphere
-:PortionOfCryosphere rdf:type owl:Class ;
-                     rdfs:subClassOf obo:BFO_0000024 ;
-                     cco:definition "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
-                     cco:definition_source "https://oceanservice.noaa.gov/facts/cryosphere.html (accessed 03/06/2023)"^^xsd:anyURI ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                     rdfs:label "Portion of Cryosphere"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfGeosphere
-:PortionOfGeosphere rdf:type owl:Class ;
-                    rdfs:subClassOf obo:BFO_0000024 ;
-                    cco:definition "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
-                    cco:definition_source "https://en.wikipedia.org/w/index.php?title=Geosphere&oldid=1137306949"^^xsd:anyURI ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                    rdfs:label "Portion of Geosphere"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfHydrosphere
-:PortionOfHydrosphere rdf:type owl:Class ;
-                      rdfs:subClassOf obo:BFO_0000024 ;
-                      cco:definition "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
-                      cco:definition_source "https://en.wikipedia.org/w/index.php?title=Hydrosphere&oldid=1128848972"^^xsd:anyURI ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                      rdfs:label "Portion of Hydrosphere"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfLithosphere
-:PortionOfLithosphere rdf:type owl:Class ;
-                      rdfs:subClassOf obo:BFO_0000024 ;
-                      cco:definition "A fiat object part of the rigid, outermost rocky shell of a natural satellite."@en ;
-                      cco:definition_source "https://en.wikipedia.org/w/index.php?title=Lithosphere&oldid=1143215085"^^xsd:anyURI ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                      rdfs:label "Portion of Lithosphere"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

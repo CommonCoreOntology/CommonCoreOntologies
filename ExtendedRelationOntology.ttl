@@ -1,22 +1,23 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology#> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> rdf:type owl:Ontology ;
-                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/ExtendedRelationOntology> ;
-                                                                                       owl:imports obo:bfo.owl ,
-                                                                                                   <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ;
-                                                                                       cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                       cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
+                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/ExtendedRelationOntology> ;
+                                                                                       owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ,
+                                                                                                   obo:bfo.owl ;
+                                                                                       <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                        rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."@en ;
                                                                                        rdfs:label "Extended Relation Ontology"@en ;
-                                                                                       owl:versionInfo "Version 1.3"@en .
+                                                                                       owl:versionInfo "Version 1.4"@en .
 
 #################################################################
 #    Annotation properties
@@ -42,6 +43,32 @@ cco:code_license rdf:type owl:AnnotationProperty ;
                  cco:definition "The name and description of the license under which the .owl file is released."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                  rdfs:label "code license"@en .
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by
+cco:is_disrupted_by rdf:type owl:ObjectProperty ;
+                    dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                    owl:inverseOf cco:disrupts ;
+                    rdfs:domain obo:BFO_0000015 ;
+                    rdfs:range obo:BFO_0000015 ;
+                    cco:definition "Inverse of disrupts." ;
+                    dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                    rdfs:label "is disrupted by"@en ;
+                    skos:prefLabel "is disrupted by"@en .
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/disrupts
+cco:disrupts rdf:type owl:ObjectProperty ;
+             owl:inverseOf cco:is_disrupted_by ;
+             rdfs:domain obo:BFO_0000015 ;
+             rdfs:range obo:BFO_0000015 ;
+             dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+             dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+             cco:definition "A relation where one process disrupts another process from occurring as it would have."@en ;
+             cco:elucidation "A process can disrupt another process from occurring as it would have by 1) preventing a disposition or role from being realized by that process, 2) lowering the grade of the process, or 3) stopping the process from continuing to occur."@en ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+             rdfs:label "disrupts"@en ;
+             skos:editorialNote "To lower the grade of a process is to lower the quality of a process according to some standard, for example when realizing a capability or a function."@en ;
+             skos:prefLabel "disrupts"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/content_license
@@ -336,7 +363,7 @@ cco:has_accomplice rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf obo:RO_0000057 ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range obo:BFO_0000040 ;
-                   cco:definition "An Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
+                   cco:definition "A Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
                    cco:definition_source "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                    rdfs:label "has accomplice"@en .
@@ -348,7 +375,7 @@ cco:has_input rdf:type owl:ObjectProperty ;
               owl:inverseOf cco:is_input_of ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000002 ;
-              cco:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+              cco:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
               rdfs:label "has input"@en .
 
@@ -431,7 +458,7 @@ cco:is_input_of rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
-                cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+                cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                 rdfs:label "is input of"@en .
 
@@ -591,4 +618,4 @@ cco:role_of_aggregate rdf:type owl:ObjectProperty ;
                       rdfs:label "role of aggregate"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

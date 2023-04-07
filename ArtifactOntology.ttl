@@ -1,4 +1,4 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology#> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,13 +9,12 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology> rdf:type owl:Ontology ;
-                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-03-06/ArtifactOntology> ;
+                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/ArtifactOntology> ;
                                                                                owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
+                                                                               <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                rdfs:label "Artifact Ontology"@en ;
-                                                                               cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                               rdfs:comment "This ontology is designed to represent artifacts that are common to multiple domains along with their models, specifications, and functions."@en ;
-                                                                               rdfs:label "Artifact Ontology"@en ;
-                                                                               owl:versionInfo "Version 1.4"@en .
+                                                                               owl:versionInfo "Version 1.4"@en ;
+                                                                               rdfs:comment "This ontology is designed to represent artifacts that are common to multiple domains along with their models, specifications, and functions."@en .
 
 #################################################################
 #    Classes
@@ -1494,7 +1493,7 @@ cco:Facility rdf:type owl:Class ;
              rdfs:subClassOf cco:Artifact ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty obo:RO_0001025 ;
-                               owl:someValuesFrom <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology#PortionOfGeosphere>
+                               owl:someValuesFrom cco:PortionOfGeosphere
                              ] ;
              cco:definition "A Material Artifact that is designed as a building or campus dedicated to some specific purpose."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
@@ -2339,8 +2338,8 @@ cco:LandMine rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LandTransportationArtifact
 cco:LandTransportationArtifact rdf:type owl:Class ;
-                               rdfs:subClassOf cco:Artifact ;
-                               cco:definition "A Material Artifact that is fixed in place and designed to enable the movement of Vehicles and Agents from one location to another via land."@en ;
+                               rdfs:subClassOf cco:TransportationArtifact ;
+                               cco:definition "A Transportation Artifact that is fixed in place and designed to bear a Function, the realization of which is sometimes part of a process moving Vehicles and Agents from one location to another via land."@en ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                rdfs:label "Land Transportation Artifact"@en .
 
@@ -4649,6 +4648,14 @@ cco:Transducer rdf:type owl:Class ;
                rdfs:label "Transducer"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TransportationArtifact
+cco:TransportationArtifact rdf:type owl:Class ;
+                           rdfs:subClassOf cco:Artifact ;
+                           cco:definition "A Material Artifact that is fixed in place and designed to bear a Function, the realization of which is sometimes part of a process moving Vehicles and Agents from one location to another."@en ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
+                           rdfs:label "Transportation Artifact"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TransportationInfrastructure
 cco:TransportationInfrastructure rdf:type owl:Class ;
                                  rdfs:subClassOf cco:Infrastructure ;
@@ -4941,8 +4948,8 @@ cco:WasteManagementArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WaterTransportationArtifact
 cco:WaterTransportationArtifact rdf:type owl:Class ;
-                                rdfs:subClassOf cco:Artifact ;
-                                cco:definition "A Material Artifact that is fixed in place and designed to enable the movement of Vehicles and Agents from one location to another via water."@en ;
+                                rdfs:subClassOf cco:TransportationArtifact ;
+                                cco:definition "A Transportation Artifact that is fixed in place and designed to bear a Function, the realization of which is sometimes part of a process of moving Vehicles and Agents from one location to another via water."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                 rdfs:label "Water Transportation Artifact"@en .
 

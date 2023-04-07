@@ -10,9 +10,9 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTerms> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/ObsoleteTerms> rdf:type owl:Ontology ;
-                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/2021-03-01/ObsoleteTerms> ;
+                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Domain/2023-04-07/ObsoleteTerms> ;
                                                                                rdfs:label "Obsolete Terms"@en ;
-                                                                               owl:versionInfo "Version 1.3"@en ;
+                                                                               owl:versionInfo "Version 1.4"@en ;
                                                                                rdfs:comment "This file contains terms that have been deleted from the CCO."@en .
 
 #################################################################
@@ -1767,6 +1767,174 @@ cco:VehicleFramePart rdf:type owl:Class ;
                      cco:definition "An Artifact that is designed to be part of some Vehicle Frame."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                      rdfs:label "Vehicle Frame Part"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DecadeIdentifier
+cco:DecadeIdentifier rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty cco:designates ;
+                                           owl:someValuesFrom cco:Decade
+                                         ] ;
+                     rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                     cco:definition "A Temporal Interval Identifier that designates some Decade."@en ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                     rdfs:label "Decade Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/HourIdentifier
+cco:HourIdentifier rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty cco:designates ;
+                                         owl:someValuesFrom cco:Hour
+                                       ] ;
+                   rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                   cco:definition "A Temporal Interval Identifier that designates some Hour."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                   rdfs:label "Hour Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MinuteIdentifier
+cco:MinuteIdentifier rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty cco:designates ;
+                                           owl:someValuesFrom cco:Minute
+                                         ] ;
+                     rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                     cco:definition "A Temporal Interval Identifier that designates some Minute."@en ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                     rdfs:label "Minute Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MonthIdentifier
+cco:MonthIdentifier rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty cco:designates ;
+                                          owl:someValuesFrom cco:Month
+                                        ] ;
+                    rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                    cco:definition "A Temporal Interval Identifier that designates some Month."@en ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                    rdfs:label "Month Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiDayTemporalIntervalIdentifier
+cco:MultiDayTemporalIntervalIdentifier rdf:type owl:Class ;
+                                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:designates ;
+                                                             owl:someValuesFrom cco:MultiDayTemporalInterval
+                                                           ] ;
+                                       rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                                       cco:definition "A Temporal Interval Identifier that designates some Multi-Day Temporal Interval."@en ;
+                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                                       rdfs:label "Multi-Day Temporal Interval Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiHourTemporalIntervalIdentifier
+cco:MultiHourTemporalIntervalIdentifier rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty cco:designates ;
+                                                              owl:someValuesFrom cco:MultiHourTemporalInterval
+                                                            ] ;
+                                        rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                                        cco:definition "A Temporal Interval Identifier that designates some Multi-Hour Temporal Interval."@en ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                                        rdfs:label "Multi-Hour Temporal Interval Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiMinuteTemporalIntervalIdentifier
+cco:MultiMinuteTemporalIntervalIdentifier rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:designates ;
+                                                                owl:someValuesFrom cco:MultiMinuteTemporalInterval
+                                                              ] ;
+                                          rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                                          cco:definition "A Temporal Interval Identifier that designates some Multi-Minute Temporal Interval."@en ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                                          rdfs:label "Multi-Minute Temporal Interval Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiMonthTemporalIntervalIdentifier
+cco:MultiMonthTemporalIntervalIdentifier rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty cco:designates ;
+                                                               owl:someValuesFrom cco:MultiMonthTemporalInterval
+                                                             ] ;
+                                         rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                                         cco:definition "A Temporal Interval Identifier that designates some Multi-Month Temporal Interval."@en ;
+                                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                                         rdfs:label "Multi-Month Temporal Interval Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiSecondTemporalIntervalIdentifier
+cco:MultiSecondTemporalIntervalIdentifier rdf:type owl:Class ;
+                                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                owl:onProperty cco:designates ;
+                                                                owl:someValuesFrom cco:MultiSecondTemporalInterval
+                                                              ] ;
+                                          rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                                          cco:definition "A Temporal Interval Identifier that designates some Multi-Second Temporal Interval."@en ;
+                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                                          rdfs:label "Multi-Second Temporal Interval Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiWeekTemporalIntervalIdentifier
+cco:MultiWeekTemporalIntervalIdentifier rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty cco:designates ;
+                                                              owl:someValuesFrom cco:MultiWeekTemporalInterval
+                                                            ] ;
+                                        rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                                        cco:definition "A Temporal Interval Identifier that designates some Multi-Week Temporal Interval."@en ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                                        rdfs:label "Multi-Week Temporal Interval Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MultiYearTemporalIntervalIdentifier
+cco:MultiYearTemporalIntervalIdentifier rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty cco:designates ;
+                                                              owl:someValuesFrom cco:MultiYearTemporalInterval
+                                                            ] ;
+                                        rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                                        cco:definition "A Temporal Interval Identifier that designates some Multi-Year Temporal Interval."@en ;
+                                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                                        rdfs:label "Multi-Year Temporal Interval Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SecondIdentifier
+cco:SecondIdentifier rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty cco:designates ;
+                                           owl:someValuesFrom cco:Second
+                                         ] ;
+                     rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                     cco:definition "A Temporal Interval Identifier that designates some Second."@en ;
+                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                     rdfs:label "Second Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WeekIdentifier
+cco:WeekIdentifier rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty cco:designates ;
+                                         owl:someValuesFrom cco:Week
+                                       ] ;
+                   rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                   cco:definition "A Temporal Interval Identifier that designates some Week."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                   rdfs:label "Week Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/YearIdentifier
+cco:YearIdentifier rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty cco:designates ;
+                                         owl:someValuesFrom cco:Year
+                                       ] ;
+                   rdfs:subClassOf cco:TemporalIntervalIdentifier ;
+                   cco:definition "A Temporal Interval Identifier that designates some Year."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+                   rdfs:label "Year Identifier"@en .
 
 
 
