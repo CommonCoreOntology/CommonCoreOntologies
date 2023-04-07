@@ -1390,7 +1390,14 @@ cco:CountryElement rdf:type owl:Class ;
                    cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                    rdfs:label "Country Element"@en ;
-                   skos:editorialNote "'Country' is exceedingly ambiguous. However, the notion is too common and useful to ignore. Thus, we define 'Country Element' and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
+                   skos:editorialNote "'Country' is exceedingly ambiguous. However, the notion is too common and useful to ignore. Thus, we define 'Country Element' and leave it to users to decide what they believe the term refers to."@en ,
+                                      """The intended use of this element is to allow for an opinionated use of the label 'Country' by users. There are two ways to do this. 
+
+First, a user could add, to an extension ontology, either term as a label to one of the elements, thus baptizing the element as properly refered to by that term. For example, one could add the label 'Country' to what is currently labeled 'Domain of a Country'. Because labels don't create logical conflicts, this strategy should allow for various ontologies, with conflicting opinions about the proper use of 'Country' to merge without logical issue. 
+
+The second strategy would be to mint, in an extension ontology, a brand new IRI, label it 'Country' and have that new entity be defined and axiomatized in terms of the elements. While this would result in merged ontologies having similar labels accross distinct IRIs, this is not a logical issue. 
+
+Of course, this all assumes that users are conforming to the definitions of BFO and CCO. Thus, if a users decides that a 'Country' is (or is identical to) a 'Domain of a Country', then it would be entailed that a Country has no political authority, at least not in a way that isn't derivitive on the political authority of the government it delimits. As such, users should be careful to exploit the relationships between the elements, choosing the right element for the right relationship."""@en ;
                    skos:prefLabel "Country Element"@en .
 
 
@@ -1488,7 +1495,14 @@ cco:ElementOfPoliticalGeographicalEntity rdf:type owl:Class ;
                                          cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                          rdfs:label "Element Of Political Geographical Entity"@en ;
-                                         skos:editorialNote "As a parent term to 'Country', 'Political Geographical Entity' is exceedingly ambiguous. However, the notion, like 'Country', is too common and useful to ignore. Thus, we define the elements of a Political Geographical Entity and leave it to users to decide what they believe the term refers to. It could be any combination of the elements. The referent can then be specified axiomatically."@en ;
+                                         skos:editorialNote "As a parent term to 'Country', 'Political Geographical Entity' is exceedingly ambiguous. However, the notion, like 'Country', is too common and useful to ignore. Thus, we define the elements of a Political Geographical Entity and leave it to users to decide what they believe the term refers to."@en ,
+                                                            """The intended use of this element is to allow for an opinionated use of the label 'Political Geographical Entity' or 'Geopolitical Entity' by users. There are two ways to do this. 
+
+First, a user could add, to an extension ontology, either term as a label to one of the elements, thus baptizing the element as properly refered to by that term. For example, one could add the label 'Geopolitical Entity' to what is currently labeled 'Domain of a Government'. Because labels don't create logical conflicts, this strategy should allow for various ontologies, with conflicting opinions about the proper use of, say, 'Geopolitical Entity' to merge without logical issue. 
+
+The second strategy would be to mint, in an extension ontology, a brand new IRI, label it 'Political Geographical Entity' or 'Geopolitical Entity' and have that new entity be defined and axiomatized in terms of the elements. While this would result in merged ontologies having similar labels accross distinct IRIs, this is not a logical issue. 
+
+Of course, this all assumes that users are conforming to the definitions of BFO and CCO. Thus, if a users decides that a 'Geopolitical Entity' is (or is identical to) a 'Domain of a Government', then it would be entailed that a Geopolitical Entity has no political authority, at least not in a way that isn't derivitive on the political authority of the government it delimits. As such, users should be careful to exploit the relationships between the elements, choosing the right element for the right relationship."""@en ;
                                          skos:prefLabel "Element Of Political Geographical Entity"@en .
 
 
