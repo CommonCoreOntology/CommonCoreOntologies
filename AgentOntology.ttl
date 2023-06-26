@@ -1676,25 +1676,7 @@ cco:GovernmentAgency rdf:type owl:Class ;
                      rdfs:label "Government Organization"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentOfACountry
-cco:GovernmentOfACountry rdf:type owl:Class ;
-                         owl:equivalentClass [ owl:intersectionOf ( cco:Government
-                                                                    [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty cco:is_delimited_by ;
-                                                                      owl:someValuesFrom cco:Country
-                                                                    ]
-                                                                  ) ;
-                                               rdf:type owl:Class
-                                             ] ;
-                         rdfs:subClassOf cco:Government ;
-                         dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
-                         dcterms:created "2023-02-08T19:54:46-05:00"^^xsd:dateTime ;
-                         dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                         cco:definition "A Government that has legitimate authority within and is delimited by a Domain of a Country."@en ;
-                         cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                         rdfs:label "Government of a Country"@en ;
-                         skos:prefLabel "Government of a Country"@en .
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfAgents
@@ -1834,24 +1816,7 @@ cco:MaleSex rdf:type owl:Class ;
             rdfs:label "Male Sex"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/MaterialTerritoryOfACountry
-cco:MaterialTerritoryOfACountry rdf:type owl:Class ;
-                                owl:equivalentClass [ owl:intersectionOf ( cco:MaterialTerritoryOfAGovernmentDomain
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0001018 ;
-                                                                             owl:someValuesFrom cco:Country
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ] ;
-                                rdfs:subClassOf cco:MaterialTerritoryOfAGovernmentDomain ;
-                                dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
-                                dcterms:created "2023-02-06T10:14:09-05:00"@en ;
-                                cco:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a The Domain of a Country."@en ;
-                                cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
-                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                rdfs:label "Material Territory of a Country"@en ;
-                                skos:prefLabel "Material Territory of a Country"@en .
+
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MaterialTerritoryOfAGovernmentDomain
