@@ -9,14 +9,14 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
-                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/InformationEntityOntology> ;
-                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ,
-                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ;
-                                                                                        cco:CCO_0002053 <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                        cco:CCO_0002055 <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en ;
+                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/InformationEntityOntology> ;
+                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ,
+                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
                                                                                         rdfs:label "Information Entity Ontology"@en ;
-                                                                                        owl:versionInfo "Version 1.3"@en .
+                                                                                        <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
+                                                                                        rdfs:comment "A version using numeric IDs. The IRIs do not resolve. Use at own risk."@en ;
+                                                                                        owl:versionInfo "Version 1.4 Numeric"@en ;
+                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en .
 
 #################################################################
 #    Object Properties
@@ -93,23 +93,25 @@ cco:CCO_0000105 rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000106
 cco:CCO_0000106 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:CCO_0000100 ;
+                rdfs:subPropertyOf cco:CCO_0000108 ;
                 owl:inverseOf cco:CCO_0000107 ;
                 rdf:type owl:FunctionalProperty ;
                 rdfs:domain cco:CCO_0000086 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002059 "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
-                cco:CCO_0002060 "x represents y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x presents the characteristics by which y can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+                cco:CCO_0002060 "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
                 rdfs:label "represents"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000107
 cco:CCO_0000107 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:CCO_0000101 ;
+                rdfs:subPropertyOf cco:CCO_0000109 ;
                 rdf:type owl:InverseFunctionalProperty ;
                 rdfs:range cco:CCO_0000086 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "x represented_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y presents the characteristics by which x can be recognized or visualized, and there exists a one-to-one correspondence between the components of x and y."@en ;
+                cco:CCO_0002060 "y represented_by x iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                rdfs:comment "See notes for inverse property." ;
                 rdfs:label "represented by"@en .
 
 
@@ -463,9 +465,13 @@ cco:CCO_0000142 rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000000
 cco:CCO_0000000 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000108 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000031
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000108 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf obo:BFO_0000031 ;
                 cco:CCO_0002036 "http://purl.obolibrary.org/obo/IAO_0000030" ;
@@ -478,9 +484,13 @@ cco:CCO_0000000 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000001
 cco:CCO_0000001 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000000
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000104 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000000 ;
                 owl:disjointWith cco:CCO_0000002 ,
@@ -503,9 +513,13 @@ cco:CCO_0000002 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000003
 cco:CCO_0000003 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000102 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000000
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000102 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000000 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -517,7 +531,7 @@ cco:CCO_0000003 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000004
 cco:CCO_0000004 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000015 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Probability" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Probability&oldid=1059657543"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Likelihood Measurement"@en ,
                                 "Probability Measurement"@en ;
@@ -574,9 +588,13 @@ cco:CCO_0000009 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000010
 cco:CCO_0000010 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009006
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000064
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000104 ;
+                                                             owl:someValuesFrom cco:CCO_0009006
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000064 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -588,7 +606,7 @@ cco:CCO_0000010 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000011
 cco:CCO_0000011 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000024 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Solar_calendar" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Solar_calendar&oldid=1058016588"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002059 "Unless otherwise specified, a Solar Calendar System is assumed to be relative to the Orbit of the Earth around the Sun."@en ;
                 cco:CCO_0002060 "A Calendar System that is designed to organize and identify dates based on the cycles of an Astronomical Body's Orbit around the Sun."@en ;
@@ -618,15 +636,19 @@ cco:CCO_0000014 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000050 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Median"@en ;
-                cco:CCO_0002060 "A Point Estimate of the 50th percentile of a measurement of some attribute of a population. that is a measurement of a set of values and is equal to the middle value (or, in a set containing an even number of values, the average of the two middle-most values) which separates the set into two equally populated upper and lower sets of values."@en ;
+                cco:CCO_0002060 "A Point Estimate Information Content Entity that is a measurement of a set of values and is equal to either the middle value or the average of the two values which separate the set into two equally populated upper and lower sets."@en ;
                 rdfs:label "Median Point Estimate Information Content Entity"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000015
 cco:CCO_0000015 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000111 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000002
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000111 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000002 ;
                 owl:disjointWith cco:CCO_0000086 ;
@@ -646,18 +668,6 @@ cco:CCO_0000016 rdf:type owl:Class ;
                 rdfs:label "Julian Date Fraction"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000017
-cco:CCO_0000017 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009013
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Multi-Month Temporal Interval."@en ;
-                rdfs:label "Multi-Month Temporal Interval Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000018
 cco:CCO_0000018 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000001 ;
@@ -670,7 +680,7 @@ cco:CCO_0000018 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000019
 cco:CCO_0000019 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000083 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Lot_number" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Lot_number&oldid=1061846325"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Code Identifier that designates a particular quantity or lot of material from a single manufacturer."@en ;
                 rdfs:label "Lot Number"@en .
@@ -691,18 +701,6 @@ cco:CCO_0000021 rdf:type owl:Class ;
                 cco:CCO_0002045 "UT" ;
                 cco:CCO_0002060 "A Solar Time Reference System that is based on the average speed of the Earth's rotation and which uses the prime meridian at 0° longitude as a reference point."@en ;
                 rdfs:label "Universal Time Reference System"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000022
-cco:CCO_0000022 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009009
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Second."@en ;
-                rdfs:label "Second Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000023
@@ -778,23 +776,15 @@ cco:CCO_0000028 rdf:type owl:Class ;
                 rdfs:label "Julian Date Identifier"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000029
-cco:CCO_0000029 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009020
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Minute."@en ;
-                rdfs:label "Minute Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000030
 cco:CCO_0000030 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom obo:BFO_0000148
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000082
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000104 ;
+                                                             owl:someValuesFrom obo:BFO_0000148
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000082 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -832,18 +822,6 @@ cco:CCO_0000033 rdf:type owl:Class ;
                 rdfs:label "Sidereal Time Reference System"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000034
-cco:CCO_0000034 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009007
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Multi-Hour Temporal Interval."@en ;
-                rdfs:label "Multi-Hour Temporal Interval Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000035
 cco:CCO_0000035 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000062 ;
@@ -862,23 +840,15 @@ cco:CCO_0000036 rdf:type owl:Class ;
                 rdfs:label "Solar Time Reference System"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000037
-cco:CCO_0000037 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009008
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Year."@en ;
-                rdfs:label "Year Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000038
 cco:CCO_0000038 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000129 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000015
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000129 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000015 ;
                 owl:disjointWith cco:CCO_0000062 ,
@@ -896,9 +866,13 @@ cco:CCO_0000038 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000039
 cco:CCO_0000039 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009025
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000030
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000104 ;
+                                                             owl:someValuesFrom cco:CCO_0009025
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000030 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -909,24 +883,12 @@ cco:CCO_0000039 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000040
 cco:CCO_0000040 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000069 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Ordinal_date" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Ordinal_date&oldid=1061989434"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Ordinal Date"@en ;
                 cco:CCO_0002060 "A Decimal Date Identifier that designates some Day by using a number to indicate the sequential ordering of the Day since the beginning of the Year."@en ;
                 rdfs:comment "An Ordinal Date Identifier may or may not also contain a number indicating a specific Year. If both numbers are included, the ISO 8601 ordinal date format stipulates that the two numbers be formatted as YYYY-DDD or YYYYDDD where [YYYY] indicates a year and [DDD] is the day of that year, from 001 through 365 (or 366 in leap years)."@en ;
                 rdfs:label "Ordinal Date Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000041
-cco:CCO_0000041 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009016
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Multi-Day Temporal Interval."@en ;
-                rdfs:label "Multi-Day Temporal Interval Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000042
@@ -957,9 +919,13 @@ cco:CCO_0000044 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000045
 cco:CCO_0000045 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom obo:BFO_0000006
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000001
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000104 ;
+                                                             owl:someValuesFrom obo:BFO_0000006
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000001 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -970,7 +936,7 @@ cco:CCO_0000045 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000046
 cco:CCO_0000046 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000081 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Coordinate_system" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Coordinate_system&oldid=1060461397"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Coordinate System"@en ,
                                 "Spatial Coordinate System"@en ,
@@ -996,7 +962,7 @@ cco:CCO_0000047 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000048
 cco:CCO_0000048 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000024 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Lunar_calendar" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Lunar_calendar&oldid=1055396837"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Calendar System that is designed to organize and identify dates based on the cycles of the Moon's phases."@en ;
                 rdfs:label "Lunar Calendar System"@en .
@@ -1083,23 +1049,11 @@ cco:CCO_0000056 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000057
 cco:CCO_0000057 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000046 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Cartesian_coordinate_system" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Cartesian_coordinate_system&oldid=1058613323"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Rectangular Coordinate System"@en ;
                 cco:CCO_0002060 "A Spatial Reference System that identifies each point in a spatial region of n-dimensions using an ordered n-tuple of numerical coordinates that are the signed (i.e. positive or negative) distances measured in the same unit of length from the zero point where the fixed perpendicular Coordinate System Axes meet."@en ;
                 rdfs:label "Cartesian Coordinate System"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000058
-cco:CCO_0000058 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009004
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Hour."@en ;
-                rdfs:label "Hour Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000059
@@ -1109,7 +1063,7 @@ cco:CCO_0000059 rdf:type owl:Class ;
                 cco:CCO_0002054 "Arithmetic Mean"@en ,
                                 "Average"@en ,
                                 "Mean"@en ;
-                cco:CCO_0002060 "A Ratio Measurement Information Content Entity that is a measurement of a set of values and is equal to the sum of all the values in the set divided by the total number of values in the set."@en ;
+                cco:CCO_0002060 "A Point Estimate Information Content Entity that is a measurement of a set of values and is equal to the sum of all the values in the set divided by the total number of values in the set."@en ;
                 rdfs:label "Mean Point Estimate Information Content Entity"@en .
 
 
@@ -1130,7 +1084,7 @@ cco:CCO_0000060 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000061
 cco:CCO_0000061 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000046 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Spherical_coordinate_system" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Spherical_coordinate_system&oldid=1061029174"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Spatial Reference System for three-dimensional spatial regions that identifies each point using an ordered triple of numerical coordinates that consist of the radial distance of the point of interest from a fixed origin, its polar angle measured from a fixed zenith direction, and the azimuth angle of its orthogonal projection measured from a fixed direction on a reference plane that passes through the origin and is orthogonal to the zenith."@en ;
                 rdfs:label "Spherical Coordinate System"@en .
@@ -1138,9 +1092,13 @@ cco:CCO_0000061 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000062
 cco:CCO_0000062 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000112 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000015
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000112 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000015 ;
                 owl:disjointWith cco:CCO_0000071 ,
@@ -1161,16 +1119,20 @@ cco:CCO_0000063 rdf:type owl:Class ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Mode"@en ,
                                 "Statistical Mode"@en ;
-                cco:CCO_0002060 "A Nominal Measurement Information Content Entity that is a measurement of a set of values and is equal to the value(s) that occurs the most often in the set."@en ;
+                cco:CCO_0002060 "A Point Estimate Information Content Entity that is a measurement of a set of values and is equal to the value or value(s) that occur most often in the set."@en ;
                 rdfs:comment "While there is always at least one Mode for every set of data, it is possible for any given set of data to have multiple Modes. The Mode is typically most useful when the members of the set are all Nominal Measurement Information Content Entities."@en ;
                 rdfs:label "Mode Point Estimate Information Content Entity"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000064
 cco:CCO_0000064 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom obo:BFO_0000038
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000082
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000104 ;
+                                                             owl:someValuesFrom obo:BFO_0000038
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000082 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -1229,23 +1191,15 @@ cco:CCO_0000069 rdf:type owl:Class ;
                 rdfs:label "Decimal Date Identifier"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000070
-cco:CCO_0000070 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009015
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Multi-Minute Temporal Interval."@en ;
-                rdfs:label "Multi-Minute Temporal Interval Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000071
 cco:CCO_0000071 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000116 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000015
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000116 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000015 ;
                 owl:disjointWith cco:CCO_0000085 ;
@@ -1258,18 +1212,6 @@ cco:CCO_0000071 rdf:type owl:Class ;
                 rdfs:label "Ordinal Measurement Information Content Entity"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000072
-cco:CCO_0000072 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009021
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Decade."@en ;
-                rdfs:label "Decade Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000073
 cco:CCO_0000073 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000018 ;
@@ -1280,9 +1222,13 @@ cco:CCO_0000073 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000074
 cco:CCO_0000074 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty obo:RO_0010002 ;
-                                      owl:someValuesFrom cco:CCO_0000000
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000030
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:RO_0010002 ;
+                                                             owl:someValuesFrom cco:CCO_0000000
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf obo:BFO_0000030 ;
                 cco:CCO_0002036 "http://purl.obolibrary.org/obo/IAO_0000178"^^xsd:anyURI ;
@@ -1300,18 +1246,6 @@ cco:CCO_0000075 rdf:type owl:Class ;
                 rdfs:label "Priority Scale"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000076
-cco:CCO_0000076 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009026
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Multi-Second Temporal Interval."@en ;
-                rdfs:label "Multi-Second Temporal Interval Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000077
 cco:CCO_0000077 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000081 ;
@@ -1326,25 +1260,13 @@ cco:CCO_0000077 rdf:type owl:Class ;
 cco:CCO_0000078 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000006 ;
                 owl:disjointWith cco:CCO_0000091 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Natural_language" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Natural_language&oldid=1060890461"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002052 "English" ,
                                 "Mandarin (Chinese)" ,
                                 "Spanish" ;
                 cco:CCO_0002060 "A Language that is developed and evolves through use and repetition, rather than through conscious planning or premeditation."@en ;
                 rdfs:label "Natural Language"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000079
-cco:CCO_0000079 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009000
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Month."@en ;
-                rdfs:label "Month Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000080
@@ -1365,9 +1287,13 @@ cco:CCO_0000081 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000082
 cco:CCO_0000082 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom obo:BFO_0000008
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000001
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000104 ;
+                                                             owl:someValuesFrom obo:BFO_0000008
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000001 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -1397,9 +1323,13 @@ cco:CCO_0000084 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000085
 cco:CCO_0000085 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000115 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000015
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000115 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:CCO_0000015 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -1411,16 +1341,20 @@ cco:CCO_0000085 rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000086
 cco:CCO_0000086 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000106 ;
-                                      owl:someValuesFrom obo:BFO_0000001
+                owl:equivalentClass [ owl:intersectionOf ( cco:CCO_0000000
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:CCO_0000106 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
-                rdfs:subClassOf cco:CCO_0000002 ;
+                rdfs:subClassOf cco:CCO_0000000 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002052 "the content of a court transcript represents a courtroom proceeding" ,
                                 "the content of a photograph of the Statue of Liberty represents the Statue of Liberty" ,
                                 "the content of a video of a sporting event represents that sporting event" ;
-                cco:CCO_0002060 "A Descriptive Information Content Entity that consists of a set of propositions or the content of an image that represents some Entity."@en ;
+                cco:CCO_0002060 "An Information Content Entity that represents some Entity."@en ;
                 rdfs:label "Representational Information Content Entity"@en .
 
 
@@ -1442,18 +1376,6 @@ cco:CCO_0000088 rdf:type owl:Class ;
                 rdfs:label "Nickname"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000089
-cco:CCO_0000089 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009019
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Multi-Year Temporal Interval."@en ;
-                rdfs:label "Multi-Year Temporal Interval Identifier"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000090
 cco:CCO_0000090 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000010 ;
@@ -1466,7 +1388,7 @@ cco:CCO_0000090 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000091
 cco:CCO_0000091 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000006 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Constructed_language" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Constructed_language&oldid=1062733589"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002052 "Esperanto" ,
                                 "Python Programming Language" ;
@@ -1480,18 +1402,6 @@ cco:CCO_0000092 rdf:type owl:Class ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Time of Day Identifier that designates an approximate Temporal Instant that is part of some Day and is specified using the Hours, Minutes, and Seconds of the Day that preceded the Temporal Instant."@en ;
                 rdfs:label "Standard Time of Day Identifier"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000093
-cco:CCO_0000093 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009031
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Multi-Week Temporal Interval."@en ;
-                rdfs:label "Multi-Week Temporal Interval Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000094
@@ -1524,20 +1434,8 @@ cco:CCO_0000096 rdf:type owl:Class ;
                                 ] ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002052 "Maximum Speed at high altitude; Rate of Ascent at 10 degrees celsius with nominal payload." ;
-                cco:CCO_0002060 "A Directive Information Content Entity that prescibes some aspect of the behavior of a participant in a Process given one or more operating conditions."@en ;
+                cco:CCO_0002060 "A Directive Information Content Entity that prescribes some aspect of the behavior of a participant in a Process given one or more operating conditions."@en ;
                 rdfs:label "Performance Specification"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000097
-cco:CCO_0000097 rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty cco:CCO_0000104 ;
-                                      owl:someValuesFrom cco:CCO_0009023
-                                    ] ;
-                rdfs:subClassOf cco:CCO_0000064 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Temporal Interval Identifier that designates some Week."@en ;
-                rdfs:label "Week Identifier"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000098
@@ -1551,7 +1449,7 @@ cco:CCO_0000098 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000099
 cco:CCO_0000099 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0000002 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/Measurement_unit" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Unit_of_measurement&oldid=1061038125"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Descriptive Information Content Entity that describes a definite magnitude of a physical quantity, defined and adopted by convention and/or by law, that is used as a standard for measurement of the same physical quantity."@en ;
                 rdfs:label "Measurement Unit"@en .
@@ -1582,7 +1480,7 @@ cco:CCO_0000144 rdf:type owl:NamedIndividual ,
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000145
 cco:CCO_0000145 rdf:type owl:NamedIndividual ,
                          cco:CCO_0000087 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/12-hour_clock" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=12-hour_clock&oldid=1057602523"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "12-Hour Clock"@en ,
                                 "12-Hour Clock Time System"@en ,
@@ -1641,7 +1539,7 @@ cco:CCO_0000150 rdf:type owl:NamedIndividual ,
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000151
 cco:CCO_0000151 rdf:type owl:NamedIndividual ,
                          cco:CCO_0000011 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Gregorian_calendar" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Gregorian_calendar&oldid=1062360692"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Solar Calendar System that has a regular Year of 365 24-Hour Days divided into 12 Months with a leap day added at the end of February every 4 Years except Years that are evenly divisible by 100 but not 400 such that there are 97 leap Years every 400 Years and the average length of a Gregorian Year is 365.2425 Days (365 Days 5 Hours 49 Minutes 12 Seconds)."@en ;
                 rdfs:comment "The Gregorian Calendar was instituted by Pope Gregory XIII via papal bull on 24 February 1582 as a reform of the Julian Calendar to stop the drift of the calendar with respect to the equinoxes and solstices. The Gregorian Calendar is currently the most widely used civil Calendar System in the world and is 13 days ahead of the Julian Calendar Date."@en ;
@@ -1706,7 +1604,7 @@ cco:CCO_0000157 rdf:type owl:NamedIndividual ,
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000158
 cco:CCO_0000158 rdf:type owl:NamedIndividual ,
                          cco:CCO_0000087 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/24-hour_clock" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=24-hour_clock&oldid=1063744105"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "24-Hour Clock"@en ,
                                 "24-Hour Clock Time System"@en ,
@@ -1885,7 +1783,7 @@ cco:CCO_0000176 rdf:type owl:NamedIndividual ,
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0000177
 cco:CCO_0000177 rdf:type owl:NamedIndividual ,
                          cco:CCO_0000011 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Julian_calendar" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Julian_calendar&oldid=1063127575"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Solar Calendar System that has a regular Year of 365 24-Hour Days divided into 12 Months with a leap day added at the end of February every 4 Years such that the average length of a Julian Year is 365.25 Days."@en ;
                 rdfs:comment "The Julian Calendar was proposed by Julius Caesar as a reform of the Roman Calendar, took effect on 1 January 46 BC, and was the predominant Calendar System in Europe until being largely replaced by the Gregorian Calendar."@en ;
@@ -1951,7 +1849,7 @@ cco:CCO_0000183 rdf:type owl:NamedIndividual ,
 cco:CCO_0000184 rdf:type owl:NamedIndividual ,
                          cco:CCO_0000049 ,
                          cco:CCO_0000057 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/ECEF" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Earth-centered,_Earth-fixed_coordinate_system&oldid=1062678600"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Conventional Terrestrial Coordinate System"@en ,
                                 "ECEF"@en ,
@@ -2317,4 +2215,4 @@ cco:CCO_0000222 rdf:type owl:NamedIndividual ,
                 rdfs:label "GMT-5"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
