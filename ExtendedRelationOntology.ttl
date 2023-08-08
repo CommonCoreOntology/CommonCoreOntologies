@@ -9,14 +9,14 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> rdf:type owl:Ontology ;
-                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/ExtendedRelationOntology> ;
-                                                                                       owl:imports obo:bfo.owl ,
-                                                                                                   <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ;
-                                                                                       cco:CCO_0002053 <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                       cco:CCO_0002055 <https://creativecommons.org/licenses/by/3.0/> ;
+                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/ExtendedRelationOntology> ;
+                                                                                       owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ,
+                                                                                                   obo:bfo.owl ;
+                                                                                       <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                        rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."@en ;
                                                                                        rdfs:label "Extended Relation Ontology"@en ;
-                                                                                       owl:versionInfo "Version 1.3"@en .
+                                                                                       rdfs:comment "A version using numeric IDs. The IRIs do not resolve. Use at own risk."@en ;
+                                                                                       owl:versionInfo "Version 1.4 Numeric"@en .
 
 #################################################################
 #    Annotation properties
@@ -246,9 +246,9 @@ cco:CCO_0002002 rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:CCO_0002006 ;
                 rdfs:domain obo:BFO_0000015 ;
                 rdfs:range obo:BFO_0000040 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/Accomplice" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "An Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
+                cco:CCO_0002060 "A Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
                 rdfs:label "has accomplice"@en .
 
 
@@ -293,7 +293,7 @@ cco:CCO_0002006 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:domain obo:BFO_0000040 ;
                 rdfs:range obo:BFO_0000015 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/Accomplice" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An agent a1 is accomplice_in some Processual Entity p1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
                 rdfs:label "accomplice in"@en .
@@ -335,7 +335,7 @@ cco:CCO_0002010 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000015 ;
                 rdfs:range obo:BFO_0000002 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+                cco:CCO_0002060 "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
                 rdfs:label "has input"@en .
 
 
@@ -486,7 +486,7 @@ cco:CCO_0002025 rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:CCO_0002032 ;
                 rdfs:domain obo:BFO_0000015 ;
                 rdfs:range obo:BFO_0000002 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/IPO_model" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=IPO_model&oldid=1024398398"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "y has_output x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the end of y is a necessary condition for the completion of y."@en ;
                 rdfs:label "has output"@en .
@@ -513,7 +513,7 @@ cco:CCO_0002027 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the begining of y is a necessary condition for the start of y."@en ;
+                cco:CCO_0002060 "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
                 rdfs:label "is input of"@en .
 
 
@@ -591,4 +591,31 @@ cco:CCO_0002034 rdf:type owl:ObjectProperty ;
                 rdfs:label "is part of process"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0010148
+cco:CCO_0010148 rdf:type owl:ObjectProperty ;
+                owl:inverseOf cco:CCO_0010150 ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000015 ;
+                <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+                cco:CCO_0002059 "A process can disrupt another process from occurring as it would have by 1) preventing a disposition or role from being realized by that process, 2) lowering the grade of the process, or 3) stopping the process from continuing to occur."@en ;
+                cco:CCO_0002060 "A relation where one process disrupts another process from occurring as it would have."@en ;
+                rdfs:label "disrupts"@en ;
+                <http://www.w3.org/2004/02/skos/core#editorialNote> "To lower the grade of a process is to lower the quality of a process according to some standard, for example when realizing a capability or a function."@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "disrupts"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0010150
+cco:CCO_0010150 rdf:type owl:ObjectProperty ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000015 ;
+                <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                cco:CCO_0002060 "Inverse of disrupts." ;
+                rdfs:label "is disrupted by"@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "is disrupted by"@en .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
