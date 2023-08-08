@@ -9,13 +9,13 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> rdf:type owl:Ontology ;
-                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/GeospatialOntology> ;
+                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/GeospatialOntology> ;
                                                                                  owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> ;
-                                                                                 cco:CCO_0002053 <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                 cco:CCO_0002055 <https://creativecommons.org/licenses/by/3.0/> ;
+                                                                                 <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
+                                                                                 rdfs:comment "A version using numeric IDs. The IRIs do not resolve. Use at own risk."@en ;
+                                                                                 owl:versionInfo "Version 1.4 Numeric"@en ;
                                                                                  rdfs:comment "This ontology is designed to represent sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them."@en ;
-                                                                                 rdfs:label "Geospatial Ontology"@en ;
-                                                                                 owl:versionInfo "Version 1.3"@en .
+                                                                                 rdfs:label "Geospatial Ontology"@en .
 
 #################################################################
 #    Object Properties
@@ -189,16 +189,6 @@ cco:CCO_0006074 rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006000
-cco:CCO_0006000 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006051 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Constituent_state" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002054 "Constituent State"@en ;
-                cco:CCO_0002060 "A First-Order Administrative Region that is part of a Country and delimits a centralized regional Government that holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the State."@en ;
-                rdfs:label "State"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006001
 cco:CCO_0006001 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006031 ;
@@ -219,15 +209,6 @@ cco:CCO_0006002 rdf:type owl:Class ;
                 rdfs:label "Three-Dimensional Path"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006003
-cco:CCO_0006003 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006046 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/City" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Local Administrative Region in which a relatively large human population permanently resides; is designated as a city based on a particular administrative, legal, or historical status; and which delimits a local Government that typically oversees the provision of systems for sanitation, utilities, land usage, housing, and transportation."@en ;
-                rdfs:label "City"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006004
 cco:CCO_0006004 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006019 ;
@@ -240,7 +221,7 @@ cco:CCO_0006004 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006005
 cco:CCO_0006005 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000018 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Center_of_mass" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Center_of_mass&oldid=1059976491"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Zero-Dimensional Spatial Region that is the point where the weighted position vectors of the distributed Mass of a Material Entity relative to this point sum to zero."@en ;
                 rdfs:label "Center of Mass"@en .
@@ -277,19 +258,6 @@ cco:CCO_0006009 rdf:type owl:Class ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Material Entity that is either a natural or man-made feature of the environment."@en ;
                 rdfs:label "Environmental Feature"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006010
-cco:CCO_0006010 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006045 ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty obo:BFO_0000050 ;
-                                  owl:someValuesFrom cco:CCO_0006017
-                                ] ;
-                cco:CCO_0002036 "http://www.geonames.org/export/codes.html" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Geopolitical Entity that is a subdivision of a Second-Order Administrative Region."@en ;
-                rdfs:label "Third-Order Administrative Region"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006011
@@ -346,19 +314,6 @@ cco:CCO_0006016 rdf:type owl:Class ;
                 rdfs:label "Geospatial Region"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006017
-cco:CCO_0006017 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006045 ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty obo:BFO_0000050 ;
-                                  owl:someValuesFrom cco:CCO_0006051
-                                ] ;
-                cco:CCO_0002036 "http://www.geonames.org/export/codes.html" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Geopolitical Entity that is a subdivision of a First-Order Administrative Region."@en ;
-                rdfs:label "Second-Order Administrative Region"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006018
 cco:CCO_0006018 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006059 ;
@@ -370,7 +325,7 @@ cco:CCO_0006018 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006019
 cco:CCO_0006019 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006006 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/Human_settlement" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Human_settlement&oldid=1060418164"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Anthropogenic Feature at which people live or have lived."@en ;
                 rdfs:label "Populated place"@en .
@@ -379,7 +334,7 @@ cco:CCO_0006019 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006020
 cco:CCO_0006020 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006031 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/Landform" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Landform&oldid=1060439172"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Geographic Feature that is a geomorphological unit characterized by its surface form and location in the landscape."@en ;
                 rdfs:label "Physiographic Feature"@en .
@@ -408,15 +363,6 @@ cco:CCO_0006023 rdf:type owl:Class ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Zero-Dimensional Spatial Region that is an idealized point located on the surface of an Astronomical Body directly below an Object Track Point."@en ;
                 rdfs:label "Ground Track Point"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006024
-cco:CCO_0006024 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006046 ;
-                cco:CCO_0002036 "http://www.merriam-webster.com/dictionary/village" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a hamlet but smaller than that of a Town."@en ;
-                rdfs:label "Village"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006025
@@ -460,19 +406,10 @@ cco:CCO_0006028 rdf:type owl:Class ;
                 rdfs:label "Constructed Feature"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006029
-cco:CCO_0006029 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006045 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002054 "Sovereign State"@en ;
-                cco:CCO_0002060 "A Geopolitical Entity that delimits a Government with effective internal and external sovereignty over the region and its population, and which is not dependent on or subject to any other power or Geopolitical Entity."@en ;
-                rdfs:label "Country"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006030
 cco:CCO_0006030 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006016 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/Subcontinent" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Continent&oldid=1064057312"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Geospatial Region bounded by a large, relatively self-contained landmass forming a subdivision of a Continent."@en ;
                 rdfs:label "Subcontinent"@en .
@@ -484,15 +421,6 @@ cco:CCO_0006031 rdf:type owl:Class ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Environmental Feature that is a natural (i.e. not human made) topographical feature having a (relatively) stable location in some Geospatial Region which can be designated by location-specific data."@en ;
                 rdfs:label "Geographic Feature"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006032
-cco:CCO_0006032 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006051 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Province" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A First-Order Administrative Region that is part of a Country and delimits the authority of a magistrate who holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the Province."@en ;
-                rdfs:label "Province"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006033
@@ -507,15 +435,6 @@ cco:CCO_0006033 rdf:type owl:Class ;
                 rdfs:label "Geospatial Location"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006034
-cco:CCO_0006034 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006045 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/County"^^xsd:anyURI ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Geopolitical Entity that is part of either a First-Order or Second-Order Administrative Region."@en ;
-                rdfs:label "County"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006035
 cco:CCO_0006035 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006007 ;
@@ -527,21 +446,12 @@ cco:CCO_0006035 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006036
 cco:CCO_0006036 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000026 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Ground_track" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Ground_track&oldid=1058025510"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Ground Trace"@en ;
                 cco:CCO_0002059 "The Ground Track is the line on the surface of the Earth or other Astronomical Body that is located directly below the Object Track."@en ;
                 cco:CCO_0002060 "A One-Dimensional Spatial Region defined by the line formed on the surface of an Astronomical Body by projecting an imaginary line from the center of the tracked Object to the center of the Astronomical Body as the Object travels above the surface."@en ;
                 rdfs:label "Ground Track"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006037
-cco:CCO_0006037 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006046 ;
-                cco:CCO_0002036 "http://www.dictionary.com/browse/town" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a Village but smaller than that of a City; is designated as a town based on a particular administrative, legal, or historical status; and which delimits a local Government that typically exercises less power than that of a City Government."@en ;
-                rdfs:label "Town"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006038
@@ -569,7 +479,7 @@ cco:CCO_0006039 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006040
 cco:CCO_0006040 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000026 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Zenith" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Zenith&oldid=1052625030"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A One-Dimensional Spatial Region that extends from a given location upward along the local vertical direction pointing in the direction opposite the apparent Gravitational Force at that location."@en ;
                 rdfs:label "Zenith"@en .
@@ -608,24 +518,6 @@ cco:CCO_0006044 rdf:type owl:Class ;
                 rdfs:label "x-Axis"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006045
-cco:CCO_0006045 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006016 ;
-                owl:disjointWith cco:CCO_0006058 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Geospatial Region that delimits the authority of a formally constituted Government to exercise its control within the bounded area."@en ;
-                rdfs:label "Geopolitical Entity"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006046
-cco:CCO_0006046 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006045 ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002054 "Locality"@en ;
-                cco:CCO_0002060 "A Geopolitical Entity that delimits a local Government."@en ;
-                rdfs:label "Local Administrative Region"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006047
 cco:CCO_0006047 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000026 ;
@@ -650,33 +542,10 @@ cco:CCO_0006049 rdf:type owl:Class ;
                 rdfs:label "Geospatial Position"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006050
-cco:CCO_0006050 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006022 ;
-                cco:CCO_0002036 "http://en.wikipedia.org/wiki/International_border" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Geospatial Boundary that is a boundary of some Geopolitical Entity."@en ;
-                rdfs:label "Geopolitical Entity Border"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006051
-cco:CCO_0006051 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006045 ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty obo:BFO_0000050 ;
-                                  owl:someValuesFrom cco:CCO_0006029
-                                ] ;
-                cco:CCO_0002036 "http://www.geonames.org/export/codes.html" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002052 "a state in the United States" ;
-                cco:CCO_0002060 "A Geopolitical Entity that is a primary administrative division of a Country."@en ;
-                rdfs:label "First-Order Administrative Region"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006052
 cco:CCO_0006052 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006006 ;
-                cco:CCO_0002036 "Wikipedia: Park" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Park&oldid=1061073992"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Anthropogenic Feature that is a bounded area of land, or water, usually in its natural or semi-natural (landscaped) state and set aside for some purpose, usually to do with recreation or conservation."@en ;
                 rdfs:label "Park"@en .
@@ -685,7 +554,7 @@ cco:CCO_0006052 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006053
 cco:CCO_0006053 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000026 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Nadir" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Nadir&oldid=1057007248"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A One-Dimensional Spatial Region that extends from a given location downward along the local vertical direction pointing in the direction of the apparent Gravitational Force at that location."@en ;
                 rdfs:label "Nadir"@en .
@@ -712,39 +581,12 @@ cco:CCO_0006055 rdf:type owl:Class ;
                 rdfs:label "High Density Residential Area"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006056
-cco:CCO_0006056 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006045 ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty obo:BFO_0000050 ;
-                                  owl:someValuesFrom cco:CCO_0006010
-                                ] ;
-                cco:CCO_0002036 "http://www.geonames.org/export/codes.html" ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002060 "A Geopolitical Entity that is a subdivision of a Third-Order Administrative Region."@en ;
-                rdfs:label "Fourth-Order Administrative Region"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006057
 cco:CCO_0006057 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0006059 ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Geospatial Boundary that is formed by following a symmetric arc between four vertices which are connected to the center point of the ellipse via a straight line."@en ;
                 rdfs:label "Geospatial Ellipse"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006058
-cco:CCO_0006058 rdf:type owl:Class ;
-                rdfs:subClassOf cco:CCO_0006016 ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty obo:BFO_0000050 ;
-                                  owl:someValuesFrom cco:CCO_0006045
-                                ] ;
-                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                cco:CCO_0002052 "Flatbush, French Quarter, Western New York, Texas Panhandle, Greater Montreal Area of Quebec, Pacific Northwest, southwest area of Al Anbar Province, Northern Iraq." ;
-                cco:CCO_0002060 "A Geospatial Region that is a fiat division of a Geopolitical Entity and not a Geopolitical Entity."@en ;
-                rdfs:comment "Instances of this class are not proper geopolitical entities, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
-                rdfs:label "Division of Geopolitical Entity"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006059
@@ -758,10 +600,55 @@ cco:CCO_0006059 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0006060
 cco:CCO_0006060 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000026 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Semi-minor_axis#Ellipse" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Semi-major_and_semi-minor_axes&oldid=1047911304"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A One-Dimensional Spatial Region that is the longest line segment perpendicular to the Major Axis that connects two points on the edge of an Ellipse."@en ;
                 rdfs:label "Minor Axis"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0010141
+cco:CCO_0010141 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000024 ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Atmosphere&oldid=1135486662"^^xsd:anyURI ;
+                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                cco:CCO_0002060 "A fiat object part of the layer of gas or layers of gases that envelop a natural satellite."@en ;
+                rdfs:label "Portion of Atmosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0010142
+cco:CCO_0010142 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000024 ;
+                cco:CCO_0002036 "https://oceanservice.noaa.gov/facts/cryosphere.html (accessed 03/06/2023)"^^xsd:anyURI ;
+                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                cco:CCO_0002060 "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
+                rdfs:label "Portion of Cryosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0010143
+cco:CCO_0010143 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000024 ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Geosphere&oldid=1137306949"^^xsd:anyURI ;
+                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                cco:CCO_0002060 "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
+                rdfs:label "Portion of Geosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0010144
+cco:CCO_0010144 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000024 ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Hydrosphere&oldid=1128848972"^^xsd:anyURI ;
+                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                cco:CCO_0002060 "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
+                rdfs:label "Portion of Hydrosphere"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0010145
+cco:CCO_0010145 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000024 ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Lithosphere&oldid=1143215085"^^xsd:anyURI ;
+                cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
+                cco:CCO_0002060 "A fiat object part of the rigid, outermost rocky shell of a natural satellite."@en ;
+                rdfs:label "Portion of Lithosphere"@en .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
