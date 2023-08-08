@@ -9,13 +9,13 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology> rdf:type owl:Ontology ;
-                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2021-03-01/FacilityOntology> ;
+                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/FacilityOntology> ;
                                                                                owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology> ;
-                                                                               cco:CCO_0002053 <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                               cco:CCO_0002055 <https://creativecommons.org/licenses/by/3.0/> ;
+                                                                               <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                rdfs:comment "This ontology is designed to represent buildings and campuses that  are designed to serve some specific purpose and which are common to multiple domains."@en ;
                                                                                rdfs:label "Facility Ontology"@en ;
-                                                                               owl:versionInfo "Version 1.3"@en .
+                                                                               rdfs:comment "A version using numeric IDs. The IRIs do not resolve. Use at own risk."@en ;
+                                                                               owl:versionInfo "Version 1.4 Numeric"@en .
 
 #################################################################
 #    Classes
@@ -41,7 +41,7 @@ cco:CCO_0007001 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007002
 cco:CCO_0007002 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007055 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Train_station" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Train_station&oldid=1063922802"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Transportation Facility that is designed for transferring people or cargo to and from Trains."@en ;
                 rdfs:label "Rail Facility"@en .
@@ -50,7 +50,7 @@ cco:CCO_0007002 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007003
 cco:CCO_0007003 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007066 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Arms_industry" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Arms_industry&oldid=1063811497"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Factory that is designed to produce or assemble weapons."@en ;
                 rdfs:label "Weapon Manufacturing Facility"@en .
@@ -59,7 +59,7 @@ cco:CCO_0007003 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007004
 cco:CCO_0007004 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007031 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Heliport" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Heliport&oldid=1049937701"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Airport that is designed for launching, receiving, and housing Rotorcraft."@en ;
                 rdfs:label "Heliport"@en .
@@ -68,7 +68,7 @@ cco:CCO_0007004 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007005
 cco:CCO_0007005 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007041 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Ammunition_dump" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Ammunition_dump&oldid=1044466765"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Storage Facility that is designed to store Portions of Ammunition."@en ;
                 rdfs:label "Ammunition Depot"@en .
@@ -77,7 +77,7 @@ cco:CCO_0007005 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007006
 cco:CCO_0007006 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Public_safety_organizations" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Public_security&oldid=1058257389"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for the prevention of and protection from events that could endanger, injure, or damage the general public."@en ;
                 rdfs:label "Public Safety Facility"@en .
@@ -94,7 +94,7 @@ cco:CCO_0007007 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007008
 cco:CCO_0007008 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007078 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Electric_power_transmission" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Electric_power_transmission&oldid=1062551058"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Product Transport Facility that is designed to transmit electricity over distance via a system of above ground wires including their supports."@en ;
                 rdfs:label "Power Transmission Line"@en .
@@ -103,7 +103,7 @@ cco:CCO_0007008 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007009
 cco:CCO_0007009 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007061 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Grocery_store" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Grocery_store&oldid=1060022873"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Commercial Facility that is designed to sell food."@en ;
                 rdfs:label "Grocery Store"@en .
@@ -112,7 +112,7 @@ cco:CCO_0007009 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007010
 cco:CCO_0007010 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007066 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Automotive_industry" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Automotive_industry&oldid=1061661751"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Factory that is designed to manufacture automobiles."@en ;
                 rdfs:label "Motor Vehicle Manufacturing Facility"@en .
@@ -121,7 +121,7 @@ cco:CCO_0007010 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007011
 cco:CCO_0007011 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007054 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Decontamination" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Decontamination&oldid=1049850150"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Washing Facility that is designed to wash personnel or equipment after (potential) contamination by radioactive, biological, or chemical material."@en ;
                 rdfs:label "Decontamination Facility"@en .
@@ -130,7 +130,7 @@ cco:CCO_0007011 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007012
 cco:CCO_0007012 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007077 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/House" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=House&oldid=1062818553"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Residential Facility that is designed to provide a self-standing, permanent residence for an individual, family, household, multiple families, or similar-sized group."@en ;
                 rdfs:label "House"@en .
@@ -139,7 +139,7 @@ cco:CCO_0007012 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007013
 cco:CCO_0007013 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Agriculture" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Agriculture&oldid=1063222666"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed as a building or campus for agricultural processes with the aim of cultivating animals, plants, or fungi for food, fiber, biofuel, medicinal plants, or other products to sustain and enhance human life."@en ;
                 rdfs:label "Agricultural Facility"@en .
@@ -148,7 +148,7 @@ cco:CCO_0007013 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007014
 cco:CCO_0007014 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007016 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Hospital" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Hospital&oldid=1063047817"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Healthcare Facility that is designed to provide patient treatment with specialized staff and equipment."@en ;
                 rdfs:label "Hospital"@en .
@@ -157,7 +157,7 @@ cco:CCO_0007014 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007015
 cco:CCO_0007015 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007050 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Hydroelectricity" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Hydroelectricity&oldid=1062438236"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Electric Power Station that is designed to convert hydropower into electrical power."@en ;
                 rdfs:label "Hydroelectric Power Plant"@en .
@@ -166,7 +166,7 @@ cco:CCO_0007015 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007016
 cco:CCO_0007016 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Medicine" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Medicine&oldid=1062226814"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for the diagnosis, treatment, and prevention of disease."@en ;
                 rdfs:label "Healthcare Facility"@en .
@@ -184,7 +184,7 @@ cco:CCO_0007017 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007018
 cco:CCO_0007018 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007059 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Landfill" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Landfill&oldid=1058364420"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Waste Management Facility that is designed for disposing of waste by burial."@en ;
                 rdfs:label "Landfill"@en .
@@ -193,7 +193,7 @@ cco:CCO_0007018 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007019
 cco:CCO_0007019 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007077 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Hotel" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Hotel&oldid=1063583593"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Residential Facility that is designed to provide lodging that is paid for on a short-term basis."@en ;
                 rdfs:label "Hotel"@en .
@@ -202,7 +202,7 @@ cco:CCO_0007019 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007020
 cco:CCO_0007020 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007029 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Seat_of_local_government" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Seat_of_government&oldid=1063047501"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "City Hall"@en ,
                                 "Town Hall"@en ;
@@ -221,7 +221,7 @@ cco:CCO_0007021 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007022
 cco:CCO_0007022 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Education" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Education&oldid=1064011752"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for facilitating learning, or the acquisition of knowledge, skills, values, beliefs, and habits."@en ;
                 rdfs:label "Educational Facility"@en .
@@ -238,7 +238,7 @@ cco:CCO_0007023 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007024
 cco:CCO_0007024 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007047 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Missile_launch_facility" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Missile_launch_facility&oldid=1062709375"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Military Facility that is designed for storing and launching missiles."@en ;
                 rdfs:label "Missile Launch Site"@en .
@@ -258,7 +258,7 @@ cco:CCO_0007025 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007026
 cco:CCO_0007026 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007061 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Retail#Types_by_marketing_strategy" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Retail&oldid=1061431295"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Commercial Facility designed to sell small lots of goods to consumers."@en ;
                 rdfs:label "Shop"@en .
@@ -267,7 +267,7 @@ cco:CCO_0007026 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007027
 cco:CCO_0007027 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007028 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Petrochemical" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Petrochemical&oldid=1060574535"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Refinery that is designed for refining crude oil, intermediate petroleum products, or synthetic petroleum into products of value."@en ;
                 rdfs:label "Petrochemical Refinery"@en .
@@ -276,7 +276,7 @@ cco:CCO_0007027 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007028
 cco:CCO_0007028 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007066 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Refinery" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Refinery&oldid=1027092124"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Factory that is designed for refining raw materials into products of value."@en ;
                 rdfs:label "Refinery"@en .
@@ -303,7 +303,7 @@ cco:CCO_0007030 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007031
 cco:CCO_0007031 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007055 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Airport" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Airport&oldid=1063243963"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Transportation Facility that is designed for launching, receiving, and housing Aircraft."@en ;
                 rdfs:label "Airport"@en .
@@ -312,7 +312,7 @@ cco:CCO_0007031 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007032
 cco:CCO_0007032 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007041 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Reservoir" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Reservoir&oldid=1055068000"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Storage Facility that is designed to store water in a man-made open enclosure or area."@en ;
                 rdfs:label "Reservoir"@en .
@@ -321,7 +321,7 @@ cco:CCO_0007032 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007033
 cco:CCO_0007033 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007047 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Headquarters#Military" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Headquarters&oldid=1046429636"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Military Facility that is designed for military administration and coordination."@en ;
                 rdfs:label "Military Headquarters Facility"@en .
@@ -330,7 +330,7 @@ cco:CCO_0007033 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007034
 cco:CCO_0007034 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007022 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/School" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=School&oldid=1063515394"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Education Facility that is designed to provide learning space and environments for teaching of students under the direction of teachers."@en ;
                 rdfs:label "School"@en .
@@ -339,7 +339,7 @@ cco:CCO_0007034 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007035
 cco:CCO_0007035 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007068 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Forward_operating_base" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Forward_operating_base&oldid=1059263624"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002045 "FOB" ;
                 cco:CCO_0002054 "Forward Operating Base"@en ;
@@ -350,7 +350,7 @@ cco:CCO_0007035 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007036
 cco:CCO_0007036 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Training_camp" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Training_camp&oldid=1059977631"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for rigorous and focused training in order to learn or improve skills, usually involving physical actions."@en ;
                 rdfs:label "Training Camp"@en .
@@ -359,7 +359,7 @@ cco:CCO_0007036 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007037
 cco:CCO_0007037 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007041 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Warehouse" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Warehouse&oldid=1063721454"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Storage Facility that is designed to store commercial goods."@en ;
                 rdfs:label "Warehouse"@en .
@@ -368,7 +368,7 @@ cco:CCO_0007037 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007038
 cco:CCO_0007038 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007013 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Farm" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Farm&oldid=1058311769"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Agricultural Facility that is designed to produce food and other crops."@en ;
                 rdfs:label "Farm"@en .
@@ -377,7 +377,7 @@ cco:CCO_0007038 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007039
 cco:CCO_0007039 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Entertainment" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Entertainment&oldid=1061851778"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed to host activities that are intended to hold the interest of, or give pleasure or delight to, an audience."@en ;
                 rdfs:label "Entertainment Facility"@en .
@@ -386,7 +386,7 @@ cco:CCO_0007039 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007040
 cco:CCO_0007040 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007088 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Naval_mine" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Naval_mine&oldid=1062538523"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Mine that is designed to support the extraction of materials from the ocean floor."@en ;
                 rdfs:label "Underwater Mine"@en .
@@ -395,7 +395,7 @@ cco:CCO_0007040 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007041
 cco:CCO_0007041 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Storage" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Storage&oldid=1048222564"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed to store materials or goods."@en ;
                 rdfs:label "Storage Facility"@en .
@@ -404,7 +404,7 @@ cco:CCO_0007041 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007042
 cco:CCO_0007042 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007029 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Seat_of_government" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Seat_of_government&oldid=1063047501"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002052 "Parliament of Canada" ,
                                 "United States Capitol" ;
@@ -415,7 +415,7 @@ cco:CCO_0007042 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007043
 cco:CCO_0007043 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Mail" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Mail&oldid=1057401839"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for the systematic physical transportation of documents and packages."@en ;
                 rdfs:label "Mailing Facility"@en .
@@ -424,7 +424,7 @@ cco:CCO_0007043 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007044
 cco:CCO_0007044 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007088 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Open-pit_mining" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Open-pit_mining&oldid=1059271938"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Mine that is designed to support the extraction of materials from the ground directly without using tunnels."@en ;
                 rdfs:label "Open Pit Mine"@en .
@@ -441,7 +441,7 @@ cco:CCO_0007045 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007046
 cco:CCO_0007046 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007069 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Mosque" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Mosque&oldid=1062609892"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Religious Facility that is designed for Islamic worship and prayer."@en ;
                 rdfs:label "Mosque"@en .
@@ -450,7 +450,7 @@ cco:CCO_0007046 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007047
 cco:CCO_0007047 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Military" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Military&oldid=1063431234"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed to support a Military Force."@en ;
                 rdfs:label "Military Facility"@en .
@@ -459,7 +459,7 @@ cco:CCO_0007047 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007048
 cco:CCO_0007048 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007006 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Fire_station" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Fire_station&oldid=1060666629"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Fire Hall"@en ,
                                 "Fire House"@en ;
@@ -478,7 +478,7 @@ cco:CCO_0007049 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007050
 cco:CCO_0007050 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Power_station" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Power_station&oldid=1052973815"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002054 "Power Plant"@en ;
                 cco:CCO_0002060 "A Facility that is designed to generate electrical power."@en ;
@@ -497,7 +497,7 @@ cco:CCO_0007051 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007052
 cco:CCO_0007052 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007066 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Petroleum" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Petroleum&oldid=1062956217"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Factory that is designed to manufacture petroleum-based products."@en ;
                 rdfs:label "Petroleum Manufacturing Facility"@en .
@@ -506,7 +506,7 @@ cco:CCO_0007052 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007053
 cco:CCO_0007053 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007050 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Wind_farm" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Wind_farm&oldid=1062817899"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Electric Power Station that is designed to convert the wind's kinetic energy into electrical power by means of wind turbines."@en ;
                 rdfs:label "Wind Farm"@en .
@@ -515,7 +515,7 @@ cco:CCO_0007053 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007054
 cco:CCO_0007054 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Washing" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Washing&oldid=1035998791"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed to wash personnel or equipment."@en ;
                 rdfs:label "Washing Facility"@en .
@@ -524,7 +524,7 @@ cco:CCO_0007054 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007055
 cco:CCO_0007055 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Transport" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Transport&oldid=1063526665"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for commencing or concluding the transportation of transportation artifacts, or for housing transportation artifacts."@en ;
                 rdfs:label "Transportation Facility"@en .
@@ -533,7 +533,7 @@ cco:CCO_0007055 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007056
 cco:CCO_0007056 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007078 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Pumping_station" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Pumping_station&oldid=1045678418"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Product Transport Facility that is designed to pump fluids from one place to another."@en ;
                 rdfs:label "Pumping Station"@en .
@@ -542,7 +542,7 @@ cco:CCO_0007056 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007057
 cco:CCO_0007057 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007055 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Pier" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Pier&oldid=1057802753"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Transportation Facility that is designed to partially enclose a harbor and form a landing place for Watercraft."@en ;
                 rdfs:label "Pier"@en .
@@ -551,7 +551,7 @@ cco:CCO_0007057 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007058
 cco:CCO_0007058 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007061 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Office" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Office&oldid=1063508719"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Commercial Facility that is designed as an environment for conducting commercial, professional, or bureaucratic work."@en ;
                 rdfs:label "Office Building"@en .
@@ -560,7 +560,7 @@ cco:CCO_0007058 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007059
 cco:CCO_0007059 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Waste_management" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Waste_management&oldid=1062844209"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for managing waste from its inception to its final disposal."@en ;
                 rdfs:label "Waste Management Facility"@en .
@@ -569,7 +569,7 @@ cco:CCO_0007059 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007060
 cco:CCO_0007060 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007059 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Sewage_treatment" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Sewage_treatment&oldid=1062966352"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Waste Management Facility that is designed for removing contaminants from wastewater, especially sewage."@en ;
                 rdfs:label "Sewage Treatment Facility"@en .
@@ -578,7 +578,7 @@ cco:CCO_0007060 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007061
 cco:CCO_0007061 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Commerce" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Commerce&oldid=1063120985"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for buying and selling goods and services, especially on a large scale."@en ;
                 rdfs:label "Commercial Facility"@en .
@@ -587,7 +587,7 @@ cco:CCO_0007061 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007062
 cco:CCO_0007062 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Water_treatment" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Water_treatment&oldid=1061706931"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for making water more acceptable for a specific end-use."@en ;
                 rdfs:label "Water Treatment Facility"@en .
@@ -596,7 +596,7 @@ cco:CCO_0007062 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007063
 cco:CCO_0007063 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007066 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Chemical_industry" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Chemical_industry&oldid=1061177027"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Factory that is designed to manufacture or process chemicals."@en ;
                 rdfs:label "Chemical Manufacturing Facility"@en .
@@ -605,7 +605,7 @@ cco:CCO_0007063 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007064
 cco:CCO_0007064 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007041 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Water_tower" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Water_tower&oldid=1059754959"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is the bearer of functions realized in processes of storing water in an elevated container."@en ;
                 rdfs:label "Water Tower"@en .
@@ -614,7 +614,7 @@ cco:CCO_0007064 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007065
 cco:CCO_0007065 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007077 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Hostel" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Hostel&oldid=1057812930"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Residential Facility that is designed to temporarily lodge guests in a sociable environment for relatively low costs."@en ;
                 rdfs:label "Hostel"@en .
@@ -623,7 +623,7 @@ cco:CCO_0007065 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007066
 cco:CCO_0007066 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Factory" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Factory&oldid=1064125324"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for manufacturing or refining material products."@en ;
                 rdfs:label "Factory"@en .
@@ -640,7 +640,7 @@ cco:CCO_0007067 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007068
 cco:CCO_0007068 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007047 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Military_base" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Military_base&oldid=1047077734"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Military Facility that is designed to shelter military equipment and personnel and to facilitate training and operations."@en ;
                 rdfs:label "Military Base"@en .
@@ -649,7 +649,7 @@ cco:CCO_0007068 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007069
 cco:CCO_0007069 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Religion" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Religion&oldid=1063431202"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed for worship and prayer."@en ;
                 rdfs:label "Religious Facility"@en .
@@ -658,7 +658,7 @@ cco:CCO_0007069 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007070
 cco:CCO_0007070 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007055 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Port" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Port&oldid=1064091505"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Transportation Facility that is designed to contain harbors for docking Watercraft and for transfering people or cargo to and from land."@en ;
                 rdfs:label "Port"@en .
@@ -667,7 +667,7 @@ cco:CCO_0007070 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007071
 cco:CCO_0007071 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007050 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Fossil_fuel" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Fossil_fuel&oldid=1062298144"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Electric Power Station that is designed to convert fossil fuels (e.g. coal, natural gas, or petroleum) into electrical energy."@en ;
                 rdfs:label "Fossil Fuel Power Plant"@en .
@@ -676,7 +676,7 @@ cco:CCO_0007071 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007072
 cco:CCO_0007072 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007070 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Port#Distribution" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Port&oldid=1064091505"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Port that is designed with the cargo handling equipment necessary for the loading and unloading of Watercraft"@en ;
                 rdfs:label "Distribution Port"@en .
@@ -685,7 +685,7 @@ cco:CCO_0007072 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007073
 cco:CCO_0007073 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007069 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Synagogue" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Synagogue&oldid=1063773298"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Religious Facility that is designed for Judaic worship and prayer."@en ;
                 rdfs:label "Synagogue"@en .
@@ -694,7 +694,7 @@ cco:CCO_0007073 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007074
 cco:CCO_0007074 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007028 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Natural-gas_processing#Contaminants_in_raw_natural_gas" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Natural-gas_processing&oldid=1056700541"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Refinery that is designed for refining natural gas into products of value."@en ;
                 rdfs:label "Gas Processing Facility"@en .
@@ -703,7 +703,7 @@ cco:CCO_0007074 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007075
 cco:CCO_0007075 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007066 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Aerospace_manufacturer" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Aerospace_manufacturer&oldid=1059223410"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Factory that is designed to manufacture Aircraft."@en ;
                 rdfs:label "Aircraft Manufacturing Facility"@en .
@@ -712,7 +712,7 @@ cco:CCO_0007075 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007076
 cco:CCO_0007076 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007086 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Nuclear_power_plant" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Nuclear_power_plant&oldid=1062752651"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Thermal Power Plant that is designed to produce heat by means of a nuclear reactor, which is then converted to electrical energy."@en ;
                 rdfs:label "Nuclear Power Plant"@en .
@@ -721,7 +721,7 @@ cco:CCO_0007076 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007077
 cco:CCO_0007077 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Residence" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Residence&oldid=1019728937"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed to house one or more Persons."@en ;
                 rdfs:label "Residential Facility"@en .
@@ -747,7 +747,7 @@ cco:CCO_0007079 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007080
 cco:CCO_0007080 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007077 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Apartment" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Apartment&oldid=1064019048"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Residential Facility that is designed to contain multiple permanent residences comprised of a suite of rooms."@en ;
                 rdfs:label "Apartment Building"@en .
@@ -756,7 +756,7 @@ cco:CCO_0007080 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007081
 cco:CCO_0007081 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007036 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Terrorist_training_camp" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Terrorist_training_camp&oldid=1037856600"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Training Camp designed to teach students methods of terrorism."@en ;
                 rdfs:label "Terrorist Training Camp"@en .
@@ -765,7 +765,7 @@ cco:CCO_0007081 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007082
 cco:CCO_0007082 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007019 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Motel" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Motel&oldid=1063898961"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Hotel that is designed to accommodate motor vehicles along with their occupants."@en ;
                 rdfs:label "Motel"@en .
@@ -774,7 +774,7 @@ cco:CCO_0007082 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007083
 cco:CCO_0007083 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007043 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Post_office" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Post_office&oldid=1063684373"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Mailing Facility that is designed for serving customers of the national postal system."@en ;
                 rdfs:label "Post Office"@en .
@@ -792,7 +792,7 @@ cco:CCO_0007084 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007085
 cco:CCO_0007085 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Finance" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Finance&oldid=1062402926"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed to support the management of money."@en ;
                 rdfs:label "Financial Facility"@en .
@@ -801,7 +801,7 @@ cco:CCO_0007085 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007086
 cco:CCO_0007086 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007050 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Thermal_power_station" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Thermal_power_station&oldid=1062208548"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "An Electric Power Station that is designed to convert heat energy into electrical energy."@en ;
                 rdfs:label "Thermal Power Plant"@en .
@@ -810,7 +810,7 @@ cco:CCO_0007086 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007087
 cco:CCO_0007087 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007047 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Fortification" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Fortification&oldid=1060156408"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Military Facility that is designed to support the defense of or solidification of rule over some Geospatial Region and its inhabitants."@en ;
                 rdfs:label "Fort"@en .
@@ -819,7 +819,7 @@ cco:CCO_0007087 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007088
 cco:CCO_0007088 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0003298 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Mining" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Mining&oldid=1062844924"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Facility that is designed to support the extraction of valuable minerals and geological materials from the earth from an orebody, lode, vein, seam, reef, or placer deposits which forms the mineralized package of economic interest to the miner."@en ;
                 rdfs:label "Mine"@en .
@@ -828,7 +828,7 @@ cco:CCO_0007088 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007089
 cco:CCO_0007089 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007078 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Pipeline" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Pipeline&oldid=1024308788"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Product Transport Facility that is designed to transport goods or materials through a pipe."@en ;
                 rdfs:label "Pipeline"@en .
@@ -837,10 +837,10 @@ cco:CCO_0007089 rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CCO_0007090
 cco:CCO_0007090 rdf:type owl:Class ;
                 rdfs:subClassOf cco:CCO_0007006 ;
-                cco:CCO_0002036 "https://en.wikipedia.org/wiki/Police_station" ;
+                cco:CCO_0002036 "https://en.wikipedia.org/w/index.php?title=Police_station&oldid=1056208781"^^xsd:anyURI ;
                 cco:CCO_0002037 "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/FacilityOntology"^^xsd:anyURI ;
                 cco:CCO_0002060 "A Public Safety Facility that is designed for the professional and clerical processes of a local police force."@en ;
                 rdfs:label "Police Station"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
