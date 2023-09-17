@@ -236,6 +236,10 @@ skos:editorialNote rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000199
+obo:BFO_0000199 owl:inverseOf cco:is_temporal_region_of .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/accessory_in
 cco:accessory_in rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000056 ;
@@ -569,7 +573,7 @@ cco:is_temporal_region_of rdf:type owl:ObjectProperty ;
                           cco:definition "x is_temporal_region_of y iff y is an instance of a process or process boundary and x is an instance of a temporal region, such that the duration of x temporally projects on y."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                           rdfs:label "is temporal region of"@en ;
-                          skos:editorialNote "Leaving this is in for now since BFO2020 has no inverse yet."@en .
+                          skos:editorialNote "Leaving this is in ERO for now since BFO2020 has no inverse of occupies-temporal-region yet."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/occurs_at
