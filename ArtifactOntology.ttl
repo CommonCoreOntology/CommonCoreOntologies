@@ -12,9 +12,17 @@
                                                                                owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/ArtifactOntology> ;
                                                                                owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
                                                                                <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
+                                                                               rdfs:comment "This ontology is designed to represent artifacts that are common to multiple domains along with their models, specifications, and functions."@en ;
                                                                                rdfs:label "Artifact Ontology"@en ;
-                                                                               owl:versionInfo "Version 1.4"@en ;
-                                                                               rdfs:comment "This ontology is designed to represent artifacts that are common to multiple domains along with their models, specifications, and functions."@en .
+                                                                               owl:versionInfo "Version 1.4"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000116
+obo:IAO_0000116 rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Classes
@@ -199,7 +207,7 @@ cco:ArtifactDimensionSpecification rdf:type owl:Class ;
 cco:ArtifactFunction rdf:type owl:Class ;
                      rdfs:subClassOf obo:BFO_0000034 ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty obo:RO_0000052 ;
+                                       owl:onProperty obo:BFO_0000197 ;
                                        owl:someValuesFrom cco:Artifact
                                      ] ;
                      cco:definition "A Function that inheres in some Artifact in virtue of that Artifact being designed to be used in processes that require that Function to be realized."@en ;
@@ -251,7 +259,7 @@ cco:ArtifactIdentifier rdf:type owl:Class ;
 cco:ArtifactLocation rdf:type owl:Class ;
                      owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000029
                                                                 [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty obo:RO_0001015 ;
+                                                                  owl:onProperty obo:BFO_0000124 ;
                                                                   owl:someValuesFrom cco:Artifact
                                                                 ]
                                                               ) ;
@@ -1492,7 +1500,7 @@ cco:ExternalNavigationLightingSystem rdf:type owl:Class ;
 cco:Facility rdf:type owl:Class ;
              rdfs:subClassOf cco:Artifact ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty obo:RO_0001025 ;
+                               owl:onProperty obo:BFO_0000171 ;
                                owl:someValuesFrom cco:PortionOfGeosphere
                              ] ;
              cco:definition "A Material Artifact that is designed as a building or campus dedicated to some specific purpose."@en ;
@@ -2143,12 +2151,12 @@ cco:InfantryFightingVehicle rdf:type owl:Class ;
 cco:InformationBearingArtifact rdf:type owl:Class ;
                                rdfs:subClassOf cco:Artifact ,
                                                [ rdf:type owl:Restriction ;
-                                                 owl:onProperty obo:BFO_0000050 ;
-                                                 owl:someValuesFrom cco:InformationMediumArtifact
+                                                 owl:onProperty obo:BFO_0000101 ;
+                                                 owl:someValuesFrom cco:InformationContentEntity
                                                ] ,
                                                [ rdf:type owl:Restriction ;
-                                                 owl:onProperty obo:RO_0010002 ;
-                                                 owl:someValuesFrom cco:InformationContentEntity
+                                                 owl:onProperty obo:BFO_0000176 ;
+                                                 owl:someValuesFrom cco:InformationMediumArtifact
                                                ] ;
                                cco:definition "A Material Artifact that carries an Information Content Entity and is designed to do so using a particular format or structure."@en ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
@@ -2218,7 +2226,7 @@ cco:Infrastructure rdf:type owl:Class ;
 cco:InfrastructureElement rdf:type owl:Class ;
                           owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
                                                                      [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty obo:RO_0000053 ;
+                                                                       owl:onProperty obo:BFO_0000196 ;
                                                                        owl:someValuesFrom cco:InfrastructureRole
                                                                      ]
                                                                    ) ;
@@ -2972,7 +2980,7 @@ cco:Payload rdf:type owl:Class ;
 cco:PayloadCapacity rdf:type owl:Class ;
                     rdfs:subClassOf cco:ArtifactFunction ,
                                     [ rdf:type owl:Restriction ;
-                                      owl:onProperty obo:RO_0000052 ;
+                                      owl:onProperty obo:BFO_0000197 ;
                                       owl:someValuesFrom cco:Vehicle
                                     ] ;
                     cco:definition "An Artifact Function that inheres in a Vehicle that is designed to transport Payload, and which is typically characterized by the maximum Weight, Mass, or Volume of Payload that the Vehicle can transport."@en ;
@@ -4080,7 +4088,7 @@ cco:SensorDeploymentArtifactFunction rdf:type owl:Class ;
 cco:SensorModalityFunction rdf:type owl:Class ;
                            rdfs:subClassOf cco:SensorArtifactFunction ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty obo:RO_0000052 ;
+                                             owl:onProperty obo:BFO_0000197 ;
                                              owl:someValuesFrom cco:Sensor
                                            ] ;
                            cco:definition "A Sensor Artifact Function that inheres in some Sensor in virtue of the type of energy the Sensor is capable of converting into an output signal."@en ;
@@ -4440,7 +4448,7 @@ cco:TelecommunicationNetworkLine rdf:type owl:Class ;
 cco:TelecommunicationNetworkNode rdf:type owl:Class ;
                                  rdfs:subClassOf cco:CommunicationInstrument ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty obo:BFO_0000050 ;
+                                                   owl:onProperty obo:BFO_0000176 ;
                                                    owl:someValuesFrom cco:TelecommunicationNetwork
                                                  ] ;
                                  cco:definition "A Communication Artifact that consists of a connection point, redistribution point, or endpoint that is designed to be part of a Telecommunication Network and can be either active or passive."@en ;
@@ -5017,15 +5025,7 @@ cco:WiredCommunicationReceptionArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WiredCommunicationRelayArtifactFunction
 cco:WiredCommunicationRelayArtifactFunction rdf:type owl:Class ;
-                                            rdfs:subClassOf cco:CommunicationRelayArtifactFunction ,
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty obo:BFO_0000051 ;
-                                                              owl:someValuesFrom cco:RadioCommunicationArtifactFunction
-                                                            ] ,
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty obo:BFO_0000051 ;
-                                                              owl:someValuesFrom cco:RadioCommunicationReceptionArtifactFunction
-                                                            ] ;
+                                            rdfs:subClassOf cco:CommunicationRelayArtifactFunction ;
                                             cco:definition "A Communication Relay Artifact Function that is realized during events in which an Artifact is used to first receive and then transmit information by means of wires from one Artifact to another for the purpose of communiction."@en ;
                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                             rdfs:label "Wired Communication Relay Artifact Function"@en .
@@ -5059,4 +5059,4 @@ cco:XRayTelescope rdf:type owl:Class ;
                   rdfs:label "X-ray Telescope"@en .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
