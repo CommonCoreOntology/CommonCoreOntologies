@@ -10,12 +10,12 @@
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
                                                                                         owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/InformationEntityOntology> ;
-                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ,
-                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
-                                                                                        rdfs:label "Information Entity Ontology"@en ;
+                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ,
+                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ;
                                                                                         <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                        owl:versionInfo "Version 1.4"@en ;
-                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en .
+                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en ;
+                                                                                        rdfs:label "Information Entity Ontology"@en ;
+                                                                                        owl:versionInfo "Version 1.4"@en .
 
 #################################################################
 #    Object Properties
@@ -25,7 +25,7 @@
 cco:condition_described_by rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:describes_condition ;
                            owl:propertyChainAxiom ( cco:described_by
-                                                    obo:BFO_0000050
+                                                    obo:BFO_0000176
                                                   ) ;
                            cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -57,7 +57,7 @@ cco:describes rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_condition
 cco:describes_condition rdf:type owl:ObjectProperty ;
-                        owl:propertyChainAxiom ( obo:BFO_0000051
+                        owl:propertyChainAxiom ( obo:BFO_0000178
                                                  cco:describes
                                                ) ;
                         cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
@@ -229,7 +229,7 @@ cco:is_measured_by_ratio rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measurement_unit_of
 cco:is_measurement_unit_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf obo:RO_0010001 ;
+                           rdfs:subPropertyOf obo:BFO_0000084 ;
                            owl:inverseOf cco:uses_measurement_unit ;
                            rdfs:domain cco:MeasurementUnit ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -255,7 +255,7 @@ cco:is_mentioned_by rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_reference_system_of
 cco:is_reference_system_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf obo:RO_0010001 ;
+                           rdfs:subPropertyOf obo:BFO_0000084 ;
                            owl:inverseOf cco:uses_reference_system ;
                            rdfs:domain cco:ReferenceSystem ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -331,7 +331,7 @@ cco:represents rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/time_zone_identifier_used_by
 cco:time_zone_identifier_used_by rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf obo:RO_0010001 ;
+                                 rdfs:subPropertyOf obo:BFO_0000084 ;
                                  owl:inverseOf cco:uses_time_zone_identifier ;
                                  rdfs:domain cco:TimeZoneIdentifier ;
                                  rdfs:range cco:InformationBearingEntity ;
@@ -362,7 +362,7 @@ cco:uses_language rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_measurement_unit
 cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf obo:RO_0010002 ;
+                          rdfs:subPropertyOf obo:BFO_0000101 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:MeasurementUnit ;
                           cco:definition "y uses_measurement_unit x iff y is an instance of Information Bearing Entity and x is an instance of Measurement Unit, such that x describes the magnitude of measured physical quantity mentioned in y."@en ;
@@ -372,7 +372,7 @@ cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_reference_system
 cco:uses_reference_system rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf obo:RO_0010002 ;
+                          rdfs:subPropertyOf obo:BFO_0000101 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:ReferenceSystem ;
                           cco:definition "y uses_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Reference System, such that x describes the set of standards mentioned in y."@en ;
@@ -382,7 +382,7 @@ cco:uses_reference_system rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_time_zone_identifier
 cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
-                              rdfs:subPropertyOf obo:RO_0010002 ;
+                              rdfs:subPropertyOf obo:BFO_0000101 ;
                               rdfs:domain cco:InformationBearingEntity ;
                               rdfs:range cco:TimeZoneIdentifier ;
                               cco:definition "x uses_time_zone_identifier y iff x is an instance of Information Bearing Entity and y is an instance of Time Zone Identifier, such that y designates the spatial region associated with the time zone mentioned in x."@en ;
@@ -770,7 +770,7 @@ cco:GreenwichMeanTimeZoneIdentifier rdf:type owl:Class ;
 cco:InformationBearingEntity rdf:type owl:Class ;
                              owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000030
                                                                         [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty obo:RO_0010002 ;
+                                                                          owl:onProperty obo:BFO_0000101 ;
                                                                           owl:someValuesFrom cco:InformationContentEntity
                                                                         ]
                                                                       ) ;
@@ -807,7 +807,7 @@ cco:InformationContentEntity rdf:type owl:Class ;
 cco:InformationQualityEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000019 ,
                                              [ rdf:type owl:Restriction ;
-                                               owl:onProperty obo:RO_0000052 ;
+                                               owl:onProperty obo:BFO_0000197 ;
                                                owl:someValuesFrom cco:InformationBearingEntity
                                              ] ;
                              cco:alternative_label "IQE"@en ;
@@ -871,11 +871,11 @@ cco:JulianDateFraction rdf:type owl:Class ;
 cco:JulianDateIdentifier rdf:type owl:Class ;
                          rdfs:subClassOf cco:DecimalTimeOfDayIdentifier ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty obo:BFO_0000051 ;
+                                           owl:onProperty obo:BFO_0000178 ;
                                            owl:someValuesFrom cco:JulianDateFraction
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty obo:BFO_0000051 ;
+                                           owl:onProperty obo:BFO_0000178 ;
                                            owl:someValuesFrom cco:JulianDayNumber
                                          ] ,
                                          [ rdf:type owl:Restriction ;
@@ -2214,4 +2214,4 @@ cco:ZuluTimeZone rdf:type owl:NamedIndividual ,
                  rdfs:label "Zulu Time Zone"@en .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
