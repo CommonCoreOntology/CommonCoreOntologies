@@ -20,17 +20,6 @@
 #    Object Properties
 #################################################################
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_ending_instant
-cco:has_ending_instant rdf:type owl:ObjectProperty ;
-                       owl:inverseOf cco:is_ending_instant_of ;
-                       rdf:type owl:FunctionalProperty ;
-                       rdfs:domain obo:BFO_0000038 ;
-                       rdfs:range obo:BFO_0000148 ;
-                       cco:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has ending instant t2 if and only if no Temporal Instant t3 that is part of t1 is after t2."@en ;
-                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
-                       rdfs:label "has ending instant"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_inside_instant
 cco:has_inside_instant rdf:type owl:ObjectProperty ;
                        owl:inverseOf cco:is_inside_instant_of ;
@@ -50,17 +39,6 @@ cco:has_inside_interval rdf:type owl:ObjectProperty ;
                         cco:definition "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                         rdfs:label "has inside interval"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_starting_instant
-cco:has_starting_instant rdf:type owl:ObjectProperty ;
-                         owl:inverseOf cco:is_starting_instant_of ;
-                         rdf:type owl:FunctionalProperty ;
-                         rdfs:domain obo:BFO_0000038 ;
-                         rdfs:range obo:BFO_0000148 ;
-                         cco:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has starting instant t2 if and only if no temporal instant t3 that is part of t1 is before t2."@en ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
-                         rdfs:label "has starting instant"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/instant_is_after
@@ -244,16 +222,6 @@ cco:interval_starts rdf:type owl:ObjectProperty ;
                     rdfs:label "interval starts"@en .
 
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/is_ending_instant_of
-cco:is_ending_instant_of rdf:type owl:ObjectProperty ,
-                                  owl:InverseFunctionalProperty ;
-                         rdfs:domain obo:BFO_0000148 ;
-                         rdfs:range obo:BFO_0000038 ;
-                         cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is ending instant of t2 if and only if no Temporal Instant t3 that is part of t2 is after t1."@en ;
-                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
-                         rdfs:label "is ending instant of"@en .
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_inside_instant_of
 cco:is_inside_instant_of rdf:type owl:ObjectProperty ;
                          rdfs:domain obo:BFO_0000148 ;
@@ -261,16 +229,6 @@ cco:is_inside_instant_of rdf:type owl:ObjectProperty ;
                          cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                          rdfs:label "is inside instant of"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/is_starting_instant_of
-cco:is_starting_instant_of rdf:type owl:ObjectProperty ,
-                                    owl:InverseFunctionalProperty ;
-                           rdfs:domain obo:BFO_0000148 ;
-                           rdfs:range obo:BFO_0000038 ;
-                           cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is starting instant of t2 if and only if no Temporal Instant t3 that is part of t2 is before t1."@en ;
-                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
-                           rdfs:label "is starting instant of"@en .
 
 
 #################################################################
