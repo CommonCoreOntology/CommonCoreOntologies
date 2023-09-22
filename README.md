@@ -1,12 +1,11 @@
 ## Staging for testing alignment with upcoming release of BFO2020. See [here](https://github.com/johnbeve/JB-Fork-BFO-2020/tree/master)
 # Aligning CCO to BFO2020 Core
 ## Summary of Changes
-1. The subset of RO is no longer imported. A few terms from CCO are deprecated. Six RO properties have no replacement (yet). 
+1. The subset of RO is no longer imported. Five properties from CCO are deprecated. Four RO properties have no replacement. 
 2. The following mapping is provided:
 - http://purl.obolibrary.org/obo/BFO_0000050 [part of] > (conditional) 
   http://purl.obolibrary.org/obo/BFO_0000176 [continuant part of]
   http://purl.obolibrary.org/obo/BFO_0000132 [occurrent part of]
-
 - http://purl.obolibrary.org/obo/BFO_0000051 [has part] > (conditional)
 	http://purl.obolibrary.org/obo/BFO_0000178 [has continuant part]
 	http://purl.obolibrary.org/obo/BFO_0000117 [has occurrent part]
@@ -50,6 +49,10 @@
 	http://purl.obolibrary.org/obo/BFO_0000124 [location of]
 - http://purl.obolibrary.org/obo/RO_0001025 [located in] > (IRI diff, label same)
 	http://purl.obolibrary.org/obo/BFO_0000171 [located in]
+- http://purl.obolibrary.org/obo/RO_0001018 [contained in] >
+	http://purl.obolibrary.org/obo/BFO_0000171 [located in]
+- http://purl.obolibrary.org/obo/RO_0001019 [contains] >
+  	http://purl.obolibrary.org/obo/BFO_0000124 [location of]
 - http://purl.obolibrary.org/obo/RO_0002350 [member of] > 
 	http://purl.obolibrary.org/obo/BFO_0000129 [member part of]
 - http://purl.obolibrary.org/obo/RO_0002351 [has member] >
@@ -70,8 +73,6 @@
 	http://purl.obolibrary.org/obo/0000224 [has last instant]
 - http://purl.obolibrary.org/obo/RO_0001000 [derives from] > NA
 - http://purl.obolibrary.org/obo/RO_0001001 [derives into] > NA
-- http://purl.obolibrary.org/obo/RO_0001018 [contained in] > NA
-- http://purl.obolibrary.org/obo/RO_0001019 [contains] > NA
 - http://purl.obolibrary.org/obo/RO_0002000 [2D boundary of] > NA
 - http://purl.obolibrary.org/obo/RO_0002002 [has 2D boundary] > NA
 
