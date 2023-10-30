@@ -1,4 +1,3 @@
-## Staging for testing alignment with upcoming release of BFO2020. See [here](https://github.com/johnbeve/JB-Fork-BFO-2020/tree/master)
 # Aligning CCO to BFO2020 Core
 ## Summary of Changes
 1. The subset of RO is no longer imported. Five properties from CCO are deprecated. Four RO properties have no replacement. 
