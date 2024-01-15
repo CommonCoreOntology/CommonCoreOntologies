@@ -528,11 +528,11 @@ cco:Night rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ReferenceTime
 cco:ReferenceTime rdf:type owl:Class ;
-                  rdfs:subClassOf obo:BFO_0000148 ;
+                  rdfs:subClassOf obo:BFO_0000203 ;
                   cco:alternative_label "Epoch"@en ,
                                         "Epoch Time"@en ,
                                         "Reference Date"@en ;
-                  cco:definition "A Zero-Dimensional Temporal Region that is an approximate temporal instant in relation to which other Temporal Regions are measured or identified."@en ;
+                  cco:definition "A Temporal Instant that is an approximate Temporal Instant in relation to which other Temporal Regions are measured or identified."@en ;
                   cco:definition_source "https://en.wikipedia.org/wiki/Epoch_(reference_date)" ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                   rdfs:label "Reference Time"@en .
@@ -554,20 +554,20 @@ cco:Second rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TimeOfDay
 cco:TimeOfDay rdf:type owl:Class ;
-              rdfs:subClassOf obo:BFO_0000148 ,
+              rdfs:subClassOf obo:BFO_0000203 ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty obo:BFO_0000132 ;
                                 owl:someValuesFrom cco:Day
                               ] ;
-              cco:definition "A Zero-Dimensional Temporal Region that is an approximate temporal instant that is part of a Day."@en ;
+              cco:definition "A Temporal Instant that is an approximate Temporal Instant that is part of a Day."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
               rdfs:label "Time of Day"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UnixTemporalInstant
 cco:UnixTemporalInstant rdf:type owl:Class ;
-                        rdfs:subClassOf obo:BFO_0000148 ;
-                        cco:definition "A Zero-Dimensional Temporal Region that is an approximate temporal instant as specified by the number of Seconds that have elapsed since the specified Epoch Time as described by an implementation of Unix Time."@en ;
+                        rdfs:subClassOf obo:BFO_0000203 ;
+                        cco:definition "A Temporal Instant that is an approximate Temporal Instant as specified by the number of Seconds that have elapsed since the specified Epoch Time as described by an implementation of Unix Time."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                         rdfs:label "Unix Temporal Instant"@en .
 
