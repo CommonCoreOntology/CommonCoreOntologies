@@ -1,1 +1,1 @@
-This folder contains key documents relevant to CCO users and developers in general and specific to the current release. Previous versions of these documents are now stored in the Legacy subfolder.
+This folder contains user guides and supporting documents, some of which are specific to the current release. Previous versions of these documents are now stored in the Legacy subfolder.
