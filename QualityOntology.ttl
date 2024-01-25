@@ -5,18 +5,26 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology> rdf:type owl:Ontology ;
-                                                                              owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/QualityOntology> ;
+                                                                              owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-01-25/QualityOntology> ;
                                                                               owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-                                                                              <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                              owl:versionInfo "Version 1.4"@en ;
+                                                                              dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                               rdfs:comment "This ontology is designed to represent a range of attributes of entities especially qualities, realizable entities, and process profiles."@en ;
-                                                                              rdfs:label "Quality Ontology"@en .
+                                                                              rdfs:label "Quality Ontology"@en ;
+                                                                              owl:versionInfo "Version 1.5"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Classes
@@ -228,17 +236,6 @@ cco:Cyan rdf:type owl:Class ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
          rdfs:label "Cyan"@en .
 
-###  http://www.ontologyrepository.com/CommonCoreOntologies/DisruptingDisposition
-cco:DisruptingDisposition rdf:type owl:Class ;
-           rdfs:subClassOf obo:BFO_0000016 ;
-           dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
-           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-           cco:definition "A disposition the realization of which would disrupt a process some entity has an interest in."@en ;
-           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           skos:editorialNote "This is a defined class. A Disrupting Disposition is indexed by the interest_in object property. A disposition can be a Disrupting Disposition according to one index and not a Disrupting Disposition according to another index." ;
-           rdfs:label "Disrupting Disposition"@en ;
-           skos:prefLabel "Threat"@en .
-
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Cylindrical
 cco:Cylindrical rdf:type owl:Class ;
@@ -272,6 +269,18 @@ cco:Diameter rdf:type owl:Class ;
              cco:definition "A One Dimensional Extent that inheres in a circle in virtue of the extent of a straight line that passes through the center of the circle and starts and ends on the circle's boundary."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
              rdfs:label "Diameter"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DisruptingDisposition
+cco:DisruptingDisposition rdf:type owl:Class ;
+                          rdfs:subClassOf obo:BFO_0000016 ;
+                          dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                          cco:definition "A disposition the realization of which would disrupt a process some entity has an interest in."@en ;
+                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
+                          rdfs:label "Disrupting Disposition"@en ;
+                          skos:editorialNote "This is a defined class. A Disrupting Disposition is indexed by the interest_in object property. A disposition can be a Disrupting Disposition according to one index and not a Disrupting Disposition according to another index." ;
+                          skos:prefLabel "Threat"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Drooping
@@ -875,17 +884,16 @@ cco:Violet rdf:type owl:Class ;
            rdfs:label "Violet"@en .
 
 
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Vulnerability
 cco:Vulnerability rdf:type owl:Class ;
-                      rdfs:subClassOf cco:DisruptingDisposition ;
-                      dcterms:bibliographicCitation "Vulnerability | Definition of Vulnerability by Oxford Dictionary on Lexico.Com Also Meaning of Vulnerability. https://web.archive.org/web/20210118111731/https://www.lexico.com/en/definition/vulnerability. Accessed 19 Dec. 2022. " ;
-                      dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                      skos:editorialNote "This is defined class. A Vulnerability is indexed by the interest_in object property. A disposition can be a Vulnerability according to one index and not a Vulnerability according to another index." ;
-                      cco:definition "A Disrupting Disposition the realization of which would disrupt a process that the bearer of the Disrupting Disposition has an interest in."@en ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                      rdfs:label "Vulnerability"@en ;
-                      skos:prefLabel "Vulnerability"@en .
+                  rdfs:subClassOf cco:DisruptingDisposition ;
+                  dcterms:bibliographicCitation "Vulnerability | Definition of Vulnerability by Oxford Dictionary on Lexico.Com Also Meaning of Vulnerability. https://web.archive.org/web/20210118111731/https://www.lexico.com/en/definition/vulnerability. Accessed 19 Dec. 2022. " ;
+                  dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                  cco:definition "A Disrupting Disposition the realization of which would disrupt a process that the bearer of the Disrupting Disposition has an interest in."@en ;
+                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
+                  rdfs:label "Vulnerability"@en ;
+                  skos:editorialNote "This is defined class. A Vulnerability is indexed by the interest_in object property. A disposition can be a Vulnerability according to one index and not a Vulnerability according to another index." ;
+                  skos:prefLabel "Vulnerability"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Wavy
@@ -957,4 +965,4 @@ cco:Yellow rdf:type owl:Class ;
            rdfs:label "Yellow"@en .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
