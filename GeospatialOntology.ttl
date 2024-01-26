@@ -46,7 +46,7 @@ cco:coincides_with rdf:type owl:ObjectProperty ;
                    cco:definition "An immaterial entity im1 coincides with some immaterial entity im2 iff im1 is a spatial part of im2 and im2 is a spatial part of im1."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                    rdfs:label "coincides with"@en ;
-                   skos:scopeNote "Transitive, Symmetric"@en .
+                   skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive and symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/connected_with
@@ -57,7 +57,7 @@ cco:connected_with rdf:type owl:ObjectProperty ;
                    cco:definition "An immaterial entity im1 is connected with some immaterial entity im2 iff there exists some immaterial entity im3 that is common to both im1 and im2."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                    rdfs:label "connected with"@en ;
-                   skos:scopeNote "Symmetric"@en .
+                   skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/disconnected_with
@@ -67,7 +67,7 @@ cco:disconnected_with rdf:type owl:ObjectProperty ;
                       cco:definition "An immaterial entity im1 is disconnected with some immaterial entity im2 iff there does not exist some immaterial entity im3 that is common to both im1 and im2."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                       rdfs:label "disconnected with"@en ;
-                      skos:scopeNote "Symmetric"@en .
+                      skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/externally_connects_with
@@ -78,7 +78,7 @@ cco:externally_connects_with rdf:type owl:ObjectProperty ;
                              cco:definition "An immaterial entity im1 externally connects with some immaterial entity im2 iff im1 connects with im2 and im1 does not overlap with im2."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                              rdfs:label "externally connects with"@en ;
-                             skos:scopeNote "Symmetric"@en .
+                             skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part
@@ -90,7 +90,7 @@ cco:has_nontangential_part rdf:type owl:ObjectProperty ;
                            cco:definition "x has_nontangential_part y iff x and y are instances of Immaterial Entity, and x has_spatial_part y, such that there does not exist another instance of an Immaterial Entity which externally connects with both x and y."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                            rdfs:label "has nontangential part"@en ;
-                           skos:scopeNote "Transitive"@en .
+                           skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part
@@ -114,7 +114,7 @@ cco:has_tangential_part rdf:type owl:ObjectProperty ;
                         cco:definition "x has_tangential_part y iff x, y, and z are instances of Immaterial Entity, and x has_spatial_part y, such that z externally connects with both x and y."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                         rdfs:label "has tangential part"@en ;
-                        skos:scopeNote "Transitive"@en .
+                        skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/nontangential_part_of
@@ -125,7 +125,7 @@ cco:nontangential_part_of rdf:type owl:ObjectProperty ;
                           cco:definition "An immaterial entity im1 is a nontangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there does not exist an immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                           rdfs:label "nontangential part of"@en ;
-                          skos:scopeNote "Transitive"@en .
+                          skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/partially_overlaps_with
@@ -136,7 +136,7 @@ cco:partially_overlaps_with rdf:type owl:ObjectProperty ;
                             cco:definition "An immaterial entity im1 partially overlaps with some immaterial entity im2 iff im1 overlaps with im2 and im1 is not a spatial part of im2 and im2 is not a spatial part of im1."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                             rdfs:label "partially overlaps with"@en ;
-                            skos:scopeNote "Symmetric"@en .
+                            skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of
@@ -159,7 +159,7 @@ cco:tangential_part_of rdf:type owl:ObjectProperty ;
                        cco:definition "An immaterial entity im1 is a tangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there exists some immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "tangential part of"@en ;
-                       skos:scopeNote "Transitive"@en .
+                       skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 #################################################################

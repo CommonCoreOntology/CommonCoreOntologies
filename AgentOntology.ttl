@@ -836,39 +836,36 @@ cco:is_paternal_uncle_of rdf:type owl:ObjectProperty ;
 cco:is_permitted_by rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf cco:prescribed_by ;
                     owl:inverseOf cco:permits ;
-                    rdf:type owl:AsymmetricProperty ,
-                             owl:IrreflexiveProperty ;
                     rdfs:domain obo:BFO_0000015 ;
                     rdfs:range cco:ActionRegulation ;
                     cco:definition "y is_permitted_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                    rdfs:label "is permitted by"@en .
+                    rdfs:label "is permitted by"@en ;
+                    skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_prohibited_by
 cco:is_prohibited_by rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf cco:prescribed_by ;
                      owl:inverseOf cco:prohibits ;
-                     rdf:type owl:AsymmetricProperty ,
-                              owl:IrreflexiveProperty ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range cco:ActionRegulation ;
                      cco:definition "y is_prohibited_by y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "is prohibited by"@en .
+                     rdfs:label "is prohibited by"@en ;
+                     skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_required_by
 cco:is_required_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf cco:prescribed_by ;
                    owl:inverseOf cco:requires ;
-                   rdf:type owl:AsymmetricProperty ,
-                            owl:IrreflexiveProperty ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range cco:ActionRegulation ;
                    cco:definition "y is_required_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "is required by"@en .
+                   rdfs:label "is required by"@en ;
+                   skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_second_cousin_of
@@ -1015,25 +1012,23 @@ cco:is_wife_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/permits
 cco:permits rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf cco:prescribes ;
-            rdf:type owl:AsymmetricProperty ,
-                     owl:IrreflexiveProperty ;
             rdfs:domain cco:ActionRegulation ;
             rdfs:range obo:BFO_0000015 ;
             cco:definition "x permits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-            rdfs:label "permits"@en .
+            rdfs:label "permits"@en ;
+            skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/prohibits
 cco:prohibits rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf cco:prescribes ;
-              rdf:type owl:AsymmetricProperty ,
-                       owl:IrreflexiveProperty ;
               rdfs:domain cco:ActionRegulation ;
               rdfs:range obo:BFO_0000015 ;
               cco:definition "x prohibits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "prohibits"@en .
+              rdfs:label "prohibits"@en ;
+              skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/receives
@@ -1048,13 +1043,12 @@ cco:receives rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/requires
 cco:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf cco:prescribes ;
-             rdf:type owl:AsymmetricProperty ,
-                      owl:IrreflexiveProperty ;
              rdfs:domain cco:ActionRegulation ;
              rdfs:range obo:BFO_0000015 ;
              cco:definition "x requires y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "requires"@en .
+             rdfs:label "requires"@en ;
+             skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/sends
