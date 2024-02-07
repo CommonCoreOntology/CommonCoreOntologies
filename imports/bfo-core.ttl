@@ -9,8 +9,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <http://purl.obolibrary.org/obo/bfo> .
 
-<http://purl.obolibrary.org/obo/bfo> rdf:type owl:Ontology ;
-                                      owl:versionIRI <http://purl.obolibrary.org/obo/bfo/2020/bfo> ;
+<http://purl.obolibrary.org/obo/bfo.owl> rdf:type owl:Ontology ;
+                                      owl:versionIRI <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> ;
                                       dc11:contributor "Alan Ruttenberg" ,
                                                        "Albert Goldfain" ,
                                                        "Barry Smith" ,
@@ -117,9 +117,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "059-BFO" ;
                                              rdfs:label "realizes"@en ;
                                              skos:definition "(Elucidation) realizes is a relation between a process b and realizable entity c such that c inheres in some d & for all t, if b has participant d then c exists & the type instantiated by b is correlated with the type instantiated by c"@en ;
-                                             skos:example "A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
-
+                                             skos:example "A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart"@en .
 
 ###  http://purl.obolibrary.org/obo/BFO_0000056
 <http://purl.obolibrary.org/obo/BFO_0000056> rdf:type owl:ObjectProperty ;
@@ -140,7 +138,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "250-BFO" ;
                                              rdfs:label "participates in"@en ;
                                              skos:definition "(Elucidation) participates in holds between some b that is either a specifically dependent continuant or generically dependent continuant or independent continuant that is not a spatial region & some process p such that b participates in p some way"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000057
@@ -161,7 +159,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "248-BFO" ;
                                              rdfs:label "has participant"@en ;
                                              skos:definition "p has participant c =Def c participates in p"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000058
@@ -176,7 +174,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "258-BFO" ;
                                              rdfs:label "is concretized by"@en ;
                                              skos:definition "c is concretized by b =Def b concretizes c"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000059
@@ -190,7 +188,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "256-BFO" ;
                                              rdfs:label "concretizes"@en ;
                                              skos:definition "b concretizes c =Def b is a process or a specifically dependent continuant & c is a generically dependent continuant & there is some time t such that c is the pattern or content which b shares at t with actual or potential copies"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000062
@@ -252,7 +250,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:label "generically depends on"@en ;
                                              skos:altLabel "g-depends on"@en ;
                                              skos:definition "b generically depends on c =Def b is a generically dependent continuant & c is an independent continuant that is not a spatial region & at some time t there inheres in c a specifically dependent continuant which concretizes b at t"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000101
@@ -268,7 +266,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "254-BFO" ;
                                              rdfs:label "is carrier of"@en ;
                                              skos:definition "b is carrier of c =Def there is some time t such that c generically depends on b at t"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000108
@@ -290,7 +288,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "230-BFO" ;
                                              rdfs:label "has member part"@en ;
                                              skos:definition "b has member part c =Def c member part of b"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000117
@@ -338,7 +336,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "236-BFO" ;
                                              rdfs:label "location of"@en ;
                                              skos:definition "b location of c =Def c located in b"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000127
@@ -349,7 +347,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "244-BFO" ;
                                              rdfs:label "material basis of"@en ;
                                              skos:definition "b material basis of c =Def c has material basis b"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000129
@@ -360,7 +358,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "228-BFO" ;
                                              rdfs:label "member part of"@en ;
                                              skos:definition "b member part of c =Def b is an object & c is a material entity & there is some time t such that b continuant part of c at t & there is a mutually exhaustive and pairwise disjoint partition of c into objects x1, ..., xn (for some n ≠ 1) with b = xi (for some 1 <= i <= n)"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000132
@@ -416,7 +414,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "234-BFO" ;
                                              rdfs:label "located in"@en ;
                                              skos:definition "b located in c =Def b is an independent continuant & c is an independent & neither is a spatial region & there is some time t such that the spatial region which b occupies at t is continuant part of the spatial region which c occupies at t"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000176
@@ -428,7 +426,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:label "continuant part of"@en ;
                                              skos:definition "b continuant part of c =Def b and c are continuants & there is some time t such that b and c exist at t & b continuant part of c at t"@en ;
                                              skos:example "Milk teeth continuant part of human; surgically removed tumour continuant part of organism"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000178
@@ -438,7 +436,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "271-BFO" ;
                                              rdfs:label "has continuant part"@en ;
                                              skos:definition "b has continuant part c =Def c continuant part of b"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000183
@@ -605,7 +603,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "232-BFO" ;
                                              rdfs:label "occupies spatial region"@en ;
                                              skos:definition "b occupies spatial region r =Def b is an independent continuant that is not a spatial region & r is a spatial region & there is some time t such that every continuant part of b occupies some continuant part of r at t and no continuant part of b occupies any spatial region that is not a continuant part of r at t"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000216
@@ -615,7 +613,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "246-BFO" ;
                                              rdfs:label "spatially projects onto"@en ;
                                              skos:definition "(Elucidation) spatially projects onto is a relation between some spatiotemporal region b and spatial region c such that at some time t, c is the spatial extent of b at t"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000218
@@ -625,7 +623,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "242-BFO" ;
                                              rdfs:label "has material basis"@en ;
                                              skos:definition "b has material basis c =Def b is a disposition & c is a material entity & there is some d bearer of b & there is some time t such that c is a continuant part of d at t & d has disposition b because c is a continuant part of d at t"@en ;
-                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <Link>"@en .
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000221
@@ -1034,7 +1032,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              owl:disjointWith <http://purl.obolibrary.org/obo/BFO_0000148> ;
                                              dc11:identifier "103-BFO" ;
                                              rdfs:label "one-dimensional temporal region"@en ;
-                                             skos:definition "(Elucidation) A one-dimensional temporal region is a temporal region is a whole that has a temporal interval and zero or more temporal intervals and temporal instants as parts"@en ;
+                                             skos:definition "(Elucidation) A one-dimensional temporal region is a temporal region that is a whole that has a temporal interval and zero or more temporal intervals and temporal instants as parts"@en ;
                                              skos:example "The temporal region during which a process occurs"@en .
 
 
@@ -1109,7 +1107,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000019> ;
                                              dc11:identifier "057-BFO" ;
                                              rdfs:label "relational quality"@en ;
-                                             skos:definition "b is a relational quality =Def b is a quality & there exists c and d such that b and c are not identical & b specifically depends on c & b specifically depends on d"@en ;
+                                             skos:definition "b is a relational quality =Def b is a quality & there exists c and d such that c and d are not identical & b specifically depends on c & b specifically depends on d"@en ;
                                              skos:example "A marriage bond; an instance of love; an obligation between one person and another"@en .
 
 
