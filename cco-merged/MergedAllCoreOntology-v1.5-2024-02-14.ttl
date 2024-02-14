@@ -1,4 +1,4 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AllCoreOntology#> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,7 +9,7 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology> rdf:type owl:Ontology ;
-                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-01-25/MergedAllCoreOntology> ;
+                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/MergedAllCoreOntology> ;
                                                                                     <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                     rdfs:comment "A stand-alone file containing the eleven mid-level Common Core ontologies plus BFO. Provided for use-cases where one file representing a specific release of CCO and its imports is desirable."@en ;
                                                                                     rdfs:label "Merged All Core Ontology"@en ;
@@ -1027,7 +1027,6 @@ cco:condition_described_by rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/connected_with
 cco:connected_with rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf cco:connected_with ;
                    rdfs:domain obo:BFO_0000141 ;
                    rdfs:range obo:BFO_0000141 ;
                    cco:definition "An immaterial entity im1 is connected with some immaterial entity im2 iff there exists some immaterial entity im3 that is common to both im1 and im2."@en ;
@@ -2186,9 +2185,9 @@ cco:is_husband_of rdf:type owl:ObjectProperty ;
 cco:is_in_law_of rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:has_familial_relationship_to ;
                  owl:inverseOf cco:is_in_law_of ;
-                 rdf:type owl:SymmetricProperty ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                 rdfs:label "is in-law of"@en .
+                 rdfs:label "is in-law of"@en ;
+                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of
@@ -2580,9 +2579,9 @@ cco:is_son_of rdf:type owl:ObjectProperty ;
 cco:is_spouse_of rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:has_familial_relationship_to ;
                  owl:inverseOf cco:is_spouse_of ;
-                 rdf:type owl:SymmetricProperty ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                 rdfs:label "is spouse of"@en .
+                 rdfs:label "is spouse of"@en ;
+                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_step_brother_of
@@ -2596,9 +2595,9 @@ cco:is_step_brother_of rdf:type owl:ObjectProperty ;
 cco:is_step_sibling_of rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf cco:has_familial_relationship_to ;
                        owl:inverseOf cco:is_step_sibling_of ;
-                       rdf:type owl:SymmetricProperty ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                       rdfs:label "is step-sibling of"@en .
+                       rdfs:label "is step-sibling of"@en ;
+                       <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_step_sister_of
