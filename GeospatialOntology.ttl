@@ -11,13 +11,12 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> rdf:type owl:Ontology ;
-                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/GeospatialOntology> ;
+                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/GeospatialOntology> ;
                                                                                  owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> ;
-
                                                                                  dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                  rdfs:comment "This ontology is designed to represent sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them."@en ;
                                                                                  rdfs:label "Geospatial Ontology"@en ;
-                                                                                 owl:versionInfo "Version 1.4"@en .
+                                                                                 owl:versionInfo "Version 1.5"@en .
 
 #################################################################
 #    Annotation properties
@@ -42,65 +41,62 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/coincides_with
 cco:coincides_with rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf cco:connected_with ;
-                   rdf:type owl:SymmetricProperty ,
-                            owl:TransitiveProperty ;
                    rdfs:domain obo:BFO_0000141 ;
                    rdfs:range obo:BFO_0000141 ;
                    cco:definition "An immaterial entity im1 coincides with some immaterial entity im2 iff im1 is a spatial part of im2 and im2 is a spatial part of im1."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                   rdfs:label "coincides with"@en .
+                   rdfs:label "coincides with"@en ;
+                   skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive and symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/connected_with
 cco:connected_with rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf cco:connected_with ;
-                   rdf:type owl:SymmetricProperty ;
                    rdfs:domain obo:BFO_0000141 ;
                    rdfs:range obo:BFO_0000141 ;
                    cco:definition "An immaterial entity im1 is connected with some immaterial entity im2 iff there exists some immaterial entity im3 that is common to both im1 and im2."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                   rdfs:label "connected with"@en .
+                   rdfs:label "connected with"@en ;
+                   skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/disconnected_with
-cco:disconnected_with rdf:type owl:ObjectProperty ,
-                               owl:SymmetricProperty ;
+cco:disconnected_with rdf:type owl:ObjectProperty ;
                       rdfs:domain obo:BFO_0000141 ;
                       rdfs:range obo:BFO_0000141 ;
                       cco:definition "An immaterial entity im1 is disconnected with some immaterial entity im2 iff there does not exist some immaterial entity im3 that is common to both im1 and im2."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                      rdfs:label "disconnected with"@en .
+                      rdfs:label "disconnected with"@en ;
+                      skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/externally_connects_with
 cco:externally_connects_with rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf cco:connected_with ;
-                             rdf:type owl:SymmetricProperty ;
                              rdfs:domain obo:BFO_0000141 ;
                              rdfs:range obo:BFO_0000141 ;
                              cco:definition "An immaterial entity im1 externally connects with some immaterial entity im2 iff im1 connects with im2 and im1 does not overlap with im2."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                             rdfs:label "externally connects with"@en .
+                             rdfs:label "externally connects with"@en ;
+                             skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part
 cco:has_nontangential_part rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf cco:has_spatial_part ;
                            owl:inverseOf cco:nontangential_part_of ;
-                           rdf:type owl:TransitiveProperty ;
                            rdfs:domain obo:BFO_0000141 ;
                            rdfs:range obo:BFO_0000141 ;
                            cco:definition "x has_nontangential_part y iff x and y are instances of Immaterial Entity, and x has_spatial_part y, such that there does not exist another instance of an Immaterial Entity which externally connects with both x and y."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                           rdfs:label "has nontangential part"@en .
+                           rdfs:label "has nontangential part"@en ;
+                           skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part
 cco:has_spatial_part rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf obo:BFO_0000051 ,
+                     rdfs:subPropertyOf obo:BFO_0000178 ,
                                         cco:connected_with ;
                      owl:inverseOf cco:spatial_part_of ;
-                     rdf:type owl:TransitiveProperty ;
                      rdfs:domain obo:BFO_0000141 ;
                      rdfs:range obo:BFO_0000141 ;
                      cco:definition "y has_spatial_part x iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
@@ -112,41 +108,40 @@ cco:has_spatial_part rdf:type owl:ObjectProperty ;
 cco:has_tangential_part rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf cco:has_spatial_part ;
                         owl:inverseOf cco:tangential_part_of ;
-                        rdf:type owl:TransitiveProperty ;
                         rdfs:domain obo:BFO_0000141 ;
                         rdfs:range obo:BFO_0000141 ;
                         cco:definition "x has_tangential_part y iff x, y, and z are instances of Immaterial Entity, and x has_spatial_part y, such that z externally connects with both x and y."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                        rdfs:label "has tangential part"@en .
+                        rdfs:label "has tangential part"@en ;
+                        skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/nontangential_part_of
 cco:nontangential_part_of rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf cco:spatial_part_of ;
-                          rdf:type owl:TransitiveProperty ;
                           rdfs:domain obo:BFO_0000141 ;
                           rdfs:range obo:BFO_0000141 ;
                           cco:definition "An immaterial entity im1 is a nontangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there does not exist an immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                          rdfs:label "nontangential part of"@en .
+                          rdfs:label "nontangential part of"@en ;
+                          skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/partially_overlaps_with
 cco:partially_overlaps_with rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf cco:connected_with ;
-                            rdf:type owl:SymmetricProperty ;
                             rdfs:domain obo:BFO_0000141 ;
                             rdfs:range obo:BFO_0000141 ;
                             cco:definition "An immaterial entity im1 partially overlaps with some immaterial entity im2 iff im1 overlaps with im2 and im1 is not a spatial part of im2 and im2 is not a spatial part of im1."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                            rdfs:label "partially overlaps with"@en .
+                            rdfs:label "partially overlaps with"@en ;
+                            skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of
 cco:spatial_part_of rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf obo:BFO_0000050 ,
+                    rdfs:subPropertyOf obo:BFO_0000176 ,
                                        cco:connected_with ;
-                    rdf:type owl:TransitiveProperty ;
                     rdfs:domain obo:BFO_0000141 ;
                     rdfs:range obo:BFO_0000141 ;
                     cco:definition "x spatial_part_of y iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
@@ -158,12 +153,12 @@ cco:spatial_part_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/tangential_part_of
 cco:tangential_part_of rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf cco:spatial_part_of ;
-                       rdf:type owl:TransitiveProperty ;
                        rdfs:domain obo:BFO_0000141 ;
                        rdfs:range obo:BFO_0000141 ;
                        cco:definition "An immaterial entity im1 is a tangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there exists some immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                       rdfs:label "tangential part of"@en .
+                       rdfs:label "tangential part of"@en ;
+                       skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 #################################################################
@@ -237,7 +232,7 @@ cco:AxisOfRotation rdf:type owl:Class ;
 cco:BoundingBoxPoint rdf:type owl:Class ;
                      owl:equivalentClass [ owl:intersectionOf ( cco:GeospatialPosition
                                                                 [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty obo:BFO_0000050 ;
+                                                                  owl:onProperty obo:BFO_0000176 ;
                                                                   owl:someValuesFrom cco:GeospatialRegionBoundingBox
                                                                 ]
                                                               ) ;
@@ -256,8 +251,6 @@ cco:CenterOfMass rdf:type owl:Class ;
                  cco:definition_source "https://en.wikipedia.org/w/index.php?title=Center_of_mass&oldid=1059976491"^^xsd:anyURI ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                  rdfs:label "Center of Mass"@en .
-
-
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ConstructedFeature
@@ -285,20 +278,6 @@ cco:CoordinateSystemAxis rdf:type owl:Class ;
                          rdfs:label "Coordinate System Axis"@en .
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EnvironmentalFeature
 cco:EnvironmentalFeature rdf:type owl:Class ;
                          rdfs:subClassOf obo:BFO_0000040 ;
@@ -307,24 +286,12 @@ cco:EnvironmentalFeature rdf:type owl:Class ;
                          rdfs:label "Environmental Feature"@en .
 
 
-
-
-
-
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeographicFeature
 cco:GeographicFeature rdf:type owl:Class ;
                       rdfs:subClassOf cco:EnvironmentalFeature ;
                       cco:definition "An Environmental Feature that is a natural (i.e. not human made) topographical feature having a (relatively) stable location in some Geospatial Region which can be designated by location-specific data."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                       rdfs:label "Geographic Feature"@en .
-
-
-
-
-
-
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary
@@ -371,7 +338,7 @@ cco:GeospatialLineString rdf:type owl:Class ;
 cco:GeospatialLocation rdf:type owl:Class ;
                        rdfs:subClassOf cco:GeospatialRegion ,
                                        [ rdf:type owl:Restriction ;
-                                         owl:onProperty obo:RO_0001015 ;
+                                         owl:onProperty obo:BFO_0000124 ;
                                          owl:someValuesFrom obo:BFO_0000001
                                        ] ;
                        cco:definition "A Geospatial Region at which an Entity or Event is located."@en ;
@@ -405,11 +372,7 @@ cco:GeospatialRegion rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBox
 cco:GeospatialRegionBoundingBox rdf:type owl:Class ;
-                                rdfs:subClassOf cco:GeospatialPolygon ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty cco:has_nontangential_part ;
-                                                  owl:someValuesFrom cco:GeospatialRegion
-                                                ] ;
+                                rdfs:subClassOf cco:GeospatialPolygon ;
                                 cco:definition "A Geospatial Polygon that has some Geospatial Region as a non-tangential proper part."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                                 rdfs:label "Geospatial Region Bounding Box"@en .
@@ -451,9 +414,6 @@ cco:HydrographicFeature rdf:type owl:Class ;
                         rdfs:label "Hydrographic Feature"@en .
 
 
-
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LowDensityResidentialArea
 cco:LowDensityResidentialArea rdf:type owl:Class ;
                               rdfs:subClassOf cco:PopulatedPlace ;
@@ -469,12 +429,6 @@ cco:MajorAxis rdf:type owl:Class ;
               cco:definition "A One-Dimensional Spatial Region that is the longest line segment that connects two points on the edge of an Ellipse."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
               rdfs:label "Major Axis"@en .
-
-
-
-
-
-
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MinorAxis
@@ -601,9 +555,6 @@ cco:PortionOfLithosphere rdf:type owl:Class ;
                          rdfs:label "Portion of Lithosphere"@en .
 
 
-
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RollAxis
 cco:RollAxis rdf:type owl:Class ;
              rdfs:subClassOf cco:AxisOfRotation ;
@@ -619,9 +570,6 @@ cco:SeaLevel rdf:type owl:Class ;
              cco:definition "A two-dimensional continuant fiat boundary that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth’s oceans."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
              rdfs:label "Sea Level"@en .
-
-
-
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SemiMajorAxis
@@ -640,9 +588,6 @@ cco:SemiMinorAxis rdf:type owl:Class ;
                   rdfs:label "Semi-Minor Axis"@en .
 
 
-
-
-
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent
 cco:Subcontinent rdf:type owl:Class ;
                  rdfs:subClassOf cco:GeospatialRegion ;
@@ -650,9 +595,6 @@ cco:Subcontinent rdf:type owl:Class ;
                  cco:definition_source "https://en.wikipedia.org/w/index.php?title=Continent&oldid=1064057312"^^xsd:anyURI ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                  rdfs:label "Subcontinent"@en .
-
-
-
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ThreeDimensionalPath
@@ -674,10 +616,6 @@ cco:ThreeDimensionalPosition rdf:type owl:Class ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                              rdfs:comment "For an object in motion, its Three-Dimensional Position is part of its Three-Dimensional Path."@en ;
                              rdfs:label "Three-Dimensional Position"@en .
-
-
-
-         
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/YawAxis

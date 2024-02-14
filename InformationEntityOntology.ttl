@@ -9,13 +9,13 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> rdf:type owl:Ontology ;
-                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/InformationEntityOntology> ;
-                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ,
-                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ;
-                                                                                        rdfs:label "Information Entity Ontology"@en ;
+                                                                                        owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/InformationEntityOntology> ;
+                                                                                        owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> ,
+                                                                                                    <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> ;
                                                                                         <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
-                                                                                        owl:versionInfo "Version 1.4"@en ;
-                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en .
+                                                                                        rdfs:comment "This ontology is designed to represent generic types of information as well as the relationships between information and other entities."@en ;
+                                                                                        rdfs:label "Information Entity Ontology"@en ;
+                                                                                        owl:versionInfo "Version 1.5"@en .
 
 #################################################################
 #    Object Properties
@@ -25,7 +25,7 @@
 cco:condition_described_by rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:describes_condition ;
                            owl:propertyChainAxiom ( cco:described_by
-                                                    obo:BFO_0000050
+                                                    obo:BFO_0000176
                                                   ) ;
                            cco:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -57,7 +57,7 @@ cco:describes rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/describes_condition
 cco:describes_condition rdf:type owl:ObjectProperty ;
-                        owl:propertyChainAxiom ( obo:BFO_0000051
+                        owl:propertyChainAxiom ( obo:BFO_0000178
                                                  cco:describes
                                                ) ;
                         cco:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
@@ -69,7 +69,6 @@ cco:describes_condition rdf:type owl:ObjectProperty ;
 cco:designated_by rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf cco:is_subject_of ;
                   owl:inverseOf cco:designates ;
-                  rdf:type owl:InverseFunctionalProperty ;
                   rdfs:range cco:DesignativeInformationContentEntity ;
                   cco:definition "x designated_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that given some context, y uniquely distinguishes x from other entities."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -79,21 +78,20 @@ cco:designated_by rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/designates
 cco:designates rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf cco:is_about ;
-               rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:DesignativeInformationContentEntity ;
                cco:definition "x designates y iff x is an instance of an Information Content Entity, and y is an instance of an Entity, such that given some context, x uniquely distinguishes y from other entities."@en ;
                cco:example_of_usage "a URL designates the location of a Web Page on the internet" ,
                                     "a person's name designates that person" ,
                                     "a vehicle identification number designates some vehicle" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-               rdfs:label "designates"@en .
+               rdfs:label "designates"@en ;
+               <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_a_interval_measurement_of
 cco:is_a_interval_measurement_of rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf cco:is_a_measurement_of ;
                                  owl:inverseOf cco:is_measured_by_interval ;
-                                 rdf:type owl:FunctionalProperty ;
                                  rdfs:domain cco:IntervalMeasurementInformationContentEntity ;
                                  cco:definition "x is_a_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
                                  cco:example_of_usage "a measurement of air temperature on the Celsius scale." ;
@@ -105,19 +103,18 @@ cco:is_a_interval_measurement_of rdf:type owl:ObjectProperty ;
 cco:is_a_measurement_of rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf cco:describes ;
                         owl:inverseOf cco:is_measured_by ;
-                        rdf:type owl:FunctionalProperty ;
                         rdfs:domain cco:MeasurementInformationContentEntity ;
                         cco:definition "x is_a_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                         rdfs:comment "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."@en ;
-                        rdfs:label "is a measurement of"@en .
+                        rdfs:label "is a measurement of"@en ;
+                        <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_a_nominal_measurement_of
 cco:is_a_nominal_measurement_of rdf:type owl:ObjectProperty ;
                                 rdfs:subPropertyOf cco:is_a_measurement_of ;
                                 owl:inverseOf cco:is_measured_by_nominal ;
-                                rdf:type owl:FunctionalProperty ;
                                 rdfs:domain cco:NominalMeasurementInformationContentEntity ;
                                 cco:definition "x is_a_nominal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -128,7 +125,6 @@ cco:is_a_nominal_measurement_of rdf:type owl:ObjectProperty ;
 cco:is_a_ordinal_measurement_of rdf:type owl:ObjectProperty ;
                                 rdfs:subPropertyOf cco:is_a_measurement_of ;
                                 owl:inverseOf cco:is_measured_by_ordinal ;
-                                rdf:type owl:FunctionalProperty ;
                                 rdfs:domain cco:OrdinalMeasurementInformationContentEntity ;
                                 cco:definition "x is_a_ordinal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -139,7 +135,6 @@ cco:is_a_ordinal_measurement_of rdf:type owl:ObjectProperty ;
 cco:is_a_ratio_measurement_of rdf:type owl:ObjectProperty ;
                               rdfs:subPropertyOf cco:is_a_measurement_of ;
                               owl:inverseOf cco:is_measured_by_ratio ;
-                              rdf:type owl:FunctionalProperty ;
                               rdfs:domain cco:RatioMeasurementInformationContentEntity ;
                               cco:definition "x is_a_ratio_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -180,7 +175,6 @@ cco:is_geospatial_coordinate_reference_system_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measured_by
 cco:is_measured_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf cco:described_by ;
-                   rdf:type owl:InverseFunctionalProperty ;
                    rdfs:range cco:MeasurementInformationContentEntity ;
                    cco:definition "y is_measured_by x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -190,7 +184,6 @@ cco:is_measured_by rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measured_by_interval
 cco:is_measured_by_interval rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf cco:is_measured_by ;
-                            rdf:type owl:InverseFunctionalProperty ;
                             rdfs:range cco:IntervalMeasurementInformationContentEntity ;
                             cco:definition "y is_measured_by_interval x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -200,7 +193,6 @@ cco:is_measured_by_interval rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measured_by_nominal
 cco:is_measured_by_nominal rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf cco:is_measured_by ;
-                           rdf:type owl:InverseFunctionalProperty ;
                            rdfs:range cco:NominalMeasurementInformationContentEntity ;
                            cco:definition "y is_measured_by_nominal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -210,7 +202,6 @@ cco:is_measured_by_nominal rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measured_by_ordinal
 cco:is_measured_by_ordinal rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf cco:is_measured_by ;
-                           rdf:type owl:InverseFunctionalProperty ;
                            rdfs:range cco:OrdinalMeasurementInformationContentEntity ;
                            cco:definition "y is_measured_by_ordinal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -220,7 +211,6 @@ cco:is_measured_by_ordinal rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measured_by_ratio
 cco:is_measured_by_ratio rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf cco:is_measured_by ;
-                         rdf:type owl:InverseFunctionalProperty ;
                          rdfs:range cco:RatioMeasurementInformationContentEntity ;
                          cco:definition "y is_measured_by_ratio x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -229,7 +219,7 @@ cco:is_measured_by_ratio rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_measurement_unit_of
 cco:is_measurement_unit_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf obo:RO_0010001 ;
+                           rdfs:subPropertyOf obo:BFO_0000084 ;
                            owl:inverseOf cco:uses_measurement_unit ;
                            rdfs:domain cco:MeasurementUnit ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -255,7 +245,7 @@ cco:is_mentioned_by rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_reference_system_of
 cco:is_reference_system_of rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf obo:RO_0010001 ;
+                           rdfs:subPropertyOf obo:BFO_0000084 ;
                            owl:inverseOf cco:uses_reference_system ;
                            rdfs:domain cco:ReferenceSystem ;
                            rdfs:range cco:InformationBearingEntity ;
@@ -309,7 +299,6 @@ cco:prescribes rdf:type owl:ObjectProperty ;
 cco:represented_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf cco:is_subject_of ;
                    owl:inverseOf cco:represents ;
-                   rdf:type owl:InverseFunctionalProperty ;
                    rdfs:range cco:RepresentationalInformationContentEntity ;
                    cco:definition "y represented_by x iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -320,18 +309,18 @@ cco:represented_by rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/represents
 cco:represents rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf cco:is_about ;
-               rdf:type owl:FunctionalProperty ;
                rdfs:domain cco:RepresentationalInformationContentEntity ;
                cco:definition "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                cco:elucidation "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
-               rdfs:label "represents"@en .
+               rdfs:label "represents"@en ;
+               <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/time_zone_identifier_used_by
 cco:time_zone_identifier_used_by rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf obo:RO_0010001 ;
+                                 rdfs:subPropertyOf obo:BFO_0000084 ;
                                  owl:inverseOf cco:uses_time_zone_identifier ;
                                  rdfs:domain cco:TimeZoneIdentifier ;
                                  rdfs:range cco:InformationBearingEntity ;
@@ -362,7 +351,7 @@ cco:uses_language rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_measurement_unit
 cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf obo:RO_0010002 ;
+                          rdfs:subPropertyOf obo:BFO_0000101 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:MeasurementUnit ;
                           cco:definition "y uses_measurement_unit x iff y is an instance of Information Bearing Entity and x is an instance of Measurement Unit, such that x describes the magnitude of measured physical quantity mentioned in y."@en ;
@@ -372,7 +361,7 @@ cco:uses_measurement_unit rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_reference_system
 cco:uses_reference_system rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf obo:RO_0010002 ;
+                          rdfs:subPropertyOf obo:BFO_0000101 ;
                           rdfs:domain cco:InformationBearingEntity ;
                           rdfs:range cco:ReferenceSystem ;
                           cco:definition "y uses_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Reference System, such that x describes the set of standards mentioned in y."@en ;
@@ -382,7 +371,7 @@ cco:uses_reference_system rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses_time_zone_identifier
 cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
-                              rdfs:subPropertyOf obo:RO_0010002 ;
+                              rdfs:subPropertyOf obo:BFO_0000101 ;
                               rdfs:domain cco:InformationBearingEntity ;
                               rdfs:range cco:TimeZoneIdentifier ;
                               cco:definition "x uses_time_zone_identifier y iff x is an instance of Information Bearing Entity and y is an instance of Time Zone Identifier, such that y designates the spatial region associated with the time zone mentioned in x."@en ;
@@ -770,7 +759,7 @@ cco:GreenwichMeanTimeZoneIdentifier rdf:type owl:Class ;
 cco:InformationBearingEntity rdf:type owl:Class ;
                              owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000030
                                                                         [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty obo:RO_0010002 ;
+                                                                          owl:onProperty obo:BFO_0000101 ;
                                                                           owl:someValuesFrom cco:InformationContentEntity
                                                                         ]
                                                                       ) ;
@@ -807,7 +796,7 @@ cco:InformationContentEntity rdf:type owl:Class ;
 cco:InformationQualityEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000019 ,
                                              [ rdf:type owl:Restriction ;
-                                               owl:onProperty obo:RO_0000052 ;
+                                               owl:onProperty obo:BFO_0000197 ;
                                                owl:someValuesFrom cco:InformationBearingEntity
                                              ] ;
                              cco:alternative_label "IQE"@en ;
@@ -871,11 +860,11 @@ cco:JulianDateFraction rdf:type owl:Class ;
 cco:JulianDateIdentifier rdf:type owl:Class ;
                          rdfs:subClassOf cco:DecimalTimeOfDayIdentifier ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty obo:BFO_0000051 ;
+                                           owl:onProperty obo:BFO_0000178 ;
                                            owl:someValuesFrom cco:JulianDateFraction
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty obo:BFO_0000051 ;
+                                           owl:onProperty obo:BFO_0000178 ;
                                            owl:someValuesFrom cco:JulianDayNumber
                                          ] ,
                                          [ rdf:type owl:Restriction ;
@@ -2214,4 +2203,4 @@ cco:ZuluTimeZone rdf:type owl:NamedIndividual ,
                  rdfs:label "Zulu Time Zone"@en .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

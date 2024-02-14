@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+div.frame {
+    margin-top: 2.5em;
+}
+.status-header {
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.frame > ul {
+    margin-top: 0.3em;
+}
+h3 {
+    margin-bottom: 0.5em;
+}
+.frame-iri {
+    color: gray;
+    font-size: 80%;
+}
+</style>
+	<title>OWL diff</title>
+</head>
+<body>
+
+<h2>Ontology comparison</h2>
+<h3>Left</h3>
+<ul>
+<li>Ontology IRI: &lt;http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology&gt;</li>
+<li>Version IRI: &lt;http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/GeospatialOntology&gt;</li>
+</ul>
+<h3>Right</h3>
+<ul>
+<li>Ontology IRI: &lt;http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology&gt;</li>
+<li>Version IRI: &lt;http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/GeospatialOntology&gt;</li>
+</ul>
+<div class="frame">
+        <h3>Bounding Box Point <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/BoundingBoxPoint</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/BoundingBoxPoint">Bounding Box Point</a> EquivalentTo <a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition">Geospatial Position</a> and (<a href="http://purl.obolibrary.org/obo/BFO_0000050">part of</a> some <a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBox">Geospatial Region Bounding Box</a>)</span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/BoundingBoxPoint">Bounding Box Point</a> EquivalentTo <a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition">Geospatial Position</a> and (<a href="http://purl.obolibrary.org/obo/BFO_0000176">continuant part of</a> some <a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBox">Geospatial Region Bounding Box</a>)</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>Geospatial Location <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLocation</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLocation">Geospatial Location</a> SubClassOf <a href="http://purl.obolibrary.org/obo/RO_0001015">location of</a> some <a href="http://purl.obolibrary.org/obo/BFO_0000001">entity</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLocation">Geospatial Location</a> SubClassOf <a href="http://purl.obolibrary.org/obo/BFO_0000124">location of</a> some <a href="http://purl.obolibrary.org/obo/BFO_0000001">entity</a></span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>Geospatial Region Bounding Box <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBox</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBox">Geospatial Region Bounding Box</a> SubClassOf <a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part">has nontangential part</a> some <a href="http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegion">Geospatial Region</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        </div>
+
+<div class="frame">
+        <h3>coincides with <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/coincides_with</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Symmetric: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/coincides_with">coincides with</a></span> <ul></ul> </li>
+<li><span class="axiom"> Transitive: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/coincides_with">coincides with</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/coincides_with">coincides with</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be transitive and symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>connected with <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/connected_with</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/connected_with">connected with</a> SubPropertyOf: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/connected_with">connected with</a></span> <ul></ul> </li>
+<li><span class="axiom"> Symmetric: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/connected_with">connected with</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/connected_with">connected with</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>disconnected with <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/disconnected_with</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Symmetric: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/disconnected_with">disconnected with</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/disconnected_with">disconnected with</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>externally connects with <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/externally_connects_with</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Symmetric: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/externally_connects_with">externally connects with</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/externally_connects_with">externally connects with</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>has nontangential part <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Transitive: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part">has nontangential part</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part">has nontangential part</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>has spatial part <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part">has spatial part</a> SubPropertyOf: <a href="http://purl.obolibrary.org/obo/BFO_0000051">has part</a></span> <ul></ul> </li>
+<li><span class="axiom"> Transitive: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part">has spatial part</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part">has spatial part</a> SubPropertyOf: <a href="http://purl.obolibrary.org/obo/BFO_0000178">has continuant part</a></span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>has tangential part <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/has_tangential_part</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Transitive: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_tangential_part">has tangential part</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/has_tangential_part">has tangential part</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>nontangential part of <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/nontangential_part_of</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Transitive: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/nontangential_part_of">nontangential part of</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/nontangential_part_of">nontangential part of</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>partially overlaps with <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/partially_overlaps_with</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Symmetric: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/partially_overlaps_with">partially overlaps with</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/partially_overlaps_with">partially overlaps with</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>spatial part of <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of">spatial part of</a> SubPropertyOf: <a href="http://purl.obolibrary.org/obo/BFO_0000050">part of</a></span> <ul></ul> </li>
+<li><span class="axiom"> Transitive: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of">spatial part of</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of">spatial part of</a> SubPropertyOf: <a href="http://purl.obolibrary.org/obo/BFO_0000176">continuant part of</a></span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+
+<div class="frame">
+        <h3>tangential part of <span class="frame-iri">- http://www.ontologyrepository.com/CommonCoreOntologies/tangential_part_of</span></h3>
+        
+        <h4 class="status-header">Removed</h4>
+        <ul>
+        <li><span class="axiom"> Transitive: <a href="http://www.ontologyrepository.com/CommonCoreOntologies/tangential_part_of">tangential part of</a></span> <ul></ul> </li>
+        </ul>
+        
+        
+        <h4 class="status-header">Added</h4>
+        <ul>
+        <li><span class="axiom"><a href="http://www.ontologyrepository.com/CommonCoreOntologies/tangential_part_of">tangential part of</a> <a href="http://www.w3.org/2004/02/skos/core#scopeNote">scopeNote</a> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en</span> <ul></ul> </li>
+        </ul>
+        
+        </div>
+</body>
+      

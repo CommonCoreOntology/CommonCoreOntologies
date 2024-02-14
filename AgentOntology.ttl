@@ -11,12 +11,12 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> rdf:type owl:Ontology ;
-                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/AgentOntology> ;
+                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/AgentOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
                                                                             dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."@en ;
                                                                             rdfs:label "Agent Ontology"@en ;
-                                                                            owl:versionInfo "Version 1.4"@en .
+                                                                            owl:versionInfo "Version 1.5"@en .
 
 #################################################################
 #    Annotation properties
@@ -48,7 +48,7 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/agent_in
 cco:agent_in rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf obo:RO_0000056 ;
+             rdfs:subPropertyOf obo:BFO_0000056 ;
              owl:inverseOf cco:has_agent ;
              cco:definition "x agent_in y iff y is an instance of Process and x is an instance of Agent, such that x is causally active in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
@@ -68,7 +68,7 @@ cco:aggregate_has_capability rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/capability_of
 cco:capability_of rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf obo:RO_0000052 ;
+                  rdfs:subPropertyOf obo:BFO_0000197 ;
                   owl:inverseOf cco:has_capability ;
                   rdfs:domain cco:AgentCapability ;
                   rdfs:range cco:Agent ;
@@ -120,7 +120,7 @@ cco:has_affiliate rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_agent
 cco:has_agent rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf obo:RO_0000057 ;
+              rdfs:subPropertyOf obo:BFO_0000057 ;
               cco:definition "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
               rdfs:label "has agent"@en .
@@ -152,7 +152,7 @@ cco:has_brother_in_law rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_capability
 cco:has_capability rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf obo:RO_0000053 ;
+                   rdfs:subPropertyOf obo:BFO_0000196 ;
                    rdfs:domain cco:Agent ;
                    rdfs:range cco:AgentCapability ;
                    cco:definition "x has_capability y iff x is an instance of Agent and y is an instance of Agent Capability, such that x bearer of y."@en ;
@@ -404,7 +404,7 @@ cco:has_paternal_uncle rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_recipient
 cco:has_recipient rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf obo:RO_0000057 ;
+                  rdfs:subPropertyOf obo:BFO_0000057 ;
                   owl:inverseOf cco:receives ;
                   rdfs:range cco:Agent ;
                   cco:definition "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en ;
@@ -414,7 +414,7 @@ cco:has_recipient rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_sender
 cco:has_sender rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000057 ;
+               rdfs:subPropertyOf obo:BFO_0000057 ;
                owl:inverseOf cco:sends ;
                rdfs:range cco:Agent ;
                cco:definition "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
@@ -695,9 +695,9 @@ cco:is_husband_of rdf:type owl:ObjectProperty ;
 cco:is_in_law_of rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:has_familial_relationship_to ;
                  owl:inverseOf cco:is_in_law_of ;
-                 rdf:type owl:SymmetricProperty ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                 rdfs:label "is in-law of"@en .
+                 rdfs:label "is in-law of"@en ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_interest_of
@@ -836,39 +836,36 @@ cco:is_paternal_uncle_of rdf:type owl:ObjectProperty ;
 cco:is_permitted_by rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf cco:prescribed_by ;
                     owl:inverseOf cco:permits ;
-                    rdf:type owl:AsymmetricProperty ,
-                             owl:IrreflexiveProperty ;
                     rdfs:domain obo:BFO_0000015 ;
                     rdfs:range cco:ActionRegulation ;
                     cco:definition "y is_permitted_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                    rdfs:label "is permitted by"@en .
+                    rdfs:label "is permitted by"@en ;
+                    skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_prohibited_by
 cco:is_prohibited_by rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf cco:prescribed_by ;
                      owl:inverseOf cco:prohibits ;
-                     rdf:type owl:AsymmetricProperty ,
-                              owl:IrreflexiveProperty ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range cco:ActionRegulation ;
                      cco:definition "y is_prohibited_by y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "is prohibited by"@en .
+                     rdfs:label "is prohibited by"@en ;
+                     skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_required_by
 cco:is_required_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf cco:prescribed_by ;
                    owl:inverseOf cco:requires ;
-                   rdf:type owl:AsymmetricProperty ,
-                            owl:IrreflexiveProperty ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range cco:ActionRegulation ;
                    cco:definition "y is_required_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "is required by"@en .
+                   rdfs:label "is required by"@en ;
+                   skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_second_cousin_of
@@ -921,9 +918,9 @@ cco:is_son_of rdf:type owl:ObjectProperty ;
 cco:is_spouse_of rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:has_familial_relationship_to ;
                  owl:inverseOf cco:is_spouse_of ;
-                 rdf:type owl:SymmetricProperty ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                 rdfs:label "is spouse of"@en .
+                 rdfs:label "is spouse of"@en ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_step_brother_of
@@ -937,9 +934,9 @@ cco:is_step_brother_of rdf:type owl:ObjectProperty ;
 cco:is_step_sibling_of rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf cco:has_familial_relationship_to ;
                        owl:inverseOf cco:is_step_sibling_of ;
-                       rdf:type owl:SymmetricProperty ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                       rdfs:label "is step-sibling of"@en .
+                       rdfs:label "is step-sibling of"@en ;
+                       skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_step_sister_of
@@ -1015,30 +1012,28 @@ cco:is_wife_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/permits
 cco:permits rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf cco:prescribes ;
-            rdf:type owl:AsymmetricProperty ,
-                     owl:IrreflexiveProperty ;
             rdfs:domain cco:ActionRegulation ;
             rdfs:range obo:BFO_0000015 ;
             cco:definition "x permits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-            rdfs:label "permits"@en .
+            rdfs:label "permits"@en ;
+            skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/prohibits
 cco:prohibits rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf cco:prescribes ;
-              rdf:type owl:AsymmetricProperty ,
-                       owl:IrreflexiveProperty ;
               rdfs:domain cco:ActionRegulation ;
               rdfs:range obo:BFO_0000015 ;
               cco:definition "x prohibits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "prohibits"@en .
+              rdfs:label "prohibits"@en ;
+              skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/receives
 cco:receives rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf obo:RO_0000056 ;
+             rdfs:subPropertyOf obo:BFO_0000056 ;
              rdfs:domain cco:Agent ;
              cco:definition "x receives y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the recipient and decoder of the InformationContentEntity intended for communication in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
@@ -1048,18 +1043,17 @@ cco:receives rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/requires
 cco:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf cco:prescribes ;
-             rdf:type owl:AsymmetricProperty ,
-                      owl:IrreflexiveProperty ;
              rdfs:domain cco:ActionRegulation ;
              rdfs:range obo:BFO_0000015 ;
              cco:definition "x requires y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "requires"@en .
+             rdfs:label "requires"@en ;
+             skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/sends
 cco:sends rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf obo:RO_0000056 ;
+          rdfs:subPropertyOf obo:BFO_0000056 ;
           rdfs:domain cco:Agent ;
           cco:definition "x sends y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
@@ -1193,7 +1187,7 @@ cco:AllegianceRole rdf:type owl:Class ;
 cco:AlliedPerson rdf:type owl:Class ;
                  owl:equivalentClass [ owl:intersectionOf ( cco:Person
                                                             [ rdf:type owl:Restriction ;
-                                                              owl:onProperty obo:RO_0000087 ;
+                                                              owl:onProperty obo:BFO_0000196 ;
                                                               owl:someValuesFrom cco:AllyRole
                                                             ]
                                                           ) ;
@@ -1271,7 +1265,7 @@ cco:CarrierAirWing rdf:type owl:Class ;
 cco:Citizen rdf:type owl:Class ;
             owl:equivalentClass [ owl:intersectionOf ( cco:Person
                                                        [ rdf:type owl:Restriction ;
-                                                         owl:onProperty obo:RO_0000087 ;
+                                                         owl:onProperty obo:BFO_0000196 ;
                                                          owl:someValuesFrom cco:CitizenRole
                                                        ]
                                                      ) ;
@@ -1305,7 +1299,7 @@ cco:City rdf:type owl:Class ;
 cco:CivilOrganization rdf:type owl:Class ;
                       owl:equivalentClass [ owl:intersectionOf ( cco:Organization
                                                                  [ rdf:type owl:Restriction ;
-                                                                   owl:onProperty obo:RO_0000087 ;
+                                                                   owl:onProperty obo:BFO_0000196 ;
                                                                    owl:someValuesFrom cco:CivilianRole
                                                                  ]
                                                                ) ;
@@ -1329,7 +1323,7 @@ cco:CivilianRole rdf:type owl:Class ;
 cco:CommercialOrganization rdf:type owl:Class ;
                            owl:equivalentClass [ owl:intersectionOf ( cco:Organization
                                                                       [ rdf:type owl:Restriction ;
-                                                                        owl:onProperty obo:RO_0000087 ;
+                                                                        owl:onProperty obo:BFO_0000196 ;
                                                                         owl:someValuesFrom cco:CommercialRole
                                                                       ]
                                                                     ) ;
@@ -1429,7 +1423,7 @@ cco:Disease rdf:type owl:Class ;
 cco:DivisonOfGeopoliticalEntity rdf:type owl:Class ;
                                 rdfs:subClassOf cco:GeospatialRegion ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty obo:BFO_0000050 ;
+                                                  owl:onProperty obo:BFO_0000176 ;
                                                   owl:someValuesFrom cco:DelimitingDomain
                                                 ] ;
                                 cco:definition "A Geospatial Region that is a fiat division of a Delimiting Domain and not a Delimiting Domain."@en ;
@@ -1452,7 +1446,7 @@ cco:EducationalOrganization rdf:type owl:Class ;
 cco:Enemy rdf:type owl:Class ;
           owl:equivalentClass [ owl:intersectionOf ( cco:Person
                                                      [ rdf:type owl:Restriction ;
-                                                       owl:onProperty obo:RO_0000087 ;
+                                                       owl:onProperty obo:BFO_0000196 ;
                                                        owl:someValuesFrom cco:EnemyRole
                                                      ]
                                                    ) ;
@@ -1506,7 +1500,7 @@ cco:Eye rdf:type owl:Class ;
 cco:EyeColor rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000019 ,
                              [ rdf:type owl:Restriction ;
-                               owl:onProperty obo:RO_0000052 ;
+                               owl:onProperty obo:BFO_0000197 ;
                                owl:someValuesFrom cco:Iris
                              ] ;
              cco:definition "A Quality inhering in an Eye by virtue of the color of the Eye's Iris."@en ;
@@ -1560,7 +1554,7 @@ cco:FinancialValueOfProperty rdf:type owl:Class ;
 cco:FirstOrderAdministrativeRegion rdf:type owl:Class ;
                                    rdfs:subClassOf cco:GeopoliticalEntity ,
                                                    [ rdf:type owl:Restriction ;
-                                                     owl:onProperty obo:BFO_0000050 ;
+                                                     owl:onProperty obo:BFO_0000176 ;
                                                      owl:someValuesFrom cco:Country
                                                    ] ;
                                    cco:definition "A Government Domain that is a primary administrative division of a Country."@en ;
@@ -1574,7 +1568,7 @@ cco:FirstOrderAdministrativeRegion rdf:type owl:Class ;
 cco:FourthOrderAdministrativeRegion rdf:type owl:Class ;
                                     rdfs:subClassOf cco:GeopoliticalEntity ,
                                                     [ rdf:type owl:Restriction ;
-                                                      owl:onProperty obo:BFO_0000050 ;
+                                                      owl:onProperty obo:BFO_0000176 ;
                                                       owl:someValuesFrom cco:ThirdOrderAdministrativeRegion
                                                     ] ;
                                     cco:definition "A Government Domain that is a subdivision of a Third-Order Administrative Region."@en ;
@@ -1612,7 +1606,7 @@ cco:GeopoliticalEntityBorder rdf:type owl:Class ;
 cco:GeopoliticalOrganization rdf:type owl:Class ;
                              owl:equivalentClass [ owl:intersectionOf ( cco:Organization
                                                                         [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty obo:RO_0000053 ;
+                                                                          owl:onProperty obo:BFO_0000196 ;
                                                                           owl:someValuesFrom cco:GeopoliticalPowerRole
                                                                         ]
                                                                       ) ;
@@ -1635,7 +1629,7 @@ cco:GeopoliticalOrganization rdf:type owl:Class ;
 cco:GeopoliticalPowerRole rdf:type owl:Class ;
                           rdfs:subClassOf obo:BFO_0000023 ,
                                           [ rdf:type owl:Restriction ;
-                                            owl:onProperty obo:RO_0000052 ;
+                                            owl:onProperty obo:BFO_0000197 ;
                                             owl:someValuesFrom cco:Organization
                                           ] ;
                           dcterms:bibliographicCitation "University, Utah State. Geopolitical Power | Aggies GO. https://chass.usu.edu/international-studies/aggies-go/power. Accessed 6 Apr. 2023." ;
@@ -1668,7 +1662,7 @@ cco:Government rdf:type owl:Class ;
 cco:GovernmentAgency rdf:type owl:Class ;
                      rdfs:subClassOf cco:Organization ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty obo:BFO_0000050 ;
+                                       owl:onProperty obo:BFO_0000176 ;
                                        owl:someValuesFrom cco:Government
                                      ] ;
                      cco:definition "An Organization that is part of a Government and is responsible for the oversight and administration of specific governmental functions."@en ;
@@ -1701,11 +1695,11 @@ cco:GovernmentOfACountry rdf:type owl:Class ;
 cco:GroupOfAgents rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000027 ,
                                   [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                           owl:onProperty obo:RO_0002351 ;
+                                                           owl:onProperty obo:BFO_0000115 ;
                                                            owl:someValuesFrom cco:Agent
                                                          ]
                                                          [ rdf:type owl:Restriction ;
-                                                           owl:onProperty obo:RO_0002351 ;
+                                                           owl:onProperty obo:BFO_0000115 ;
                                                            owl:allValuesFrom cco:Agent
                                                          ]
                                                        ) ;
@@ -1720,11 +1714,11 @@ cco:GroupOfAgents rdf:type owl:Class ;
 cco:GroupOfOrganizations rdf:type owl:Class ;
                          rdfs:subClassOf cco:GroupOfAgents ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty obo:BFO_0000051 ;
+                                           owl:onProperty obo:BFO_0000178 ;
                                            owl:someValuesFrom cco:Organization
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty obo:BFO_0000051 ;
+                                           owl:onProperty obo:BFO_0000178 ;
                                            owl:allValuesFrom cco:Organization
                                          ] ;
                          cco:definition "A Group of Agents that has only Organizations as parts."@en ;
@@ -1736,11 +1730,11 @@ cco:GroupOfOrganizations rdf:type owl:Class ;
 cco:GroupOfPersons rdf:type owl:Class ;
                    rdfs:subClassOf cco:GroupOfAgents ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty obo:BFO_0000051 ;
+                                     owl:onProperty obo:BFO_0000178 ;
                                      owl:someValuesFrom cco:Person
                                    ] ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty obo:BFO_0000051 ;
+                                     owl:onProperty obo:BFO_0000178 ;
                                      owl:allValuesFrom cco:Person
                                    ] ;
                    cco:definition "A Group of Agents that has only Persons as parts."@en ;
@@ -1799,7 +1793,7 @@ cco:InterpersonalRelationshipRole rdf:type owl:Class ;
 cco:Iris rdf:type owl:Class ;
          rdfs:subClassOf cco:BodilyComponent ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty obo:BFO_0000050 ;
+                           owl:onProperty obo:BFO_0000176 ;
                            owl:someValuesFrom cco:Eye
                          ] ;
          cco:definition "A Bodily Component that consists of the part of an Eye that is a pigmented, round, contractile membrane, suspended between the cornea and lens and perforated by the pupil, and which canonically regulates the amount of light entering the Eye."@en ;
@@ -1838,7 +1832,7 @@ cco:MaleSex rdf:type owl:Class ;
 cco:MaterialTerritoryOfACountry rdf:type owl:Class ;
                                 owl:equivalentClass [ owl:intersectionOf ( cco:MaterialTerritoryOfAGovernmentDomain
                                                                            [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0001018 ;
+                                                                             owl:onProperty obo:BFO_0000171 ;
                                                                              owl:someValuesFrom cco:Country
                                                                            ]
                                                                          ) ;
@@ -1858,7 +1852,7 @@ cco:MaterialTerritoryOfACountry rdf:type owl:Class ;
 cco:MaterialTerritoryOfAGovernmentDomain rdf:type owl:Class ;
                                          owl:equivalentClass [ owl:intersectionOf ( cco:PortionOfGeosphere
                                                                                     [ rdf:type owl:Restriction ;
-                                                                                      owl:onProperty obo:RO_0001018 ;
+                                                                                      owl:onProperty obo:BFO_0000171 ;
                                                                                       owl:someValuesFrom cco:GeopoliticalEntity
                                                                                     ]
                                                                                   ) ;
@@ -1974,7 +1968,7 @@ cco:OrganizationCapability rdf:type owl:Class ;
 cco:OrganizationMember rdf:type owl:Class ;
                        owl:equivalentClass [ owl:intersectionOf ( cco:Person
                                                                   [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty obo:RO_0000087 ;
+                                                                    owl:onProperty obo:BFO_0000196 ;
                                                                     owl:someValuesFrom cco:OrganizationMemberRole
                                                                   ]
                                                                 ) ;
@@ -2011,7 +2005,7 @@ cco:ParamilitaryForce rdf:type owl:Class ;
 cco:PermanentResident rdf:type owl:Class ;
                       owl:equivalentClass [ owl:intersectionOf ( cco:Person
                                                                  [ rdf:type owl:Restriction ;
-                                                                   owl:onProperty obo:RO_0000087 ;
+                                                                   owl:onProperty obo:BFO_0000196 ;
                                                                    owl:someValuesFrom cco:PermanentResidentRole
                                                                  ]
                                                                ) ;
@@ -2053,7 +2047,7 @@ cco:Person rdf:type owl:Class ;
 cco:PlanSpecification rdf:type owl:Class ;
                       rdfs:subClassOf cco:DirectiveInformationContentEntity ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty obo:BFO_0000051 ;
+                                        owl:onProperty obo:BFO_0000178 ;
                                         owl:someValuesFrom cco:Objective
                                       ] ;
                       cco:definition "A Directive Information Content Entity that prescribes some set of intended Intentional Acts through which some Agent expects to achieve some Objective."@en ;
@@ -2135,7 +2129,7 @@ cco:Scar rdf:type owl:Class ;
 cco:SecondOrderAdministrativeRegion rdf:type owl:Class ;
                                     rdfs:subClassOf cco:GeopoliticalEntity ,
                                                     [ rdf:type owl:Restriction ;
-                                                      owl:onProperty obo:BFO_0000050 ;
+                                                      owl:onProperty obo:BFO_0000176 ;
                                                       owl:someValuesFrom cco:FirstOrderAdministrativeRegion
                                                     ] ;
                                     cco:definition "A Government Domain that is a subdivision of a First-Order Administrative Region."@en ;
@@ -2157,7 +2151,7 @@ cco:ServiceProvider rdf:type owl:Class ;
 cco:SetOfEyes rdf:type owl:Class ;
               rdfs:subClassOf cco:BodilyComponent ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty obo:BFO_0000051 ;
+                                owl:onProperty obo:BFO_0000178 ;
                                 owl:someValuesFrom cco:Eye
                               ] ;
               cco:definition "A Bodily Component that consists of two or more Eyes that are part of a single Agent."@en ;
@@ -2221,7 +2215,7 @@ cco:Tattoo rdf:type owl:Class ;
 cco:ThirdOrderAdministrativeRegion rdf:type owl:Class ;
                                    rdfs:subClassOf cco:GeopoliticalEntity ,
                                                    [ rdf:type owl:Restriction ;
-                                                     owl:onProperty obo:BFO_0000050 ;
+                                                     owl:onProperty obo:BFO_0000176 ;
                                                      owl:someValuesFrom cco:SecondOrderAdministrativeRegion
                                                    ] ;
                                    cco:definition "A Government Domain that is a subdivision of a Second-Order Administrative Region."@en ;
@@ -2243,7 +2237,7 @@ cco:Town rdf:type owl:Class ;
 cco:UnalliedPerson rdf:type owl:Class ;
                    owl:equivalentClass [ owl:intersectionOf ( cco:Person
                                                               [ rdf:type owl:Restriction ;
-                                                                owl:onProperty obo:RO_0000087 ;
+                                                                owl:onProperty obo:BFO_0000196 ;
                                                                 owl:someValuesFrom cco:NeutralRole
                                                               ]
                                                             ) ;

@@ -5,23 +5,34 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> rdf:type owl:Ontology ;
-                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2023-04-07/ExtendedRelationOntology> ;
-                                                                                       owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Upper/ROImport> ,
-                                                                                                   obo:bfo.owl ;
-                                                                                       <http://purl.org/dc/terms/license> <https://opensource.org/licenses/BSD-3-Clause> ;
+                                                                                       owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/ExtendedRelationOntology> ;
+                                                                                       owl:imports obo:bfo ;
+                                                                                       dcterms:license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                        rdfs:comment "This ontology is designed to represent many of the relations (i.e. object properties) that hold between entities at the level of the mid-level Common Core Ontologies."@en ;
                                                                                        rdfs:label "Extended Relation Ontology"@en ;
-                                                                                       owl:versionInfo "Version 1.4"@en .
+                                                                                       owl:versionInfo "Version 1.5"@en .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/acronym
 cco:acronym rdf:type owl:AnnotationProperty ;
@@ -43,32 +54,6 @@ cco:code_license rdf:type owl:AnnotationProperty ;
                  cco:definition "The name and description of the license under which the .owl file is released."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                  rdfs:label "code license"@en .
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by
-cco:is_disrupted_by rdf:type owl:ObjectProperty ;
-                    dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
-                    owl:inverseOf cco:disrupts ;
-                    rdfs:domain obo:BFO_0000015 ;
-                    rdfs:range obo:BFO_0000015 ;
-                    cco:definition "Inverse of disrupts." ;
-                    dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-                    rdfs:label "is disrupted by"@en ;
-                    skos:prefLabel "is disrupted by"@en .
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/disrupts
-cco:disrupts rdf:type owl:ObjectProperty ;
-             owl:inverseOf cco:is_disrupted_by ;
-             rdfs:domain obo:BFO_0000015 ;
-             rdfs:range obo:BFO_0000015 ;
-             dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
-             dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-             cco:definition "A relation where one process disrupts another process from occurring as it would have."@en ;
-             cco:elucidation "A process can disrupt another process from occurring as it would have by 1) preventing a disposition or role from being realized by that process, 2) lowering the grade of the process, or 3) stopping the process from continuing to occur."@en ;
-             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "disrupts"@en ;
-             skos:editorialNote "To lower the grade of a process is to lower the quality of a process according to some standard, for example when realizing a capability or a function."@en ;
-             skos:prefLabel "disrupts"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/content_license
@@ -243,13 +228,21 @@ cco:term_editor rdf:type owl:AnnotationProperty ;
                 rdfs:label "term editor"@en .
 
 
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000199
+obo:BFO_0000199 owl:inverseOf cco:is_temporal_region_of .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/accessory_in
 cco:accessory_in rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf obo:RO_0000056 ;
+                 rdfs:subPropertyOf obo:BFO_0000056 ;
                  owl:inverseOf cco:has_accessory ;
                  rdfs:domain obo:BFO_0000040 ;
                  rdfs:range obo:BFO_0000015 ;
@@ -261,7 +254,7 @@ cco:accessory_in rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/accomplice_in
 cco:accomplice_in rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf obo:RO_0000056 ;
+                  rdfs:subPropertyOf obo:BFO_0000056 ;
                   owl:inverseOf cco:has_accomplice ;
                   rdfs:domain obo:BFO_0000040 ;
                   rdfs:range obo:BFO_0000015 ;
@@ -273,7 +266,7 @@ cco:accomplice_in rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/affects
 cco:affects rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf obo:RO_0000057 ;
+            rdfs:subPropertyOf obo:BFO_0000057 ;
             owl:inverseOf cco:is_affected_by ;
             rdfs:domain obo:BFO_0000015 ;
             rdfs:range obo:BFO_0000002 ;
@@ -347,9 +340,24 @@ cco:disposition_of_aggregate rdf:type owl:ObjectProperty ;
                              rdfs:label "disposition of aggregate"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/disrupts
+cco:disrupts rdf:type owl:ObjectProperty ;
+             owl:inverseOf cco:is_disrupted_by ;
+             rdfs:domain obo:BFO_0000015 ;
+             rdfs:range obo:BFO_0000015 ;
+             dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+             dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+             cco:definition "A relation where one process disrupts another process from occurring as it would have."@en ;
+             cco:elucidation "A process can disrupt another process from occurring as it would have by 1) preventing a disposition or role from being realized by that process, 2) lowering the grade of the process, or 3) stopping the process from continuing to occur."@en ;
+             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
+             rdfs:label "disrupts"@en ;
+             skos:editorialNote "To lower the grade of a process is to lower the quality of a process according to some standard, for example when realizing a capability or a function."@en ;
+             skos:prefLabel "disrupts"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_accessory
 cco:has_accessory rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf obo:RO_0000057 ;
+                  rdfs:subPropertyOf obo:BFO_0000057 ;
                   rdfs:domain obo:BFO_0000015 ;
                   rdfs:range obo:BFO_0000040 ;
                   cco:definition "x has_accessory y iff x is an instance of Process and y is an instance of Agent, such that y assists another agent in the commission of x, and y was not located at the location of x when x occurred, and y was not an agent_in x."@en ;
@@ -360,7 +368,7 @@ cco:has_accessory rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_accomplice
 cco:has_accomplice rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf obo:RO_0000057 ;
+                   rdfs:subPropertyOf obo:BFO_0000057 ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range obo:BFO_0000040 ;
                    cco:definition "A Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
@@ -371,7 +379,7 @@ cco:has_accomplice rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_input
 cco:has_input rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf obo:RO_0000057 ;
+              rdfs:subPropertyOf obo:BFO_0000057 ;
               owl:inverseOf cco:is_input_of ;
               rdfs:domain obo:BFO_0000015 ;
               rdfs:range obo:BFO_0000002 ;
@@ -391,7 +399,7 @@ cco:has_member_of_located_in rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_object
 cco:has_object rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000057 ;
+               rdfs:subPropertyOf obo:BFO_0000057 ;
                owl:inverseOf cco:is_object_of ;
                cco:definition "If p is a process and c is a continuant, then p has object c if and only if the c is part of the projected state that the agent intends to achieve by performing p."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
@@ -400,7 +408,7 @@ cco:has_object rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_output
 cco:has_output rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:RO_0000057 ;
+               rdfs:subPropertyOf obo:BFO_0000057 ;
                owl:inverseOf cco:is_output_of ;
                rdfs:domain obo:BFO_0000015 ;
                rdfs:range obo:BFO_0000002 ;
@@ -412,7 +420,7 @@ cco:has_output rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part
 cco:has_process_part rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf obo:BFO_0000051 ;
+                     rdfs:subPropertyOf obo:BFO_0000117 ;
                      owl:inverseOf cco:is_part_of_process ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range obo:BFO_0000015 ;
@@ -436,7 +444,7 @@ cco:inheres_in_aggregate rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by
 cco:is_affected_by rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf obo:RO_0000056 ;
+                   rdfs:subPropertyOf obo:BFO_0000056 ;
                    rdfs:domain obo:BFO_0000002 ;
                    rdfs:range obo:BFO_0000015 ;
                    cco:definition "c is_affected_by p iff p is an instance of a Process and c is an instance of a Continuant, such that p influences c in some manner, most often by producing a change in c."@en ;
@@ -453,9 +461,21 @@ cco:is_cause_of rdf:type owl:ObjectProperty ;
                 rdfs:label "is cause of"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by
+cco:is_disrupted_by rdf:type owl:ObjectProperty ;
+                    rdfs:domain obo:BFO_0000015 ;
+                    rdfs:range obo:BFO_0000015 ;
+                    dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                    dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
+                    cco:definition "Inverse of disrupts." ;
+                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
+                    rdfs:label "is disrupted by"@en ;
+                    skos:prefLabel "is disrupted by"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of
 cco:is_input_of rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf obo:RO_0000056 ;
+                rdfs:subPropertyOf obo:BFO_0000056 ;
                 rdfs:domain obo:BFO_0000002 ;
                 rdfs:range obo:BFO_0000015 ;
                 cco:definition "x is_input_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
@@ -485,7 +505,7 @@ cco:is_material_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_object_of
 cco:is_object_of rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf obo:RO_0000056 ;
+                 rdfs:subPropertyOf obo:BFO_0000056 ;
                  cco:definition "If p is a process and c is a continuant, then c is object of p if and only if the c is part of the projected state that the agent intends to achieve by performing p."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                  rdfs:label "is object of"@en .
@@ -493,7 +513,7 @@ cco:is_object_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of
 cco:is_output_of rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf obo:RO_0000056 ;
+                 rdfs:subPropertyOf obo:BFO_0000056 ;
                  rdfs:domain obo:BFO_0000002 ;
                  rdfs:range obo:BFO_0000015 ;
                  cco:definition "x is_output_of y iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the end of y is a necessary condition for the completion of y."@en ;
@@ -503,7 +523,7 @@ cco:is_output_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process
 cco:is_part_of_process rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf obo:BFO_0000050 ;
+                       rdfs:subPropertyOf obo:BFO_0000132 ;
                        rdfs:domain obo:BFO_0000015 ;
                        rdfs:range obo:BFO_0000015 ;
                        cco:definition "x is_part_of_process y iff x and y are instances of Process, such that x occurs during the temporal interval of y, and x either provides an input to y or receives an output of y."@en ;
@@ -524,13 +544,9 @@ cco:is_predecessor_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_site_of
 cco:is_site_of rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf obo:BFO_0000067 ;
+               rdfs:subPropertyOf obo:BFO_0000183 ;
                owl:inverseOf cco:occurs_at ;
-               rdfs:domain [ rdf:type owl:Class ;
-                             owl:unionOf ( obo:BFO_0000006
-                                           obo:BFO_0000029
-                                         )
-                           ] ;
+               rdfs:domain obo:BFO_0000029 ;
                rdfs:range obo:BFO_0000015 ;
                cco:definition "x is_site_of y iff x is an instance of Site and y is an instance of Process, such that y occurs in x."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
@@ -548,35 +564,26 @@ cco:is_successor_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_temporal_region_of
 cco:is_temporal_region_of rdf:type owl:ObjectProperty ;
-                          owl:inverseOf cco:occurs_on ;
                           rdfs:domain obo:BFO_0000008 ;
-                          rdfs:range obo:BFO_0000015 ;
+                          rdfs:range [ rdf:type owl:Class ;
+                                       owl:unionOf ( obo:BFO_0000015
+                                                     obo:BFO_0000035
+                                                   )
+                                     ] ;
                           cco:definition "x is_temporal_region_of y iff y is an instance of a process or process boundary and x is an instance of a temporal region, such that the duration of x temporally projects on y."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-                          rdfs:label "is temporal region of"@en .
+                          rdfs:label "is temporal region of"@en ;
+                          skos:editorialNote "Leaving this is in ERO for now since BFO2020 has no inverse of occupies-temporal-region yet."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/occurs_at
 cco:occurs_at rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf obo:BFO_0000066 ;
               rdfs:domain obo:BFO_0000015 ;
-              rdfs:range [ rdf:type owl:Class ;
-                           owl:unionOf ( obo:BFO_0000006
-                                         obo:BFO_0000029
-                                       )
-                         ] ;
+              rdfs:range obo:BFO_0000029 ;
               cco:definition "x occurs_at y iff x is an instance of Process and y is an instance of Site, such that x occurs in y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
               rdfs:label "occurs at"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/occurs_on
-cco:occurs_on rdf:type owl:ObjectProperty ;
-              rdfs:domain obo:BFO_0000015 ;
-              rdfs:range obo:BFO_0000008 ;
-              cco:definition "x occurs_on y iff x is an instance of a process or process boundary and y is an instance of a temporal region, such that the duration of x temporally projects on y."@en ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-              rdfs:label "occurs on"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/process_started_by
@@ -618,4 +625,4 @@ cco:role_of_aggregate rdf:type owl:ObjectProperty ;
                       rdfs:label "role of aggregate"@en .
 
 
-###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
