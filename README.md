@@ -9,7 +9,7 @@ This utility has been realized by a number of U.S. Government sponsored projects
 
 The names of a sample of these domain ontologies are provided in the list below.
 
-The U.S. Government holds Government Purpose Rights on all of these domain ontologies. To obtain one or more of these domain ontologies for a government purpose it will be necessary for a government representative to contact the government sponsor of the development of the ontology. CUBRC can facilitate these connections so if interested please use the contact link at the bottom of https://www.cubrc.org/index.php/data-science-and-information-fusion/ontology .
+The U.S. Government holds Government Purpose Rights on all of these domain ontologies. To obtain one or more of these domain ontologies for a government purpose it will be necessary for a government representative to contact the government sponsor of the development of the ontology. CUBRC can facilitate these connections so if interested please use the contact link at the bottom of this [page](https://www.cubrc.org/data-science-information-fusion/specialized-data-ontology-development/).
 
 # Sample of Common Core Domain Ontology Extensions
 Aircraft Ontology
