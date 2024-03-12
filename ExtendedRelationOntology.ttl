@@ -39,14 +39,7 @@ cco:acronym rdf:type owl:AnnotationProperty ;
             cco:definition "An Alternative Label that consists of a shortened or abbreviated form of the rdfs:label and is used to denote the entity."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
             rdfs:label "acronym"@en ;
-            rdfs:subPropertyOf cco:alternative_label .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/alternative_label
-cco:alternative_label rdf:type owl:AnnotationProperty ;
-                      cco:definition "A term or phrase that may be used in place of the stated rdfs:label to denote the entity in question."@en ;
-                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
-                      rdfs:label "alternative label"@en .
+            rdfs:subPropertyOf skos:altLabel .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/code_license
@@ -114,7 +107,7 @@ cco:doctrinal_label rdf:type owl:AnnotationProperty ;
                     cco:elucidation "When the cco:doctrinal_label is identical to the rdfs:label, the cco:doctrinal_label annotation is superfluous. As a subclass of 'alternative label', 'doctrinal label' is intended to be used to provide additional information about the entity when its preferred doctrinal designator is ambiguous or otherwise inappropriate for use as the rdfs:label."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                     rdfs:label "doctrinal label"@en ;
-                    rdfs:subPropertyOf cco:alternative_label .
+                    rdfs:subPropertyOf skos:altLabel .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/doctrinal_source
