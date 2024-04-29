@@ -21,6 +21,18 @@
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000084
+obo:BFO_0000084 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000101
+obo:BFO_0000101 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000197
+obo:BFO_0000197 rdf:type owl:ObjectProperty .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/condition_described_by
 cco:condition_described_by rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:describes_condition ;
@@ -451,12 +463,22 @@ cco:has_text_value rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000006
+obo:BFO_0000006 rdf:type owl:Class .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AbbreviatedName
 cco:AbbreviatedName rdf:type owl:Class ;
                     rdfs:subClassOf cco:DesignativeName ;
                     cco:definition "A Designative Name that is a shortened form of a Proper Name."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                     rdfs:label "Abbreviated Name"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AcademicDegreeContent
+cco:AcademicDegreeContent rdf:type owl:Class ;
+                          rdfs:subClassOf cco:CertificateContent ;
+                          rdfs:label "Academic Degree Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Acronym
@@ -507,6 +529,25 @@ cco:ArtificialLanguage rdf:type owl:Class ;
                        rdfs:label "Artificial Language"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/AztecCodeContent
+cco:AztecCodeContent rdf:type owl:Class ;
+                     rdfs:subClassOf cco:TwoDimensionalBarcodeContent ;
+                     rdfs:label "Aztec Code Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BarcodeContent
+cco:BarcodeContent rdf:type owl:Class ;
+                   rdfs:subClassOf cco:DocumentContent ;
+                   cco:definition "A document content consisting of one or more designative or directive content entities represented as a series of glyphs encoded as patterns consisting of rectangles and spaces of a small set of characteristic sizes, with the intention of being visually compact and able to be reliably decoded from image content."@en ;
+                   rdfs:label "Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/BookContent
+cco:BookContent rdf:type owl:Class ;
+                rdfs:subClassOf cco:DocumentContent ;
+                rdfs:label "Book Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarDateIdentifier
 cco:CalendarDateIdentifier rdf:type owl:Class ;
                            rdfs:subClassOf cco:DateIdentifier ;
@@ -535,6 +576,20 @@ cco:CartesianCoordinateSystem rdf:type owl:Class ;
                               rdfs:label "Cartesian Coordinate System"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CertificateContent
+cco:CertificateContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:DocumentContent ;
+                       cco:definition "A Document Content which attests to certain demonstrated characteristics of an Object, Person, or Organization."@en ;
+                       rdfs:label "Certificate Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ChartContent
+cco:ChartContent rdf:type owl:Class ;
+                 rdfs:subClassOf cco:ImageContent ;
+                 cco:definition "An Image content that is designed to represent amounts or comparisons using lines and shapes that mirror differences in amount by differences in height, area, texture, or color."@en ;
+                 rdfs:label "Chart Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilTimeReferenceSystem
 cco:CivilTimeReferenceSystem rdf:type owl:Class ;
                              rdfs:subClassOf cco:TemporalReferenceSystem ;
@@ -554,6 +609,24 @@ cco:ClockTimeSystem rdf:type owl:Class ;
                     rdfs:label "Clock Time System"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Code128BarcodeContent
+cco:Code128BarcodeContent rdf:type owl:Class ;
+                          rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                          rdfs:label "Code 128 Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Code39BarcodeContent
+cco:Code39BarcodeContent rdf:type owl:Class ;
+                         rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                         rdfs:label "Code 39 Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Code93BarcodeContent
+cco:Code93BarcodeContent rdf:type owl:Class ;
+                         rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                         rdfs:label "Code 93 Barcode Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CodeIdentifier
 cco:CodeIdentifier rdf:type owl:Class ;
                    rdfs:subClassOf cco:NonNameIdentifier ;
@@ -565,6 +638,12 @@ cco:CodeIdentifier rdf:type owl:Class ;
                    rdfs:label "Code Identifier"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/CodeListContent
+cco:CodeListContent rdf:type owl:Class ;
+                    rdfs:subClassOf cco:ListContent ;
+                    rdfs:label "Code List Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CountMeasurementInformationContentEntity
 cco:CountMeasurementInformationContentEntity rdf:type owl:Class ;
                                              rdfs:subClassOf cco:RatioMeasurementInformationContentEntity ;
@@ -573,12 +652,25 @@ cco:CountMeasurementInformationContentEntity rdf:type owl:Class ;
                                              rdfs:label "Count Measurement Information Content Entity"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DataMatrixCodeContent
+cco:DataMatrixCodeContent rdf:type owl:Class ;
+                          rdfs:subClassOf cco:TwoDimensionalBarcodeContent ;
+                          rdfs:label "Data Matrix Code Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DataRangeIntervalEstimateInformationContentEntity
 cco:DataRangeIntervalEstimateInformationContentEntity rdf:type owl:Class ;
                                                       rdfs:subClassOf cco:IntervalEstimateInformationContentEntity ;
                                                       cco:definition "A Ratio Measurement Information Content Entity that is a measurement of a set of values and is equal to the absolute difference between the largest value and the smallest value in the set."@en ;
                                                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                       rdfs:label "Data Range Interval Estimate Information Content Entity"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DatabaseContent
+cco:DatabaseContent rdf:type owl:Class ;
+                    rdfs:subClassOf cco:InformationContentEntity ;
+                    cco:definition "A collection of information content entities access to which is by keyword, identifier, or structured query, such access designed to and intended to be fast relative to finding entities by examining each member of the collection in turn."@en ;
+                    rdfs:label "Database Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DateIdentifier
@@ -672,6 +764,12 @@ cco:DeviationMeasurementInformationContentEntity rdf:type owl:Class ;
                                                  rdfs:label "Deviation Measurement Information Content Entity"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DiagramContent
+cco:DiagramContent rdf:type owl:Class ;
+                   rdfs:subClassOf cco:ImageContent ;
+                   rdfs:label "Diagram Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DiminutiveName
 cco:DiminutiveName rdf:type owl:Class ;
                    rdfs:subClassOf cco:AbbreviatedName ;
@@ -709,6 +807,44 @@ cco:DistanceMeasurementInformationContentEntity rdf:type owl:Class ;
                                                 rdfs:label "Distance Measurement Information Content Entity"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DocumentContent
+cco:DocumentContent rdf:type owl:Class ;
+                    rdfs:subClassOf cco:InformationContentEntity ;
+                    cco:definition "A collection of information content entities intended to be understood together as a whole"@en ;
+                    cco:is_curated_in_ontology "http://purl.obolibrary.org/obo/iao.owl"^^xsd:anyURI ;
+                    rdfs:label "Document Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DocumentFormContent
+cco:DocumentFormContent rdf:type owl:Class ;
+                        rdfs:subClassOf cco:DocumentContent ;
+                        rdfs:label "Document Form Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN13BarcodeContent
+cco:EAN13BarcodeContent rdf:type owl:Class ;
+                        rdfs:subClassOf cco:EANBarcodeContent ;
+                        rdfs:label "EAN-13 Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EAN8BarcodeContent
+cco:EAN8BarcodeContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:EANBarcodeContent ;
+                       rdfs:label "EAN-8 Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EANBarcodeContent
+cco:EANBarcodeContent rdf:type owl:Class ;
+                      rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                      rdfs:label "EAN Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/EmailMessageContent
+cco:EmailMessageContent rdf:type owl:Class ;
+                        rdfs:subClassOf cco:MessageContent ;
+                        rdfs:label "Email Message Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EstimateInformationContentEntity
 cco:EstimateInformationContentEntity rdf:type owl:Class ;
                                      rdfs:subClassOf cco:MeasurementInformationContentEntity ;
@@ -727,6 +863,12 @@ cco:EventStatusNominalInformationContentEntity rdf:type owl:Class ;
                                                cco:example_of_usage "proposed, approved, planned, in progress, completed, failed, or successful" ;
                                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                rdfs:label "Event Status Nominal Information Content Entity"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/GS1DataBarBarcodeContent
+cco:GS1DataBarBarcodeContent rdf:type owl:Class ;
+                             rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                             rdfs:label "GS1 DataBar Barcode Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialCoordinateReferenceSystem
@@ -753,6 +895,31 @@ cco:GreenwichMeanTimeZoneIdentifier rdf:type owl:Class ;
                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                     rdfs:comment "Greenwich Mean Time (GMT) is the mean solar time at the Royal Observatory in Greenwich, London and has been superseded by Coordinated Universal Time (UTC)."@en ;
                                     rdfs:label "Greenwich Mean Time Zone Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ISBNBarcodeContent
+cco:ISBNBarcodeContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:EANBarcodeContent ;
+                       rdfs:label "ISBN Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ISSNBarcodeContent
+cco:ISSNBarcodeContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:EANBarcodeContent ;
+                       rdfs:label "ISSN Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ITFBarcodeContent
+cco:ITFBarcodeContent rdf:type owl:Class ;
+                      rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                      rdfs:label "ITF Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ImageContent
+cco:ImageContent rdf:type owl:Class ;
+                 rdfs:subClassOf cco:RepresentationalInformationContentEntity ;
+                 cco:definition "An Representational Information Content Entity that is intended to be concretized in such a way as to take advantage of visual perception capabilities that go beyond reading text."@en ;
+                 rdfs:label "Image Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationBearingEntity
@@ -792,6 +959,12 @@ cco:InformationContentEntity rdf:type owl:Class ;
                              rdfs:label "Information Content Entity"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationLineContent
+cco:InformationLineContent rdf:type owl:Class ;
+                           rdfs:subClassOf cco:InformationContentEntity ;
+                           rdfs:label "Information Line Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InformationQualityEntity
 cco:InformationQualityEntity rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000019 ,
@@ -813,6 +986,12 @@ cco:Initialism rdf:type owl:Class ;
                cco:example_of_usage "USA, CPU, BBC" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                rdfs:label "Initialism"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/InstrumentDisplayPanelContent
+cco:InstrumentDisplayPanelContent rdf:type owl:Class ;
+                                  rdfs:subClassOf cco:MeasurementInformationContentEntity ;
+                                  rdfs:label "Instrument Display Panel Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IntervalEstimateInformationContentEntity
@@ -844,6 +1023,18 @@ cco:IntervalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                 rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                                                 rdfs:label "Interval Measurement Information Content Entity"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Jan13BarcodeContent
+cco:Jan13BarcodeContent rdf:type owl:Class ;
+                        rdfs:subClassOf cco:EANBarcodeContent ;
+                        rdfs:label "JAN-13 Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/JournalArticleContent
+cco:JournalArticleContent rdf:type owl:Class ;
+                          rdfs:subClassOf cco:DocumentContent ;
+                          rdfs:label "Journal Article Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/JulianDateFraction
@@ -904,6 +1095,12 @@ cco:LegalName rdf:type owl:Class ;
               rdfs:label "Legal Name"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ListContent
+cco:ListContent rdf:type owl:Class ;
+                rdfs:subClassOf cco:InformationContentEntity ;
+                rdfs:label "List Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LotNumber
 cco:LotNumber rdf:type owl:Class ;
               rdfs:subClassOf cco:CodeIdentifier ;
@@ -920,6 +1117,12 @@ cco:LunarCalendarSystem rdf:type owl:Class ;
                         cco:definition_source "https://en.wikipedia.org/w/index.php?title=Lunar_calendar&oldid=1055396837"^^xsd:anyURI ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                         rdfs:label "Lunar Calendar System"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MSIPlesseyBarcodeContent
+cco:MSIPlesseyBarcodeContent rdf:type owl:Class ;
+                             rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                             rdfs:label "MSI Plessey Barcode Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MaximumOrdinalMeasurementInformationContentEntity
@@ -983,6 +1186,13 @@ cco:MedianPointEstimateInformationContentEntity rdf:type owl:Class ;
                                                 cco:definition "A Point Estimate Information Content Entity that is a measurement of a set of values and is equal to either the middle value or the average of the two values which separate the set into two equally populated upper and lower sets."@en ;
                                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                 rdfs:label "Median Point Estimate Information Content Entity"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/MessageContent
+cco:MessageContent rdf:type owl:Class ;
+                   rdfs:subClassOf cco:DocumentContent ;
+                   cco:definition "A document content that is addressed to and intended to be received by one or more designated recipients."@en ;
+                   rdfs:label "Message Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MilitaryTimeZoneIdentifier
@@ -1066,6 +1276,18 @@ cco:NonNameIdentifier rdf:type owl:Class ;
                       rdfs:label "Non-Name Identifier"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/NotificationMessageContent
+cco:NotificationMessageContent rdf:type owl:Class ;
+                               rdfs:subClassOf cco:MessageContent ;
+                               rdfs:label "Notification Message Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/OneDimensionalBarcodeContent
+cco:OneDimensionalBarcodeContent rdf:type owl:Class ;
+                                 rdfs:subClassOf cco:BarcodeContent ;
+                                 rdfs:label "One-Dimensional Barcode Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrdinalDateIdentifier
 cco:OrdinalDateIdentifier rdf:type owl:Class ;
                           rdfs:subClassOf cco:DecimalDateIdentifier ;
@@ -1098,6 +1320,12 @@ cco:OrdinalMeasurementInformationContentEntity rdf:type owl:Class ;
                                                rdfs:label "Ordinal Measurement Information Content Entity"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PDF417CodeContent
+cco:PDF417CodeContent rdf:type owl:Class ;
+                      rdfs:subClassOf cco:TwoDimensionalBarcodeContent ;
+                      rdfs:label "PDF417 Code Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PartNumber
 cco:PartNumber rdf:type owl:Class ;
                rdfs:subClassOf cco:CodeIdentifier ;
@@ -1117,6 +1345,12 @@ cco:PerformanceSpecification rdf:type owl:Class ;
                              cco:example_of_usage "Maximum Speed at high altitude; Rate of Ascent at 10 degrees celsius with nominal payload." ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                              rdfs:label "Performance Specification"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/PhotographContent
+cco:PhotographContent rdf:type owl:Class ;
+                      rdfs:subClassOf cco:ImageContent ;
+                      rdfs:label "Photograph Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PointEstimateInformationContentEntity
@@ -1191,6 +1425,12 @@ cco:ProportionalRatioMeasurementInformationContentEntity rdf:type owl:Class ;
                                                          rdfs:label "Proportional Ratio Measurement Information Content Entity"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/QRCodeContent
+cco:QRCodeContent rdf:type owl:Class ;
+                  rdfs:subClassOf cco:TwoDimensionalBarcodeContent ;
+                  rdfs:label "QR Code Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RatioMeasurementInformationContentEntity
 cco:RatioMeasurementInformationContentEntity rdf:type owl:Class ;
                                              owl:equivalentClass [ owl:intersectionOf ( cco:MeasurementInformationContentEntity
@@ -1231,6 +1471,12 @@ cco:ReliabilityMeasurementInformationContentEntity rdf:type owl:Class ;
                                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                                    rdfs:comment "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance ('Reliability Measurement Information Content Entity'), correctness-of-information (see: 'Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."@en ;
                                                    rdfs:label "Reliability Measurement Information Content Entity"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ReportContent
+cco:ReportContent rdf:type owl:Class ;
+                  rdfs:subClassOf cco:DocumentContent ;
+                  rdfs:label "Report Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RepresentationalInformationContentEntity
@@ -1325,12 +1571,24 @@ cco:SphericalCoordinateSystem rdf:type owl:Class ;
                               rdfs:label "Spherical Coordinate System"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SpreadsheetContent
+cco:SpreadsheetContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:InformationContentEntity ;
+                       rdfs:label "Spreadsheet Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/StandardTimeOfDayIdentifier
 cco:StandardTimeOfDayIdentifier rdf:type owl:Class ;
                                 rdfs:subClassOf cco:TimeOfDayIdentifier ;
                                 cco:definition "A Time of Day Identifier that designates an approximate Temporal Instant that is part of some Day and is specified using the Hours, Minutes, and Seconds of the Day that preceded the Temporal Instant."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                                 rdfs:label "Standard Time of Day Identifier"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/SystemClockContent
+cco:SystemClockContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:TimekeepingInstrumentContent ;
+                       rdfs:label "System Clock Content"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TemporalInstantIdentifier
@@ -1421,6 +1679,43 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
                        rdfs:label "Time Zone Identifier"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TimekeepingInstrumentContent
+cco:TimekeepingInstrumentContent rdf:type owl:Class ;
+                                 rdfs:subClassOf cco:CountMeasurementInformationContentEntity ;
+                                 rdfs:label "Timekeeping Instrument Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TranscriptContent
+cco:TranscriptContent rdf:type owl:Class ;
+                      rdfs:subClassOf cco:DocumentContent ;
+                      cco:definition "A Document Content that is a textual representation of what was initially spoken."@en ;
+                      rdfs:label "Transcript Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/TwoDimensionalBarcodeContent
+cco:TwoDimensionalBarcodeContent rdf:type owl:Class ;
+                                 rdfs:subClassOf cco:BarcodeContent ;
+                                 rdfs:label "Two-Dimensional Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCABarcodeContent
+cco:UPCABarcodeContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:UPCBarcodeContent ;
+                       rdfs:label "UPC-A Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCBarcodeContent
+cco:UPCBarcodeContent rdf:type owl:Class ;
+                      rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                      rdfs:label "UPC Barcode Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/UPCEBarcodeContent
+cco:UPCEBarcodeContent rdf:type owl:Class ;
+                       rdfs:subClassOf cco:UPCBarcodeContent ;
+                       rdfs:label "UPC-E Barcode Content"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UniversalTimeReferenceSystem
 cco:UniversalTimeReferenceSystem rdf:type owl:Class ;
                                  rdfs:subClassOf cco:SolarTimeReferenceSystem ;
@@ -1441,6 +1736,25 @@ cco:VeracityMeasurementInformationContentEntity rdf:type owl:Class ;
                                                 rdfs:comment "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."@en ,
                                                              "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance (see: 'Reliability Measurement Information Content Entity'), correctness-of-information ('Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."@en ;
                                                 rdfs:label "Veracity Measurement Information Content Entity"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/VideoContent
+cco:VideoContent rdf:type owl:Class ;
+                 rdfs:subClassOf cco:DocumentContent ;
+                 cco:definition "A Document Content consisting of a sequence of images contents that are presented sufficiently rapidly to create the appearance of motion."@en ;
+                 rdfs:label "Video Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/WarningMessageContent
+cco:WarningMessageContent rdf:type owl:Class ;
+                          rdfs:subClassOf cco:NotificationMessageContent ;
+                          rdfs:label "Warning Message Content"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CodabarBarcodeContent
+<http://www.ontologyrepository.com/CommonCoreOntologies/Mid/CodabarBarcodeContent> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf cco:OneDimensionalBarcodeContent ;
+                                                                                   rdfs:label "Codabar Barcode Content"@en .
 
 
 #################################################################
