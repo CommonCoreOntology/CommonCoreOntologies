@@ -178,6 +178,7 @@ cco:ArticleOfSolidWaste rdf:type owl:Class ;
 cco:Artifact rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000040 ;
              cco:definition "A Material Entity that was designed by some Agent to realize a certain Function."@en ;
+             cco:definition_source "Otte et al., An ontological approach to representing the product lifecycle. Applied Ontology. 14, no. 2, 1-19."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
              rdfs:label "Material Artifact"@en .
 
@@ -1006,7 +1007,8 @@ cco:CuttingWeapon rdf:type owl:Class ;
 cco:Dam rdf:type owl:Class ;
         rdfs:subClassOf cco:Artifact ;
         cco:definition "A Material Artifact that is designed to impound surface water or underground streams."@en ;
-        cco:definition_source "https://en.wikipedia.org/w/index.php?title=Dam&oldid=1053601756" ;
+        cco:definition_source "Derived from Handbook of Dam Engineering, ed. Alfred Golze. New York: Van Nostrand Reinhold Co. 1977. Available at: https://archive.org/details/handbookofdameng0000unse/" ,
+                              "https://en.wikipedia.org/w/index.php?title=Dam&oldid=1053601756" ;
         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
         rdfs:label "Dam"@en .
 
@@ -1685,7 +1687,8 @@ cco:FuelCell rdf:type owl:Class ;
 cco:FuelSystem rdf:type owl:Class ;
                rdfs:subClassOf cco:Artifact ;
                cco:definition "A Material Artifact that is designed to pump, manage, and deliver some Portion of Fuel to the Propulsion System and Auxiliary Power Unit of some Vehicle."@en ;
-               cco:definition_source "https://en.wikipedia.org/w/index.php?title=Aircraft_fuel_system&oldid=1003132173"^^xsd:anyURI ;
+               cco:definition_source "https://en.wikipedia.org/w/index.php?title=Aircraft_fuel_system&oldid=1003132173"^^xsd:anyURI ,
+                                     "Adapted from Boat Builder's Handbook 2021: Fuel Systems. 33 CFR 183 SUBPART J. pg. 9. Available at https://safeafloat.com/wp-content/uploads/2021/04/J-Fuel-Systems-Final-4-14.pdf" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                rdfs:label "Fuel System"@en .
 
@@ -2218,6 +2221,7 @@ cco:Infrastructure rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000040 ;
                    cco:alternative_label "Infrastructure"@en ;
                    cco:definition "A Material Entity that is composed of elements bearing Infrastructure Roles and is by itself sufficient to provide a planned service or benefit to some organization that maintains its elements."@en ;
+                   cco:definition_source "Adapted from Goodman, Infrastructure Planning Handbook: Planning, Engineering, Economics. New York : ASCE Press ; McGraw-Hill. 2006. 25-26. Available at https://archive.org/details/infrastructurepl0000good/page/n25/mode/2up?view=theater." ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                    rdfs:label "Infrastructure System"@en .
 
@@ -2242,7 +2246,8 @@ cco:InfrastructureElement rdf:type owl:Class ;
 cco:InfrastructureRole rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000023 ;
                        cco:definition "A Role that inheres in the bearer of a Disposition and has been assigned to an Infrastructure System such that the realization of that Disposition is sometimes part of the functioning of the Infrastructure System."@en ;
-                       cco:definition_source "https://archive.org/details/economicsprincip00osul/page/n489/mode/2up"^^xsd:anyURI ;
+                       cco:definition_source "https://archive.org/details/economicsprincip00osul/page/n489/mode/2up"^^xsd:anyURI ,
+                                             "Adapted from Goodman, Infrastructure Planning Handbook: Planning, Engineering, Economics. New York : ASCE Press ; McGraw-Hill. 2006. 25-26. Available at https://archive.org/details/infrastructurepl0000good/page/n25/mode/2up?view=theater." ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                        rdfs:comment "The disposition will typically be a function of an artifact, which is often designed to be part of some Infrastructure system. But not always. In some cases an entity may be repurposed to be an element of some Infrastructure. In those cases it is a capability of that entity that supports the functioning of the system."@en ;
                        rdfs:label "Infrastructure Role"@en .
@@ -5059,4 +5064,4 @@ cco:XRayTelescope rdf:type owl:Class ;
                   rdfs:label "X-ray Telescope"@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
