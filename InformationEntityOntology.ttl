@@ -385,66 +385,88 @@ cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_URI_value
 cco:has_URI_value rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf cco:has_value ;
                   rdfs:domain cco:InformationBearingEntity ;
                   rdfs:range xsd:anyURI ;
+                  cco:definition "A data property that has as its range a URI value."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                   rdfs:label "has URI value"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_boolean_value
 cco:has_boolean_value rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf cco:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:boolean ;
+                      cco:definition "A data property that has as its range a boolean value."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                       rdfs:label "has boolean value"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_date_value
 cco:has_date_value rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf cco:has_value ;
                    rdfs:domain cco:InformationBearingEntity ;
+                   cco:definition "A data property that has as its range a date value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                    rdfs:label "has date value"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_datetime_value
 cco:has_datetime_value rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf cco:has_value ;
                        rdfs:domain cco:InformationBearingEntity ;
                        rdfs:range xsd:dateTime ;
+                       cco:definition "A data property that has as its value a datetime value."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                        rdfs:label "has datetime value"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_decimal_value
 cco:has_decimal_value rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf cco:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:decimal ;
+                      cco:definition "A data property that has as its range a decimal value."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                       rdfs:label "has decimal value"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_double_value
 cco:has_double_value rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf cco:has_value ;
                      rdfs:domain cco:InformationBearingEntity ;
                      rdfs:range xsd:double ;
+                     cco:definition "A data property that has as its range a double value."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                      rdfs:label "has double value"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_integer_value
 cco:has_integer_value rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf cco:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:integer ;
+                      cco:definition "A data property that has as its range an integer value."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                       rdfs:label "has integer value"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_text_value
 cco:has_text_value rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf cco:has_value ;
                    rdfs:domain cco:InformationBearingEntity ;
                    rdfs:range xsd:string ;
-                   cco:definition "A relationship between an Information Bearing Entity and a string representation."@en ;
+                   cco:definition "A data property that has as its range a string value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                    rdfs:label "has text value"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/has_value
+cco:has_value rdf:type owl:DatatypeProperty ;
+              cco:definition "A data property that has a range of some data value."@en ;
+              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
+              rdfs:label "has value"@en .
 
 
 #################################################################
@@ -2203,4 +2225,4 @@ cco:ZuluTimeZone rdf:type owl:NamedIndividual ,
                  rdfs:label "Zulu Time Zone"@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
