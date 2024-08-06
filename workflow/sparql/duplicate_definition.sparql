@@ -1,0 +1,16 @@
+# Title: 
+#    No Duplicate Definitions
+# Constraint Description: 
+#    No two ontology elements may have the exact same definition.    
+# Severity:
+#     Error 
+
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?entity ?definition 
+WHERE {
+  ?entity skos:definition ?definition .
+  ?entity2 skos:definition ?definition .
+  FILTER (?entity != ?entity2)
+  FILTER (!isBlank(?entity))
+}

@@ -1,0 +1,31 @@
+# Title: 
+#     Ontology Elements Shall Have at Most One SKOS prefLabel per Language
+# Constraint Description: 
+#     Each ontology element shall have at most one skos:prefLabel per language.
+# Severity:
+#     Warning
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+
+SELECT DISTINCT ?resource ?property ?value
+WHERE
+{
+    VALUES ?property { skos:prefLabel }
+
+    # Find items with different labels in the same language.
+    ?resource ?property ?value .
+    ?resource ?property ?value2 .
+    FILTER ((lang(?value) = lang(?value2)) && (?value != ?value2)) .
+
+    # Ignore deprecated resources
+    FILTER NOT EXISTS { ?resource owl:deprecated true }
+
+    # Ignore blank nodes
+    FILTER (!isBlank(?resource))
+
+    # Ignore labels without a language label
+    FILTER (lang(?value) != "")
+}
+ORDER BY ?resource

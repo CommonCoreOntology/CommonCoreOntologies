@@ -1,0 +1,17 @@
+# Title: 
+#     Ontology Title Required
+# Constraint Description: 
+#     Any owl:Ontology must have a dcterms:title annotation property.
+# Severity:
+#     Warning
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?resource
+WHERE
+{
+    ?resource a owl:Ontology .
+    FILTER (!ISBLANK (?resource)) .
+    FILTER NOT EXISTS {?resource dcterms:title ?title}
+}
