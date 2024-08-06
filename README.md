@@ -38,23 +38,22 @@ For more information about the governance of CCO, please navigate to the [Common
 
 ## The Contents of this Repository
 
-* **archive** 
-	* **legacy documentation** - Contains documentation concerning previous versions of CCO, a list of obsoleted terms, changefiles for releases, as well as xlsx glossaries for each previous release. 
-	* **previous-versions** - Contains previous releases of CCO, beginning with version 1.3. 
-* **cco extensions** 	
-	* **Modal Relations Ontology** - The file contains modal counterparts to the object and data properties contained in CCO files and the bfo-core file.
 * **documentation** 	- This directory contains the ModalRelationOntology.ttl.
 	* **user guides** - Contains user guides for: ontology developers, software developers and subject matter experts.
 	* **images** - Contains images used in this repository.
 	* **design patterns** - Contains common design patterns for CCO, motivated by specific use cases, characterized by competency questions, and accompanied by serialization in RDF.  
+	* **archive** 
+		* **legacy documentation** - Contains documentation concerning previous versions of CCO, a list of obsoleted terms, changefiles for releases, as well as xlsx glossaries for each previous release. 
+		* **previous-versions** - Contains previous releases of CCO, beginning with version 1.3. 
 * **src**
 	* **cco-merged** - This directory contains the current CCO merged release file and an import file that is used to generate the merged CCO file. 
 	* **cco-modules** - This directory contains current releases of the 11 CCO modules.
-* **workflow** 	
-	* **sparql** - This directory contains sparl files used in quality control checks during the development process. 
-	* **ontology-diff-files** - This directory contains ontology-diff-files, which Mark can tell you more about. 
-	* **mappings** - This directory contains mappings between content in CCO and other ontologies. 
+	* **cco extensions** 	
 * **.github** 	- This directory contains files needed to support automated GitHub actions. 
+	* **workflow** 	
+		* **sparql** - This directory contains sparl files used in quality control checks during the development process. 
+		* **ontology-diff-files** - This directory contains ontology-diff-files, which Mark can tell you more about. 
+		* **mappings** - This directory contains mappings between content in CCO and other ontologies. 
 
 ## Getting Involved
 
