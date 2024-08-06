@@ -2805,7 +2805,6 @@ mro:asWKT rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_URI_value
 mro:has_URI_value rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf mro:has_value ;
                   rdfs:domain cco:InformationBearingEntity ;
                   rdfs:range xsd:anyURI ;
                   cco:definition "A data property that has as its range a URI value."@en ;
@@ -2823,7 +2822,6 @@ mro:has_altitude_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_boolean_value
 mro:has_boolean_value rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf mro:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:boolean ;
                       cco:definition "A data property that has as its range a boolean value."@en ;
@@ -2833,7 +2831,6 @@ mro:has_boolean_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_date_value
 mro:has_date_value rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf mro:has_value ;
                    rdfs:domain cco:InformationBearingEntity ;
                    cco:definition "A data property that has as its range a date value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
@@ -2842,7 +2839,6 @@ mro:has_date_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_datetime_value
 mro:has_datetime_value rdf:type owl:DatatypeProperty ;
-                       rdfs:subPropertyOf mro:has_value ;
                        rdfs:domain cco:InformationBearingEntity ;
                        rdfs:range xsd:dateTime ;
                        cco:definition "A data property that has as its value a datetime value."@en ;
@@ -2852,7 +2848,6 @@ mro:has_datetime_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_decimal_value
 mro:has_decimal_value rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf mro:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:decimal ;
                       cco:definition "A data property that has as its range a decimal value."@en ;
@@ -2862,7 +2857,6 @@ mro:has_decimal_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_double_value
 mro:has_double_value rdf:type owl:DatatypeProperty ;
-                     rdfs:subPropertyOf mro:has_value ;
                      rdfs:domain cco:InformationBearingEntity ;
                      rdfs:range xsd:double ;
                      cco:definition "A data property that has as its range a double value."@en ;
@@ -2872,7 +2866,6 @@ mro:has_double_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_integer_value
 mro:has_integer_value rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf mro:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:integer ;
                       cco:definition "A data property that has as its range an integer value."@en ;
@@ -2898,19 +2891,15 @@ mro:has_longitude_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_text_value
 mro:has_text_value rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf mro:has_value ;
                    rdfs:domain cco:InformationBearingEntity ;
-                   rdfs:range xsd:string ;
+                   rdfs:range [ rdf:type rdfs:Datatype ;
+                                owl:unionOf ( rdf:langString
+                                              xsd:string
+                                            )
+                              ] ;
                    cco:definition "A data property that has as its range a string value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                    rdfs:label "has text value"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_value
-mro:has_value rdf:type owl:DatatypeProperty ;
-              cco:definition "A data property that has a range of some data value."@en ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
-              rdfs:label "has value"@en .
 
 
 #########################################

@@ -385,7 +385,6 @@ cco:uses_time_zone_identifier rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_URI_value
 cco:has_URI_value rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf cco:has_value ;
                   rdfs:domain cco:InformationBearingEntity ;
                   rdfs:range xsd:anyURI ;
                   cco:definition "A data property that has as its range a URI value."@en ;
@@ -395,7 +394,6 @@ cco:has_URI_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_boolean_value
 cco:has_boolean_value rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf cco:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:boolean ;
                       cco:definition "A data property that has as its range a boolean value."@en ;
@@ -405,7 +403,6 @@ cco:has_boolean_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_date_value
 cco:has_date_value rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf cco:has_value ;
                    rdfs:domain cco:InformationBearingEntity ;
                    cco:definition "A data property that has as its range a date value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
@@ -414,7 +411,6 @@ cco:has_date_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_datetime_value
 cco:has_datetime_value rdf:type owl:DatatypeProperty ;
-                       rdfs:subPropertyOf cco:has_value ;
                        rdfs:domain cco:InformationBearingEntity ;
                        rdfs:range xsd:dateTime ;
                        cco:definition "A data property that has as its value a datetime value."@en ;
@@ -424,7 +420,6 @@ cco:has_datetime_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_decimal_value
 cco:has_decimal_value rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf cco:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:decimal ;
                       cco:definition "A data property that has as its range a decimal value."@en ;
@@ -434,7 +429,6 @@ cco:has_decimal_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_double_value
 cco:has_double_value rdf:type owl:DatatypeProperty ;
-                     rdfs:subPropertyOf cco:has_value ;
                      rdfs:domain cco:InformationBearingEntity ;
                      rdfs:range xsd:double ;
                      cco:definition "A data property that has as its range a double value."@en ;
@@ -444,7 +438,6 @@ cco:has_double_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_integer_value
 cco:has_integer_value rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf cco:has_value ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:integer ;
                       cco:definition "A data property that has as its range an integer value."@en ;
@@ -454,19 +447,15 @@ cco:has_integer_value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_text_value
 cco:has_text_value rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf cco:has_value ;
                    rdfs:domain cco:InformationBearingEntity ;
-                   rdfs:range xsd:string ;
+                   rdfs:range [ rdf:type rdfs:Datatype ;
+                                owl:unionOf ( rdf:langString
+                                              xsd:string
+                                            )
+                              ] ;
                    cco:definition "A data property that has as its range a string value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
                    rdfs:label "has text value"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/has_value
-cco:has_value rdf:type owl:DatatypeProperty ;
-              cco:definition "A data property that has a range of some data value."@en ;
-              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology"^^xsd:anyURI ;
-              rdfs:label "has value"@en .
 
 
 #################################################################
