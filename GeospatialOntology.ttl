@@ -264,7 +264,7 @@ cco:ConstructedFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Continent
 cco:Continent rdf:type owl:Class ;
               rdfs:subClassOf cco:GeospatialRegion ;
-              cco:definition "A Geospatial Region bounded by any of the Earth's main continuous expanses of land."@en ;
+              cco:definition "A Geospatial Region that is bounded by any of the Earth's main continuous expanses of land."@en ;
               cco:definition_source "JC3IEDM version 3.0.2" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
               rdfs:label "Continent"@en .
@@ -297,15 +297,15 @@ cco:GeographicFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary
 cco:GeospatialBoundary rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000142 ;
-                       cco:definition "A One-Dimensional Continuant Fiat Boundary that is a boundary of some Geospatial Region."@en ;
+                       cco:definition "A Fiat Line that is a boundary of some Geospatial Region."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
-                       rdfs:label "Geospatial Boundary"@en .
+                       rdfs:label "One-Dimensional Geospatial Boundary"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialEllipse
 cco:GeospatialEllipse rdf:type owl:Class ;
-                      rdfs:subClassOf cco:GeospatialLineString ;
-                      cco:definition "A Geospatial Line String that is formed by following a symmetric arc between four vertices which are connected to the center point of the ellipse via a straight line."@en ;
+                      rdfs:subClassOf cco:GeospatialBoundary ;
+                      cco:definition "A One-Dimensional Geospatial Boundary that is formed by following a symmetric arc between four vertices which are connected to the center point of the ellipse via a straight line."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                       rdfs:label "Geospatial Ellipse"@en .
 
@@ -313,7 +313,7 @@ cco:GeospatialEllipse rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialErrorRegion
 cco:GeospatialErrorRegion rdf:type owl:Class ;
                           rdfs:subClassOf cco:GeospatialBoundary ;
-                          cco:definition "A Geospatial Boundary that bounds some Geospatial Region according to probability estimations for locating some object within it."@en ;
+                          cco:definition "A One-Dimensional Geospatial Boundary that bounds some Geospatial Region according to probability estimations for locating some object within it."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                           rdfs:label "Geospatial Error Region"@en .
 
@@ -329,7 +329,7 @@ cco:GeospatialLine rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLineString
 cco:GeospatialLineString rdf:type owl:Class ;
                          rdfs:subClassOf cco:GeospatialBoundary ;
-                         cco:definition "A Geospatial Boundary that has two or more Geospatial Positions as vertices, where each vertex is connected to only one other vertex by a straight line."@en ;
+                         cco:definition "A One-Dimensional Geospatial Boundary that has two or more Geospatial Positions as vertices, where each vertex is connected to only one other vertex by a straight line."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Geospatial Line String"@en .
 
@@ -341,7 +341,7 @@ cco:GeospatialLocation rdf:type owl:Class ;
                                          owl:onProperty obo:BFO_0000124 ;
                                          owl:someValuesFrom obo:BFO_0000001
                                        ] ;
-                       cco:definition "A Geospatial Region at which an Entity or Event is located."@en ;
+                       cco:definition "A Geospatial Region that is at which an Entity or Event is located."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Geospatial Location"@en .
 
@@ -357,7 +357,7 @@ cco:GeospatialPolygon rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition
 cco:GeospatialPosition rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000147 ;
-                       cco:definition "A zero-dimensional continuant fiat boundary that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en ;
+                       cco:definition "A Fiat Point that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Geospatial Position"@en .
 
@@ -365,7 +365,7 @@ cco:GeospatialPosition rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegion
 cco:GeospatialRegion rdf:type owl:Class ;
                      rdfs:subClassOf obo:BFO_0000029 ;
-                     cco:definition "A Site at or near the surface of the Earth."@en ;
+                     cco:definition "A Site that is at or near the surface of the Earth."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                      rdfs:label "Geospatial Region"@en .
 
@@ -567,7 +567,7 @@ cco:RollAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SeaLevel
 cco:SeaLevel rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000146 ;
-             cco:definition "A two-dimensional continuant fiat boundary that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth’s oceans."@en ;
+             cco:definition "A Fiat Surface that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth’s oceans."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
              rdfs:label "Sea Level"@en .
 
@@ -591,7 +591,7 @@ cco:SemiMinorAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent
 cco:Subcontinent rdf:type owl:Class ;
                  rdfs:subClassOf cco:GeospatialRegion ;
-                 cco:definition "A Geospatial Region bounded by a large, relatively self-contained landmass forming a subdivision of a Continent."@en ;
+                 cco:definition "A Geospatial Region that is bounded by a large, relatively self-contained landmass forming a subdivision of a Continent."@en ;
                  cco:definition_source "https://en.wikipedia.org/w/index.php?title=Continent&oldid=1064057312"^^xsd:anyURI ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                  rdfs:label "Subcontinent"@en .
@@ -660,4 +660,4 @@ cco:zAxis rdf:type owl:Class ;
           rdfs:label "z-Axis"@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
