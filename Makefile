@@ -18,7 +18,7 @@ config.SOURCE_DIR := src/
 config.TEMP_DIR := build/artifacts
 config.RELEASE_DIR := /
 config.REPORTS_DIR := $(config.TEMP_DIR)
-config.QUERIES_DIR := workflow/sparql
+config.QUERIES_DIR := .github/workflow/sparql
 config.LIBRARY_DIR := build/lib
 
 # Settings
