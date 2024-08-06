@@ -5,6 +5,7 @@ This directory contains current release artifacts of CCO and its modules.
 ## The Contents of this Repository
 
 * **cco-merged** - This directory contains the current CCO merged release file and an import file that is used to generate the merged CCO file. 
+* **cco-extensions** - This directory contains extensions of CCO.  
 * **cco-modules** - This directory contains current releases of the 11 CCO modules listed below: 
 
 - **Geospatial Ontology**	- An ontology who scope is the representation of sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them.
