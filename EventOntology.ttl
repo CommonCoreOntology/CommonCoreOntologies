@@ -1366,8 +1366,8 @@ cco:DecreaseOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DecreaseOfFunction
 cco:DecreaseOfFunction rdf:type owl:Class ;
-                       rdfs:subClassOf cco:DecreaseOfRealizableEntity ;
-                       cco:definition "A Decrease of Realizable Entity in which some Independent Continuant has a decrease of some Function that it bears."@en ;
+                       rdfs:subClassOf cco:DecreaseOfDisposition ;
+                       cco:definition "A Decrease of Disposition in which some Independent Continuant has a decrease of some Function that it bears."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                        rdfs:label "Decrease of Function"@en .
 
@@ -1686,7 +1686,7 @@ cco:GainOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GainOfFunction
 cco:GainOfFunction rdf:type owl:Class ;
-                   rdfs:subClassOf cco:GainOfRealizableEntity ,
+                   rdfs:subClassOf cco:GainOfDisposition ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty obo:BFO_0000057 ;
                                      owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
@@ -1698,7 +1698,7 @@ cco:GainOfFunction rdf:type owl:Class ;
                                                           rdf:type owl:Class
                                                         ]
                                    ] ;
-                   cco:definition "A Gain of Realizable Entity in which some Independent Continuant becomes the bearer of some Function."@en ;
+                   cco:definition "A Gain of Disposition in which some Independent Continuant becomes the bearer of some Function."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                    rdfs:comment "This class should be used to demarcate the start of the temporal interval (through the occurs_on property) that the Entity bears the Function."@en ;
                    rdfs:label "Gain of Function"@en .
@@ -1874,8 +1874,8 @@ cco:IncreaseOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IncreaseOfFunction
 cco:IncreaseOfFunction rdf:type owl:Class ;
-                       rdfs:subClassOf cco:IncreaseOfRealizableEntity ;
-                       cco:definition "An Increase of Realizable Entity in which some Independent Continuant has an increase of some Function that it bears."@en ;
+                       rdfs:subClassOf cco:IncreaseOfDisposition ;
+                       cco:definition "An Increase of Disposition in which some Independent Continuant has an increase of some Function that it bears."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                        rdfs:label "Increase of Function"@en .
 
@@ -2007,8 +2007,8 @@ cco:LossOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LossOfFunction
 cco:LossOfFunction rdf:type owl:Class ;
-                   rdfs:subClassOf cco:LossOfRealizableEntity ;
-                   cco:definition "A Loss of Realizable Entity in which some Independent Continuant ceases to be the bearer of some Function."@en ;
+                   rdfs:subClassOf cco:LossOfDisposition ;
+                   cco:definition "A Loss of Disposition in which some Independent Continuant ceases to be the bearer of some Function."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                    rdfs:label "Loss of Function"@en .
 
@@ -2096,8 +2096,8 @@ cco:Married rdf:type owl:Class ;
             rdfs:subClassOf cco:StasisOfGenericallyDependentContinuant ;
             cco:alternative_label "Married Stasis"@en ;
             cco:definition "A Stasis of Generically Dependent Continuant that consists of a socially, culturally, or ritually recognized union or legal contract between spouses that establishes rights and obligations between them, between them and their children, and between them and their in-laws."@en ;
-            cco:definition_source "Haviland, William A.; Prins, Harald E. L.; McBride, Bunny; Walrath, Dana (2011). Cultural Anthropology: The Human Challenge (13th ed.). Cengage Learning. ISBN 978-0-495-81178-7" ,
-                                  "https://en.wikipedia.org/w/index.php?title=Marriage&oldid=1064076951"^^xsd:anyURI ;
+            cco:definition_source "https://en.wikipedia.org/w/index.php?title=Marriage&oldid=1064076951"^^xsd:anyURI ,
+                                  "Haviland, William A.; Prins, Harald E. L.; McBride, Bunny; Walrath, Dana (2011). Cultural Anthropology: The Human Challenge (13th ed.). Cengage Learning. ISBN 978-0-495-81178-7" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
             rdfs:label "Married"@en .
 
@@ -2478,8 +2478,8 @@ cco:SoundProcessProfile rdf:type owl:Class ;
                         rdfs:subClassOf obo:BFO_0000144 ;
                         cco:alternative_label "Sound Quality"@en ;
                         cco:definition "A Process Profile that is part of a sound reception process and is characterized by properties of incoming sound waves as they are translated by some sensory system."@en ;
-                        cco:definition_source "http://www.animations.physics.unsw.edu.au/waves-sound/quantifying/index.html" ,
-                                              "https://en.wikipedia.org/w/index.php?title=Sound&oldid=1050465877"^^xsd:anyURI ;
+                        cco:definition_source "https://en.wikipedia.org/w/index.php?title=Sound&oldid=1050465877"^^xsd:anyURI ,
+                                              "http://www.animations.physics.unsw.edu.au/waves-sound/quantifying/index.html" ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                         rdfs:label "Sound Process Profile"@en .
 
@@ -3115,4 +3115,4 @@ cco:XrayFrequency rdf:type owl:Class ;
                   rdfs:label "X-ray Frequency"@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
