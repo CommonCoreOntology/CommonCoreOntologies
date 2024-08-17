@@ -1,0 +1,71 @@
+# Title: 
+#     Deprecated Ontology Elements in Axioms
+# Constraint Description: 
+#     The use of deprecated ontology elements in axioms is not allowed.
+# Severity:
+#     Error
+
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?entity ?property ?value 
+WHERE {
+  {
+    VALUES ?property {rdfs:subClassOf owl:equivalentClass owl:disjointWith owl:ObjectProperty owl:DataProperty}
+    ?entity a owl:Class ;
+            owl:deprecated true ;
+            ?property ?value .
+    FILTER ( ?value NOT IN (oboInOwl:ObsoleteClass, owl:Thing) || 
+             ?property IN (owl:equivalentClass, owl:disjointWith, owl:ObjectProperty, owl:DataProperty))
+  }
+  UNION
+  {
+    VALUES ?property {rdfs:subClassOf owl:equivalentClass owl:disjointWith}
+    ?value ?property ?entity .
+    ?entity a owl:Class ;
+            owl:deprecated true .
+  }
+  UNION
+  {
+    VALUES ?property {owl:someValuesFrom owl:allValuesFrom}
+    ?value a owl:Class ;
+           owl:deprecated true .
+    ?rest a owl:Restriction ;
+          ?property ?value .
+    BIND("blank node" AS ?entity)
+  }
+  UNION
+  {
+    VALUES ?property {owl:equivalentProperty rdfs:subPropertyOf owl:inverseOf
+    }
+    ?entity a owl:ObjectProperty ;
+            owl:deprecated true .
+    ?value1 ?property ?entity .
+  }
+  UNION
+  {
+    VALUES ?property {owl:equivalentProperty rdfs:subPropertyOf}
+    ?entity a owl:DatatypeProperty ;
+            owl:deprecated true .
+    ?value1 ?property ?entity .
+  }
+  UNION
+  {
+    ?property owl:deprecated true .
+    ?entity ?property ?value1 .
+    BIND (IF(isIRI(?value1), ?value1, "blank node") AS ?value)
+  }
+  UNION
+  {
+    ?property owl:deprecated true .
+    ?entity ?x ?value1 .
+    ?value1 a owl:Restriction ;
+            owl:onProperty ?property .
+    BIND (IF(isIRI(?value1), ?value1, "blank node") AS ?value)
+  }
+}
+ORDER BY ?entity
+
