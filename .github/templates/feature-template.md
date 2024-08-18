@@ -3,7 +3,7 @@ name: Feature Template
 about: Suggest updates to our repo
 title: 'FEATURE: [SUMMARY TITLE OF FEATURE]'
 labels: ''
-assignees: johnbeve
+assignees: 
 
 ---
 
