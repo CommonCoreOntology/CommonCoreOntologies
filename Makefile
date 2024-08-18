@@ -183,10 +183,11 @@ $(REQUIRED_DIRS):
 	mkdir -p $@
 
 # ROBOT
+# Download the robot.jar file
 ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
 $(ROBOT_FILE): | $(config.LIBRARY_DIR)
-    mkdir -p $(config.LIBRARY_DIR) # Ensure directory exists
-    curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
+	@mkdir -p $(config.LIBRARY_DIR) # Ensure directory exists
+	@curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
 
 ROBOT := java -jar $(ROBOT_FILE)
 
