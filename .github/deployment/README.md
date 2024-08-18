@@ -1,4 +1,4 @@
-# CCO Workflow Files
+# CCO Deployment Files
 
 This directory contains files used in the yml/makefile process for validation and release generation, as well as files to support translations from content in CCO to similar content in other ontologies. 
 
