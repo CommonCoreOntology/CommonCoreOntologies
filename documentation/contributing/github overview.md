@@ -191,7 +191,9 @@ NOTE: You can use the word 'fixes' or 'closes' in the description of the commit 
 
 
 
-# Merging Branches in VS Code Using the Command Palette
+# Merging Branches
+
+## Merging Branches in VS Code Using the Command Palette
 
 1. **Open VS Code**: Launch Visual Studio Code.
 
@@ -253,7 +255,6 @@ NOTE: You can use the word 'fixes' or 'closes' in the description of the commit 
 8. **Push the Changes**:
    - Click on the ellipsis (`...`) in the Source Control view.
    - Select `Push` to push the merged changes to the remote repository.
-
 
 
 ## Merging Branches Using Git in the Command Line

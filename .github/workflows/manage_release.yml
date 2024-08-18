@@ -58,7 +58,7 @@ jobs:
           path: ${{ env.cache-path }}
           key: ${{ runner.os }}-${{ env.cache-key }}
 
-      - name: Draft Github Release
+      - name: Draft GitHub Release
         uses: actions/create-release@v1
         id: draft_release
         with:
@@ -69,12 +69,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Github release build
+      - name: Upload GitHub release build
         uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.draft_release.outputs.upload_url }}
           asset_path: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
           asset_name: ${{ env.BASENAME }}
           asset_content_type: ${{ env.release-build-content-type }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
