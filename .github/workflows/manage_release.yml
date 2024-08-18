@@ -32,12 +32,16 @@ jobs:
       - name: Build and test ontology release
         run: make all
 
-      - name: Build and test ontology release
+      - name: Capture release information
         id: build_release
         run: |
           make -d all
           echo "RELEASE_FILE_PATH=$(make output-release-filepath)" >> $GITHUB_OUTPUT
           echo "RELEASE_NAME=$(make output-release-name)" >> $GITHUB_OUTPUT
+
+      - name: Get basename of the release file
+        id: get_basename
+        run: echo "BASENAME=$(basename ${{ steps.build_release.outputs.RELEASE_FILE_PATH }})" >> $GITHUB_ENV
 
       - name: Save artifacts
         uses: actions/upload-artifact@v3
@@ -72,5 +76,5 @@ jobs:
         with:
           upload_url: ${{ steps.draft_release.outputs.upload_url }}
           asset_path: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
-          asset_name: ${{ steps.build_release.outputs.RELEASE_FILE_PATH | basename }}
-          asset_content_type: ${{env.release-build-content-type}}
+          asset_name: ${{ env.BASENAME }}
+          asset_content_type: ${{ env.release-build-content-type }}
