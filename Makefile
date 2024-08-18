@@ -104,6 +104,10 @@ test-individual: $(dev-files) | $(ROBOT_FILE)
 		$(ROBOT) verify --input $$file --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES); \
 	done
 
+# Build combined file after individual files pass checks
+$(combined-file): $(DEV_FILES)
+	cat $(DEV_FILES) > $@
+
 # Build and QC combined file
 .PHONY: reason-combined test-combined
 reason-combined: $(combined-file) | $(ROBOT_FILE)
@@ -128,6 +132,33 @@ report-edit: REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
 report-release: TEST_INPUT = $(RELEASE_BUILD_FILE)
 report-release: REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
 report-edit report-release: report
+
+# ----------------------------------------
+#### Test / test ontology with reasoners and queries
+QUERIES = $(wildcard $(config.QUERIES_DIR)/*.sparql)
+
+# Check for inconsistency
+.PHONY: reason
+reason: $(TEST_INPUT) | $(ROBOT_FILE)
+	$(ROBOT) reason --input $(TEST_INPUT) --reasoner ELK
+
+# Test using specific queries
+.PHONY: verify
+verify: $(TEST_INPUT) $(QUERIES) | $(config.QUERIES_DIR) $(config.TEMP_DIR) $(ROBOT_FILE)
+ifeq ($(QUERIES),)
+	$(warning No query files found in $(config.QUERIES_DIR))
+else
+	$(ROBOT) verify --input $(TEST_INPUT) --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
+endif
+
+# Report using built-in ROBOT queries
+.PHONY: report
+report: $(TEST_INPUT) | $(config.REPORTS_DIR) $(ROBOT_FILE)
+	$(ROBOT) report --input $(TEST_INPUT) \
+	--labels true \
+	--fail-on $(config.REPORT_FAIL_ON) \
+	--print 10 \
+	--output $(REPORT_FILE_INPUT)
 
 .PHONY: output-release-filepath
 output-release-filepath:
@@ -164,10 +195,6 @@ clean:
 	@[ "${config.TEMP_DIR}" ] || ( echo ">> config.TEMP_DIR is not set"; exit 1 )
 	rm -rf $(config.TEMP_DIR)
 	rm -rf $(RELEASE_BUILD_FILE) $(combined-file)
-
-# Build combined file for dev branch
-$(combined-file): $(DEV_FILES)
-	cat $(DEV_FILES) > $@
 
 # Build merged file for main branch
 $(RELEASE_BUILD_FILE): $(combined-file)
