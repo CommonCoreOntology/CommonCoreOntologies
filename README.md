@@ -2,19 +2,19 @@
 
 ## What is CCO?
 
-The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies that consist of logically well-defined generic terms and relations amogn them reflecting entities across all domains of interest. 
+The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies that consist of logically well-defined generic terms and relations among them reflecting entities across all domains of interest. 
 
-These eleven ontologies constitute a [mid-level extension](https://arxiv.org/abs/2404.17757) of [Basic Formal Ontology (BFO)](https://github.com/bfo-ontology/BFO-2020), an [ISO-standard](https://www.iso.org/standard/71954.html) top-level ontology. Whereas BFO represents only the most generic entities and relations, CCO contains classes that users will find common across data sets in many domains. Such classes include, for example, person, facility, date, employment, nickname, and measurement. 
+These eleven ontologies constitute a [mid-level ontology](https://arxiv.org/abs/2404.17757) that extends from the [Basic Formal Ontology (BFO)](https://github.com/bfo-ontology/BFO-2020), an [ISO-standard](https://www.iso.org/standard/71954.html) top-level ontology. Whereas BFO represents only the most generic entities and relations, CCO contains classes that users will find common across data sets in many domains. Such classes include, for example, person, facility, date, employment, nickname, and measurement. 
 
-The Common Core Ontologies make it easier to use the top-level ontology content provided by BFO, and they prevent BFO-compliant domain-specific ontologies from duplicating common concepts. Many organizations within the U.S. Government have found this useful as they seek a coordinated strategy among independent ontology efforts.
+Leveraging CCO makes it easier to use the top-level ontology content provided by BFO, and it prevents BFO-compliant domain-specific ontologies from duplicating common concepts. Many organizations within the U.S. Government have found this useful as they seek a coordinated strategy among independent ontology efforts.
 
-As a mid-level suite of ontologies, the Common Core Ontologies are not intended to be extended indefinitely into particular domains. Users are encouraged to create their own domain extensions with content particular to those domains and publish these ontologies for re-use by others. 
+CCO itself is not intended to be extended indefinitely into particular domains. Users are encouraged to create their own domain extensions with content particular to those domains and publish these ontologies for re-use by others. 
 
 ## Getting Started
 
-Users who wish to view the content of CCO in a web browser may view the current CCO release on the [Industrial Ontology Portal viewer](https://industryportal.enit.fr/ontologies/CCO)
-
 Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at src/cco-merged/
+
+Users who wish to view the content of CCO in a web browser may view the current CCO release on the [Industrial Ontology Portal viewer](https://industryportal.enit.fr/ontologies/CCO)
 
 ## Who Oversees CCO Today?
 
@@ -24,36 +24,41 @@ For more information about the governance of CCO, please navigate to the [Common
 
 ## The Common Core Ontologies
 
-- **Geospatial Ontology**	- An ontology who scope is the representation of sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them.
+- **Geospatial Ontology** - An ontology who scope is the representation of sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them.
 - **Information Entity Ontology** - An ontology who scope is the representation of generic types of information as well as the relationships between information and other entities.
 - **Event Ontology** - An ontology who scope is the representation of processual entities, especially those performed by agents, that occur within multiple domains.
 - **Time Ontology**	- An ontology who scope is the representation of temporal regions and the relations that hold between them.
 - **Agent Ontology** - An ontology who scope is the representation of represent agents, especially persons and organizations, and their roles.
 - **Quality Ontology**	- An ontology who scope is the representation of a range of attributes of entities especially qualities, realizable entities, and process profiles.
 - **Units of Measure Ontology**	- An ontology who scope is the representation of standard measurement units that are used when measuring various attributes of entities.
-- **Currency Unit Ontology**	- An ontology who scope is the representation of currencies that are issued and used by countries.
+- **Currency Unit Ontology** - An ontology who scope is the representation of currencies that are issued and used by countries.
 - **Facility Ontology** - An ontology who scope is the representation of buildings and campuses that are designed to serve some specific purpose, and which are common to multiple domains.
 - **Artifact Ontology**	- An ontology who scope is the representation of artifacts that are common to multiple domains along with their models, specifications, and functions.
-- **Extended Relations Ontology**	- An ontology who scope is the representation of the relations that hold between entities at the level of the mid-level Common Core Ontologies.
+- **Extended Relation Ontology** - An ontology who scope is the representation of the relations that hold between entities at the level of the mid-level Common Core Ontologies.
 
 ## The Contents of this Repository
 
-* **documentation** 	- This directory contains the ModalRelationOntology.ttl.
-	* **user guides** - Contains user guides for: ontology developers, software developers and subject matter experts.
-	* **images** - Contains images used in this repository.
-	* **design patterns** - Contains common design patterns for CCO, motivated by specific use cases, characterized by competency questions, and accompanied by serialization in RDF.  
+* **documentation** - This directory contains the ModalRelationOntology.ttl.
 	* **archive** 
 		* **legacy documentation** - Contains documentation concerning previous versions of CCO, a list of obsoleted terms, changefiles for releases, as well as xlsx glossaries for each previous release. 
 		* **previous-versions** - Contains previous releases of CCO, beginning with version 1.3. 
+	* **contributing** 
+		* **contributing** - Contains guidance for making contributions to the CCO repository.
+		* **github overview** - Contains guidance for using git and Github with Visual Studio Code, command lines, and GitHub Desktop.
+	* **design patterns** - Contains common design patterns for CCO, motivated by specific use cases, characterized by competency questions, and accompanied by serialization in RDF.  
+	* **images** - Contains images used in this repository.
+	* **user guides** - Contains user guides for: ontology developers, software developers and subject matter experts.
 * **src**
-	* **cco-merged** - This directory contains the current CCO merged release file and an import file that is used to generate the merged CCO file. 
-	* **cco-modules** - This directory contains current releases of the 11 CCO modules.
-	* **cco extensions** 	
+	* **cco-merged** - Contains the current CCO merged release file and an import file that is used to generate the merged CCO file. 
+	* **cco-modules** - Contains versions of the 11 CCO modules.
+	* **cco extensions** - Contains versions of CCO extensions maintained by the governance board, such as the Modal Relations Ontology. 
 * **.github** 	- This directory contains files needed to support automated GitHub actions. 
-	* **workflow** 	
-		* **sparql** - This directory contains sparl files used in quality control checks during the development process. 
-		* **ontology-diff-files** - This directory contains ontology-diff-files, which Mark can tell you more about. 
-		* **mappings** - This directory contains mappings between content in CCO and other ontologies. 
+	* **deployment** 	
+		* **sparql** - Contains sparl files used in quality control checks during the development process. 
+		* **ontology-diff-files** - Contains ontology-diff-files, which Mark can tell you more about. 
+		* **mappings** - Contains mappings between content in CCO and other ontologies. 
+	* **templates** - Contains templates used to create issues and discussion topics. 
+	* **workflows** - Contains release management files needed for GitHub Actions. 
 
 ## Getting Involved
 

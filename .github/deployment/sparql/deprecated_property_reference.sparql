@@ -5,8 +5,6 @@
 # Severity:
 #     Error
 
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -18,7 +16,7 @@ WHERE {
     ?entity a owl:Class ;
             owl:deprecated true ;
             ?property ?value .
-    FILTER ( ?value NOT IN (oboInOwl:ObsoleteClass, owl:Thing) || 
+    FILTER ( ?value NOT IN (owl:Thing) || 
              ?property IN (owl:equivalentClass, owl:disjointWith, owl:ObjectProperty, owl:DataProperty))
   }
   UNION

@@ -1,12 +1,12 @@
 # CCO Source Files
 
-This directory contains current release artifacts of CCO and its modules.  
+This directory contains versions of CCO, its modules, and extensions.  
 
 ## The Contents of this Repository
 
-* **cco-merged** - This directory contains the current CCO merged release file and an import file that is used to generate the merged CCO file. 
-* **cco-extensions** - This directory contains extensions of CCO.  
-* **cco-modules** - This directory contains current releases of the 11 CCO modules listed below: 
+* **cco-merged** - Contains the current CCO merged release file and an import file that is used to generate the merged CCO file. 
+* **cco extensions** - Contains versions of CCO extensions maintained by the governance board, such as the Modal Relations Ontology.
+* **cco-modules** - Contains versions of the 11 CCO modules listed below: 
 
 - **Geospatial Ontology**	- An ontology who scope is the representation of sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them.
 - **Information Entity Ontology** - An ontology who scope is the representation of generic types of information as well as the relationships between information and other entities.

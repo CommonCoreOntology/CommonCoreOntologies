@@ -5,7 +5,7 @@
 # Severity:
 #     Warning
 
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT DISTINCT ?resource
@@ -13,5 +13,5 @@ WHERE
 {
     ?resource a owl:Ontology .
     FILTER (!ISBLANK (?resource)) .
-    FILTER NOT EXISTS {?resource dcterms:title ?title}
+    FILTER NOT EXISTS {?resource rdfs:label ?title}
 }

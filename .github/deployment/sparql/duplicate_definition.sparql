@@ -5,12 +5,12 @@
 # Severity:
 #     Error 
 
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
 
 SELECT DISTINCT ?entity ?definition 
 WHERE {
-  ?entity skos:definition ?definition .
-  ?entity2 skos:definition ?definition .
+  ?entity cco:definition ?definition .
+  ?entity2 cco:definition ?definition .
   FILTER (?entity != ?entity2)
   FILTER (!isBlank(?entity))
 }
