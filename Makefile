@@ -185,13 +185,17 @@ $(REQUIRED_DIRS):
 # ROBOT
 ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
 $(ROBOT_FILE): | $(config.LIBRARY_DIR)
+	@echo "Creating directory $(config.LIBRARY_DIR) if it doesn't exist..."
+	mkdir -p $(config.LIBRARY_DIR)
+	@echo "Downloading robot.jar to $(config.LIBRARY_DIR)..."
 	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
-	@if [ ! -f "$@" ]; then \
-		echo "Error: Unable to download robot.jar"; \
-		exit 1; \
-	fi
+	@echo "Download complete. Checking if robot.jar exists..."
+	ls -l $(ROBOT_FILE)
+	@echo "Robot file permissions:"
+	ls -l $(config.LIBRARY_DIR)
 
 ROBOT := java -jar $(ROBOT_FILE)
+
 
 # Cleanup - Remove build and release files
 .PHONY: clean
