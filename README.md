@@ -2,7 +2,7 @@
 
 ## What is CCO?
 
-The Common Core Ontologies (CCO) is a widely-used, ontology suite comprised of eleven mid-level ontologies that are designed to represent and integrate taxonomies of generic classes and relations across all domains of interest. 
+The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies that consist of logically well-defined generic terms and relations amogn them reflecting entities across all domains of interest. 
 
 These eleven ontologies constitute a [mid-level extension](https://arxiv.org/abs/2404.17757) of [Basic Formal Ontology (BFO)](https://github.com/bfo-ontology/BFO-2020), an [ISO-standard](https://www.iso.org/standard/71954.html) top-level ontology. Whereas BFO represents only the most generic entities and relations, CCO contains classes that users will find common across data sets in many domains. Such classes include, for example, person, facility, date, employment, nickname, and measurement. 
 

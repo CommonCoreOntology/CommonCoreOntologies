@@ -95,7 +95,7 @@ combined-file := $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl
 reason-individual: $(dev-files) | $(ROBOT_FILE)
 	for file in $(dev-files); do \
 		echo "Reasoning on $$file..."; \
-		$(ROBOT) reason --input $$file --reasoner ELK; \
+		$(ROBOT) reason --input $$file --reasoner HermiT; \
 	done
 
 test-individual: $(dev-files) | $(ROBOT_FILE)
@@ -111,7 +111,7 @@ $(combined-file): $(DEV_FILES)
 # Build and QC combined file
 .PHONY: reason-combined test-combined
 reason-combined: $(combined-file) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(combined-file) --reasoner ELK
+	$(ROBOT) reason --input $(combined-file) --reasoner HermiT
 
 test-combined: $(combined-file) | $(ROBOT_FILE)
 	$(ROBOT) verify --input $(combined-file) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
@@ -121,7 +121,7 @@ build-release: $(RELEASE_BUILD_FILE)
 
 .PHONY: reason-release test-release
 reason-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(RELEASE_BUILD_FILE) --reasoner ELK
+	$(ROBOT) reason --input $(RELEASE_BUILD_FILE) --reasoner HermiT
 
 test-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
 	$(ROBOT) verify --input $(RELEASE_BUILD_FILE) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
@@ -148,7 +148,7 @@ QUERIES = $(wildcard $(config.QUERIES_DIR)/*.sparql)
 # Check for inconsistency
 .PHONY: reason
 reason: $(TEST_INPUT) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(TEST_INPUT) --reasoner ELK
+	$(ROBOT) reason --input $(TEST_INPUT) --reasoner HermiT
 
 # Test using specific queries
 .PHONY: verify
