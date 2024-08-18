@@ -1,10 +1,10 @@
 #### Common Core Ontology Pipeline
-# Adapted from https://github.com/tmprd/ontology-pipeline/blob/master/Makefile by Tim Prudhomme <tmprdh@gmail.com>, which was heavily adapted from https://github.com/obi-ontology/obi/blob/master/Makefile by James Overton <james@overton.ca>.
+# Adapted from previous works; see header comments for full attribution.
 # Contact - John Beverley <johnbeve@buffalo.edu>
 
 ### Explanation ###
-# When a branch is merged into the develop branch, quality control checks based on the ELK reasoner and queries in the deployment/sparql directory. If these checks are passed, then the changes will be combined into a merged version of CCO, where similar QC checks will be conducted. If successful, updates to specific CCO modules and the merged CCO file on develop will be made. 
-# When the develop branch is to be merged into main, QC checks will again be conducted on each of the CCO modules and the merged CCO file. Release date updates are handled automatically. Version number must be managed manually. 
+# The workflow involves two major steps: first, individual ontology files are checked and tested.
+# After passing, they are merged into a single file, which is then checked and tested again.
 
 # ----------------------------------------
 # Project essentials
@@ -79,7 +79,12 @@ REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
-all: reason-edit test-edit build-release reason-release test-release
+all: setup reason-edit test-edit build-release reason-release test-release
+
+# Setup target for creating necessary directories
+.PHONY: setup
+setup:
+	mkdir -p $(REQUIRED_DIRS)
 
 # Targets for dev branch - QC individual files and the combined file
 dev-files := $(DEV_FILES)
@@ -165,5 +170,5 @@ $(combined-file): $(DEV_FILES)
 	cat $(DEV_FILES) > $@
 
 # Build merged file for main branch
-$(RELEASE_BUILD_FILE): $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl
+$(RELEASE_BUILD_FILE): $(combined-file)
 	cp $< $@
