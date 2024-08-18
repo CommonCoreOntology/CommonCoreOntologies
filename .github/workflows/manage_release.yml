@@ -1,7 +1,8 @@
 name: Build, Test, Draft Release
+
 on:
   push:
-    branches: [ master ] 
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -16,7 +17,6 @@ jobs:
   ontology_release:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it.
       - uses: actions/checkout@v3
 
       - name: Restore cached dependencies
@@ -27,13 +27,11 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-key }}
 
       - name: List directory contents
-        run: ls -la /src/cco-modules
+        run: ls -la
 
       - name: Build and test ontology release
         run: make all
-        working-directory: /src/cco-modules
 
-      # Run the main steps here
       - name: Build and test ontology release
         id: build_release
         run: |
@@ -41,7 +39,6 @@ jobs:
           echo "RELEASE_FILE_PATH=$(make output-release-filepath)" >> $GITHUB_OUTPUT
           echo "RELEASE_NAME=$(make output-release-name)" >> $GITHUB_OUTPUT
 
-      # Save any artifact files produced even if tests fail
       - name: Save artifacts
         uses: actions/upload-artifact@v3
         if: always()
@@ -49,7 +46,6 @@ jobs:
           name: ontology_release_results
           path: ${{ env.artifacts-path }}
 
-      # Save cache even if tests fail and only if a cache wasn't restored
       - name: Save dependencies to cache
         id: save-cache
         uses: actions/cache/save@v3
@@ -58,7 +54,6 @@ jobs:
           path: ${{ env.cache-path }}
           key: ${{ runner.os }}-${{ env.cache-key }}
 
-      # Draft a Github Release of the release build
       - name: Draft Github Release
         uses: actions/create-release@v1
         id: draft_release
@@ -68,14 +63,14 @@ jobs:
           release_name: ${{ steps.build_release.outputs.RELEASE_NAME }}
           tag_name: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Github release build
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.draft_release.outputs.upload_url }}
           asset_path: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
-          asset_name: $(basename ${{ steps.build_release.outputs.RELEASE_FILE_PATH }})
+          asset_name: ${{ steps.build_release.outputs.RELEASE_FILE_PATH | basename }}
           asset_content_type: ${{env.release-build-content-type}}
