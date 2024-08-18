@@ -10,11 +10,19 @@ Leveraging CCO makes it easier to use the top-level ontology content provided by
 
 CCO itself is not intended to be extended indefinitely into particular domains. Users are encouraged to create their own domain extensions with content particular to those domains and publish these ontologies for re-use by others. 
 
-## Getting Started
+## Contributing
+
+Users may find the current release files for CCO [INSERT RELEASE LINK]()
 
 Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at src/cco-merged/
 
 Users who wish to view the content of CCO in a web browser may view the current CCO release on the [Industrial Ontology Portal viewer](https://industryportal.enit.fr/ontologies/CCO)
+
+For information regarding the management of CCO, tutorials, lists of projects that extend CCO, associated research, standards activities in the IEEE, and more, please navigate to the [CCO home page](https://commoncoreontology.github.io/cco-webpage/)
+
+For bug fixes, developed suggestions for improvement, or minor updates, please open an issue using the template [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/issues) 
+
+For more open-ended discussion, general questions, or compliments, please navigate to the discussion board [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/discussions)
 
 ## Who Oversees CCO Today?
 
@@ -59,11 +67,3 @@ For more information about the governance of CCO, please navigate to the [Common
 		* **mappings** - Contains mappings between content in CCO and other ontologies. 
 	* **templates** - Contains templates used to create issues and discussion topics. 
 	* **workflows** - Contains release management files needed for GitHub Actions. 
-
-## Getting Involved
-
-For information regarding the management of CCO, tutorials, lists of projects that extend CCO, associated research, standards activities in the IEEE, and more, please navigate to the [CCO home page](https://commoncoreontology.github.io/cco-webpage/)
-
-For bug fixes, developed suggestions for improvement, or minor updates, please open an issue using the template [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/issues) 
-
-For more open-ended discussion, general questions, or compliments, please navigate to the discussion board [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/discussions)
