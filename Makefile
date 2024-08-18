@@ -8,7 +8,7 @@
 
 # ----------------------------------------
 # Project essentials
-config.ONTOLOGY_PREFIX := CCO-DEV
+config.ONTOLOGY_PREFIX := CCO
 config.BASE_IRI := http://www.ontologyrepository.com/CommonCoreOntologies/Mid/
 config.DEV_IRI := $(config.BASE_IRI)/dev
 config.MODULES_IRI := $(config.DEV_IRI)/modules
@@ -16,6 +16,7 @@ config.MODULES_IRI := $(config.DEV_IRI)/modules
 # Local project directories
 config.SOURCE_DIR := src/
 config.TEMP_DIR := build/artifacts
+config.RELEASE_DIR := /
 config.REPORTS_DIR := $(config.TEMP_DIR)
 config.QUERIES_DIR := .github/deployment/sparql
 config.LIBRARY_DIR := build/lib
@@ -23,6 +24,9 @@ config.LIBRARY_DIR := build/lib
 # Settings
 config.FAIL_ON_TEST_FAILURES := false 
 config.REPORT_FAIL_ON := none
+
+# Branch-specific configurations
+BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
 # File names for dev branch
 DEV_FILES = \
@@ -38,6 +42,9 @@ DEV_FILES = \
     src/cco-modules/TimeOntology.ttl \
     src/cco-modules/InformationEntityOntology.ttl
 
+# File for combined ontology
+combined-file := $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl
+
 # Other constants
 TODAY := $(shell date +%Y-%m-%d)
 TIMESTAMP := $(shell date +'%Y-%m-%d %H:%M')
@@ -46,11 +53,9 @@ TIMESTAMP := $(shell date +'%Y-%m-%d %H:%M')
 config.RELEASE_NAME := $(config.ONTOLOGY_PREFIX) $(TIMESTAMP)
 
 # Generic files
-EDITOR_BUILD_FILE = $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl # "editors ontology module"
-RELEASE_BUILD_FILE = $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl # "combined file"
+EDITOR_BUILD_FILE = $(combined-file) # "editors ontology module"
 
 EDITOR_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-edit-report.tsv
-RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-report.tsv
 
 # Generic directories to create if needed
 REQUIRED_DIRS = $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
@@ -63,24 +68,30 @@ all: setup reason-individual test-individual build-combined reason-combined test
 # Setup target for creating necessary directories
 .PHONY: setup
 setup:
-	mkdir -p $(REQUIRED_DIRS)
+	mkdir -p $(REQUIRED_DIRS) src/ .github/deployment/sparql build/artifacts
 
 # Targets for dev branch - QC individual files and the combined file
-dev-files := $(DEV_FILES)
-combined-file := $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl
 
-# QC individual files
-.PHONY: reason-individual test-individual
-reason-individual: $(dev-files) | $(ROBOT_FILE)
-	for file in $(dev-files); do \
+# Download ROBOT JAR
+ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
+$(ROBOT_FILE): setup
+	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
+	chmod +x $@
+
+# Reason individual files
+.PHONY: reason-individual
+reason-individual: $(ROBOT_FILE)
+	for file in $(DEV_FILES); do \
 		echo "Reasoning on $$file..."; \
-		$(ROBOT) reason --input $$file --reasoner HermiT; \
+		java -jar $(ROBOT_FILE) reason --input $$file --reasoner HermiT; \
 	done
 
-test-individual: $(dev-files) | $(ROBOT_FILE)
-	for file in $(dev-files); do \
+# Test individual files
+.PHONY: test-individual
+test-individual: $(ROBOT_FILE)
+	for file in $(DEV_FILES); do \
 		echo "Testing $$file..."; \
-		$(ROBOT) verify --input $$file --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES); \
+		java -jar $(ROBOT_FILE) verify --input $$file --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES); \
 	done
 
 # Build combined file after individual files pass checks
@@ -90,10 +101,10 @@ $(combined-file): $(DEV_FILES)
 # Build and QC combined file
 .PHONY: reason-combined test-combined
 reason-combined: $(combined-file) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(combined-file) --reasoner HermiT
+	java -jar $(ROBOT_FILE) reason --input $(combined-file) --reasoner HermiT
 
 test-combined: $(combined-file) | $(ROBOT_FILE)
-	$(ROBOT) verify --input $(combined-file) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
+	java -jar $(ROBOT_FILE) verify --input $(combined-file) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
 
 .PHONY: report-edit
 report-edit: TEST_INPUT = $(EDITOR_BUILD_FILE)
@@ -115,7 +126,7 @@ QUERIES = $(wildcard $(config.QUERIES_DIR)/*.sparql)
 # Check for inconsistency
 .PHONY: reason
 reason: $(TEST_INPUT) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(TEST_INPUT) --reasoner HermiT
+	java -jar $(ROBOT_FILE) reason --input $(TEST_INPUT) --reasoner HermiT
 
 # Test using specific queries
 .PHONY: verify
@@ -123,13 +134,13 @@ verify: $(TEST_INPUT) $(QUERIES) | $(config.QUERIES_DIR) $(config.REPORTS_DIR) $
 ifeq ($(QUERIES),)
 	$(warning No query files found in $(config.QUERIES_DIR))
 else
-	$(ROBOT) verify --input $(TEST_INPUT) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
+	java -jar $(ROBOT_FILE) verify --input $(TEST_INPUT) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
 endif
 
 # Report using built-in ROBOT queries
 .PHONY: report
 report: $(TEST_INPUT) | $(config.REPORTS_DIR) $(ROBOT_FILE)
-	$(ROBOT) report --input $(TEST_INPUT) \
+	java -jar $(ROBOT_FILE) report --input $(TEST_INPUT) \
 	--labels true \
 	--fail-on $(config.REPORT_FAIL_ON) \
 	--print 10 \
@@ -149,28 +160,9 @@ SHELL := bash
 $(REQUIRED_DIRS):
 	mkdir -p $@
 
-# ROBOT
-# Download the robot.jar file
-ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
-$(ROBOT_FILE): | $(config.LIBRARY_DIR)
-	@echo "Creating directory $(config.LIBRARY_DIR) if it does not exist..."
-	@mkdir -p $(config.LIBRARY_DIR) # Ensure directory exists
-	@echo "Downloading robot.jar to $(ROBOT_FILE)..."
-	@curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
-	@echo "Download complete. Checking file existence..."
-	@ls -la $(ROBOT_FILE)
-	@echo "File contents:"
-	@head -n 10 $(ROBOT_FILE)  # Display the first few lines of the file to check contents (if applicable)
-
-ROBOT := java -jar $(ROBOT_FILE)
-
 # Cleanup - Remove build and release files
 .PHONY: clean
 clean:
 	@[ "${config.REPORTS_DIR}" ] || ( echo ">> config.REPORTS_DIR is not set"; exit 1 )
 	rm -rf $(config.REPORTS_DIR)
 	rm -rf $(combined-file)
-
-# Build merged file for dev branch
-$(combined-file): $(DEV_FILES)
-	cat $(DEV_FILES) > $@
