@@ -290,6 +290,15 @@ cco:ActOfContractFormation rdf:type owl:Class ;
                            rdfs:label "Act of Contract Formation"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfDataTransformation
+cco:ActOfDataTransformation rdf:type owl:Class ;
+                            rdfs:subClassOf cco:ActOfInformationProcessing ;
+                            cco:definition "An Act of Information Processing in which an algorithm is executed to act upon one or more input Information Content Entities into one or more output Information Content Entities."@en ;
+                            cco:elucidation "It is not a requirement that the output Information Content Entity(ies) be qualitatively distinct from the input(s) as a result of an Act of Data Transformation, though doing so is typically the goal of performing this Act. Consider, for example, selecting a column in an Excel spreadsheet then executing the \\\"Remove Duplicates\\\" Algorithm on it. The intent is to remove rows in that column containing duplicate content. If no duplicate values are present, the information in the column remains unchanged but an Act of Data Transformation was nonetheless performed."@en ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                            rdfs:label "Act of Data Transformation"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfDeceptiveCommunication
 cco:ActOfDeceptiveCommunication rdf:type owl:Class ;
                                 rdfs:subClassOf cco:ActOfCommunication ;
@@ -499,6 +508,14 @@ cco:ActOfIdentifying rdf:type owl:Class ;
                      cco:definition_source "http://www.dictionary.com/browse/identify" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                      rdfs:label "Act of Identifying"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfInformationProcessing
+cco:ActOfInformationProcessing rdf:type owl:Class ;
+                               rdfs:subClassOf cco:IntentionalAct ;
+                               cco:definition "A Planned Act in which one or more input Information Content Entities are received, manipulated, transferred, or stored by an Agent."@en ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                               rdfs:label "Act of Information Processing"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfInhabitancy
