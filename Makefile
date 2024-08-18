@@ -1,4 +1,4 @@
-#### Common Core Ontology Pipeline
+# Common Core Ontology Pipeline
 # Adapted from previous works; see header comments for full attribution.
 # Contact - John Beverley <johnbeve@buffalo.edu>
 
@@ -8,7 +8,7 @@
 
 # ----------------------------------------
 # Project essentials
-config.ONTOLOGY_PREFIX := CCO
+config.ONTOLOGY_PREFIX := CCO-DEV
 config.BASE_IRI := http://www.ontologyrepository.com/CommonCoreOntologies/Mid/
 config.DEV_IRI := $(config.BASE_IRI)/dev
 config.MODULES_IRI := $(config.DEV_IRI)/modules
@@ -16,7 +16,6 @@ config.MODULES_IRI := $(config.DEV_IRI)/modules
 # Local project directories
 config.SOURCE_DIR := src/
 config.TEMP_DIR := build/artifacts
-config.RELEASE_DIR := /
 config.REPORTS_DIR := $(config.TEMP_DIR)
 config.QUERIES_DIR := .github/deployment/sparql
 config.LIBRARY_DIR := build/lib
@@ -24,9 +23,6 @@ config.LIBRARY_DIR := build/lib
 # Settings
 config.FAIL_ON_TEST_FAILURES := false 
 config.REPORT_FAIL_ON := none
-
-# Branch-specific configurations
-BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
 # File names for dev branch
 DEV_FILES = \
@@ -42,23 +38,6 @@ DEV_FILES = \
     src/cco-modules/TimeOntology.ttl \
     src/cco-modules/InformationEntityOntology.ttl
 
-# Release version/date for main branch
-RELEASE_DATE := $(shell date +%Y-%m-%d)
-RELEASE_VERSION := v1.5
-
-ifeq ($(BRANCH), main)
-    # For main branch
-    MAIN_FILE_NAME := MergedAllCoreOntology-$(RELEASE_VERSION)-$(RELEASE_DATE)
-    config.ONTOLOGY_FILE := $(config.SOURCE_DIR)/$(MAIN_FILE_NAME).ttl
-    config.ONTOLOGY_PREFIX := CCO
-    config.ONTOLOGY-IRI := $(config.BASE_IRI)
-else ifeq ($(BRANCH), dev)
-    # For dev branch
-    config.ONTOLOGY_FILE := $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl
-    config.ONTOLOGY_PREFIX := CCO-DEV
-    config.ONTOLOGY-IRI := $(config.DEV_IRI)
-endif
-
 # Other constants
 TODAY := $(shell date +%Y-%m-%d)
 TIMESTAMP := $(shell date +'%Y-%m-%d %H:%M')
@@ -67,8 +46,8 @@ TIMESTAMP := $(shell date +'%Y-%m-%d %H:%M')
 config.RELEASE_NAME := $(config.ONTOLOGY_PREFIX) $(TIMESTAMP)
 
 # Generic files
-EDITOR_BUILD_FILE = $(config.ONTOLOGY_FILE) # "editors ontology module"
-RELEASE_BUILD_FILE = $(config.ONTOLOGY_PREFIX)-$(RELEASE_DATE).ttl # "main release ontology module"
+EDITOR_BUILD_FILE = $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl # "editors ontology module"
+RELEASE_BUILD_FILE = $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl # "combined file"
 
 EDITOR_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-edit-report.tsv
 RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-report.tsv
@@ -79,7 +58,7 @@ REQUIRED_DIRS = $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR)
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
-all: setup reason-edit test-edit build-release reason-release test-release
+all: setup reason-individual test-individual build-combined reason-combined test-combined
 
 # Setup target for creating necessary directories
 .PHONY: setup
@@ -116,26 +95,14 @@ reason-combined: $(combined-file) | $(ROBOT_FILE)
 test-combined: $(combined-file) | $(ROBOT_FILE)
 	$(ROBOT) verify --input $(combined-file) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
 
-# Build and QC for release on main branch
-build-release: $(RELEASE_BUILD_FILE)
-
-.PHONY: reason-release test-release
-reason-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(RELEASE_BUILD_FILE) --reasoner HermiT
-
-test-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
-	$(ROBOT) verify --input $(RELEASE_BUILD_FILE) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
-
-.PHONY: report-edit report-release
+.PHONY: report-edit
 report-edit: TEST_INPUT = $(EDITOR_BUILD_FILE)
 report-edit: REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
-report-release: TEST_INPUT = $(RELEASE_BUILD_FILE)
-report-release: REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
-report-edit report-release: report
+report-edit: report
 
 .PHONY: output-release-filepath
 output-release-filepath:
-	@echo $(RELEASE_BUILD_FILE)
+	@echo $(combined-file)
 
 .PHONY: output-release-name
 output-release-name:
@@ -202,8 +169,8 @@ ROBOT := java -jar $(ROBOT_FILE)
 clean:
 	@[ "${config.REPORTS_DIR}" ] || ( echo ">> config.REPORTS_DIR is not set"; exit 1 )
 	rm -rf $(config.REPORTS_DIR)
-	rm -rf $(RELEASE_BUILD_FILE) $(combined-file)
+	rm -rf $(combined-file)
 
-# Build merged file for main branch
-$(RELEASE_BUILD_FILE): $(combined-file)
-	cp $< $@
+# Build merged file for dev branch
+$(combined-file): $(DEV_FILES)
+	cat $(DEV_FILES) > $@
