@@ -290,6 +290,15 @@ cco:ActOfContractFormation rdf:type owl:Class ;
                            rdfs:label "Act of Contract Formation"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfDataTransformation
+cco:ActOfDataTransformation rdf:type owl:Class ;
+                            rdfs:subClassOf cco:ActOfInformationProcessing ;
+                            cco:definition "An Act of Information Processing in which an algorithm is executed to act upon one or more input Information Content Entities into one or more output Information Content Entities."@en ;
+                            cco:elucidation "It is not a requirement that the output Information Content Entity(ies) be qualitatively distinct from the input(s) as a result of an Act of Data Transformation, though doing so is typically the goal of performing this Act. Consider, for example, selecting a column in an Excel spreadsheet then executing the \\\"Remove Duplicates\\\" Algorithm on it. The intent is to remove rows in that column containing duplicate content. If no duplicate values are present, the information in the column remains unchanged but an Act of Data Transformation was nonetheless performed."@en ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                            rdfs:label "Act of Data Transformation"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfDeceptiveCommunication
 cco:ActOfDeceptiveCommunication rdf:type owl:Class ;
                                 rdfs:subClassOf cco:ActOfCommunication ;
@@ -499,6 +508,14 @@ cco:ActOfIdentifying rdf:type owl:Class ;
                      cco:definition_source "http://www.dictionary.com/browse/identify" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                      rdfs:label "Act of Identifying"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfInformationProcessing
+cco:ActOfInformationProcessing rdf:type owl:Class ;
+                               rdfs:subClassOf cco:IntentionalAct ;
+                               cco:definition "A Planned Act in which one or more input Information Content Entities are received, manipulated, transferred, or stored by an Agent."@en ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                               rdfs:label "Act of Information Processing"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfInhabitancy
@@ -1184,7 +1201,8 @@ cco:AngularMomentum rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AngularVelocity
 cco:AngularVelocity rdf:type owl:Class ;
                     rdfs:subClassOf cco:Velocity ;
-                    cco:definition "A Velocity that describes both the angular (i.e. rotational) Speed of an object and the Axis about which the object is Rotating."@en ;
+                    cco:definition "A Velocity that is characterized by both the angular Speed of an object and the Axis about which the object is Rotating."@en ;
+                    cco:alternative_label "Rotational Velocity"@en ;
                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Angular_velocity&oldid=1060081663"^^xsd:anyURI ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                     rdfs:label "Angular Velocity"@en .
@@ -1248,7 +1266,7 @@ cco:Cause rdf:type owl:Class ;
           owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000015
                                                      [ rdf:type owl:Restriction ;
                                                        owl:onProperty cco:is_cause_of ;
-                                                       owl:someValuesFrom obo:BFO_0000003
+                                                       owl:someValuesFrom obo:BFO_0000015
                                                      ]
                                                    ) ;
                                 rdf:type owl:Class
@@ -1443,7 +1461,7 @@ cco:Effect rdf:type owl:Class ;
            owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000015
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty cco:caused_by ;
-                                                        owl:someValuesFrom obo:BFO_0000003
+                                                        owl:someValuesFrom obo:BFO_0000015
                                                       ]
                                                     ) ;
                                  rdf:type owl:Class
@@ -1680,7 +1698,7 @@ cco:GainOfDisposition rdf:type owl:Class ;
                                       ] ;
                       cco:definition "A Gain of Realizable Entity in which some Independent Continuant becomes the bearer of some Disposition."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                      rdfs:comment "This class should be used to demarcate the start of the temporal interval (through the occurs_on property) that the Entity bears the Disposition."@en ;
+                      rdfs:comment "This class should be used to demarcate the start of the temporal interval (through the BFO 'occupies temporal region' property) that the Entity bears the Disposition."@en ;
                       rdfs:label "Gain of Disposition"@en .
 
 
@@ -1700,7 +1718,7 @@ cco:GainOfFunction rdf:type owl:Class ;
                                    ] ;
                    cco:definition "A Gain of Disposition in which some Independent Continuant becomes the bearer of some Function."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                   rdfs:comment "This class should be used to demarcate the start of the temporal interval (through the occurs_on property) that the Entity bears the Function."@en ;
+                   rdfs:comment "This class should be used to demarcate the start of the temporal interval (through the BFO 'occupies temporal region' property) that the Entity bears the Function."@en ;
                    rdfs:label "Gain of Function"@en .
 
 
@@ -2056,7 +2074,8 @@ cco:LossOfSpecificallyDependentContinuant rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Loudness
 cco:Loudness rdf:type owl:Class ;
              rdfs:subClassOf cco:SoundProcessProfile ;
-             cco:definition "A Sound Process Profile that is characterized by the amplitude, frequency and power of translated sound waves, typically on a continuum from soft to loud."@en ;
+             cco:definition "A Sound Process Profile that is characterized by the amplitude and total energy of translated sound waves, typically on a continuum from soft to loud."@en ;
+             cco:definition_source "https://byjus.com/physics/loudness-of-sound/"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
              rdfs:label "Loudness"@en .
 
@@ -2460,7 +2479,7 @@ cco:SoundFrequency rdf:type owl:Class ;
 cco:SoundPressure rdf:type owl:Class ;
                   rdfs:subClassOf cco:Pressure ;
                   cco:alternative_label "Acoustic Pressure"@en ;
-                  cco:definition "A Pressure caused by a Sound Wave that is a local deviation from the ambient Pressure."@en ;
+                  cco:definition "A Pressure that is caused by a Sound Wave and is a local deviation from the ambient Pressure."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                   rdfs:label "Sound Pressure"@en .
 
@@ -2928,7 +2947,7 @@ cco:UpperMidrangeFrequency rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Velocity
 cco:Velocity rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000144 ;
-             cco:definition "A Process Profile of an object's Motion that describes its Speed and direction with respect to a frame of reference."@en ;
+             cco:definition "A Process Profile of an object's Motion that is characterized by its Speed and direction with respect to a frame of reference."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Velocity&oldid=1063300750"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
              rdfs:label "Velocity"@en .

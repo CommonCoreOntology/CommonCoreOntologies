@@ -883,7 +883,7 @@ mro:disposition_of_aggregate rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf mro:inheres_in_aggregate ;
                              rdfs:domain obo:BFO_0000016 ;
                              rdfs:range obo:BFO_0000027 ;
-                             cco:definition "x disposition_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Disposition, such that x disposition_of_aggregate y."@en ;
+                             cco:definition "x disposition_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Disposition, and x inheres_in_aggregate y."@en ;
                              cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                              rdfs:label "disposition of aggregate"@en .
 
@@ -1189,12 +1189,12 @@ mro:has_maternal_uncle rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_member_of_located_in
 mro:has_member_of_located_in rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf mro:ModalObjectProperty ;
+                             rdfs:subPropertyOf mro:has_some_member_of_located_in ;
                              rdfs:domain obo:BFO_0000027 ;
                              rdfs:range obo:BFO_0000040 ;
-                             cco:definition "An instance of an Object Aggregate 'has member of located in' an instance of some material entity if and only if every member of that Aggregate is located in the same instance of that material entity."@en ;
+                             cco:definition "x has all members of located in y iff x is an instance of Object Aggregate and y is an instance of Material Entity, and every member of x is located in y."@en ;
                              cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
-                             rdfs:label "has member of located in"@en .
+                             rdfs:label "has all members of located in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_mother
@@ -1366,6 +1366,14 @@ mro:has_sister_in_law rdf:type owl:ObjectProperty ;
                       owl:inverseOf mro:is_sister_in_law_of ;
                       cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                       rdfs:label "has sister in law"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_some_member_of_located_in
+mro:has_some_member_of_located_in rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf mro:ModalObjectProperty ;
+                                  cco:definition "x has member of located in y iff x is an instance of Object Aggregate and y is an instance of Material Entity, and at least one member of x is located in y."@en ;
+                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology"^^xsd:anyURI ;
+                                  rdfs:label "has some member of located in"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_son
@@ -2620,7 +2628,7 @@ mro:quality_of_aggregate rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf mro:inheres_in_aggregate ;
                          rdfs:domain obo:BFO_0000019 ;
                          rdfs:range obo:BFO_0000027 ;
-                         cco:definition "x quality_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Quality, such that x disposition_of_aggregate y."@en ;
+                         cco:definition "x quality_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Quality, and x inheres_in_aggregate y."@en ;
                          cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                          rdfs:label "quality of aggregate"@en .
 
@@ -2673,7 +2681,7 @@ mro:role_of_aggregate rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf mro:inheres_in_aggregate ;
                       rdfs:domain obo:BFO_0000023 ;
                       rdfs:range obo:BFO_0000027 ;
-                      cco:definition "x role_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Role, such that x disposition_of_aggregate y."@en ;
+                      cco:definition "x role_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Role, and x inheres_in_aggregate y."@en ;
                       cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                       rdfs:label "role of aggregate"@en .
 
@@ -2807,6 +2815,7 @@ mro:asWKT rdf:type owl:DatatypeProperty ;
 mro:has_URI_value rdf:type owl:DatatypeProperty ;
                   rdfs:domain cco:InformationBearingEntity ;
                   rdfs:range xsd:anyURI ;
+                  cco:definition "A data property that has as its range a URI value."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                   rdfs:label "has URI value"@en .
 
@@ -2823,6 +2832,7 @@ mro:has_altitude_value rdf:type owl:DatatypeProperty ;
 mro:has_boolean_value rdf:type owl:DatatypeProperty ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:boolean ;
+                      cco:definition "A data property that has as its range a boolean value."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                       rdfs:label "has boolean value"@en .
 
@@ -2830,6 +2840,7 @@ mro:has_boolean_value rdf:type owl:DatatypeProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_date_value
 mro:has_date_value rdf:type owl:DatatypeProperty ;
                    rdfs:domain cco:InformationBearingEntity ;
+                   cco:definition "A data property that has as its range a date value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                    rdfs:label "has date value"@en .
 
@@ -2838,6 +2849,7 @@ mro:has_date_value rdf:type owl:DatatypeProperty ;
 mro:has_datetime_value rdf:type owl:DatatypeProperty ;
                        rdfs:domain cco:InformationBearingEntity ;
                        rdfs:range xsd:dateTime ;
+                       cco:definition "A data property that has as its value a datetime value."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                        rdfs:label "has datetime value"@en .
 
@@ -2846,6 +2858,7 @@ mro:has_datetime_value rdf:type owl:DatatypeProperty ;
 mro:has_decimal_value rdf:type owl:DatatypeProperty ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:decimal ;
+                      cco:definition "A data property that has as its range a decimal value."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                       rdfs:label "has decimal value"@en .
 
@@ -2854,6 +2867,7 @@ mro:has_decimal_value rdf:type owl:DatatypeProperty ;
 mro:has_double_value rdf:type owl:DatatypeProperty ;
                      rdfs:domain cco:InformationBearingEntity ;
                      rdfs:range xsd:double ;
+                     cco:definition "A data property that has as its range a double value."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                      rdfs:label "has double value"@en .
 
@@ -2862,6 +2876,7 @@ mro:has_double_value rdf:type owl:DatatypeProperty ;
 mro:has_integer_value rdf:type owl:DatatypeProperty ;
                       rdfs:domain cco:InformationBearingEntity ;
                       rdfs:range xsd:integer ;
+                      cco:definition "A data property that has as its range an integer value."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                       rdfs:label "has integer value"@en .
 
@@ -2885,8 +2900,12 @@ mro:has_longitude_value rdf:type owl:DatatypeProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ModalRelationOntology/has_text_value
 mro:has_text_value rdf:type owl:DatatypeProperty ;
                    rdfs:domain cco:InformationBearingEntity ;
-                   rdfs:range xsd:string ;
-                   cco:definition "A relationship between an Information Bearing Entity and a string representation."@en ;
+                   rdfs:range [ rdf:type rdfs:Datatype ;
+                                owl:unionOf ( rdf:langString
+                                              xsd:string
+                                            )
+                              ] ;
+                   cco:definition "A data property that has as its range a string value."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology" ;
                    rdfs:label "has text value"@en .
 
