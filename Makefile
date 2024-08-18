@@ -3,7 +3,7 @@
 # Contact - John Beverley <johnbeve@buffalo.edu>
 
 ### Explanation ###
-# When a branch is merged into the develop branch, quality control checks based on the ELK reasoner and queries in the workflow/sparql directory. If these checks are passed, then the changes will be combined into a merged version of CCO, where similar QC checks will be conducted. If successful, updates to specific CCO modules and the merged CCO file on develop will be made. 
+# When a branch is merged into the develop branch, quality control checks based on the ELK reasoner and queries in the deployment/sparql directory. If these checks are passed, then the changes will be combined into a merged version of CCO, where similar QC checks will be conducted. If successful, updates to specific CCO modules and the merged CCO file on develop will be made. 
 # When the develop branch is to be merged into main, QC checks will again be conducted on each of the CCO modules and the merged CCO file. Release date updates are handled automatically. Version number must be managed manually. 
 
 # ----------------------------------------
@@ -18,7 +18,7 @@ config.SOURCE_DIR := src/
 config.TEMP_DIR := build/artifacts
 config.RELEASE_DIR := /
 config.REPORTS_DIR := $(config.TEMP_DIR)
-config.QUERIES_DIR := .github/workflow/sparql
+config.QUERIES_DIR := .github/deployment/sparql
 config.LIBRARY_DIR := build/lib
 
 # Settings
