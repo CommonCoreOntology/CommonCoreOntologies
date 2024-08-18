@@ -74,7 +74,7 @@ EDITOR_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-edit-report
 RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-report.tsv
 
 # Generic directories to create if needed
-REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
+REQUIRED_DIRS = $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
 
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
@@ -101,7 +101,7 @@ reason-individual: $(dev-files) | $(ROBOT_FILE)
 test-individual: $(dev-files) | $(ROBOT_FILE)
 	for file in $(dev-files); do \
 		echo "Testing $$file..."; \
-		$(ROBOT) verify --input $$file --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES); \
+		$(ROBOT) verify --input $$file --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES); \
 	done
 
 # Build combined file after individual files pass checks
@@ -114,7 +114,7 @@ reason-combined: $(combined-file) | $(ROBOT_FILE)
 	$(ROBOT) reason --input $(combined-file) --reasoner ELK
 
 test-combined: $(combined-file) | $(ROBOT_FILE)
-	$(ROBOT) verify --input $(combined-file) --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
+	$(ROBOT) verify --input $(combined-file) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
 
 # Build and QC for release on main branch
 build-release: $(RELEASE_BUILD_FILE)
@@ -124,7 +124,7 @@ reason-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
 	$(ROBOT) reason --input $(RELEASE_BUILD_FILE) --reasoner ELK
 
 test-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
-	$(ROBOT) verify --input $(RELEASE_BUILD_FILE) --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
+	$(ROBOT) verify --input $(RELEASE_BUILD_FILE) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
 
 .PHONY: report-edit report-release
 report-edit: TEST_INPUT = $(EDITOR_BUILD_FILE)
@@ -132,6 +132,14 @@ report-edit: REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
 report-release: TEST_INPUT = $(RELEASE_BUILD_FILE)
 report-release: REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
 report-edit report-release: report
+
+.PHONY: output-release-filepath
+output-release-filepath:
+	@echo $(RELEASE_BUILD_FILE)
+
+.PHONY: output-release-name
+output-release-name:
+	@echo $(config.RELEASE_NAME)
 
 # ----------------------------------------
 #### Test / test ontology with reasoners and queries
@@ -144,11 +152,11 @@ reason: $(TEST_INPUT) | $(ROBOT_FILE)
 
 # Test using specific queries
 .PHONY: verify
-verify: $(TEST_INPUT) $(QUERIES) | $(config.QUERIES_DIR) $(config.TEMP_DIR) $(ROBOT_FILE)
+verify: $(TEST_INPUT) $(QUERIES) | $(config.QUERIES_DIR) $(config.REPORTS_DIR) $(ROBOT_FILE)
 ifeq ($(QUERIES),)
 	$(warning No query files found in $(config.QUERIES_DIR))
 else
-	$(ROBOT) verify --input $(TEST_INPUT) --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
+	$(ROBOT) verify --input $(TEST_INPUT) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
 endif
 
 # Report using built-in ROBOT queries
@@ -192,8 +200,8 @@ ROBOT := java -jar $(ROBOT_FILE)
 # Cleanup - Remove build and release files
 .PHONY: clean
 clean:
-	@[ "${config.TEMP_DIR}" ] || ( echo ">> config.TEMP_DIR is not set"; exit 1 )
-	rm -rf $(config.TEMP_DIR)
+	@[ "${config.REPORTS_DIR}" ] || ( echo ">> config.REPORTS_DIR is not set"; exit 1 )
+	rm -rf $(config.REPORTS_DIR)
 	rm -rf $(RELEASE_BUILD_FILE) $(combined-file)
 
 # Build merged file for main branch
