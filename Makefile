@@ -153,7 +153,7 @@ $(ROBOT_FILE): | $(config.LIBRARY_DIR)
 
 ROBOT := java -jar $(ROBOT_FILE)
 
-# Cleanup
+# Cleanup - Remove build and release files
 .PHONY: clean
 clean:
 	@[ "${config.TEMP_DIR}" ] || ( echo ">> config.TEMP_DIR is not set"; exit 1 )
@@ -167,4 +167,3 @@ $(combined-file): $(DEV_FILES)
 # Build merged file for main branch
 $(RELEASE_BUILD_FILE): $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl
 	cp $< $@
-
