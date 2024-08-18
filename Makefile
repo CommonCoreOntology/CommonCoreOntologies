@@ -34,7 +34,7 @@ DEV_FILES = \
     src/cco-modules/ArtifactOntology.ttl \
     src/cco-modules/CurrencyUnitOntology.ttl \
     src/cco-modules/EventOntology.ttl \
-    src/cco-modules/ExtendedRelationsOntology.ttl \
+    src/cco-modules/ExtendedRelationOntology.ttl \
     src/cco-modules/FacilityOntology.ttl \
     src/cco-modules/GeospatialOntology.ttl \
     src/cco-modules/QualityOntology.ttl \
