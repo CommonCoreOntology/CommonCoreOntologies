@@ -168,14 +168,6 @@ report: $(TEST_INPUT) | $(config.REPORTS_DIR) $(ROBOT_FILE)
 	--print 10 \
 	--output $(REPORT_FILE_INPUT)
 
-.PHONY: output-release-filepath
-output-release-filepath:
-	@echo $(RELEASE_BUILD_FILE)
-
-.PHONY: output-release-name
-output-release-name:
-	@echo $(config.RELEASE_NAME)
-
 # ----------------------------------------
 #### Setup / configure Make to use with our project
 MAKEFLAGS += --warn-undefined-variables
