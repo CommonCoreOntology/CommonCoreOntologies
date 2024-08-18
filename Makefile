@@ -186,6 +186,10 @@ $(REQUIRED_DIRS):
 ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
 $(ROBOT_FILE): | $(config.LIBRARY_DIR)
 	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
+	@if [ ! -f "$@" ]; then \
+		echo "Error: Unable to download robot.jar"; \
+		exit 1; \
+	fi
 
 ROBOT := java -jar $(ROBOT_FILE)
 
