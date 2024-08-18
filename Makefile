@@ -111,9 +111,11 @@ test-combined: $(combined-file) | $(ROBOT_FILE)
 build-release: $(RELEASE_BUILD_FILE)
 
 .PHONY: reason-release test-release
-reason-release test-release: TEST_INPUT = $(RELEASE_BUILD_FILE)
-test-release: REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
-reason-release: reason
+reason-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
+	$(ROBOT) reason --input $(RELEASE_BUILD_FILE) --reasoner ELK
+
+test-release: $(RELEASE_BUILD_FILE) | $(ROBOT_FILE)
+	$(ROBOT) verify --input $(RELEASE_BUILD_FILE) --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
 
 .PHONY: report-edit report-release
 report-edit: TEST_INPUT = $(EDITOR_BUILD_FILE)
@@ -156,7 +158,7 @@ ROBOT := java -jar $(ROBOT_FILE)
 clean:
 	@[ "${config.TEMP_DIR}" ] || ( echo ">> config.TEMP_DIR is not set"; exit 1 )
 	rm -rf $(config.TEMP_DIR)
-	rm -rf $(RELEASE_BUILD_FILE)
+	rm -rf $(RELEASE_BUILD_FILE) $(combined-file)
 
 # Build combined file for dev branch
 $(combined-file): $(DEV_FILES)
@@ -165,14 +167,4 @@ $(combined-file): $(DEV_FILES)
 # Build merged file for main branch
 $(RELEASE_BUILD_FILE): $(config.SOURCE_DIR)/MergedAllCoreOntology.ttl
 	cp $< $@
-
-# Test each combined file
-$(combined-file): $(DEV_FILES) | $(ROBOT_FILE)
-	cat $(DEV_FILES) > $@
-
-.PHONY: clean
-clean:
-	@[ "${config.TEMP_DIR}" ] || ( echo ">> config.TEMP_DIR is not set"; exit 1 )
-	rm -rf $(config.TEMP_DIR)
-	rm -rf $(RELEASE_BUILD_FILE) $(combined-file)
 
