@@ -6,11 +6,11 @@ The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies tha
 
 These eleven ontologies constitute a [mid-level ontology](https://arxiv.org/abs/2404.17757) that extends from the [Basic Formal Ontology (BFO)](https://github.com/bfo-ontology/BFO-2020), an [ISO-standard](https://www.iso.org/standard/71954.html) top-level ontology. Whereas BFO represents only the most generic entities and relations, CCO contains classes that users will find common across data sets in many domains. Such classes include, for example, person, facility, date, employment, nickname, and measurement. 
 
-Both BFO and CCO have been directed for use as "[baseline standards](https://www.buffalo.edu/news/releases/2024/02/department-of-defense-ontology.html)" for formal ontology development across the United States Department of Defense and Intelligence Community. Leveraging CCO makes it easier to use the top-level ontology content provided by BFO, and it prevents BFO-compliant domain-specific ontologies from duplicating common concepts. Many organizations within the U.S. Government have found this useful as they seek a coordinated strategy among independent ontology efforts.
+Both BFO and CCO have been directed for use as "[baseline standards](https://www.buffalo.edu/news/releases/2024/02/department-of-defense-ontology.html)" for formal ontology development across the United States Department of Defense and Intelligence Community. 
 
 CCO is currently being evaluated as a mid-level ontology standard by the IEEE Standards Association under [PAR3195.1](https://standards.ieee.org/ieee/3195.1/11026/). 
 
-CCO itself is not intended to be extended indefinitely into particular domains. Users are encouraged to create their own domain extensions with content particular to those domains and publish these ontologies for re-use by others. 
+CCO itself is not intended to grow indefinitely by including content that is proper to particular domains. Users are encouraged to create their own domain extensions with content particular to those domains and publish these ontologies for re-use by others. 
 
 ## Contributing
 
