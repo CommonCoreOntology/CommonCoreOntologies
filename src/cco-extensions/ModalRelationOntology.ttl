@@ -661,7 +661,7 @@ mro:affects rdf:type owl:ObjectProperty ;
             owl:inverseOf mro:is_affected_by ;
             rdfs:domain obo:BFO_0000015 ;
             rdfs:range obo:BFO_0000002 ;
-            cco:definition "p affects c iff p is an instance of a Process and c is an instance of a Continuant, such that p influences c in some manner, most often by producing a change in c."@en ;
+            cco:definition "x affects y iff x is an instance of Process and y is an instance of Continuant, and x influences y in some manner, most often by producing a change in y."@en ;
             cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
             rdfs:label "affects"@en .
 
@@ -759,7 +759,7 @@ mro:caused_by rdf:type owl:ObjectProperty ;
               owl:inverseOf mro:is_cause_of ;
               rdfs:domain obo:BFO_0000003 ;
               rdfs:range obo:BFO_0000003 ;
-              cco:definition "x caused_by y iff x and y are instances of occurrents, and x is a consequence of y."@en ;
+              cco:definition "x caused_by y iff x and y are instances of Occurrent, and x is a consequence of y."@en ;
               cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
               rdfs:label "caused by"@en .
 
@@ -1744,7 +1744,7 @@ mro:is_affected_by rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf mro:BFO_0000056 ;
                    rdfs:domain obo:BFO_0000002 ;
                    rdfs:range obo:BFO_0000015 ;
-                   cco:definition "c is_affected_by p iff p is an instance of a Process and c is an instance of a Continuant, such that p influences c in some manner, most often by producing a change in c."@en ;
+                   cco:definition "x is_affected_by y iff x is an instance of Continuant and y is an instance of Process, such that y influences x in some manner, most often by producing a change in x."@en ;
                    cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                    rdfs:label "is affected by"@en .
 
@@ -1803,7 +1803,7 @@ mro:is_cause_of rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ModalObjectProperty ;
                 rdfs:domain obo:BFO_0000003 ;
                 rdfs:range obo:BFO_0000003 ;
-                cco:definition "x is_cause_of y iff x and y are instances of occurrents, and y is a consequence of x."@en ;
+                cco:definition "x is_cause_of y iff x and y are instances of Occurrents and y is a consequence of x."@en ;
                 cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                 rdfs:label "is cause of"@en .
 
