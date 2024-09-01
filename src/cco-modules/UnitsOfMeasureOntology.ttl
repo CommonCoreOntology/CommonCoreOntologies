@@ -1,5 +1,6 @@
 @prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -475,6 +476,23 @@ cco:DecibelMeasurementUnit rdf:type owl:NamedIndividual ,
                            cco:SI_unit_symbol "dB" ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:anyURI ;
                            rdfs:label "Decibel Measurement Unit"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/DecibelIsotropicMeasurementUnit
+cco:DecibelIsotropicMeasurementUnit rdf:type owl:NamedIndividual ,
+                                    cco:MeasurementUnitOfPower ;
+                           cco:SI_unit_symbol "dBi" ;
+                           rdfs:label "Decibel Isotropic Measurement Unit"@en ;
+                           cco:alternative_label "Decibels Relative to Isotrope" ;
+                           cco:alternative_label "Decibels Relative to Isotropic Radiator" ;
+                           cco:alternative_label "Decibels Over Isotropic" ;
+                           cco:alternative_label "Decibels Over Isotropic Antenna" ;
+                           cco:alternative_label "Decibels Relative to an Isotropic Reference Antenna" ;
+                           cco:definition_source "https://www.techtarget.com/whatis/definition/decibels-relative-to-isotropic-radiator-dBi"^^xsd:anyURI ;
+                           cco:definition_source "https://shopdelta.eu/dbi-power-gain-of-isotropic-antenna_l2_aid836.html"^^xsd:anyURI ;
+                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/UnitsOfMeasureOntology"^^xsd:anyURI ;
+                           dc:contributor "Donna Jones" ;
+                           dc:contributor "Olivia Hobai" .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DecigramMeasurementUnit

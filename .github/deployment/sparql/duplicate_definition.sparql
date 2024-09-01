@@ -1,0 +1,16 @@
+# Title: 
+#    No Duplicate Definitions
+# Constraint Description: 
+#    No two ontology elements may have the exact same definition.    
+# Severity:
+#     Error 
+
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
+
+SELECT DISTINCT ?entity ?definition 
+WHERE {
+  ?entity cco:definition ?definition .
+  ?entity2 cco:definition ?definition .
+  FILTER (?entity != ?entity2)
+  FILTER (!isBlank(?entity))
+}

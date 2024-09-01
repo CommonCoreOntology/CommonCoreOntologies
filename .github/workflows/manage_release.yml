@@ -1,0 +1,80 @@
+name: Build, Test, Draft Release
+
+on:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: write
+
+env:
+  cache-path: build/lib
+  artifacts-path: build/artifacts
+  release-build-content-type: application/ttl
+  cache-key: build-cache-dependencies
+
+jobs:
+  ontology_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Restore cached dependencies
+        id: restore-cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ${{ env.cache-path }}
+          key: ${{ runner.os }}-${{ env.cache-key }}
+
+      - name: List directory contents
+        run: ls -la
+
+      - name: Build and test ontology release
+        run: make all
+
+      - name: Capture release information
+        id: build_release
+        run: |
+          make -d all
+          echo "RELEASE_FILE_PATH=$(make output-release-filepath)" >> $GITHUB_OUTPUT
+          echo "RELEASE_NAME=$(make output-release-name)" >> $GITHUB_OUTPUT
+
+      - name: Get basename of the release file
+        id: get_basename
+        run: echo "BASENAME=$(basename ${{ steps.build_release.outputs.RELEASE_FILE_PATH }})" >> $GITHUB_ENV
+
+      - name: Save artifacts
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: ontology_release_results
+          path: ${{ env.artifacts-path }}
+
+      - name: Save dependencies to cache
+        id: save-cache
+        uses: actions/cache/save@v3
+        if: always() && steps.restore-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ env.cache-path }}
+          key: ${{ runner.os }}-${{ env.cache-key }}
+
+      - name: Draft GitHub Release
+        uses: actions/create-release@v1
+        id: draft_release
+        with:
+          draft: true
+          prerelease: false
+          release_name: ${{ steps.build_release.outputs.RELEASE_NAME }}
+          tag_name: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload GitHub release build
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.draft_release.outputs.upload_url }}
+          asset_path: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
+          asset_name: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
+          asset_content_type: ${{ env.release-build-content-type }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

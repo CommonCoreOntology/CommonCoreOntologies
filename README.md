@@ -1,55 +1,71 @@
-# Common Core Ontologies
-The Common Core Ontologies (CCO) comprise twelve ontologies that are designed to represent and integrate taxonomies of generic classes and relations across all domains of interest.
+# The Common Core Ontologies (CCO)
 
-CCO is a mid-level extension of Basic Formal Ontology (BFO), an upper-level ontology framework widely used to structure and integrate ontologies in the biomedical domain (Arp, et al., 2015). BFO aims to represent the most generic categories of entity and the most generic types of relations that hold between them, by defining a small number of classes and relations. CCO then extends from BFO in the sense that every class in CCO is asserted to be a subclass of some class in BFO, and that CCO adopts the generic relations defined in BFO (e.g., has_part) (Smith and Grenon, 2004). Accordingly, CCO classes and relations are heavily constrained by the BFO framework, from which it inherits much of its basic semantic relationships.
+## What is CCO?
 
-The CCO provide semantics for concepts and relations that are used in most domains of interest. The utility of the CCO comes from preventing BFO-compliant domain-specific ontologies from needlessly duplicating common concepts or from forcing such ontologies to include concepts outside of their domain (e.g. organization in the Ontology of Biomedical Investigations).
+The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies that consist of logically well-defined generic terms and relations among them reflecting entities across all domains of interest. 
 
-This utility has been realized by a number of U.S. Government sponsored projects in which either existing BFO compliant ontologies were aligned to the CCO or domain ontologies were created by using the CCO as a starting point and adding classes and properties as needed.
+These eleven ontologies constitute a [mid-level ontology](https://arxiv.org/abs/2404.17757) that extends from the [Basic Formal Ontology (BFO)](https://github.com/bfo-ontology/BFO-2020), an [ISO-standard](https://www.iso.org/standard/71954.html) top-level ontology. Whereas BFO represents only the most generic entities and relations, CCO contains classes that users will find common across data sets in many domains. Such classes include, for example, person, facility, date, employment, nickname, and measurement. 
 
-The names of a sample of these domain ontologies are provided in the list below.
+Both BFO and CCO have been directed for use as "[baseline standards](https://www.buffalo.edu/news/releases/2024/02/department-of-defense-ontology.html)" for formal ontology development across the United States Department of Defense and Intelligence Community. 
 
-The U.S. Government holds Government Purpose Rights on all of these domain ontologies. To obtain one or more of these domain ontologies for a government purpose it will be necessary for a government representative to contact the government sponsor of the development of the ontology. CUBRC can facilitate these connections so if interested please use the contact link at the bottom of this [page](https://www.cubrc.org/data-science-information-fusion/specialized-data-ontology-development/).
+CCO is currently being evaluated as a mid-level ontology standard by the IEEE Standards Association under [PAR3195.1](https://standards.ieee.org/ieee/3195.1/11026/). 
 
-# Sample of Common Core Domain Ontology Extensions
-Aircraft Ontology
+CCO itself is not intended to grow indefinitely by including content that is proper to particular domains. Users are encouraged to create their own domain extensions with content particular to those domains and publish these ontologies for re-use by others. 
 
-Airforce Aircraft Maintenance Ontology
+## Contributing
 
-Army Universal Task List Ontology
+Users may find the current release files for [CCO here](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v1.5-2024-02-14)
 
-Atmospheric Feature Ontology
+Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at src/cco-merged/
 
-Cyber Ontology
+Users who wish to view the content of CCO in a web browser may view the current CCO release on the [Industrial Ontology Portal viewer](https://industryportal.enit.fr/ontologies/CCO)
 
-Hydrographic Feature Ontology
+For information regarding the management of CCO, tutorials, lists of projects that extend CCO, associated research, standards activities in the IEEE, and more, please navigate to the [CCO home page](https://commoncoreontology.github.io/cco-webpage/)
 
-Legal and Criminal Act Ontology
+For bug fixes, developed suggestions for improvement, or minor updates, please open an issue using the template [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/issues) 
 
-Marine Corps Task List Ontology
+For more open-ended discussion, general questions, or compliments, please navigate to the discussion board [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/discussions)
 
-Military Operations Ontology
+## Who Oversees CCO Today?
 
-Mission Planning Ontology
+CCO is overseen by a governance board and a developers group. Our members come from academia, government, US national laboratories, and commercial industry. We offer multiple forums for feedback and discussion. 
 
-Occupation Ontology
+For more information about the governance of CCO, please navigate to the [Common Core Ontologies home page.](https://commoncoreontology.github.io/cco-webpage/board/)
 
-Outerspace Ontology
+## The Common Core Ontologies
 
-Physiographic Feature Ontology
+- **Geospatial Ontology** - An ontology whosse scope is the representation of sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them.
+- **Information Entity Ontology** - An ontology whose scope is the representation of generic types of information as well as the relationships between information and other entities.
+- **Event Ontology** - An ontology whose scope is the representation of processual entities, especially those performed by agents, that occur within multiple domains.
+- **Time Ontology**	- An ontology whose scope is the representation of temporal regions and the relations that hold between them.
+- **Agent Ontology** - An ontology whose scope is the representation of represent agents, especially persons and organizations, and their roles.
+- **Quality Ontology**	- An ontology whose scope is the representation of a range of attributes of entities especially qualities, realizable entities, and process profiles.
+- **Units of Measure Ontology**	- An ontology whose scope is the representation of standard measurement units that are used when measuring various attributes of entities.
+- **Currency Unit Ontology** - An ontology whose scope is the representation of currencies that are issued and used by countries.
+- **Facility Ontology** - An ontology whose scope is the representation of buildings and campuses that are designed to serve some specific purpose, and which are common to multiple domains.
+- **Artifact Ontology**	- An ontology whose scope is the representation of artifacts that are common to multiple domains along with their models, specifications, and functions.
+- **Extended Relation Ontology** - An ontology whose scope is the representation of the relations that hold between entities at the level of the mid-level Common Core Ontologies.
 
-Sensor Ontology
+## The Contents of this Repository
 
-Spacecraft Mission Ontology
-
-Spacecraft Ontology
-
-Space Event Ontology
-
-Space Object Ontology
-
-Transportation Infrastructure Ontology
-
-Undersea Warfare Ontology
-
-Watercraft Ontology
+* **documentation** - This directory contains the ModalRelationOntology.ttl.
+	* **archive** 
+		* **legacy documentation** - Contains documentation concerning previous versions of CCO, a list of obsoleted terms, changefiles for releases, as well as xlsx glossaries for each previous release. 
+		* **previous-versions** - Contains previous releases of CCO, beginning with version 1.3. 
+	* **contributing** 
+		* **contributing** - Contains guidance for making contributions to the CCO repository.
+		* **github overview** - Contains guidance for using git and Github with Visual Studio Code, command lines, and GitHub Desktop.
+	* **design patterns** - Contains common design patterns for CCO, motivated by specific use cases, characterized by competency questions, and accompanied by serialization in RDF.  
+	* **images** - Contains images used in this repository.
+	* **user guides** - Contains user guides for: ontology developers, software developers and subject matter experts.
+* **src**
+	* **cco-merged** - Contains the current CCO merged release file and an import file that is used to generate the merged CCO file. 
+	* **cco-modules** - Contains versions of the 11 CCO modules.
+	* **cco extensions** - Contains versions of CCO extensions maintained by the governance board, such as the Modal Relations Ontology. 
+* **.github** 	- This directory contains files needed to support automated GitHub actions. 
+	* **deployment** 	
+		* **sparql** - Contains sparql files used in quality control checks during the development process. 
+		* **ontology-diff-files** - Contains ontology-diff-files, which Mark can tell you more about. 
+		* **mappings** - Contains mappings between content in CCO and other ontologies. 
+	* **templates** - Contains templates used to create issues and discussion topics. 
+	* **workflows** - Contains release management files needed for GitHub Actions. 

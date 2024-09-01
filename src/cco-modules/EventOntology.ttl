@@ -290,6 +290,15 @@ cco:ActOfContractFormation rdf:type owl:Class ;
                            rdfs:label "Act of Contract Formation"@en .
 
 
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfDataTransformation
+cco:ActOfDataTransformation rdf:type owl:Class ;
+                            rdfs:subClassOf cco:ActOfInformationProcessing ;
+                            cco:definition "An Act of Information Processing in which an algorithm is executed to act upon one or more input Information Content Entities into one or more output Information Content Entities."@en ;
+                            cco:elucidation "It is not a requirement that the output Information Content Entity(ies) be qualitatively distinct from the input(s) as a result of an Act of Data Transformation, though doing so is typically the goal of performing this Act. Consider, for example, selecting a column in an Excel spreadsheet then executing the \\\"Remove Duplicates\\\" Algorithm on it. The intent is to remove rows in that column containing duplicate content. If no duplicate values are present, the information in the column remains unchanged but an Act of Data Transformation was nonetheless performed."@en ;
+                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                            rdfs:label "Act of Data Transformation"@en .
+
+
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfDeceptiveCommunication
 cco:ActOfDeceptiveCommunication rdf:type owl:Class ;
                                 rdfs:subClassOf cco:ActOfCommunication ;
@@ -499,6 +508,14 @@ cco:ActOfIdentifying rdf:type owl:Class ;
                      cco:definition_source "http://www.dictionary.com/browse/identify" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                      rdfs:label "Act of Identifying"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfInformationProcessing
+cco:ActOfInformationProcessing rdf:type owl:Class ;
+                               rdfs:subClassOf cco:IntentionalAct ;
+                               cco:definition "A Planned Act in which one or more input Information Content Entities are received, manipulated, transferred, or stored by an Agent."@en ;
+                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                               rdfs:label "Act of Information Processing"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfInhabitancy
@@ -1249,7 +1266,7 @@ cco:Cause rdf:type owl:Class ;
           owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000015
                                                      [ rdf:type owl:Restriction ;
                                                        owl:onProperty cco:is_cause_of ;
-                                                       owl:someValuesFrom obo:BFO_0000003
+                                                       owl:someValuesFrom obo:BFO_0000015
                                                      ]
                                                    ) ;
                                 rdf:type owl:Class
@@ -1367,8 +1384,8 @@ cco:DecreaseOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DecreaseOfFunction
 cco:DecreaseOfFunction rdf:type owl:Class ;
-                       rdfs:subClassOf cco:DecreaseOfRealizableEntity ;
-                       cco:definition "A Decrease of Realizable Entity in which some Independent Continuant has a decrease of some Function that it bears."@en ;
+                       rdfs:subClassOf cco:DecreaseOfDisposition ;
+                       cco:definition "A Decrease of Disposition in which some Independent Continuant has a decrease of some Function that it bears."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                        rdfs:label "Decrease of Function"@en .
 
@@ -1444,7 +1461,7 @@ cco:Effect rdf:type owl:Class ;
            owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000015
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty cco:caused_by ;
-                                                        owl:someValuesFrom obo:BFO_0000003
+                                                        owl:someValuesFrom obo:BFO_0000015
                                                       ]
                                                     ) ;
                                  rdf:type owl:Class
@@ -1687,7 +1704,7 @@ cco:GainOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GainOfFunction
 cco:GainOfFunction rdf:type owl:Class ;
-                   rdfs:subClassOf cco:GainOfRealizableEntity ,
+                   rdfs:subClassOf cco:GainOfDisposition ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty obo:BFO_0000057 ;
                                      owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
@@ -1699,7 +1716,7 @@ cco:GainOfFunction rdf:type owl:Class ;
                                                           rdf:type owl:Class
                                                         ]
                                    ] ;
-                   cco:definition "A Gain of Realizable Entity in which some Independent Continuant becomes the bearer of some Function."@en ;
+                   cco:definition "A Gain of Disposition in which some Independent Continuant becomes the bearer of some Function."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                    rdfs:comment "This class should be used to demarcate the start of the temporal interval (through the BFO 'occupies temporal region' property) that the Entity bears the Function."@en ;
                    rdfs:label "Gain of Function"@en .
@@ -1875,8 +1892,8 @@ cco:IncreaseOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IncreaseOfFunction
 cco:IncreaseOfFunction rdf:type owl:Class ;
-                       rdfs:subClassOf cco:IncreaseOfRealizableEntity ;
-                       cco:definition "An Increase of Realizable Entity in which some Independent Continuant has an increase of some Function that it bears."@en ;
+                       rdfs:subClassOf cco:IncreaseOfDisposition ;
+                       cco:definition "An Increase of Disposition in which some Independent Continuant has an increase of some Function that it bears."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                        rdfs:label "Increase of Function"@en .
 
@@ -2008,8 +2025,8 @@ cco:LossOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LossOfFunction
 cco:LossOfFunction rdf:type owl:Class ;
-                   rdfs:subClassOf cco:LossOfRealizableEntity ;
-                   cco:definition "A Loss of Realizable Entity in which some Independent Continuant ceases to be the bearer of some Function."@en ;
+                   rdfs:subClassOf cco:LossOfDisposition ;
+                   cco:definition "A Loss of Disposition in which some Independent Continuant ceases to be the bearer of some Function."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                    rdfs:label "Loss of Function"@en .
 
