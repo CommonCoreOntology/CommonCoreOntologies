@@ -595,7 +595,8 @@ cco:Certificate rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Chart
 cco:Chart rdf:type owl:Class ;
           rdfs:subClassOf cco:Image ;
-          cco:definition "An Image that is designed to represent an Information Content Entity by means of Written Symbols in order to convey that information in a readily understandable format."@en ;
+          cco:definition_source "Adapted from “Chart.” Merriam-Webster.com Dictionary, Merriam-Webster, https://www.merriam-webster.com/dictionary/chart. Accessed 4 Aug. 2024." ;
+          cco:definition "An Image that is designed to carry some Representational Information Content Entity that is prescribed by some canonical visual format."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
           rdfs:label "Chart"@en .
 
@@ -670,7 +671,7 @@ cco:Code93Barcode rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CodeList
 cco:CodeList rdf:type owl:Class ;
              rdfs:subClassOf cco:List ;
-             cco:definition "A List that represents an ordered sequence of Information Bearing Entities that bear Code Identifiers."@en ;
+             cco:definition "A List that contains an ordered sequence of Information Bearing Entities that bear Code Identifiers."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
              rdfs:label "Code List"@en .
 
@@ -2087,7 +2088,7 @@ cco:IgnitionSystem rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Image
 cco:Image rdf:type owl:Class ;
           rdfs:subClassOf cco:InformationBearingArtifact ;
-          cco:definition "An Information Bearing Artifact that is designed to bear some specific Information Content Entity that represents some entity."@en ;
+          cco:definition "An Information Bearing Artifact that is designed to carry some Representational Information Content."@en ;
           cco:definition_source "https://en.wikipedia.org/w/index.php?title=Image&oldid=1062709732"^^xsd:anyURI ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
           rdfs:label "Image"@en .
@@ -2451,7 +2452,7 @@ cco:LightingSystem rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/List
 cco:List rdf:type owl:Class ;
          rdfs:subClassOf cco:InformationBearingArtifact ;
-         cco:definition "An Information Bearing Artifact that represents an ordered sequence of values, where the same value may occur more than once."@en ;
+         cco:definition "An Information Bearing Artifact that consists of one or more Information Bearing Artifacts that carry Information Content Entities and are the subjects of some Sequence Position Ordinality."@en ;
          cco:definition_source "https://en.wikipedia.org/w/index.php?title=List_(abstract_data_type)&oldid=1041588680"^^xsd:anyURI ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
          rdfs:label "List"@en .
