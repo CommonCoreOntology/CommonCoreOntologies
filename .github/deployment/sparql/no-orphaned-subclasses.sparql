@@ -1,0 +1,21 @@
+# Title: 
+#     No Orphaned Subclasses
+# Constraint Description: 
+#     All classes must have some parent class. The only result otherwise should be “entity”.
+# Severity:
+#     Warning
+# Author:
+#	 github.com/swartik
+
+Severity:
+    (select "Warning" or "Error")
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?cls
+WHERE {
+  ?cls a owl:Class
+  FILTER isIRI(?cls)
+  FILTER NOT EXISTS { ?cls rdfs:subClassOf ?supercls }
+}
