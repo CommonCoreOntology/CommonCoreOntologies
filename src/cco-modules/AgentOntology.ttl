@@ -838,7 +838,7 @@ cco:is_permitted_by rdf:type owl:ObjectProperty ;
                     owl:inverseOf cco:permits ;
                     rdfs:domain obo:BFO_0000015 ;
                     rdfs:range cco:ActionRegulation ;
-                    cco:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some agent may be agent in y."@en ;
+                    cco:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some independent continuant (but not Spatial Region) may participate in y."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                     rdfs:label "is permitted by"@en ;
                     skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -850,7 +850,7 @@ cco:is_prohibited_by rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:prohibits ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range cco:ActionRegulation ;
-                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some agent must not be agent in y."@en ;
+                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some that some independent continuant (but not spatial region) must not participate in y."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                      rdfs:label "is prohibited by"@en ;
                      skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -862,7 +862,7 @@ cco:is_required_by rdf:type owl:ObjectProperty ;
                    owl:inverseOf cco:requires ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range cco:ActionRegulation ;
-                   cco:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some agent must be agent in y."@en ;
+                   cco:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some that some independent continuant (but not spatial region) must participate in y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                    rdfs:label "is required by"@en ;
                    skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -1014,7 +1014,7 @@ cco:permits rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf cco:prescribes ;
             rdfs:domain cco:ActionRegulation ;
             rdfs:range obo:BFO_0000015 ;
-            cco:definition "x permits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some agent may be agent in y."@en ;
+            cco:definition "x permits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some independent continuant (but not Spatial Region) may participate in y."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
             rdfs:label "permits"@en ;
             skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -1025,7 +1025,7 @@ cco:prohibits rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf cco:prescribes ;
               rdfs:domain cco:ActionRegulation ;
               rdfs:range obo:BFO_0000015 ;
-              cco:definition "x prohibits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some agent must not be agent in y."@en ;
+              cco:definition "x prohibits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some that some independent continuant (but not Spatial Region) must not participate in y."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
               rdfs:label "prohibits"@en ;
               skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -1045,7 +1045,7 @@ cco:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf cco:prescribes ;
              rdfs:domain cco:ActionRegulation ;
              rdfs:range obo:BFO_0000015 ;
-             cco:definition "x requires y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some agent must be agent in y."@en ;
+             cco:definition "x requires y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some that some independent continuant (but not Spatial Region) must participate in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "requires"@en ;
              skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
