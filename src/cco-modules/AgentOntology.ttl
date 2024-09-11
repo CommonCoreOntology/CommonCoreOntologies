@@ -475,7 +475,7 @@ cco:has_subordinate_role rdf:type owl:ObjectProperty ;
                          owl:inverseOf cco:is_subordinate_role_to ;
                          rdfs:domain obo:BFO_0000023 ;
                          rdfs:range obo:BFO_0000023 ;
-                         cco:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of bfo:BFO_0000023 (Role) at time t, and y is an instance of bfo:BFO_0000023 (Role) at time t, and there is some z such that x is realized by z and z is an instance of Act which creates, modifies, transfers, or eliminates some u such that u is an Action Regulation at time t, and u is addressed to the bearer of y."@en ;
+                         cco:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                          rdfs:label "has subordinate role"@en .
 
@@ -838,7 +838,7 @@ cco:is_permitted_by rdf:type owl:ObjectProperty ;
                     owl:inverseOf cco:permits ;
                     rdfs:domain obo:BFO_0000015 ;
                     rdfs:range cco:ActionRegulation ;
-                    cco:definition "y is_permitted_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
+                    cco:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                     rdfs:label "is permitted by"@en ;
                     skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -850,7 +850,7 @@ cco:is_prohibited_by rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:prohibits ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range cco:ActionRegulation ;
-                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
+                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                      rdfs:label "is prohibited by"@en ;
                      skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -862,7 +862,7 @@ cco:is_required_by rdf:type owl:ObjectProperty ;
                    owl:inverseOf cco:requires ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range cco:ActionRegulation ;
-                   cco:definition "y is_required_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
+                   cco:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some that y must occur."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                    rdfs:label "is required by"@en ;
                    skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -950,7 +950,7 @@ cco:is_step_sister_of rdf:type owl:ObjectProperty ;
 cco:is_subordinate_role_to rdf:type owl:ObjectProperty ;
                            rdfs:domain obo:BFO_0000023 ;
                            rdfs:range obo:BFO_0000023 ;
-                           cco:definition "For all x,y,t: y is subordinate role to x at t iff: x is an instance of bfo:BFO_0000023 (Role) at time t, and y is an instance of bfo:BFO_0000023 (Role) at time t, and there is some z such that x is realized by z and z is an instance of Act which creates, modifies, transfers, or eliminates some u such that u is an Action Regulation at time t, and u is addressed to the bearer of y."@en ;
+                           cco:definition "For all x,y,t: y is subordinate role to x at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                            rdfs:label "is subordinate role to"@en .
 
@@ -1014,7 +1014,7 @@ cco:permits rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf cco:prescribes ;
             rdfs:domain cco:ActionRegulation ;
             rdfs:range obo:BFO_0000015 ;
-            cco:definition "x permits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
+            cco:definition "x permits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
             rdfs:label "permits"@en ;
             skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -1025,7 +1025,7 @@ cco:prohibits rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf cco:prescribes ;
               rdfs:domain cco:ActionRegulation ;
               rdfs:range obo:BFO_0000015 ;
-              cco:definition "x prohibits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
+              cco:definition "x prohibits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some that y must not occur."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
               rdfs:label "prohibits"@en ;
               skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -1045,7 +1045,7 @@ cco:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf cco:prescribes ;
              rdfs:domain cco:ActionRegulation ;
              rdfs:range obo:BFO_0000015 ;
-             cco:definition "x requires y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
+             cco:definition "x requires y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some that y must occur."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "requires"@en ;
              skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -1095,7 +1095,7 @@ cco:ActionPermission rdf:type owl:Class ;
                      rdfs:subClassOf cco:ActionRegulation ;
                      cco:alternative_label "Authorization"@en ,
                                            "License"@en ;
-                     cco:definition "An Action Regulation that permits some Act."@en ;
+                     cco:definition "A Process Regulation that permits some Process."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                      rdfs:label "Action Permission"@en .
 
@@ -1111,17 +1111,18 @@ cco:ActionProhibition rdf:type owl:Class ;
                                             rdf:type owl:Class
                                           ] ;
                       rdfs:subClassOf cco:ActionRegulation ;
-                      cco:definition "An Action Regulation that prohibits some Act."@en ;
+                      cco:definition "A Process Regulation that prohibits some Process."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      rdfs:label "Action Prohibition"@en .
+                      rdfs:label "Process Prohibition"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActionRegulation
 cco:ActionRegulation rdf:type owl:Class ;
                      rdfs:subClassOf cco:DirectiveInformationContentEntity ;
-                     cco:definition "A Directive Information Content Entity that prescribes an Act as required, prohibited, or permitted, and is the output of an Act which realizes some Authority Role."@en ;
+                     cco:definition "A Directive Information Content Entity that prescribes an Process as required, prohibited, or permitted, and is the output of an Process which realizes some Authority Role."@en ;
+                     cco:elucidation "Although regulations often regulate processes which involve agents--as the regulating or regulated participant--it is unclear how causally active an agents need to be in those regulated processes. For example, it is not clear how causally active a human agent is in the process of a traffic light regulating the motion of a self-driving vehicle."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "Action Regulation"@en .
+                     rdfs:label "Process Regulation"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActionRequirement
@@ -1137,9 +1138,9 @@ cco:ActionRequirement rdf:type owl:Class ;
                       rdfs:subClassOf cco:ActionRegulation ;
                       cco:alternative_label "Duty"@en ,
                                             "Obligation"@en ;
-                      cco:definition "An Action Regulation that requires some Act."@en ;
+                      cco:definition "A Process Regulation that requires some Process."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      rdfs:label "Action Requirement"@en .
+                      rdfs:label "Process Requirement"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Affordance
@@ -1228,7 +1229,7 @@ cco:ArmedForce rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AuthorityRole
 cco:AuthorityRole rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000023 ;
-                  cco:definition "A Role that is realized by Acts which create, modify, transfer, or eliminate Action Regulations or other Authority Roles, and inheres in an Agent in virtue of collective acceptance of that Agent's ability to issue binding directives."@en ;
+                  cco:definition "A Role that is realized by Processes which create, modify, transfer, or eliminate Process Regulations or other Authority Roles, and inheres in an Agent in virtue of collective acceptance of that Agent's ability to issue binding directives."@en ;
                   cco:elucidation "Authority Roles are externally grounded in a social group's collective acceptance of the binding force of the agent's directives. This acceptance can be direct or indirect (e.g., by accepting a procedure for deputizing authority). Such collective acceptance need not be explicit or cognized; rather, collective acceptance can be expressed in the dispositions and attitudes of people toward that agent's directives. In many cases, the directives issued by Authority Roles are backed by threats of punishment or sanction for failure to comply, but the issuing of a directive plus a threat is not sufficient for authority. Rather, an agent's authority must be accepted either directly or indirectly through the acceptance of a procedure for bestowing authority (e.g., elections)."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                   rdfs:label "Authority Role"@en .

@@ -1426,7 +1426,7 @@ mro:has_subordinate_role rdf:type owl:ObjectProperty ;
                          owl:inverseOf mro:is_subordinate_role_to ;
                          rdfs:domain obo:BFO_0000023 ;
                          rdfs:range obo:BFO_0000023 ;
-                         cco:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of bfo:BFO_0000023 (Role) at time t, and y is an instance of bfo:BFO_0000023 (Role) at time t, and there is some z such that x is realized by z and z is an instance of Act which creates, modifies, transfers, or eliminates some u such that u is an Action Regulation at time t, and u is addressed to the bearer of y."@en ;
+                         cco:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
                          cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                          rdfs:label "has subordinate role"@en .
 
@@ -2268,7 +2268,7 @@ mro:is_permitted_by rdf:type owl:ObjectProperty ;
                     owl:inverseOf mro:permits ;
                     rdfs:domain obo:BFO_0000015 ;
                     rdfs:range cco:ActionRegulation ;
-                    cco:definition "y is_permitted_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
+                    cco:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
                     cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                     rdfs:label "is permitted by"@en ;
                     <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -2292,7 +2292,7 @@ mro:is_prohibited_by rdf:type owl:ObjectProperty ;
                      owl:inverseOf mro:prohibits ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range cco:ActionRegulation ;
-                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
+                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
                      cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                      rdfs:label "is prohibited by"@en ;
                      <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -2315,7 +2315,7 @@ mro:is_required_by rdf:type owl:ObjectProperty ;
                    owl:inverseOf mro:requires ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range cco:ActionRegulation ;
-                   cco:definition "y is_required_by x at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
+                   cco:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must occur."@en ;
                    cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                    rdfs:label "is required by"@en ;
                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -2424,7 +2424,7 @@ mro:is_subordinate_role_to rdf:type owl:ObjectProperty ;
                            rdfs:subPropertyOf mro:ModalObjectProperty ;
                            rdfs:domain obo:BFO_0000023 ;
                            rdfs:range obo:BFO_0000023 ;
-                           cco:definition "For all x,y,t: y is subordinate role to x at t iff: x is an instance of bfo:BFO_0000023 (Role) at time t, and y is an instance of bfo:BFO_0000023 (Role) at time t, and there is some z such that x is realized by z and z is an instance of Act which creates, modifies, transfers, or eliminates some u such that u is an Action Regulation at time t, and u is addressed to the bearer of y."@en ;
+                           cco:definition "For all x,y,t: y is subordinate role to x at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
                            cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
                            rdfs:label "is subordinate role to"@en .
 
@@ -2565,7 +2565,7 @@ mro:permits rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf mro:prescribes ;
             rdfs:domain cco:ActionRegulation ;
             rdfs:range obo:BFO_0000015 ;
-            cco:definition "x permits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent may be agent in y."@en ;
+            cco:definition "x permits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
             cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
             rdfs:label "permits"@en ;
             <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -2617,7 +2617,7 @@ mro:prohibits rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf mro:prescribes ;
               rdfs:domain cco:ActionRegulation ;
               rdfs:range obo:BFO_0000015 ;
-              cco:definition "x prohibits y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must not be agent in y."@en ;
+              cco:definition "x prohibits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
               cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
               rdfs:label "prohibits"@en ;
               <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -2670,7 +2670,7 @@ mro:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf mro:prescribes ;
              rdfs:domain cco:ActionRegulation ;
              rdfs:range obo:BFO_0000015 ;
-             cco:definition "x requires y at t iff: x is an instance of Action Regulation at time t, and y is an instance of Act at time t, and x prescribes that some agent must be agent in y."@en ;
+             cco:definition "x requires y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must occur."@en ;
              cco:is_curated_in_ontology <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> ;
              rdfs:label "requires"@en ;
              <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
