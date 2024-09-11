@@ -7,7 +7,7 @@
 
 PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
 
-SELECT DISTINCT ?element ?value 
+SELECT DISTINCT ?element ?value ?error
 WHERE {
   ?element cco:definition ?value .
   FILTER (!isBlank(?element) && (REGEX(str(?value), "^[\\s\r\n]+") || REGEX(str(?value), "[\\s\r\n]+$")))

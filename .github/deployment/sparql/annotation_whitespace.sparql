@@ -8,12 +8,12 @@
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?element ?property ?value 
+SELECT DISTINCT ?element ?property ?value ?error
 WHERE {
   ?property a owl:AnnotationProperty .
   ?element ?property ?value .
   FILTER (!isBlank(?element) && (REGEX(str(?value), "^[\\s\r\n]+") || REGEX(str(?value), "[\\s\r\n]+$")))
-  BIND (concat("ERROR: The following annotation values have leading or trailing whitespace ", str(?element)) AS ?error)
+  BIND (concat("ERROR: The following annotation value has leading or trailing whitespace ", str(?element)) AS ?error)
 }
 ORDER BY ?element
 
