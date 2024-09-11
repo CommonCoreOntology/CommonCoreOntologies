@@ -1,0 +1,17 @@
+# Title:  
+#    Class SubClassOf Hierarchy Circularity
+# Constraint Description:  
+#    No class should appear in a circular `subClassOf` hierarchy.
+# Severity:  
+#    Error
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?error ?class
+WHERE 
+{
+  ?class rdfs:subClassOf+ ?class .
+  FILTER (!ISBLANK (?class)) .
+  FILTER regex(str(?class), "http://www.ontologyrepository.com/CommonCoreOntologies/")
+  BIND (concat("ERROR: There is a subclass cycle around class ", str(?class)) AS ?error)
+}
