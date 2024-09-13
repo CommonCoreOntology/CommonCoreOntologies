@@ -1,21 +1,19 @@
 # Title: 
 #     No Duplicate Labels
 # Constraint Description: 
-#     Classes shall have no more than one rdfs:label.
+#     No two ontology elements shall have the same rdfs:label.
 # Severity:
 #     Warning
 
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?entity ?property ?value WHERE {
-  VALUES ?property {rdfs:label}
-  ?entity ?property ?value .
-  ?entity2 ?property ?value .
-  FILTER (?entity != ?entity2)
-  FILTER (!isBlank(?entity))
-  FILTER (!isBlank(?entity2))
-  FILTER NOT EXISTS { ?entity owl:deprecated true .
-                      ?entity2 owl:deprecated true }
+SELECT DISTINCT ?element ?element2 ?label ?error
+WHERE {
+  ?element rdfs:label ?label .
+  ?element2 rdfs:label ?label .
+  FILTER (?element != ?element2)
+  FILTER (!isBlank(?element))
+  FILTER (!isBlank(?element2))
+  BIND (concat("WARNING: The following ontology elements have the same rdfs:label ", str(?element), " and ", str(?element2)) AS ?error)
 }
-ORDER BY DESC(UCASE(str(?value)))
+ORDER BY DESC(UCASE(str(?label)))

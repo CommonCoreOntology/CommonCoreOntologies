@@ -1,0 +1,25 @@
+# Title:  
+#    No Multiple Inverse Object Properties
+# Constraint Description:  
+#    Object properties should not have more than one inverse property.
+# Severity:  
+#    Error
+
+PREFIX owl:   <http://www.w3.org/2002/07/owl#> 
+
+SELECT ?property1 ?property2 ?error
+WHERE
+{
+  {
+    ?property owl:inverseOf ?property1. 
+    ?property owl:inverseOf ?property2. 
+    FILTER (?property1 != ?property2) 
+  }
+  UNION
+  {
+    ?property1 owl:inverseOf ?property. 
+    ?property2 owl:inverseOf ?property. 
+    FILTER (?property1 != ?property2) 
+  }
+  BIND (concat("ERROR: Object property ", str(?property), " has more than one inverse.") AS ?error)
+}

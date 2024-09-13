@@ -1,17 +1,18 @@
 # Title: 
 #     Ontology Title Required
 # Constraint Description: 
-#     Any owl:Ontology must have a rdfs:label annotation property.
+#     Any owl:Ontology must have an rdfs:label.
 # Severity:
 #     Warning
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT DISTINCT ?resource
+SELECT DISTINCT ?resource ?error
 WHERE
 {
     ?resource a owl:Ontology .
     FILTER (!ISBLANK (?resource)) .
     FILTER NOT EXISTS {?resource rdfs:label ?title}
+    BIND (concat("WARNING: An rdfs:label is missing for ontology ", str(?resource)) AS ?error)
 }

@@ -5,27 +5,16 @@
 # Severity:
 #     Warning
 
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-
-SELECT DISTINCT ?resource ?property ?value
+SELECT DISTINCT ?resource ?property ?value ?error
 WHERE
 {
-    VALUES ?property { skos:prefLabel }
-
-    # Find items with different labels in the same language.
-    ?resource ?property ?value .
-    ?resource ?property ?value2 .
+    ?resource skos:prefLabel ?value .
+    ?resource skos:prefLabel ?value2 .
     FILTER ((lang(?value) = lang(?value2)) && (?value != ?value2)) .
-
-    # Ignore deprecated resources
-    FILTER NOT EXISTS { ?resource owl:deprecated true }
-
-    # Ignore blank nodes
     FILTER (!isBlank(?resource))
-
-    # Ignore labels without a language label
     FILTER (lang(?value) != "")
+    BIND (concat("WARNING: The following ontology elements have more than one skos:prefLabel per language ", str(?resource)) AS ?error)
 }
 ORDER BY ?resource

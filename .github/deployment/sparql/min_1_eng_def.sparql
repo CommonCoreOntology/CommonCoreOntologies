@@ -1,7 +1,7 @@
 # Title: 
 #    Definition Required
 # Constraint Description: 
-#    Any class or object property must have a non-empty defintiion with an English language tag.  
+#    Any class or object property must have a non-empty definition with an English language tag.  
 # Severity:
 #     Warning
 
@@ -9,7 +9,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
 
-SELECT DISTINCT ?resource ?label
+SELECT DISTINCT ?resource ?label ?error
 WHERE {
 VALUES ?type {owl:Class owl:ObjectProperty}
     ?resource a ?type .
@@ -19,5 +19,6 @@ VALUES ?type {owl:Class owl:ObjectProperty}
         }
     FILTER(!bound(?englishDefinition))
     FILTER(!isBlank(?resource))
+    BIND (concat("WARNING: Missing definition for ", str(?resource)) AS ?error)
 }
 ORDER BY ?resource
