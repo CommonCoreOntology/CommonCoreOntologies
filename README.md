@@ -14,7 +14,7 @@ CCO itself is not intended to grow indefinitely by including content that is pro
 
 ## Contributing
 
-Users may find the current release files for [CCO here](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v1.6-2024-09-24)
+Users may find the current release files for [CCO here](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v1.6-2024-09-26)
 
 Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at src/cco-merged/
 
