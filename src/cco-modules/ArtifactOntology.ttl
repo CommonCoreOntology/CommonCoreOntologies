@@ -1551,26 +1551,18 @@ cco:Filter rdf:type owl:Class ;
                                  rdf:type owl:Class
                                ] ;
            rdfs:subClassOf cco:Artifact ;
-           cco:definition "A Material Artifact that bears a Filter Function."@en ;
+           cco:definition "A Material Artifact that is designed to restrict access to the system it is part of by separating the entities that enter the Filter and only allowing entities of the specified type or with the specified properties to pass through."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-           rdfs:label "Filter"@en .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/FilterFunction
-cco:FilterFunction rdf:type owl:Class ;
-                   rdfs:subClassOf cco:ArtifactFunction ;
-                   cco:definition "An Artifact Function that is realized in a process where entities of a specific type or which have specified properties enter it or pass through it."@en ;
-                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
-                   rdfs:comment """Although its basic function remains the same, a Filter can be used in 2 different ways:
+           rdfs:comment """Although its basic function remains the same, a Filter can be used in 2 different ways:
 (1) to allow only the desired entities to pass through (e.g. removing dirt from engine oil); or
 (2) to allow everything except the desired entities to pass through (e.g. panning for gold)."""@en ;
-                   rdfs:label "Filter Function"@en .
+           rdfs:label "Filter"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FiltrationArtifactFunction
 cco:FiltrationArtifactFunction rdf:type owl:Class ;
-                               rdfs:subClassOf cco:FilterFunction ;
-                               cco:definition "An Filter Function that is realized in a process in which some solid entity is prevented from moving along with some quantity of liquid."@en ;
+                               rdfs:subClassOf cco:ArtifactFunction ;
+                               cco:definition "An Artifact Function that is realized in a process in which some solid entity is prevented from moving along with some quantity of liquid."@en ;
                                cco:definition_source "https://en.wikipedia.org/w/index.php?title=Filtration&oldid=1061655528"^^xsd:anyURI ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                rdfs:label "Filtration Artifact Function"@en .
