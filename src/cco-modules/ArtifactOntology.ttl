@@ -1542,6 +1542,14 @@ cco:FertilizerArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Filter
 cco:Filter rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( cco:Artifact
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty obo:BFO_0000196 ;
+                                                        owl:someValuesFrom cco:FilterFunction
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
            rdfs:subClassOf cco:Artifact ;
            cco:definition "A Material Artifact that bears a Filter Function."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
