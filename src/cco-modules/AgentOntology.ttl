@@ -1,4 +1,4 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology#> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -13,8 +13,8 @@
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology> rdf:type owl:Ontology ;
                                                                             owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-09-26/AgentOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-                                                                            dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                             dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
+                                                                            dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."@en ;
                                                                             rdfs:label "Agent Ontology"@en ;
                                                                             owl:versionInfo "Version 1.6"@en .
@@ -35,6 +35,10 @@ dcterms:created rdf:type owl:AnnotationProperty .
 dcterms:creator rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/terms/rights
+dcterms:rights rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#editorialNote
 skos:editorialNote rdf:type owl:AnnotationProperty .
 
@@ -51,9 +55,9 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 cco:agent_in rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf obo:BFO_0000056 ;
              owl:inverseOf cco:has_agent ;
-             cco:definition "x agent_in y iff y is an instance of Process and x is an instance of Agent, such that x is causally active in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "agent in"@en .
+             rdfs:label "agent in"@en ;
+             skos:definition "x agent_in y iff y is an instance of Process and x is an instance of Agent, such that x is causally active in y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/aggregate_has_capability
@@ -62,9 +66,9 @@ cco:aggregate_has_capability rdf:type owl:ObjectProperty ;
                              owl:inverseOf cco:capability_of_aggregate ;
                              rdfs:domain cco:GroupOfAgents ;
                              rdfs:range cco:AgentCapability ;
-                             cco:definition "x aggregate_has_capability y iff x is an instance of Object Aggregate and y is an instance of Agent Capability, such that x is aggregate bearer of y."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                             rdfs:label "aggregate has capability"@en .
+                             rdfs:label "aggregate has capability"@en ;
+                             skos:definition "x aggregate_has_capability y iff x is an instance of Object Aggregate and y is an instance of Agent Capability, such that x is aggregate bearer of y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/capability_of
@@ -73,9 +77,9 @@ cco:capability_of rdf:type owl:ObjectProperty ;
                   owl:inverseOf cco:has_capability ;
                   rdfs:domain cco:AgentCapability ;
                   rdfs:range cco:Agent ;
-                  cco:definition "x capability_of y iff y is an instance of Agent and x is an instance of Agent Capability, such that x inheres in y."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "capability of"@en .
+                  rdfs:label "capability of"@en ;
+                  skos:definition "x capability_of y iff y is an instance of Agent and x is an instance of Agent Capability, such that x inheres in y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/capability_of_aggregate
@@ -83,9 +87,9 @@ cco:capability_of_aggregate rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf cco:inheres_in_aggregate ;
                             rdfs:domain cco:AgentCapability ;
                             rdfs:range cco:GroupOfAgents ;
-                            cco:definition "x capability_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                            rdfs:label "capability of aggregate"@en .
+                            rdfs:label "capability of aggregate"@en ;
+                            skos:definition "x capability_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/delimits
@@ -93,10 +97,10 @@ cco:delimits rdf:type owl:ObjectProperty ;
              owl:inverseOf cco:is_delimited_by ;
              rdfs:domain cco:DelimitingDomain ;
              rdfs:range cco:Organization ;
-             cco:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "delimits"@en .
+             rdfs:label "delimits"@en ;
+             skos:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_affiliate
@@ -114,17 +118,17 @@ cco:has_affiliate rdf:type owl:ObjectProperty ;
                                              cco:Person
                                            )
                              ] ;
-                  cco:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "has affiliate"@en .
+                  rdfs:label "has affiliate"@en ;
+                  skos:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_agent
 cco:has_agent rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf obo:BFO_0000057 ;
-              cco:definition "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "has agent"@en .
+              rdfs:label "has agent"@en ;
+              skos:definition "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_aunt
@@ -156,9 +160,9 @@ cco:has_capability rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf obo:BFO_0000196 ;
                    rdfs:domain cco:Agent ;
                    rdfs:range cco:AgentCapability ;
-                   cco:definition "x has_capability y iff x is an instance of Agent and y is an instance of Agent Capability, such that x bearer of y."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "has capability"@en .
+                   rdfs:label "has capability"@en ;
+                   skos:definition "x has_capability y iff x is an instance of Agent and y is an instance of Agent Capability, such that x bearer of y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_daughter
@@ -178,12 +182,13 @@ cco:has_daughter_in_law rdf:type owl:ObjectProperty ;
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_familial_relationship_to
-cco:has_familial_relationship_to rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
+cco:has_familial_relationship_to rdf:type owl:ObjectProperty ,
+                                          owl:SymmetricProperty ;
                                  rdfs:domain cco:Person ;
                                  rdfs:range cco:Person ;
-                                 cco:definition "A relationship between persons by virtue of ancestry or legal union."@en ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                 rdfs:label "has familial relationship to"@en .
+                                 rdfs:label "has familial relationship to"@en ;
+                                 skos:definition "A relationship between persons by virtue of ancestry or legal union."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_father
@@ -265,10 +270,10 @@ cco:has_interest_in rdf:type owl:ObjectProperty ;
                     rdfs:range obo:BFO_0000015 ;
                     dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                     dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                    cco:definition "A relation between an entity and some process where the entity has an interest in that process."@en ;
                     cco:elucidation "There are four conditions in which an entity has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                     rdfs:label "has interest in"@en ;
+                    skos:definition "A relation between an entity and some process where the entity has an interest in that process."@en ;
                     skos:editorialNote "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the entity, or historically of evolutionary benefit to the entity's ancestors, or facilitates a process the entity has an interest in for the prior two reasons. The process an entity has an interest could in many or all ways be harmful to the entity."@en ;
                     skos:prefLabel "has interest in"@en .
 
@@ -350,9 +355,9 @@ cco:has_organizational_context rdf:type owl:ObjectProperty ;
                                owl:inverseOf cco:is_organizational_context_of ;
                                rdfs:domain obo:BFO_0000023 ;
                                rdfs:range cco:Organization ;
-                               cco:definition "x has_organizational_context y iff y is an instance of an Organization and x is an instance of a Role and z is an instance of a Person, such that z's affiliation with y is a prerequisite for z bearing x or y ascribes x to the bearer of x."@en ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                               rdfs:label "has organizational context"@en .
+                               rdfs:label "has organizational context"@en ;
+                               skos:definition "x has_organizational_context y iff y is an instance of an Organization and x is an instance of a Role and z is an instance of a Person, such that z's affiliation with y is a prerequisite for z bearing x or y ascribes x to the bearer of x."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_parent
@@ -408,9 +413,9 @@ cco:has_recipient rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf obo:BFO_0000057 ;
                   owl:inverseOf cco:receives ;
                   rdfs:range cco:Agent ;
-                  cco:definition "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "has recipient"@en .
+                  rdfs:label "has recipient"@en ;
+                  skos:definition "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_sender
@@ -418,9 +423,9 @@ cco:has_sender rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:BFO_0000057 ;
                owl:inverseOf cco:sends ;
                rdfs:range cco:Agent ;
-               cco:definition "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "has sender"@en .
+               rdfs:label "has sender"@en ;
+               skos:definition "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_sister
@@ -476,9 +481,9 @@ cco:has_subordinate_role rdf:type owl:ObjectProperty ;
                          owl:inverseOf cco:is_subordinate_role_to ;
                          rdfs:domain obo:BFO_0000023 ;
                          rdfs:range obo:BFO_0000023 ;
-                         cco:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                         rdfs:label "has subordinate role"@en .
+                         rdfs:label "has subordinate role"@en ;
+                         skos:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_subsidiary
@@ -487,10 +492,10 @@ cco:has_subsidiary rdf:type owl:ObjectProperty ;
                    owl:inverseOf cco:is_subsidiary_of ;
                    rdfs:domain cco:Organization ;
                    rdfs:range cco:Organization ;
-                   cco:definition "An Organization o1 has_subsidiary Organization o2 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies."@en ;
                    cco:definition_source "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html" ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "has subsidiary"@en .
+                   rdfs:label "has subsidiary"@en ;
+                   skos:definition "An Organization o1 has_subsidiary Organization o2 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_uncle
@@ -523,9 +528,9 @@ cco:is_affiliated_with rdf:type owl:ObjectProperty ;
                                                   cco:Person
                                                 )
                                   ] ;
-                       cco:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                       rdfs:label "is affiliated with"@en .
+                       rdfs:label "is affiliated with"@en ;
+                       skos:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_ancestor_of
@@ -583,10 +588,10 @@ cco:is_daughter_of rdf:type owl:ObjectProperty ;
 cco:is_delimited_by rdf:type owl:ObjectProperty ;
                     rdfs:domain cco:Organization ;
                     rdfs:range cco:DelimitingDomain ;
-                    cco:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                    rdfs:label "is delimited by"@en .
+                    rdfs:label "is delimited by"@en ;
+                    skos:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_descendent_of
@@ -707,9 +712,9 @@ cco:is_interest_of rdf:type owl:ObjectProperty ;
                    rdfs:range cco:Agent ;
                    dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                    dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                   cco:definition "The inverse of has_interest_in. " ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                    rdfs:label "is interest of"@en ;
+                   skos:definition "The inverse of has_interest_in. " ;
                    skos:prefLabel "is interest of"@en .
 
 
@@ -723,10 +728,10 @@ cco:is_maternal_aunt_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_first_cousin_of
 cco:is_maternal_first_cousin_of rdf:type owl:ObjectProperty ;
                                 rdfs:subPropertyOf cco:is_first_cousin_of ;
-                                cco:definition "Person A is maternal first cousin of Person B iff Person B has mother M and M has sibling P and P is parent of Person A."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                 rdfs:comment "Comment is_maternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
-                                rdfs:label "is maternal first cousin of"@en .
+                                rdfs:label "is maternal first cousin of"@en ;
+                                skos:definition "Person A is maternal first cousin of Person B iff Person B has mother M and M has sibling P and P is parent of Person A."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_maternal_grandfather_of
@@ -782,9 +787,9 @@ cco:is_niece_of rdf:type owl:ObjectProperty ;
 cco:is_organizational_context_of rdf:type owl:ObjectProperty ;
                                  rdfs:domain cco:Organization ;
                                  rdfs:range obo:BFO_0000023 ;
-                                 cco:definition "x is_organizational_context_of y iff x is an instance of an Organization and y is an instance of a Role and z is an instance of a Person, such that z's affiliation with x is a prerequisite for z bearing y, or x ascribes y to the bearer of y."@en ;
                                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                 rdfs:label "is organizational context of"@en .
+                                 rdfs:label "is organizational context of"@en ;
+                                 skos:definition "x is_organizational_context_of y iff x is an instance of an Organization and y is an instance of a Role and z is an instance of a Person, such that z's affiliation with x is a prerequisite for z bearing y, or x ascribes y to the bearer of y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_parent_of
@@ -806,10 +811,10 @@ cco:is_paternal_aunt_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_paternal_first_cousin_of
 cco:is_paternal_first_cousin_of rdf:type owl:ObjectProperty ;
                                 rdfs:subPropertyOf cco:is_first_cousin_of ;
-                                cco:definition "Person A is paternal first cousin of Person B iff Person B has father F and F has sibling P and P is parent of Person A."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                 rdfs:comment "Comment is_paternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
-                                rdfs:label "is paternal first cousin of"@en .
+                                rdfs:label "is paternal first cousin of"@en ;
+                                skos:definition "Person A is paternal first cousin of Person B iff Person B has father F and F has sibling P and P is parent of Person A."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_paternal_grandfather_of
@@ -839,9 +844,9 @@ cco:is_permitted_by rdf:type owl:ObjectProperty ;
                     owl:inverseOf cco:permits ;
                     rdfs:domain obo:BFO_0000015 ;
                     rdfs:range cco:ActionRegulation ;
-                    cco:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                     rdfs:label "is permitted by"@en ;
+                    skos:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
                     skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
@@ -851,9 +856,9 @@ cco:is_prohibited_by rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:prohibits ;
                      rdfs:domain obo:BFO_0000015 ;
                      rdfs:range cco:ActionRegulation ;
-                     cco:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                      rdfs:label "is prohibited by"@en ;
+                     skos:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
                      skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
@@ -863,9 +868,9 @@ cco:is_required_by rdf:type owl:ObjectProperty ;
                    owl:inverseOf cco:requires ;
                    rdfs:domain obo:BFO_0000015 ;
                    rdfs:range cco:ActionRegulation ;
-                   cco:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must occur."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                    rdfs:label "is required by"@en ;
+                   skos:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must occur."@en ;
                    skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
@@ -951,9 +956,9 @@ cco:is_step_sister_of rdf:type owl:ObjectProperty ;
 cco:is_subordinate_role_to rdf:type owl:ObjectProperty ;
                            rdfs:domain obo:BFO_0000023 ;
                            rdfs:range obo:BFO_0000023 ;
-                           cco:definition "For all x,y,t: y is subordinate role to x at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                           rdfs:label "is subordinate role to"@en .
+                           rdfs:label "is subordinate role to"@en ;
+                           skos:definition "For all x,y,t: y is subordinate role to x at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_subsidiary_of
@@ -961,10 +966,10 @@ cco:is_subsidiary_of rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf cco:is_affiliated_with ;
                      rdfs:domain cco:Organization ;
                      rdfs:range cco:Organization ;
-                     cco:definition "An Organization o2 is_subsidiary_of Organization o1 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies. "@en ;
                      cco:definition_source "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html)" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "is subsidiary of"@en .
+                     rdfs:label "is subsidiary of"@en ;
+                     skos:definition "An Organization o2 is_subsidiary_of Organization o1 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies. "@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_supervised_by
@@ -973,10 +978,10 @@ cco:is_supervised_by rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:supervises ;
                      rdfs:domain cco:Person ;
                      rdfs:range cco:Person ;
-                     cco:definition "A person p1 is supervised by a person p2 by virtue of p1 being directed, managed, or overseen by p2."@en ;
                      cco:definition_source "http://en.wiktionary.org/wiki/supervise)" ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "is supervised by"@en .
+                     rdfs:label "is supervised by"@en ;
+                     skos:definition "A person p1 is supervised by a person p2 by virtue of p1 being directed, managed, or overseen by p2."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_third_cousin_of
@@ -998,9 +1003,9 @@ cco:is_uncle_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_used_by
 cco:is_used_by rdf:type owl:ObjectProperty ;
                owl:inverseOf cco:uses ;
-               cco:definition "x is_used_by y iff y is an instance of an Agent and x is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein y attempts to accomplish a goal by manipulating, deploying, leveraging some attribute of y."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "is used by"@en .
+               rdfs:label "is used by"@en ;
+               skos:definition "x is_used_by y iff y is an instance of an Agent and x is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein y attempts to accomplish a goal by manipulating, deploying, leveraging some attribute of y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/is_wife_of
@@ -1015,9 +1020,9 @@ cco:permits rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf cco:prescribes ;
             rdfs:domain cco:ActionRegulation ;
             rdfs:range obo:BFO_0000015 ;
-            cco:definition "x permits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
             rdfs:label "permits"@en ;
+            skos:definition "x permits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
             skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
@@ -1026,9 +1031,9 @@ cco:prohibits rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf cco:prescribes ;
               rdfs:domain cco:ActionRegulation ;
               rdfs:range obo:BFO_0000015 ;
-              cco:definition "x prohibits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some y must not occur."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
               rdfs:label "prohibits"@en ;
+              skos:definition "x prohibits y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some y must not occur."@en ;
               skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
@@ -1036,9 +1041,9 @@ cco:prohibits rdf:type owl:ObjectProperty ;
 cco:receives rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf obo:BFO_0000056 ;
              rdfs:domain cco:Agent ;
-             cco:definition "x receives y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the recipient and decoder of the InformationContentEntity intended for communication in y."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "receives"@en .
+             rdfs:label "receives"@en ;
+             skos:definition "x receives y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the recipient and decoder of the InformationContentEntity intended for communication in y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/requires
@@ -1046,9 +1051,9 @@ cco:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf cco:prescribes ;
              rdfs:domain cco:ActionRegulation ;
              rdfs:range obo:BFO_0000015 ;
-             cco:definition "x requires y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some y must occur."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:label "requires"@en ;
+             skos:definition "x requires y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that some y must occur."@en ;
              skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
 
 
@@ -1056,9 +1061,9 @@ cco:requires rdf:type owl:ObjectProperty ;
 cco:sends rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf obo:BFO_0000056 ;
           rdfs:domain cco:Agent ;
-          cco:definition "x sends y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-          rdfs:label "sends"@en .
+          rdfs:label "sends"@en ;
+          skos:definition "x sends y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/supervises
@@ -1066,17 +1071,17 @@ cco:supervises rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf cco:has_affiliate ;
                rdfs:domain cco:Person ;
                rdfs:range cco:Person ;
-               cco:definition "A person p1 supervises a person p2 by virtue of p1 directing, managing, or overseeing p2."@en ;
                cco:definition_source "http://en.wiktionary.org/wiki/supervise" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "supervises"@en .
+               rdfs:label "supervises"@en ;
+               skos:definition "A person p1 supervises a person p2 by virtue of p1 directing, managing, or overseeing p2."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/uses
 cco:uses rdf:type owl:ObjectProperty ;
-         cco:definition "x uses y iff x is an instance of an Agent and y is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein x attempts to accomplish a goal by manipulating, deploying, or leveraging some attribute of y."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-         rdfs:label "uses"@en .
+         rdfs:label "uses"@en ;
+         skos:definition "x uses y iff x is an instance of an Agent and y is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein x attempts to accomplish a goal by manipulating, deploying, or leveraging some attribute of y."@en .
 
 
 #################################################################
@@ -1094,11 +1099,11 @@ cco:ActionPermission rdf:type owl:Class ;
                                            rdf:type owl:Class
                                          ] ;
                      rdfs:subClassOf cco:ActionRegulation ;
-                     cco:alternative_label "Authorization"@en ,
-                                           "License"@en ;
-                     cco:definition "A Process Regulation that permits some Process."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "Action Permission"@en .
+                     rdfs:label "Action Permission"@en ;
+                     skos:altLabel "Authorization"@en ,
+                                   "License"@en ;
+                     skos:definition "A Process Regulation that permits some Process."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActionProhibition
@@ -1112,18 +1117,18 @@ cco:ActionProhibition rdf:type owl:Class ;
                                             rdf:type owl:Class
                                           ] ;
                       rdfs:subClassOf cco:ActionRegulation ;
-                      cco:definition "A Process Regulation that prohibits some Process."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      rdfs:label "Process Prohibition"@en .
+                      rdfs:label "Process Prohibition"@en ;
+                      skos:definition "A Process Regulation that prohibits some Process."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActionRegulation
 cco:ActionRegulation rdf:type owl:Class ;
                      rdfs:subClassOf cco:DirectiveInformationContentEntity ;
-                     cco:definition "A Directive Information Content Entity that prescribes an Process as required, prohibited, or permitted, and is the output of an Process which realizes some Authority Role."@en ;
                      cco:elucidation "Although regulations often regulate processes which involve agents--as the regulating or regulated participant--it is unclear how causally active an agents need to be in those regulated processes. For example, it is not clear how causally active a human agent is in the process of a traffic light regulating the motion of a self-driving vehicle."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "Process Regulation"@en .
+                     rdfs:label "Process Regulation"@en ;
+                     skos:definition "A Directive Information Content Entity that prescribes an Process as required, prohibited, or permitted, and is the output of an Process which realizes some Authority Role."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActionRequirement
@@ -1137,20 +1142,20 @@ cco:ActionRequirement rdf:type owl:Class ;
                                             rdf:type owl:Class
                                           ] ;
                       rdfs:subClassOf cco:ActionRegulation ;
-                      cco:alternative_label "Duty"@en ,
-                                            "Obligation"@en ;
-                      cco:definition "A Process Regulation that requires some Process."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      rdfs:label "Process Requirement"@en .
+                      rdfs:label "Process Requirement"@en ;
+                      skos:altLabel "Duty"@en ,
+                                    "Obligation"@en ;
+                      skos:definition "A Process Regulation that requires some Process."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Affordance
 cco:Affordance rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000017 ;
-               cco:definition "A Realizable Entity of an Independent Continuant that creates an opportunity for an Agent to realize some Capability or Disposition in some Act."@en ;
                cco:definition_source "https://en.wikipedia.org/w/index.php?title=Affordance&oldid=1061963879"^^xsd:anyURI ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "Affordance"@en .
+               rdfs:label "Affordance"@en ;
+               skos:definition "A Realizable Entity of an Independent Continuant that creates an opportunity for an Agent to realize some Capability or Disposition in some Act."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Agent
@@ -1164,25 +1169,25 @@ cco:Agent rdf:type owl:Class ;
                                 rdf:type owl:Class
                               ] ;
           rdfs:subClassOf obo:BFO_0000040 ;
-          cco:definition "A Material Entity that is capable of performing Planned Acts"@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-          rdfs:label "Agent"@en .
+          rdfs:label "Agent"@en ;
+          skos:definition "A Material Entity that is capable of performing Planned Acts"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability
 cco:AgentCapability rdf:type owl:Class ;
                     rdfs:subClassOf obo:BFO_0000017 ;
-                    cco:definition "A Realizable Entity that inheres in an Agent to the extent of that Agent's capacity to realize it in Intentional Acts of a certain type."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                    rdfs:label "Agent Capability"@en .
+                    rdfs:label "Agent Capability"@en ;
+                    skos:definition "A Realizable Entity that inheres in an Agent to the extent of that Agent's capacity to realize it in Intentional Acts of a certain type."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AllegianceRole
 cco:AllegianceRole rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000023 ;
-                   cco:definition "A Role that inheres in an Agent by virtue of the support it has committed to provide to another Agent when that Agent is involved in a conflict."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Allegiance Role"@en .
+                   rdfs:label "Allegiance Role"@en ;
+                   skos:definition "A Role that inheres in an Agent by virtue of the support it has committed to provide to another Agent when that Agent is involved in a conflict."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AlliedPerson
@@ -1196,71 +1201,71 @@ cco:AlliedPerson rdf:type owl:Class ;
                                        rdf:type owl:Class
                                      ] ;
                  rdfs:subClassOf cco:Person ;
-                 cco:definition "A Person who is the bearer of some Ally Role."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                 rdfs:label "Allied Person"@en .
+                 rdfs:label "Allied Person"@en ;
+                 skos:definition "A Person who is the bearer of some Ally Role."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AllyRole
 cco:AllyRole rdf:type owl:Class ;
              rdfs:subClassOf cco:AllegianceRole ;
-             cco:definition "An Allegiance Role that inheres in an Agent in virtue of that Agent's commitment to perform Acts that support the Objectives of a particular Agent or Group of Agents."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "Ally Role"@en .
+             rdfs:label "Ally Role"@en ;
+             skos:definition "An Allegiance Role that inheres in an Agent in virtue of that Agent's commitment to perform Acts that support the Objectives of a particular Agent or Group of Agents."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Animal
 cco:Animal rdf:type owl:Class ;
            rdfs:subClassOf cco:Organism ;
-           cco:definition "An Organism that is multicellular, eukaryotic, heterotrophic, and capable of motility for part of its life."@en ;
            cco:definition_source "https://en.wikipedia.org/w/index.php?title=Animal&oldid=1063873549"^^xsd:anyURI ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-           rdfs:label "Animal"@en .
+           rdfs:label "Animal"@en ;
+           skos:definition "An Organism that is multicellular, eukaryotic, heterotrophic, and capable of motility for part of its life."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ArmedForce
 cco:ArmedForce rdf:type owl:Class ;
                rdfs:subClassOf cco:Organization ;
-               cco:definition "An Organization having the Objective to further the foreign and domestic policies of a Government and to defend that body and the nation it represents from external and internal aggressors."@en ;
                cco:definition_source "https://en.wikipedia.org/w/index.php?title=Military&oldid=1063431234"^^xsd:anyURI ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "Armed Force"@en .
+               rdfs:label "Armed Force"@en ;
+               skos:definition "An Organization having the Objective to further the foreign and domestic policies of a Government and to defend that body and the nation it represents from external and internal aggressors."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AuthorityRole
 cco:AuthorityRole rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000023 ;
-                  cco:definition "A Role that is realized by Processes which create, modify, transfer, or eliminate Process Regulations or other Authority Roles, and inheres in an Agent in virtue of collective acceptance of that Agent's ability to issue binding directives."@en ;
                   cco:elucidation "Authority Roles are externally grounded in a social group's collective acceptance of the binding force of the agent's directives. This acceptance can be direct or indirect (e.g., by accepting a procedure for deputizing authority). Such collective acceptance need not be explicit or cognized; rather, collective acceptance can be expressed in the dispositions and attitudes of people toward that agent's directives. In many cases, the directives issued by Authority Roles are backed by threats of punishment or sanction for failure to comply, but the issuing of a directive plus a threat is not sufficient for authority. Rather, an agent's authority must be accepted either directly or indirectly through the acceptance of a procedure for bestowing authority (e.g., elections)."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "Authority Role"@en .
+                  rdfs:label "Authority Role"@en ;
+                  skos:definition "A Role that is realized by Processes which create, modify, transfer, or eliminate Process Regulations or other Authority Roles, and inheres in an Agent in virtue of collective acceptance of that Agent's ability to issue binding directives."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/BiologicalSex
 cco:BiologicalSex rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000019 ;
-                  cco:definition "A Quality inhering in a bearer by virtue of the bearer's ability to undergo sexual reproduction in order to differentiate the individuals or types involved."@en ;
                   cco:definition_source "http://purl.org/obo/owl/PATO#PATO_0000047" ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "Biological Sex"@en .
+                  rdfs:label "Biological Sex"@en ;
+                  skos:definition "A Quality inhering in a bearer by virtue of the bearer's ability to undergo sexual reproduction in order to differentiate the individuals or types involved."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/BodilyComponent
 cco:BodilyComponent rdf:type owl:Class ;
                     rdfs:subClassOf obo:BFO_0000024 ;
-                    cco:definition "A Fiat Object Part located within or on the surface of an Agent."@en ;
                     cco:definition_source "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017014/" ;
                     cco:example_of_usage "Bodily Components include anatomical structures, body flora, pathogens, toxins, and their combinations." ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                    rdfs:label "Bodily Component"@en .
+                    rdfs:label "Bodily Component"@en ;
+                    skos:definition "A Fiat Object Part located within or on the surface of an Agent."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CarrierAirWing
 cco:CarrierAirWing rdf:type owl:Class ;
                    rdfs:subClassOf cco:MilitaryPersonnelForce ;
-                   cco:definition "A Military Force that is trained and equipped to conduct air operations while embarked on an aircraft carrier."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Carrier Air Wing"@en .
+                   rdfs:label "Carrier Air Wing"@en ;
+                   skos:definition "A Military Force that is trained and equipped to conduct air operations while embarked on an aircraft carrier."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Citizen
@@ -1274,27 +1279,27 @@ cco:Citizen rdf:type owl:Class ;
                                   rdf:type owl:Class
                                 ] ;
             rdfs:subClassOf cco:Person ;
-            cco:definition "A Person who is the bearer of some Citizen Role."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-            rdfs:label "Citizen"@en .
+            rdfs:label "Citizen"@en ;
+            skos:definition "A Person who is the bearer of some Citizen Role."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CitizenRole
 cco:CitizenRole rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000023 ;
-                cco:definition "A Role that inheres in a Person who is legally recognized as a member of a particular state, with associated rights and obligations."@en ;
                 cco:definition_source "http://en.wikitionary.org/wiki/citizen" ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                rdfs:label "Citizen Role"@en .
+                rdfs:label "Citizen Role"@en ;
+                skos:definition "A Role that inheres in a Person who is legally recognized as a member of a particular state, with associated rights and obligations."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/City
 cco:City rdf:type owl:Class ;
          rdfs:subClassOf cco:LocalAdministrativeRegion ;
-         cco:definition "A Local Administrative Region in which a relatively large human population permanently resides; is designated as a city based on a particular administrative, legal, or historical status; and which delimits a local Government that typically oversees the provision of systems for sanitation, utilities, land usage, housing, and transportation."@en ;
          cco:definition_source "https://en.wikipedia.org/w/index.php?title=City&oldid=1062635325"^^xsd:anyURI ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-         rdfs:label "City"@en .
+         rdfs:label "City"@en ;
+         skos:definition "A Local Administrative Region in which a relatively large human population permanently resides; is designated as a city based on a particular administrative, legal, or historical status; and which delimits a local Government that typically oversees the provision of systems for sanitation, utilities, land usage, housing, and transportation."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilOrganization
@@ -1308,17 +1313,17 @@ cco:CivilOrganization rdf:type owl:Class ;
                                             rdf:type owl:Class
                                           ] ;
                       rdfs:subClassOf cco:Organization ;
-                      cco:definition "An Organization that is not commercial or military and is the bearer of a Civilian Role."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      rdfs:label "Civil Organization"@en .
+                      rdfs:label "Civil Organization"@en ;
+                      skos:definition "An Organization that is not commercial or military and is the bearer of a Civilian Role."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CivilianRole
 cco:CivilianRole rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000023 ;
-                 cco:definition "A Role that inheres in an Agent or Group of Agents who is not a member of either an Armed Force or police force."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                 rdfs:label "Civilian Role"@en .
+                 rdfs:label "Civilian Role"@en ;
+                 skos:definition "A Role that inheres in an Agent or Group of Agents who is not a member of either an Armed Force or police force."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CommercialOrganization
@@ -1332,26 +1337,26 @@ cco:CommercialOrganization rdf:type owl:Class ;
                                                  rdf:type owl:Class
                                                ] ;
                            rdfs:subClassOf cco:Organization ;
-                           cco:definition "An Organization that is the bearer of a Commercial Role and whose primary objective is to make a profit from the provision of goods or services."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                           rdfs:label "Commercial Organization"@en .
+                           rdfs:label "Commercial Organization"@en ;
+                           skos:definition "An Organization that is the bearer of a Commercial Role and whose primary objective is to make a profit from the provision of goods or services."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CommercialRole
 cco:CommercialRole rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000023 ;
-                   cco:definition "A Role that inheres in an Organization by virtue of its establishment as a for-profit business."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Commercial Role"@en .
+                   rdfs:label "Commercial Role"@en ;
+                   skos:definition "A Role that inheres in an Organization by virtue of its establishment as a for-profit business."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ContractorRole
 cco:ContractorRole rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000023 ;
-                   cco:definition "A Role that inheres in an Agent or Group of Agents who enters into a Contract to provide materials or labor to perform a service or complete a task."@en ;
                    cco:elucidation "A Contractor Role differs from an Occupation Role in at least two ways. First, the Contract that binds the two parties together is not one of employment. Second, a Contractor Role is occupationally neutral in that an Agent can be contracted to perform any number of Occupational Roles."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Contractor Role"@en .
+                   rdfs:label "Contractor Role"@en ;
+                   skos:definition "A Role that inheres in an Agent or Group of Agents who enters into a Contract to provide materials or labor to perform a service or complete a task."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Country
@@ -1359,10 +1364,10 @@ cco:Country rdf:type owl:Class ;
             rdfs:subClassOf cco:GeopoliticalEntity ;
             dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
             dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-            cco:definition "A Government Domain that is associated with certain distinct political, ethnic, or cultural characteristics, and which delimits a Government that has legitimate authority over a Populace."@en ;
             cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
             rdfs:label "Domain of a Country"@en ;
+            skos:definition "A Government Domain that is associated with certain distinct political, ethnic, or cultural characteristics, and which delimits a Government that has legitimate authority over a Populace."@en ;
             skos:editorialNote "'Country' is an unclear term. Does it refer to the people, the government, the site, or the material in the site? Furthermore, what is properly referred to as a 'Country' is highly dependent on the classification practices of the international community. For example: The United Kingdom is a sovereign country that has Wales, a non-sovereign Country, as a member. Vatican City is a sovereign country that is landlocked by a city: Rome, Italy. Puerto Rico is not a country (it's a territory) but has a government, a distinct culture, and so on. Thus, here we do not definine 'Country' but instead define 'Domain of a Country'."@en ;
             skos:prefLabel "Domain of a Country"@en .
 
@@ -1370,18 +1375,18 @@ cco:Country rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/County
 cco:County rdf:type owl:Class ;
            rdfs:subClassOf cco:GeopoliticalEntity ;
-           cco:definition "A Government Domain that is part of either a First-Order or Second-Order Administrative Region."@en ;
            cco:definition_source "https://en.wikipedia.org/w/index.php?title=County&oldid=1062817834"^^xsd:anyURI ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-           rdfs:label "County"@en .
+           rdfs:label "County"@en ;
+           skos:definition "A Government Domain that is part of either a First-Order or Second-Order Administrative Region."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Crew
 cco:Crew rdf:type owl:Class ;
          rdfs:subClassOf cco:GroupOfPersons ;
-         cco:definition "A Group of Persons that bear Roles realized by the operation of the specified Vehicle."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-         rdfs:label "Crew"@en .
+         rdfs:label "Crew"@en ;
+         skos:definition "A Group of Persons that bear Roles realized by the operation of the specified Vehicle."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DelimitingDomain
@@ -1398,27 +1403,27 @@ cco:DelimitingDomain rdf:type owl:Class ;
                      owl:disjointWith cco:DivisonOfGeopoliticalEntity ;
                      dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                      dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                     cco:definition "A Geospatial Region that delimits the authority of an Organization to exercise its control within the bounded area."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                      rdfs:label "Delimiting Domain"@en ;
+                     skos:definition "A Geospatial Region that delimits the authority of an Organization to exercise its control within the bounded area."@en ;
                      skos:prefLabel "Delimiting Domain"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Disability
 cco:Disability rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ;
-               cco:definition "A Quality inhering in an Agent by virtue a physical or mental condition that limits the Agent's movements, senses, or activities."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "Disability"@en .
+               rdfs:label "Disability"@en ;
+               skos:definition "A Quality inhering in an Agent by virtue a physical or mental condition that limits the Agent's movements, senses, or activities."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Disease
 cco:Disease rdf:type owl:Class ;
             rdfs:subClassOf obo:BFO_0000016 ;
-            cco:definition "A Disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism."@en ;
             cco:definition_source "http://purl.obolibrary.org/obo/OGMS_0000031" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-            rdfs:label "Disease"@en .
+            rdfs:label "Disease"@en ;
+            skos:definition "A Disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DivisonOfGeopoliticalEntity
@@ -1428,20 +1433,20 @@ cco:DivisonOfGeopoliticalEntity rdf:type owl:Class ;
                                                   owl:onProperty obo:BFO_0000176 ;
                                                   owl:someValuesFrom cco:DelimitingDomain
                                                 ] ;
-                                cco:definition "A Geospatial Region that is a fiat division of a Delimiting Domain and not a Delimiting Domain."@en ;
                                 cco:example_of_usage "Flatbush, French Quarter, Western New York, Texas Panhandle, Greater Montreal Area of Quebec, Pacific Northwest, southwest area of Al Anbar Province, Northern Iraq." ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                 rdfs:comment "Instances of this class are not proper Delimiting Domains, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
-                                rdfs:label "Division of Delimiting Domain"@en .
+                                rdfs:label "Division of Delimiting Domain"@en ;
+                                skos:definition "A Geospatial Region that is a fiat division of a Delimiting Domain and not a Delimiting Domain."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EducationalOrganization
 cco:EducationalOrganization rdf:type owl:Class ;
                             rdfs:subClassOf cco:Organization ;
-                            cco:definition "An Organization whose primary purpose is to provide training or otherwise facilitate learning or the acquisition of knowledge, Skills, values, beliefs, or habits."@en ;
                             cco:definition_source "https://en.wikipedia.org/w/index.php?title=Education&oldid=1064011752"^^xsd:anyURI ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                            rdfs:label "Educational Organization"@en .
+                            rdfs:label "Educational Organization"@en ;
+                            skos:definition "An Organization whose primary purpose is to provide training or otherwise facilitate learning or the acquisition of knowledge, Skills, values, beliefs, or habits."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Enemy
@@ -1455,17 +1460,17 @@ cco:Enemy rdf:type owl:Class ;
                                 rdf:type owl:Class
                               ] ;
           rdfs:subClassOf cco:Person ;
-          cco:definition "A Person who is the bearer of some Enemy Role."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-          rdfs:label "Enemy Person"@en .
+          rdfs:label "Enemy Person"@en ;
+          skos:definition "A Person who is the bearer of some Enemy Role."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EnemyRole
 cco:EnemyRole rdf:type owl:Class ;
               rdfs:subClassOf cco:AllegianceRole ;
-              cco:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent having committed offensive Acts or exhibited intent to perform such Acts towards a particular Agent or Group of Agents or has been declared as hostile by some appropriate authority."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "Enemy Role"@en .
+              rdfs:label "Enemy Role"@en ;
+              skos:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent having committed offensive Acts or exhibited intent to perform such Acts towards a particular Agent or Group of Agents or has been declared as hostile by some appropriate authority."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EthnicGroup
@@ -1475,27 +1480,27 @@ cco:EthnicGroup rdf:type owl:Class ;
                                   owl:onProperty cco:aggregate_has_quality ;
                                   owl:someValuesFrom cco:Ethnicity
                                 ] ;
-                cco:definition "A Group of Persons who identify with one another based on one or more shared inherited characteristics such as language, ancestry, nationality, culture, customs, religion, or social experiences."@en ;
                 cco:definition_source "https://en.wikipedia.org/w/index.php?title=Ethnic_group&oldid=1063804490"^^xsd:anyURI ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                rdfs:label "Ethnic Group"@en .
+                rdfs:label "Ethnic Group"@en ;
+                skos:definition "A Group of Persons who identify with one another based on one or more shared inherited characteristics such as language, ancestry, nationality, culture, customs, religion, or social experiences."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Ethnicity
 cco:Ethnicity rdf:type owl:Class ;
               rdfs:subClassOf obo:BFO_0000019 ;
-              cco:definition "A Quality that inheres in its bearers by virtue of a common heritage, often consisting of a common language, a common culture (often including a shared religion) and an ideology that stresses common ancestry or endogamy."@en ;
               cco:definition_source "https://en.wikipedia.org/w/index.php?title=Ethnic_group&oldid=1063804490"^^xsd:anyURI ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "Ethnicity"@en .
+              rdfs:label "Ethnicity"@en ;
+              skos:definition "A Quality that inheres in its bearers by virtue of a common heritage, often consisting of a common language, a common culture (often including a shared religion) and an ideology that stresses common ancestry or endogamy."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Eye
 cco:Eye rdf:type owl:Class ;
         rdfs:subClassOf cco:BodilyComponent ;
-        cco:definition "A Bodily Component that consists of an organ that canonically affords the Agent it is part of with the ability to receive visual stimuli necessary for sight."@en ;
         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-        rdfs:label "Eye"@en .
+        rdfs:label "Eye"@en ;
+        skos:definition "A Bodily Component that consists of an organ that canonically affords the Agent it is part of with the ability to receive visual stimuli necessary for sight."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EyeColor
@@ -1505,51 +1510,51 @@ cco:EyeColor rdf:type owl:Class ;
                                owl:onProperty obo:BFO_0000197 ;
                                owl:someValuesFrom cco:Iris
                              ] ;
-             cco:definition "A Quality inhering in an Eye by virtue of the color of the Eye's Iris."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "Eye Color"@en .
+             rdfs:label "Eye Color"@en ;
+             skos:definition "A Quality inhering in an Eye by virtue of the color of the Eye's Iris."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FacialHair
 cco:FacialHair rdf:type owl:Class ;
                rdfs:subClassOf cco:BodilyComponent ;
-               cco:definition "A Bodily Component that consists of a portion of hair that grows on the face of a human (typically male) or other animal."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-               rdfs:label "Facial Hair"@en .
+               rdfs:label "Facial Hair"@en ;
+               skos:definition "A Bodily Component that consists of a portion of hair that grows on the face of a human (typically male) or other animal."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Family
 cco:Family rdf:type owl:Class ;
            rdfs:subClassOf cco:GroupOfPersons ;
-           cco:definition "A Group of Persons related to one another by ancestry or marriage."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-           rdfs:label "Family"@en .
+           rdfs:label "Family"@en ;
+           skos:definition "A Group of Persons related to one another by ancestry or marriage."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FemaleSex
 cco:FemaleSex rdf:type owl:Class ;
               rdfs:subClassOf cco:BiologicalSex ;
-              cco:definition "A Biological Sex inhering in an individual that only produces gametes that can be fertilized by male gametes."@en ;
               cco:definition_source "http://purl.org/obo/owl/PATO#PATO_0000383" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "Female Sex"@en .
+              rdfs:label "Female Sex"@en ;
+              skos:definition "A Biological Sex inhering in an individual that only produces gametes that can be fertilized by male gametes."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FinancialValue
 cco:FinancialValue rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000019 ;
-                   cco:definition "A quality that inheres in an independent continuant to the degree that that independent continuant can serve as a medium of exchange in an economic system at a particular time."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Financial Value"@en .
+                   rdfs:label "Financial Value"@en ;
+                   skos:definition "A quality that inheres in an independent continuant to the degree that that independent continuant can serve as a medium of exchange in an economic system at a particular time."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FinancialValueOfProperty
 cco:FinancialValueOfProperty rdf:type owl:Class ;
                              rdfs:subClassOf cco:FinancialValue ;
-                             cco:alternative_label "Property Value"@en ;
-                             cco:definition "Financial Value that inheres in an material entity that is the object of an Act of Ownership."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                             rdfs:label "Financial Value of Property"@en .
+                             rdfs:label "Financial Value of Property"@en ;
+                             skos:altLabel "Property Value"@en ;
+                             skos:definition "Financial Value that inheres in an material entity that is the object of an Act of Ownership."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FirstOrderAdministrativeRegion
@@ -1559,11 +1564,11 @@ cco:FirstOrderAdministrativeRegion rdf:type owl:Class ;
                                                      owl:onProperty obo:BFO_0000176 ;
                                                      owl:someValuesFrom cco:Country
                                                    ] ;
-                                   cco:definition "A Government Domain that is a primary administrative division of a Country."@en ;
                                    cco:definition_source "http://www.geonames.org/export/codes.html" ;
                                    cco:example_of_usage "a state in the United States" ;
                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                   rdfs:label "First-Order Administrative Region"@en .
+                                   rdfs:label "First-Order Administrative Region"@en ;
+                                   skos:definition "A Government Domain that is a primary administrative division of a Country."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/FourthOrderAdministrativeRegion
@@ -1573,10 +1578,10 @@ cco:FourthOrderAdministrativeRegion rdf:type owl:Class ;
                                                       owl:onProperty obo:BFO_0000176 ;
                                                       owl:someValuesFrom cco:ThirdOrderAdministrativeRegion
                                                     ] ;
-                                    cco:definition "A Government Domain that is a subdivision of a Third-Order Administrative Region."@en ;
                                     cco:definition_source "http://www.geonames.org/export/codes.html" ;
                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                    rdfs:label "Fourth-Order Administrative Region"@en .
+                                    rdfs:label "Fourth-Order Administrative Region"@en ;
+                                    skos:definition "A Government Domain that is a subdivision of a Third-Order Administrative Region."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntity
@@ -1590,18 +1595,18 @@ cco:GeopoliticalEntity rdf:type owl:Class ;
                                              rdf:type owl:Class
                                            ] ;
                        rdfs:subClassOf cco:DelimitingDomain ;
-                       cco:definition "A Delimiting Domain that delimits the authority of a Government to exercise its control within the bounded area."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                       rdfs:label "Government Domain"@en .
+                       rdfs:label "Government Domain"@en ;
+                       skos:definition "A Delimiting Domain that delimits the authority of a Government to exercise its control within the bounded area."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalEntityBorder
 cco:GeopoliticalEntityBorder rdf:type owl:Class ;
                              rdfs:subClassOf cco:GeospatialBoundary ;
-                             cco:definition "A Geospatial Boundary that is a boundary of some Government Domain."@en ;
                              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Border&oldid=1061275162"^^xsd:anyURI ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                             rdfs:label "Government Domain Border"@en .
+                             rdfs:label "Government Domain Border"@en ;
+                             skos:definition "A Geospatial Boundary that is a boundary of some Government Domain."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeopoliticalOrganization
@@ -1619,11 +1624,11 @@ cco:GeopoliticalOrganization rdf:type owl:Class ;
                                                            "University, Utah State. Geopolitical Power | Aggies GO. https://chass.usu.edu/international-studies/aggies-go/power. Accessed 6 Apr. 2023." ;
                              dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                              dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                             cco:definition "An Organization that bears a Geopolitical Power Role."@en ;
                              cco:definition_source "https://chass.usu.edu/international-studies/aggies-go/power" ,
                                                    "https://hbr.org/2022/11/how-companies-can-navigate-todays-geopolitical-risks" ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                              rdfs:label "Geopolitical Organization"@en ;
+                             skos:definition "An Organization that bears a Geopolitical Power Role."@en ;
                              skos:prefLabel "Geopolitical Organization"@en .
 
 
@@ -1637,10 +1642,10 @@ cco:GeopoliticalPowerRole rdf:type owl:Class ;
                           dcterms:bibliographicCitation "University, Utah State. Geopolitical Power | Aggies GO. https://chass.usu.edu/international-studies/aggies-go/power. Accessed 6 Apr. 2023." ;
                           dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                          cco:definition "A Role had by an Organization, that is perceived by an International Community as capable of performing influential acts in that community, and which would be realized in performing such acts."@en ;
                           cco:definition_source "https://chass.usu.edu/international-studies/aggies-go/power" ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                           rdfs:label "Geopolitical Power Role"@en ;
+                          skos:definition "A Role had by an Organization, that is perceived by an International Community as capable of performing influential acts in that community, and which would be realized in performing such acts."@en ;
                           skos:prefLabel "Geopolitical Power Role"@en .
 
 
@@ -1652,10 +1657,10 @@ cco:Government rdf:type owl:Class ;
                                  owl:someValuesFrom cco:DelimitingDomain
                                ] ;
                dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-               cco:definition "An Organization that is the highest legitimate authority delimited by some Delimiting Domain and that exercises executive, legislative, or judicial authority in that Domain."@en ;
                cco:definition_source "https://en.wikipedia.org/w/index.php?title=Government&oldid=1063736308"^^xsd:anyURI ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                rdfs:label "Government"@en ;
+               skos:definition "An Organization that is the highest legitimate authority delimited by some Delimiting Domain and that exercises executive, legislative, or judicial authority in that Domain."@en ;
                skos:editorialNote "Highest legitimate authority should not be confused with highest legitimate authority of a particular kind. For example, while the judicial branch of the United States government has the highest judicial authority in a Delimiting Domain, it is not the highest legitimate authority delimited by that domain. The combination of executive, judicial, and legislative branches is higher because it wields more legitimate authority than any branch on its own."@en ,
                                   "Importantly, the definition states \"highest legitimate authority delimited by some Delimiting Domain\" and not \"highest legitimate authority in some Delimiting Domain.\" The government of Wales is the highest legitimate authority delimited by some Delimiting Domain but it is not the highest legitimate authority in that domain, which would be the government of the United Kingdom."@en .
 
@@ -1667,9 +1672,9 @@ cco:GovernmentAgency rdf:type owl:Class ;
                                        owl:onProperty obo:BFO_0000176 ;
                                        owl:someValuesFrom cco:Government
                                      ] ;
-                     cco:definition "An Organization that is part of a Government and is responsible for the oversight or administration of specific governmental functions."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                     rdfs:label "Government Organization"@en .
+                     rdfs:label "Government Organization"@en ;
+                     skos:definition "An Organization that is part of a Government and is responsible for the oversight or administration of specific governmental functions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GovernmentOfACountry
@@ -1686,10 +1691,10 @@ cco:GovernmentOfACountry rdf:type owl:Class ;
                          dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                          dcterms:created "2023-02-08T19:54:46-05:00"^^xsd:dateTime ;
                          dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                         cco:definition "A Government that has legitimate authority within and is delimited by a Domain of a Country."@en ;
                          cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                          rdfs:label "Government of a Country"@en ;
+                         skos:definition "A Government that has legitimate authority within and is delimited by a Domain of a Country."@en ;
                          skos:prefLabel "Government of a Country"@en .
 
 
@@ -1707,9 +1712,9 @@ cco:GroupOfAgents rdf:type owl:Class ;
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ;
-                  cco:definition "An Object Aggregate that has only Agents as parts."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "Group of Agents"@en .
+                  rdfs:label "Group of Agents"@en ;
+                  skos:definition "An Object Aggregate that has only Agents as parts."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfOrganizations
@@ -1723,9 +1728,9 @@ cco:GroupOfOrganizations rdf:type owl:Class ;
                                            owl:onProperty obo:BFO_0000178 ;
                                            owl:allValuesFrom cco:Organization
                                          ] ;
-                         cco:definition "A Group of Agents that has only Organizations as parts."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                         rdfs:label "Group of Organizations"@en .
+                         rdfs:label "Group of Organizations"@en ;
+                         skos:definition "A Group of Agents that has only Organizations as parts."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GroupOfPersons
@@ -1739,35 +1744,35 @@ cco:GroupOfPersons rdf:type owl:Class ;
                                      owl:onProperty obo:BFO_0000178 ;
                                      owl:allValuesFrom cco:Person
                                    ] ;
-                   cco:definition "A Group of Agents that has only Persons as parts."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Group of Persons"@en .
+                   rdfs:label "Group of Persons"@en ;
+                   skos:definition "A Group of Agents that has only Persons as parts."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/HairColor
 cco:HairColor rdf:type owl:Class ;
               rdfs:subClassOf obo:BFO_0000019 ;
-              cco:definition "A Quality inhering in a portion of Hair by virtue of its color."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "Hair Color"@en .
+              rdfs:label "Hair Color"@en ;
+              skos:definition "A Quality inhering in a portion of Hair by virtue of its color."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Ideology
 cco:Ideology rdf:type owl:Class ;
              rdfs:subClassOf cco:InformationContentEntity ;
-             cco:definition "An Information Content Entity that consists of a collection of claims about how some part of the world is or should be and which is accepted as true by an Agent or Group of Agents such that it forms the basis of their beliefs, goals, expectations, and motivations."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "Ideology"@en .
+             rdfs:label "Ideology"@en ;
+             skos:definition "An Information Content Entity that consists of a collection of claims about how some part of the world is or should be and which is accepted as true by an Agent or Group of Agents such that it forms the basis of their beliefs, goals, expectations, and motivations."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/IncorporatedOrganization
 cco:IncorporatedOrganization rdf:type owl:Class ;
                              rdfs:subClassOf cco:Organization ;
-                             cco:alternative_label "Corporation"@en ;
-                             cco:definition "An Organization formed by an Act of Incorporation that consists of an association of individuals, created by law or under authority of law, having a continuous existence independent of the existences of its members and owners, and having powers and liabilities distinct from those of its members and owners."@en ;
                              cco:definition_source "http://www.dictionary.com/browse/corporation" ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                             rdfs:label "Incorporated Organization"@en .
+                             rdfs:label "Incorporated Organization"@en ;
+                             skos:altLabel "Corporation"@en ;
+                             skos:definition "An Organization formed by an Act of Incorporation that consists of an association of individuals, created by law or under authority of law, having a continuous existence independent of the existences of its members and owners, and having powers and liabilities distinct from those of its members and owners."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InternationalCommunity
@@ -1776,19 +1781,19 @@ cco:InternationalCommunity rdf:type owl:Class ;
                            dcterms:bibliographicCitation "The International Community. 5 Apr. 2023, https://dictionary.cambridge.org/us/dictionary/english/international-community." ;
                            dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                            dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                           cco:definition "A maximal Group of Geopolitical Organizations engaged in geopolitics with one another."@en ;
                            cco:definition_source "https://dictionary.cambridge.org/us/dictionary/english/international-community" ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                            rdfs:label "International Community"@en ;
+                           skos:definition "A maximal Group of Geopolitical Organizations engaged in geopolitics with one another."@en ;
                            skos:prefLabel "International Community"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/InterpersonalRelationshipRole
 cco:InterpersonalRelationshipRole rdf:type owl:Class ;
                                   rdfs:subClassOf obo:BFO_0000023 ;
-                                  cco:definition "A Role that inheres in a Person in virtue of the obligations, expectations, or social norms that govern that Person's Intentional Acts within the context of a relationship with another Person."@en ;
                                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                  rdfs:label "Interpersonal Relationship Role"@en .
+                                  rdfs:label "Interpersonal Relationship Role"@en ;
+                                  skos:definition "A Role that inheres in a Person in virtue of the obligations, expectations, or social norms that govern that Person's Intentional Acts within the context of a relationship with another Person."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Iris
@@ -1798,36 +1803,36 @@ cco:Iris rdf:type owl:Class ;
                            owl:onProperty obo:BFO_0000176 ;
                            owl:someValuesFrom cco:Eye
                          ] ;
-         cco:definition "A Bodily Component that consists of the part of an Eye that is a pigmented, round, contractile membrane, suspended between the cornea and lens and perforated by the pupil, and which canonically regulates the amount of light entering the Eye."@en ;
          cco:definition_source "http://www.thefreedictionary.com/iris" ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-         rdfs:label "Iris"@en .
+         rdfs:label "Iris"@en ;
+         skos:definition "A Bodily Component that consists of the part of an Eye that is a pigmented, round, contractile membrane, suspended between the cornea and lens and perforated by the pupil, and which canonically regulates the amount of light entering the Eye."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LanguageSkill
 cco:LanguageSkill rdf:type owl:Class ;
                   rdfs:subClassOf cco:Skill ;
-                  cco:definition "A Skill that is realized by an Act which is prescribed by a Language."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "Language Skill"@en .
+                  rdfs:label "Language Skill"@en ;
+                  skos:definition "A Skill that is realized by an Act which is prescribed by a Language."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LocalAdministrativeRegion
 cco:LocalAdministrativeRegion rdf:type owl:Class ;
                               rdfs:subClassOf cco:GeopoliticalEntity ;
-                              cco:alternative_label "Locality"@en ;
-                              cco:definition "A Government Domain that delimits a local Government."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                              rdfs:label "Local Administrative Region"@en .
+                              rdfs:label "Local Administrative Region"@en ;
+                              skos:altLabel "Locality"@en ;
+                              skos:definition "A Government Domain that delimits a local Government."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MaleSex
 cco:MaleSex rdf:type owl:Class ;
             rdfs:subClassOf cco:BiologicalSex ;
-            cco:definition "A Biological Sex inhering in an individual whose sex organs contain only male gametes."@en ;
             cco:definition_source "http://purl.org/obo/owl/PATO#PATO_0000384" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-            rdfs:label "Male Sex"@en .
+            rdfs:label "Male Sex"@en ;
+            skos:definition "A Biological Sex inhering in an individual whose sex organs contain only male gametes."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MaterialTerritoryOfACountry
@@ -1843,10 +1848,10 @@ cco:MaterialTerritoryOfACountry rdf:type owl:Class ;
                                 rdfs:subClassOf cco:MaterialTerritoryOfAGovernmentDomain ;
                                 dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                                 dcterms:created "2023-02-06T10:14:09-05:00"@en ;
-                                cco:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a The Domain of a Country."@en ;
                                 cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                 rdfs:label "Material Territory of a Country"@en ;
+                                skos:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a The Domain of a Country."@en ;
                                 skos:prefLabel "Material Territory of a Country"@en .
 
 
@@ -1863,91 +1868,91 @@ cco:MaterialTerritoryOfAGovernmentDomain rdf:type owl:Class ;
                                          rdfs:subClassOf cco:PortionOfGeosphere ;
                                          dcterms:bibliographicCitation "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                                          dcterms:created "2023-02-06T10:14:09-05:00"@en ;
-                                         cco:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain"@en ;
                                          cco:definition_source "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                                          rdfs:label "Material Territory of a Government Domain"@en ;
+                                         skos:definition "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain"@en ;
                                          skos:prefLabel "Material Territory of a Government Domain"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MilitaryPersonnelForce
 cco:MilitaryPersonnelForce rdf:type owl:Class ;
                            rdfs:subClassOf cco:ArmedForce ;
-                           cco:definition "An Armed Force authorized to use deadly force, and weapons, to support the interests of the Government and some or all of its Citizens."@en ;
                            cco:definition_source "https://en.wikipedia.org/w/index.php?title=Military&oldid=1063431234"^^xsd:anyURI ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                           rdfs:label "Military Personnel Force"@en .
+                           rdfs:label "Military Personnel Force"@en ;
+                           skos:definition "An Armed Force authorized to use deadly force, and weapons, to support the interests of the Government and some or all of its Citizens."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/NeutralRole
 cco:NeutralRole rdf:type owl:Class ;
                 rdfs:subClassOf cco:AllegianceRole ;
-                cco:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent not performing or being committed to performing Acts that have as their Objective to either support or undermine the Objectives of an Agent or Group of Agents involved in some conflict."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                rdfs:label "Neutral Role"@en .
+                rdfs:label "Neutral Role"@en ;
+                skos:definition "An Allegiance Role that inheres in an Agent by virtue of that Agent not performing or being committed to performing Acts that have as their Objective to either support or undermine the Objectives of an Agent or Group of Agents involved in some conflict."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/NuclearFamily
 cco:NuclearFamily rdf:type owl:Class ;
                   rdfs:subClassOf cco:Family ;
-                  cco:definition "A Family composed of parents and their children."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "Nuclear Family"@en .
+                  rdfs:label "Nuclear Family"@en ;
+                  skos:definition "A Family composed of parents and their children."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Objective
 cco:Objective rdf:type owl:Class ;
               rdfs:subClassOf cco:DirectiveInformationContentEntity ;
-              cco:definition "A Directive Information Content Entity that prescribes some projected state that some Agent intends to achieve."@en ;
               cco:definition_source "http://en.wikipedia.org/wiki/Objective_(goal)" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "Objective"@en .
+              rdfs:label "Objective"@en ;
+              skos:definition "A Directive Information Content Entity that prescribes some projected state that some Agent intends to achieve."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OccupationRole
 cco:OccupationRole rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000023 ;
-                   cco:definition "A Role that inheres in an Agent in virtue of the responsibilities that Agent is expected to fulfill within the context of some Act of Employment."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Occupation Role"@en .
+                   rdfs:label "Occupation Role"@en ;
+                   skos:definition "A Role that inheres in an Agent in virtue of the responsibilities that Agent is expected to fulfill within the context of some Act of Employment."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OperationalArea
 cco:OperationalArea rdf:type owl:Class ;
                     rdfs:subClassOf cco:GeospatialLocation ;
-                    cco:definition "A Geospatial Location in which an Agent conducts some activity."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                     rdfs:comment "This is a general term that applies to both military and civilian activities, such as the Geospatial Region within which a company conducts its business."@en ;
-                    rdfs:label "Operational Area"@en .
+                    rdfs:label "Operational Area"@en ;
+                    skos:definition "A Geospatial Location in which an Agent conducts some activity."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OperatorRole
 cco:OperatorRole rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000023 ;
-                 cco:definition "A Role that inheres in an Agent by virtue of that Agent's responsibilities to operate or control some Artifact."@en ;
                  cco:example_of_usage "the role of driving a car" ,
                                       "the role of flying an airplane" ,
                                       "the role of operating a crane" ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                 rdfs:label "Operator Role"@en .
+                 rdfs:label "Operator Role"@en ;
+                 skos:definition "A Role that inheres in an Agent by virtue of that Agent's responsibilities to operate or control some Artifact."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Organism
 cco:Organism rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000030 ;
-             cco:definition "An Object that is an Animal or Plant."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "Organism"@en .
+             rdfs:label "Organism"@en ;
+             skos:definition "An Object that is an Animal or Plant."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Organization
 cco:Organization rdf:type owl:Class ;
                  rdfs:subClassOf cco:GroupOfAgents ;
-                 cco:definition "A Group of Agents which can be the bearer of roles, has members, and has a set of organization rules."@en ;
                  cco:definition_source "http://purl.obolibrary.org/obo/OBI_0000245" ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                  rdfs:comment "Members of organizations are either Organizations themselves or individual Persons. Members can bear specific Organization Member Roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the Organization by the organization members."@en ;
-                 rdfs:label "Organization"@en .
+                 rdfs:label "Organization"@en ;
+                 skos:definition "A Group of Agents which can be the bearer of roles, has members, and has a set of organization rules."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationCapability
@@ -1961,9 +1966,9 @@ cco:OrganizationCapability rdf:type owl:Class ;
                                                  rdf:type owl:Class
                                                ] ;
                            rdfs:subClassOf cco:AgentCapability ;
-                           cco:definition "An Agent Capability that inheres in an Organization to the extent of that Organization's capacity to realize it in Intentional Acts of a certain type."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                           rdfs:label "Organization Capability"@en .
+                           rdfs:label "Organization Capability"@en ;
+                           skos:definition "An Agent Capability that inheres in an Organization to the extent of that Organization's capacity to realize it in Intentional Acts of a certain type."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationMember
@@ -1981,26 +1986,26 @@ cco:OrganizationMember rdf:type owl:Class ;
                                          owl:onProperty cco:is_affiliated_with ;
                                          owl:someValuesFrom cco:Organization
                                        ] ;
-                       cco:definition "A Person who is affiliated with some Organization by being a member of that Organization."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                       rdfs:label "Organization Member"@en .
+                       rdfs:label "Organization Member"@en ;
+                       skos:definition "A Person who is affiliated with some Organization by being a member of that Organization."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OrganizationMemberRole
 cco:OrganizationMemberRole rdf:type owl:Class ;
                            rdfs:subClassOf obo:BFO_0000023 ;
-                           cco:definition "A Role that inheres in an Agent in virtue of the responsibilities that Agent is expected to fulfill as a member of some Organization."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                           rdfs:label "Organization Member Role"@en .
+                           rdfs:label "Organization Member Role"@en ;
+                           skos:definition "A Role that inheres in an Agent in virtue of the responsibilities that Agent is expected to fulfill as a member of some Organization."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ParamilitaryForce
 cco:ParamilitaryForce rdf:type owl:Class ;
                       rdfs:subClassOf cco:ArmedForce ;
-                      cco:definition "An Armed Force whose organizational structure, training, subculture, and (often) function are similar to those of a professional Military, and which is not included as part of a Government's formal Armed Forces."@en ;
                       cco:definition_source "https://en.wikipedia.org/w/index.php?title=Paramilitary&oldid=1063281359"^^xsd:anyURI ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      rdfs:label "Paramilitary Force"@en .
+                      rdfs:label "Paramilitary Force"@en ;
+                      skos:definition "An Armed Force whose organizational structure, training, subculture, and (often) function are similar to those of a professional Military, and which is not included as part of a Government's formal Armed Forces."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PermanentResident
@@ -2016,9 +2021,9 @@ cco:PermanentResident rdf:type owl:Class ;
                       rdfs:subClassOf cco:Person ;
                       dcterms:created "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
                       dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                      cco:definition "A person with a Permanent Resident Role."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                       rdfs:label "Permanent Resident"@en ;
+                      skos:definition "A person with a Permanent Resident Role."@en ;
                       skos:prefLabel "Permanent Resident"@en .
 
 
@@ -2028,21 +2033,21 @@ cco:PermanentResidentRole rdf:type owl:Class ;
                           dcterms:bibliographicCitation "Permanent Residency - Wikipedia. https://en.wikipedia.org/wiki/Permanent_residency. Accessed 10 Feb. 2023." ;
                           dcterms:created "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                          cco:definition "A role inhering in a person who is recognized as having legal resident status in a Government Domain in which that person is not a citizen but where they have the right to reside on a permanent basis."@en ;
                           cco:definition_source "https://en.wikipedia.org/wiki/Permanent_residency" ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
                           rdfs:label "Permanent Resident Role"@en ;
+                          skos:definition "A role inhering in a person who is recognized as having legal resident status in a Government Domain in which that person is not a citizen but where they have the right to reside on a permanent basis."@en ;
                           skos:prefLabel "Permanent Resident Role"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Person
 cco:Person rdf:type owl:Class ;
            rdfs:subClassOf cco:Animal ;
-           cco:alternative_label "Human"@en ;
-           cco:definition "An Animal that is a member of the species Homo sapiens."@en ;
            cco:definition_source "https://en.wikipedia.org/w/index.php?title=Human&oldid=1063145185"^^xsd:anyURI ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-           rdfs:label "Person"@en .
+           rdfs:label "Person"@en ;
+           skos:altLabel "Human"@en ;
+           skos:definition "An Animal that is a member of the species Homo sapiens."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PlanSpecification
@@ -2052,79 +2057,79 @@ cco:PlanSpecification rdf:type owl:Class ;
                                         owl:onProperty obo:BFO_0000178 ;
                                         owl:someValuesFrom cco:Objective
                                       ] ;
-                      cco:definition "A Directive Information Content Entity that prescribes some set of intended Intentional Acts through which some Agent expects to achieve some Objective."@en ;
                       cco:definition_source "https://en.wikipedia.org/w/index.php?title=Plan&oldid=1047320560"^^xsd:anyURI ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                      rdfs:label "Plan"@en .
+                      rdfs:label "Plan"@en ;
+                      skos:definition "A Directive Information Content Entity that prescribes some set of intended Intentional Acts through which some Agent expects to achieve some Objective."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Plant
 cco:Plant rdf:type owl:Class ;
           rdfs:subClassOf cco:Organism ;
-          cco:definition "An Organism that is multicellular, eukaryotic, autotrophic, and has cells that contain chloroplasts and walls made of cellulose."@en ;
           cco:definition_source "https://en.wikipedia.org/w/index.php?title=Plant&oldid=1060821100"^^xsd:anyURI ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-          rdfs:label "Plant"@en .
+          rdfs:label "Plant"@en ;
+          skos:definition "An Organism that is multicellular, eukaryotic, autotrophic, and has cells that contain chloroplasts and walls made of cellulose."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PoliticalOrientation
 cco:PoliticalOrientation rdf:type owl:Class ;
                          rdfs:subClassOf cco:Ideology ;
-                         cco:definition "An Ideology that characterizes the political thinking of an Agent or Group of Agents, usually with respect to the political environment within a particular nation."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                         rdfs:label "Political Orientation"@en .
+                         rdfs:label "Political Orientation"@en ;
+                         skos:definition "An Ideology that characterizes the political thinking of an Agent or Group of Agents, usually with respect to the political environment within a particular nation."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Populace
 cco:Populace rdf:type owl:Class ;
              rdfs:subClassOf cco:GroupOfPersons ;
-             cco:definition "A Group of Persons forming the total population of some Government Domain."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Population&oldid=1059148871"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "Populace"@en .
+             rdfs:label "Populace"@en ;
+             skos:definition "A Group of Persons forming the total population of some Government Domain."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Province
 cco:Province rdf:type owl:Class ;
              rdfs:subClassOf cco:FirstOrderAdministrativeRegion ;
-             cco:definition "A First-Order Administrative Region that is part of a Country and delimits the authority of a magistrate who holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the Province."@en ;
              cco:definition_source "https://en.wikipedia.org/w/index.php?title=Province&oldid=1062496131"^^xsd:anyURI ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "Province"@en .
+             rdfs:label "Province"@en ;
+             skos:definition "A First-Order Administrative Region that is part of a Country and delimits the authority of a magistrate who holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the Province."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Religion
 cco:Religion rdf:type owl:Class ;
              rdfs:subClassOf cco:InformationContentEntity ;
-             cco:definition "An Information Content Entity that consists of a collection of claims about the meaning or origin of existence or about the existence or nature of one or more deities, an afterlife, or spiritual or sacred entities, and which is accepted as true by an Agent or Group of Agents."@en ;
              cco:definition_source "http://www.dictionary.com/browse/religion" ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-             rdfs:label "Religion"@en .
+             rdfs:label "Religion"@en ;
+             skos:definition "An Information Content Entity that consists of a collection of claims about the meaning or origin of existence or about the existence or nature of one or more deities, an afterlife, or spiritual or sacred entities, and which is accepted as true by an Agent or Group of Agents."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Scalp
 cco:Scalp rdf:type owl:Class ;
           rdfs:subClassOf cco:BodilyComponent ;
-          cco:definition "A Bodily Component that consists of the skin covering the top of the head of a human or other animal."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-          rdfs:label "Scalp"@en .
+          rdfs:label "Scalp"@en ;
+          skos:definition "A Bodily Component that consists of the skin covering the top of the head of a human or other animal."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ScalpHair
 cco:ScalpHair rdf:type owl:Class ;
               rdfs:subClassOf cco:BodilyComponent ;
-              cco:definition "A Bodily Component that consists of a portion of hair that grows on the scalp of a human or other animal."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "Scalp Hair"@en .
+              rdfs:label "Scalp Hair"@en ;
+              skos:definition "A Bodily Component that consists of a portion of hair that grows on the scalp of a human or other animal."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Scar
 cco:Scar rdf:type owl:Class ;
          rdfs:subClassOf cco:BodilyComponent ;
-         cco:definition "A Bodily Component that consists of a portion of fibrous connective tissue on skin or within body tissue and which was formed due to an injury that has not healed completely."@en ;
          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Scar&oldid=1057179533"^^xsd:anyURI ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-         rdfs:label "Scar"@en .
+         rdfs:label "Scar"@en ;
+         skos:definition "A Bodily Component that consists of a portion of fibrous connective tissue on skin or within body tissue and which was formed due to an injury that has not healed completely."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SecondOrderAdministrativeRegion
@@ -2134,19 +2139,19 @@ cco:SecondOrderAdministrativeRegion rdf:type owl:Class ;
                                                       owl:onProperty obo:BFO_0000176 ;
                                                       owl:someValuesFrom cco:FirstOrderAdministrativeRegion
                                                     ] ;
-                                    cco:definition "A Government Domain that is a subdivision of a First-Order Administrative Region."@en ;
                                     cco:definition_source "http://www.geonames.org/export/codes.html" ;
                                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                    rdfs:label "Second-Order Administrative Region"@en .
+                                    rdfs:label "Second-Order Administrative Region"@en ;
+                                    skos:definition "A Government Domain that is a subdivision of a First-Order Administrative Region."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ServiceProvider
 cco:ServiceProvider rdf:type owl:Class ;
                     rdfs:subClassOf cco:Organization ;
-                    cco:definition "An Organization whose purpose is to provide a service to other Agents."@en ;
                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Service_provider&oldid=1059415018"^^xsd:anyURI ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                    rdfs:label "Service Provider"@en .
+                    rdfs:label "Service Provider"@en ;
+                    skos:definition "An Organization whose purpose is to provide a service to other Agents."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SetOfEyes
@@ -2156,9 +2161,9 @@ cco:SetOfEyes rdf:type owl:Class ;
                                 owl:onProperty obo:BFO_0000178 ;
                                 owl:someValuesFrom cco:Eye
                               ] ;
-              cco:definition "A Bodily Component that consists of two or more Eyes that are part of a single Agent."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-              rdfs:label "Set of Eyes"@en .
+              rdfs:label "Set of Eyes"@en ;
+              skos:definition "A Bodily Component that consists of two or more Eyes that are part of a single Agent."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Skill
@@ -2172,45 +2177,45 @@ cco:Skill rdf:type owl:Class ;
                                 rdf:type owl:Class
                               ] ;
           rdfs:subClassOf cco:AgentCapability ;
-          cco:definition "An Agent Capability that inheres in a Person to the extent of that Person's capacity to realize it in Intentional Acts of a certain type."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-          rdfs:label "Skill"@en .
+          rdfs:label "Skill"@en ;
+          skos:definition "An Agent Capability that inheres in a Person to the extent of that Person's capacity to realize it in Intentional Acts of a certain type."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SkinType
 cco:SkinType rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000019 ;
-             cco:definition "A Quality inhering in a portion of skin by virtue of its color and natural tendency to respond to ultraviolet light."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
              rdfs:comment "Skin Type is classified according to a reference system such as the Fitzpatrick scale: https://en.wikipedia.org/wiki/Fitzpatrick_scale"@en ;
-             rdfs:label "Skin Type"@en .
+             rdfs:label "Skin Type"@en ;
+             skos:definition "A Quality inhering in a portion of skin by virtue of its color and natural tendency to respond to ultraviolet light."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SocialNetwork
 cco:SocialNetwork rdf:type owl:Class ;
                   rdfs:subClassOf cco:GroupOfAgents ;
-                  cco:definition "A Group of Agents that are connected in dyadic relations by similar personal or career interests, activities, backgrounds, or real-life connections."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                  rdfs:label "Social Network"@en .
+                  rdfs:label "Social Network"@en ;
+                  skos:definition "A Group of Agents that are connected in dyadic relations by similar personal or career interests, activities, backgrounds, or real-life connections."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/State
 cco:State rdf:type owl:Class ;
           rdfs:subClassOf cco:FirstOrderAdministrativeRegion ;
-          cco:alternative_label "State"@en ;
-          cco:definition "A First-Order Administrative Region that is part of a Country and delimits a centralized regional Government that holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the State."@en ;
           cco:definition_source "https://en.wikipedia.org/w/index.php?title=Constituent_state&oldid=1063662102"^^xsd:anyURI ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-          rdfs:label "Constituent State"@en .
+          rdfs:label "Constituent State"@en ;
+          skos:altLabel "State"@en ;
+          skos:definition "A First-Order Administrative Region that is part of a Country and delimits a centralized regional Government that holds constitutionally-defined administrative jurisdiction over the defined geographic territory that bounds the State."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Tattoo
 cco:Tattoo rdf:type owl:Class ;
            rdfs:subClassOf cco:BodilyComponent ;
-           cco:definition "A Bodily Component that consists of a typically permanent mark or design on a portion of skin that is created by a process of pricking and ingraining an indelible pigment or by raising scars."@en ;
            cco:definition_source "http://www.thefreedictionary.com/tattoo" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-           rdfs:label "Tattoo"@en .
+           rdfs:label "Tattoo"@en ;
+           skos:definition "A Bodily Component that consists of a typically permanent mark or design on a portion of skin that is created by a process of pricking and ingraining an indelible pigment or by raising scars."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ThirdOrderAdministrativeRegion
@@ -2220,19 +2225,19 @@ cco:ThirdOrderAdministrativeRegion rdf:type owl:Class ;
                                                      owl:onProperty obo:BFO_0000176 ;
                                                      owl:someValuesFrom cco:SecondOrderAdministrativeRegion
                                                    ] ;
-                                   cco:definition "A Government Domain that is a subdivision of a Second-Order Administrative Region."@en ;
                                    cco:definition_source "http://www.geonames.org/export/codes.html" ;
                                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                                   rdfs:label "Third-Order Administrative Region"@en .
+                                   rdfs:label "Third-Order Administrative Region"@en ;
+                                   skos:definition "A Government Domain that is a subdivision of a Second-Order Administrative Region."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Town
 cco:Town rdf:type owl:Class ;
          rdfs:subClassOf cco:LocalAdministrativeRegion ;
-         cco:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a Village but smaller than that of a City; is designated as a town based on a particular administrative, legal, or historical status; and which delimits a local Government that typically exercises less power than that of a City Government."@en ;
          cco:definition_source "http://www.dictionary.com/browse/town" ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-         rdfs:label "Town"@en .
+         rdfs:label "Town"@en ;
+         skos:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a Village but smaller than that of a City; is designated as a town based on a particular administrative, legal, or historical status; and which delimits a local Government that typically exercises less power than that of a City Government."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UnalliedPerson
@@ -2246,19 +2251,19 @@ cco:UnalliedPerson rdf:type owl:Class ;
                                          rdf:type owl:Class
                                        ] ;
                    rdfs:subClassOf cco:Person ;
-                   cco:alternative_label "Unallied Person" ;
-                   cco:definition "A Person who is the bearer of some Neutral Role."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-                   rdfs:label "Neutral Person"@en .
+                   rdfs:label "Neutral Person"@en ;
+                   skos:altLabel "Unallied Person" ;
+                   skos:definition "A Person who is the bearer of some Neutral Role."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Village
 cco:Village rdf:type owl:Class ;
             rdfs:subClassOf cco:LocalAdministrativeRegion ;
-            cco:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a hamlet but smaller than that of a Town."@en ;
             cco:definition_source "http://www.merriam-webster.com/dictionary/village" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/AgentOntology"^^xsd:anyURI ;
-            rdfs:label "Village"@en .
+            rdfs:label "Village"@en ;
+            skos:definition "A Local Administrative Region in which a human population permanently resides that is typically larger than the population of a hamlet but smaller than that of a Town."@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

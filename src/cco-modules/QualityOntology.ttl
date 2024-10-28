@@ -1,4 +1,4 @@
-@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix : <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology#> .
 @prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -13,8 +13,8 @@
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology> rdf:type owl:Ontology ;
                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-09-26/QualityOntology> ;
                                                                               owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
-                                                                              dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                               dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
+                                                                              dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                               rdfs:comment "This ontology is designed to represent a range of attributes of entities especially qualities, realizable entities, and process profiles."@en ;
                                                                               rdfs:label "Quality Ontology"@en ;
                                                                               owl:versionInfo "Version 1.6"@en .
@@ -27,6 +27,10 @@
 dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/terms/rights
+dcterms:rights rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -34,242 +38,242 @@ dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Albedo
 cco:Albedo rdf:type owl:Class ;
            rdfs:subClassOf cco:RadiationReflectivity ;
-           cco:definition "A Radiation Reflectivity that inheres in a bearer in virtue of the capacity of its surface to reflect incident electromagnetic radiation of a particular wavelength."@en ;
            cco:definition_source "https://en.wikipedia.org/w/index.php?title=Albedo&oldid=1063352646"^^xsd:anyURI ;
            cco:elucidation "Albedo is a reflection coefficient and is measured as the ratio of radiation reflected from the surface to the incident radiation. Albedo is dimensionless, can be expressed as a percentage, and is measured on a scale from 0 for no reflection to 1 for perfect reflection of a surface. Albedo depends on the wavelength of the radiation; when no wavelength is specified, it typically refers to some appropriate average across the spectrum of visible light."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Albedo"@en .
+           rdfs:label "Albedo"@en ;
+           skos:definition "A Radiation Reflectivity that inheres in a bearer in virtue of the capacity of its surface to reflect incident electromagnetic radiation of a particular wavelength."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Altitude
 cco:Altitude rdf:type owl:Class ;
              rdfs:subClassOf cco:Height ;
-             cco:definition "A Height that inheres in a Site that externally connects an Independent Continuant to either the surface of the Earth or the Earth's mean Sea Level."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Altitude"@en .
+             rdfs:label "Altitude"@en ;
+             skos:definition "A Height that inheres in a Site that externally connects an Independent Continuant to either the surface of the Earth or the Earth's mean Sea Level."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Amount
 cco:Amount rdf:type owl:Class ;
            rdfs:subClassOf obo:BFO_0000019 ;
-           cco:definition "A Quality that inheres in a bearer in virtue of the total, aggregate or sum of a number of discrete items or material the entity contains as parts."@en ;
            cco:definition_source "http://en.wiktionary.org/wiki/amount" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Amount"@en .
+           rdfs:label "Amount"@en ;
+           skos:definition "A Quality that inheres in a bearer in virtue of the total, aggregate or sum of a number of discrete items or material the entity contains as parts."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Bent
 cco:Bent rdf:type owl:Class ;
          rdfs:subClassOf cco:ShapeQuality ;
-         cco:alternative_label "Angular"@en ,
-                               "Kinked"@en ;
-         cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having one or more angles along its border."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Bent"@en .
+         rdfs:label "Bent"@en ;
+         skos:altLabel "Angular"@en ,
+                       "Kinked"@en ;
+         skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having one or more angles along its border."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Black
 cco:Black rdf:type owl:Class ;
           rdfs:subClassOf cco:Color ;
-          cco:definition "A Color that lacks any hues as parts."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Black"@en .
+          rdfs:label "Black"@en ;
+          skos:definition "A Color that lacks any hues as parts."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Blond
 cco:Blond rdf:type owl:Class ;
           rdfs:subClassOf cco:Color ;
-          cco:definition "A Color that ranges from nearly white to a light greyish yellow"@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Blond"@en .
+          rdfs:label "Blond"@en ;
+          skos:definition "A Color that ranges from nearly white to a light greyish yellow"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Blue
 cco:Blue rdf:type owl:Class ;
          rdfs:subClassOf cco:Color ;
-         cco:definition "A Color that is between Cyan and Violet with a wavelength in the visible spectrum typically between 450 to 490 nanometers."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Blue"@en .
+         rdfs:label "Blue"@en ;
+         skos:definition "A Color that is between Cyan and Violet with a wavelength in the visible spectrum typically between 450 to 490 nanometers."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Blunt
 cco:Blunt rdf:type owl:Class ;
           rdfs:subClassOf cco:ShapeQuality ;
-          cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer not having a sharp edge or point."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Blunt"@en .
+          rdfs:label "Blunt"@en ;
+          skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer not having a sharp edge or point."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/BodyShape
 cco:BodyShape rdf:type owl:Class ;
               rdfs:subClassOf cco:ShapeQuality ;
-              cco:definition "A Shape Quality inhering in a Person's body by virtue of the body's general outline or figure."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Body Shape"@en .
+              rdfs:label "Body Shape"@en ;
+              skos:definition "A Shape Quality inhering in a Person's body by virtue of the body's general outline or figure."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Branched
 cco:Branched rdf:type owl:Class ;
              rdfs:subClassOf cco:ShapeQuality ;
-             cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having subdivisions or offshoots."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Branched"@en .
+             rdfs:label "Branched"@en ;
+             skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having subdivisions or offshoots."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Brown
 cco:Brown rdf:type owl:Class ;
           rdfs:subClassOf cco:Color ;
-          cco:definition "A Color that consists of dark orange and red, and of very low intensity."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Brown"@en .
+          rdfs:label "Brown"@en ;
+          skos:definition "A Color that consists of dark orange and red, and of very low intensity."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Circumference
 cco:Circumference rdf:type owl:Class ;
                   rdfs:subClassOf cco:Perimeter ;
-                  cco:definition "A Perimeter that inheres in a circle or ellipse."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                  rdfs:label "Circumference"@en .
+                  rdfs:label "Circumference"@en ;
+                  skos:definition "A Perimeter that inheres in a circle or ellipse."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Closure
 cco:Closure rdf:type owl:Class ;
             rdfs:subClassOf obo:BFO_0000019 ;
-            cco:definition "A Quality that inheres in a bearer in virtue of the degree to which that bearer affords passage or sightline through it via an opening, aperture, orifice, or vent."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-            rdfs:label "Closure"@en .
+            rdfs:label "Closure"@en ;
+            skos:definition "A Quality that inheres in a bearer in virtue of the degree to which that bearer affords passage or sightline through it via an opening, aperture, orifice, or vent."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Coiled
 cco:Coiled rdf:type owl:Class ;
            rdfs:subClassOf cco:ShapeQuality ;
-           cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer being wound in concentric rings or spirals."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Coiled"@en .
+           rdfs:label "Coiled"@en ;
+           skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer being wound in concentric rings or spirals."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Color
 cco:Color rdf:type owl:Class ;
           rdfs:subClassOf cco:OpticalProperty ;
-          cco:definition "An Optical Property that inheres in a bearer in virtue of that bearer's Color Hue, Color Saturation and Color Brightness."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Color"@en .
+          rdfs:label "Color"@en ;
+          skos:definition "An Optical Property that inheres in a bearer in virtue of that bearer's Color Hue, Color Saturation and Color Brightness."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ColorBrightness
 cco:ColorBrightness rdf:type owl:Class ;
                     rdfs:subClassOf cco:OpticalProperty ;
-                    cco:alternative_label "Color Intensity"@en ;
-                    cco:definition "An Optical Property that inheres in a bearer in virtue of its capacity to reflect or radiate light."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                    rdfs:label "Color Brightness"@en .
+                    rdfs:label "Color Brightness"@en ;
+                    skos:altLabel "Color Intensity"@en ;
+                    skos:definition "An Optical Property that inheres in a bearer in virtue of its capacity to reflect or radiate light."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ColorHue
 cco:ColorHue rdf:type owl:Class ;
              rdfs:subClassOf cco:OpticalProperty ;
-             cco:definition "An Optical Property that inheres in a bearer in virtue of its capacity to reflect a dominant wavelength of the visible light spectrum, which is typically divided up into 6 to 8 ranges."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Color Hue"@en .
+             rdfs:label "Color Hue"@en ;
+             skos:definition "An Optical Property that inheres in a bearer in virtue of its capacity to reflect a dominant wavelength of the visible light spectrum, which is typically divided up into 6 to 8 ranges."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ColorSaturation
 cco:ColorSaturation rdf:type owl:Class ;
                     rdfs:subClassOf cco:OpticalProperty ;
-                    cco:definition "An Optical Property that inheres in a bearer in virtue of its capacity to reflect high intensity light distributed across fewer wavelengths, typically considered on a continuum of purity."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                    rdfs:label "Color Saturation"@en .
+                    rdfs:label "Color Saturation"@en ;
+                    skos:definition "An Optical Property that inheres in a bearer in virtue of its capacity to reflect high intensity light distributed across fewer wavelengths, typically considered on a continuum of purity."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ConcaveShape
 cco:ConcaveShape rdf:type owl:Class ;
                  rdfs:subClassOf cco:ShapeQuality ;
-                 cco:definition "A Shape Quality that inheres in a bearer in virtue of the bearer having one or more cavities, such that at least one line connecting a pair of points on the surface of the bearer will lie outside."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                 rdfs:label "Concave Shape"@en .
+                 rdfs:label "Concave Shape"@en ;
+                 skos:definition "A Shape Quality that inheres in a bearer in virtue of the bearer having one or more cavities, such that at least one line connecting a pair of points on the surface of the bearer will lie outside."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ConeShape
 cco:ConeShape rdf:type owl:Class ;
               rdfs:subClassOf cco:ThreeDimensionalShape ;
-              cco:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having a Round base that tapers smoothly to an apex."@en ;
               cco:definition_source "https://en.wikipedia.org/w/index.php?title=Cone&oldid=1058362269"^^xsd:anyURI ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Cone Shape"@en .
+              rdfs:label "Cone Shape"@en ;
+              skos:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having a Round base that tapers smoothly to an apex."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ConvexShape
 cco:ConvexShape rdf:type owl:Class ;
                 rdfs:subClassOf cco:ShapeQuality ;
-                cco:definition "A Shape Quality that inheres in a bearer in virtue of the bearer not having a cavity, such that no line connecting a pair of points on the surface of the bearer will lie outside."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Convex Shape"@en .
+                rdfs:label "Convex Shape"@en ;
+                skos:definition "A Shape Quality that inheres in a bearer in virtue of the bearer not having a cavity, such that no line connecting a pair of points on the surface of the bearer will lie outside."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CubeShape
 cco:CubeShape rdf:type owl:Class ;
               rdfs:subClassOf cco:Cuboidal ;
-              cco:definition "A Cuboidal shape inhering in a bearer in virtue of it having six Square faces."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Cube Shape"@en .
+              rdfs:label "Cube Shape"@en ;
+              skos:definition "A Cuboidal shape inhering in a bearer in virtue of it having six Square faces."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Cuboidal
 cco:Cuboidal rdf:type owl:Class ;
              rdfs:subClassOf cco:ThreeDimensionalShape ;
-             cco:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having six Rectangular faces."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Cuboidal"@en .
+             rdfs:label "Cuboidal"@en ;
+             skos:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having six Rectangular faces."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Curved
 cco:Curved rdf:type owl:Class ;
            rdfs:subClassOf cco:ShapeQuality ;
-           cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having borders which are smoothly rounded."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Curved"@en .
+           rdfs:label "Curved"@en ;
+           skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having borders which are smoothly rounded."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Cyan
 cco:Cyan rdf:type owl:Class ;
          rdfs:subClassOf cco:Color ;
-         cco:definition "A Color that is between Green and Blue with a wavelength in the visible spectrum typically between 490 and 520 nanometers."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Cyan"@en .
+         rdfs:label "Cyan"@en ;
+         skos:definition "A Color that is between Green and Blue with a wavelength in the visible spectrum typically between 490 and 520 nanometers."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Cylindrical
 cco:Cylindrical rdf:type owl:Class ;
                 rdfs:subClassOf cco:ThreeDimensionalShape ;
-                cco:alternative_label "Columnar"@en ;
-                cco:definition "A Three Dimensional Shape inhering in a bearer in virtue of the bearer having an elongated shape with round bases."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Cylindrical"@en .
+                rdfs:label "Cylindrical"@en ;
+                skos:altLabel "Columnar"@en ;
+                skos:definition "A Three Dimensional Shape inhering in a bearer in virtue of the bearer having an elongated shape with round bases."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Density
 cco:Density rdf:type owl:Class ;
             rdfs:subClassOf obo:BFO_0000019 ;
-            cco:alternative_label "Density"@en ;
-            cco:definition "A Quality that inheres in a bearer in virtue of that bearer's mass per unit volume."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-            rdfs:label "Mass Density"@en .
+            rdfs:label "Mass Density"@en ;
+            skos:altLabel "Density"@en ;
+            skos:definition "A Quality that inheres in a bearer in virtue of that bearer's mass per unit volume."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Depth
 cco:Depth rdf:type owl:Class ;
           rdfs:subClassOf cco:OneDimensionalExtent ;
-          cco:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's extension in a downward, backward, or inward direction."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Depth"@en .
+          rdfs:label "Depth"@en ;
+          skos:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's extension in a downward, backward, or inward direction."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Diameter
 cco:Diameter rdf:type owl:Class ;
              rdfs:subClassOf cco:OneDimensionalExtent ;
-             cco:definition "A One Dimensional Extent that inheres in a circle in virtue of the extent of a straight line that passes through the center of the circle and starts and ends on the circle's boundary."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Diameter"@en .
+             rdfs:label "Diameter"@en ;
+             skos:definition "A One Dimensional Extent that inheres in a circle in virtue of the extent of a straight line that passes through the center of the circle and starts and ends on the circle's boundary."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DisruptingDisposition
@@ -277,9 +281,9 @@ cco:DisruptingDisposition rdf:type owl:Class ;
                           rdfs:subClassOf obo:BFO_0000016 ;
                           dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                           dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                          cco:definition "A disposition the realization of which would disrupt a process some entity has an interest in."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
                           rdfs:label "Disrupting Disposition"@en ;
+                          skos:definition "A disposition the realization of which would disrupt a process some entity has an interest in."@en ;
                           skos:editorialNote "This is a defined class. A Disrupting Disposition is indexed by the interest_in object property. A disposition can be a Disrupting Disposition according to one index and not a Disrupting Disposition according to another index." ;
                           skos:prefLabel "Threat"@en .
 
@@ -287,602 +291,602 @@ cco:DisruptingDisposition rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Drooping
 cco:Drooping rdf:type owl:Class ;
              rdfs:subClassOf cco:ShapeQuality ;
-             cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a border that hangs downwards."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Drooping"@en .
+             rdfs:label "Drooping"@en ;
+             skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a border that hangs downwards."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ElectromagneticRadiationProperty
 cco:ElectromagneticRadiationProperty rdf:type owl:Class ;
                                      rdfs:subClassOf obo:BFO_0000016 ;
-                                     cco:definition "A Disposition that inheres in an bearer in virtue of how that bearer interacts with electromagnetic radiation."@en ;
                                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                                     rdfs:label "Electromagnetic Radiation Property"@en .
+                                     rdfs:label "Electromagnetic Radiation Property"@en ;
+                                     skos:definition "A Disposition that inheres in an bearer in virtue of how that bearer interacts with electromagnetic radiation."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Fatigability
 cco:Fatigability rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000017 ;
-                 cco:definition "A Realizable Entity that is realized when its bearer loses strength and tires quickly."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                 rdfs:label "Fatigability"@en .
+                 rdfs:label "Fatigability"@en ;
+                 skos:definition "A Realizable Entity that is realized when its bearer loses strength and tires quickly."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Flat
 cco:Flat rdf:type owl:Class ;
          rdfs:subClassOf cco:ShapeQuality ;
-         cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a horizontal border without a significant deviation."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Flat"@en .
+         rdfs:label "Flat"@en ;
+         skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a horizontal border without a significant deviation."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Fluorescence
 cco:Fluorescence rdf:type owl:Class ;
                  rdfs:subClassOf cco:LuminescentProperty ;
-                 cco:definition "A Luminescent Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light while absorbing shorter wavelength radiation, but not after."@en ;
                  cco:definition_source "https://en.wikipedia.org/w/index.php?title=Fluorescence&oldid=1061358510"^^xsd:anyURI ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                 rdfs:label "Fluorescence"@en .
+                 rdfs:label "Fluorescence"@en ;
+                 skos:definition "A Luminescent Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light while absorbing shorter wavelength radiation, but not after."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Folded
 cco:Folded rdf:type owl:Class ;
            rdfs:subClassOf cco:ShapeQuality ;
-           cco:definition "A Shape Quality inhering in a bearer in virtue of one part of the bearer being layered over another connected part."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Folded"@en .
+           rdfs:label "Folded"@en ;
+           skos:definition "A Shape Quality inhering in a bearer in virtue of one part of the bearer being layered over another connected part."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GoldColor
 cco:GoldColor rdf:type owl:Class ;
               rdfs:subClassOf cco:Color ;
-              cco:definition "A Color that resembles a yellow-orange Hue with the added feature of having a metallic shine."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Gold Color"@en .
+              rdfs:label "Gold Color"@en ;
+              skos:definition "A Color that resembles a yellow-orange Hue with the added feature of having a metallic shine."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Green
 cco:Green rdf:type owl:Class ;
           rdfs:subClassOf cco:Color ;
-          cco:definition "A Color that is between Yellow and Cyan with a wavelength in the visible spectrum, typically between 520 to 560 nanometers."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Green"@en .
+          rdfs:label "Green"@en ;
+          skos:definition "A Color that is between Yellow and Cyan with a wavelength in the visible spectrum, typically between 520 to 560 nanometers."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Grey
 cco:Grey rdf:type owl:Class ;
          rdfs:subClassOf cco:Color ;
-         cco:definition "A Color between white and black colors."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Grey"@en .
+         rdfs:label "Grey"@en ;
+         skos:definition "A Color between white and black colors."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Hardness
 cco:Hardness rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000019 ;
-             cco:definition "A Quality that inheres in a bearer in virtue of the degree to which it can be turned, bowed, or twisted without breaking."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Hardness"@en .
+             rdfs:label "Hardness"@en ;
+             skos:definition "A Quality that inheres in a bearer in virtue of the degree to which it can be turned, bowed, or twisted without breaking."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Hazel
 cco:Hazel rdf:type owl:Class ;
           rdfs:subClassOf cco:Color ;
-          cco:definition "A Color that is a combination of Brown and Green, typically associated with eye color."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Hazel"@en .
+          rdfs:label "Hazel"@en ;
+          skos:definition "A Color that is a combination of Brown and Green, typically associated with eye color."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Height
 cco:Height rdf:type owl:Class ;
            rdfs:subClassOf cco:OneDimensionalExtent ;
-           cco:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's extension in a vertical direction."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Height"@en .
+           rdfs:label "Height"@en ;
+           skos:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's extension in a vertical direction."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Length
 cco:Length rdf:type owl:Class ;
            rdfs:subClassOf cco:OneDimensionalExtent ;
-           cco:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's greatest extent in one direction."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Length"@en .
+           rdfs:label "Length"@en ;
+           skos:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's greatest extent in one direction."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LuminescentProperty
 cco:LuminescentProperty rdf:type owl:Class ;
                         rdfs:subClassOf cco:OpticalProperty ;
-                        cco:definition "An Optical Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light, but which isn't the result of the bearer being heated."@en ;
                         cco:definition_source "https://en.wikipedia.org/w/index.php?title=Luminescence&oldid=1050169944"^^xsd:anyURI ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
                         rdfs:comment "There are a variety of photometric measurements, such as luminous flux/power or luminous intensity, whose units are lumen and candela respectively, which attempt to describe properties associated with the perception of light. These are weighted measurements, typically by the luminosity function, as thus exist on the side of information content. It is a point of further development to add the needed intrinsic properties of radiation that such measurements are about."@en ;
-                        rdfs:label "Luminescent Property"@en .
+                        rdfs:label "Luminescent Property"@en ;
+                        skos:definition "An Optical Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light, but which isn't the result of the bearer being heated."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Magenta
 cco:Magenta rdf:type owl:Class ;
             rdfs:subClassOf cco:Color ;
-            cco:definition "A Color consisting of red and blue hues."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-            rdfs:label "Magenta"@en .
+            rdfs:label "Magenta"@en ;
+            skos:definition "A Color consisting of red and blue hues."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Magnetic
 cco:Magnetic rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000016 ;
-             cco:definition "A Disposition that is realized when its bearer exerts a magnetic force on another entity."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Magnetism"@en .
+             rdfs:label "Magnetism"@en ;
+             skos:definition "A Disposition that is realized when its bearer exerts a magnetic force on another entity."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Maroon
 cco:Maroon rdf:type owl:Class ;
            rdfs:subClassOf cco:Color ;
-           cco:definition "A Color consisting of purple and brown hue."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Maroon"@en .
+           rdfs:label "Maroon"@en ;
+           skos:definition "A Color consisting of purple and brown hue."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Mass
 cco:Mass rdf:type owl:Class ;
          rdfs:subClassOf obo:BFO_0000019 ;
-         cco:definition "A Quality that inheres in a bearer in virtue of the amount of matter in that bearer."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
          rdfs:comment "'Matter' here can also refer to the inertial energy of an object."@en ,
                       "Typical unit of measure is the kilogram or pound."@en ;
-         rdfs:label "Mass"@en .
+         rdfs:label "Mass"@en ;
+         skos:definition "A Quality that inheres in a bearer in virtue of the amount of matter in that bearer."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Oblong
 cco:Oblong rdf:type owl:Class ;
            rdfs:subClassOf cco:ShapeQuality ;
-           cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having an long thin shape with approximately parallel sides."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Oblong"@en .
+           rdfs:label "Oblong"@en ;
+           skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having an long thin shape with approximately parallel sides."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OneDimensionalExtent
 cco:OneDimensionalExtent rdf:type owl:Class ;
                          rdfs:subClassOf cco:SizeQuality ;
-                         cco:definition "A Size Quality that inheres in a bearer in virtue of the bearer's extension in one dimension."@en ;
                          cco:definition_source "http://purl.obolibrary.org/obo/PATO_0001708" ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
                          rdfs:comment "Subclasses of one dimensional extent are included for usability. It is doubtful any of them can be objectively distinguished (on the side of the bearing entity) without some reference to external properties such as orientation and perspective."@en ;
-                         rdfs:label "One Dimensional Extent"@en .
+                         rdfs:label "One Dimensional Extent"@en ;
+                         skos:definition "A Size Quality that inheres in a bearer in virtue of the bearer's extension in one dimension."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Opacity
 cco:Opacity rdf:type owl:Class ;
             rdfs:subClassOf cco:ElectromagneticRadiationProperty ;
-            cco:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of that bearer's capacity to transmit electromagnetic radiation of a given frequency through the bearer instead of reflecting, scattering, or absorbing electromangentic radiation of that frequency."@en ;
             cco:definition_source "https://en.wikipedia.org/wiki/Opacity_(optics)" ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
             rdfs:comment "Note that it is important to specify the frequency of electromagnetic radiation when representing a bearer's Opacity since a bearer may be Opaque with respect to electromagnetic radiation of one frequency, but be transparent with respect to electromagnetic radiation of another frequency. Unless otherwise stated, statements about a bearer's Opacity are assumed to be about electromagnetic radiation with a frequency in the visible spectrum."@en ;
-            rdfs:label "Opacity"@en .
+            rdfs:label "Opacity"@en ;
+            skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of that bearer's capacity to transmit electromagnetic radiation of a given frequency through the bearer instead of reflecting, scattering, or absorbing electromangentic radiation of that frequency."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Opaque
 cco:Opaque rdf:type owl:Class ;
            rdfs:subClassOf cco:Opacity ;
-           cco:definition "An Opacity that inheres in a bearer in virtue of that bearer's incapacity to transmit electromagnetic radiation of a given frequency through the bearer such that the bearer reflects, scatters, or absorbs all electromagnetic radiation of that frequency."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Opaque"@en .
+           rdfs:label "Opaque"@en ;
+           skos:definition "An Opacity that inheres in a bearer in virtue of that bearer's incapacity to transmit electromagnetic radiation of a given frequency through the bearer such that the bearer reflects, scatters, or absorbs all electromagnetic radiation of that frequency."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/OpticalProperty
 cco:OpticalProperty rdf:type owl:Class ;
                     rdfs:subClassOf cco:ElectromagneticRadiationProperty ;
-                    cco:definition "An Electromagnetic Radiation Property that is realized when its bearer interacts with electromagnetic waves within the visible light spectrum."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                    rdfs:label "Optical Property"@en .
+                    rdfs:label "Optical Property"@en ;
+                    skos:definition "An Electromagnetic Radiation Property that is realized when its bearer interacts with electromagnetic waves within the visible light spectrum."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Orange
 cco:Orange rdf:type owl:Class ;
            rdfs:subClassOf cco:Color ;
-           cco:definition "A Color that is between Red and Yellow with a wavelength in the visible spectrum typically between 590 to 635 nanometers."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Orange"@en .
+           rdfs:label "Orange"@en ;
+           skos:definition "A Color that is between Red and Yellow with a wavelength in the visible spectrum typically between 590 to 635 nanometers."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Perimeter
 cco:Perimeter rdf:type owl:Class ;
               rdfs:subClassOf cco:OneDimensionalExtent ;
-              cco:definition "A One Dimensional Extent that inheres in a bearer in virtue of the extent of a boundary which encloses the bearer."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Perimeter"@en .
+              rdfs:label "Perimeter"@en ;
+              skos:definition "A One Dimensional Extent that inheres in a bearer in virtue of the extent of a boundary which encloses the bearer."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PhaseAngle
 cco:PhaseAngle rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000145 ;
-               cco:alternative_label "Orbital Phase Angle"@en ;
-               cco:definition "A Relational Quality that is the angle between the light incident onto an observed Object and the light reflected from the Object."@en ;
                cco:definition_source "https://en.wikipedia.org/wiki/Phase_angle_(astronomy)" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-               rdfs:label "Phase Angle"@en .
+               rdfs:label "Phase Angle"@en ;
+               skos:altLabel "Orbital Phase Angle"@en ;
+               skos:definition "A Relational Quality that is the angle between the light incident onto an observed Object and the light reflected from the Object."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Phosphorescence
 cco:Phosphorescence rdf:type owl:Class ;
                     rdfs:subClassOf cco:LuminescentProperty ;
-                    cco:definition "A Luminescent Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light after absorbing shorter wavelength radiation, and to continue emitting after the absorbing process has ceased."@en ;
                     cco:definition_source "https://en.wikipedia.org/w/index.php?title=Phosphorescence&oldid=1060815719"^^xsd:anyURI ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                    rdfs:label "Phosphorescence"@en .
+                    rdfs:label "Phosphorescence"@en ;
+                    skos:definition "A Luminescent Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light after absorbing shorter wavelength radiation, and to continue emitting after the absorbing process has ceased."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PitchOrientation
 cco:PitchOrientation rdf:type owl:Class ;
                      rdfs:subClassOf cco:SpatialOrientation ;
-                     cco:alternative_label "Pitch"@en ;
-                     cco:definition "A Spatial Orientation of an Object relative to its Pitch Axis."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                     rdfs:label "Pitch Orientation"@en .
+                     rdfs:label "Pitch Orientation"@en ;
+                     skos:altLabel "Pitch"@en ;
+                     skos:definition "A Spatial Orientation of an Object relative to its Pitch Axis."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PointingOrientation
 cco:PointingOrientation rdf:type owl:Class ;
                         rdfs:subClassOf cco:SpatialOrientation ;
-                        cco:alternative_label "Facing Orientation"@en ;
-                        cco:definition "A Spatial Orientation of a Material Entity in which one or more of its designated components are oriented toward a specified direction."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                        rdfs:label "Pointing Orientation"@en .
+                        rdfs:label "Pointing Orientation"@en ;
+                        skos:altLabel "Facing Orientation"@en ;
+                        skos:definition "A Spatial Orientation of a Material Entity in which one or more of its designated components are oriented toward a specified direction."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Protruding
 cco:Protruding rdf:type owl:Class ;
                rdfs:subClassOf cco:ShapeQuality ;
-               cco:definition "A Shape Quality inhering in a part of an object in virtue of the part extending out above or beyond the surface of the object."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-               rdfs:label "Protruding"@en .
+               rdfs:label "Protruding"@en ;
+               skos:definition "A Shape Quality inhering in a part of an object in virtue of the part extending out above or beyond the surface of the object."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Purple
 cco:Purple rdf:type owl:Class ;
            rdfs:subClassOf cco:Color ;
-           cco:definition "A Color that is aproximately midway between Red and Blue."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Purple"@en .
+           rdfs:label "Purple"@en ;
+           skos:definition "A Color that is aproximately midway between Red and Blue."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Pyramidal
 cco:Pyramidal rdf:type owl:Class ;
               rdfs:subClassOf cco:ThreeDimensionalShape ;
-              cco:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having a polygonal base with vertices that all connect to the same apex to form triangular faces."@en ;
               cco:definition_source "https://en.wikipedia.org/wiki/Pyramid_(geometry)" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Pyramidal"@en .
+              rdfs:label "Pyramidal"@en ;
+              skos:definition "A Three Dimensional Shape that inheres in a bearer in virtue of it having a polygonal base with vertices that all connect to the same apex to form triangular faces."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RadiationAbsorptivity
 cco:RadiationAbsorptivity rdf:type owl:Class ;
                           rdfs:subClassOf cco:ElectromagneticRadiationProperty ;
-                          cco:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to absorb electromagnetic radiation of a given frequency."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                          rdfs:label "Radiation Absorptivity"@en .
+                          rdfs:label "Radiation Absorptivity"@en ;
+                          skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to absorb electromagnetic radiation of a given frequency."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RadiationEmissivity
 cco:RadiationEmissivity rdf:type owl:Class ;
                         rdfs:subClassOf cco:ElectromagneticRadiationProperty ;
-                        cco:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to emit electromagnetic radiation of a given frequency."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                        rdfs:label "Radiation Emissivity"@en .
+                        rdfs:label "Radiation Emissivity"@en ;
+                        skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to emit electromagnetic radiation of a given frequency."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RadiationReflectivity
 cco:RadiationReflectivity rdf:type owl:Class ;
                           rdfs:subClassOf cco:ElectromagneticRadiationProperty ;
-                          cco:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to scatter or reflect electromagnetic radiation of a given frequency."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                          rdfs:label "Radiation Reflectivity"@en .
+                          rdfs:label "Radiation Reflectivity"@en ;
+                          skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to scatter or reflect electromagnetic radiation of a given frequency."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Radioactive
 cco:Radioactive rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000019 ;
-                cco:definition "A Quality that inheres in a bearer in virtue of that bearer exhibiting or being caused by radioactivity."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Radioactive"@en .
+                rdfs:label "Radioactive"@en ;
+                skos:definition "A Quality that inheres in a bearer in virtue of that bearer exhibiting or being caused by radioactivity."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Radiolucent
 cco:Radiolucent rdf:type owl:Class ;
                 rdfs:subClassOf cco:Radiopacity ;
-                cco:alternative_label "Hypodense"@en ,
-                                      "Transradiance"@en ;
-                cco:definition "A Radiopacity that inheres in a bearer in virtue of its capacity to permit most X-rays to pass through it."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Radiolucent"@en .
+                rdfs:label "Radiolucent"@en ;
+                skos:altLabel "Hypodense"@en ,
+                              "Transradiance"@en ;
+                skos:definition "A Radiopacity that inheres in a bearer in virtue of its capacity to permit most X-rays to pass through it."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Radiopacity
 cco:Radiopacity rdf:type owl:Class ;
                 rdfs:subClassOf cco:Opacity ;
-                cco:alternative_label "Radiodensity"@en ;
-                cco:definition "An Opacity that inheres in a bearer in virtue of its capacity to allow or prevent X-rays to pass through it."@en ;
                 cco:definition_source "https://en.wikipedia.org/w/index.php?title=Radiodensity&oldid=1048274724"^^xsd:anyURI ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Radiopacity"@en .
+                rdfs:label "Radiopacity"@en ;
+                skos:altLabel "Radiodensity"@en ;
+                skos:definition "An Opacity that inheres in a bearer in virtue of its capacity to allow or prevent X-rays to pass through it."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Radiopaque
 cco:Radiopaque rdf:type owl:Class ;
                rdfs:subClassOf cco:Radiopacity ;
-               cco:alternative_label "Radiodense"@en ;
-               cco:definition "A Radiopacity that inheres in a bearer in virtue of its capacity to prevent most X-rays from passing through it."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-               rdfs:label "Radiopaque"@en .
+               rdfs:label "Radiopaque"@en ;
+               skos:altLabel "Radiodense"@en ;
+               skos:definition "A Radiopacity that inheres in a bearer in virtue of its capacity to prevent most X-rays from passing through it."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Rectangular
 cco:Rectangular rdf:type owl:Class ;
                 rdfs:subClassOf cco:ShapeQuality ;
-                cco:definition "A Shape Quality inhering in a bearer in virtue of having four sides and four 90 degree angles."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Rectangular"@en .
+                rdfs:label "Rectangular"@en ;
+                skos:definition "A Shape Quality inhering in a bearer in virtue of having four sides and four 90 degree angles."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Red
 cco:Red rdf:type owl:Class ;
         rdfs:subClassOf cco:Color ;
-        cco:definition "A Color that is above Orange with a wavelength in the visible spectrum typically between 635 to 700 nanometers."@en ;
         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-        rdfs:label "Red"@en .
+        rdfs:label "Red"@en ;
+        skos:definition "A Color that is above Orange with a wavelength in the visible spectrum typically between 635 to 700 nanometers."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Refractivity
 cco:Refractivity rdf:type owl:Class ;
                  rdfs:subClassOf cco:RadiationReflectivity ;
-                 cco:definition "A Radiation Reflectivity that inheres in a bearer in virtue of the capacity of that bearer to change the direction of a propagating wave when passing through it."@en ;
                  cco:definition_source "https://en.wikipedia.org/w/index.php?title=Refractive_index&oldid=1062519140"^^xsd:anyURI ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                 rdfs:label "Refractivity"@en .
+                 rdfs:label "Refractivity"@en ;
+                 skos:definition "A Radiation Reflectivity that inheres in a bearer in virtue of the capacity of that bearer to change the direction of a propagating wave when passing through it."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RollOrientation
 cco:RollOrientation rdf:type owl:Class ;
                     rdfs:subClassOf cco:SpatialOrientation ;
-                    cco:alternative_label "Roll"@en ;
-                    cco:definition "A Spatial Orientation of an Object relative to its Roll Axis."@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                    rdfs:label "Roll Orientation"@en .
+                    rdfs:label "Roll Orientation"@en ;
+                    skos:altLabel "Roll"@en ;
+                    skos:definition "A Spatial Orientation of an Object relative to its Roll Axis."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Rosy
 cco:Rosy rdf:type owl:Class ;
          rdfs:subClassOf cco:Color ;
-         cco:definition "A Color consisting of red hue and yellow hue and high brightness."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Rosy"@en .
+         rdfs:label "Rosy"@en ;
+         skos:definition "A Color consisting of red hue and yellow hue and high brightness."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Round
 cco:Round rdf:type owl:Class ;
           rdfs:subClassOf cco:ShapeQuality ;
-          cco:alternative_label "Circular"@en ;
-          cco:definition "A Shape Quality that inheres in a bearer in virtue of every point along its circumference being equidistant from the center."@en ;
           cco:definition_source "http://www.merriam-webster.com/dictionary/round" ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Round"@en .
+          rdfs:label "Round"@en ;
+          skos:altLabel "Circular"@en ;
+          skos:definition "A Shape Quality that inheres in a bearer in virtue of every point along its circumference being equidistant from the center."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Semicircular
 cco:Semicircular rdf:type owl:Class ;
                  rdfs:subClassOf cco:ShapeQuality ;
-                 cco:definition "A Shape quality inhering in a bearer in virtue of the bearer having the shape of half a circle."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                 rdfs:label "Semicircular"@en .
+                 rdfs:label "Semicircular"@en ;
+                 skos:definition "A Shape quality inhering in a bearer in virtue of the bearer having the shape of half a circle."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Serrated
 cco:Serrated rdf:type owl:Class ;
              rdfs:subClassOf cco:ShapeQuality ;
-             cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having multiple sharp points along a edge."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Serrated"@en .
+             rdfs:label "Serrated"@en ;
+             skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having multiple sharp points along a edge."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ShapeQuality
 cco:ShapeQuality rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000019 ;
-                 cco:definition "A Quality that inheres in a bearer in virtue of the ratios between dimensions of external features of that bearer."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                 rdfs:label "Shape Quality"@en .
+                 rdfs:label "Shape Quality"@en ;
+                 skos:definition "A Quality that inheres in a bearer in virtue of the ratios between dimensions of external features of that bearer."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Sharp
 cco:Sharp rdf:type owl:Class ;
           rdfs:subClassOf cco:ShapeQuality ;
-          cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a fine point or thin edge."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Sharp"@en .
+          rdfs:label "Sharp"@en ;
+          skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a fine point or thin edge."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SilverColor
 cco:SilverColor rdf:type owl:Class ;
                 rdfs:subClassOf cco:Color ;
-                cco:definition "A Color that resembles Grey with the added feature of having a metallic shine."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Silver Color"@en .
+                rdfs:label "Silver Color"@en ;
+                skos:definition "A Color that resembles Grey with the added feature of having a metallic shine."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SizeQuality
 cco:SizeQuality rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000019 ;
-                cco:definition "A Quality that inheres in a bearer in virtue of the bearer's extension in one or more dimensions."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Size Quality"@en .
+                rdfs:label "Size Quality"@en ;
+                skos:definition "A Quality that inheres in a bearer in virtue of the bearer's extension in one or more dimensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Sloped
 cco:Sloped rdf:type owl:Class ;
            rdfs:subClassOf cco:ShapeQuality ;
-           cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a horizontal border which is not level."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Sloped"@en .
+           rdfs:label "Sloped"@en ;
+           skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a horizontal border which is not level."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SpatialOrientation
 cco:SpatialOrientation rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000145 ;
-                       cco:alternative_label "Attitude"@en ;
-                       cco:definition "A Relational Quality that is the angle of Rotation of an Object relative to one or more Plane of Reference or Axis of Rotation."@en ;
                        cco:definition_source "https://en.wikipedia.org/wiki/Orientation_(geometry)" ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                       rdfs:label "Spatial Orientation"@en .
+                       rdfs:label "Spatial Orientation"@en ;
+                       skos:altLabel "Attitude"@en ;
+                       skos:definition "A Relational Quality that is the angle of Rotation of an Object relative to one or more Plane of Reference or Axis of Rotation."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Spherical
 cco:Spherical rdf:type owl:Class ;
               rdfs:subClassOf cco:ThreeDimensionalShape ;
-              cco:definition "A Three Dimensional Shape inhering in a bearer in virtue of all of its cross sections being round."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Spherical"@en .
+              rdfs:label "Spherical"@en ;
+              skos:definition "A Three Dimensional Shape inhering in a bearer in virtue of all of its cross sections being round."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Split
 cco:Split rdf:type owl:Class ;
           rdfs:subClassOf cco:ShapeQuality ;
-          cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a linear opening, or having been divided into parts."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Split"@en .
+          rdfs:label "Split"@en ;
+          skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a linear opening, or having been divided into parts."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Square
 cco:Square rdf:type owl:Class ;
            rdfs:subClassOf cco:Rectangular ;
-           cco:definition "A Rectangular shape which has four equal length sides and four 90 degree angles."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Square"@en .
+           rdfs:label "Square"@en ;
+           skos:definition "A Rectangular shape which has four equal length sides and four 90 degree angles."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Straight
 cco:Straight rdf:type owl:Class ;
              rdfs:subClassOf cco:ShapeQuality ;
-             cco:alternative_label "Linear"@en ;
-             cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer not having curves, bends, or angles along its borders."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Straight"@en .
+             rdfs:label "Straight"@en ;
+             skos:altLabel "Linear"@en ;
+             skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer not having curves, bends, or angles along its borders."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Strength
 cco:Strength rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000017 ;
-             cco:definition "A Realizable Entity that is realized when its bearer exerts or resists some power, influence, or force."@en ;
              cco:elucidation "Strength is intended to be understood broadly here. Physical strength is only one type of Strength. Other subtypes of Strength may include military strength, psychological strength, emotional strength, political strength, technological strength, and so on."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-             rdfs:label "Strength"@en .
+             rdfs:label "Strength"@en ;
+             skos:definition "A Realizable Entity that is realized when its bearer exerts or resists some power, influence, or force."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SurfaceTension
 cco:SurfaceTension rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000016 ;
-                   cco:definition "A Disposition that inheres in a liquid and is realized when the cohesive forces of the molecules in the bearer at the surface are greater than the adhesive forces of the molecules in the surrounding air."@en ;
                    cco:definition_source "https://en.wikipedia.org/w/index.php?title=Surface_tension&oldid=1062753527"^^xsd:anyURI ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                   rdfs:label "Surface Tension"@en .
+                   rdfs:label "Surface Tension"@en ;
+                   skos:definition "A Disposition that inheres in a liquid and is realized when the cohesive forces of the molecules in the bearer at the surface are greater than the adhesive forces of the molecules in the surrounding air."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Temperature
 cco:Temperature rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000019 ;
-                cco:definition "A Quality that inheres in a bearer in virtue of its thermal energy."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Temperature"@en .
+                rdfs:label "Temperature"@en ;
+                skos:definition "A Quality that inheres in a bearer in virtue of its thermal energy."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Texture
 cco:Texture rdf:type owl:Class ;
             rdfs:subClassOf obo:BFO_0000019 ;
-            cco:definition "A Quality that inheres in a bearer in virtue of the size, shape, and distribution of features on its surface, typically on a continuum from smooth to rough."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-            rdfs:label "Texture"@en .
+            rdfs:label "Texture"@en ;
+            skos:definition "A Quality that inheres in a bearer in virtue of the size, shape, and distribution of features on its surface, typically on a continuum from smooth to rough."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Thickness
 cco:Thickness rdf:type owl:Class ;
               rdfs:subClassOf cco:Depth ;
-              cco:definition "A Depth that inheres in a bearer in virtue of it extending inward through an object."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Thickness"@en .
+              rdfs:label "Thickness"@en ;
+              skos:definition "A Depth that inheres in a bearer in virtue of it extending inward through an object."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Thin
 cco:Thin rdf:type owl:Class ;
          rdfs:subClassOf cco:ShapeQuality ;
-         cco:alternative_label "Narrow"@en ,
-                               "Slender"@en ;
-         cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a width or depth which is significantly smaller in proportion to its length or height."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Thin"@en .
+         rdfs:label "Thin"@en ;
+         skos:altLabel "Narrow"@en ,
+                       "Slender"@en ;
+         skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a width or depth which is significantly smaller in proportion to its length or height."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ThreeDimensionalExtent
 cco:ThreeDimensionalExtent rdf:type owl:Class ;
                            rdfs:subClassOf cco:SizeQuality ;
-                           cco:alternative_label "Volume"@en ;
-                           cco:definition "A Size Quality that inheres in a bearer in virtue of the bearer's extension in three dimensions."@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                           rdfs:label "Three Dimensional Extent"@en .
+                           rdfs:label "Three Dimensional Extent"@en ;
+                           skos:altLabel "Volume"@en ;
+                           skos:definition "A Size Quality that inheres in a bearer in virtue of the bearer's extension in three dimensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ThreeDimensionalShape
 cco:ThreeDimensionalShape rdf:type owl:Class ;
                           rdfs:subClassOf cco:ShapeQuality ;
-                          cco:definition "A Shape Quality that inheres only in a three dimensional entity."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                          rdfs:label "Three Dimensional Shape"@en .
+                          rdfs:label "Three Dimensional Shape"@en ;
+                          skos:definition "A Shape Quality that inheres only in a three dimensional entity."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Translucent
 cco:Translucent rdf:type owl:Class ;
                 rdfs:subClassOf cco:Opacity ;
-                cco:definition "An Opacity that inheres in a bearer in virtue of that bearer's capacity to transmit some but not all electromagnetic radiation of a given frequency through the bearer such that the bearer reflects, scatters, or absorbs some but not all electromagnetic radiation of that frequency."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Translucent"@en .
+                rdfs:label "Translucent"@en ;
+                skos:definition "An Opacity that inheres in a bearer in virtue of that bearer's capacity to transmit some but not all electromagnetic radiation of a given frequency through the bearer such that the bearer reflects, scatters, or absorbs some but not all electromagnetic radiation of that frequency."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Transparent
 cco:Transparent rdf:type owl:Class ;
                 rdfs:subClassOf cco:Opacity ;
-                cco:definition "An Opacity that inheres in a bearer in virtue of that bearer's capacity to transmit all or nearly all electromagnetic radiation of a given frequency through the bearer such that the bearer reflects, scatters, or absorbs little or no electromagnetic radiation of that frequency."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                rdfs:label "Transparent"@en .
+                rdfs:label "Transparent"@en ;
+                skos:definition "An Opacity that inheres in a bearer in virtue of that bearer's capacity to transmit all or nearly all electromagnetic radiation of a given frequency through the bearer such that the bearer reflects, scatters, or absorbs little or no electromagnetic radiation of that frequency."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Triangular
 cco:Triangular rdf:type owl:Class ;
                rdfs:subClassOf cco:ShapeQuality ;
-               cco:definition "A Shape Quality inhering in a bearer in virtue of it having exactly three angles and exactly three sides."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-               rdfs:label "Triangular"@en .
+               rdfs:label "Triangular"@en ;
+               skos:definition "A Shape Quality inhering in a bearer in virtue of it having exactly three angles and exactly three sides."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/TwoDimensionalExtent
 cco:TwoDimensionalExtent rdf:type owl:Class ;
                          rdfs:subClassOf cco:SizeQuality ;
-                         cco:alternative_label "Area"@en ;
-                         cco:definition "A Size Quality that inheres in a bearer in virtue of the bearer's extension in two dimensions."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                         rdfs:label "Two Dimensional Extent"@en .
+                         rdfs:label "Two Dimensional Extent"@en ;
+                         skos:altLabel "Area"@en ;
+                         skos:definition "A Size Quality that inheres in a bearer in virtue of the bearer's extension in two dimensions."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Vermilion
 cco:Vermilion rdf:type owl:Class ;
               rdfs:subClassOf cco:Color ;
-              cco:definition "A Color consisting of red and orange hue with a slight amount of gray."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-              rdfs:label "Vermilion"@en .
+              rdfs:label "Vermilion"@en ;
+              skos:definition "A Color consisting of red and orange hue with a slight amount of gray."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Violet
 cco:Violet rdf:type owl:Class ;
            rdfs:subClassOf cco:Color ;
-           cco:definition "A Color that is lower than Blue with a wavelength in the visible spectrum typically between 400 and 450 nanometers."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Violet"@en .
+           rdfs:label "Violet"@en ;
+           skos:definition "A Color that is lower than Blue with a wavelength in the visible spectrum typically between 400 and 450 nanometers."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Vulnerability
@@ -890,9 +894,9 @@ cco:Vulnerability rdf:type owl:Class ;
                   rdfs:subClassOf cco:DisruptingDisposition ;
                   dcterms:bibliographicCitation "Vulnerability | Definition of Vulnerability by Oxford Dictionary on Lexico.Com Also Meaning of Vulnerability. https://web.archive.org/web/20210118111731/https://www.lexico.com/en/definition/vulnerability. Accessed 19 Dec. 2022. " ;
                   dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
-                  cco:definition "A Disrupting Disposition the realization of which would disrupt a process that the bearer of the Disrupting Disposition has an interest in."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
                   rdfs:label "Vulnerability"@en ;
+                  skos:definition "A Disrupting Disposition the realization of which would disrupt a process that the bearer of the Disrupting Disposition has an interest in."@en ;
                   skos:editorialNote "This is defined class. A Vulnerability is indexed by the interest_in object property. A disposition can be a Vulnerability according to one index and not a Vulnerability according to another index." ;
                   skos:prefLabel "Vulnerability"@en .
 
@@ -900,70 +904,70 @@ cco:Vulnerability rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Wavy
 cco:Wavy rdf:type owl:Class ;
          rdfs:subClassOf cco:ShapeQuality ;
-         cco:alternative_label "Undulate"@en ;
-         cco:definition "A Shape Quality inhering in a bearer in virtue of it having a sinuous or rippled border."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Wavy"@en .
+         rdfs:label "Wavy"@en ;
+         skos:altLabel "Undulate"@en ;
+         skos:definition "A Shape Quality inhering in a bearer in virtue of it having a sinuous or rippled border."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Weight
 cco:Weight rdf:type owl:Class ;
            rdfs:subClassOf obo:BFO_0000019 ;
-           cco:definition "A Quality that inheres in some material entity with a mass in virtue of its location in some gravitational field."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
            rdfs:comment "When an object is \"weighed\", in the typical case, it is done so by taking into account the local force of gravity to determine the object's mass, whose standard of measure is the kilogram. The actual unit of measure of weight is the newton."@en ;
-           rdfs:label "Weight"@en .
+           rdfs:label "Weight"@en ;
+           skos:definition "A Quality that inheres in some material entity with a mass in virtue of its location in some gravitational field."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Wetness
 cco:Wetness rdf:type owl:Class ;
             rdfs:subClassOf obo:BFO_0000019 ;
-            cco:definition "A Quality that inheres in a bearer in virtue of the degree to which the bearer is covered by a liquid, typically on a continuum of dry to wet."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-            rdfs:label "Wetness"@en .
+            rdfs:label "Wetness"@en ;
+            skos:definition "A Quality that inheres in a bearer in virtue of the degree to which the bearer is covered by a liquid, typically on a continuum of dry to wet."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/White
 cco:White rdf:type owl:Class ;
           rdfs:subClassOf cco:Color ;
-          cco:definition "A Color of maximum brightness, the color of objects that reflect nearly all wavelengths of the visible light spectrum, thus considered achromatic."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "White"@en .
+          rdfs:label "White"@en ;
+          skos:definition "A Color of maximum brightness, the color of objects that reflect nearly all wavelengths of the visible light spectrum, thus considered achromatic."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Wide
 cco:Wide rdf:type owl:Class ;
          rdfs:subClassOf cco:ShapeQuality ;
-         cco:alternative_label "Broad"@en ,
-                               "Fat"@en ;
-         cco:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a width or depth which is significantly larger in proportion to its length or height."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-         rdfs:label "Wide"@en .
+         rdfs:label "Wide"@en ;
+         skos:altLabel "Broad"@en ,
+                       "Fat"@en ;
+         skos:definition "A Shape Quality inhering in a bearer in virtue of the bearer having a width or depth which is significantly larger in proportion to its length or height."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Width
 cco:Width rdf:type owl:Class ;
           rdfs:subClassOf cco:OneDimensionalExtent ;
-          cco:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's extension in a horizontal direction."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-          rdfs:label "Width"@en .
+          rdfs:label "Width"@en ;
+          skos:definition "A One Dimensional Extent that inheres in a bearer in virtue of the bearer's extension in a horizontal direction."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/YawOrientation
 cco:YawOrientation rdf:type owl:Class ;
                    rdfs:subClassOf cco:SpatialOrientation ;
-                   cco:alternative_label "Yaw"@en ;
-                   cco:definition "A Spatial Orientation of an Object relative to its Yaw Axis."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-                   rdfs:label "Yaw Orientation"@en .
+                   rdfs:label "Yaw Orientation"@en ;
+                   skos:altLabel "Yaw"@en ;
+                   skos:definition "A Spatial Orientation of an Object relative to its Yaw Axis."@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Yellow
 cco:Yellow rdf:type owl:Class ;
            rdfs:subClassOf cco:Color ;
-           cco:definition "A Color that is between Orange and Green with a wavelength in the visible spectrum typically between 560 to 590 nanometers."@en ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/QualityOntology"^^xsd:anyURI ;
-           rdfs:label "Yellow"@en .
+           rdfs:label "Yellow"@en ;
+           skos:definition "A Color that is between Orange and Green with a wavelength in the visible spectrum typically between 560 to 590 nanometers."@en .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
