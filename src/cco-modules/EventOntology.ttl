@@ -12,7 +12,7 @@
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology> rdf:type owl:Ontology ;
                                                                             owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-09-26/EventOntology> ;
-                                                                            owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
+                                                                            owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> , <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology> ;
                                                                             dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                             dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                             rdfs:comment "This ontology is designed to represent processual entities, especially those performed by agents, that occur within multiple domains."@en ;
@@ -587,6 +587,12 @@ cco:ActOfIssuingMassMediaPressRelease rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ActOfLegalInstrumentUse
 cco:ActOfLegalInstrumentUse rdf:type owl:Class ;
                             rdfs:subClassOf cco:ActOfArtifactEmployment ;
+                            owl:equivalentClass [ owl:intersectionOf ( [ a owl:Restriction ;
+                                                                       owl:onProperty cco:has_agent ;
+                                                                       owl:someValuesFrom cco:Agent ]
+                                                                     [ a owl:Restriction ;
+                                                                       owl:onProperty cco:has_participant ;
+                                                                       owl:someValuesFrom cco:LegalInstrument ] ) ] ;
                             cco:definition "An Act of Artifact Employment in which some Agent uses some Legal Instrument."@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                             rdfs:label "Act of Legal Instrument Use"@en .
