@@ -14,6 +14,6 @@ SELECT DISTINCT ?class ?label
 WHERE {
 ?class a owl:Class .
 FILTER contains(str(?class),"http://www.ontologyrepository.com/CommonCoreOntologies/")
-FILTER NOT EXISTS {?class rdfs:subClassOf+ http://purl.obolibrary.org/obo/BFO_0000001 }
+FILTER NOT EXISTS {?class rdfs:subClassOf+ <http://purl.obolibrary.org/obo/BFO_0000001> }
 OPTIONAL {?class rdfs:label ?label}
 }
