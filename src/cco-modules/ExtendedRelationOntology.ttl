@@ -24,16 +24,86 @@
 #################################################################
 
 ###  http://purl.org/dc/terms/created
-dcterms:created rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
-
+dcterms:created
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#created-003> ;
+    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "Date of creation of the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Date Created"@en ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>, dcterms:date .
 
 ###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:AnnotationProperty .
+dcterms:license
+    dcterms:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+    dcterms:issued "2004-06-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    dcterms:modified "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "License"@en ;
+    rdfs:range dcterms:LicenseDocument ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/rights>, dcterms:rights .
 
+### http://www.w3.org/2000/01/rdf-schema#comment 
+rdfs:comment a rdf:Property ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "comment" ;
+	rdfs:comment "A description of the subject resource." ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range rdfs:Literal .
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel
+    a rdf:Property, owl:AnnotationProperty ;
+    rdfs:comment "The range of skos:altLabel is the class of RDF plain literals."@en, "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:label "alternative label"@en ;
+    rdfs:subPropertyOf rdfs:label ;
+    skos:definition "An alternative lexical label for a resource."@en ;
+    skos:example "Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel)."@en .
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example
+    a rdf:Property, owl:AnnotationProperty ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:label "example"@en ;
+    rdfs:subPropertyOf skos:note ;
+    skos:definition "An example of the use of a concept."@en .
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition
+    a rdf:Property, owl:AnnotationProperty ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:label "definition"@en ;
+    rdfs:subPropertyOf skos:note ;
+    skos:definition "A statement or formal explanation of the meaning of a concept."@en .
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note
+    a rdf:Property, owl:AnnotationProperty ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:label "note"@en ;
+    skos:definition "A general note, for any purpose."@en ;
+    skos:scopeNote "This property may be used directly, or as a super-property for more specific note types."@en .
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+skos:editorialNote
+    a rdf:Property, owl:AnnotationProperty ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:label "editorial note"@en ;
+    rdfs:subPropertyOf skos:note ;
+    skos:definition "A note for an editor, translator or maintainer of the vocabulary."@en .
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote
+    a rdf:Property, owl:AnnotationProperty ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:label "scope note"@en ;
+    rdfs:subPropertyOf skos:note ;
+    skos:definition "A note that helps to clarify the meaning and/or the use of a concept."@en .
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/acronym
 cco:acronym rdf:type owl:AnnotationProperty ;
@@ -42,6 +112,22 @@ cco:acronym rdf:type owl:AnnotationProperty ;
             rdfs:label "acronym"@en ;
             rdfs:subPropertyOf skos:altLabel .
 
+
+### http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label a rdf:Property ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "label" ;
+	rdfs:comment "A human-readable name for the subject." ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range rdfs:Literal .
+
+### http://www.w3.org/2000/01/rdf-schema#comment
+  rdfs:comment a rdf:Property ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "comment" ;
+	rdfs:comment "A description of the subject resource." ;
+	rdfs:domain rdfs:Resource ;
+	rdfs:range rdfs:Literal .
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/code_license
 cco:code_license rdf:type owl:AnnotationProperty ;
@@ -206,11 +292,6 @@ cco:term_editor rdf:type owl:AnnotationProperty ;
                 skos:definition "The name of a person who contributed to the development or enhancement of the term."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology"^^xsd:anyURI ;
                 rdfs:label "term editor"@en .
-
-
-###  http://www.w3.org/2004/02/skos/core#editorialNote
-skos:editorialNote rdf:type owl:AnnotationProperty .
-
 
 #################################################################
 #    Object Properties
