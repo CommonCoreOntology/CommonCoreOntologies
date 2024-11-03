@@ -5,12 +5,12 @@
 # Severity:
 #     Error 
 
-PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT DISTINCT ?element ?definition ?error
 WHERE {
-  ?element cco:definition ?definition .
-  ?element2 cco:definition ?definition .
+  ?element skos:definition ?definition .
+  ?element2 skos:definition ?definition .
   FILTER (?element != ?element2)
   FILTER (!isBlank(?element))
   BIND (concat("WARNING: The following ontology elements have the same cco:definition ", str(?element), " and ", str(?element2)) AS ?error)
