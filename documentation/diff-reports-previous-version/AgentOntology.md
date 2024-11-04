@@ -27,7 +27,7 @@
 #### Added
 - [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Schlosser, Markus, &quot;Agency&quot;, The Stanford Encyclopedia of Philosophy (Winter 2019 Edition), Edward N. Zalta (ed.), available at: https://plato.stanford.edu/archives/win2019/entries/agency/"@en 
 
-- [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition)) "A Material Entity that bears an Agent Capability."@en 
+- [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Material Entity that bears an Agent Capability."@en 
 
 - [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) EquivalentTo [material entity](http://purl.obolibrary.org/obo/BFO_0000040) and ([bearer of](http://purl.obolibrary.org/obo/BFO_0000196) some [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability)) 
 
@@ -39,7 +39,7 @@
 #### Added
 - [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Schlosser, Markus, &quot;Agency&quot;, The Stanford Encyclopedia of Philosophy (Winter 2019 Edition), Edward N. Zalta (ed.), available at: https://plato.stanford.edu/archives/win2019/entries/agency/"@en 
 
-- [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition)) "A Realizable Entity that inheres in a Material Entity in virtue of that Material Entity's capacity to realize it in some Planned Act."@en 
+- [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Realizable Entity that inheres in a Material Entity in virtue of that Material Entity's capacity to realize it in some Planned Act."@en 
 
 
 ### Affordance `http://www.ontologyrepository.com/CommonCoreOntologies/Affordance`
