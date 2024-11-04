@@ -18,6 +18,30 @@
 
 
 
+### Agent `http://www.ontologyrepository.com/CommonCoreOntologies/Agent`
+#### Removed
+- [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Material Entity that is capable of performing Planned Acts"@en 
+
+- [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) EquivalentTo [material entity](http://purl.obolibrary.org/obo/BFO_0000040) and ([agent in](http://www.ontologyrepository.com/CommonCoreOntologies/agent_in) some [process](http://purl.obolibrary.org/obo/BFO_0000015)) 
+
+#### Added
+- [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Schlosser, Markus, &quot;Agency&quot;, The Stanford Encyclopedia of Philosophy (Winter 2019 Edition), Edward N. Zalta (ed.), available at: https://plato.stanford.edu/archives/win2019/entries/agency/"@en 
+
+- [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Material Entity that bears an Agent Capability."@en 
+
+- [Agent](http://www.ontologyrepository.com/CommonCoreOntologies/Agent) EquivalentTo [material entity](http://purl.obolibrary.org/obo/BFO_0000040) and ([bearer of](http://purl.obolibrary.org/obo/BFO_0000196) some [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability)) 
+
+
+### Agent Capability `http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability`
+#### Removed
+- [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Realizable Entity that inheres in an Agent to the extent of that Agent's capacity to realize it in Intentional Acts of a certain type."@en 
+
+#### Added
+- [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Schlosser, Markus, &quot;Agency&quot;, The Stanford Encyclopedia of Philosophy (Winter 2019 Edition), Edward N. Zalta (ed.), available at: https://plato.stanford.edu/archives/win2019/entries/agency/"@en 
+
+- [Agent Capability](http://www.ontologyrepository.com/CommonCoreOntologies/AgentCapability) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Realizable Entity that inheres in a Material Entity in virtue of that Material Entity's capacity to realize it in some Planned Act."@en 
+
+
 ### Affordance `http://www.ontologyrepository.com/CommonCoreOntologies/Affordance`
 #### Removed
 - [Affordance](http://www.ontologyrepository.com/CommonCoreOntologies/Affordance) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "https://en.wikipedia.org/w/index.php?title=Affordance&amp;oldid=1061963879"^^[anyURI](http://www.w3.org/2001/XMLSchema#anyURI) 
