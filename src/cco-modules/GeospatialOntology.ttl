@@ -3,6 +3,7 @@
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -44,7 +45,7 @@ cco:coincides_with rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf cco:connected_with ;
                    rdfs:domain obo:BFO_0000141 ;
                    rdfs:range obo:BFO_0000141 ;
-                   cco:definition "An immaterial entity im1 coincides with some immaterial entity im2 iff im1 is a spatial part of im2 and im2 is a spatial part of im1."@en ;
+                   skos:definition "An immaterial entity im1 coincides with some immaterial entity im2 iff im1 is a spatial part of im2 and im2 is a spatial part of im1."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                    rdfs:label "coincides with"@en ;
                    skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive and symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -54,7 +55,7 @@ cco:coincides_with rdf:type owl:ObjectProperty ;
 cco:connected_with rdf:type owl:ObjectProperty ;
                    rdfs:domain obo:BFO_0000141 ;
                    rdfs:range obo:BFO_0000141 ;
-                   cco:definition "An immaterial entity im1 is connected with some immaterial entity im2 iff there exists some immaterial entity im3 that is common to both im1 and im2."@en ;
+                   skos:definition "An immaterial entity im1 is connected with some immaterial entity im2 iff there exists some immaterial entity im3 that is common to both im1 and im2."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                    rdfs:label "connected with"@en ;
                    skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -64,7 +65,7 @@ cco:connected_with rdf:type owl:ObjectProperty ;
 cco:disconnected_with rdf:type owl:ObjectProperty ;
                       rdfs:domain obo:BFO_0000141 ;
                       rdfs:range obo:BFO_0000141 ;
-                      cco:definition "An immaterial entity im1 is disconnected with some immaterial entity im2 iff there does not exist some immaterial entity im3 that is common to both im1 and im2."@en ;
+                      skos:definition "An immaterial entity im1 is disconnected with some immaterial entity im2 iff there does not exist some immaterial entity im3 that is common to both im1 and im2."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                       rdfs:label "disconnected with"@en ;
                       skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en .
@@ -75,7 +76,7 @@ cco:externally_connects_with rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf cco:connected_with ;
                              rdfs:domain obo:BFO_0000141 ;
                              rdfs:range obo:BFO_0000141 ;
-                             cco:definition "An immaterial entity im1 externally connects with some immaterial entity im2 iff im1 connects with im2 and im1 does not overlap with im2."@en ;
+                             skos:definition "An immaterial entity im1 externally connects with some immaterial entity im2 iff im1 connects with im2 and im1 does not overlap with im2."@en ;
                              cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                              rdfs:label "externally connects with"@en ;
@@ -88,7 +89,7 @@ cco:has_nontangential_part rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:nontangential_part_of ;
                            rdfs:domain obo:BFO_0000141 ;
                            rdfs:range obo:BFO_0000141 ;
-                           cco:definition "x has_nontangential_part y iff x and y are instances of Immaterial Entity, and x has_spatial_part y, such that there does not exist another instance of an Immaterial Entity which externally connects with both x and y."@en ;
+                           skos:definition "x has_nontangential_part y iff x and y are instances of Immaterial Entity, and x has_spatial_part y, such that there does not exist another instance of an Immaterial Entity which externally connects with both x and y."@en ;
                            cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                            rdfs:label "has nontangential part"@en ;
@@ -102,7 +103,7 @@ cco:has_spatial_part rdf:type owl:ObjectProperty ;
                      owl:inverseOf cco:spatial_part_of ;
                      rdfs:domain obo:BFO_0000141 ;
                      rdfs:range obo:BFO_0000141 ;
-                     cco:definition "y has_spatial_part x iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
+                     skos:definition "y has_spatial_part x iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
                      cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                      rdfs:label "has spatial part"@en .
@@ -114,7 +115,7 @@ cco:has_tangential_part rdf:type owl:ObjectProperty ;
                         owl:inverseOf cco:tangential_part_of ;
                         rdfs:domain obo:BFO_0000141 ;
                         rdfs:range obo:BFO_0000141 ;
-                        cco:definition "x has_tangential_part y iff x, y, and z are instances of Immaterial Entity, and x has_spatial_part y, such that z externally connects with both x and y."@en ;
+                        skos:definition "x has_tangential_part y iff x, y, and z are instances of Immaterial Entity, and x has_spatial_part y, such that z externally connects with both x and y."@en ;
                         cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                         rdfs:label "has tangential part"@en ;
@@ -126,7 +127,7 @@ cco:nontangential_part_of rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf cco:spatial_part_of ;
                           rdfs:domain obo:BFO_0000141 ;
                           rdfs:range obo:BFO_0000141 ;
-                          cco:definition "An immaterial entity im1 is a nontangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there does not exist an immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
+                          skos:definition "An immaterial entity im1 is a nontangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there does not exist an immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                           cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                           rdfs:label "nontangential part of"@en ;
@@ -138,7 +139,7 @@ cco:partially_overlaps_with rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf cco:connected_with ;
                             rdfs:domain obo:BFO_0000141 ;
                             rdfs:range obo:BFO_0000141 ;
-                            cco:definition "An immaterial entity im1 partially overlaps with some immaterial entity im2 iff im1 overlaps with im2 and im1 is not a spatial part of im2 and im2 is not a spatial part of im1."@en ;
+                            skos:definition "An immaterial entity im1 partially overlaps with some immaterial entity im2 iff im1 overlaps with im2 and im1 is not a spatial part of im2 and im2 is not a spatial part of im1."@en ;
                             cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                             rdfs:label "partially overlaps with"@en ;
@@ -151,7 +152,7 @@ cco:spatial_part_of rdf:type owl:ObjectProperty ;
                                        cco:connected_with ;
                     rdfs:domain obo:BFO_0000141 ;
                     rdfs:range obo:BFO_0000141 ;
-                    cco:definition "x spatial_part_of y iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
+                    skos:definition "x spatial_part_of y iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
                     cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                     rdfs:comment "in the sense used here, spatial part of is elsewhere referred to as proper spatial part of"@en ;
@@ -163,7 +164,7 @@ cco:tangential_part_of rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf cco:spatial_part_of ;
                        rdfs:domain obo:BFO_0000141 ;
                        rdfs:range obo:BFO_0000141 ;
-                       cco:definition "An immaterial entity im1 is a tangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there exists some immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
+                       skos:definition "An immaterial entity im1 is a tangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there exists some immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                        cco:definition_source "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "tangential part of"@en ;
@@ -176,7 +177,7 @@ cco:tangential_part_of rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_altitude_value
 cco:has_altitude_value rdf:type owl:DatatypeProperty ;
-                       cco:elucidation "This data property can be used along with has_latitude_value and has_longitude_value to connect three-dimensional spatial data to a single Information Bearing Entity to specify the location of an entity in a Geospatial Region."@en ;
+                       skos:scopeNote "This data property can be used along with has_latitude_value and has_longitude_value to connect three-dimensional spatial data to a single Information Bearing Entity to specify the location of an entity in a Geospatial Region."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:comment "Altitude values typically use kilometers as the Unit of Measurement."@en ;
                        rdfs:label "has altitude value"@en .
@@ -185,7 +186,7 @@ cco:has_altitude_value rdf:type owl:DatatypeProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_latitude_value
 cco:has_latitude_value rdf:type owl:DatatypeProperty ;
                        rdfs:range xsd:decimal ;
-                       cco:definition "A Data Property that has as its range the latitude value from some Geospatial Location coordinates set expressed in decimal degrees."@en ;
+                       skos:definition "A Data Property that has as its range the latitude value from some Geospatial Location coordinates set expressed in decimal degrees."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "has latitude value"@en .
 
@@ -193,15 +194,15 @@ cco:has_latitude_value rdf:type owl:DatatypeProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_longitude_value
 cco:has_longitude_value rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:decimal ;
-                        cco:definition "A Data Property that has as its range the longitude value from some Geospatial Location coordinates set expressed in decimal degrees."@en ;
+                        skos:definition "A Data Property that has as its range the longitude value from some Geospatial Location coordinates set expressed in decimal degrees."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                         rdfs:label "has longitude value"@en .
 
 
 ###  http://www.opengis.net/ont/geosparql#asWKT
 <http://www.opengis.net/ont/geosparql#asWKT> rdf:type owl:DatatypeProperty ;
-                                             cco:definition "A Data Property that has as its range a string formated according to the Well-known text standardization for geometric objects."@en ;
-                                             cco:example_of_usage "Polygon ((10 10, 10 20, 20 20, 20 15, 10 10))" ;
+                                             skos:definition "A Data Property that has as its range a string formated according to the Well-known text standardization for geometric objects."@en ;
+                                             skos:example "Polygon ((10 10, 10 20, 20 20, 20 15, 10 10))" ;
                                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                                              rdfs:comment "ISO 19162:2015"@en ;
                                              rdfs:label "as WKT"@en .
@@ -214,7 +215,7 @@ cco:has_longitude_value rdf:type owl:DatatypeProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AnthropogenicFeature
 cco:AnthropogenicFeature rdf:type owl:Class ;
                          rdfs:subClassOf cco:EnvironmentalFeature ;
-                         cco:definition "An Environmental Feature that is related to or is the result of the influence of human beings on the environment."@en ;
+                         skos:definition "An Environmental Feature that is related to or is the result of the influence of human beings on the environment."@en ;
                          cco:definition_source "http://www.merriam-webster.com/dictionary/anthropogenic" ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Anthropogenic Feature"@en .
@@ -223,7 +224,7 @@ cco:AnthropogenicFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AtmosphericFeature
 cco:AtmosphericFeature rdf:type owl:Class ;
                        rdfs:subClassOf cco:GeographicFeature ;
-                       cco:definition "A Geographic Feature that is part of the atmosphere (including the atmosphere itself as a non-proper part) having a relatively stable lifecycle and which has a location that can be distinguished from the surrounding portion of the atmosphere."@en ;
+                       skos:definition "A Geographic Feature that is part of the atmosphere (including the atmosphere itself as a non-proper part) having a relatively stable lifecycle and which has a location that can be distinguished from the surrounding portion of the atmosphere."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Atmospheric Feature"@en .
 
@@ -231,8 +232,8 @@ cco:AtmosphericFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AxisOfRotation
 cco:AxisOfRotation rdf:type owl:Class ;
                    rdfs:subClassOf obo:BFO_0000026 ;
-                   cco:alternative_label "Rotational Axis"@en ;
-                   cco:definition "A One-Dimensional Spatial Region defined by the line around which a spinning body rotates."@en ;
+                   skos:altLabel  "Rotational Axis"@en ;
+                   skos:definition "A One-Dimensional Spatial Region defined by the line around which a spinning body rotates."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                    rdfs:label "Axis of Rotation"@en .
 
@@ -248,7 +249,7 @@ cco:BoundingBoxPoint rdf:type owl:Class ;
                                            rdf:type owl:Class
                                          ] ;
                      rdfs:subClassOf cco:GeospatialPosition ;
-                     cco:definition "A Geospatial Position that is a proper part of some Geospatial Region Bounding Box."@en ;
+                     skos:definition "A Geospatial Position that is a proper part of some Geospatial Region Bounding Box."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                      rdfs:label "Bounding Box Point"@en .
 
@@ -256,7 +257,7 @@ cco:BoundingBoxPoint rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CenterOfMass
 cco:CenterOfMass rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000018 ;
-                 cco:definition "A Zero-Dimensional Spatial Region that is the point where the weighted position vectors of the distributed Mass of a Material Entity relative to this point sum to zero."@en ;
+                 skos:definition "A Zero-Dimensional Spatial Region that is the point where the weighted position vectors of the distributed Mass of a Material Entity relative to this point sum to zero."@en ;
                  cco:definition_source "https://en.wikipedia.org/w/index.php?title=Center_of_mass&oldid=1059976491"^^xsd:anyURI ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                  rdfs:label "Center of Mass"@en .
@@ -265,7 +266,7 @@ cco:CenterOfMass rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ConstructedFeature
 cco:ConstructedFeature rdf:type owl:Class ;
                        rdfs:subClassOf cco:AnthropogenicFeature ;
-                       cco:definition "An Anthropogenic Feature that has been constructed by deliberate human effort."@en ;
+                       skos:definition "An Anthropogenic Feature that has been constructed by deliberate human effort."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Constructed Feature"@en .
 
@@ -273,7 +274,7 @@ cco:ConstructedFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Continent
 cco:Continent rdf:type owl:Class ;
               rdfs:subClassOf cco:GeospatialRegion ;
-              cco:definition "A Geospatial Region that is bounded by any of the Earth's main continuous expanses of land."@en ;
+              skos:definition "A Geospatial Region that is bounded by any of the Earth's main continuous expanses of land."@en ;
               cco:definition_source "JC3IEDM version 3.0.2" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
               rdfs:label "Continent"@en .
@@ -282,7 +283,7 @@ cco:Continent rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CoordinateSystemAxis
 cco:CoordinateSystemAxis rdf:type owl:Class ;
                          rdfs:subClassOf obo:BFO_0000026 ;
-                         cco:definition "A One-Dimensional Spatial Region defined by a Coordinate System for the purpose of identifying the position of entities along one dimension of the Coordinate System's spatial framework."@en ;
+                         skos:definition "A One-Dimensional Spatial Region defined by a Coordinate System for the purpose of identifying the position of entities along one dimension of the Coordinate System's spatial framework."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Coordinate System Axis"@en .
 
@@ -290,7 +291,7 @@ cco:CoordinateSystemAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/EnvironmentalFeature
 cco:EnvironmentalFeature rdf:type owl:Class ;
                          rdfs:subClassOf obo:BFO_0000040 ;
-                         cco:definition "A Material Entity that is either a natural or man-made feature of the environment."@en ;
+                         skos:definition "A Material Entity that is either a natural or man-made feature of the environment."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Environmental Feature"@en .
 
@@ -298,7 +299,7 @@ cco:EnvironmentalFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeographicFeature
 cco:GeographicFeature rdf:type owl:Class ;
                       rdfs:subClassOf cco:EnvironmentalFeature ;
-                      cco:definition "An Environmental Feature that is a natural (i.e. not human made) topographical feature having a (relatively) stable location in some Geospatial Region which can be designated by location-specific data."@en ;
+                      skos:definition "An Environmental Feature that is a natural (i.e. not human made) topographical feature having a (relatively) stable location in some Geospatial Region which can be designated by location-specific data."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                       rdfs:label "Geographic Feature"@en .
 
@@ -306,7 +307,7 @@ cco:GeographicFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary
 cco:GeospatialBoundary rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000142 ;
-                       cco:definition "A Fiat Line that is a boundary of some Geospatial Region."@en ;
+                       skos:definition "A Fiat Line that is a boundary of some Geospatial Region."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "One-Dimensional Geospatial Boundary"@en .
 
@@ -314,7 +315,7 @@ cco:GeospatialBoundary rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialEllipse
 cco:GeospatialEllipse rdf:type owl:Class ;
                       rdfs:subClassOf cco:GeospatialBoundary ;
-                      cco:definition "A One-Dimensional Geospatial Boundary that is formed by following a symmetric arc between four vertices which are connected to the center point of the ellipse via a straight line."@en ;
+                      skos:definition "A One-Dimensional Geospatial Boundary that is formed by following a symmetric arc between four vertices which are connected to the center point of the ellipse via a straight line."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                       rdfs:label "Geospatial Ellipse"@en .
 
@@ -322,7 +323,7 @@ cco:GeospatialEllipse rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialErrorRegion
 cco:GeospatialErrorRegion rdf:type owl:Class ;
                           rdfs:subClassOf cco:GeospatialBoundary ;
-                          cco:definition "A One-Dimensional Geospatial Boundary that bounds some Geospatial Region according to probability estimations for locating some object within it."@en ;
+                          skos:definition "A One-Dimensional Geospatial Boundary that bounds some Geospatial Region according to probability estimations for locating some object within it."@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                           rdfs:label "Geospatial Error Region"@en .
 
@@ -330,7 +331,7 @@ cco:GeospatialErrorRegion rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLine
 cco:GeospatialLine rdf:type owl:Class ;
                    rdfs:subClassOf cco:GeospatialLineString ;
-                   cco:definition "A Geospatial Line String that has only two vertices."@en ;
+                   skos:definition "A Geospatial Line String that has only two vertices."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                    rdfs:label "Geospatial Line"@en .
 
@@ -338,7 +339,7 @@ cco:GeospatialLine rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLineString
 cco:GeospatialLineString rdf:type owl:Class ;
                          rdfs:subClassOf cco:GeospatialBoundary ;
-                         cco:definition "A One-Dimensional Geospatial Boundary that has two or more Geospatial Positions as vertices, where each vertex is connected to only one other vertex by a straight line."@en ;
+                         skos:definition "A One-Dimensional Geospatial Boundary that has two or more Geospatial Positions as vertices, where each vertex is connected to only one other vertex by a straight line."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Geospatial Line String"@en .
 
@@ -350,7 +351,7 @@ cco:GeospatialLocation rdf:type owl:Class ;
                                          owl:onProperty obo:BFO_0000124 ;
                                          owl:someValuesFrom obo:BFO_0000001
                                        ] ;
-                       cco:definition "A Geospatial Region that is at which an Entity or Event is located."@en ;
+                       skos:definition "A Geospatial Region that is at which an Entity or Event is located."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Geospatial Location"@en .
 
@@ -358,7 +359,7 @@ cco:GeospatialLocation rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPolygon
 cco:GeospatialPolygon rdf:type owl:Class ;
                       rdfs:subClassOf cco:GeospatialLineString ;
-                      cco:definition "A Geospatial Line String that has at least three vertices where the connecting lines form a closed loop."@en ;
+                      skos:definition "A Geospatial Line String that has at least three vertices where the connecting lines form a closed loop."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                       rdfs:label "Geospatial Polygon"@en .
 
@@ -366,7 +367,7 @@ cco:GeospatialPolygon rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition
 cco:GeospatialPosition rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000147 ;
-                       cco:definition "A Fiat Point that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en ;
+                       skos:definition "A Fiat Point that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Geospatial Position"@en .
 
@@ -374,7 +375,7 @@ cco:GeospatialPosition rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegion
 cco:GeospatialRegion rdf:type owl:Class ;
                      rdfs:subClassOf obo:BFO_0000029 ;
-                     cco:definition "A Site that is at or near the surface of the Earth."@en ;
+                     skos:definition "A Site that is at or near the surface of the Earth."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                      rdfs:label "Geospatial Region"@en .
 
@@ -382,7 +383,7 @@ cco:GeospatialRegion rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegionBoundingBox
 cco:GeospatialRegionBoundingBox rdf:type owl:Class ;
                                 rdfs:subClassOf cco:GeospatialPolygon ;
-                                cco:definition "A Geospatial Polygon that has some Geospatial Region as a non-tangential proper part."@en ;
+                                skos:definition "A Geospatial Polygon that has some Geospatial Region as a non-tangential proper part."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                                 rdfs:label "Geospatial Region Bounding Box"@en .
 
@@ -390,10 +391,10 @@ cco:GeospatialRegionBoundingBox rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GroundTrack
 cco:GroundTrack rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000026 ;
-                cco:alternative_label "Ground Trace"@en ;
-                cco:definition "A One-Dimensional Spatial Region defined by the line formed on the surface of an Astronomical Body by projecting an imaginary line from the center of the tracked Object to the center of the Astronomical Body as the Object travels above the surface."@en ;
+                skos:altLabel  "Ground Trace"@en ;
+                skos:definition "A One-Dimensional Spatial Region defined by the line formed on the surface of an Astronomical Body by projecting an imaginary line from the center of the tracked Object to the center of the Astronomical Body as the Object travels above the surface."@en ;
                 cco:definition_source "https://en.wikipedia.org/w/index.php?title=Ground_track&oldid=1058025510"^^xsd:anyURI ;
-                cco:elucidation "The Ground Track is the line on the surface of the Earth or other Astronomical Body that is located directly below the Object Track."@en ;
+                skos:scopeNote "The Ground Track is the line on the surface of the Earth or other Astronomical Body that is located directly below the Object Track."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 rdfs:label "Ground Track"@en .
 
@@ -401,7 +402,7 @@ cco:GroundTrack rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GroundTrackPoint
 cco:GroundTrackPoint rdf:type owl:Class ;
                      rdfs:subClassOf obo:BFO_0000018 ;
-                     cco:definition "A Zero-Dimensional Spatial Region that is an idealized point located on the surface of an Astronomical Body directly below an Object Track Point."@en ;
+                     skos:definition "A Zero-Dimensional Spatial Region that is an idealized point located on the surface of an Astronomical Body directly below an Object Track Point."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                      rdfs:label "Ground Track Point"@en .
 
@@ -409,7 +410,7 @@ cco:GroundTrackPoint rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/HighDensityResidentialArea
 cco:HighDensityResidentialArea rdf:type owl:Class ;
                                rdfs:subClassOf cco:PopulatedPlace ;
-                               cco:definition "A Populated Place which is characterized by densely contained multiple-unit living structures."@en ;
+                               skos:definition "A Populated Place which is characterized by densely contained multiple-unit living structures."@en ;
                                cco:definition_source "Anderson et. al. A Land Use and Land Cover Classification System for use with Remote Sensor Data, Geological Survey Professional Paper 964" ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                                rdfs:label "High Density Residential Area"@en .
@@ -418,7 +419,7 @@ cco:HighDensityResidentialArea rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/HydrographicFeature
 cco:HydrographicFeature rdf:type owl:Class ;
                         rdfs:subClassOf cco:GeographicFeature ;
-                        cco:definition "A Geographic Feature associated with water."@en ;
+                        skos:definition "A Geographic Feature associated with water."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                         rdfs:label "Hydrographic Feature"@en .
 
@@ -426,7 +427,7 @@ cco:HydrographicFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/LowDensityResidentialArea
 cco:LowDensityResidentialArea rdf:type owl:Class ;
                               rdfs:subClassOf cco:PopulatedPlace ;
-                              cco:definition "A Populated Place where houses are on lots of more than one acre."@en ;
+                              skos:definition "A Populated Place where houses are on lots of more than one acre."@en ;
                               cco:definition_source "Anderson et. al. A Land Use and Land Cover Classification System for use with Remote Sensor Data, Geological Survey Professional Paper 964" ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                               rdfs:label "Low Density Residential Area"@en .
@@ -435,7 +436,7 @@ cco:LowDensityResidentialArea rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MajorAxis
 cco:MajorAxis rdf:type owl:Class ;
               rdfs:subClassOf obo:BFO_0000026 ;
-              cco:definition "A One-Dimensional Spatial Region that is the longest line segment that connects two points on the edge of an Ellipse."@en ;
+              skos:definition "A One-Dimensional Spatial Region that is the longest line segment that connects two points on the edge of an Ellipse."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
               rdfs:label "Major Axis"@en .
 
@@ -443,7 +444,7 @@ cco:MajorAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/MinorAxis
 cco:MinorAxis rdf:type owl:Class ;
               rdfs:subClassOf obo:BFO_0000026 ;
-              cco:definition "A One-Dimensional Spatial Region that is the longest line segment perpendicular to the Major Axis that connects two points on the edge of an Ellipse."@en ;
+              skos:definition "A One-Dimensional Spatial Region that is the longest line segment perpendicular to the Major Axis that connects two points on the edge of an Ellipse."@en ;
               cco:definition_source "https://en.wikipedia.org/w/index.php?title=Semi-major_and_semi-minor_axes&oldid=1047911304"^^xsd:anyURI ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
               rdfs:label "Minor Axis"@en .
@@ -452,7 +453,7 @@ cco:MinorAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Nadir
 cco:Nadir rdf:type owl:Class ;
           rdfs:subClassOf obo:BFO_0000026 ;
-          cco:definition "A One-Dimensional Spatial Region that extends from a given location downward along the local vertical direction pointing in the direction of the apparent Gravitational Force at that location."@en ;
+          skos:definition "A One-Dimensional Spatial Region that extends from a given location downward along the local vertical direction pointing in the direction of the apparent Gravitational Force at that location."@en ;
           cco:definition_source "https://en.wikipedia.org/w/index.php?title=Nadir&oldid=1057007248"^^xsd:anyURI ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
           rdfs:label "Nadir"@en .
@@ -465,7 +466,7 @@ cco:ObjectTrack rdf:type owl:Class ;
                                   owl:onProperty cco:has_spatial_part ;
                                   owl:someValuesFrom cco:ObjectTrackPoint
                                 ] ;
-                cco:definition "A One-Dimensional Spatial Region that consists of the idealized line along which an Object has traversed during some motion."@en ;
+                skos:definition "A One-Dimensional Spatial Region that consists of the idealized line along which an Object has traversed during some motion."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                 rdfs:comment "The exact line of the Object Track may be drawn based on the Center of Mass of the Object or another reference point, such as the location of a transponder beacon or the center of a radar cross-section, depending on the Object being tracked."@en ;
                 rdfs:label "Object Track"@en .
@@ -478,7 +479,7 @@ cco:ObjectTrackPoint rdf:type owl:Class ;
                                        owl:onProperty cco:spatial_part_of ;
                                        owl:someValuesFrom cco:ObjectTrack
                                      ] ;
-                     cco:definition "A Zero-Dimensional Spatial Region that is an idealized point where an Object is or was located during some motion."@en ;
+                     skos:definition "A Zero-Dimensional Spatial Region that is an idealized point where an Object is or was located during some motion."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                      rdfs:label "Object Track Point"@en .
 
@@ -486,7 +487,7 @@ cco:ObjectTrackPoint rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Park
 cco:Park rdf:type owl:Class ;
          rdfs:subClassOf cco:AnthropogenicFeature ;
-         cco:definition "An Anthropogenic Feature that is a bounded area of land, or water, usually in its natural or semi-natural (landscaped) state and set aside for some purpose, usually to do with recreation or conservation."@en ;
+         skos:definition "An Anthropogenic Feature that is a bounded area of land, or water, usually in its natural or semi-natural (landscaped) state and set aside for some purpose, usually to do with recreation or conservation."@en ;
          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Park&oldid=1061073992"^^xsd:anyURI ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
          rdfs:label "Park"@en .
@@ -495,7 +496,7 @@ cco:Park rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PhysiographicFeature
 cco:PhysiographicFeature rdf:type owl:Class ;
                          rdfs:subClassOf cco:GeographicFeature ;
-                         cco:definition "A Geographic Feature that is a geomorphological unit characterized by its surface form and location in the landscape."@en ;
+                         skos:definition "A Geographic Feature that is a geomorphological unit characterized by its surface form and location in the landscape."@en ;
                          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Landform&oldid=1060439172"^^xsd:anyURI ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Physiographic Feature"@en .
@@ -504,8 +505,8 @@ cco:PhysiographicFeature rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PitchAxis
 cco:PitchAxis rdf:type owl:Class ;
               rdfs:subClassOf cco:AxisOfRotation ;
-              cco:alternative_label "Lateral Axis"@en ;
-              cco:definition "An Axis of Rotation that passes through the center of an object's Mass and is perpendicular both to the direction of the object's motion and to the object's Yaw Axis."@en ;
+              skos:altLabel  "Lateral Axis"@en ;
+              skos:definition "An Axis of Rotation that passes through the center of an object's Mass and is perpendicular both to the direction of the object's motion and to the object's Yaw Axis."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
               rdfs:label "Pitch Axis"@en .
 
@@ -513,7 +514,7 @@ cco:PitchAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PopulatedPlace
 cco:PopulatedPlace rdf:type owl:Class ;
                    rdfs:subClassOf cco:AnthropogenicFeature ;
-                   cco:definition "An Anthropogenic Feature at which people live or have lived."@en ;
+                   skos:definition "An Anthropogenic Feature at which people live or have lived."@en ;
                    cco:definition_source "https://en.wikipedia.org/w/index.php?title=Human_settlement&oldid=1060418164"^^xsd:anyURI ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                    rdfs:label "Populated place"@en .
@@ -522,7 +523,7 @@ cco:PopulatedPlace rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfAtmosphere
 cco:PortionOfAtmosphere rdf:type owl:Class ;
                         rdfs:subClassOf obo:BFO_0000024 ;
-                        cco:definition "A fiat object part of the layer of gas or layers of gases that envelop a natural satellite."@en ;
+                        skos:definition "A fiat object part of the layer of gas or layers of gases that envelop a natural satellite."@en ;
                         cco:definition_source "https://en.wikipedia.org/w/index.php?title=Atmosphere&oldid=1135486662"^^xsd:anyURI ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                         rdfs:label "Portion of Atmosphere"@en .
@@ -531,7 +532,7 @@ cco:PortionOfAtmosphere rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfCryosphere
 cco:PortionOfCryosphere rdf:type owl:Class ;
                         rdfs:subClassOf obo:BFO_0000024 ;
-                        cco:definition "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
+                        skos:definition "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
                         cco:definition_source "https://oceanservice.noaa.gov/facts/cryosphere.html (accessed 03/06/2023)"^^xsd:anyURI ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                         rdfs:label "Portion of Cryosphere"@en .
@@ -540,7 +541,7 @@ cco:PortionOfCryosphere rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfGeosphere
 cco:PortionOfGeosphere rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000024 ;
-                       cco:definition "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
+                       skos:definition "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
                        cco:definition_source "https://en.wikipedia.org/w/index.php?title=Geosphere&oldid=1137306949"^^xsd:anyURI ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Portion of Geosphere"@en .
@@ -549,7 +550,7 @@ cco:PortionOfGeosphere rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfHydrosphere
 cco:PortionOfHydrosphere rdf:type owl:Class ;
                          rdfs:subClassOf obo:BFO_0000024 ;
-                         cco:definition "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
+                         skos:definition "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
                          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Hydrosphere&oldid=1128848972"^^xsd:anyURI ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Portion of Hydrosphere"@en .
@@ -558,7 +559,7 @@ cco:PortionOfHydrosphere rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/PortionOfLithosphere
 cco:PortionOfLithosphere rdf:type owl:Class ;
                          rdfs:subClassOf obo:BFO_0000024 ;
-                         cco:definition "A fiat object part of the rigid, outermost rocky shell of a natural satellite."@en ;
+                         skos:definition "A fiat object part of the rigid, outermost rocky shell of a natural satellite."@en ;
                          cco:definition_source "https://en.wikipedia.org/w/index.php?title=Lithosphere&oldid=1143215085"^^xsd:anyURI ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Portion of Lithosphere"@en .
@@ -567,8 +568,8 @@ cco:PortionOfLithosphere rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/RollAxis
 cco:RollAxis rdf:type owl:Class ;
              rdfs:subClassOf cco:AxisOfRotation ;
-             cco:alternative_label "Longitudinal Axis"@en ;
-             cco:definition "An Axis of Rotation that passes through the center of an object's Mass from the front to the back of the object as defined by the direction of the object's motion."@en ;
+             skos:altLabel  "Longitudinal Axis"@en ;
+             skos:definition "An Axis of Rotation that passes through the center of an object's Mass from the front to the back of the object as defined by the direction of the object's motion."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
              rdfs:label "Roll Axis"@en .
 
@@ -576,7 +577,7 @@ cco:RollAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SeaLevel
 cco:SeaLevel rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000146 ;
-             cco:definition "A Fiat Surface that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth’s oceans."@en ;
+             skos:definition "A Fiat Surface that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth’s oceans."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
              rdfs:label "Sea Level"@en .
 
@@ -584,7 +585,7 @@ cco:SeaLevel rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SemiMajorAxis
 cco:SemiMajorAxis rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000026 ;
-                  cco:definition "A One-Dimensional Spatial Region that is equal to half the length of the Major Axis of an Ellipse."@en ;
+                  skos:definition "A One-Dimensional Spatial Region that is equal to half the length of the Major Axis of an Ellipse."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                   rdfs:label "Semi-Major Axis"@en .
 
@@ -592,7 +593,7 @@ cco:SemiMajorAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SemiMinorAxis
 cco:SemiMinorAxis rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000026 ;
-                  cco:definition "A One-Dimensional Spatial Region that is equal to half the length of the Minor Axis of an Ellipse."@en ;
+                  skos:definition "A One-Dimensional Spatial Region that is equal to half the length of the Minor Axis of an Ellipse."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                   rdfs:label "Semi-Minor Axis"@en .
 
@@ -600,7 +601,7 @@ cco:SemiMinorAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent
 cco:Subcontinent rdf:type owl:Class ;
                  rdfs:subClassOf cco:GeospatialRegion ;
-                 cco:definition "A Geospatial Region that is bounded by a large, relatively self-contained landmass forming a subdivision of a Continent."@en ;
+                 skos:definition "A Geospatial Region that is bounded by a large, relatively self-contained landmass forming a subdivision of a Continent."@en ;
                  cco:definition_source "https://en.wikipedia.org/w/index.php?title=Continent&oldid=1064057312"^^xsd:anyURI ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                  rdfs:label "Subcontinent"@en .
@@ -613,7 +614,7 @@ cco:ThreeDimensionalPath rdf:type owl:Class ;
                                            owl:onProperty cco:has_spatial_part ;
                                            owl:someValuesFrom cco:ThreeDimensionalPosition
                                          ] ;
-                         cco:definition "A Three-Dimensional Spatial Region that encompasses the spatial region through which some Object travels."@en ;
+                         skos:definition "A Three-Dimensional Spatial Region that encompasses the spatial region through which some Object travels."@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                          rdfs:label "Three-Dimensional Path"@en .
 
@@ -621,7 +622,7 @@ cco:ThreeDimensionalPath rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ThreeDimensionalPosition
 cco:ThreeDimensionalPosition rdf:type owl:Class ;
                              rdfs:subClassOf obo:BFO_0000028 ;
-                             cco:definition "A Three-Dimensional Spatial Region that encompasses the (minimal) spatial region in which some object is located at a particular time."@en ;
+                             skos:definition "A Three-Dimensional Spatial Region that encompasses the (minimal) spatial region in which some object is located at a particular time."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                              rdfs:comment "For an object in motion, its Three-Dimensional Position is part of its Three-Dimensional Path."@en ;
                              rdfs:label "Three-Dimensional Position"@en .
@@ -630,8 +631,8 @@ cco:ThreeDimensionalPosition rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/YawAxis
 cco:YawAxis rdf:type owl:Class ;
             rdfs:subClassOf cco:AxisOfRotation ;
-            cco:alternative_label "Vertical Axis"@en ;
-            cco:definition "An Axis of Rotation that passes through the center of an object's Mass from the top to the bottom and is perpendicular to the direction of the object's motion. For objects in Orbit, the Yaw Axis passes through the Barycenter of its Orbit."@en ;
+            skos:altLabel  "Vertical Axis"@en ;
+            skos:definition "An Axis of Rotation that passes through the center of an object's Mass from the top to the bottom and is perpendicular to the direction of the object's motion. For objects in Orbit, the Yaw Axis passes through the Barycenter of its Orbit."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
             rdfs:label "Yaw Axis"@en .
 
@@ -639,7 +640,7 @@ cco:YawAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Zenith
 cco:Zenith rdf:type owl:Class ;
            rdfs:subClassOf obo:BFO_0000026 ;
-           cco:definition "A One-Dimensional Spatial Region that extends from a given location upward along the local vertical direction pointing in the direction opposite the apparent Gravitational Force at that location."@en ;
+           skos:definition "A One-Dimensional Spatial Region that extends from a given location upward along the local vertical direction pointing in the direction opposite the apparent Gravitational Force at that location."@en ;
            cco:definition_source "https://en.wikipedia.org/w/index.php?title=Zenith&oldid=1052625030"^^xsd:anyURI ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
            rdfs:label "Zenith"@en .
@@ -648,7 +649,7 @@ cco:Zenith rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/xAxis
 cco:xAxis rdf:type owl:Class ;
           rdfs:subClassOf cco:CoordinateSystemAxis ;
-          cco:definition "A Coordinate System Axis designated by the variable 'x'."@en ;
+          skos:definition "A Coordinate System Axis designated by the variable 'x'."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
           rdfs:label "x-Axis"@en .
 
@@ -656,7 +657,7 @@ cco:xAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/yAxis
 cco:yAxis rdf:type owl:Class ;
           rdfs:subClassOf cco:CoordinateSystemAxis ;
-          cco:definition "A Coordinate System Axis designated by the variable 'y'."@en ;
+          skos:definition "A Coordinate System Axis designated by the variable 'y'."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
           rdfs:label "y-Axis"@en .
 
@@ -664,7 +665,7 @@ cco:yAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/zAxis
 cco:zAxis rdf:type owl:Class ;
           rdfs:subClassOf cco:CoordinateSystemAxis ;
-          cco:definition "A Coordinate System Axis designated by the variable 'z'."@en ;
+          skos:definition "A Coordinate System Axis designated by the variable 'z'."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
           rdfs:label "z-Axis"@en .
 
