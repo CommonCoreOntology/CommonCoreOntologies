@@ -2,119 +2,65 @@
 
 ## Left
 - Ontology IRI: `http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology`
-- Version IRI: `http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/GeospatialOntology`
-- Loaded from: `file:/Users/markjensen/Documents/GitHub/CommonCoreOntologies/src/cco-modules/old/GeospatialOntology.ttl`
+- Version IRI: `http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-09-26/GeospatialOntology`
+- Loaded from: `file:/Users/markjensen/Documents/GitHub/CommonCoreOntologies/src/cco-modules/GeospatialOntology.ttl`
 
 ## Right
 - Ontology IRI: `http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology`
-- Version IRI: `http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-02-14/GeospatialOntology`
-- Loaded from: `file:/Users/markjensen/Documents/GitHub/CommonCoreOntologies/src/cco-modules/GeospatialOntology.ttl`
+- Version IRI: `http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-09-26/GeospatialOntology`
+- Loaded from: `file:/Users/markjensen/Documents/GitHub/CommonCoreOntologies/src/cco-modules/new/GeospatialOntology.ttl`
 
 ### Ontology imports 
 
 
 
 ### Ontology annotations 
-#### Removed
-- [license](http://purl.org/dc/terms/license) [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause) 
+
+
+
+### externally connects with `http://www.ontologyrepository.com/CommonCoreOntologies/externally_connects_with`
 
 #### Added
-- [license](http://purl.org/dc/terms/license) "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en 
-
-- [rights](http://purl.org/dc/terms/rights) "CUBRC Inc., see full license."@en 
+- [externally connects with](http://www.ontologyrepository.com/CommonCoreOntologies/externally_connects_with) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 
 
 
-### Continent `http://www.ontologyrepository.com/CommonCoreOntologies/Continent`
-#### Removed
-- [Continent](http://www.ontologyrepository.com/CommonCoreOntologies/Continent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Region bounded by any of the Earth's main continuous expanses of land."@en 
+### has nontangential part `http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part`
 
 #### Added
-- [Continent](http://www.ontologyrepository.com/CommonCoreOntologies/Continent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Region that is bounded by any of the Earth's main continuous expanses of land."@en 
+- [has nontangential part](http://www.ontologyrepository.com/CommonCoreOntologies/has_nontangential_part) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 
 
 
-### Geospatial Ellipse `http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialEllipse`
-#### Removed
-- [Geospatial Ellipse](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialEllipse) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Boundary that is formed by following a symmetric arc between four vertices which are connected to the center point of the ellipse via a straight line."@en 
-
-- [Geospatial Ellipse](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialEllipse) SubClassOf [Geospatial Line String](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLineString) 
+### has spatial part `http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part`
 
 #### Added
-- [Geospatial Ellipse](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialEllipse) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A One-Dimensional Geospatial Boundary that is formed by following a symmetric arc between four vertices which are connected to the center point of the ellipse via a straight line."@en 
-
-- [Geospatial Ellipse](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialEllipse) SubClassOf [One-Dimensional Geospatial Boundary](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary) 
+- [has spatial part](http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 
 
 
-### Geospatial Error Region `http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialErrorRegion`
-#### Removed
-- [Geospatial Error Region](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialErrorRegion) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Boundary that bounds some Geospatial Region according to probability estimations for locating some object within it."@en 
+### has tangential part `http://www.ontologyrepository.com/CommonCoreOntologies/has_tangential_part`
 
 #### Added
-- [Geospatial Error Region](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialErrorRegion) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A One-Dimensional Geospatial Boundary that bounds some Geospatial Region according to probability estimations for locating some object within it."@en 
+- [has tangential part](http://www.ontologyrepository.com/CommonCoreOntologies/has_tangential_part) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 
 
 
-### Geospatial Line String `http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLineString`
-#### Removed
-- [Geospatial Line String](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLineString) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Boundary that has two or more Geospatial Positions as vertices, where each vertex is connected to only one other vertex by a straight line."@en 
+### nontangential part of `http://www.ontologyrepository.com/CommonCoreOntologies/nontangential_part_of`
 
 #### Added
-- [Geospatial Line String](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLineString) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A One-Dimensional Geospatial Boundary that has two or more Geospatial Positions as vertices, where each vertex is connected to only one other vertex by a straight line."@en 
+- [nontangential part of](http://www.ontologyrepository.com/CommonCoreOntologies/nontangential_part_of) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 
 
 
-### Geospatial Location `http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLocation`
-#### Removed
-- [Geospatial Location](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLocation) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Region at which an Entity or Event is located."@en 
+### partially overlaps with `http://www.ontologyrepository.com/CommonCoreOntologies/partially_overlaps_with`
 
 #### Added
-- [Geospatial Location](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialLocation) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Region that is at which an Entity or Event is located."@en 
+- [partially overlaps with](http://www.ontologyrepository.com/CommonCoreOntologies/partially_overlaps_with) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 
 
 
-### Geospatial Position `http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition`
-#### Removed
-- [Geospatial Position](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A zero-dimensional continuant fiat boundary that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en 
+### spatial part of `http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of`
 
 #### Added
-- [Geospatial Position](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Fiat Point that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en 
+- [spatial part of](http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 
 
 
-### Geospatial Region `http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegion`
-#### Removed
-- [Geospatial Region](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegion) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Site at or near the surface of the Earth."@en 
+### tangential part of `http://www.ontologyrepository.com/CommonCoreOntologies/tangential_part_of`
 
 #### Added
-- [Geospatial Region](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialRegion) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Site that is at or near the surface of the Earth."@en 
-
-
-### One-Dimensional Geospatial Boundary `http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary`
-#### Removed
-- [One-Dimensional Geospatial Boundary](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary) [label](http://www.w3.org/2000/01/rdf-schema#label) "Geospatial Boundary"@en 
-
-- [One-Dimensional Geospatial Boundary](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A One-Dimensional Continuant Fiat Boundary that is a boundary of some Geospatial Region."@en 
-
-#### Added
-- [One-Dimensional Geospatial Boundary](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Fiat Line that is a boundary of some Geospatial Region."@en 
-
-- [One-Dimensional Geospatial Boundary](http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary) [label](http://www.w3.org/2000/01/rdf-schema#label) "One-Dimensional Geospatial Boundary"@en 
-
-
-### Pitch Axis `http://www.ontologyrepository.com/CommonCoreOntologies/PitchAxis`
-#### Removed
-- [Pitch Axis](http://www.ontologyrepository.com/CommonCoreOntologies/PitchAxis) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "An Axis of Rotation that passes through the center of an object's Mass from one side of the object to the other and is perpendicular to the direction of the object's motion."@en 
-
-#### Added
-- [Pitch Axis](http://www.ontologyrepository.com/CommonCoreOntologies/PitchAxis) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "An Axis of Rotation that passes through the center of an object's Mass and is perpendicular both to the direction of the object's motion and to the object's Yaw Axis."@en 
-
-
-### Sea Level `http://www.ontologyrepository.com/CommonCoreOntologies/SeaLevel`
-#### Removed
-- [Sea Level](http://www.ontologyrepository.com/CommonCoreOntologies/SeaLevel) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A two-dimensional continuant fiat boundary that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth&rsquo;s oceans."@en 
-
-#### Added
-- [Sea Level](http://www.ontologyrepository.com/CommonCoreOntologies/SeaLevel) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Fiat Surface that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth&rsquo;s oceans."@en 
-
-
-### Subcontinent `http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent`
-#### Removed
-- [Subcontinent](http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Region bounded by a large, relatively self-contained landmass forming a subdivision of a Continent."@en 
-
-#### Added
-- [Subcontinent](http://www.ontologyrepository.com/CommonCoreOntologies/Subcontinent) [definition](http://www.ontologyrepository.com/CommonCoreOntologies/definition) "A Geospatial Region that is bounded by a large, relatively self-contained landmass forming a subdivision of a Continent."@en 
+- [tangential part of](http://www.ontologyrepository.com/CommonCoreOntologies/tangential_part_of) [definition source](http://www.ontologyrepository.com/CommonCoreOntologies/definition_source) "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, &quot;A spatial logic based on regions and connection,&quot; Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en 

@@ -6,18 +6,19 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology> rdf:type owl:Ontology ;
-                                                                           owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-09-26/TimeOntology> ;
+                                                                           owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2024-11-03/TimeOntology> ;
                                                                            owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> ;
                                                                            dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                            dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                            rdfs:comment "This ontology is designed to represent temporal regions and the relations that hold between them."@en ;
                                                                            rdfs:label "Time Ontology"@en ;
-                                                                           owl:versionInfo "Version 1.6"@en .
+                                                                           owl:versionInfo "Version 1.7"@en .
 
 #################################################################
 #    Object Properties
@@ -28,7 +29,8 @@ cco:has_inside_instant rdf:type owl:ObjectProperty ;
                        owl:inverseOf cco:is_inside_instant_of ;
                        rdfs:domain obo:BFO_0000038 ;
                        rdfs:range obo:BFO_0000148 ;
-                       cco:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has inside instant t2 if and only if there exists Temporal Instants t3 and t4 that are part of t1 and non-identical with t2, such that t3 is before t2 and t4 is after t2."@en ;
+                       skos:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has inside instant t2 if and only if there exists Temporal Instants t3 and t4 that are part of t1 and non-identical with t2, such that t3 is before t2 and t4 is after t2."@en ;
+                       cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                        rdfs:label "has inside instant"@en .
 
@@ -39,7 +41,8 @@ cco:has_inside_interval rdf:type owl:ObjectProperty ;
                         owl:inverseOf cco:interval_during ;
                         rdfs:domain obo:BFO_0000038 ;
                         rdfs:range obo:BFO_0000038 ;
-                        cco:definition "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
+                        skos:definition "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
+                        cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                         rdfs:label "has inside interval"@en .
 
@@ -50,8 +53,9 @@ cco:instant_is_after rdf:type owl:ObjectProperty ;
                      rdf:type owl:TransitiveProperty ;
                      rdfs:domain obo:BFO_0000148 ;
                      rdfs:range obo:BFO_0000148 ;
-                     cco:definition "A temporal instant t2 (a instance of a zero-dimensional temporal region) is after another temporal instant t1 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
-                     cco:elucidation "'instant is after' is a primitive relationship. Informally, a temporal instant t2 is after some temporal instant t1 if and only if t1 precedes t2."@en ;
+                     skos:definition "A temporal instant t2 (a instance of a zero-dimensional temporal region) is after another temporal instant t1 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
+                     cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
+                     skos:scopeNote "'instant is after' is a primitive relationship. Informally, a temporal instant t2 is after some temporal instant t1 if and only if t1 precedes t2."@en ;
                      cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                      rdfs:label "instant is after"@en .
 
@@ -61,8 +65,9 @@ cco:instant_is_before rdf:type owl:ObjectProperty ,
                                owl:TransitiveProperty ;
                       rdfs:domain obo:BFO_0000148 ;
                       rdfs:range obo:BFO_0000148 ;
-                      cco:definition "A temporal instant t1 (a instance of a zero-dimensional temporal region) is before another temporal instant t2 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
-                      cco:elucidation "'instant is before' is a primitive relationship. Informally, a temporal instant t1 is before some temporal instant t2 if and only if t1 precedes t2."@en ;
+                      skos:definition "A temporal instant t1 (a instance of a zero-dimensional temporal region) is before another temporal instant t2 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
+                      cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
+                      skos:scopeNote "'instant is before' is a primitive relationship. Informally, a temporal instant t1 is before some temporal instant t2 if and only if t1 precedes t2."@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                       rdfs:label "instant is before"@en .
 
@@ -73,7 +78,8 @@ cco:interval_contained_by rdf:type owl:ObjectProperty ;
                           rdfs:domain obo:BFO_0000038 ;
                           rdfs:range obo:BFO_0000038 ;
                           owl:propertyDisjointWith cco:interval_disjoint ;
-                          cco:definition "A Temporal Interval INT1 is contained by some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, inst2 is before or identical to inst4, and it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
+                          skos:definition "A Temporal Interval INT1 is contained by some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, inst2 is before or identical to inst4, and it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
+                          cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                           rdfs:label "interval contained by"@en .
 
@@ -83,7 +89,8 @@ cco:interval_contains rdf:type owl:ObjectProperty ;
                       rdfs:domain obo:BFO_0000038 ;
                       rdfs:range obo:BFO_0000038 ;
                       owl:propertyDisjointWith cco:interval_disjoint ;
-                      cco:definition "A Temporal Interval INT2 contains some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, and inst2 is before or identical to inst4, but it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
+                      skos:definition "A Temporal Interval INT2 contains some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, and inst2 is before or identical to inst4, but it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
+                      cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                       rdfs:label "interval contains"@en .
 
@@ -95,7 +102,8 @@ cco:interval_disjoint rdf:type owl:ObjectProperty ;
                       owl:propertyDisjointWith cco:interval_equals ,
                                                cco:interval_overlapped_by ,
                                                cco:interval_overlaps ;
-                      cco:definition "A Temporal Interval INT1 is disjoint with a Temporal Interval INT2 iff INT1 is before or meets INT2 OR INT2 is before or meets INT1. In other words, INT1 and INT2 are disjoint iff INT1 and INT2 do not overlap, contain, or equal one another."@en ;
+                      skos:definition "A Temporal Interval INT1 is disjoint with a Temporal Interval INT2 iff INT1 is before or meets INT2 OR INT2 is before or meets INT1. In other words, INT1 and INT2 are disjoint iff INT1 and INT2 do not overlap, contain, or equal one another."@en ;
+                      cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                       rdfs:label "interval disjoint"@en .
 
@@ -105,7 +113,8 @@ cco:interval_during rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf cco:interval_contained_by ;
                     rdfs:domain obo:BFO_0000038 ;
                     rdfs:range obo:BFO_0000038 ;
-                    cco:definition "A Temporal Interval INT1 is during some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
+                    skos:definition "A Temporal Interval INT1 is during some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
+                    cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                     rdfs:label "interval during"@en .
 
@@ -115,7 +124,8 @@ cco:interval_equals rdf:type owl:ObjectProperty ,
                              owl:SymmetricProperty ;
                     rdfs:domain obo:BFO_0000038 ;
                     rdfs:range obo:BFO_0000038 ;
-                    cco:definition "A Temporal Interval INT1 is equal to some Temporal Interval INT2 iff there exists Temporal Instants inst1 and inst2 such that inst1 is the starting instant of both INT1 and INT2 and inst2 is the ending instant of both INT1 and INT2."@en ;
+                    skos:definition "A Temporal Interval INT1 is equal to some Temporal Interval INT2 iff there exists Temporal Instants inst1 and inst2 such that inst1 is the starting instant of both INT1 and INT2 and inst2 is the ending instant of both INT1 and INT2."@en ;
+                    cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                     rdfs:label "interval equals"@en .
 
@@ -126,7 +136,8 @@ cco:interval_finished_by rdf:type owl:ObjectProperty ;
                          owl:inverseOf cco:interval_finishes ;
                          rdfs:domain obo:BFO_0000038 ;
                          rdfs:range obo:BFO_0000038 ;
-                         cco:definition "A Temporal Interval INT2 is finished by some Temporal Interval INT1 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
+                         skos:definition "A Temporal Interval INT2 is finished by some Temporal Interval INT1 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
+                         cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                          rdfs:label "interval finished by"@en .
 
@@ -136,7 +147,8 @@ cco:interval_finishes rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf cco:interval_contained_by ;
                       rdfs:domain obo:BFO_0000038 ;
                       rdfs:range obo:BFO_0000038 ;
-                      cco:definition "A Temporal Interval INT1 finishes some Temporal Interval INT2 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
+                      skos:definition "A Temporal Interval INT1 finishes some Temporal Interval INT2 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
+                      cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                       rdfs:label "interval finishes"@en .
 
@@ -147,7 +159,8 @@ cco:interval_is_after rdf:type owl:ObjectProperty ;
                       owl:inverseOf cco:interval_is_before ;
                       rdfs:domain obo:BFO_0000038 ;
                       rdfs:range obo:BFO_0000038 ;
-                      cco:definition "A TemporalInterval INT2 is after some TemporalInterval INT1 iff there exists TemporalInstants inst2, inst1 such that inst2 is the starting instant of INT2 and inst1 is the ending instant of INT1 and inst2 is after inst1."@en ;
+                      skos:definition "A TemporalInterval INT2 is after some TemporalInterval INT1 iff there exists TemporalInstants inst2, inst1 such that inst2 is the starting instant of INT2 and inst1 is the ending instant of INT1 and inst2 is after inst1."@en ;
+                      cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                       rdfs:label "interval is after"@en .
 
@@ -157,7 +170,8 @@ cco:interval_is_before rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf cco:interval_disjoint ;
                        rdfs:domain obo:BFO_0000038 ;
                        rdfs:range obo:BFO_0000038 ;
-                       cco:definition "A TemporalInterval INT1 is before some TemporalInterval INT2 iff there exists TemporalInstants inst1, inst2 such that inst1 is the ending instant of INT1 and inst2 is the starting instant of INT2 and inst1 is before inst2."@en ;
+                       skos:definition "A TemporalInterval INT1 is before some TemporalInterval INT2 iff there exists TemporalInstants inst1, inst2 such that inst1 is the ending instant of INT1 and inst2 is the starting instant of INT2 and inst1 is before inst2."@en ;
+                       cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                        rdfs:label "interval is before"@en .
 
@@ -169,7 +183,8 @@ cco:interval_meets rdf:type owl:ObjectProperty ;
                    rdf:type owl:IrreflexiveProperty ;
                    rdfs:domain obo:BFO_0000038 ;
                    rdfs:range obo:BFO_0000038 ;
-                   cco:definition "A Temporal Interval INT1 meets some Temporal Interval INT2 iff there exists some Temporal Instant inst1 such that inst1 is the ending instant of INT1 and inst1 is the starting instant of INT2."@en ;
+                   skos:definition "A Temporal Interval INT1 meets some Temporal Interval INT2 iff there exists some Temporal Instant inst1 such that inst1 is the ending instant of INT1 and inst1 is the starting instant of INT2."@en ;
+                   cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                    rdfs:label "interval meets"@en .
 
@@ -180,7 +195,8 @@ cco:interval_met_by rdf:type owl:ObjectProperty ;
                     rdf:type owl:IrreflexiveProperty ;
                     rdfs:domain obo:BFO_0000038 ;
                     rdfs:range obo:BFO_0000038 ;
-                    cco:definition "A Temporal Interval INT2 is met by some Temporal Interval INT1 iff there exists some Temporal Instant inst1 such that inst1 is the starting instant of INT2 and inst1 is the ending instant of INT1."@en ;
+                    skos:definition "A Temporal Interval INT2 is met by some Temporal Interval INT1 iff there exists some Temporal Instant inst1 such that inst1 is the starting instant of INT2 and inst1 is the ending instant of INT1."@en ;
+                    cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                     rdfs:label "interval met by"@en .
 
@@ -190,7 +206,8 @@ cco:interval_overlapped_by rdf:type owl:ObjectProperty ;
                            owl:inverseOf cco:interval_overlaps ;
                            rdfs:domain obo:BFO_0000038 ;
                            rdfs:range obo:BFO_0000038 ;
-                           cco:definition "A Temporal Interval INT2 is overlapped by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
+                           skos:definition "A Temporal Interval INT2 is overlapped by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
+                           cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                            rdfs:label "interval overlapped by"@en .
 
@@ -199,7 +216,8 @@ cco:interval_overlapped_by rdf:type owl:ObjectProperty ;
 cco:interval_overlaps rdf:type owl:ObjectProperty ;
                       rdfs:domain obo:BFO_0000038 ;
                       rdfs:range obo:BFO_0000038 ;
-                      cco:definition "A Temporal Interval INT1 overlaps some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
+                      skos:definition "A Temporal Interval INT1 overlaps some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
+                      cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                       cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                       rdfs:label "interval overlaps"@en .
 
@@ -210,7 +228,8 @@ cco:interval_started_by rdf:type owl:ObjectProperty ;
                         owl:inverseOf cco:interval_starts ;
                         rdfs:domain obo:BFO_0000038 ;
                         rdfs:range obo:BFO_0000038 ;
-                        cco:definition "A Temporal Interval INT2 is started by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
+                        skos:definition "A Temporal Interval INT2 is started by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
+                        cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                         rdfs:label "interval started by"@en .
 
@@ -220,7 +239,8 @@ cco:interval_starts rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf cco:interval_contained_by ;
                     rdfs:domain obo:BFO_0000038 ;
                     rdfs:range obo:BFO_0000038 ;
-                    cco:definition "A Temporal Interval INT1 starts some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
+                    skos:definition "A Temporal Interval INT1 starts some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
+                    cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                     rdfs:label "interval starts"@en .
 
@@ -229,7 +249,8 @@ cco:interval_starts rdf:type owl:ObjectProperty ;
 cco:is_inside_instant_of rdf:type owl:ObjectProperty ;
                          rdfs:domain obo:BFO_0000148 ;
                          rdfs:range obo:BFO_0000038 ;
-                         cco:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."@en ;
+                         skos:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."@en ;
+                         cco:definition_source "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                          rdfs:label "is inside instant of"@en .
 
@@ -241,7 +262,7 @@ cco:is_inside_instant_of rdf:type owl:ObjectProperty ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Afternoon
 cco:Afternoon rdf:type owl:Class ;
               rdfs:subClassOf obo:BFO_0000202 ;
-              cco:definition "A Temporal Interval that consists of the temporal regions between when the sun is at its apex (approximately 12:00pm) and when it sets (approximately 6:00pm)."@en ;
+              skos:definition "A Temporal Interval that consists of the temporal regions between when the sun is at its apex (approximately 12:00pm) and when it sets (approximately 6:00pm)."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
               rdfs:label "Afternoon"@en .
 
@@ -249,7 +270,7 @@ cco:Afternoon rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/AxialRotationPeriod
 cco:AxialRotationPeriod rdf:type owl:Class ;
                         rdfs:subClassOf obo:BFO_0000202 ;
-                        cco:definition "A Temporal Interval that is equal to the length of time required for a spinning Object to complete one rotation around its Axis of Rotation."@en ;
+                        skos:definition "A Temporal Interval that is equal to the length of time required for a spinning Object to complete one rotation around its Axis of Rotation."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                         rdfs:label "Axial Rotation Period"@en .
 
@@ -257,7 +278,7 @@ cco:AxialRotationPeriod rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarDay
 cco:CalendarDay rdf:type owl:Class ;
                 rdfs:subClassOf cco:Day ;
-                cco:definition "A Day that begins and ends concurrently with the Seconds specified by a Calendar System to be the first and last Seconds of the Day."@en ;
+                skos:definition "A Day that begins and ends concurrently with the Seconds specified by a Calendar System to be the first and last Seconds of the Day."@en ;
                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                 rdfs:label "Calendar Day"@en .
 
@@ -265,8 +286,8 @@ cco:CalendarDay rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarMonth
 cco:CalendarMonth rdf:type owl:Class ;
                   rdfs:subClassOf cco:Month ;
-                  cco:definition "A Month that begins and ends concurrently with the Days specified by a Calendar System to be the first and last Days of the Month."@en ;
-                  cco:example_of_usage "January; February; March; April; May; June; July; August; September; October; November; December" ;
+                  skos:definition "A Month that begins and ends concurrently with the Days specified by a Calendar System to be the first and last Days of the Month."@en ;
+                  skos:example "January; February; March; April; May; June; July; August; September; October; November; December" ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                   rdfs:label "Calendar Month"@en .
 
@@ -274,7 +295,7 @@ cco:CalendarMonth rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarWeek
 cco:CalendarWeek rdf:type owl:Class ;
                  rdfs:subClassOf cco:Week ;
-                 cco:definition "A Week that begins and ends concurrently with the Days specified by a Calendar System to be the first and last Days of the Week."@en ;
+                 skos:definition "A Week that begins and ends concurrently with the Days specified by a Calendar System to be the first and last Days of the Week."@en ;
                  cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=calendar+week" ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                  rdfs:label "Calendar Week"@en .
@@ -283,7 +304,7 @@ cco:CalendarWeek rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/CalendarYear
 cco:CalendarYear rdf:type owl:Class ;
                  rdfs:subClassOf cco:Year ;
-                 cco:definition "A Year that begins and ends concurrently with the Days specified by a Calendar System to be the first and last Days of the Year."@en ;
+                 skos:definition "A Year that begins and ends concurrently with the Days specified by a Calendar System to be the first and last Days of the Year."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                  rdfs:label "Calendar Year"@en .
 
@@ -295,9 +316,9 @@ cco:Day rdf:type owl:Class ;
                           owl:onProperty cco:interval_during ;
                           owl:someValuesFrom cco:Week
                         ] ;
-        cco:definition "A Temporal Interval that is equal to the approximate length of time required for an Astronomical Body to complete one rotation around its Rotational Axis as specified relative to a particular Temporal Reference System."@en ;
+        skos:definition "A Temporal Interval that is equal to the approximate length of time required for an Astronomical Body to complete one rotation around its Rotational Axis as specified relative to a particular Temporal Reference System."@en ;
         cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=day" ;
-        cco:elucidation "Unless otherwise specified, a Day is assumed to be relative to the rotational motion of the Earth and is approximately equal to a twenty-four hour temporal region for which the start and end times are specified by the Temporal Reference System used."@en ;
+        skos:scopeNote "Unless otherwise specified, a Day is assumed to be relative to the rotational motion of the Earth and is approximately equal to a twenty-four hour temporal region for which the start and end times are specified by the Temporal Reference System used."@en ;
         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
         rdfs:label "Day"@en .
 
@@ -305,7 +326,7 @@ cco:Day rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Decade
 cco:Decade rdf:type owl:Class ;
            rdfs:subClassOf obo:BFO_0000202 ;
-           cco:definition "A Temporal Interval that is equal to a period of ten consecutive Years."@en ;
+           skos:definition "A Temporal Interval that is equal to a period of ten consecutive Years."@en ;
            cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=decade" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
            rdfs:label "Decade"@en .
@@ -314,7 +335,7 @@ cco:Decade rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Evening
 cco:Evening rdf:type owl:Class ;
             rdfs:subClassOf obo:BFO_0000202 ;
-            cco:definition "A Temporal Interval that consists of the temporal regions between when the sun sets (approximately 6:00pm) and when people typically retire to sleep (approximately 9:00pm)."@en ;
+            skos:definition "A Temporal Interval that consists of the temporal regions between when the sun sets (approximately 6:00pm) and when people typically retire to sleep (approximately 9:00pm)."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
             rdfs:label "Evening"@en .
 
@@ -322,7 +343,7 @@ cco:Evening rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GregorianDay
 cco:GregorianDay rdf:type owl:Class ;
                  rdfs:subClassOf cco:CalendarDay ;
-                 cco:definition "A Calendar Day in the Gregorian Calendar."@en ;
+                 skos:definition "A Calendar Day in the Gregorian Calendar."@en ;
                  cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                  rdfs:comment "A Gregorian Day is twenty-four Hours in duration."@en ;
                  rdfs:label "Gregorian Day"@en .
@@ -331,7 +352,7 @@ cco:GregorianDay rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GregorianYear
 cco:GregorianYear rdf:type owl:Class ;
                   rdfs:subClassOf cco:CalendarYear ;
-                  cco:definition "A Calendar Year in the Gregorian Calendar."@en ;
+                  skos:definition "A Calendar Year in the Gregorian Calendar."@en ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                   rdfs:comment "A Gregorian Year begins concurrently with January 1, ends concurrently with December 31, and has an average duration of exactly 365.2425 Gregorian Days. The Gregorian Year is based upon the vernal equinox year. Unless otherwise stated, instances of Calendar Year are assumed to be instances of Gregorian Year since the Gregorian Calendar is the most widely used civil Calendar System."@en ;
                   rdfs:label "Gregorian Year"@en .
@@ -344,7 +365,7 @@ cco:Hour rdf:type owl:Class ;
                            owl:onProperty cco:interval_during ;
                            owl:someValuesFrom cco:Day
                          ] ;
-         cco:definition "A Temporal Interval that is equal to sixty consecutive Minutes."@en ;
+         skos:definition "A Temporal Interval that is equal to sixty consecutive Minutes."@en ;
          cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=hour" ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
          rdfs:label "Hour"@en .
@@ -358,7 +379,7 @@ cco:JulianDate rdf:type owl:Class ;
                                  owl:someValuesFrom cco:JulianDay
                                ] ;
                cco:acronym "JD" ;
-               cco:definition "A Time of Day as specified according to the Julian Calendar using the Julian Date epoch."@en ;
+               skos:definition "A Time of Day as specified according to the Julian Calendar using the Julian Date epoch."@en ;
                cco:definition_source "https://www.defit.org/julian-date/" ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                rdfs:label "Julian Date"@en .
@@ -367,7 +388,7 @@ cco:JulianDate rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/JulianDay
 cco:JulianDay rdf:type owl:Class ;
               rdfs:subClassOf cco:CalendarDay ;
-              cco:definition "A Calendar Day in the Julian Calendar."@en ;
+              skos:definition "A Calendar Day in the Julian Calendar."@en ;
               cco:definition_source "https://www.defit.org/julian-date/" ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
               rdfs:comment "A Julian Day begins at noon Universal Time and is twenty-four Hours in duration."@en ;
@@ -377,7 +398,7 @@ cco:JulianDay rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/JulianYear
 cco:JulianYear rdf:type owl:Class ;
                rdfs:subClassOf cco:CalendarYear ;
-               cco:definition "A Calendar Year in the Julian Calendar."@en ;
+               skos:definition "A Calendar Year in the Julian Calendar."@en ;
                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                rdfs:comment "A Julian Year begins concurrently with January 1, ends concurrently with December 31, and has an average duration of exactly 365.25 Julian Days. Julian Years are typically indicated by prefixing a capital 'J' in front of the Year number, e.g. J2000.0 or J2018."@en ;
                rdfs:label "Julian Year"@en .
@@ -390,7 +411,7 @@ cco:Minute rdf:type owl:Class ;
                              owl:onProperty cco:interval_during ;
                              owl:someValuesFrom cco:Hour
                            ] ;
-           cco:definition "A Temporal Interval that is equal to sixty consecutive Seconds."@en ;
+           skos:definition "A Temporal Interval that is equal to sixty consecutive Seconds."@en ;
            cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=minute" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
            rdfs:label "Minute"@en .
@@ -400,7 +421,7 @@ cco:Minute rdf:type owl:Class ;
 cco:ModifiedJulianDate rdf:type owl:Class ;
                        rdfs:subClassOf cco:TimeOfDay ;
                        cco:acronym "MJD" ;
-                       cco:definition "A Time of Day as specified according to the Julian Calendar using the Modified Julian Date epoch."@en ;
+                       skos:definition "A Time of Day as specified according to the Julian Calendar using the Modified Julian Date epoch."@en ;
                        cco:definition_source "http://aa.usno.navy.mil/data/docs/JulianDate.php" ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                        rdfs:comment """A Day begins at midnight GMT within the Modified Julian Date reference system. The Modified Julian Date (MJD) is related to the Julian Date (JD) by the formula:
@@ -415,9 +436,9 @@ cco:Month rdf:type owl:Class ;
                             owl:onProperty cco:interval_during ;
                             owl:someValuesFrom cco:Year
                           ] ;
-          cco:definition "A Temporal Interval that is based on the approximate length of time required for a Natural Satellite to complete one cycle of its rotational motion around its Primary Body."@en ;
+          skos:definition "A Temporal Interval that is based on the approximate length of time required for a Natural Satellite to complete one cycle of its rotational motion around its Primary Body."@en ;
           cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=month" ;
-          cco:elucidation "Unless otherwise specified, it is assumed that a Month is specified relative to the Rotational Motion of the Moon around the Earth. Earth Months are approximately equal to four consecutive Weeks or 30 consecutive Days."@en ;
+          skos:scopeNote "Unless otherwise specified, it is assumed that a Month is specified relative to the Rotational Motion of the Moon around the Earth. Earth Months are approximately equal to four consecutive Weeks or 30 consecutive Days."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
           rdfs:label "Month"@en .
 
@@ -425,7 +446,7 @@ cco:Month rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Morning
 cco:Morning rdf:type owl:Class ;
             rdfs:subClassOf obo:BFO_0000202 ;
-            cco:definition "A Temporal Interval that consists of the temporal regions between when the sun dawns (approximately 6:00am) and reaches its apex (approximately 12:00pm)."@en ;
+            skos:definition "A Temporal Interval that consists of the temporal regions between when the sun dawns (approximately 6:00am) and reaches its apex (approximately 12:00pm)."@en ;
             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
             rdfs:label "Morning"@en .
 
@@ -437,7 +458,7 @@ cco:MultiDayTemporalInterval rdf:type owl:Class ;
                                                owl:onProperty cco:interval_contains ;
                                                owl:someValuesFrom cco:Day
                                              ] ;
-                             cco:definition "A one-dimensional temporal region that is measured in Days and spans at least one Day."@en ;
+                             skos:definition "A one-dimensional temporal region that is measured in Days and spans at least one Day."@en ;
                              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                              rdfs:comment "This is a defined class."@en ;
                              rdfs:label "Multi-Day Temporal Interval"@en .
@@ -450,7 +471,7 @@ cco:MultiHourTemporalInterval rdf:type owl:Class ;
                                                 owl:onProperty cco:interval_contains ;
                                                 owl:someValuesFrom cco:Hour
                                               ] ;
-                              cco:definition "A one-dimensional temporal region that is measured in Hours and spans at least one Hour."@en ;
+                              skos:definition "A one-dimensional temporal region that is measured in Hours and spans at least one Hour."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                               rdfs:comment "This is a defined class."@en ;
                               rdfs:label "Multi-Hour Temporal Interval"@en .
@@ -463,7 +484,7 @@ cco:MultiMinuteTemporalInterval rdf:type owl:Class ;
                                                   owl:onProperty cco:interval_contains ;
                                                   owl:someValuesFrom cco:Minute
                                                 ] ;
-                                cco:definition "A one-dimensional temporal region that is measured in Minutes and spans at least one Minute."@en ;
+                                skos:definition "A one-dimensional temporal region that is measured in Minutes and spans at least one Minute."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                                 rdfs:comment "This is a defined class."@en ;
                                 rdfs:label "Multi-Minute Temporal Interval"@en .
@@ -476,7 +497,7 @@ cco:MultiMonthTemporalInterval rdf:type owl:Class ;
                                                  owl:onProperty cco:interval_contains ;
                                                  owl:someValuesFrom cco:Month
                                                ] ;
-                               cco:definition "A one-dimensional temporal region that is measured in Months and spans at least one Month."@en ;
+                               skos:definition "A one-dimensional temporal region that is measured in Months and spans at least one Month."@en ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                                rdfs:comment "This is a defined class."@en ;
                                rdfs:label "Multi-Month Temporal Interval"@en .
@@ -489,7 +510,7 @@ cco:MultiSecondTemporalInterval rdf:type owl:Class ;
                                                   owl:onProperty cco:interval_contains ;
                                                   owl:someValuesFrom cco:Second
                                                 ] ;
-                                cco:definition "A one-dimensional temporal region that is measured in Seconds and spans at least one Second."@en ;
+                                skos:definition "A one-dimensional temporal region that is measured in Seconds and spans at least one Second."@en ;
                                 cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                                 rdfs:comment "This is a defined class."@en ;
                                 rdfs:label "Multi-Second Temporal Interval"@en .
@@ -502,7 +523,7 @@ cco:MultiWeekTemporalInterval rdf:type owl:Class ;
                                                 owl:onProperty cco:interval_contains ;
                                                 owl:someValuesFrom cco:Week
                                               ] ;
-                              cco:definition "A one-dimensional temporal region that is measured in Weeks and spans at least one Week."@en ;
+                              skos:definition "A one-dimensional temporal region that is measured in Weeks and spans at least one Week."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                               rdfs:comment "This is a defined class."@en ;
                               rdfs:label "Multi-Week Temporal Interval"@en .
@@ -515,7 +536,7 @@ cco:MultiYearTemporalInterval rdf:type owl:Class ;
                                                 owl:onProperty cco:interval_contains ;
                                                 owl:someValuesFrom cco:Year
                                               ] ;
-                              cco:definition "A one-dimensional temporal region that is measured in Years and spans at least one Year."@en ;
+                              skos:definition "A one-dimensional temporal region that is measured in Years and spans at least one Year."@en ;
                               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                               rdfs:comment "This is a defined class."@en ;
                               rdfs:label "Multi-Year Temporal Interval"@en .
@@ -524,7 +545,7 @@ cco:MultiYearTemporalInterval rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Night
 cco:Night rdf:type owl:Class ;
           rdfs:subClassOf obo:BFO_0000202 ;
-          cco:definition "A Temporal Interval that consists of the temporal regions between when people typically retire to sleep (approximately 9:00pm) and when the sun dawns (approximately 6:00am)."@en ;
+          skos:definition "A Temporal Interval that consists of the temporal regions between when people typically retire to sleep (approximately 9:00pm) and when the sun dawns (approximately 6:00am)."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
           rdfs:label "Night"@en .
 
@@ -532,10 +553,10 @@ cco:Night rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ReferenceTime
 cco:ReferenceTime rdf:type owl:Class ;
                   rdfs:subClassOf obo:BFO_0000203 ;
-                  cco:alternative_label "Epoch"@en ,
+                  skos:altLabel  "Epoch"@en ,
                                         "Epoch Time"@en ,
                                         "Reference Date"@en ;
-                  cco:definition "A Temporal Instant specified as the origin for which other Temporal Regions are measured or identified."@en ;
+                  skos:definition "A Temporal Instant specified as the origin for which other Temporal Regions are measured or identified."@en ;
                   cco:definition_source "https://en.wikipedia.org/wiki/Epoch_(reference_date)" ;
                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                   rdfs:label "Reference Time"@en .
@@ -548,7 +569,7 @@ cco:Second rdf:type owl:Class ;
                              owl:onProperty cco:interval_during ;
                              owl:someValuesFrom cco:Minute
                            ] ;
-           cco:definition "A Temporal Interval that is equal to the duration of 9,192,631,770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium 133 atom."@en ;
+           skos:definition "A Temporal Interval that is equal to the duration of 9,192,631,770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium 133 atom."@en ;
            cco:definition_source "https://physics.nist.gov/cuu/Units/second.html" ;
            cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
            rdfs:comment "The Second is used as the basic SI unit of time."@en ;
@@ -562,7 +583,7 @@ cco:TimeOfDay rdf:type owl:Class ;
                                 owl:onProperty obo:BFO_0000132 ;
                                 owl:someValuesFrom cco:Day
                               ] ;
-              cco:definition "A Temporal Instant that is part of a Day."@en ;
+              skos:definition "A Temporal Instant that is part of a Day."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
               rdfs:label "Time of Day"@en .
 
@@ -570,7 +591,7 @@ cco:TimeOfDay rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/UnixTemporalInstant
 cco:UnixTemporalInstant rdf:type owl:Class ;
                         rdfs:subClassOf obo:BFO_0000203 ;
-                        cco:definition "A Temporal Instant as specified by the number of Seconds that have elapsed since the specified Epoch Time as described by an implementation of Unix Time."@en ;
+                        skos:definition "A Temporal Instant as specified by the number of Seconds that have elapsed since the specified Epoch Time as described by an implementation of Unix Time."@en ;
                         cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
                         rdfs:label "Unix Temporal Instant"@en .
 
@@ -582,7 +603,7 @@ cco:Week rdf:type owl:Class ;
                            owl:onProperty cco:interval_during ;
                            owl:someValuesFrom cco:Month
                          ] ;
-         cco:definition "A Temporal Interval that is equal to seven consecutive Days."@en ;
+         skos:definition "A Temporal Interval that is equal to seven consecutive Days."@en ;
          cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=week" ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
          rdfs:label "Week"@en .
@@ -595,9 +616,9 @@ cco:Year rdf:type owl:Class ;
                            owl:onProperty cco:interval_during ;
                            owl:someValuesFrom cco:Decade
                          ] ;
-         cco:definition "A Temporal Interval that is equal to the approximate length of time required for an Astronomical Body to complete one Orbital Revolution around its Primary Body as specified relative to a particular Temporal Reference System."@en ;
+         skos:definition "A Temporal Interval that is equal to the approximate length of time required for an Astronomical Body to complete one Orbital Revolution around its Primary Body as specified relative to a particular Temporal Reference System."@en ;
          cco:definition_source "http://wordnetweb.princeton.edu/perl/webwn?s=year" ;
-         cco:elucidation "Unless otherwise specified, a Year is assumed to be relative to the Orbiting of the Earth around the Sun and is approximately equal to 12 Months or 365 Days."@en ;
+         skos:scopeNote "Unless otherwise specified, a Year is assumed to be relative to the Orbiting of the Earth around the Sun and is approximately equal to 12 Months or 365 Days."@en ;
          cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/TimeOntology"^^xsd:anyURI ;
          rdfs:label "Year"@en .
 

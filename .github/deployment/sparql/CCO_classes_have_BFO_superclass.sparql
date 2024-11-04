@@ -7,13 +7,13 @@
 # Author:
 #	 github.com/neilotte
 
-PREFIX owl: http://www.w3.org/2002/07/owl#
-PREFIX rdfs: http://www.w3.org/2000/01/rdf-schema#
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT DISTINCT ?class ?label
 WHERE {
 ?class a owl:Class .
-FILTER contains(str(?class),"http://www.ontologyrepository.com/CommonCoreOntologies/")
-FILTER NOT EXISTS {?class rdfs:subClassOf+ http://purl.obolibrary.org/obo/BFO_0000001 }
+FILTER (regex(str(?class),"http://www.ontologyrepository.com/CommonCoreOntologies/"))
+FILTER NOT EXISTS {?class rdfs:subClassOf+ <http://purl.obolibrary.org/obo/BFO_0000001> }
 OPTIONAL {?class rdfs:label ?label}
 }
