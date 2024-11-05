@@ -1,8 +1,8 @@
 # The Common Core Ontologies (CCO)
 
-***IMPORTANT NOTE***
-Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.
-See here for the mapping file.
+***IMPORTANT NOTE***  
+Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.  
+See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/mappping-new-iris) for the mapping file.
 
 ## What is CCO?
 
