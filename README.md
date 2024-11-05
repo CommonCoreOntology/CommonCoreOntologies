@@ -1,5 +1,9 @@
 # The Common Core Ontologies (CCO)
 
+***IMPORTANT NOTE***
+Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.
+See here for the mapping file.
+
 ## What is CCO?
 
 The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies that consist of logically well-defined generic terms and relations among them reflecting entities across all domains of interest. 
