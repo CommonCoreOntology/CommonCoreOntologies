@@ -9,7 +9,7 @@
 # ----------------------------------------
 # Project essentials
 config.ONTOLOGY_PREFIX := CCO
-config.BASE_IRI := http://www.ontologyrepository.com/CommonCoreOntologies/Mid/
+config.BASE_IRI := https://www.commoncoreontologies.org/
 config.DEV_IRI := $(config.BASE_IRI)/dev
 config.MODULES_IRI := $(config.DEV_IRI)/modules
 
