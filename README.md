@@ -3,7 +3,7 @@
 ***IMPORTANT NOTE***  
 Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.  
 See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/mappping-new-iris) for the mapping file.  
-* At the momnent, CCO can not be accessed via the web using the ontology or element IRIs. Users will need to download the files and work with local copies. See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/issues/549).
+* At the moment, CCO can not be accessed via the web using the ontology or element IRIs. Users will need to download the files and work with local copies. See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/issues/549).
 
 ## What is CCO?
 
