@@ -1,5 +1,9 @@
 # The Common Core Ontologies (CCO)
 
+***IMPORTANT NOTE***  
+Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.  
+See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/mappping-new-iris) for the mapping file.
+
 ## What is CCO?
 
 The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies that consist of logically well-defined generic terms and relations among them reflecting entities across all domains of interest. 
@@ -14,7 +18,7 @@ CCO itself is not intended to grow indefinitely by including content that is pro
 
 ## Contributing
 
-Users may find the current release files for [CCO here](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v1.6-2024-09-26)
+Users may find the current release files for [CCO here](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/latest)
 
 Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at src/cco-merged/
 
