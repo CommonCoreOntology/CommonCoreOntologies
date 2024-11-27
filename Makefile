@@ -83,7 +83,7 @@ $(ROBOT_FILE): setup
 reason-individual: $(ROBOT_FILE)
 	for file in $(DEV_FILES); do \
 		echo "Reasoning on $$file..."; \
-		java -jar $(ROBOT_FILE) reason --input $$file --reasoner HermiT; \
+		java -jar $(ROBOT_FILE) reason --input $$file --catalog src/cco-modules/catalog-v001.xml --reasoner HermiT; \
 	done
 
 # Test individual files
