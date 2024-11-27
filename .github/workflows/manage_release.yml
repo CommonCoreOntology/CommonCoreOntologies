@@ -3,7 +3,9 @@ name: Build, Test, Draft Release
 on:
   push:
     branches: [ test-run-build ]
-    workflow_dispatch:
+  pull_request:
+    branches: [ develop ]
+    paths: [ .github/workflows/manage_release.yaml ]
 
 permissions:
   contents: write
