@@ -2,7 +2,12 @@ name: Build, Test, Draft Release
 
 on:
   push:
-    branches: [ develop ]
+    branches: 
+      - develop 
+      - feature/*
+  pull_request:
+    branches: 
+      - master
 
 permissions:
   contents: write
