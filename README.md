@@ -78,3 +78,9 @@ For more information about the governance of CCO, please navigate to the [Common
 		* **mappings** - Contains mappings between content in CCO and other ontologies. 
 	* **templates** - Contains templates used to create issues and discussion topics. 
 	* **workflows** - Contains release management files needed for GitHub Actions. 
+
+---
+
+**[Website]([https://commoncoreontology.github.io/cco-webpage/)** | **[Contact Us](mailto:jensen.mark@icloud.com)**
+
+![Visitor Count](https://profile-counter.glitch.me/CommonCoreOntology/count.svg)
