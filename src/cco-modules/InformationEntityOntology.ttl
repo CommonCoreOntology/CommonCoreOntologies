@@ -265,8 +265,10 @@ cco:ont00001917 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001919
 cco:ont00001919 rdf:type owl:ObjectProperty ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000253 ;
                  rdfs:label "is mentioned by"@en ;
-                 skos:definition "y is_mention_by x iff x is an instance Information Bearing Entity and y is an instance Entity, such that x is used as a reference to y."@en ;
+                 skos:definition "x is_mentioned_by y iff y is an instance of Information Bearing Entity and x is an instance of Entity, such that y is used as a reference to x."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
