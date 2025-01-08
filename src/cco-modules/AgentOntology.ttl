@@ -801,18 +801,8 @@ cco:ont00001937 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001939
 cco:ont00001939 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001977 ;
-                 rdfs:domain [ rdf:type owl:Class ;
-                               owl:unionOf ( cco:ont00001017
-                                             cco:ont00001180
-                                             cco:ont00001262
-                                           )
-                             ] ;
-                 rdfs:range [ rdf:type owl:Class ;
-                              owl:unionOf ( cco:ont00001017
-                                            cco:ont00001180
-                                            cco:ont00001262
-                                          )
-                            ] ;
+                 rdfs:domain cco:ont00001017 ;
+                 rdfs:range cco:ont00001017 ;
                  rdfs:label "is affiliated with"@en ;
                  skos:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
