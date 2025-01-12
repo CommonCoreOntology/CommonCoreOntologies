@@ -1,5 +1,9 @@
 # The Common Core Ontologies (CCO)
 
+[![GitHub Actions](https://github.com/CommonCoreOntology/CommonCoreOntologies/actions/workflows/manage_release.yml/badge.svg)](https://github.com/CommonCoreOntology/CommonCoreOntologies/actions/workflows/manage_release.yml)
+[![license](https://img.shields.io/static/v1?label=license&message=BSD%203.1&color=green&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies?tab=BSD-3-Clause-1-ov-file)
+[![release](https://img.shields.io/static/v1?label=release&message=2.0&color=blue&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v2.0-2024-11-06)
+
 ***IMPORTANT NOTE***  
 Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.  
 See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/mappping-new-iris) for the mapping file.  
@@ -74,3 +78,9 @@ For more information about the governance of CCO, please navigate to the [Common
 		* **mappings** - Contains mappings between content in CCO and other ontologies. 
 	* **templates** - Contains templates used to create issues and discussion topics. 
 	* **workflows** - Contains release management files needed for GitHub Actions. 
+
+---
+
+**[Website]([https://commoncoreontology.github.io/cco-webpage/)** | **[Contact Us](mailto:jensen.mark@icloud.com)**
+
+![Visitor Count](https://profile-counter.glitch.me/CommonCoreOntology/count.svg)
