@@ -160,11 +160,13 @@ cco:ont00001879 rdf:type owl:ObjectProperty ;
 cco:ont00001884 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001801 ;
                  owl:inverseOf cco:ont00001980 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000127 ;
                  owl:propertyChainAxiom ( cco:ont00001917
                                           obo:BFO_0000176
                                         ) ;
                  rdfs:label "condition described by"@en ;
-                 skos:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
+                 skos:definition "x condition_described_by y iff y is an instance of Performance Specification and x is an instance of Entity and y describes_condition x."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
