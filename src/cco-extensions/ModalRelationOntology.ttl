@@ -2325,10 +2325,12 @@ mro:ont00001935 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001936
 mro:ont00001936 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000056 ;
+                owl:inverseOf mro:ont00001778 ;
+                rdfs:domain obo:BFO_0000002 ;
+                rdfs:range obo:BFO_0000015 ;
                 rdfs:label "is object of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "If p is a process and c is a continuant, then c is object of p if and only if the c is part of the projected state that the agent intends to achieve by performing p."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x is_object_of y iff x is an instance of Continuant and y is an instance of Process and y is performed by some instance of Agent z and x is part of the projected state that z intends to achieve by performing y."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
-
 
 ###  https://www.commoncoreontologies.org/mro/ont00001937
 mro:ont00001937 rdf:type owl:ObjectProperty ;
