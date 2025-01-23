@@ -50,7 +50,8 @@ cco:ont00001801 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000001 ;
                  rdfs:range cco:ont00000958 ;
                  rdfs:label "is subject of"@en ;
-                 skos:definition "x is_subject_of y iff x is an instance of Entity and y is an instance of Information Content Entity such that the information content of y depends on the existence of x. A primitive relationship."@en ;
+                 rdfs:comment "Despite the phrasing, is_subject_of has no immediate semantic relationship to is_object_of."@en ;
+                 skos:definition "x is_subject_of y iff x is an instance of Entity and y is an instance of Information Content Entity and y is_about x."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
