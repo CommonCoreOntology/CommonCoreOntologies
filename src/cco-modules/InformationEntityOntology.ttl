@@ -47,9 +47,10 @@ cco:ont00001760 rdf:type owl:AnnotationProperty .
 ###  https://www.commoncoreontologies.org/ont00001801
 cco:ont00001801 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001808 ;
+                 rdfs:domain obo:BFO_0000001 ;
                  rdfs:range cco:ont00000958 ;
                  rdfs:label "is subject of"@en ;
-                 skos:definition "A primitive relationship between an instance of an Entity and an instance of an Information Content Entity."@en ;
+                 skos:definition "x is_subject_of y iff x is an instance of Entity and y is an instance of Information Content Entity such that the information content of y depends on the existence of x. A primitive relationship."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
