@@ -389,7 +389,7 @@ cco:ont00001982 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00000853 ;
                  rdfs:comment "It is possible that this relation should be a functional property, that is for all x, y, z if x describes y and x describes z then y = z. For example, if a financial report x describes the quarterly results of a company y and that same financial report describes the quarterly results of a company z, then it should be inferred that companies y and z are the same. We refrained from classifying the relation as a functional property on the concern that descriptions are multifaceted and so consequently it may be that the same report would contain descriptions of multiple entities."@en ;
                  rdfs:label "describes"@en ;
-                 skos:definition "x describes y iff x is an instance of Information Content Entity, and y is an instance of Entity, such that x is about the characteristics by which y can be recognized or visualized."@en ;
+                 skos:definition "x describes y iff x is an instance of Descriptive Information Content Entity, and y is an instance of Entity, such that x is_about the characteristics by which one can recognize or visualize y."@en ;
                  skos:example "the content of a newspaper article describes some current event" ,
                               "the content of a visitor's log describes some facility visit" ,
                               "the content of an accident report describes some accident" ;
@@ -401,7 +401,7 @@ cco:ont00001983 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001966 ;
                  rdfs:domain cco:ont00001022 ;
                  rdfs:label "is a ratio measurement of"@en ;
-                 skos:definition "x is_a_ratio_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
+                 skos:definition "x is_a_ratio_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity and x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
