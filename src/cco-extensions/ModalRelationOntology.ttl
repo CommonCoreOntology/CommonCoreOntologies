@@ -1751,8 +1751,9 @@ mro:ont00001877 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001966 ;
                 owl:inverseOf mro:ont00001964 ;
                 rdfs:domain cco:ont00001364 ;
-                rdfs:label "is a interval measurement of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_a_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
+                rdfs:range obo:BFO_0000001 ;
+                rdfs:label "is an interval measurement of"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x is_an_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity and y is_measured_by_interval x."@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "a measurement of air temperature on the Celsius scale." ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
