@@ -27,7 +27,7 @@ Users may find the current release files for [CCO here](https://github.com/Commo
 
 Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at `src/cco-merged/`
 
-Instructions and guidelines for contributors can be found [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/545-create-iri-reservation-process-and-registry/documentation/iri-registry).
+Instructions and guidelines for contributors can be found [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/contributing).
 
 Users who wish to view the content of CCO in a web browser may view the current CCO release on the [Industrial Ontology Portal viewer](https://industryportal.enit.fr/ontologies/CCO).
 
