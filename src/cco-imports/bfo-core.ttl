@@ -275,7 +275,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000008> ;
                                              dc11:identifier "118-BFO" ;
                                              rdfs:label "exists at"@en ;
-                                             skos:definition "(Elucidation) exists at is a relation between an instance of Entity and some temporal region where the instance exists"@en ;
+                                             skos:definition "(Elucidation) exists at is a relation between a particular and some temporal region at which the particular exists"@en ;
                                              skos:example "First World War exists at 1914-1916; Mexico exists at January 1, 2000"@en .
 
 
@@ -283,7 +283,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
 <http://purl.obolibrary.org/obo/BFO_0000115> rdf:type owl:ObjectProperty ;
                                              rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000178> ;
                                              owl:inverseOf <http://purl.obolibrary.org/obo/BFO_0000129> ;
-                                             rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000030> ;
+                                             rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000040> ;
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000040> ;
                                              dc11:identifier "230-BFO" ;
                                              rdfs:label "has member part"@en ;
@@ -380,7 +380,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000003> ;
                                              dc11:identifier "078-BFO" ;
                                              rdfs:label "temporal part of"@en ;
-                                             skos:definition "b temporal_part_of c iff b and c are both instances of Occurrent and if b and c are both instances of Temporal Region then b_occurrent_part_of c or if b and c are instances of Spatiotemporal Region & there exists an instance of Occurrent z and b temporally_projects_onto z and there exists an instance of Temporal Region w and z is occurrent_part_of w then c temporally_projects_onto w or if b and c are instances of Process or Process Boundary & there exists an instance of Temporal Region z and z is_temporal_region_of b and there exists an instance of Temporal Region w and z occurrent_part_of w then w is_temporal_region of c."@en ;
+                                             skos:definition "b temporal part of c =Def b occurrent part of c & (b and c are temporal regions) or (b and c are spatiotemporal regions & b temporally projects onto an occurrent part of the temporal region that c temporally projects onto) or (b and c are processes or process boundaries & b occupies a temporal region that is an occurrent part of the temporal region that c occupies)"@en ;
                                              skos:example "Your heart beating from 4pm to 5pm today is a temporal part of the process of your heart beating; the 4th year of your life is a temporal part of your life, as is the process boundary which separates the 3rd and 4th years of your life; the first quarter of a game of football is a temporal part of the whole game"@en .
 
 
@@ -391,7 +391,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000008> ;
                                              dc11:identifier "080-BFO" ;
                                              rdfs:label "temporally projects onto"@en ;
-                                             skos:definition "x temporally_projects_onto y iff x is an instance of Spatiotemporal Region and y is an instance of Temporal Region and y is the temporal extent of x."@en ;
+                                             skos:definition "(Elucidation) temporally projects onto is a relation between a spatiotemporal region s and some temporal region which is the temporal extent of s"@en ;
                                              skos:example "The world line of a particle temporally projects onto the temporal region extending from the beginning to the end of the existence of the particle"@en .
 
 
@@ -413,7 +413,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                                         ] ;
                                              dc11:identifier "234-BFO" ;
                                              rdfs:label "located in"@en ;
-                                             skos:definition "b located in c =Def b is an independent continuant & c is an independent continuant & neither is a spatial region & there is some time t such that the spatial region which b occupies at t is continuant part of the spatial region which c occupies at t"@en ;
+                                             skos:definition "b located in c =Def b is an independent continuant & c is an independent & neither is a spatial region & there is some time t such that the spatial region which b occupies at t is continuant part of the spatial region which c occupies at t"@en ;
                                              skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
@@ -520,7 +520,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              dc11:identifier "012-BFO" ;
                                              rdfs:label "specifically depends on"@en ;
                                              skos:altLabel "s-depends on"@en ;
-                                             skos:definition "(Elucidation) x specifically_depends_on y iff x is an instance of Specifically Dependent Continuant and y is an instance of Specifically Dependent Continuant or Independent Continuant and is not an instance of Spatial Region and x and y share no parts in common & for all times x exists y exists & x is not a boundary of y."@en ;
+                                             skos:definition "(Elucidation) specifically depends on is a relation between a specifically dependent continuant b and specifically dependent continuant or independent continuant that is not a spatial region c such that b and c share no parts in common & b is of a nature such that at all times t it cannot exist unless c exists & b is not a boundary of c"@en ;
                                              skos:example "A shape specifically depends on the shaped object; hue, saturation and brightness of a colour sample specifically depends on each other"@en ;
                                              skos:scopeNote "The analogue of specifically depends on for occurrents is has participant."@en .
 
@@ -571,7 +571,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000008> ;
                                              dc11:identifier "132-BFO" ;
                                              rdfs:label "occupies temporal region"@en ;
-                                             skos:definition "x occupies_temporal_region y iff x is an instance of process or process boundary and y is an instance of temporal region and the spatiotemporal region that x occupies temporally projects onto y."@en ;
+                                             skos:definition "p occupies temporal region t =Def p is a process or process boundary & the spatiotemporal region occupied by p temporally projects onto t"@en ;
                                              skos:example "The Second World War occupies the temporal region September 1, 1939 - September 2, 1945"@en .
 
 
@@ -586,7 +586,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000011> ;
                                              dc11:identifier "082-BFO" ;
                                              rdfs:label "occupies spatiotemporal region"@en ;
-                                             skos:definition "x occupies_spatiotemporal_region y iff x is an instance of Process or Process Boundary and y is an instance of Spatiotemporal Region and y is the spatiotemporal extent of x."@en ;
+                                             skos:definition "(Elucidation) occupies spatiotemporal region is a relation between a process or process boundary p and the spatiotemporal region s which is its spatiotemporal extent"@en ;
                                              skos:example "A particle emitted by a nuclear reactor occupies the spatiotemporal region which is its trajectory"@en .
 
 
@@ -612,7 +612,7 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000006> ;
                                              dc11:identifier "246-BFO" ;
                                              rdfs:label "spatially projects onto"@en ;
-                                             skos:definition "x spatially_projects_onto y iff x is an instance of Spatiotemporal Region and y is an instance of Spatial Region and y is the spatial extent of x."@en ;
+                                             skos:definition "(Elucidation) spatially projects onto is a relation between some spatiotemporal region b and spatial region c such that at some time t, c is the spatial extent of b at t"@en ;
                                              skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
