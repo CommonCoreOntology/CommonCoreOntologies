@@ -1,0 +1,951 @@
+@prefix : <https://www.commoncoreontologies.org/CurrencyUnitOntology/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://www.commoncoreontologies.org/CurrencyUnitOntology> .
+
+<https://www.commoncoreontologies.org/CurrencyUnitOntology> rdf:type owl:Ontology ;
+                                                                                   owl:versionIRI <https://www.commoncoreontologies.org/2024-11-06/CurrencyUnitOntology> ;
+                                                                                   owl:imports <https://www.commoncoreontologies.org/InformationEntityOntology> ;
+                                                                                   dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
+                                                                                   dcterms:rights "CUBRC Inc., see full license."@en ;
+                                                                                   rdfs:comment "This ontology is designed to represent currencies that are issued and used by countries."@en ;
+                                                                                   rdfs:label "Currency Unit Ontology"@en ;
+                                                                                   owl:versionInfo "Version 2.0"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/rights
+dcterms:rights rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+cco:ont00001760 rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000120
+cco:ont00000120 rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000518
+cco:ont00000518 rdf:type owl:Class ;
+                 rdfs:subClassOf cco:ont00000120 ;
+                 rdfs:label "Measurement Unit of Currency"@en ;
+                 skos:definition "A Measurement Unit used in measurements of financial values."@en ;
+                 skos:example "U.S. Dollar, Euro, Yuan, South African Rand" ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001385
+cco:ont00001385 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Haiti Gourde"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001386
+cco:ont00001386 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Yemeni Rial"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001387
+cco:ont00001387 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Mauritania Ouguiya"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001389
+cco:ont00001389 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Kenyan Shilling"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001394
+cco:ont00001394 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Papua New Guinea Kina"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001396
+cco:ont00001396 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Viet Nam Dong"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001399
+cco:ont00001399 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Ghana Cedi"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001400
+cco:ont00001400 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Sri Lanka Rupee"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001401
+cco:ont00001401 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "South Africa Rand"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001404
+cco:ont00001404 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Afghanistan Afghani"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001409
+cco:ont00001409 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Singapore Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001410
+cco:ont00001410 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Guyana Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001415
+cco:ont00001415 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Swiss Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001420
+cco:ont00001420 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Dominican Peso"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001426
+cco:ont00001426 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Chinese Renminbi"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001427
+cco:ont00001427 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Canadian Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001435
+cco:ont00001435 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Colombian Peso"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001441
+cco:ont00001441 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Rwanda Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001443
+cco:ont00001443 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Albania Lek"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001447
+cco:ont00001447 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "CFP Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001448
+cco:ont00001448 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Malawi Kwacha"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001449
+cco:ont00001449 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Czech Koruna"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001452
+cco:ont00001452 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Indian Rupee"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001455
+cco:ont00001455 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Bolivia Boliviano"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001458
+cco:ont00001458 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Costa Rica Colon"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001460
+cco:ont00001460 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Mauritius Rupee"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001464
+cco:ont00001464 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Uzbekistan Sum"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001465
+cco:ont00001465 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Namibia Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001473
+cco:ont00001473 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Euro"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001479
+cco:ont00001479 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Angolan Kwanza"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001481
+cco:ont00001481 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Macao Pataca"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001482
+cco:ont00001482 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Algerian Dinar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001484
+cco:ont00001484 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Bangladesh Taka"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001485
+cco:ont00001485 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Surinamese Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001487
+cco:ont00001487 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Peru Nuevo Sol"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001490
+cco:ont00001490 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Bulgarian Lev"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001492
+cco:ont00001492 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Lebanese Pound"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001497
+cco:ont00001497 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Kuwaiti Dinar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001498
+cco:ont00001498 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Fiji Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001501
+cco:ont00001501 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Tanzania Shilling"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001503
+cco:ont00001503 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Hungary Forint"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001505
+cco:ont00001505 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Uruguay Peso"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001507
+cco:ont00001507 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Lesotho Loti"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001508
+cco:ont00001508 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Brunei Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001509
+cco:ont00001509 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Belarussian Ruble"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001510
+cco:ont00001510 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Tonga Pa anga"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001512
+cco:ont00001512 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "South Sudanese Pound"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001513
+cco:ont00001513 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Mexican Peso"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001514
+cco:ont00001514 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Laos Kip"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001515
+cco:ont00001515 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Liberian Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001517
+cco:ont00001517 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Nicaragua Cordoba Oro"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001518
+cco:ont00001518 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Madagascar Malagasy Ariary"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001519
+cco:ont00001519 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Turkish Lira"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001520
+cco:ont00001520 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Zambia Kwacha"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001521
+cco:ont00001521 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Philippine Peso"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001531
+cco:ont00001531 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Botswana Pula"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001532
+cco:ont00001532 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Egyptian Pound"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001535
+cco:ont00001535 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Sudanese Pound"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001539
+cco:ont00001539 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Tajikistan Somoni"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001540
+cco:ont00001540 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Israel Shekel"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001542
+cco:ont00001542 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Paraguay Guarani"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001545
+cco:ont00001545 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Swaziland Lilangeni"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001546
+cco:ont00001546 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Democratic Republic Of Congo Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001547
+cco:ont00001547 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Syrian Pound"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001556
+cco:ont00001556 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Samoa Tala"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001558
+cco:ont00001558 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "New Zealand Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001561
+cco:ont00001561 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Uganda Shilling"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001562
+cco:ont00001562 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Cambodian Riel"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001575
+cco:ont00001575 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "CFA Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001577
+cco:ont00001577 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Ukraine Hryvnia"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001578
+cco:ont00001578 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Nepalese Rupee"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001586
+cco:ont00001586 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Poland Zloty"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001592
+cco:ont00001592 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Kazakhstan Tenge"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001593
+cco:ont00001593 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Ethiopian Birr"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001594
+cco:ont00001594 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "North Korean Won"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001595
+cco:ont00001595 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Swedish Krona"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001600
+cco:ont00001600 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Guinean Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001601
+cco:ont00001601 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "United Kingdom Pound"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001605
+cco:ont00001605 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Argentine Peso"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001610
+cco:ont00001610 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Thai Baht"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001614
+cco:ont00001614 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Moldovan Leu"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001616
+cco:ont00001616 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Gambian Dalasi"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001617
+cco:ont00001617 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Nigeria Naira"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001618
+cco:ont00001618 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "United States Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001619
+cco:ont00001619 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Solomon Island Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001620
+cco:ont00001620 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Macedonian Denar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001621
+cco:ont00001621 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Pakistani Rupee"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001622
+cco:ont00001622 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Armenian Dram"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001623
+cco:ont00001623 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Romanian Leu"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001627
+cco:ont00001627 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "HongKong Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001631
+cco:ont00001631 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Seychelles Rupee"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001632
+cco:ont00001632 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "South Korean Won"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001633
+cco:ont00001633 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Vanuatu Vatu"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001635
+cco:ont00001635 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Bosnia And Herzegovina Convertible Mark"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001638
+cco:ont00001638 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Comoros Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001639
+cco:ont00001639 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Indonesia Rupiah"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001640
+cco:ont00001640 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Myanmar Kyat"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001649
+cco:ont00001649 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Mongolia Tugrik"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001650
+cco:ont00001650 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Tunisian Dinar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001652
+cco:ont00001652 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Russian Rouble"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001654
+cco:ont00001654 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Iranian Rial"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001655
+cco:ont00001655 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Cape Verde Escudo"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001657
+cco:ont00001657 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Trinidad and Tobago Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001662
+cco:ont00001662 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Mozambique Metical"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001665
+cco:ont00001665 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Georgian Lari"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001668
+cco:ont00001668 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Sierra Leone Leone"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001670
+cco:ont00001670 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Malaysia Ringgit"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001671
+cco:ont00001671 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Azerbaijan Manat"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001673
+cco:ont00001673 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Japanese Yen"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001679
+cco:ont00001679 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "St Helena Pound"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001684
+cco:ont00001684 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Burundi Franc"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001688
+cco:ont00001688 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Sao Tome Principe Dobra"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001690
+cco:ont00001690 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Turkmenistan Manat"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001699
+cco:ont00001699 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Morocco Dirham"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001703
+cco:ont00001703 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Brazilian Real"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001705
+cco:ont00001705 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Chilean Peso"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001708
+cco:ont00001708 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Serbian Dinar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001710
+cco:ont00001710 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Danish Krone"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001717
+cco:ont00001717 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Croatia Kuna"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001718
+cco:ont00001718 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Honduras Lempira"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001719
+cco:ont00001719 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Kyrgyzstan Som"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001720
+cco:ont00001720 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Guatemala Quetzal"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001721
+cco:ont00001721 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Libyan Dinar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001722
+cco:ont00001722 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Bhutan Ngultrum"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001725
+cco:ont00001725 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Iceland Krona"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001726
+cco:ont00001726 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Norwegian Krone"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001731
+cco:ont00001731 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Jamaican Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001734
+cco:ont00001734 rdf:type owl:NamedIndividual ,
+                          cco:ont00000518 ;
+                 rdfs:label "Australian Dollar"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/CurrencyUnitOntology"^^xsd:anyURI .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
