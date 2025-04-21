@@ -1,0 +1,29 @@
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://www.commoncoreontologies.org/ont00000958> rdf:type owl:Ontology .
+
+###  https://www.commoncoreontologies.org/ont00000958
+cco:ont00000958 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000031
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty cco:ont00001808 ;
+                                                             owl:someValuesFrom obo:BFO_0000001
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:BFO_0000031 ;
+                rdfs:label "Information Content Entity"@en ;
+                skos:altLabel "ICE"@en ;
+                skos:definition "A Generically Dependent Continuant that generically depends on some Information Bearing Entity and stands in relation of aboutness to some Entity."@en ;
+                skos:scopeNote "Information Content Entity is here intended to be a class of Entities whose instances are the informational content of Information Bearing Entities. For example, three instances of information bearers -- such as a bar chart, color-coded map, and a written report -- each of which lists the GDP of Countries for the year 2010 are each different carriers of the same information content. It is this content that is generically dependent upon its carrier. This treatment of Informational Content Entity (cf. the Information Artifact Ontology) leads to a principle of subtyping based upon the relationship that ICE's have with the Entity they are about rather than characteristics such as format, language, measurement scale, or media. The latter are treated here as being Qualities of bearers."@en ;
+                cco:ont00001754 "http://purl.obolibrary.org/obo/IAO_0000030" ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
