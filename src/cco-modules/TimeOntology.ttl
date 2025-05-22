@@ -49,7 +49,7 @@ cco:ont00001779 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000038 ;
                  rdfs:range obo:BFO_0000148 ;
                  rdfs:label "has inside instant"@en ;
-                 skos:definition "For Temporal Interval t1 and Temporal Instant t2, t1 has inside instant t2 if and only if there exists Temporal Instants t3 and t4 that are part of t1 and non-identical with t2, such that t3 is before t2 and t4 is after t2."@en ;
+                 skos:definition "x has_inside_instant y iff x is an instance of One Dimensional Temporal Region and y is an instance of Temporal Instant and y is_inside_instant_of x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -58,10 +58,10 @@ cco:ont00001779 rdf:type owl:ObjectProperty ;
 cco:ont00001795 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001924 ;
                  owl:inverseOf cco:ont00001869 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "has inside interval"@en ;
-                 skos:definition "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
+                 skos:definition "x has_inside_interval y iff x and y are both instances of Temporal Interval and y interval_during x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -69,11 +69,10 @@ cco:ont00001795 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001814
 cco:ont00001814 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001971 ;
-                 owl:inverseOf cco:ont00001821 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval finishes"@en ;
-                 skos:definition "A Temporal Interval INT1 finishes some Temporal Interval INT2 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
+                 skos:definition "x interval_finishes y iff x and y are both instances of Temporal Interval and there exist instances of Temporal Instant v, w, and z such that v is the starting instant of x, w is the ending instant of both x and y, z is the starting instant of y, and z is before v."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -81,10 +80,11 @@ cco:ont00001814 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001821
 cco:ont00001821 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001924 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 owl:inverseOf cco:ont00001814 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval finished by"@en ;
-                 skos:definition "A Temporal Interval INT2 is finished by some Temporal Interval INT1 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
+                 skos:definition "x interval_finished_by y iff x and y are both instances of Temporal Interval and y interval_finishes x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -92,11 +92,11 @@ cco:ont00001821 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001822
 cco:ont00001822 rdf:type owl:ObjectProperty ,
                           owl:SymmetricProperty ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  owl:propertyDisjointWith cco:ont00001862 ;
                  rdfs:label "interval equals"@en ;
-                 skos:definition "A Temporal Interval INT1 is equal to some Temporal Interval INT2 iff there exists Temporal Instants inst1 and inst2 such that inst1 is the starting instant of both INT1 and INT2 and inst2 is the ending instant of both INT1 and INT2."@en ;
+                 skos:definition "x interval_equals y iff x and y are both instances of Temporal Interval and there exist instances of Temporal Instant w and z such that w is the starting instant of both x and y and z is the ending instant of both x and y."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -104,11 +104,11 @@ cco:ont00001822 rdf:type owl:ObjectProperty ,
 ###  https://www.commoncoreontologies.org/ont00001825
 cco:ont00001825 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001870 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  owl:propertyDisjointWith cco:ont00001862 ;
                  rdfs:label "interval overlaps"@en ;
-                 skos:definition "A Temporal Interval INT1 overlaps some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
+                 skos:definition "x interval_overlaps y iff x and y are both instances of Temporal Interval and there exist instances of Temporal Instant u, v, w, z such that u is the starting instant of x, v is the ending instant of x, w is the starting instant of y, z is the ending instant of y, u is before w, w is before v, and v is before z."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -117,10 +117,10 @@ cco:ont00001825 rdf:type owl:ObjectProperty ;
 cco:ont00001847 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001862 ;
                  owl:inverseOf cco:ont00001940 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval is after"@en ;
-                 skos:definition "A TemporalInterval INT2 is after some TemporalInterval INT1 iff there exists TemporalInstants inst2, inst1 such that inst2 is the starting instant of INT2 and inst1 is the ending instant of INT1 and inst2 is after inst1."@en ;
+                 skos:definition "x interval_is_after y iff x and y are both instances of Temporal Interval and y interval_is_before x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -130,20 +130,20 @@ cco:ont00001848 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000148 ;
                  rdfs:range obo:BFO_0000038 ;
                  rdfs:label "is inside instant of"@en ;
-                 skos:definition "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."@en ;
+                 skos:definition "x is_inside_instant of y iff x is an instance of Temporal Instant and y is an instance of One-Dimensional Temporal Region and there are instances of Temporal Instant w and z that are part of y and non-identical to x such that w precedes x and z is preceded by x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001862
 cco:ont00001862 rdf:type owl:ObjectProperty ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  owl:propertyDisjointWith cco:ont00001870 ,
                                           cco:ont00001924 ,
                                           cco:ont00001971 ;
                  rdfs:label "interval disjoint"@en ;
-                 skos:definition "A Temporal Interval INT1 is disjoint with a Temporal Interval INT2 iff INT1 is before or meets INT2 OR INT2 is before or meets INT1. In other words, INT1 and INT2 are disjoint iff INT1 and INT2 do not overlap, contain, or equal one another."@en ;
+                 skos:definition "x interval_disjoint y iff x and y are both instances of Temporal Interval and have no parts in common."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -151,20 +151,21 @@ cco:ont00001862 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001869
 cco:ont00001869 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001971 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval during"@en ;
-                 skos:definition "A Temporal Interval INT1 is during some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
+                 skos:definition "x interval_during y iff x and y are both instances of Temporal Interval and there exist instances of Temporal Instant u, v, w, and z such that u is the starting instant of x, v is the ending instant of x, w is the starting instant of y, z is the ending instant of y, w is before u, and v is before z."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001870
 cco:ont00001870 rdf:type owl:ObjectProperty ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 owl:inverseOf cco:ont00001825 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval overlapped by"@en ;
-                 skos:definition "A Temporal Interval INT2 is overlapped by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
+                 skos:definition "x is_overlapped_by y iff x and y are both instances of Temporal Interval and y interval_overlaps x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -173,10 +174,10 @@ cco:ont00001870 rdf:type owl:ObjectProperty ;
 cco:ont00001875 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001924 ;
                  owl:inverseOf cco:ont00001923 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval started by"@en ;
-                 skos:definition "A Temporal Interval INT2 is started by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
+                 skos:definition "x interval_started_by y iff x and y are both instances of Temporal Interval and y interval_starts x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -188,8 +189,8 @@ cco:ont00001893 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000148 ;
                  rdfs:range obo:BFO_0000148 ;
                  rdfs:label "instant is after"@en ;
-                 skos:definition "A temporal instant t2 (a instance of a zero-dimensional temporal region) is after another temporal instant t1 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
-                 skos:scopeNote "'instant is after' is a primitive relationship. Informally, a temporal instant t2 is after some temporal instant t1 if and only if t1 precedes t2."@en ;
+                 skos:definition "x instant_is_after y iff x and y are both instances of Temporal Instant and there exists some instance of Temporal Interval z such that y is the starting instant of z and x is the ending instant of z."@en ;
+                 skos:scopeNote "'instant is after' is a primitive relationship. Informally, a temporal instant x is after some temporal instant y iff y precedes x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -197,12 +198,11 @@ cco:ont00001893 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001896
 cco:ont00001896 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001862 ;
-                 owl:inverseOf cco:ont00001915 ;
                  rdf:type owl:IrreflexiveProperty ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval meets"@en ;
-                 skos:definition "A Temporal Interval INT1 meets some Temporal Interval INT2 iff there exists some Temporal Instant inst1 such that inst1 is the ending instant of INT1 and inst1 is the starting instant of INT2."@en ;
+                 skos:definition "x interval_meets y iff x and y are both instances of Temporal Interval and there exists some instance of Temporal Instant z such that z is the ending instant of x and z is the starting instant of y."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -211,10 +211,11 @@ cco:ont00001896 rdf:type owl:ObjectProperty ;
 cco:ont00001915 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001862 ;
                  rdf:type owl:IrreflexiveProperty ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 owl:inverseOf cco:ont00001896 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval met by"@en ;
-                 skos:definition "A Temporal Interval INT2 is met by some Temporal Interval INT1 iff there exists some Temporal Instant inst1 such that inst1 is the starting instant of INT2 and inst1 is the ending instant of INT1."@en ;
+                 skos:definition "x interval_met_by y iff x and y are both instances of Temporal Interval and y interval_meets x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -222,10 +223,10 @@ cco:ont00001915 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001923
 cco:ont00001923 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001971 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval starts"@en ;
-                 skos:definition "A Temporal Interval INT1 starts some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
+                 skos:definition "x interval_starts y iff x and y are both instances of Temporal Interval and there exist instances of Temporal Instant v, w, and z such that v is the starting instant of both x and y, w is the ending instant of x, z is the ending instant of y and w is before z."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -233,10 +234,10 @@ cco:ont00001923 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001924
 cco:ont00001924 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001971 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval contains"@en ;
-                 skos:definition "A Temporal Interval INT2 contains some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, and inst2 is before or identical to inst4, but it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
+                 skos:definition "x interval_contains y iff x and y are both instances of Temporal Interval and there exist instances of Temporal Instant u, v, w, and z such that u is the starting instant of x, v is the ending instant of x, w is the starting instant of y, z is the ending instant of y, w is before or identical to u, and v is before or identical to z, and it is not the case that both w is identical to u and v is identical to z."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -244,20 +245,21 @@ cco:ont00001924 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001940
 cco:ont00001940 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001862 ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval is before"@en ;
-                 skos:definition "A TemporalInterval INT1 is before some TemporalInterval INT2 iff there exists TemporalInstants inst1, inst2 such that inst1 is the ending instant of INT1 and inst2 is the starting instant of INT2 and inst1 is before inst2."@en ;
+                 skos:definition "x interval_is_before y iff x and y are both instances of Temporal Interval and there exist instances of Temporal Instant w, z such that w is the ending instant of x and z is the starting instant of y and w is before z."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001971
 cco:ont00001971 rdf:type owl:ObjectProperty ;
-                 rdfs:domain obo:BFO_0000038 ;
-                 rdfs:range obo:BFO_0000038 ;
+                 owl:inverseOf cco:ont00001924 ;
+                 rdfs:domain obo:BFO_0000202 ;
+                 rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval contained by"@en ;
-                 skos:definition "A Temporal Interval INT1 is contained by some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, inst2 is before or identical to inst4, and it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
+                 skos:definition "x interval_contained_by y iff x and y are both instances of Temporal Interval and y interval_contains x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -268,8 +270,8 @@ cco:ont00001990 rdf:type owl:ObjectProperty ,
                  rdfs:domain obo:BFO_0000148 ;
                  rdfs:range obo:BFO_0000148 ;
                  rdfs:label "instant is before"@en ;
-                 skos:definition "A temporal instant t1 (a instance of a zero-dimensional temporal region) is before another temporal instant t2 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
-                 skos:scopeNote "'instant is before' is a primitive relationship. Informally, a temporal instant t1 is before some temporal instant t2 if and only if t1 precedes t2."@en ;
+                 skos:definition "x instant_is_before y iff x and y are both instances of Zero Dimensional Temporal Region and there exists some instance of Temporal Interval z such that x is the starting instant of z and y is the ending instant of z."@en ;
+                 skos:scopeNote "'instant is before' is a primitive relationship. Informally, a temporal instant x is before some temporal instant y iff x precedes y."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 

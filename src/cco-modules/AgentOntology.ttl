@@ -125,6 +125,8 @@ cco:ont00001786 rdf:type owl:ObjectProperty ;
 cco:ont00001787 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000056 ;
                  owl:inverseOf cco:ont00001833 ;
+                 rdfs:domain cco:ont00001017 ;
+                 rdfs:range obo:BFO_0000015 ;
                  rdfs:label "agent in"@en ;
                  skos:definition "x agent_in y iff y is an instance of Process and x is an instance of Agent, such that x is causally active in y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -177,7 +179,7 @@ cco:ont00001794 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001180 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "has subsidiary"@en ;
-                 skos:definition "An Organization o1 has_subsidiary Organization o2 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies."@en ;
+                 skos:definition "x has_subsidiary y iff x and y are both instances of Organization and y is_subsidiary_of x."@en ;
                  cco:ont00001754 "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -189,7 +191,7 @@ cco:ont00001798 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001262 ;
                  rdfs:range cco:ont00001262 ;
                  rdfs:label "is supervised by"@en ;
-                 skos:definition "A person p1 is supervised by a person p2 by virtue of p1 being directed, managed, or overseen by p2."@en ;
+                 skos:definition "x is_supervised_by y iff x and y are both instances of Person and y supervises x."@en ;
                  cco:ont00001754 "http://en.wiktionary.org/wiki/supervise)" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -259,6 +261,8 @@ cco:ont00001812 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001813
 cco:ont00001813 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001925 ;
+                 rdfs:domain cco:ont00001017 ;
+                 rdfs:range obo:BFO_0000040 ;
                  rdfs:label "uses"@en ;
                  skos:definition "x uses y iff x is an instance of an Agent and y is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein x attempts to accomplish a goal by manipulating, deploying, or leveraging some attribute of y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -270,7 +274,7 @@ cco:ont00001815 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001180 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "is subsidiary of"@en ;
-                 skos:definition "An Organization o2 is_subsidiary_of Organization o1 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies. "@en ;
+                 skos:definition "x is_subsidiary_of y iff x and y are both instances of Organization and y controls x by having the capacity to determine the outcome of decisions about the financial and operating policies of x. "@en ;
                  cco:ont00001754 "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html)" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -281,7 +285,7 @@ cco:ont00001817 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001324 ;
                  rdfs:label "is prohibited by"@en ;
-                 skos:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
+                 skos:definition "x is_prohibited_by y at t iff: y is an instance of Process Regulation at time t, and x is an instance of Process at time t, and y prescribes that x must not occur."@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -338,6 +342,8 @@ cco:ont00001831 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001833
 cco:ont00001833 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000057 ;
+                 rdfs:domain obo:BFO_0000015 ;
+                 rdfs:range cco:ont00001017 ;
                  rdfs:label "has agent"@en ;
                  skos:definition "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -382,7 +388,7 @@ cco:ont00001842 rdf:type owl:ObjectProperty ;
 cco:ont00001843 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001806 ;
                  owl:inverseOf cco:ont00001894 ;
-                 rdfs:comment "Comment is_paternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
+                 skos:scopeNote "is_paternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
                  rdfs:label "is paternal first cousin of"@en ;
                  skos:definition "Person A is paternal first cousin of Person B iff Person B has father F and F has sibling P and P is parent of Person A."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -392,6 +398,7 @@ cco:ont00001843 rdf:type owl:ObjectProperty ;
 cco:ont00001844 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000057 ;
                  owl:inverseOf cco:ont00001993 ;
+                 rdfs:domain cco:ont00000402 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has sender"@en ;
                  skos:definition "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
@@ -469,7 +476,7 @@ cco:ont00001859 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001180 ;
                  rdfs:range cco:ont00001203 ;
                  rdfs:label "is delimited by"@en ;
-                 skos:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
+                 skos:definition "x is_delimited_by y iff x is an instance of Organization and y is an instance of Delimiting Domain and y delimits x."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -487,7 +494,7 @@ cco:ont00001864 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001203 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "delimits"@en ;
-                 skos:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
+                 skos:definition "x delimits y iff x is an instance of Delimiting Domain and y is an instance of Organization and y can legally operate only within x."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -550,7 +557,7 @@ cco:ont00001880 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001809 ;
                  owl:inverseOf cco:ont00001898 ;
                  rdfs:domain cco:ont00001379 ;
-                 rdfs:range cco:ont00000300 ;
+                 rdfs:range obo:BFO_0000027 ;
                  rdfs:label "capability of aggregate"@en ;
                  skos:definition "x capability_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -643,7 +650,7 @@ cco:ont00001897 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001898
 cco:ont00001898 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001836 ;
-                 rdfs:domain cco:ont00000300 ;
+                 rdfs:domain obo:BFO_0000027 ;
                  rdfs:range cco:ont00001379 ;
                  rdfs:label "aggregate has capability"@en ;
                  skos:definition "x aggregate_has_capability y iff x is an instance of Object Aggregate and y is an instance of Agent Capability, such that x is aggregate bearer of y."@en ;
@@ -679,7 +686,7 @@ cco:ont00001905 rdf:type owl:ObjectProperty ;
 cco:ont00001906 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001806 ;
                  owl:inverseOf cco:ont00001934 ;
-                 rdfs:comment "Comment is_maternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
+                 rdfs:comment "is_maternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
                  rdfs:label "is maternal first cousin of"@en ;
                  skos:definition "Person A is maternal first cousin of Person B iff Person B has mother M and M has sibling P and P is parent of Person A."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -717,6 +724,7 @@ cco:ont00001920 rdf:type owl:ObjectProperty .
 cco:ont00001922 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000057 ;
                  owl:inverseOf cco:ont00001978 ;
+                 rdfs:domain cco:ont00000402 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has recipient"@en ;
                  skos:definition "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en ;
@@ -725,6 +733,8 @@ cco:ont00001922 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001925
 cco:ont00001925 rdf:type owl:ObjectProperty ;
+                 rdfs:domain obo:BFO_0000040 ;
+                 rdfs:range cco:ont00001017 ;
                  rdfs:label "is used by"@en ;
                  skos:definition "x is_used_by y iff y is an instance of an Agent and x is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein y attempts to accomplish a goal by manipulating, deploying, leveraging some attribute of y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -791,18 +801,8 @@ cco:ont00001937 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001939
 cco:ont00001939 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001977 ;
-                 rdfs:domain [ rdf:type owl:Class ;
-                               owl:unionOf ( cco:ont00001017
-                                             cco:ont00001180
-                                             cco:ont00001262
-                                           )
-                             ] ;
-                 rdfs:range [ rdf:type owl:Class ;
-                              owl:unionOf ( cco:ont00001017
-                                            cco:ont00001180
-                                            cco:ont00001262
-                                          )
-                            ] ;
+                 rdfs:domain cco:ont00001017 ;
+                 rdfs:range cco:ont00001017 ;
                  rdfs:label "is affiliated with"@en ;
                  skos:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -826,7 +826,7 @@ cco:ont00001943 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001262 ;
                  rdfs:range cco:ont00001262 ;
                  rdfs:label "supervises"@en ;
-                 skos:definition "A person p1 supervises a person p2 by virtue of p1 directing, managing, or overseeing p2."@en ;
+                 skos:definition "x supervises y iff x and y are both instances of Person and x directs, manages, or oversees y."@en ;
                  cco:ont00001754 "http://en.wiktionary.org/wiki/supervise" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -982,18 +982,8 @@ cco:ont00001975 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001977
 cco:ont00001977 rdf:type owl:ObjectProperty ;
-                 rdfs:domain [ rdf:type owl:Class ;
-                               owl:unionOf ( cco:ont00001017
-                                             cco:ont00001180
-                                             cco:ont00001262
-                                           )
-                             ] ;
-                 rdfs:range [ rdf:type owl:Class ;
-                              owl:unionOf ( cco:ont00001017
-                                            cco:ont00001180
-                                            cco:ont00001262
-                                          )
-                            ] ;
+                 rdfs:domain cco:ont00001017 ;
+                 rdfs:range cco:ont00001017 ;
                  rdfs:label "has affiliate"@en ;
                  skos:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -1003,6 +993,7 @@ cco:ont00001977 rdf:type owl:ObjectProperty ;
 cco:ont00001978 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000056 ;
                  rdfs:domain cco:ont00001017 ;
+                 rdfs:range cco:ont00000402 ;
                  rdfs:label "receives"@en ;
                  skos:definition "x receives y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the recipient and decoder of the InformationContentEntity intended for communication in y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -1029,10 +1020,10 @@ cco:ont00001984 rdf:type owl:ObjectProperty ;
                  dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                  dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                  rdfs:label "has interest in"@en ;
-                 skos:definition "A relation between an entity and some process where the entity has an interest in that process."@en ;
-                 skos:editorialNote "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the entity, or historically of evolutionary benefit to the entity's ancestors, or facilitates a process the entity has an interest in for the prior two reasons. The process an entity has an interest could in many or all ways be harmful to the entity."@en ;
+                 skos:definition "A relation between an Agent and some Process where the Agent has an interest in that Process."@en ;
+                 skos:editorialNote "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the Agent, or historically of evolutionary benefit to the Agent's ancestors, or facilitates a process the Agent has an interest in for the prior two reasons. The process an Agent has an interest could in many or all ways be harmful to the Agent."@en ;
                  skos:prefLabel "has interest in"@en ;
-                 skos:scopeNote "There are four conditions in which an entity has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
+                 skos:scopeNote "There are four conditions in which an agent has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) agent x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1070,6 +1061,7 @@ cco:ont00001992 rdf:type owl:ObjectProperty ;
 cco:ont00001993 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000056 ;
                  rdfs:domain cco:ont00001017 ;
+                 rdfs:range cco:ont00000402 ;
                  rdfs:label "sends"@en ;
                  skos:definition "x sends y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -1088,6 +1080,7 @@ cco:ont00001995 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001262 ;
                  rdfs:range cco:ont00001262 ;
                  rdfs:label "is parent of"@en ;
+                 skos:definition "x is_parent_of y is a familial relationship between an instance of Person x and a different instance of Person y." ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 

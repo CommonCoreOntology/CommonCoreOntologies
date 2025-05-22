@@ -46,31 +46,35 @@ cco:ont00001760 rdf:type owl:AnnotationProperty .
 
 ###  https://www.commoncoreontologies.org/ont00001801
 cco:ont00001801 rdf:type owl:ObjectProperty ;
-                owl:inverseOf cco:ont00001808 ;
-                rdfs:range cco:ont00000958 ;
-                rdfs:label "is subject of"@en ;
-                skos:definition "A primitive relationship between an instance of an Entity and an instance of an Information Content Entity."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 owl:inverseOf cco:ont00001808 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000958 ;
+                 rdfs:label "is subject of"@en ;
+                 skos:definition "x is_subject_of y iff x is an instance of Entity and y is an instance of Information Content Entity and y is_about x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001808
 cco:ont00001808 rdf:type owl:ObjectProperty ;
-                rdfs:domain cco:ont00000958 ;
-                rdfs:range obo:BFO_0000001 ;
-                rdfs:label "is about"@en ;
-                skos:definition "A primitive relationship between an Information Content Entity and some Entity."@en ;
-                cco:ont00001754 "http://purl.obolibrary.org/obo/IAO_0000136" ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:domain cco:ont00000958 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "is about"@en ;
+                 skos:definition "x is_about y is a primitive relationship between an instance of Information Content Entity x and an instance of Entity y."@en ;
+                 cco:ont00001754 "http://purl.obolibrary.org/obo/IAO_0000136" ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
 
 
 ###  https://www.commoncoreontologies.org/ont00001811
 cco:ont00001811 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001966 ;
-                owl:inverseOf cco:ont00001963 ;
-                rdfs:domain cco:ont00001010 ;
-                rdfs:label "is a ordinal measurement of"@en ;
-                skos:definition "x is_a_ordinal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001966 ;
+                 owl:inverseOf cco:ont00001963 ;
+                 rdfs:domain cco:ont00001010 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "is an ordinal measurement of"@en ;
+                 skos:definition "x is_an_ordinal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity and y is_measured_by_ordinal x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
 
 
 ###  https://www.commoncoreontologies.org/ont00001824
@@ -106,64 +110,71 @@ cco:ont00001863 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001868
 cco:ont00001868 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001966 ;
-                owl:inverseOf cco:ont00001914 ;
-                rdfs:domain cco:ont00000293 ;
-                rdfs:label "is a nominal measurement of"@en ;
-                skos:definition "x is_a_nominal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001966 ;
+                 owl:inverseOf cco:ont00001914 ;
+                 rdfs:domain cco:ont00000293 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "is a nominal measurement of"@en ;
+                 skos:definition "x is_a_nominal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001873
 cco:ont00001873 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001801 ;
-                owl:inverseOf cco:ont00001938 ;
-                rdfs:range cco:ont00001069 ;
-                rdfs:comment "See notes for inverse property." ;
-                rdfs:label "represented by"@en ;
-                skos:definition "y represented_by x iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001801 ;
+                 owl:inverseOf cco:ont00001938 ;
+                 rdfs:range cco:ont00001069 ;
+                 rdfs:comment "See notes for inverse property." ;
+                 rdfs:label "represented by"@en ;
+                 skos:definition "y represented_by x iff x is an instance of Representational Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001877
 cco:ont00001877 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001966 ;
-                owl:inverseOf cco:ont00001964 ;
-                rdfs:domain cco:ont00001364 ;
-                rdfs:label "is a interval measurement of"@en ;
-                skos:definition "x is_a_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
-                skos:example "a measurement of air temperature on the Celsius scale." ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001966 ;
+                 owl:inverseOf cco:ont00001964 ;
+                 rdfs:domain cco:ont00001364 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "is an interval measurement of"@en ;
+                 skos:definition "x is_an_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity and y is_measured_by_interval x."@en ;
+                 skos:example "a measurement of air temperature on the Celsius scale." ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001878
 cco:ont00001878 rdf:type owl:ObjectProperty ;
-                owl:inverseOf cco:ont00001919 ;
-                rdfs:label "is mention of"@en ;
-                skos:definition "x is_mention_of y iff x is an instance Information Bearing Entity and y is an instance Entity, such that x is used as a reference to y."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 owl:inverseOf cco:ont00001919 ; 
+                 rdfs:domain cco:ont00000253 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "is mention of"@en ;
+                 skos:definition "x is_mention_of y iff x is an instance Information Bearing Entity and y is an instance of Entity, such that x is used as a reference to y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001879
 cco:ont00001879 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001801 ;
-                owl:inverseOf cco:ont00001916 ;
-                rdfs:range cco:ont00000686 ;
-                rdfs:label "designated by"@en ;
-                skos:definition "x designated_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that given some context, y uniquely distinguishes x from other entities."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001801 ;
+                 owl:inverseOf cco:ont00001916 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000686 ;
+                 rdfs:label "designated by"@en ;
+                 skos:definition "x designated_by y iff y is an instance of Desugnative Information Content Entity and x is an instance of Entity and y designates x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001884
 cco:ont00001884 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001801 ;
-                owl:inverseOf cco:ont00001980 ;
-                owl:propertyChainAxiom ( cco:ont00001917
-                                         obo:BFO_0000176
-                                       ) ;
-                rdfs:label "condition described by"@en ;
-                skos:definition "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001801 ;
+                 owl:inverseOf cco:ont00001980 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000127 ;
+                 owl:propertyChainAxiom ( cco:ont00001917
+                                          obo:BFO_0000176
+                                        ) ;
+                 rdfs:label "condition described by"@en ;
+                 skos:definition "x condition_described_by y iff y is an instance of Performance Specification and x is an instance of Entity and y describes_condition x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001899
@@ -190,12 +201,13 @@ cco:ont00001900 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001904
 cco:ont00001904 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001917 ;
-                owl:inverseOf cco:ont00001966 ;
-                rdfs:range cco:ont00001163 ;
-                rdfs:label "is measured by"@en ;
-                skos:definition "y is_measured_by x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001917 ;
+                 owl:inverseOf cco:ont00001966 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00001163 ;
+                 rdfs:label "is measured by"@en ;
+                 skos:definition "y is_measured_by x iff x is an instance of Measurement Information Content Entity and y is an instance of Entity and y is_a_measurement_of x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001908
@@ -231,75 +243,83 @@ cco:ont00001913 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001914
 cco:ont00001914 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001904 ;
-                rdfs:range cco:ont00000293 ;
-                rdfs:label "is measured by nominal"@en ;
-                skos:definition "y is_measured_by_nominal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001904 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000293 ;
+                 rdfs:label "is measured by nominal"@en ;
+                 skos:definition "x is_measured_by_nominal y iff y is an instance of Nominal Measurement Information Content Entity and x is an instance of Entity, such that y classifies x relative to some set of shared, possibly arbitrary, characteristics."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001916
 cco:ont00001916 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001808 ;
-                rdfs:domain cco:ont00000686 ;
-                rdfs:label "designates"@en ;
-                skos:definition "x designates y iff x is an instance of an Information Content Entity, and y is an instance of an Entity, such that given some context, x uniquely distinguishes y from other entities."@en ;
-                skos:example "a URL designates the location of a Web Page on the internet" ,
-                             "a person's name designates that person" ,
-                             "a vehicle identification number designates some vehicle" ;
-                skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001808 ;
+                 rdfs:domain cco:ont00000686 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "designates"@en ;
+                 skos:definition "x designates y iff x is an instance of a Designative Information Content Entity, and y is an instance of an Entity, such that given some context, x uniquely distinguishes y from other entities."@en ;
+                 skos:example "a URL designates the location of a Web Page on the internet" ,
+                              "a person's name designates that person" ,
+                              "a vehicle identification number designates some vehicle" ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001917
 cco:ont00001917 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001801 ;
-                owl:inverseOf cco:ont00001982 ;
-                rdfs:range cco:ont00000853 ;
-                rdfs:label "described by"@en ;
-                skos:definition "x described_by y iff y is an instance of Information Content Entity, and x is an instance of Entity, such that y is about the characteristics by which y can be recognized or visualized."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001801 ;
+                 owl:inverseOf cco:ont00001982 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000853 ;
+                 rdfs:label "described by"@en ;
+                 skos:definition "x described_by y iff y is an instance of Descriptive Information Content Entity and x is an instance of Entity and y describes x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001919
 cco:ont00001919 rdf:type owl:ObjectProperty ;
-                rdfs:label "is mentioned by"@en ;
-                skos:definition "y is_mention_by x iff x is an instance Information Bearing Entity and y is an instance Entity, such that x is used as a reference to y."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000253 ;
+                 rdfs:label "is mentioned by"@en ;
+                 skos:definition "x is_mentioned_by y iff y is an instance of Information Bearing Entity and x is an instance of Entity, such that y is used as a reference to x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001920
 cco:ont00001920 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001801 ;
-                owl:inverseOf cco:ont00001942 ;
-                rdfs:range cco:ont00000965 ;
-                rdfs:label "prescribed by"@en ;
-                skos:definition "x prescribed_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y serves as a rule or guide for x if x is an Occurrent, or y serves as a model for x if x is a Continuant."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001801 ;
+                 owl:inverseOf cco:ont00001942 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00000965 ;
+                 rdfs:label "prescribed by"@en ;
+                 skos:definition "x prescribed_by y iff y is an instance of Directive Information Content Entity and x is an instance of Entity and y prescribes x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001938
 cco:ont00001938 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001808 ;
-                rdfs:domain cco:ont00001069 ;
-                rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
-                rdfs:label "represents"@en ;
-                skos:definition "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
-                skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ,
-                               "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001808 ;
+                 rdfs:domain cco:ont00000958 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
+                 rdfs:label "represents"@en ;
+                 skos:definition "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ,
+                                "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001942
 cco:ont00001942 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001808 ;
-                rdfs:domain cco:ont00000965 ;
-                rdfs:label "prescribes"@en ;
-                skos:definition "x prescribes y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x serves as a rule or guide for y if y an Occurrent, or x serves as a model for y if y is a Continuant."@en ;
-                skos:example "A blueprint prescribes some artifact or facility by being a model for it." ,
-                             "A professional code of conduct prescribes some realizations of a profession (role) by giving rules for how the bearer should act in those realizations." ,
-                             "An operations plan prescribes an operation by enumerating the tasks that need to be performed in order to achieve the objectives of the operation." ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001808 ;
+                 rdfs:domain cco:ont00000965 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "prescribes"@en ;
+                 skos:definition "x prescribes y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x serves as a rule or guide for y if y an Occurrent, or x serves as a model for y if y is a Continuant."@en ;
+                 skos:example "A blueprint prescribes some artifact or facility by being a model for it." ,
+                              "A professional code of conduct prescribes some realizations of a profession (role) by giving rules for how the bearer should act in those realizations." ,
+                              "An operations plan prescribes an operation by enumerating the tasks that need to be performed in order to achieve the objectives of the operation." ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001961
@@ -314,41 +334,45 @@ cco:ont00001961 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001963
 cco:ont00001963 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001904 ;
-                rdfs:range cco:ont00001010 ;
-                rdfs:label "is measured by ordinal"@en ;
-                skos:definition "y is_measured_by_ordinal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001904 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00001010 ;
+                 rdfs:label "is measured by ordinal"@en ;
+                 skos:definition "x is_measured_by_ordinal y iff y is an instance of Ordinal Measurement Information Content Entity and x is an instance of Entity, such that y describes some attribute of x relative to a scale ordered by rank."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001964
 cco:ont00001964 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001904 ;
-                rdfs:range cco:ont00001364 ;
-                rdfs:label "is measured by interval"@en ;
-                skos:definition "y is_measured_by_interval x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001904 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00001364 ;
+                 rdfs:label "is measured by interval"@en ;
+                 skos:definition "y is_measured_by_interval x iff x is an instance of Interval Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001965
 cco:ont00001965 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001904 ;
-                owl:inverseOf cco:ont00001983 ;
-                rdfs:range cco:ont00001022 ;
-                rdfs:label "is measured by ratio"@en ;
-                skos:definition "y is_measured_by_ratio x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001904 ;
+                 owl:inverseOf cco:ont00001983 ;
+                 rdfs:domain obo:BFO_0000001 ;
+                 rdfs:range cco:ont00001022 ;
+                 rdfs:label "is measured by ratio"@en ;
+                 skos:definition "y is_measured_by_ratio x iff x is an instance of Ratio Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001966
 cco:ont00001966 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001982 ;
-                rdfs:domain cco:ont00001163 ;
-                rdfs:comment "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."@en ;
-                rdfs:label "is a measurement of"@en ;
-                skos:definition "x is_a_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
-                skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001982 ;
+                 rdfs:domain cco:ont00001163 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:comment "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."@en ;
+                 rdfs:label "is a measurement of"@en ;
+                 skos:definition "x is_a_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001976
@@ -363,35 +387,39 @@ cco:ont00001976 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001980
 cco:ont00001980 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001808 ;
-                owl:propertyChainAxiom ( obo:BFO_0000178
-                                         cco:ont00001982
-                                       ) ;
-                rdfs:label "describes condition"@en ;
-                skos:definition "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001808 ;
+                 owl:propertyChainAxiom ( obo:BFO_0000178
+                                          cco:ont00001982
+                                        ) ;
+                 rdfs:domain cco:ont00000127 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "describes condition"@en ;
+                 skos:definition "p describes_condition c iff p is an instance of a Performance Specification and c is an instance of Entity and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001982
 cco:ont00001982 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001808 ;
-                rdfs:domain cco:ont00000853 ;
-                rdfs:comment "It is possible that this relation should be a functional property, that is for all x, y, z if x describes y and x describes z then y = z. For example, if a financial report x describes the quarterly results of a company y and that same financial report describes the quarterly results of a company z, then it should be inferred that companies y and z are the same. We refrained from classifying the relation as a functional property on the concern that descriptions are multifaceted and so consequently it may be that the same report would contain descriptions of multiple entities."@en ;
-                rdfs:label "describes"@en ;
-                skos:definition "x describes y iff x is an instance of Information Content Entity, and y is an instance of Entity, such that x is about the characteristics by which y can be recognized or visualized."@en ;
-                skos:example "the content of a newspaper article describes some current event" ,
-                             "the content of a visitor's log describes some facility visit" ,
-                             "the content of an accident report describes some accident" ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001808 ;
+                 rdfs:domain cco:ont00000853 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:comment "It is possible that this relation should be a functional property, that is for all x, y, z if x describes y and x describes z then y = z. For example, if a financial report x describes the quarterly results of a company y and that same financial report describes the quarterly results of a company z, then it should be inferred that companies y and z are the same. We refrained from classifying the relation as a functional property on the concern that descriptions are multifaceted and so consequently it may be that the same report would contain descriptions of multiple entities."@en ;
+                 rdfs:label "describes"@en ;
+                 skos:definition "x describes y iff x is an instance of Descriptive Information Content Entity, and y is an instance of Entity, such that x is_about the characteristics that identify y."@en ;
+                 skos:example "the content of a newspaper article describes some current event" ,
+                              "the content of a visitor's log describes some facility visit" ,
+                              "the content of an accident report describes some accident" ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001983
 cco:ont00001983 rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf cco:ont00001966 ;
-                rdfs:domain cco:ont00001022 ;
-                rdfs:label "is a ratio measurement of"@en ;
-                skos:definition "x is_a_ratio_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+                 rdfs:subPropertyOf cco:ont00001966 ;
+                 rdfs:domain cco:ont00001022 ;
+                 rdfs:range obo:BFO_0000001 ;
+                 rdfs:label "is a ratio measurement of"@en ;
+                 skos:definition "x is_a_ratio_measurement_of y iff x is an instance of Ratio Measurement Information Content Entity and y is an instance of Entity and x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001997
