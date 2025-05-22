@@ -267,7 +267,7 @@ mro:BFO_0000108 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000008 ;
                 <http://purl.org/dc/elements/1.1/identifier> "118-BFO" ;
                 rdfs:label "exists at"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "(Elucidation) exists at is a relation between an instance of Entity and some temporal region where the particular exists"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "(Elucidation) exists at is a relation between a particular and some temporal region at which the particular exists"@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "First World War exists at 1914-1916; Mexico exists at January 1, 2000"@en .
 
 
@@ -275,7 +275,7 @@ mro:BFO_0000108 rdf:type owl:ObjectProperty ;
 mro:BFO_0000115 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000178 ;
                 owl:inverseOf mro:BFO_0000129 ;
-                rdfs:domain obo:BFO_0000030 ;
+                rdfs:domain obo:BFO_0000040 ;
                 rdfs:range obo:BFO_0000040 ;
                 <http://purl.org/dc/elements/1.1/identifier> "230-BFO" ;
                 rdfs:label "has member part"@en ;
@@ -376,7 +376,7 @@ mro:BFO_0000139 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000003 ;
                 <http://purl.org/dc/elements/1.1/identifier> "078-BFO" ;
                 rdfs:label "temporal part of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "b temporal_part_of c iff b and c are both instances of Occurrent and if b and c are both instances of Temporal Region then b_occurrent_part_of c or if b and c are instances of Spatiotemporal Region & there exists an instance of Occurrent z and b temporally_projects_onto z and there exists an instance of Temporal Region w and z is occurrent_part_of w then c temporally_projects_onto w or if b and c are instances of Process or Process Boundary & there exists an instance of Temporal Region z and z is_temporal_region_of b and there exists an instance of Temporal Region w and z occurrent_part_of w then w is_temporal_region of c."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "b temporal part of c =Def b occurrent part of c & (b and c are temporal regions) or (b and c are spatiotemporal regions & b temporally projects onto an occurrent part of the temporal region that c temporally projects onto) or (b and c are processes or process boundaries & b occupies a temporal region that is an occurrent part of the temporal region that c occupies)"@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "Your heart beating from 4pm to 5pm today is a temporal part of the process of your heart beating; the 4th year of your life is a temporal part of your life, as is the process boundary which separates the 3rd and 4th years of your life; the first quarter of a game of football is a temporal part of the whole game"@en .
 
 
@@ -388,7 +388,7 @@ mro:BFO_0000153 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000008 ;
                 <http://purl.org/dc/elements/1.1/identifier> "080-BFO" ;
                 rdfs:label "temporally projects onto"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x temporally_projects_onto y iff x is an instance of Spatiotemporal Region and y is an instance of Temporal Region and y is the temporal extent of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "(Elucidation) temporally projects onto is a relation between a spatiotemporal region s and some temporal region which is the temporal extent of s"@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "The world line of a particle temporally projects onto the temporal region extending from the beginning to the end of the existence of the particle"@en .
 
 
@@ -525,7 +525,7 @@ mro:BFO_0000195 rdf:type owl:ObjectProperty ;
                 <http://purl.org/dc/elements/1.1/identifier> "012-BFO" ;
                 rdfs:label "specifically depends on"@en ;
                 <http://www.w3.org/2004/02/skos/core#altLabel> "s-depends on"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "(Elucidation) x specifically_depends_on y iff x is an instance of Specifically Dependent Continuant and y is an instance of Specifically Dependent Continuant or Independent Continuant and is not an instance of Spatial Region and x and y share no parts in common & for all times x exists y exists & x is not a boundary of y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "(Elucidation) specifically depends on is a relation between a specifically dependent continuant b and specifically dependent continuant or independent continuant that is not a spatial region c such that b and c share no parts in common & b is of a nature such that at all times t it cannot exist unless c exists & b is not a boundary of c"@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "A shape specifically depends on the shaped object; hue, saturation and brightness of a colour sample specifically depends on each other"@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "The analogue of specifically depends on for occurrents is has participant."@en .
 
@@ -578,7 +578,7 @@ mro:BFO_0000199 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000008 ;
                 <http://purl.org/dc/elements/1.1/identifier> "132-BFO" ;
                 rdfs:label "occupies temporal region"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x occupies_temporal_region y iff x is an instance of process or process boundary and y is an instance of temporal region and the spatiotemporal region that x occupies temporally projects onto y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "p occupies temporal region t =Def p is a process or process boundary & the spatiotemporal region occupied by p temporally projects onto t"@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "The Second World War occupies the temporal region September 1, 1939 - September 2, 1945"@en .
 
 
@@ -594,7 +594,7 @@ mro:BFO_0000200 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000011 ;
                 <http://purl.org/dc/elements/1.1/identifier> "082-BFO" ;
                 rdfs:label "occupies spatiotemporal region"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x occupies_spatiotemporal_region y iff x is an instance of Process or Process Boundary and y is an instance of Spatiotemporal Region and y is the spatiotemporal extent of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "(Elucidation) occupies spatiotemporal region is a relation between a process or process boundary p and the spatiotemporal region s which is its spatiotemporal extent"@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "A particle emitted by a nuclear reactor occupies the spatiotemporal region which is its trajectory"@en .
 
 
@@ -622,7 +622,7 @@ mro:BFO_0000216 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000006 ;
                 <http://purl.org/dc/elements/1.1/identifier> "246-BFO" ;
                 rdfs:label "spatially projects onto"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x spatially_projects_onto y iff x is an instance of Spatiotemporal Region and y is an instance of Spatial Region and y is the spatial extent of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "(Elucidation) spatially projects onto is a relation between some spatiotemporal region b and spatial region c such that at some time t, c is the spatial extent of b at t"@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
 
 
@@ -705,7 +705,7 @@ mro:ont00001775 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000004 ;
                 rdfs:range obo:BFO_0000004 ;
                 rdfs:label "is successor of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_successor_of y iff x and y are both instances of Independent Continuant and y is_predecessor_of x. "@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A continuant c2 is a successor of some continuant c1 iff there is some process p1 and c1 is an input to p1 and c2 is an output of p1. Inverse of is predecessor. "@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -731,10 +731,9 @@ mro:ont00001777 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001778
 mro:ont00001778 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000057 ;
-                rdfs:domain obo:BFO_0000015 ;
-                rdfs:range obo:BFO_0000002 ;
+                owl:inverseOf mro:ont00001936 ;
                 rdfs:label "has object"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x has_object y ff x is an instance of Process and y is an instance of Continuant and x is performed by some instance of Agent z and y is part of the projected state that z intends to achieve by performing x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "If p is a process and c is a continuant, then p has object c if and only if p is performed by an agent and c is part of the projected state that agent intends to achieve by performing p."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -745,7 +744,7 @@ mro:ont00001779 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000148 ;
                 rdfs:label "has inside instant"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x has_inside_instant y iff x is an instance of One Dimensional Temporal Region and y is an instance of Zero Dimensional Temporal Region and y is_inside_instant_of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "For Temporal Interval t1 and Temporal Instant t2, t1 has inside instant t2 if and only if there exists Temporal Instants t3 and t4 that are part of t1 and non-identical with t2, such that t3 is before t2 and t4 is after t2."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -852,7 +851,7 @@ mro:ont00001791 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000141 ;
                 rdfs:range obo:BFO_0000141 ;
                 rdfs:label "coincides with"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x coincides_with y iff x and y are both instances of Immaterial Entity and x is a spatial part of y and y is a spatial part of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An immaterial entity im1 coincides with some immaterial entity im2 iff im1 is a spatial part of im2 and im2 is a spatial part of im1."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be transitive and symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -880,7 +879,7 @@ mro:ont00001794 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001180 ;
                 rdfs:range cco:ont00001180 ;
                 rdfs:label "has subsidiary"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x has_subsidiary y iff x and y are both instances of Organization and y is_subsidiary_of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An Organization o1 has_subsidiary Organization o2 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies."@en ;
                 cco:ont00001754 "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html" ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -892,7 +891,7 @@ mro:ont00001795 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "has inside interval"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x has_inside_interval y iff x and y are both instances of One Dimensional Temporal Region and y interval_during x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT2 has inside interval some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -904,7 +903,7 @@ mro:ont00001796 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000141 ;
                 rdfs:range obo:BFO_0000141 ;
                 rdfs:label "tangential part of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x tangential_part_of y iff x and y are both instances of Immaterial Entity and x is a spatial part of y and there exists an instance of Immaterial Entity z such that z externally connects with x and z externally connects with y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An immaterial entity im1 is a tangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there exists some immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -916,7 +915,7 @@ mro:ont00001797 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000141 ;
                 rdfs:range obo:BFO_0000141 ;
                 rdfs:label "partially overlaps with"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x partially overlaps with y iff x and y are both instances of Immaterial Entity and x overlaps with y and x is not a spatial part of y and y is not a spatial part of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An immaterial entity im1 partially overlaps with some immaterial entity im2 iff im1 overlaps with im2 and im1 is not a spatial part of im2 and im2 is not a spatial part of im1."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -929,7 +928,7 @@ mro:ont00001798 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001262 ;
                 rdfs:range cco:ont00001262 ;
                 rdfs:label "is supervised by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_supervised_by y iff x and y are both instances of Person and y supervises x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A person p1 is supervised by a person p2 by virtue of p1 being directed, managed, or overseen by p2."@en ;
                 cco:ont00001754 "http://en.wiktionary.org/wiki/supervise)" ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -962,7 +961,7 @@ mro:ont00001801 rdf:type owl:ObjectProperty ;
                 owl:inverseOf mro:ont00001808 ;
                 rdfs:range cco:ont00000958 ;
                 rdfs:label "is subject of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_subject_of y iff x is an instance of Entity and y is an instance of Information Content Entity and y is_about x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A primitive relationship between an instance of an Entity and an instance of an Information Content Entity."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1035,7 +1034,7 @@ mro:ont00001808 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000958 ;
                 rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is about"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_about y iff x is an instance of Information Content Entity and y is an instance of Entity such that the information content of x depends on the existence of y. A primitive relationship."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A primitive relationship between an Information Content Entity and some Entity."@en ;
                 cco:ont00001754 "http://purl.obolibrary.org/obo/IAO_0000136" ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1051,7 +1050,7 @@ mro:ont00001809 rdf:type owl:ObjectProperty ;
                             ] ;
                 rdfs:range obo:BFO_0000027 ;
                 rdfs:label "inheres in aggregate"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x inheres_in_aggregate y iff x is an instance of Specifically Dependent Continuant or Generically Dependent Continuant and y is an instance of Object Aggregate and y aggregate_bearer_of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x inheres_in_aggregate y iff x is an instance of Specifically Dependent Continuant and y is an instance of Object Aggregate and z is an instance of Object, such that z bearer_of x, and all other members of y are bearers of a unique instance of the same type as x."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1061,7 +1060,7 @@ mro:ont00001810 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000141 ;
                 rdfs:range obo:BFO_0000141 ;
                 rdfs:label "connected with"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_connected_with y iff x and y are both instances of Immaterial Entity and there exists an instance of Immaterial Entity z that is common to both x and y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An immaterial entity im1 is connected with some immaterial entity im2 iff there exists some immaterial entity im3 that is common to both im1 and im2."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1071,9 +1070,8 @@ mro:ont00001811 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001966 ;
                 owl:inverseOf mro:ont00001963 ;
                 rdfs:domain cco:ont00001010 ;
-                rdfs:range obo:BFO_0000001 ;
-                rdfs:label "is an ordinal measurement of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_an_ordinal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that y is_measured_by_ordinal x."@en ;
+                rdfs:label "is a ordinal measurement of"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x is_a_ordinal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1097,10 +1095,11 @@ mro:ont00001813 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001814
 mro:ont00001814 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001971 ;
+                owl:inverseOf mro:ont00001821 ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval finishes"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_finishes y iff x and y are both instances of One Dimensional Temporal Region and there exist instances of Zero Dimensional Temporal Region v, w, and z such that v is the starting instant of x, w is the ending instant of both x and y, z is the starting instant of y, and z is before v."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 finishes some Temporal Interval INT2 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1111,7 +1110,7 @@ mro:ont00001815 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001180 ;
                 rdfs:range cco:ont00001180 ;
                 rdfs:label "is subsidiary of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_subsidiary_of y iff x and y are both instances of Organization and y controls x by having the capacity to determine the outcome of decisions about the financial and operating policies of x. "@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An Organization o2 is_subsidiary_of Organization o1 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies. "@en ;
                 cco:ont00001754 "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html)" ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1133,7 +1132,7 @@ mro:ont00001817 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000015 ;
                 rdfs:range cco:ont00001324 ;
                 rdfs:label "is prohibited by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_prohibited_by y at t iff: y is an instance of Process Regulation at time t, and x is an instance of Process at time t, and y prescribes that x must not occur."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1167,11 +1166,10 @@ mro:ont00001820 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001821
 mro:ont00001821 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001924 ;
-                owl:inverseOf mro:ont00001814 ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval finished by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_finished_by y iff x and y are both instances of One Dimensional Temporal Region and y interval_finishes x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT2 is finished by some Temporal Interval INT1 iff there exists Temporal Instants inst1, inst2, and inst3 such that inst 1 is the starting instant of INT1, inst2 is the ending instant of both INT1 and INT2, inst3 is the starting instant of INT2, and inst3 is before inst1."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1184,7 +1182,7 @@ mro:ont00001822 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000038 ;
                 owl:propertyDisjointWith mro:ont00001862 ;
                 rdfs:label "interval equals"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_equals y iff x and y are both instances of One Dimensional Temporal Region and there exist instances of Zero Dimensional Temporal Region w and z such that w is the starting instant of both x and y and z is the ending instant of both x and y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 is equal to some Temporal Interval INT2 iff there exists Temporal Instants inst1 and inst2 such that inst1 is the starting instant of both INT1 and INT2 and inst2 is the ending instant of both INT1 and INT2."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1215,7 +1213,7 @@ mro:ont00001825 rdf:type owl:ObjectProperty ;
                 rdfs:range obo:BFO_0000038 ;
                 owl:propertyDisjointWith mro:ont00001862 ;
                 rdfs:label "interval overlaps"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_overlaps y iff x and y are both instances of One Dimensional Temporal Region and there exist instances of Zero Dimensional Temporal Region u, v, w, z such that u is the starting instant of x, v is the ending instant of x, w is the starting instant of y, z is the ending instant of y, u is before w, w is before v, and v is before z."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 overlaps some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1235,7 +1233,7 @@ mro:ont00001827 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000141 ;
                 rdfs:range obo:BFO_0000141 ;
                 rdfs:label "nontangential part of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x partially overlaps with y iff x and y are both instances of Immaterial Entity and x overlaps with y and x is not a spatial part of y and y is not a spatial part of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An immaterial entity im1 is a nontangential part of some immaterial entity im2 iff im1 is a spatial part of im2 and there does not exist an immaterial entity im3 such that im3 externally connects with im1 and im3 externally connects with im2."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -1266,7 +1264,7 @@ mro:ont00001830 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000015 ;
                 rdfs:range obo:BFO_0000040 ;
                 rdfs:label "has accomplice"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x has_accomplice y iff x is an instance of Process and y is an instance of Agent that assists in the commission of x, is located at the location of x, but is not agent_in x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Processual Entity p1 has_accomplice some agent a1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1301,8 +1299,6 @@ mro:ont00001832 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001833
 mro:ont00001833 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000057 ;
-                rdfs:domain obo:BFO_0000015 ;
-                rdfs:range cco:ont00001017 ;
                 rdfs:label "has agent"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -1337,7 +1333,7 @@ mro:ont00001836 rdf:type owl:ObjectProperty ;
                                          )
                            ] ;
                 rdfs:label "aggregate bearer of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x aggregate_bearer_of y iff x is an instance of Object Aggregate and y is an instance of Specifically Dependent Continuant or Generically Dependent Continuant and y specifically or generically depends on some instance of Object z that is part of x and all other members of x are also bearers of a unique instance of the same type as y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x aggregate_bearer_of y iff x is an instance of Object Aggregate and y is an instance of Specifically Dependent Continuant and z is an instance of Object, such that z bearer of y, and all other members of x are bearers of a unique instance of the same type as y."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1358,7 +1354,7 @@ mro:ont00001838 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000141 ;
                 rdfs:range obo:BFO_0000141 ;
                 rdfs:label "disconnected with"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x disconnected_with y iff x and y are both instances of Immaterial Entity and there does not exist some immaterial entity z that is common to both x and y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An immaterial entity im1 is disconnected with some immaterial entity im2 iff there does not exist some immaterial entity im3 that is common to both im1 and im2."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1411,7 +1407,6 @@ mro:ont00001843 rdf:type owl:ObjectProperty ;
 mro:ont00001844 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000057 ;
                 owl:inverseOf mro:ont00001993 ;
-                rdfs:domain cco:ont00000402 ;
                 rdfs:range cco:ont00001017 ;
                 rdfs:label "has sender"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
@@ -1447,7 +1442,7 @@ mro:ont00001847 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval is after"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_is_after y iff x and y are both instances of One Dimensional Temporal Region and y interval_is_before x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A TemporalInterval INT2 is after some TemporalInterval INT1 iff there exists TemporalInstants inst2, inst1 such that inst2 is the starting instant of INT2 and inst1 is the ending instant of INT1 and inst2 is after inst1."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1458,7 +1453,7 @@ mro:ont00001848 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000148 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "is inside instant of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_inside_instant of y iff x is an instance of Zero-Dimensional Temporal Region and y is an instance of One-Dimensional Temporal Region and there are Temporal Instants w and z that are part of y and non-identical to x such that w is before x and z is after x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "For Temporal Instant t1 and Temporal Interval t2, t1 is inside instant of t2 if and only if there are Temporal Instants t3 and t4 non-identical to t1 and part of t2 such that t3 is before t1 and t4 is after t1."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1560,7 +1555,7 @@ mro:ont00001859 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001180 ;
                 rdfs:range cco:ont00001203 ;
                 rdfs:label "is delimited by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_delimited_by y iff x is an instance of Organization and y is an instance of Delimiting Domain and y delimits x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1580,7 +1575,7 @@ mro:ont00001861 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000030 ;
                 rdfs:range obo:BFO_0000030 ;
                 rdfs:label "is material of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_material_of y when both x and y are instances of Object and y consists of x as its material and x undergoes no change of kind during the creation of y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An object m is material of an object o when m is the material of which o consists and that material does not undergo a change of kind during the creation of o"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1593,7 +1588,7 @@ mro:ont00001862 rdf:type owl:ObjectProperty ;
                                          mro:ont00001924 ,
                                          mro:ont00001971 ;
                 rdfs:label "interval disjoint"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_disjoint y iff x and y are both instances of One Dimensional Temporal Region and have no parts in common."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 is disjoint with a Temporal Interval INT2 iff INT1 is before or meets INT2 OR INT2 is before or meets INT1. In other words, INT1 and INT2 are disjoint iff INT1 and INT2 do not overlap, contain, or equal one another."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1615,7 +1610,7 @@ mro:ont00001864 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001203 ;
                 rdfs:range cco:ont00001180 ;
                 rdfs:label "delimits"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x delimits y iff x is an instance of Delimiting Domain and y is an instance of Organization and y can legally operate only within x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1657,7 +1652,6 @@ mro:ont00001868 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001966 ;
                 owl:inverseOf mro:ont00001914 ;
                 rdfs:domain cco:ont00000293 ;
-                rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is a nominal measurement of"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x is_a_nominal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -1669,7 +1663,7 @@ mro:ont00001869 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval during"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_during y iff x and y are both instances of One Dimensional Temporal Region and there exist instances of Zero Dimensional Temporal Region u, v, w, and z such that u is the starting instant of x, v is the ending instant of x, w is the starting instant of y, z is the ending instant of y, w is before u, and v is before z."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 is during some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1677,11 +1671,10 @@ mro:ont00001869 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001870
 mro:ont00001870 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:mro00000001 ;
-                owl:inverseOf cco:ont00001825 ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval overlapped by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_overlapped_by y iff x and y are both instances of One Dimensional Temporal Region and y interval_overlaps x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT2 is overlapped by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst1 is before inst3, inst3 is before inst2, and inst2 is before inst4."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1709,7 +1702,7 @@ mro:ont00001873 rdf:type owl:ObjectProperty ;
                 rdfs:range cco:ont00001069 ;
                 rdfs:comment "See notes for inverse property." ;
                 rdfs:label "represented by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "y represented_by x iff x is an instance of Representational Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y represented_by x iff x is an instance of Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1735,7 +1728,7 @@ mro:ont00001875 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval started by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_started_by y iff x and y are both instances of One Dimensional Temporal Region and y interval_starts x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT2 is started by some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1752,9 +1745,8 @@ mro:ont00001877 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001966 ;
                 owl:inverseOf mro:ont00001964 ;
                 rdfs:domain cco:ont00001364 ;
-                rdfs:range obo:BFO_0000001 ;
-                rdfs:label "is an interval measurement of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_an_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity and y is_measured_by_interval x."@en ;
+                rdfs:label "is a interval measurement of"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x is_a_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "a measurement of air temperature on the Celsius scale." ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1763,8 +1755,6 @@ mro:ont00001877 rdf:type owl:ObjectProperty ;
 mro:ont00001878 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:mro00000001 ;
                 owl:inverseOf mro:ont00001919 ;
-                rdfs:domain cco:ont00000253 ;
-                rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is mention of"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x is_mention_of y iff x is an instance Information Bearing Entity and y is an instance Entity, such that x is used as a reference to y."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -1774,10 +1764,9 @@ mro:ont00001878 rdf:type owl:ObjectProperty ;
 mro:ont00001879 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001801 ;
                 owl:inverseOf mro:ont00001916 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000686 ;
                 rdfs:label "designated by"@en ;
-                skos:definition "x designated_by y iff y is an instance of Desugnative Information Content Entity and x is an instance of Entity and y designates x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x designated_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that given some context, y uniquely distinguishes x from other entities."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1786,7 +1775,7 @@ mro:ont00001880 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001809 ;
                 owl:inverseOf mro:ont00001898 ;
                 rdfs:domain cco:ont00001379 ;
-                rdfs:range obo:BFO_0000027 ;
+                rdfs:range cco:ont00000300 ;
                 rdfs:label "capability of aggregate"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x capability_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -1816,14 +1805,12 @@ mro:ont00001883 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001884
 mro:ont00001884 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001801 ;
-                rdfs:domain obo:BFO_0000001 ;
-                rdfs:range cco:ont00000127 ;
                 owl:inverseOf mro:ont00001980 ;
                 owl:propertyChainAxiom ( mro:ont00001917
                                          mro:BFO_0000176
                                        ) ;
                 rdfs:label "condition described by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x condition_described_by y iff y is an instance of Performance Specification and x is an instance of Entity and y describes_condition x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "c condition_described_by p iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -1908,8 +1895,8 @@ mro:ont00001893 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000148 ;
                 rdfs:range obo:BFO_0000148 ;
                 rdfs:label "instant is after"@en ;
-                skos:definition "x instant_is_after y iff x and y are both instances of Zero Dimensional Temporal Region and there exists some instance of Temporal Interval z such that y is the starting instant of z and x is the ending instant of z."@en ;
-                skos:scopeNote "'instant is after' is a primitive relationship. Informally, a temporal instant x is after some temporal instant y iff y precedes x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A temporal instant t2 (a instance of a zero-dimensional temporal region) is after another temporal instant t1 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
+                <http://www.w3.org/2004/02/skos/core#scopeNote> "'instant is after' is a primitive relationship. Informally, a temporal instant t2 is after some temporal instant t1 if and only if t1 precedes t2."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1927,7 +1914,7 @@ mro:ont00001895 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000040 ;
                 rdfs:range obo:BFO_0000015 ;
                 rdfs:label "accomplice in"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "Agent x is accomplice_in Process y iff x assists in the commission of y, is located at the location of y, but is not agent_in y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An agent a1 is accomplice_in some Processual Entity p1 iff a1 assists in the commission of p1, is located at the location of p1, but is not agent_in p1."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -1935,11 +1922,12 @@ mro:ont00001895 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001896
 mro:ont00001896 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001862 ;
+                owl:inverseOf mro:ont00001915 ;
                 rdf:type owl:IrreflexiveProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval meets"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_meets y iff x and y are both instances of One Dimensional Temporal Region and there exists some instance of Zero Dimensional Temporal Region z such that z is the ending instant of x and z is the starting instant of y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 meets some Temporal Interval INT2 iff there exists some Temporal Instant inst1 such that inst1 is the ending instant of INT1 and inst1 is the starting instant of INT2."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -2015,10 +2003,9 @@ mro:ont00001903 rdf:type owl:ObjectProperty ;
 mro:ont00001904 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001917 ;
                 owl:inverseOf mro:ont00001966 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001163 ;
                 rdfs:label "is measured by"@en ;
-                skos:definition "y is_measured_by x iff x is an instance of Measurement Information Content Entity and y is an instance of Entity and y is_a_measurement_of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2116,10 +2103,9 @@ mro:ont00001913 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001914
 mro:ont00001914 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001904 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000293 ;
                 rdfs:label "is measured by nominal"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_measured_by_nominal y iff y is an instance of Nominal Measurement Information Content Entity and x is an instance of Entity, such that y classifies x relative to some set of shared, possibly arbitrary, characteristics."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by_nominal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2127,11 +2113,10 @@ mro:ont00001914 rdf:type owl:ObjectProperty ;
 mro:ont00001915 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001862 ;
                 rdf:type owl:IrreflexiveProperty ;
-                owl:inverseOf mro:ont00001896 ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval met by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_met_by y iff x and y are both instances of One Dimensional Temporal Region and y interval_meets x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT2 is met by some Temporal Interval INT1 iff there exists some Temporal Instant inst1 such that inst1 is the starting instant of INT2 and inst1 is the ending instant of INT1."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -2140,9 +2125,8 @@ mro:ont00001915 rdf:type owl:ObjectProperty ;
 mro:ont00001916 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001808 ;
                 rdfs:domain cco:ont00000686 ;
-                rdfs:range obo:BFO_0000001 ;
                 rdfs:label "designates"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x designates y iff x is an instance of a Designative Information Content Entity, and y is an instance of an Entity, such that given some context, x uniquely distinguishes y from other entities."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x designates y iff x is an instance of an Information Content Entity, and y is an instance of an Entity, such that given some context, x uniquely distinguishes y from other entities."@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "a URL designates the location of a Web Page on the internet" ,
                                                               "a person's name designates that person" ,
                                                               "a vehicle identification number designates some vehicle" ;
@@ -2154,10 +2138,9 @@ mro:ont00001916 rdf:type owl:ObjectProperty ;
 mro:ont00001917 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001801 ;
                 owl:inverseOf mro:ont00001982 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000853 ;
                 rdfs:label "described by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x described_by y iff y is an instance of Descriptive Information Content Entity and x is an instance of Entity and y describes x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x described_by y iff y is an instance of Information Content Entity, and x is an instance of Entity, such that y is about the characteristics by which y can be recognized or visualized."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2174,10 +2157,8 @@ mro:ont00001918 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001919
 mro:ont00001919 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:mro00000001 ;
-                rdfs:domain obo:BFO_0000001 ;
-                rdfs:range cco:ont00000253 ;
                 rdfs:label "is mentioned by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_mention_by y iff y is an instance of Information Bearing Entity and x is an instance of Entity, such that y is used as a reference to x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y is_mention_by x iff x is an instance Information Bearing Entity and y is an instance Entity, such that x is used as a reference to y."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2185,10 +2166,9 @@ mro:ont00001919 rdf:type owl:ObjectProperty ;
 mro:ont00001920 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001801 ;
                 owl:inverseOf mro:ont00001942 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000965 ;
                 rdfs:label "prescribed by"@en ;
-                skos:definition "x prescribed_by y iff y is an instance of Directive Information Content Entity and x is an instance of Entity and y prescribes x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x prescribed_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y serves as a rule or guide for x if x is an Occurrent, or y serves as a model for x if x is a Continuant."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2206,7 +2186,6 @@ mro:ont00001921 rdf:type owl:ObjectProperty ;
 mro:ont00001922 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000057 ;
                 owl:inverseOf mro:ont00001978 ;
-                rdfs:domain cco:ont00000402 ;
                 rdfs:range cco:ont00001017 ;
                 rdfs:label "has recipient"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en ;
@@ -2219,17 +2198,19 @@ mro:ont00001923 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval starts"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_starts y iff x and y are both instances of One Dimensional Temporal Region and there exist instances of Zero Dimensional Temporal Region v, w, and z such that v is the starting instant of both x and y, w is the ending instant of x, z is the ending instant of y and w is before z."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 starts some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, and inst3 such that inst1 is the starting instant of both INT1 and INT2, inst2 is the ending instant of INT1, inst3 is the ending instant of INT2 and inst2 is before inst3."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
 ###  https://www.commoncoreontologies.org/mro/ont00001924
 mro:ont00001924 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf mro:mro00000001 ;
+                owl:inverseOf mro:ont00001971 ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval contains"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_contains y iff x and y are both instances of One Dimensional Temporal Region and there exist instances of Zero Dimensional Temporal Region u, v, w, and z such that u is the starting instant of x, v is the ending instant of x, w is the starting instant of y, z is the ending instant of y, w is before or identical to u, and v is before or identical to z, and it is not the case that both w is identical to u and v is identical to z."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT2 contains some Temporal Interval INT1 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, and inst2 is before or identical to inst4, but it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -2262,8 +2243,8 @@ mro:ont00001928 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000004 ;
                 rdfs:range obo:BFO_0000004 ;
                 rdfs:label "is predecessor of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_predecessor_of y iff x and y are both instances of Independent Continuant and there is some process p and x is an input to p and y is an output of p."@en ;
-                <http://www.w3.org/2004/02/skos/core#scopeNote> "More informally, x is a predecessor of y iff x has been followed or replaced by y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A continuant c1 is a predecessor of some continuant c2 iff there is some process p1 and c1 is an input to p1 and c2 is an output of p1."@en ;
+                <http://www.w3.org/2004/02/skos/core#scopeNote> "More informally, c1 is a predecessor of c2 iff c1 has been followed or replaced by c2."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2289,7 +2270,7 @@ mro:ont00001931 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000141 ;
                 rdfs:range obo:BFO_0000141 ;
                 rdfs:label "externally connects with"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x externally_connects_with y iff x and y are both instances of Immaterial Entity and x connects with y and x does not overlap y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An immaterial entity im1 externally connects with some immaterial entity im2 iff im1 connects with im2 and im1 does not overlap with im2."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -2306,8 +2287,6 @@ mro:ont00001932 rdf:type owl:ObjectProperty ;
 mro:ont00001933 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001803 ;
                 owl:inverseOf mro:ont00001962 ;
-                rdfs:domain obo:BFO_0000015 ;
-                rdfs:range obo:BFO_0000015 ;
                 rdfs:label "process starts"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x process_starts y iff x and y are instances of processes, and x is_cause_of y, and i is an instance of a temporal instant, and r is an instant of a temporal interval, and y has starting instance i, and x occurs on r, and r interval contains i."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "A process x starts another process y when x causes y while x is still occurring."@en ;
@@ -2331,12 +2310,10 @@ mro:ont00001935 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001936
 mro:ont00001936 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000056 ;
-                owl:inverseOf mro:ont00001778 ;
-                rdfs:domain obo:BFO_0000002 ;
-                rdfs:range obo:BFO_0000015 ;
                 rdfs:label "is object of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_object_of y iff x is an instance of Continuant and y is an instance of Process and y is performed by some instance of Agent z and x is part of the projected state that z intends to achieve by performing y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "If p is a process and c is a continuant, then c is object of p if and only if the c is part of the projected state that the agent intends to achieve by performing p."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
+
 
 ###  https://www.commoncoreontologies.org/mro/ont00001937
 mro:ont00001937 rdf:type owl:ObjectProperty ;
@@ -2348,8 +2325,7 @@ mro:ont00001937 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001938
 mro:ont00001938 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001808 ;
-                rdfs:domain cco:ont00000958 ;
-                rdfs:range obo:BFO_0000001 ;
+                rdfs:domain cco:ont00001069 ;
                 rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
                 rdfs:label "represents"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
@@ -2362,8 +2338,18 @@ mro:ont00001938 rdf:type owl:ObjectProperty ;
 mro:ont00001939 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:mro00000001 ;
                 owl:inverseOf mro:ont00001977 ;
-                rdfs:domain cco:ont00001017 ;
-                rdfs:range cco:ont00001017 ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( cco:ont00001017
+                                            cco:ont00001180
+                                            cco:ont00001262
+                                          )
+                            ] ;
+                rdfs:range [ rdf:type owl:Class ;
+                             owl:unionOf ( cco:ont00001017
+                                           cco:ont00001180
+                                           cco:ont00001262
+                                         )
+                           ] ;
                 rdfs:label "is affiliated with"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -2375,7 +2361,7 @@ mro:ont00001940 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval is before"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_is_before y iff x and y are both instances of Zero Dimensional Temporal Region and there exist instances of Zero Dimensional Temporal Region w, z such that w is the ending instant of x and z is the starting instant of y and w is before z."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A TemporalInterval INT1 is before some TemporalInterval INT2 iff there exists TemporalInstants inst1, inst2 such that inst1 is the ending instant of INT1 and inst2 is the starting instant of INT2 and inst1 is before inst2."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -2392,7 +2378,6 @@ mro:ont00001941 rdf:type owl:ObjectProperty ;
 mro:ont00001942 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001808 ;
                 rdfs:domain cco:ont00000965 ;
-                rdfs:range obo:BFO_0000001 ;
                 rdfs:label "prescribes"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x prescribes y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x serves as a rule or guide for y if y an Occurrent, or x serves as a model for y if y is a Continuant."@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "A blueprint prescribes some artifact or facility by being a model for it." ,
@@ -2407,7 +2392,7 @@ mro:ont00001943 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001262 ;
                 rdfs:range cco:ont00001262 ;
                 rdfs:label "supervises"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x supervises y iff x and y are both instances of Person and x directs, manages, or oversees y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A person p1 supervises a person p2 by virtue of p1 directing, managing, or overseeing p2."@en ;
                 cco:ont00001754 "http://en.wiktionary.org/wiki/supervise" ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -2461,7 +2446,7 @@ mro:ont00001948 rdf:type owl:ObjectProperty ;
 mro:ont00001949 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:BFO_0000057 ;
                 rdfs:domain obo:BFO_0000015 ;
-                rdfs:range cco:ont00001017 ;
+                rdfs:range obo:BFO_0000040 ;
                 rdfs:label "has accessory"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x has_accessory y iff x is an instance of Process and y is an instance of Agent, such that y assists another agent in the commission of x, and y was not located at the location of x when x occurred, and y was not an agent_in x."@en ;
                 cco:ont00001754 "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
@@ -2574,8 +2559,6 @@ mro:ont00001961 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001962
 mro:ont00001962 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001819 ;
-                rdfs:domain obo:BFO_0000015 ;
-                rdfs:range obo:BFO_0000015 ;
                 rdfs:label "process started by"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x process_started_by y iff x and y are instances of processes, and x is caused_by y, and i is an instance of a temporal instant, and r is an instant of a temporal interval, and x has starting instance i, and y occurs on r, and r interval contains i."@en ;
                 <http://www.w3.org/2004/02/skos/core#scopeNote> "A process x is started by another process y when y causes x while y is still occurring."@en ;
@@ -2585,20 +2568,18 @@ mro:ont00001962 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001963
 mro:ont00001963 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001904 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001010 ;
                 rdfs:label "is measured by ordinal"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_measured_by_ordinal y iff y is an instance of Ordinal Measurement Information Content Entity and x is an instance of Entity, such that y describes some attribute of x relative to a scale ordered by rank."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by_ordinal x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale ordered by rank."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
 ###  https://www.commoncoreontologies.org/mro/ont00001964
 mro:ont00001964 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001904 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001364 ;
                 rdfs:label "is measured by interval"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by_interval x iff x is an instance of Interval Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by_interval x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2606,10 +2587,9 @@ mro:ont00001964 rdf:type owl:ObjectProperty ;
 mro:ont00001965 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001904 ;
                 owl:inverseOf mro:ont00001983 ;
-                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001022 ;
                 rdfs:label "is measured by ratio"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by_ratio x iff x is an instance of Ratio Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by_ratio x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2617,7 +2597,6 @@ mro:ont00001965 rdf:type owl:ObjectProperty ;
 mro:ont00001966 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001982 ;
                 rdfs:domain cco:ont00001163 ;
-                rdfs:range obo:BFO_0000001 ;
                 rdfs:comment "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."@en ;
                 rdfs:label "is a measurement of"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x is_a_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
@@ -2660,11 +2639,10 @@ mro:ont00001970 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001971
 mro:ont00001971 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:mro00000001 ;
-                owl:inverseOf mro:ont00001924 ;
                 rdfs:domain obo:BFO_0000038 ;
                 rdfs:range obo:BFO_0000038 ;
                 rdfs:label "interval contained by"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x interval_contained_by y iff x and y are both instances of One Dimensional Temporal Region and y interval_contains x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 is contained by some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before or identical to inst1, inst2 is before or identical to inst4, and it is not the case that both inst3 is identical to inst1 and inst2 is identical to inst4."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -2716,8 +2694,18 @@ mro:ont00001976 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/mro/ont00001977
 mro:ont00001977 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:mro00000001 ;
-                rdfs:domain cco:ont00001017 ;
-                rdfs:range cco:ont00001017 ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( cco:ont00001017
+                                            cco:ont00001180
+                                            cco:ont00001262
+                                          )
+                            ] ;
+                rdfs:range [ rdf:type owl:Class ;
+                             owl:unionOf ( cco:ont00001017
+                                           cco:ont00001180
+                                           cco:ont00001262
+                                         )
+                           ] ;
                 rdfs:label "has affiliate"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -2745,8 +2733,6 @@ mro:ont00001980 rdf:type owl:ObjectProperty ;
                 owl:propertyChainAxiom ( mro:BFO_0000178
                                          mro:ont00001982
                                        ) ;
-                rdfs:domain cco:ont00000127 ;
-                rdfs:range obo:BFO_0000001 ;
                 rdfs:label "describes condition"@en ;
                 <http://www.w3.org/2004/02/skos/core#definition> "p describes_condition c iff p is an instance of a Performance Specification, and p has part d, and d is an instance of a Descriptive Information Content Entity, and p prescribes an entity s, and d describes c, and c is an entity that is causally relevant to s existing as prescribed by p."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
@@ -2765,7 +2751,7 @@ mro:ont00001982 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000853 ;
                 rdfs:comment "It is possible that this relation should be a functional property, that is for all x, y, z if x describes y and x describes z then y = z. For example, if a financial report x describes the quarterly results of a company y and that same financial report describes the quarterly results of a company z, then it should be inferred that companies y and z are the same. We refrained from classifying the relation as a functional property on the concern that descriptions are multifaceted and so consequently it may be that the same report would contain descriptions of multiple entities."@en ;
                 rdfs:label "describes"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x describes y iff x is an instance of Descriptive Information Content Entity, and y is an instance of Entity, such that x is_about the characteristics that identify y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x describes y iff x is an instance of Information Content Entity, and y is an instance of Entity, such that x is about the characteristics by which y can be recognized or visualized."@en ;
                 <http://www.w3.org/2004/02/skos/core#example> "the content of a newspaper article describes some current event" ,
                                                               "the content of a visitor's log describes some facility visit" ,
                                                               "the content of an accident report describes some accident" ;
@@ -2776,9 +2762,8 @@ mro:ont00001982 rdf:type owl:ObjectProperty ;
 mro:ont00001983 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf mro:ont00001966 ;
                 rdfs:domain cco:ont00001022 ;
-                rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is a ratio measurement of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_a_ratio_measurement_of y iff x is an instance of Ratio Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "x is_a_ratio_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2790,10 +2775,10 @@ mro:ont00001984 rdf:type owl:ObjectProperty ;
                 <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                 <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
                 rdfs:label "has interest in"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "A relation between an Agent and some Process where the Agent has an interest in that Process."@en ;
-                <http://www.w3.org/2004/02/skos/core#editorialNote> "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the Agent, or historically of evolutionary benefit to the Agent's ancestors, or facilitates a process the Agent has an interest in for the prior two reasons. The process an Agent has an interest could in many or all ways be harmful to the Agent."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A relation between an entity and some process where the entity has an interest in that process."@en ;
+                <http://www.w3.org/2004/02/skos/core#editorialNote> "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the entity, or historically of evolutionary benefit to the entity's ancestors, or facilitates a process the entity has an interest in for the prior two reasons. The process an entity has an interest could in many or all ways be harmful to the entity."@en ;
                 <http://www.w3.org/2004/02/skos/core#prefLabel> "has interest in"@en ;
-                <http://www.w3.org/2004/02/skos/core#scopeNote> "There are four conditions in which an Agent has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) Agent x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
+                <http://www.w3.org/2004/02/skos/core#scopeNote> "There are four conditions in which an entity has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2848,8 +2833,8 @@ mro:ont00001990 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000148 ;
                 rdfs:range obo:BFO_0000148 ;
                 rdfs:label "instant is before"@en ;
-                skos:definition "x instant_is_before y iff x and y are both instances of Zero Dimensional Temporal Region and there exists some instance of Temporal Interval z such that x is the starting instant of z and y is the ending instant of z."@en ;
-                skos:scopeNote "'instant is before' is a primitive relationship. Informally, a temporal instant x is before some temporal instant y iff x precedes y."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A temporal instant t1 (a instance of a zero-dimensional temporal region) is before another temporal instant t2 iff there exists some instance of a temporal interval ti1 such that t1 is the starting instant of ti1 and t2 is the ending instant of ti1."@en ;
+                <http://www.w3.org/2004/02/skos/core#scopeNote> "'instant is before' is a primitive relationship. Informally, a temporal instant t1 is before some temporal instant t2 if and only if t1 precedes t2."@en ;
                 cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
@@ -2860,7 +2845,7 @@ mro:ont00001991 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000030 ;
                 rdfs:range obo:BFO_0000030 ;
                 rdfs:label "is made of"@en ;
-                <http://www.w3.org/2004/02/skos/core#definition> "x is_made_of y when x and y are both instances of Object and y is the material that x consists of and that material does not undergo a change of kind during the creation of x."@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "An object o is made of an object m when m is the material that o consists of and that material does not undergo a change of kind during the creation of o"@en ;
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
@@ -2896,7 +2881,6 @@ mro:ont00001995 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001262 ;
                 rdfs:range cco:ont00001262 ;
                 rdfs:label "is parent of"@en ;
-                skos:definition "x is_parent_of y is a familial relationship between an instance of Person x and a different instance of Person y."
                 cco:ont00001760 <https://www.commoncoreontologies.org/ModalRelationOntology> .
 
 
