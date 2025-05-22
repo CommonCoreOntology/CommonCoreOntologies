@@ -1,5 +1,9 @@
 # The Common Core Ontologies (CCO)
 
+[![GitHub Actions](https://github.com/CommonCoreOntology/CommonCoreOntologies/actions/workflows/manage_release.yml/badge.svg)](https://github.com/CommonCoreOntology/CommonCoreOntologies/actions/workflows/manage_release.yml)
+[![license](https://img.shields.io/static/v1?label=license&message=BSD%203.1&color=green&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies?tab=BSD-3-Clause-1-ov-file)
+[![release](https://img.shields.io/static/v1?label=release&message=2.0&color=blue&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v2.0-2024-11-06)
+
 ***IMPORTANT NOTE***  
 Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.  
 See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/mappping-new-iris) for the mapping file.  
@@ -19,17 +23,19 @@ CCO itself is not intended to grow indefinitely by including content that is pro
 
 ## Contributing
 
-Users may find the current release files for [CCO here](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/latest)
+Users may find the current release files for [CCO here](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/latest).
 
-Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at src/cco-merged/
+Developers may clone this repository and directly import AllCoreOntology.ttl in an ontology editor such as [Protégé](https://protege.stanford.edu/) to generate the merged version of the eleven CCO ontologies. Those who wish to forego managing imports may find a merged version of the files at `src/cco-merged/`
 
-Users who wish to view the content of CCO in a web browser may view the current CCO release on the [Industrial Ontology Portal viewer](https://industryportal.enit.fr/ontologies/CCO)
+Instructions and guidelines for contributors can be found [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/contributing).
 
-For information regarding the management of CCO, tutorials, lists of projects that extend CCO, associated research, standards activities in the IEEE, and more, please navigate to the [CCO home page](https://commoncoreontology.github.io/cco-webpage/)
+Users who wish to view the content of CCO in a web browser may view the current CCO release on the [Industrial Ontology Portal viewer](https://industryportal.enit.fr/ontologies/CCO).
 
-For bug fixes, developed suggestions for improvement, or minor updates, please open an issue using the template [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/issues) 
+For information regarding the management of CCO, tutorials, lists of projects that extend CCO, associated research, standards activities in the IEEE, and more, please navigate to the [CCO home page](https://commoncoreontology.github.io/cco-webpage/).
 
-For more open-ended discussion, general questions, or compliments, please navigate to the discussion board [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/discussions)
+For bug fixes, developed suggestions for improvement, or minor updates, please open an issue using the template [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/issues).
+
+For more open-ended discussion, general questions, or compliments, please navigate to the discussion board [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/discussions).
 
 ## Who Oversees CCO Today?
 
@@ -39,16 +45,16 @@ For more information about the governance of CCO, please navigate to the [Common
 
 ## The Common Core Ontologies
 
-- **Geospatial Ontology** - An ontology whosse scope is the representation of sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them.
+- **Geospatial Ontology** - An ontology whose scope is the representation of sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them.
 - **Information Entity Ontology** - An ontology whose scope is the representation of generic types of information as well as the relationships between information and other entities.
 - **Event Ontology** - An ontology whose scope is the representation of processual entities, especially those performed by agents, that occur within multiple domains.
 - **Time Ontology**	- An ontology whose scope is the representation of temporal regions and the relations that hold between them.
-- **Agent Ontology** - An ontology whose scope is the representation of represent agents, especially persons and organizations, and their roles.
-- **Quality Ontology**	- An ontology whose scope is the representation of a range of attributes of entities especially qualities, realizable entities, and process profiles.
-- **Units of Measure Ontology**	- An ontology whose scope is the representation of standard measurement units that are used when measuring various attributes of entities.
-- **Currency Unit Ontology** - An ontology whose scope is the representation of currencies that are issued and used by countries.
-- **Facility Ontology** - An ontology whose scope is the representation of buildings and campuses that are designed to serve some specific purpose, and which are common to multiple domains.
-- **Artifact Ontology**	- An ontology whose scope is the representation of artifacts that are common to multiple domains along with their models, specifications, and functions.
+- **Agent Ontology** - An ontology whose scope is the representation of agents, especially persons and organizations, and their roles.
+- **Quality Ontology**	- An ontology whose scope is the representation of attributes of entities, especially qualities, realizable entities, and process profiles.
+- **Units of Measure Ontology**	- An ontology whose scope is the representation of standard measurement units that are used to measure various attributes of entities.
+- **Currency Unit Ontology** - An ontology whose scope is the representation of currencies that countries issue and use.
+- **Facility Ontology** - An ontology whose scope is the representation of buildings and campuses that are designed to serve some specific purpose and are common to multiple domains.
+- **Artifact Ontology**	- An ontology whose scope is the representation of artifacts that are common to multiple domains, along with their models, specifications, and functions.
 - **Extended Relation Ontology** - An ontology whose scope is the representation of the relations that hold between entities at the level of the mid-level Common Core Ontologies.
 
 ## The Contents of this Repository
@@ -74,3 +80,9 @@ For more information about the governance of CCO, please navigate to the [Common
 		* **mappings** - Contains mappings between content in CCO and other ontologies. 
 	* **templates** - Contains templates used to create issues and discussion topics. 
 	* **workflows** - Contains release management files needed for GitHub Actions. 
+
+---
+
+**[Website]([https://commoncoreontology.github.io/cco-webpage/)** | **[Contact Us](mailto:jensen.mark@icloud.com)**
+
+![Visitor Count](https://profile-counter.glitch.me/CommonCoreOntology/count.svg)
