@@ -74,7 +74,7 @@ setup:
 
 # Download ROBOT JAR
 ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
-$(ROBOT_FILE): setup
+$(ROBOT_FILE): | $(config.LIBRARY_DIR)
 	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
 	chmod +x $@
 
