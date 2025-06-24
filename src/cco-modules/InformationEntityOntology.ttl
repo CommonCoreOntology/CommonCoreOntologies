@@ -1856,7 +1856,11 @@ cco:ont00002037 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00002038
 cco:ont00002038 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000958 ;
+                rdfs:subClassOf cco:ont00002001 ,
+                				[ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000176 ;
+                                  owl:someValuesFrom cco:ont00002039
+                                ] ;
                 rdfs:label "Document Field Content"@en ;
                 skos:altLabel "Document Field"@en ;
                 skos:definition "A Media Content Entity that is a part of some document content entity, and which  prescribes the eliciation of information to be written or selected within the document content entity."@en ;
