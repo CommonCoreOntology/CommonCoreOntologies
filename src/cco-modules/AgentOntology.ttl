@@ -58,6 +58,53 @@ cco:ont00001760 rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+
+### https://www.commoncoreontologies.org/ont00001852
+cco:ont00001852 rdf:type owl:ObjectProperty ;
+rdfs:subPropertyOf obo:BFO_0000056 ;
+owl:inverseOf cco:ont00001949 ;
+rdfs:domain cco:ont00001017 ;
+rdfs:range obo:BFO_0000015 ;
+rdfs:label "accessory in"@en ;
+skos:definition "x is_accessory_in y iff x is an instance of Agent and y is an instance of Process such that x assists another instance of Agent z in the commission of y, and x was not located at the location of y when y occurred, and x is not an agent_in y."@en ;
+cco:ont00001754 "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
+cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+### https://www.commoncoreontologies.org/ont00001949
+cco:ont00001949 rdf:type owl:ObjectProperty ;
+rdfs:subPropertyOf obo:BFO_0000057 ;
+rdfs:domain obo:BFO_0000015 ;
+rdfs:range cco:ont00001017 ;
+rdfs:label "has accessory"@en ;
+skos:definition "x has_accessory y iff x is an instance of Process and y is an instance of Agent, such that y assists another agent in the commission of x, and y was not located at the location of x when x occurred, and y was not an agent_in x."@en ;
+cco:ont00001754 "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
+cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+### https://www.commoncoreontologies.org/ont00001895
+cco:ont00001895 rdf:type owl:ObjectProperty ;
+rdfs:subPropertyOf obo:BFO_0000056 ;
+rdfs:domain cco:ont00001017;
+rdfs:range obo:BFO_0000015 ;
+rdfs:label "accomplice in"@en ;
+skos:definition "Agent x is accomplice_in Process y iff x assists in the commission of y, is located at the location of y, but is not agent_in y."@en ;
+cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
+cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+### https://www.commoncoreontologies.org/ont00001830
+cco:ont00001830 rdf:type owl:ObjectProperty ;
+rdfs:subPropertyOf obo:BFO_0000057 ;
+owl:inverseOf cco:ont00001895 ;
+rdfs:domain obo:BFO_0000015 ;
+rdfs:range cco:ont00001017 ;
+rdfs:label "has accomplice"@en ;
+skos:definition "x has_accomplice y iff x is an instance of Process and y is an instance of Agent that assists in the commission of x, is located at the location of x, but is not agent_in x."@en ;
+cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
+cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001774
 cco:ont00001774 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001902 ;
