@@ -1,0 +1,190 @@
+@prefix : <http://www.semanticweb.org/alanr/ontologies/2025/5/untitled-ontology-103/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/alanr/ontologies/2025/5/untitled-ontology-103/> .
+
+<https://www.commoncoreontologies.org/InformationStructure> rdf:type owl:Ontology ;
+                                                             owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> ;
+                                                             rdfs:comment "https://www.commoncoreontologies.org/ont00002050-2065 allocated in iri-registry.csv" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00002062
+<https://www.commoncoreontologies.org/ont00002062> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <https://www.commoncoreontologies.org/ont00002063> ;
+                                                   rdfs:label "has information structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has information structure y iff y structures information of x" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002063
+<https://www.commoncoreontologies.org/ont00002063> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00002050> ;
+                                                   rdfs:label "structures information of"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "relates an information structure entity  to an information content entity that it structures." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000958
+<https://www.commoncoreontologies.org/ont00000958> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002050> ;
+                                                   rdfs:label "Information Content Entity"@en .
+
+
+###  https://www.commoncoreontologies.org/ont00002050
+<https://www.commoncoreontologies.org/ont00002050> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ rdf:type owl:Class ;
+                                                                         owl:unionOf ( <https://www.commoncoreontologies.org/ont00000958>
+                                                                                       <https://www.commoncoreontologies.org/ont00002051>
+                                                                                     )
+                                                                       ] ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000031> ;
+                                                   rdfs:label "Information Entity"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "any generically dependent continuant that is either an Information Structure Entity or an Information Content Entity" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002051
+<https://www.commoncoreontologies.org/ont00002051> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <https://www.commoncoreontologies.org/ont00002063> ;
+                                                                         owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                              owl:unionOf ( owl:Nothing
+                                                                                                            <https://www.commoncoreontologies.org/ont00002050>
+                                                                                                          )
+                                                                                            ]
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002050> ;
+                                                   rdfs:comment "The defining axiom, 'structures information of some' (owl:Nothing or Information Entity) is a bit of a show. I include owl:Nothing to emphasize that structures may be empty, but technically (owl:Nothing or 'Information Entity') == 'Information Entity'." ;
+                                                   rdfs:label "Information Structure Entity"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "a generically dependent continuant that is not, by itself, about something but which may wholly or partially structure one or more information content entities." ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "The structure of a matrix insofar as it has rows and columns with values. The structure of a list, in that it is, when presented, intended to show a number of ICEs in a defined order" ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Information structure entities may not structure anything (i.e. be empty)" ,
+                                                                                                   "The relations and operations provided by the structure are also valid to relate or operate on the information content entity it structures. For example, the relation between a matrix and the number or rows or columns are equally applicable to, for example, a rasterized image so structured" ,
+                                                                                                   "information structure entities may structure other information content entities, for example a list of lists or database of some sort of record" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002052
+<https://www.commoncoreontologies.org/ont00002052> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:label "Array Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An information structure whose elements are accessed by a tuple of indices, where the value of indices are integers each of which that can range from 0 to a maximum specified by position in the tuple" ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "a tensor, a matrix, 1000 values accessed by indices each of which can independently range from 0-9" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002053
+<https://www.commoncoreontologies.org/ont00002053> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002052> ;
+                                                   rdfs:label "Matrix Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "the coefficients of a m linear equations in n variables forms a n x m matrix." ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "An array structure whose elements can be accessed via a pair of indices" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002054
+<https://www.commoncoreontologies.org/ont00002054> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002053> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000176> ;
+                                                                     owl:allValuesFrom <https://www.commoncoreontologies.org/ont00002055>
+                                                                   ] ;
+                                                   rdfs:label "Raster Channel Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A matrix structure where the elements are either information about phenomena at regulars spatial intervals, or which are numeric values intended to represent intensity of light at regular spatial intervals." ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "The definition is meant to encompass what might be considered real images such a digital photographs, or artifacts meant for display on e.g. computer monitors." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002055
+<https://www.commoncoreontologies.org/ont00002055> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002052> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000178> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00002054>
+                                                                   ] ;
+                                                   rdfs:comment "I am mixed as to whether to include pixel as a kind of structure related to rasters. TBD" ;
+                                                   rdfs:label "Raster Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "A vertical set of elements, one from each of channel, at the same pair of indices, is commonly called a pixel" ,
+                                                                                                   "An array structure that is one or a stacked set of raster channels, where the raster channels are elementwise spatially organized in the same way" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002056
+<https://www.commoncoreontologies.org/ont00002056> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:label "Barcode Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "information content entity, that when visually concretized, consists of a series of vertical bars of variable width." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002057
+<https://www.commoncoreontologies.org/ont00002057> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:label "Compressed Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An information structure that typically structures other information structures in such a way as to be able to convey information entities in fewer bits than might otherwise be used if the information structure was not compressed." ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "This term may be problematic in that an ICE has concretizations that are both compressed and not could not be said to be structured in this way. This may better belong to a concretization, or to a subset of concretizations, should we find a way to represent such." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002058
+<https://www.commoncoreontologies.org/ont00002058> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:label "Electronic Database Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "an information structure consisting of an organized collection of data or a type of data store based on the use of a database management system (DBMS), the software that interacts with end users, applications, and the database itself to capture, organize, and access the data." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002059
+<https://www.commoncoreontologies.org/ont00002059> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:label "List Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "An information structure structuring a number of entities where each entity other than the first sequentially follows the previous." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002060
+<https://www.commoncoreontologies.org/ont00002060> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:comment "Should this be placed under array structure?" ;
+                                                   rdfs:label "Spreadsheet Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "an information structure consisting of one or more regular grid of cells, stacked, each of which may contain an information entity, along with the possibility that some of those cells may be computed by formulas whose inputs are other cells." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002061
+<https://www.commoncoreontologies.org/ont00002061> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:comment "An information structure that consists of a series of rasters, acquired or presented at a regular rate, where there may be intermediate compressed structure in order have those rasters use fewer bits than otherwise." ;
+                                                   rdfs:label "Video Structure"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  https://www.commoncoreontologies.org/ont00002064
+<https://www.commoncoreontologies.org/ont00002064> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002051> ;
+                                                   rdfs:label "Quick Response Code Structure"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "QR Code Structure" ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An information structure entity, that when visually concretizes, is a kind of two-dimensional matrix barcode featuring black squares on a white background with fiducial markers, readable by imaging devices like cameras, and processed using Reed–Solomon error correction until the image can be appropriately interpreted" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> <https://www.commoncoreontologies.org/InformationStructure> .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
