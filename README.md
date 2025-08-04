@@ -15,7 +15,7 @@ The Common Core Ontologies (CCO) is a widely-used suite of eleven ontologies tha
 
 These eleven ontologies constitute a [mid-level ontology](https://arxiv.org/abs/2404.17757) that extends from the [Basic Formal Ontology (BFO)](https://github.com/bfo-ontology/BFO-2020), an [ISO-standard](https://www.iso.org/standard/71954.html) top-level ontology. Whereas BFO represents only the most generic entities and relations, CCO contains classes that users will find common across data sets in many domains. Such classes include, for example, person, facility, date, employment, nickname, and measurement. 
 
-Both BFO and CCO have been directed for use as "[baseline standards](https://www.buffalo.edu/news/releases/2024/02/department-of-defense-ontology.html)" for formal ontology development across the United States Department of Defense and Intelligence Community. 
+Both BFO and CCO have been directed for use as ["baseline standards"](https://dailynous.com/wp-content/uploads/2024/03/memo-dod-applied-ontology.pdf) for formal ontology development across the United States Department of Defense and Intelligence Community; see press release from UBNow [here](https://www.buffalo.edu/ubnow/stories/2024/03/ontology-defense.html).
 
 CCO is currently being evaluated as a mid-level ontology standard by the IEEE Standards Association under [PAR3195.1](https://standards.ieee.org/ieee/3195.1/11026/). 
 
