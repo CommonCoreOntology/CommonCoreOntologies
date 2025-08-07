@@ -1,8 +1,8 @@
 ## Instructions for Registering new IRIs in CCO
 
-Before creating a pull request containing a new CCO term, developers must register the new IRIs in the csv file maintained exclusively on this separate [branch](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/iri-registry-branch/). 
+Before creating a pull request containing a new CCO term, developers must register the new IRIs in the csv file maintained exclusively in the [contributing documentation section] (https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/iri-registry-branch/documentation/contributing) on this separate [branch](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/iri-registry-branch/). 
 
-To that end: 
+To do so: 
 
 1. Navigate to this [directory](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/iri-registry-branch/documentation/contributing) on the IRI Registry branch.
 2. Open the file `iri-registry.csv` located there and navigate to the bottom row of the file.
