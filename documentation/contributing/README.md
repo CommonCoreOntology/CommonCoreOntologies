@@ -2,8 +2,6 @@
 
 All contributions to CCO are expected to follow Github’s [Code of Conduct](https://docs.github.com/en/site-policy/github-terms/github-community-code-of-conduct) and the [CCO Contributing Guidelines and Code of Conduct](https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/develop/documentation/contributing/contributing.md).
 
-For detailed instructions on contributing to CCO, see the [documentation section here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/contributing).
-
 ## Forums
 
 Before contributing to CCO, please ensure comments are posted to the appropriate forum:
