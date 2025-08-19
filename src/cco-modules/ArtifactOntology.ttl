@@ -20,46 +20,6 @@
                                                          owl:versionInfo "Version 2.0"@en .
 
 #################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.org/dc/terms/rights
-dcterms:rights rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001753
-cco:ont00001753 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001754
-cco:ont00001754 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001760
-cco:ont00001760 rdf:type owl:AnnotationProperty .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://www.commoncoreontologies.org/ont00001855
-cco:ont00001855 rdf:type owl:ObjectProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001916
-cco:ont00001916 rdf:type owl:ObjectProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001942
-cco:ont00001942 rdf:type owl:ObjectProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001944
-cco:ont00001944 rdf:type owl:ObjectProperty .
-
-
-#################################################################
 #    Classes
 #################################################################
 
@@ -2078,7 +2038,11 @@ cco:ont00000549 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000552
 cco:ont00000552 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000445 ;
+                rdfs:subClassOf cco:ont00000445 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000196 ;
+                                  owl:someValuesFrom cco:ont00000841
+                                ] ;
                 rdfs:label "Explosive Weapon"@en ;
                 skos:altLabel "Bomb"@en ;
                 skos:definition "A Weapon that is designed to inflict harm, damage, or incapacity by means of a violent release of energy caused by the exothermic reaction of an explosive material."@en ;
@@ -2826,9 +2790,10 @@ cco:ont00000730 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000734
 cco:ont00000734 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000552 ;
-                rdfs:label "Land Mine"@en ;
-                skos:definition "An Explosive Weapon that is designed to be concealed under or on the ground and to detonate as its target passes over or near it."@en ;
+                rdfs:subClassOf cco:ont00002066 ;
+                rdfs:label "Explosive Land Mine"@en ;
+                skos:altLabel "Land Mine"@en ;
+                skos:definition "An Explosive Mine that is designed to be concealed under or on the ground and to detonate as its target passes over or near it."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Land_mine&oldid=1060289159"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -3236,7 +3201,7 @@ cco:ont00000840 rdf:type owl:Class ;
 cco:ont00000841 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001153 ;
                 rdfs:label "Explosive Artifact Function"@en ;
-                skos:definition "A Damaging Artifact Function that is realized in a process in which the structural integrity of an entity is impaired beucase of the rapid increase in volume and release of energy in an extreme manner."@en ;
+                skos:definition "A Damaging Artifact Function that is realized in a process in which the structural integrity of an entity is impaired because of the rapid increase in volume and release of energy in an extreme manner."@en ;
                 cco:ont00001754 "http://www.dictionary.com/browse/explosive" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -5379,6 +5344,28 @@ cco:ont00001209 rdf:type owl:Class ;
                 rdfs:label "Material Copy of a UPC-E Barcode"@en ;
                 skos:altLabel "UPC-E Barcode"@en ;
                 skos:definition "A Material Copy of a UPC Barcode that consists of 6 numerical digits."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002066
+cco:ont00002066 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000552 ;
+                rdfs:label "Explosive Mine"@en ;
+                skos:altLabel "Mine"@en ,
+                              "Mine Weapon"@en ;
+                skos:definition "An Explosive Weapon that is designed to be concealed and to detonate as its target passes near it."@en ;
+                cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Explosive_mine&oldid=1116284461"^^xsd:anyURI ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002067
+cco:ont00002067 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002066 ;
+                rdfs:label "Explosive Naval Mine"@en ;
+                skos:altLabel "Naval Mine"@en ,
+                              "Sea Mine"@en ;
+                skos:definition "An Explosive Mine that is designed to be concealed on or under water and to detonate as a Watercraft passes near it."@en ;
+                cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Naval_mine&oldid=1299942380"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
