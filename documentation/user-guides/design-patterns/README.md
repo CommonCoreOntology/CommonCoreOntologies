@@ -4,7 +4,7 @@ Each entry includes a mermaid graph, a visualization of that graph, a descriptio
 
 Users are encouraged to reuse these design patterns in their knowledge graphs to speed up data mapping and querying while ensuring greater consistency and interoperability across knowledge graphs.
 
-## Folder Structure
+## Folder Directory
 
 | Folder Name     | Description                                |
 |------------------|--------------------------------------------|
