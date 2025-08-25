@@ -1,0 +1,50 @@
+flowchart BT
+    E@{ label: "<span style=\"color:black\"><b>Document Field 2</b></span><br>" } -. has text value <br> ont00001765 .-> n1["Mary"]
+    n5["<b>Document</b>"] -- rdf:type --> n6@{ label: "<span style=\"color:black\"><b>Document </b><br><b>ont00001298</b></span><br>" }
+    n5 -- has continuant part<br>BFO:0000178 --> n7@{ label: "<span style=\"color:black\"><b>Document Field 1</b></span><br>" }
+    n7 -- rdf:type --> n8@{ label: "<span style=\"color:black\"><b>Document Field <br>ont00001243</b><br></span>" }
+    n9@{ label: "<font color=\"#000000\">Agent 1</font>" } -- rdf:type --> n10@{ label: "<span style=\"color:black\"><b>Agent <br> ont00001017</b></span><br>" }
+    n7 -. has text value <br> ont00001765 .-> n11["John"]
+    n12@{ label: "<font color=\"#000000\">Designative Name 1</font>" } -- rdf:type --> n13@{ label: "<font color=\"#000000\"><b>Designative Name<br>ont00000003</b></font>" }
+    n12 -- designates <br>ont00001916 --> n9
+    n7 -- is carrier of<br>BFO_0000101 --> n12
+    n5 -- has continuant part <br>BFO:0000178 --> E
+    E -- rdf:type --> n8
+
+      subgraph Legend
+      AA{Individual}
+      BB[Class]
+      CC[data]
+      AA --> |relation| CC
+      classDef yellow fill:#ffe680
+      classDef purple fill:#dbc9ef
+      classDef white fill:#ffffff
+      class BB yellow
+      class AA purple
+      class CC white
+      end
+
+    E@{ shape: diamond}
+    n5@{ shape: diam}
+    n6@{ shape: rect}
+    n7@{ shape: diam}
+    n8@{ shape: rect}
+    n9@{ shape: diam}
+    n10@{ shape: rect}
+    n11@{ shape: rect}
+    n12@{ shape: diam}
+    n13@{ shape: rect}
+     E:::purple
+     n1:::white
+     n5:::purple
+     n6:::yellow
+     n7:::purple
+     n8:::yellow
+     n9:::purple
+     n10:::yellow
+     n11:::white
+     n12:::purple
+     n13:::yellow
+    classDef yellow fill:#ffe680
+    classDef purple fill:#dbc9ef
+    classDef white fill:#FFFFFF
