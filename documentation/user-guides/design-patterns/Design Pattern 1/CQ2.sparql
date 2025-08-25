@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT ?document (COUNT(?field) AS ?fieldCount)
+WHERE {
+  ?document rdf:type cco:ont00001298 .
+  ?document obo:BFO_0000178 ?field .
+  ?field rdf:type cco:ont00001243 .
+}
+GROUP BY ?document
