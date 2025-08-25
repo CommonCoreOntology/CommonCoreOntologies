@@ -1,0 +1,12 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco:  <https://www.commoncoreontologies.org/>
+PREFIX obo:  <http://purl.obolibrary.org/obo/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT ?data ?document_field
+WHERE {
+  ?document_field a cco:ont00001243 .   # document field
+  ?document_field cco:ont00001765 ?data .
+}
+
