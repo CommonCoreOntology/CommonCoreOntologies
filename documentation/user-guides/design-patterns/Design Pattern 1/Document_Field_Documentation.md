@@ -6,7 +6,7 @@ Document Field
 
 2) How many document fields are in the document?
 
-3) What is the string of text associated with these document fields?
+3) What is the string of text associated with this document field?
 
 ## Intent
 Showing the document field is a part of a document. 
