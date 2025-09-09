@@ -11021,9 +11021,17 @@ cco:ont00000770 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000771
 cco:ont00000771 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( cco:ont00000995
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty obo:BFO_0000196 ;
+                                                              owl:someValuesFrom cco:ont00000601
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
                  rdfs:subClassOf cco:ont00000995 ;
                  rdfs:label "Imaging Instrument"@en ;
-                 skos:definition "A Material Artifact that is designed to produce images (visual representations) of an entity."@en ;
+                 skos:definition "A Material Artifact that is designed to bear an Imaging Artifact Function."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
