@@ -1,0 +1,122 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000800.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000800.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000800.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+<http://purl.obolibrary.org/obo/BFO_0000132> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001869
+<https://www.commoncoreontologies.org/ont00001869> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001916
+<https://www.commoncoreontologies.org/ont00001916> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001924
+<https://www.commoncoreontologies.org/ont00001924> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000202
+<http://purl.obolibrary.org/obo/BFO_0000202> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000073
+<https://www.commoncoreontologies.org/ont00000073> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000211
+<https://www.commoncoreontologies.org/ont00000211> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001924> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000800>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000223
+<https://www.commoncoreontologies.org/ont00000223> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000800>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000529
+<https://www.commoncoreontologies.org/ont00000529> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000073>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001916> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000800>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000619
+<https://www.commoncoreontologies.org/ont00000619> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000800
+<https://www.commoncoreontologies.org/ont00000800> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000202> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000619>
+                                                                   ] ;
+                                                   rdfs:label "Day"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval that is equal to the approximate length of time required for an Astronomical Body to complete one rotation around its Rotational Axis as specified relative to a particular Temporal Reference System."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Unless otherwise specified, a Day is assumed to be relative to the rotational motion of the Earth and is approximately equal to a twenty-four hour temporal region for which the start and end times are specified by the Temporal Reference System used."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "http://wordnetweb.princeton.edu/perl/webwn?s=day" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000921
+<https://www.commoncoreontologies.org/ont00000921> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000800> .
+
+
+###  https://www.commoncoreontologies.org/ont00001058
+<https://www.commoncoreontologies.org/ont00001058> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000800>
+                                                                   ] .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

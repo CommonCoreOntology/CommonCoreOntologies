@@ -1,0 +1,76 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001938.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001938.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001938.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001808
+<https://www.commoncoreontologies.org/ont00001808> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001873
+<https://www.commoncoreontologies.org/ont00001873> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <https://www.commoncoreontologies.org/ont00001938> .
+
+
+###  https://www.commoncoreontologies.org/ont00001938
+<https://www.commoncoreontologies.org/ont00001938> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001808> ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00001069> ;
+                                                   rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
+                                                   rdfs:label "represents"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ,
+                                                                                                   "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000958
+<https://www.commoncoreontologies.org/ont00000958> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001069
+<https://www.commoncoreontologies.org/ont00001069> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000958>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001938> ;
+                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000001>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

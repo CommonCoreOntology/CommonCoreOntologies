@@ -1,0 +1,114 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001203.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001203.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001203.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000176
+<http://purl.obolibrary.org/obo/BFO_0000176> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001859
+<https://www.commoncoreontologies.org/ont00001859> rdf:type owl:ObjectProperty ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00001203> .
+
+
+###  https://www.commoncoreontologies.org/ont00001864
+<https://www.commoncoreontologies.org/ont00001864> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00001203> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000472
+<https://www.commoncoreontologies.org/ont00000472> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001114
+<https://www.commoncoreontologies.org/ont00001114> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000176> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001203>
+                                                                   ] ;
+                                                   owl:disjointWith <https://www.commoncoreontologies.org/ont00001203> .
+
+
+###  https://www.commoncoreontologies.org/ont00001152
+<https://www.commoncoreontologies.org/ont00001152> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001203>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001864> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001335>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001203> .
+
+
+###  https://www.commoncoreontologies.org/ont00001180
+<https://www.commoncoreontologies.org/ont00001180> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001203
+<https://www.commoncoreontologies.org/ont00001203> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000472>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001864> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001180>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000472> ;
+                                                   <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                                                   <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                                                   rdfs:label "Delimiting Domain"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Region that delimits the authority of an Organization to exercise its control within the bounded area."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Delimiting Domain"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001335
+<https://www.commoncoreontologies.org/ont00001335> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001859> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001203>
+                                                                   ] .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

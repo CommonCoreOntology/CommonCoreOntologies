@@ -1,0 +1,158 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000686.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000686.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000686.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001879
+<https://www.commoncoreontologies.org/ont00001879> rdf:type owl:ObjectProperty ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00000686> .
+
+
+###  https://www.commoncoreontologies.org/ont00001916
+<https://www.commoncoreontologies.org/ont00001916> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00000686> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000006
+<http://purl.obolibrary.org/obo/BFO_0000006> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000008
+<http://purl.obolibrary.org/obo/BFO_0000008> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000003
+<https://www.commoncoreontologies.org/ont00000003> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000686> .
+
+
+###  https://www.commoncoreontologies.org/ont00000292
+<https://www.commoncoreontologies.org/ont00000292> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000686>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001916> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000995>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000686> .
+
+
+###  https://www.commoncoreontologies.org/ont00000390
+<https://www.commoncoreontologies.org/ont00000390> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000686>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001916> ;
+                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000006>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000686> .
+
+
+###  https://www.commoncoreontologies.org/ont00000399
+<https://www.commoncoreontologies.org/ont00000399> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000686>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001916> ;
+                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000008>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000686> .
+
+
+###  https://www.commoncoreontologies.org/ont00000649
+<https://www.commoncoreontologies.org/ont00000649> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000686> .
+
+
+###  https://www.commoncoreontologies.org/ont00000686
+<https://www.commoncoreontologies.org/ont00000686> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000958>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001916> ;
+                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000001>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000958> ;
+                                                   owl:disjointWith <https://www.commoncoreontologies.org/ont00000853> ,
+                                                                    <https://www.commoncoreontologies.org/ont00000965> ;
+                                                   rdfs:label "Designative Information Content Entity"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Designative ICE"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Information Content Entity that consists of a set of symbols that denote some Entity."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000853
+<https://www.commoncoreontologies.org/ont00000853> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000958
+<https://www.commoncoreontologies.org/ont00000958> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000965
+<https://www.commoncoreontologies.org/ont00000965> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000995
+<https://www.commoncoreontologies.org/ont00000995> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001045
+<https://www.commoncoreontologies.org/ont00001045> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001103
+<https://www.commoncoreontologies.org/ont00001103> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000686>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001916> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001045>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000686> .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

@@ -1,0 +1,120 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000139.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000139.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000139.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+<http://www.w3.org/2004/02/skos/core#editorialNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000171
+<http://purl.obolibrary.org/obo/BFO_0000171> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000176
+<http://purl.obolibrary.org/obo/BFO_0000176> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001859
+<https://www.commoncoreontologies.org/ont00001859> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000126
+<https://www.commoncoreontologies.org/ont00000126> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000176> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000139>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000139
+<https://www.commoncoreontologies.org/ont00000139> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001152> ;
+                                                   <http://purl.org/dc/terms/bibliographicCitation> "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
+                                                   <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                                                   rdfs:label "Domain of a Country"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Government Domain that is associated with certain distinct political, ethnic, or cultural characteristics, and which delimits a Government that has legitimate authority over a Populace."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#editorialNote> "'Country' is an unclear term. Does it refer to the people, the government, the site, or the material in the site? Furthermore, what is properly referred to as a 'Country' is highly dependent on the classification practices of the international community. For example: The United Kingdom is a sovereign country that has Wales, a non-sovereign Country, as a member. Vatican City is a sovereign country that is landlocked by a city: Rome, Italy. Puerto Rico is not a country (it's a territory) but has a government, a distinct culture, and so on. Thus, here we do not define 'Country' but instead define 'Domain of a Country'."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Domain of a Country"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000532
+<https://www.commoncoreontologies.org/ont00000532> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001335>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001859> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000139>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000631
+<https://www.commoncoreontologies.org/ont00000631> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000662>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000171> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000139>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000662
+<https://www.commoncoreontologies.org/ont00000662> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001152
+<https://www.commoncoreontologies.org/ont00001152> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001335
+<https://www.commoncoreontologies.org/ont00001335> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
