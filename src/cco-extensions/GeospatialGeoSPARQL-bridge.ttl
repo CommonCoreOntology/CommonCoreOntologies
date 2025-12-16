@@ -32,15 +32,31 @@
 #################################################################
 
 ###  http://www.opengis.net/ont/geosparql#hasGeometry
-geosparql:hasGeometry rdf:type owl:ObjectProperty ;
+geosparql:hasGeometry 
+    a owl:ObjectProperty ;
     rdfs:subPropertyOf cco:ont00001801 ; # is subject of
 	rdfs:domain geosparql:Feature ;
 	rdfs:range geosparql:Geometry ;
-	skos:definition """A spatial representation for a given feature."""@en ;
+	skos:definition "A spatial representation for a given feature."@en ;
 	rdfs:label "has geometry"@en ;
 	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
     cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
     .
+
+###  http://www.opengis.net/ont/geosparql#sfWithin
+geosparql:sfWithin
+	a owl:ObjectProperty ;
+    rdfs:subPropertyOf obo:BFO_0000171 ; # located in at some times
+	rdfs:domain geosparql:SpatialObject ;
+	rdfs:range geosparql:SpatialObject ;
+	rdfs:isDefinedBy 
+		: , 
+		<http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations> ,
+		<http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations> ;
+	skos:definition """States that the subject SpatialObject is spatially within the object SpatialObject. DE-9IM: T*F**F***"""@en ;
+	rdfs:seeAlso <http://dbpedia.org/resource/DE-9IM> ;
+	skos:prefLabel "within"@en ;
+.
 
 
 #################################################################
@@ -48,7 +64,8 @@ geosparql:hasGeometry rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  http://www.opengis.net/ont/geosparql#asWKT
-geosparql:asWKT rdf:type owl:DatatypeProperty ;
+geosparql:asWKT 
+    a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :hasSerialization ;
 	rdfs:domain geosparql:Geometry ;
 	rdfs:range geosparql:wktLiteral ;
@@ -60,10 +77,11 @@ geosparql:asWKT rdf:type owl:DatatypeProperty ;
     .
 
 ###  http://www.opengis.net/ont/geosparql#hasSerialization
-geosparql:hasSerialization rdf:type owl:DatatypeProperty ;
+geosparql:hasSerialization 
+    a owl:DatatypeProperty ;
 	rdfs:domain geosparql:Geometry ;
 	rdfs:range rdfs:Literal ;
-	skos:definition """Connects a geometry object with its text-based serialization."""@en ;
+	skos:definition "Connects a geometry object with its text-based serialization."@en ;
 	rdfs:label "has serialization"@en ;
 	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
     cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
@@ -74,8 +92,9 @@ geosparql:hasSerialization rdf:type owl:DatatypeProperty ;
 #################################################################
 
 ###  http://www.opengis.net/ont/geosparql#wktLiteral
-geosparql:wktLiteral rdf:type rdfs:Datatype ;
-	skos:definition """A Well-known Text serialization of a geometry object."""@en ;
+geosparql:wktLiteral 
+    a rdfs:Datatype ;
+	skos:definition "A Well-known Text serialization of a geometry object."@en ;
 	rdfs:label "Well-known Text Literal"@en ;
 	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
     cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
@@ -85,28 +104,42 @@ geosparql:wktLiteral rdf:type rdfs:Datatype ;
 #    Classes
 #################################################################
 
+###  http://www.opengis.net/ont/geosparql#SpatialObject
+geosparql:SpatialObject 
+    a owl:Class ;
+    rdfs:subClassOf [ 
+        owl:unionOf ( 
+            obo:BFO_0000002 # continuant  
+            obo:BFO_0000015 # process
+            ) 
+        ] ;
+	skos:definition "Anything spatial (being or having a shape, position or an extent)."@en ;
+	rdfs:label "Spatial Object"@en ;
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+.
+
 ###  http://www.opengis.net/ont/geosparql#Feature
-geosparql:Feature rdf:type owl:Class ;
+geosparql:Feature 
+    a owl:Class ;
     owl:equivalentClass [ 
         owl:unionOf ( 
             obo:BFO_0000004 # independent continuant  
             obo:BFO_0000015 # process
-            obo:BFO_0000035 # process boundary
             ) 
         ] ;
 	owl:disjointWith geosparql:Geometry ;
-	skos:definition """A discrete spatial phenomenon in a universe of discourse."""@en ;
+	skos:definition "A discrete spatial phenomenon in a universe of discourse."@en ;
 	rdfs:label "Feature"@en ;
 	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
     cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
 .
 
 ###  http://www.opengis.net/ont/geosparql#Geometry
-geosparql:Geometry rdf:type owl:Class ;
+geosparql:Geometry 
+    a owl:Class ;
     rdfs:subClassOf cco:ont00000958 ; # information content entity
-	skos:definition """
-    A coherent set of direct positions in Euclidian space. A direct position holds the coordinates for a position within a Coordinate Reference System (CRS).
-    """@en ;
+	skos:definition "A coherent set of direct positions in Euclidian space. A direct position holds the coordinates for a position within a Coordinate Reference System (CRS)."@en ;
 	rdfs:label "Geometry"@en ;
 	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
     cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
