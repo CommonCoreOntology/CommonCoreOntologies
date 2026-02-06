@@ -82,6 +82,6 @@ For more information about the governance of CCO, please navigate to the [Common
 
 ---
 
-**[Website]([https://commoncoreontology.github.io/cco-webpage/)** | **[Contact Us](mailto:jensen.mark@icloud.com)**
+**[Website]([https://commoncoreontology.github.io/cco-webpage/)** | **[Contact Us](mailto:info@ncornetwork.org)**
 
 ![GitHub Repo Views](https://komarev.com/ghpvc/?username=CommonCoreOntology&style=flat-square)
