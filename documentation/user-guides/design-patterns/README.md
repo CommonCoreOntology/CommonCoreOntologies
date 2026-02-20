@@ -8,5 +8,5 @@ Users are encouraged to reuse these design patterns in their knowledge graphs to
 
 | Folder Name     | Description                                |
 |------------------|--------------------------------------------|
-| Design Pattern 1           | Document Field         |
+| Design Pattern 1           | facility location         |
 

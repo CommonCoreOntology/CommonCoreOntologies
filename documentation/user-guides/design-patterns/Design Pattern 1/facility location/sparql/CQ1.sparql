@@ -1,0 +1,15 @@
+# CQ1: Where is a specific facility located?
+# Returns the immediate site(s) where a given facility is located
+
+PREFIX : <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?facility ?facilityLabel ?site ?siteLabel
+WHERE {
+    ?facility a cco:ont00000192 ;
+              rdfs:label ?facilityLabel ;
+              obo:BFO_0000171 ?site .
+    ?site rdfs:label ?siteLabel .
+}

@@ -1,0 +1,17 @@
+# CQ3: What are all the facilities located within a particular site?
+# Finds facilities directly or transitively located within a site
+
+PREFIX : <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?site ?siteLabel ?facility ?facilityLabel
+WHERE {
+    ?site a obo:BFO_0000029 ;
+          rdfs:label ?siteLabel .
+    ?facility a cco:ont00000192 ;
+              rdfs:label ?facilityLabel ;
+              obo:BFO_0000171+ ?site .
+}
+ORDER BY ?site ?facility

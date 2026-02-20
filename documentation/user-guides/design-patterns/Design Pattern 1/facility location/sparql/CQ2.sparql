@@ -1,0 +1,20 @@
+# CQ2: What bigger site is this facility located in, and are there smaller sites 
+# that the facility is also located in that are within the bigger site?
+# Uses property paths to find the full location hierarchy
+
+PREFIX : <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/>
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?facility ?facilityLabel ?immediateSite ?immediateSiteLabel ?largerSite ?largerSiteLabel
+WHERE {
+    ?facility a cco:ont00000192 ;
+              rdfs:label ?facilityLabel ;
+              obo:BFO_0000171 ?immediateSite .
+    ?immediateSite rdfs:label ?immediateSiteLabel ;
+                   obo:BFO_0000171+ ?largerSite .
+    ?largerSite rdfs:label ?largerSiteLabel .
+}
+ORDER BY ?facility ?largerSite
+

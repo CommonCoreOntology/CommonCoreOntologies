@@ -1,0 +1,138 @@
+@prefix : <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000171
+obo:BFO_0000171 rdf:type owl:ObjectProperty ;
+                dc:identifier "234-BFO" ;
+                rdfs:label "located in"@en ;
+                skos:definition "b located in c =Def b is an independent continuant & c is an independent & neither is a spatial region & there is some time t such that the spatial region which b occupies at t is continuant part of the spatial region which c occupies at t"@en ;
+                skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team."@en .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000029
+obo:BFO_0000029 rdf:type owl:Class ;
+                dc:identifier "034-BFO" ;
+                rdfs:label "site"@en ;
+                skos:definition "(Elucidation) A site is a three-dimensional immaterial entity whose boundaries either (partially or wholly) coincide with the boundaries of one or more material entities or have locations determined in relation to some material entity"@en ;
+                skos:example "A hole in a portion of cheese; a rabbit hole; the Grand Canyon; the Piazza San Marco; the kangaroo-joey-containing hole of a kangaroo pouch; your left nostril (a fiat part - the opening - of your left nasal cavity); the lumen of your gut; the hold of a ship; the interior of the trunk of your car; hole in an engineered floor joist"@en .
+
+###  https://www.commoncoreontologies.org/ont00000192
+cco:ont00000192 rdf:type owl:Class ;
+                rdfs:label "Facility"@en ;
+                skos:definition "A Material Artifact that is designed as a building or campus dedicated to some specific purpose."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+#################################################################
+#    Individuals - Sites (Hierarchy)
+#################################################################
+
+# States
+:state_ny rdf:type owl:NamedIndividual ,
+                   obo:BFO_0000029 ;
+          rdfs:label "NY State" .
+
+:state_ca rdf:type owl:NamedIndividual ,
+                   obo:BFO_0000029 ;
+          rdfs:label "California" .
+
+:state_tx rdf:type owl:NamedIndividual ,
+                   obo:BFO_0000029 ;
+          rdfs:label "Texas" .
+
+# Cities
+:city_nyc rdf:type owl:NamedIndividual ,
+                   obo:BFO_0000029 ;
+          rdfs:label "New York City" ;
+          obo:BFO_0000171 :state_ny .
+
+:city_buffalo rdf:type owl:NamedIndividual ,
+                       obo:BFO_0000029 ;
+              rdfs:label "Buffalo" ;
+              obo:BFO_0000171 :state_ny .
+
+:city_la rdf:type owl:NamedIndividual ,
+                  obo:BFO_0000029 ;
+         rdfs:label "Los Angeles" ;
+         obo:BFO_0000171 :state_ca .
+
+:city_houston rdf:type owl:NamedIndividual ,
+                       obo:BFO_0000029 ;
+              rdfs:label "Houston" ;
+              obo:BFO_0000171 :state_tx .
+
+# Campuses
+:campus_manhattan rdf:type owl:NamedIndividual ,
+                           obo:BFO_0000029 ;
+                  rdfs:label "Manhattan Campus" ;
+                  obo:BFO_0000171 :city_nyc .
+
+:campus_downtown_la rdf:type owl:NamedIndividual ,
+                             obo:BFO_0000029 ;
+                    rdfs:label "Downtown LA Campus" ;
+                    obo:BFO_0000171 :city_la .
+
+# Buildings
+:building_tower1 rdf:type owl:NamedIndividual ,
+                          obo:BFO_0000029 ;
+                 rdfs:label "Tower 1" ;
+                 obo:BFO_0000171 :campus_manhattan .
+
+:building_tower2 rdf:type owl:NamedIndividual ,
+                          obo:BFO_0000029 ;
+                 rdfs:label "Tower 2" ;
+                 obo:BFO_0000171 :campus_manhattan .
+
+#################################################################
+#    Individuals - Facilities
+#################################################################
+
+:facility_warehouse_nyc rdf:type owl:NamedIndividual ,
+                                 cco:ont00000192 ;
+                        rdfs:label "NYC Main Warehouse" ;
+                        obo:BFO_0000171 :building_tower1 .
+
+:facility_office_nyc rdf:type owl:NamedIndividual ,
+                              cco:ont00000192 ;
+                     rdfs:label "NYC Corporate Office" ;
+                     obo:BFO_0000171 :building_tower2 .
+
+:facility_lab_nyc rdf:type owl:NamedIndividual ,
+                           cco:ont00000192 ;
+                  rdfs:label "NYC Research Lab" ;
+                  obo:BFO_0000171 :campus_manhattan .
+
+:facility_warehouse_buffalo rdf:type owl:NamedIndividual ,
+                                     cco:ont00000192 ;
+                            rdfs:label "Buffalo Distribution Center" ;
+                            obo:BFO_0000171 :city_buffalo .
+
+:facility_warehouse_la rdf:type owl:NamedIndividual ,
+                                cco:ont00000192 ;
+                       rdfs:label "LA Warehouse" ;
+                       obo:BFO_0000171 :campus_downtown_la .
+
+:facility_office_la rdf:type owl:NamedIndividual ,
+                             cco:ont00000192 ;
+                    rdfs:label "LA Regional Office" ;
+                    obo:BFO_0000171 :city_la .
+
+:facility_plant_houston rdf:type owl:NamedIndividual ,
+                                 cco:ont00000192 ;
+                        rdfs:label "Houston Manufacturing Plant" ;
+                        obo:BFO_0000171 :city_houston .
+
+                    
