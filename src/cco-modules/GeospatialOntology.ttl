@@ -458,14 +458,31 @@ cco:ont00000472 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000487
 cco:ont00000487 rdf:type owl:Class ;
-                 rdfs:subClassOf cco:ont00000472 ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty obo:BFO_0000124 ;
-                                   owl:someValuesFrom obo:BFO_0000001
-                                 ] ;
-                 rdfs:label "Geospatial Location"@en ;
-                 skos:definition "A Geospatial Region that is at which an Entity or Event is located."@en ;
-                 cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
+                owl:equivalentClass [ owl:intersectionOf ( cco:ont00000472
+                                                           [ rdf:type owl:Class ;
+                                                             owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:BFO_0000124 ;
+                                                                             owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
+                                                                                                                       [ rdf:type owl:Class ;
+                                                                                                                         owl:complementOf obo:BFO_0000006
+                                                                                                                       ]
+                                                                                                                     ) ;
+                                                                                                  rdf:type owl:Class
+                                                                                                ]
+                                                                           ]
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty obo:BFO_0000183 ;
+                                                                             owl:someValuesFrom obo:BFO_0000015
+                                                                           ]
+                                                                         )
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf cco:ont00000472 ;
+                rdfs:label "Geospatial Location"@en ;
+                skos:definition "A Geospatial Region that is the location of an Independent Continuant (that is not a Spatial Region) or that environs some Process."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00000489
