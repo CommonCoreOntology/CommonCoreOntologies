@@ -107,7 +107,7 @@ reason-combined: $(combined-file) | $(ROBOT_FILE)
 	java -jar $(ROBOT_FILE) reason --input $(combined-file) --catalog src/cco-modules/catalog-v001.xml --reasoner HermiT
 
 test-combined: $(combined-file) | $(ROBOT_FILE)
-	java -jar $(ROBOT_FILE) verify --input $(combined-file) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation false || true
+	java -jar $(ROBOT_FILE) verify --input $(combined-file) --catalog src/cco-modules/catalog-v001.xml --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation false || true
 
 .PHONY: report-edit
 report-edit: TEST_INPUT = $(EDITOR_BUILD_FILE)
