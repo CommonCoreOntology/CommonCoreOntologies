@@ -2,19 +2,19 @@
 # that the facility is also located in that are within the bigger site?
 # Uses property paths to find the full location hierarchy
 
-PREFIX : <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX cco: <https://www.commoncoreontologies.org/>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX facility: <https://www.commoncoreontologies.org/ont00000192>
+PREFIX located_in: <http://purl.obolibrary.org/obo/BFO_0000171>
 
 SELECT ?facility ?facilityLabel ?immediateSite ?immediateSiteLabel ?largerSite ?largerSiteLabel
 WHERE {
-    ?facility a cco:ont00000192 ;
+    ?facility a facility: ;
               rdfs:label ?facilityLabel ;
-              obo:BFO_0000171 ?immediateSite .
+              located_in: ?immediateSite .
     ?immediateSite rdfs:label ?immediateSiteLabel ;
-                   obo:BFO_0000171+ ?largerSite .
+                   located_in:+ ?largerSite .
     ?largerSite rdfs:label ?largerSiteLabel .
 }
 ORDER BY ?facility ?largerSite
-
