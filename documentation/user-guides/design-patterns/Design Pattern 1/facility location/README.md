@@ -13,9 +13,9 @@ To represent location relationships where material entities (e.g., facilities, e
 
 # Structure
 
-Represents the location of a site and their appropriate relations with a broader area.
+Represents sites as locations and use of the located_in relation.
 
-Helps with creating transitive relations between sites.
+Helps with show how non-transitive relation can be used to do a query that acts transitively.
 
 Visual model through mermaid and png.
 

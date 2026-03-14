@@ -2,19 +2,26 @@
 # that the facility is also located in that are within the bigger site?
 # Uses property paths to find the full location hierarchy
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX cco: <https://www.commoncoreontologies.org/>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX facility: <https://www.commoncoreontologies.org/ont00000192>
+PREFIX rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco:        <https://www.commoncoreontologies.org/>
+PREFIX obo:        <http://purl.obolibrary.org/obo/>
+PREFIX facility:   <https://www.commoncoreontologies.org/ont00000192>
 PREFIX located_in: <http://purl.obolibrary.org/obo/BFO_0000171>
 
-SELECT ?facility ?facilityLabel ?immediateSite ?immediateSiteLabel ?largerSite ?largerSiteLabel
+SELECT ?site ?siteLabel ?parentSite ?parentSiteLabel
+       (COUNT(?intermediate) AS ?depth)
 WHERE {
-    ?facility a facility: ;
-              rdfs:label ?facilityLabel ;
-              located_in: ?immediateSite .
-    ?immediateSite rdfs:label ?immediateSiteLabel ;
-                   located_in:+ ?largerSite .
-    ?largerSite rdfs:label ?largerSiteLabel .
+    ?site        located_in: ?parentSite .
+    ?site        rdfs:label  ?siteLabel .
+    ?parentSite  rdfs:label  ?parentSiteLabel .
+
+    OPTIONAL { ?site a facility: }
+
+    OPTIONAL {
+        ?site         located_in:+ ?intermediate .
+        ?intermediate located_in:+ ?parentSite .
+    }
+
 }
-ORDER BY ?facility ?largerSite
+GROUP BY ?site ?siteLabel ?parentSite ?parentSiteLabel
+ORDER BY ASC(?depth) ASC(?siteLabel)
