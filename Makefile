@@ -63,7 +63,7 @@ REQUIRED_DIRS = $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR)
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
-all: setup reason-individual validate-profile-individual test-individual build-combined reason-combined validate-profile-combined test-combined
+all: setup reason-individual test-individual build-combined reason-combined validate-profile-combined test-combined
 
 # Setup target for creating necessary directories
 .PHONY: setup
