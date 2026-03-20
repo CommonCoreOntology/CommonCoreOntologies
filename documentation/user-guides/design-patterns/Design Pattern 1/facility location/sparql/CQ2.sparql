@@ -11,11 +11,17 @@ PREFIX located_in: <http://purl.obolibrary.org/obo/BFO_0000171>
 SELECT ?site ?siteLabel ?parentSite ?parentSiteLabel
        (COUNT(?intermediate) AS ?depth)
 WHERE {
+
+    # ── Parameter: bind the facility IRI you want to query ──────────────────
+    #BIND(<YOUR_FACILITY_IRI_HERE> AS ?facility)
+
+    BIND(<https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/facility_warehouse_nyc> AS ?facility)
+
+    ?facility located_in: ?site .
+
     ?site        located_in: ?parentSite .
     ?site        rdfs:label  ?siteLabel .
     ?parentSite  rdfs:label  ?parentSiteLabel .
-
-    OPTIONAL { ?site a facility: }
 
     OPTIONAL {
         ?site         located_in:+ ?intermediate .

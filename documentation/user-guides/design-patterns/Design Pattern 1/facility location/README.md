@@ -13,7 +13,7 @@ To represent location relationships where material entities (e.g., facilities, e
 
 # Structure
 
-Represents sites as locations and use of the located_in relation.
+Represents locations as sites and use of the located_in relation.
 
 Helps with show how non-transitive relation can be used to do a query that acts transitively.
 
