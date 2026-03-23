@@ -8875,9 +8875,13 @@ cco:ont00000551 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000552
 cco:ont00000552 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000445 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000196 ;
+                                  owl:someValuesFrom cco:ont00000841
+                                ] ;
                  rdfs:subClassOf cco:ont00000445 ;
                  rdfs:label "Explosive Weapon"@en ;
-                 skos:altLabel "Bomb"@en ;
                  skos:definition "A Weapon that is designed to inflict harm, damage, or incapacity by means of a violent release of energy caused by the exothermic reaction of an explosive material."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Explosive_weapon&oldid=1062481268"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
