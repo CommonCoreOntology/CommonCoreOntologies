@@ -50,7 +50,7 @@ cco:ont00001801 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000958 ;
                 rdfs:label "is subject of"@en ;
-                skos:definition "x is_subject_of y iff x is an instance of Entity and y is an instance of Information Content Entity and y is_about x."@en ;
+                skos:definition "x is subject of y =Def y is about x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -102,7 +102,7 @@ cco:ont00001863 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000120 ;
                 rdfs:label "uses measurement unit"@en ;
-                skos:definition "y uses_measurement_unit x iff y is an instance of Information Bearing Entity and x is an instance of Measurement Unit, such that x describes the magnitude of measured physical quantity mentioned in y."@en ;
+                skos:definition "x uses measurement unit y =Def y is measurement unit of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -124,7 +124,7 @@ cco:ont00001873 rdf:type owl:ObjectProperty ;
                 rdfs:range cco:ont00001069 ;
                 rdfs:comment "See notes for inverse property." ;
                 rdfs:label "represented by"@en ;
-                skos:definition "y represented_by x iff x is an instance of Representational Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                skos:definition "x represented by y =Def y represents x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -146,7 +146,7 @@ cco:ont00001878 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is mention of"@en ;
-                skos:definition "x is_mention_of y iff x is an instance Information Bearing Entity and y is an instance of Entity, such that x is used as a reference to y."@en ;
+                skos:definition "x mention of y =Def y is mentioned by x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -157,7 +157,7 @@ cco:ont00001879 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000686 ;
                 rdfs:label "designated by"@en ;
-                skos:definition "x designated_by y iff y is an instance of Designative Information Content Entity and x is an instance of Entity and y designates x."@en ;
+                skos:definition "x designated by y =Def y designates x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -171,7 +171,7 @@ cco:ont00001884 rdf:type owl:ObjectProperty ;
                                          obo:BFO_0000176
                                        ) ;
                 rdfs:label "condition described by"@en ;
-                skos:definition "x condition_described_by y iff y is an instance of Performance Specification and x is an instance of Entity and y describes_condition x."@en ;
+                skos:definition "x condition described by y =Def y describes condition x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -204,7 +204,7 @@ cco:ont00001904 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001163 ;
                 rdfs:label "is measured by"@en ;
-                skos:definition "y is_measured_by x iff x is an instance of Measurement Information Content Entity and y is an instance of Entity and y is_a_measurement_of x."@en ;
+                skos:definition "x is measured by by y =Def y is a measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -214,7 +214,7 @@ cco:ont00001908 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000829 ;
                 rdfs:label "uses time zone identifier"@en ;
-                skos:definition "x uses_time_zone_identifier y iff x is an instance of Information Bearing Entity and y is an instance of Time Zone Identifier, such that y designates the spatial region associated with the time zone mentioned in x."@en ;
+                skos:definition "x uses time zone identifier y =Def y time zone identifier used by x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -225,7 +225,7 @@ cco:ont00001912 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000398 ;
                 rdfs:label "uses reference system"@en ;
-                skos:definition "y uses_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Reference System, such that x describes the set of standards mentioned in y."@en ;
+                skos:definition "x uses reference system y =Def y is reference system of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -235,7 +235,7 @@ cco:ont00001913 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000469 ;
                 rdfs:label "uses geospatial coordinate reference system"@en ;
-                skos:definition "y uses_geospatial_coordinate_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Geospatial Coordinate Reference System, such that x describes the set of standards mentioned in y."@en ;
+                skos:definition "x uses geospatial coordinate reference system y =Def y is geospatial coordinate reference system of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -245,7 +245,7 @@ cco:ont00001914 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000293 ;
                 rdfs:label "is measured by nominal"@en ;
-                skos:definition "x is_measured_by_nominal y iff y is an instance of Nominal Measurement Information Content Entity and x is an instance of Entity, such that y classifies x relative to some set of shared, possibly arbitrary, characteristics."@en ;
+                skos:definition "x is measured by nominal y =Def y is a nominal measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -270,7 +270,7 @@ cco:ont00001917 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000853 ;
                 rdfs:label "described by"@en ;
-                skos:definition "x described_by y iff y is an instance of Descriptive Information Content Entity and x is an instance of Entity and y describes x."@en ;
+                skos:definition "x described by y =Def y describes x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -290,7 +290,7 @@ cco:ont00001920 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000965 ;
                 rdfs:label "prescribed by"@en ;
-                skos:definition "x prescribed_by y iff y is an instance of Directive Information Content Entity and x is an instance of Entity and y prescribes x."@en ;
+                skos:definition "x prescribed by y =Def y prescribes x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -336,7 +336,7 @@ cco:ont00001963 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001010 ;
                 rdfs:label "is measured by ordinal"@en ;
-                skos:definition "x is_measured_by_ordinal y iff y is an instance of Ordinal Measurement Information Content Entity and x is an instance of Entity, such that y describes some attribute of x relative to a scale ordered by rank."@en ;
+                skos:definition "x is measured by ordinal y =Def y is a ordinal measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -346,7 +346,7 @@ cco:ont00001964 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001364 ;
                 rdfs:label "is measured by interval"@en ;
-                skos:definition "y is_measured_by_interval x iff x is an instance of Interval Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
+                skos:definition "x is measured by interval y =Def y is a interval measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -357,7 +357,7 @@ cco:ont00001965 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001022 ;
                 rdfs:label "is measured by ratio"@en ;
-                skos:definition "y is_measured_by_ratio x iff x is an instance of Ratio Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
+                skos:definition "x is measured by ratio y =Def y is a ratio measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -379,7 +379,7 @@ cco:ont00001976 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00001175 ;
                 rdfs:label "uses language"@en ;
-                skos:definition "x uses_language y iff x is an instance of an Information Bearing Entity and y is an instance of a Language such that the literal value of x is a string that is encoded according to the syntax of y."@en ;
+                skos:definition "x uses language y =Def y language used in x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
