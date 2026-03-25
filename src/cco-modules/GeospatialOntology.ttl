@@ -128,7 +128,7 @@ cco:ont00001855 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000141 ;
                  rdfs:range obo:BFO_0000141 ;
                  rdfs:label "has spatial part"@en ;
-                 skos:definition "y has_spatial_part x iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
+                 skos:definition "x has spatial part y =Def y spatial part of x"@en ;
                  cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -139,7 +139,7 @@ cco:ont00001909 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000141 ;
                  rdfs:range obo:BFO_0000141 ;
                  rdfs:label "has tangential part"@en ;
-                 skos:definition "x has_tangential_part y iff x, y, and z are instances of Immaterial Entity, and x has_spatial_part y, such that z externally connects with both x and y."@en ;
+                 skos:definition "x has tangential part y =Def y tangential part of x"@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -176,7 +176,7 @@ cco:ont00001989 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000141 ;
                  rdfs:range obo:BFO_0000141 ;
                  rdfs:label "has nontangential part"@en ;
-                 skos:definition "x has_nontangential_part y iff x and y are instances of Immaterial Entity, and x has_spatial_part y, such that there does not exist another instance of an Immaterial Entity which externally connects with both x and y."@en ;
+                 skos:definition "x has nontangential part y =Def y nontangential part of x"@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -532,7 +532,7 @@ cco:ont00000779 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000024 ;
                  rdfs:label "Portion of Cryosphere"@en ;
                  skos:definition "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
-                 cco:ont00001754 "https://oceanservice.noaa.gov/facts/cryosphere.html (accessed 03/06/2023)"^^xsd:anyURI ;
+                 cco:ont00001754 "NOAA. “What Is the Cryosphere?” National Ocean Service, 16 June 2024, oceanservice.noaa.gov/facts/cryosphere.html. Accessed 24 Mar. 2026."^^xsd:string ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
 
