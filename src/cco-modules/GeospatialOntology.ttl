@@ -163,7 +163,7 @@ cco:ont00001944 rdf:type owl:ObjectProperty ;
                                     cco:ont00001810 ;
                  rdfs:domain obo:BFO_0000141 ;
                  rdfs:range obo:BFO_0000141 ;
-                 rdfs:comment "in the sense used here, spatial part of is elsewhere referred to as proper spatial part of"@en ;
+                 skos:scopeNote "in the sense used here, spatial part of is elsewhere referred to as proper spatial part of"@en ;
                  rdfs:label "spatial part of"@en ;
                  skos:definition "x spatial_part_of y iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
                  cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
@@ -188,7 +188,7 @@ cco:ont00001989 rdf:type owl:ObjectProperty ;
 
 ###  http://www.opengis.net/ont/geosparql#asWKT
 <http://www.opengis.net/ont/geosparql#asWKT> rdf:type owl:DatatypeProperty ;
-                                             rdfs:comment "ISO 19162:2015"@en ;
+                                             skos:scopeNote "ISO 19162:2015"@en ;
                                              rdfs:label "as WKT"@en ;
                                              skos:definition "A Data Property that has as its range a string formated according to the Well-known text standardization for geometric objects."@en ;
                                              skos:example "Polygon ((10 10, 10 20, 20 20, 20 15, 10 10))" ;
@@ -197,7 +197,7 @@ cco:ont00001989 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001763
 cco:ont00001763 rdf:type owl:DatatypeProperty ;
-                 rdfs:comment "Altitude values typically use kilometers as the Unit of Measurement."@en ;
+                 skos:scopeNote "Altitude values typically use kilometers as the Unit of Measurement."@en ;
                  rdfs:label "has altitude value"@en ;
                  skos:scopeNote "This data property can be used along with has_latitude_value and has_longitude_value to connect three-dimensional spatial data to a single Information Bearing Entity to specify the location of an entity in a Geospatial Region."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -331,7 +331,7 @@ cco:ont00000205 rdf:type owl:Class ;
                                    owl:onProperty cco:ont00001855 ;
                                    owl:someValuesFrom cco:ont00000170
                                  ] ;
-                 rdfs:comment "The exact line of the Object Track may be drawn based on the Center of Mass of the Object or another reference point, such as the location of a transponder beacon or the center of a radar cross-section, depending on the Object being tracked."@en ;
+                 skos:scopeNote "The exact line of the Object Track may be drawn based on the Center of Mass of the Object or another reference point, such as the location of a transponder beacon or the center of a radar cross-section, depending on the Object being tracked."@en ;
                  rdfs:label "Object Track"@en ;
                  skos:definition "A One-Dimensional Spatial Region that consists of the idealized line along which an Object has traversed during some motion."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -683,7 +683,7 @@ cco:ont00001341 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001348
 cco:ont00001348 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000028 ;
-                 rdfs:comment "For an object in motion, its Three-Dimensional Position is part of its Three-Dimensional Path."@en ;
+                 skos:scopeNote "For an object in motion, its Three-Dimensional Position is part of its Three-Dimensional Path."@en ;
                  rdfs:label "Three-Dimensional Position"@en ;
                  skos:definition "A Three-Dimensional Spatial Region that encompasses the (minimal) spatial region in which some object is located at a particular time."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
