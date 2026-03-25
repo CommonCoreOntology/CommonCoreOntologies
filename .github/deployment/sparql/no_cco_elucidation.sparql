@@ -1,0 +1,28 @@
+# Title:
+#    No Use of Deprecated cco:elucidation Property
+# Constraint Description:
+#    The annotation property cco:elucidation (from the old CCO v1 namespace) is
+#    deprecated. It was replaced by skos:editorNote in CCO v2. Any CCO term that
+#    still uses cco:elucidation as a predicate must be updated.
+# Severity:
+#    Error
+# Author:
+#	 github.com/shanmukhkalasamudram
+#    Inspired by: Giacomo Decolle
+
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?subject ?label ?error
+WHERE {
+  ?subject <http://www.ontologyrepository.com/CommonCoreOntologies/elucidation> ?value .
+
+  # Scope to current CCO terms only
+  FILTER (regex(str(?subject), "https://www.commoncoreontologies.org/"))
+  FILTER (!isBlank(?subject))
+
+  OPTIONAL { ?subject rdfs:label ?label }
+
+  BIND (CONCAT("ERROR: Term ", str(?subject), " uses deprecated cco:elucidation. Replace with skos:editorNote.") AS ?error)
+}
+ORDER BY ?subject

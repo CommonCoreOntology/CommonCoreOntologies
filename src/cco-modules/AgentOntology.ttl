@@ -13,10 +13,11 @@
 <https://www.commoncoreontologies.org/AgentOntology> rdf:type owl:Ontology ;
                                                                             owl:versionIRI <https://www.commoncoreontologies.org/2024-11-05/AgentOntology> ;
                                                                             owl:imports <https://www.commoncoreontologies.org/InformationEntityOntology> ;
+                                                                            owl:imports <https://www.commoncoreontologies.org/EventOntology> ;
                                                                             dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                             dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."@en ;
-                                                                            rdfs:label "Agent Ontology"@en ;
+                                                                            rdfs:label "Agent Ontology"@en ; 
                                                                             owl:versionInfo "Version 2.0"@en .
 
 #################################################################
@@ -77,7 +78,7 @@ rdfs:subPropertyOf obo:BFO_0000057 ;
 rdfs:domain obo:BFO_0000015 ;
 rdfs:range cco:ont00001017 ;
 rdfs:label "has accessory"@en ;
-skos:definition "x has_accessory y iff x is an instance of Process and y is an instance of Agent, such that y assists another agent in the commission of x, and y was not located at the location of x when x occurred, and y was not an agent_in x."@en ;
+skos:definition "x has accessory y =Def y accessory in x"@en ;
 cco:ont00001754 "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -100,7 +101,7 @@ owl:inverseOf cco:ont00001895 ;
 rdfs:domain obo:BFO_0000015 ;
 rdfs:range cco:ont00001017 ;
 rdfs:label "has accomplice"@en ;
-skos:definition "x has_accomplice y iff x is an instance of Process and y is an instance of Agent that assists in the commission of x, is located at the location of x, but is not agent_in x."@en ;
+skos:definition "x has accomplice y =Def y accomplice in x"@en ;
 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -124,7 +125,7 @@ cco:ont00001794 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001180 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "has subsidiary"@en ;
-                 skos:definition "x has_subsidiary y iff x and y are both instances of Organization and y is_subsidiary_of x."@en ;
+                 skos:definition "x has subsidiary y =Def y is subsidiary of x"@en ;
                  cco:ont00001754 "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -160,7 +161,7 @@ cco:ont00001807 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001324 ;
                  rdfs:label "is required by"@en ;
-                 skos:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must occur."@en ;
+                 skos:definition "x is required by y =Def y requires x"@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -195,7 +196,7 @@ cco:ont00001817 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001324 ;
                  rdfs:label "is prohibited by"@en ;
-                 skos:definition "x is_prohibited_by y at t iff: y is an instance of Process Regulation at time t, and x is an instance of Process at time t, and y prescribes that x must not occur."@en ;
+                 skos:definition "x is prohibited by y =Def y prohibits x"@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -215,7 +216,7 @@ cco:ont00001833 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has agent"@en ;
-                 skos:definition "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
+                 skos:definition "x has agent y =Def y agent in x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -230,7 +231,7 @@ cco:ont00001844 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00000402 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has sender"@en ;
-                 skos:definition "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
+                 skos:definition "x has sender y =Def y sends x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -258,7 +259,7 @@ cco:ont00001864 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001203 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "delimits"@en ;
-                 skos:definition "x delimits y iff x is an instance of Delimiting Domain and y is an instance of Organization and y can legally operate only within x."@en ;
+                 skos:definition "x delimits y =Def y is delimited by x"@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -270,7 +271,7 @@ cco:ont00001866 rdf:type owl:ObjectProperty ;
                  dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                  dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                  rdfs:label "is interest of"@en ;
-                 skos:definition "The inverse of has_interest_in. " ;
+                 skos:definition "x is interest of y =Def y has interest in x" ;
                  skos:prefLabel "is interest of"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -302,7 +303,7 @@ cco:ont00001898 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000027 ;
                  rdfs:range cco:ont00001379 ;
                  rdfs:label "aggregate has capability"@en ;
-                 skos:definition "x aggregate_has_capability y iff x is an instance of Object Aggregate and y is an instance of Agent Capability, such that x is aggregate bearer of y."@en ;
+                 skos:definition "x aggregate has capability y =Def y capability of aggregate x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -333,7 +334,7 @@ cco:ont00001922 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00000402 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has recipient"@en ;
-                 skos:definition "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en ;
+                 skos:definition "x has recipient y =Def y receives x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -342,7 +343,7 @@ cco:ont00001925 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000040 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "is used by"@en ;
-                 skos:definition "x is_used_by y iff y is an instance of an Agent and x is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein y attempts to accomplish a goal by manipulating, deploying, leveraging some attribute of y."@en ;
+                 skos:definition "x is used by y =Def y uses x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -366,7 +367,7 @@ cco:ont00001943 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001262 ;
                  rdfs:range cco:ont00001262 ;
                  rdfs:label "supervises"@en ;
-                 skos:definition "x supervises y iff x and y are both instances of Person and x directs, manages, or oversees y."@en ;
+                 skos:definition "x supervises y =Def y is supervised by x"@en ;
                  cco:ont00001754 "http://en.wiktionary.org/wiki/supervise" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -376,7 +377,7 @@ cco:ont00001951 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000023 ;
                  rdfs:range obo:BFO_0000023 ;
                  rdfs:label "has subordinate role"@en ;
-                 skos:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
+                 skos:definition "x has subordinate role y =Def y is subordinate role to x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -386,7 +387,7 @@ cco:ont00001954 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001017 ;
                  rdfs:range cco:ont00001379 ;
                  rdfs:label "has capability"@en ;
-                 skos:definition "x has_capability y iff x is an instance of Agent and y is an instance of Agent Capability, such that x bearer of y."@en ;
+                 skos:definition "x has capability y =Def y capability of x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -406,7 +407,7 @@ cco:ont00001977 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001017 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has affiliate"@en ;
-                 skos:definition "x has affiliate y iff y is affiliated with x."@en ;
+                 skos:definition "x has affiliate y =Def y is affiliated with x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -439,7 +440,7 @@ cco:ont00001992 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000023 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "has organizational context"@en ;
-                 skos:definition "x has_organizational_context y iff y is an instance of an Organization and x is an instance of a Role and z is an instance of a Person, such that z's affiliation with y is a prerequisite for z bearing x or y ascribes x to the bearer of x."@en ;
+                 skos:definition "x has organizational context y =Def y is organizational context of x"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -459,7 +460,7 @@ cco:ont00001998 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001324 ;
                  rdfs:label "is permitted by"@en ;
-                 skos:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
+                 skos:definition "x is permitted by y =Def y permits x"@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -553,7 +554,7 @@ cco:ont00000089 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000102
 cco:ont00000102 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000019 ;
-                 rdfs:comment "Skin Type is classified according to a reference system such as the Fitzpatrick scale: https://en.wikipedia.org/wiki/Fitzpatrick_scale"@en ;
+                 skos:scopeNote "Skin Type is classified according to a reference system such as the Fitzpatrick scale: https://en.wikipedia.org/wiki/Fitzpatrick_scale"@en ;
                  rdfs:label "Skin Type"@en ;
                  skos:definition "A Quality inhering in a portion of skin by virtue of its color and natural tendency to respond to ultraviolet light."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -1002,7 +1003,7 @@ cco:ont00000564 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000567
 cco:ont00000567 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000487 ;
-                 rdfs:comment "This is a general term that applies to both military and civilian activities, such as the Geospatial Region within which a company conducts its business."@en ;
+                 skos:scopeNote "This is a general term that applies to both military and civilian activities, such as the Geospatial Region within which a company conducts its business."@en ;
                  rdfs:label "Operational Area"@en ;
                  skos:definition "A Geospatial Location in which an Agent conducts some activity."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -1119,7 +1120,7 @@ cco:ont00000647 rdf:type owl:Class ;
                                    owl:onProperty cco:ont00001939 ;
                                    owl:someValuesFrom cco:ont00001180
                                  ] ;
-                 rdfs:label "Organization Member Person"@en ;
+                 rdfs:label "Organization Member"@en ;
                  skos:definition "A Person who is affiliated with some Organization by being a member of that Organization."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1450,7 +1451,7 @@ cco:ont00001114 rdf:type owl:Class ;
                                    owl:someValuesFrom cco:ont00001203
                                  ] ;
                  owl:disjointWith cco:ont00001203 ;
-                 rdfs:comment "Instances of this class are not proper Delimiting Domains, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
+                 skos:scopeNote "Instances of this class are not proper Delimiting Domains, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
                  rdfs:label "Division of Delimiting Domain"@en ;
                  skos:definition "A Geospatial Region that is a fiat division of a Delimiting Domain and not a Delimiting Domain."@en ;
                  skos:example "Flatbush, French Quarter, Western New York, Texas Panhandle, Greater Montreal Area of Quebec, Pacific Northwest, southwest area of Al Anbar Province, Northern Iraq." ;
@@ -1497,7 +1498,7 @@ cco:ont00001164 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001180
 cco:ont00001180 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000300 ;
-                 rdfs:comment "Members of organizations are either Organizations themselves or individual Persons. Members can bear specific Organization Member Roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the Organization by the organization members."@en ;
+                 skos:scopeNote "Members of organizations are either Organizations themselves or individual Persons. Members can bear specific Organization Member Roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the Organization by the organization members."@en ;
                  rdfs:label "Organization"@en ;
                  skos:definition "A Group of Agents which can be the bearer of roles, has members, and has a set of organization rules."@en ;
                  cco:ont00001754 "http://purl.obolibrary.org/obo/OBI_0000245" ;

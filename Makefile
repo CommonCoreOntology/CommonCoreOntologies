@@ -63,7 +63,7 @@ REQUIRED_DIRS = $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR)
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
-all: setup reason-individual test-individual build-combined reason-combined test-combined
+all: setup reason-individual test-individual build-combined reason-combined validate-profile-combined test-combined
 
 # Setup target for creating necessary directories
 .PHONY: setup
@@ -85,6 +85,19 @@ reason-individual: $(ROBOT_FILE)
 		echo "Reasoning on $$file..."; \
 		java -jar $(ROBOT_FILE) reason --input $$file --catalog src/cco-modules/catalog-v001.xml --reasoner HermiT; \
 	done
+
+# Validate OWL DL profile on individual files (Step 6b)
+.PHONY: validate-profile-individual
+validate-profile-individual: $(ROBOT_FILE)
+	for file in $(DEV_FILES); do \
+		echo "Validating OWL DL profile for $$file..."; \
+		java -jar $(ROBOT_FILE) validate-profile --profile DL --input $$file; \
+	done
+
+# Validate OWL DL profile on combined file (Step 6b)
+.PHONY: validate-profile-combined
+validate-profile-combined: $(combined-file) | $(ROBOT_FILE)
+	java -jar $(ROBOT_FILE) validate-profile --profile DL --input $(combined-file)
 
 # Test individual files
 .PHONY: test-individual
