@@ -688,7 +688,7 @@ cco:ont00000305 rdf:type owl:Class ;
 cco:ont00000308 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00001226 ;
                  rdfs:label "Act of Military Service"@en ;
-                 skos:definition "An Act of Employment wherein a Person serves as a member of a Military Force, whether voluntarily or by conscription."@en ;
+                 skos:definition "An Act of Employment by an Organization wherein a Person serves as a member of a Military Force, whether voluntarily or by conscription."@en ;
                  cco:ont00001754 "http://www.collinsdictionary.com/dictionary/english/military-service" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2780,12 +2780,18 @@ cco:ont00001219 rdf:type owl:Class ;
                  skos:definition "A Process Profile that is the total change in Velocity of an object's Motion."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
+###  https://www.commoncoreontologies.org/ont00002071
+cco:ont00002071 rdf:type owl:Class ;
+                 rdfs:subClassOf cco:ont00000433 ;
+                 rdfs:label "Act of Employment"@en ;
+                 skos:definition "An Act of Association wherein an Agent assigns a set of activities to some Person to be performed in exchange for financial compensation."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 ###  https://www.commoncoreontologies.org/ont00001226
 cco:ont00001226 rdf:type owl:Class ;
-                 rdfs:subClassOf cco:ont00000433 ;
-                 rdfs:label "Act of Employment"@en ;
-                 skos:definition "An Act of Association wherein an Organization assigns a set of activities to some Person to be performed in exchange for financial compensation."@en ;
+                 rdfs:subClassOf cco:ont00002071 ;
+                 rdfs:label "Act of Employment by an Organization"@en ;
+                 skos:definition "An Act of Employment wherein an Organization assigns a set of activities to some Person to be performed in exchange for financial compensation."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
