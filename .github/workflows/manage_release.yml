@@ -43,10 +43,6 @@ jobs:
           echo "RELEASE_FILE_PATH=$(make output-release-filepath)" >> $GITHUB_OUTPUT
           echo "RELEASE_NAME=$(make output-release-name)" >> $GITHUB_OUTPUT
 
-      - name: Get basename of the release file
-        id: get_basename
-        run: echo "BASENAME=$(basename ${{ steps.build_release.outputs.RELEASE_FILE_PATH }})" >> $GITHUB_ENV
-
       - name: Save artifacts
         uses: actions/upload-artifact@v4
         if: always()
@@ -61,6 +57,10 @@ jobs:
         with:
           path: ${{ env.cache-path }}
           key: ${{ runner.os }}-${{ env.cache-key }}
+
+      - name: Get basename of the release file
+        id: get_basename
+        run: echo "BASENAME=$(basename ${{ steps.build_release.outputs.RELEASE_FILE_PATH }})" >> $GITHUB_ENV
 
       - name: Draft GitHub Release
         uses: actions/create-release@v1
@@ -80,5 +80,18 @@ jobs:
           asset_path: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
           asset_name: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
           asset_content_type: ${{ env.release-build-content-type }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Release Notes
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            /repos/${{ github.repository }}/releases/generate-notes \
+            -f tag_name="${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}" \
+            --jq '.body' > /tmp/release-notes.md
+          gh release edit "${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}" \
+            --notes-file /tmp/release-notes.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

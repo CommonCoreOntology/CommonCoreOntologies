@@ -8,7 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://www.commoncoreontologies.org/InformationEntityOntology/> .
+@base <https://www.commoncoreontologies.org/InformationEntityOntology> .
 
 <https://www.commoncoreontologies.org/InformationEntityOntology> rdf:type owl:Ontology ;
                                                                   owl:versionIRI <https://www.commoncoreontologies.org/2024-11-06/InformationEntityOntology> ;
@@ -50,7 +50,7 @@ cco:ont00001801 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000958 ;
                 rdfs:label "is subject of"@en ;
-                skos:definition "x is_subject_of y iff x is an instance of Entity and y is an instance of Information Content Entity and y is_about x."@en ;
+                skos:definition "x is subject of y =Def y is about x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -71,7 +71,7 @@ cco:ont00001811 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001010 ;
                 rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is an ordinal measurement of"@en ;
-                skos:definition "x is_an_ordinal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity and y is_measured_by_ordinal x."@en ;
+                skos:definition "x is_an_ordinal_measurement_of y iff x is an instance of Ordinal Measurement Information Content Entity and y is an instance of Entity and y is_measured_by_ordinal x."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -102,7 +102,7 @@ cco:ont00001863 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000120 ;
                 rdfs:label "uses measurement unit"@en ;
-                skos:definition "y uses_measurement_unit x iff y is an instance of Information Bearing Entity and x is an instance of Measurement Unit, such that x describes the magnitude of measured physical quantity mentioned in y."@en ;
+                skos:definition "x uses measurement unit y =Def y is measurement unit of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -113,7 +113,7 @@ cco:ont00001868 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000293 ;
                 rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is a nominal measurement of"@en ;
-                skos:definition "x is_a_nominal_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
+                skos:definition "x is_a_nominal_measurement_of y iff x is an instance of Nominal Measurement Information Content Entity and y is an instance of Entity, such that x classifies y relative to some set of shared, possibly arbitrary, characteristics."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -121,10 +121,11 @@ cco:ont00001868 rdf:type owl:ObjectProperty ;
 cco:ont00001873 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001801 ;
                 owl:inverseOf cco:ont00001938 ;
+                rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001069 ;
-                rdfs:comment "See notes for inverse property." ;
+                skos:scopeNote "See notes for inverse property." ;
                 rdfs:label "represented by"@en ;
-                skos:definition "y represented_by x iff x is an instance of Representational Information Content Entity, and y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                skos:definition "x represented by y =Def y represents x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -135,7 +136,7 @@ cco:ont00001877 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00001364 ;
                 rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is an interval measurement of"@en ;
-                skos:definition "x is_an_interval_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity and y is_measured_by_interval x."@en ;
+                skos:definition "x is_an_interval_measurement_of y iff x is an instance of Interval Measurement Information Content Entity and y is an instance of Entity and y is_measured_by_interval x."@en ;
                 skos:example "a measurement of air temperature on the Celsius scale." ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -146,7 +147,7 @@ cco:ont00001878 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range obo:BFO_0000001 ;
                 rdfs:label "is mention of"@en ;
-                skos:definition "x is_mention_of y iff x is an instance Information Bearing Entity and y is an instance of Entity, such that x is used as a reference to y."@en ;
+                skos:definition "x is mention of y =Def y is mentioned by x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -157,7 +158,7 @@ cco:ont00001879 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000686 ;
                 rdfs:label "designated by"@en ;
-                skos:definition "x designated_by y iff y is an instance of Designative Information Content Entity and x is an instance of Entity and y designates x."@en ;
+                skos:definition "x designated by y =Def y designates x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -171,7 +172,7 @@ cco:ont00001884 rdf:type owl:ObjectProperty ;
                                          obo:BFO_0000176
                                        ) ;
                 rdfs:label "condition described by"@en ;
-                skos:definition "x condition_described_by y iff y is an instance of Performance Specification and x is an instance of Entity and y describes_condition x."@en ;
+                skos:definition "x condition described by y =Def y describes condition x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -204,7 +205,7 @@ cco:ont00001904 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001163 ;
                 rdfs:label "is measured by"@en ;
-                skos:definition "y is_measured_by x iff x is an instance of Measurement Information Content Entity and y is an instance of Entity and y is_a_measurement_of x."@en ;
+                skos:definition "x is measured by y =Def y is a measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -214,7 +215,7 @@ cco:ont00001908 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000829 ;
                 rdfs:label "uses time zone identifier"@en ;
-                skos:definition "x uses_time_zone_identifier y iff x is an instance of Information Bearing Entity and y is an instance of Time Zone Identifier, such that y designates the spatial region associated with the time zone mentioned in x."@en ;
+                skos:definition "x uses time zone identifier y =Def y time zone identifier used by x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -225,7 +226,7 @@ cco:ont00001912 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000398 ;
                 rdfs:label "uses reference system"@en ;
-                skos:definition "y uses_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Reference System, such that x describes the set of standards mentioned in y."@en ;
+                skos:definition "x uses reference system y =Def y is reference system of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -235,7 +236,7 @@ cco:ont00001913 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00000469 ;
                 rdfs:label "uses geospatial coordinate reference system"@en ;
-                skos:definition "y uses_geospatial_coordinate_reference_system x iff y is an instance of Information Bearing Entity and x is an instance of Geospatial Coordinate Reference System, such that x describes the set of standards mentioned in y."@en ;
+                skos:definition "x uses geospatial coordinate reference system y =Def y is geospatial coordinate reference system of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -245,7 +246,7 @@ cco:ont00001914 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000293 ;
                 rdfs:label "is measured by nominal"@en ;
-                skos:definition "x is_measured_by_nominal y iff y is an instance of Nominal Measurement Information Content Entity and x is an instance of Entity, such that y classifies x relative to some set of shared, possibly arbitrary, characteristics."@en ;
+                skos:definition "x is measured by nominal y =Def y is a nominal measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -270,7 +271,7 @@ cco:ont00001917 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000853 ;
                 rdfs:label "described by"@en ;
-                skos:definition "x described_by y iff y is an instance of Descriptive Information Content Entity and x is an instance of Entity and y describes x."@en ;
+                skos:definition "x described by y =Def y describes x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -290,18 +291,18 @@ cco:ont00001920 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00000965 ;
                 rdfs:label "prescribed by"@en ;
-                skos:definition "x prescribed_by y iff y is an instance of Directive Information Content Entity and x is an instance of Entity and y prescribes x."@en ;
+                skos:definition "x prescribed by y =Def y prescribes x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001938
 cco:ont00001938 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001808 ;
-                rdfs:domain cco:ont00000958 ;
+                rdfs:domain cco:ont00001069 ;
                 rdfs:range obo:BFO_0000001 ;
-                rdfs:comment "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
+                skos:scopeNote "Isomorphism between the carrier of x and the represented entity can be via a direct similarity relation, e.g., grooves in a vinyl record corresponding to sound waves, or linguistic convention, e.g., a court stenographer's transcription of spoken words, as well as others, such as encoding processes for images."@en ;
                 rdfs:label "represents"@en ;
-                skos:definition "x represents y iff x is an instance of Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
+                skos:definition "x represents y iff x is an instance of Representational Information Content Entity, y is an instance of Entity, and z is carrier of x, such that x is about y in virtue of there existing an isomorphism between characteristics of z and y."@en ;
                 skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ,
                                "The relationship that is being defined here is that between the content of a photographic image and its object, between the content of a video and its objects and events, between the content of an audio recording and the sounds or events generating those sounds, or between the content of a written transcript and the verbal event that it transcribes."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -336,7 +337,7 @@ cco:ont00001963 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001010 ;
                 rdfs:label "is measured by ordinal"@en ;
-                skos:definition "x is_measured_by_ordinal y iff y is an instance of Ordinal Measurement Information Content Entity and x is an instance of Entity, such that y describes some attribute of x relative to a scale ordered by rank."@en ;
+                skos:definition "x is measured by ordinal y =Def y is a ordinal measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -346,7 +347,7 @@ cco:ont00001964 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001364 ;
                 rdfs:label "is measured by interval"@en ;
-                skos:definition "y is_measured_by_interval x iff x is an instance of Interval Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
+                skos:definition "x is measured by interval y =Def y is a interval measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -357,7 +358,7 @@ cco:ont00001965 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000001 ;
                 rdfs:range cco:ont00001022 ;
                 rdfs:label "is measured by ratio"@en ;
-                skos:definition "y is_measured_by_ratio x iff x is an instance of Ratio Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale having equal unit values and a zero value that corresponds to the absence of the attribute being measured."@en ;
+                skos:definition "x is measured by ratio y =Def y is a ratio measurement of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -366,9 +367,9 @@ cco:ont00001966 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001982 ;
                 rdfs:domain cco:ont00001163 ;
                 rdfs:range obo:BFO_0000001 ;
-                rdfs:comment "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."@en ;
+                skos:scopeNote "This object property, as well as all of its children are typified as functional properties. This means that for instances x, y, and z if x is a measurement of y and x is a measurement of z, then y = z."@en ;
                 rdfs:label "is a measurement of"@en ;
-                skos:definition "x is_a_measurement_of y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
+                skos:definition "x is_a_measurement_of y iff x is an instance of Measurement Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to some scale or classification scheme."@en ;
                 skos:scopeNote "Given a stronger temporal interpretation, this property may be functional. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -379,7 +380,7 @@ cco:ont00001976 rdf:type owl:ObjectProperty ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range cco:ont00001175 ;
                 rdfs:label "uses language"@en ;
-                skos:definition "x uses_language y iff x is an instance of an Information Bearing Entity and y is an instance of a Language such that the literal value of x is a string that is encoded according to the syntax of y."@en ;
+                skos:definition "x uses language y =Def y language used in x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -401,7 +402,7 @@ cco:ont00001982 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001808 ;
                 rdfs:domain cco:ont00000853 ;
                 rdfs:range obo:BFO_0000001 ;
-                rdfs:comment "It is possible that this relation should be a functional property, that is for all x, y, z if x describes y and x describes z then y = z. For example, if a financial report x describes the quarterly results of a company y and that same financial report describes the quarterly results of a company z, then it should be inferred that companies y and z are the same. We refrained from classifying the relation as a functional property on the concern that descriptions are multifaceted and so consequently it may be that the same report would contain descriptions of multiple entities."@en ;
+                skos:scopeNote "It is possible that this relation should be a functional property, that is for all x, y, z if x describes y and x describes z then y = z. For example, if a financial report x describes the quarterly results of a company y and that same financial report describes the quarterly results of a company z, then it should be inferred that companies y and z are the same. We refrained from classifying the relation as a functional property on the concern that descriptions are multifaceted and so consequently it may be that the same report would contain descriptions of multiple entities."@en ;
                 rdfs:label "describes"@en ;
                 skos:definition "x describes y iff x is an instance of Descriptive Information Content Entity, and y is an instance of Entity, such that x is_about the characteristics that identify y."@en ;
                 skos:example "the content of a newspaper article describes some current event" ,
@@ -530,7 +531,7 @@ cco:ont00000029 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000067
 cco:ont00000067 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001328 ;
-                rdfs:comment "In traditional astronomical usage, civil time is mean solar time as calculated from midnight as the beginning of the Civil Day."@en ,
+                skos:scopeNote "In traditional astronomical usage, civil time is mean solar time as calculated from midnight as the beginning of the Civil Day."@en ,
                              "Note that Civil Time Reference System is more accurately represented as a Temporal Reference System that participates in an act of usage that is sanctioned by an appropriate civil authority. As such, it should be represented as a defined class."@en ;
                 rdfs:label "Civil Time Reference System"@en ;
                 skos:definition "A Temporal Reference System that is a statutory time scale as designated by civilian authorities to determine local time(s)."@en ;
@@ -577,7 +578,7 @@ cco:ont00000080 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000087
 cco:ont00000087 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000894 ;
-                rdfs:comment "An Ordinal Date Identifier may or may not also contain a number indicating a specific Year. If both numbers are included, the ISO 8601 ordinal date format stipulates that the two numbers be formatted as YYYY-DDD or YYYYDDD where [YYYY] indicates a year and [DDD] is the day of that year, from 001 through 365 (or 366 in leap years)."@en ;
+                skos:scopeNote "An Ordinal Date Identifier may or may not also contain a number indicating a specific Year. If both numbers are included, the ISO 8601 ordinal date format stipulates that the two numbers be formatted as YYYY-DDD or YYYYDDD where [YYYY] indicates a year and [DDD] is the day of that year, from 001 through 365 (or 366 in leap years)."@en ;
                 rdfs:label "Ordinal Date Identifier"@en ;
                 skos:altLabel "Ordinal Date"@en ;
                 skos:definition "A Decimal Date Identifier that designates some Day by using a number to indicate the sequential ordering of the Day since the beginning of the Year."@en ;
@@ -630,7 +631,7 @@ cco:ont00000146 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000154
 cco:ont00000154 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000745 ;
-                rdfs:comment "While there is always at least one Mode for every set of data, it is possible for any given set of data to have multiple Modes. The Mode is typically most useful when the members of the set are all Nominal Measurement Information Content Entities."@en ;
+                skos:scopeNote "While there is always at least one Mode for every set of data, it is possible for any given set of data to have multiple Modes. The Mode is typically most useful when the members of the set are all Nominal Measurement Information Content Entities."@en ;
                 rdfs:label "Mode Point Estimate Information Content Entity"@en ;
                 skos:altLabel "Mode"@en ,
                               "Statistical Mode"@en ;
@@ -650,7 +651,7 @@ cco:ont00000164 rdf:type owl:Class ;
 cco:ont00000186 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001010 ;
                 rdfs:label "Artifact Version Ordinality"@en ;
-                skos:definition "An Ordinal Measurement Information Content Entity that is about the form of an Artifact which differs in some respects from previous or future forms of that Artifact."@en ;
+                skos:definition "An Ordinal Measurement Information Content Entity that is about the form of a Material Artifact which differs in some respects from previous or future forms of that Material Artifact."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -678,7 +679,7 @@ cco:ont00000253 rdf:type owl:Class ;
                                       rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf obo:BFO_0000030 ;
-                rdfs:comment "This class continues to use the word ‘bearing’ in its rdfslabel because of potential confusion with the acronym ‘ICE’, which is widely used for information content entity."@en ;
+                skos:scopeNote "This class continues to use the word ‘bearing’ in its rdfslabel because of potential confusion with the acronym ‘ICE’, which is widely used for information content entity."@en ;
                 rdfs:label "Information Bearing Entity"@en ;
                 skos:altLabel "IBE"@en ,
                               "Information Carrying Entity"@en ;
@@ -690,7 +691,7 @@ cco:ont00000253 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000263
 cco:ont00000263 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001328 ;
-                rdfs:comment "A single Clock Time System does not provide a complete means for identifying or measuring times. Depending on the particular Clock Time System, it may be compatible for use with one or more other Temporal Reference Systems."@en ;
+                skos:scopeNote "A single Clock Time System does not provide a complete means for identifying or measuring times. Depending on the particular Clock Time System, it may be compatible for use with one or more other Temporal Reference Systems."@en ;
                 rdfs:label "Clock Time System"@en ;
                 skos:definition "A Temporal Reference System that is a convention for keeping and displaying the Time of Day."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -699,7 +700,7 @@ cco:ont00000263 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000275
 cco:ont00000275 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000398 ;
-                rdfs:comment "Note that, while reference systems and reference frames are treated as synonyms here, some people treat them as related but separate entities. See: http://www.ggos-portal.org/lang_en/GGOS-Portal/EN/Topics/GeodeticApplications/GeodeticReferenceSystemsAndFrames/GeodeticReferenceSystemsAndFrames.html"@en ;
+                skos:scopeNote "Note that, while reference systems and reference frames are treated as synonyms here, some people treat them as related but separate entities. See: http://www.ggos-portal.org/lang_en/GGOS-Portal/EN/Topics/GeodeticApplications/GeodeticReferenceSystemsAndFrames/GeodeticReferenceSystemsAndFrames.html"@en ;
                 rdfs:label "Spatial Reference System"@en ;
                 skos:altLabel "Coordinate System"@en ,
                               "Spatial Coordinate System"@en ,
@@ -733,7 +734,7 @@ cco:ont00000293 rdf:type owl:Class ;
                 owl:disjointWith cco:ont00001010 ,
                                  cco:ont00001022 ,
                                  cco:ont00001364 ;
-                rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
+                skos:scopeNote "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                 rdfs:label "Nominal Measurement Information Content Entity"@en ;
                 skos:definition "A Measurement Information Content Entity that consists of a symbol that classifies Entities according to some shared, possibly arbitrary, characteristic."@en ;
                 skos:example "The sentence \"January 20, 1985 was a cold day in Chicago, IL\" is the carrier of a nominal measurement."@en ,
@@ -750,7 +751,7 @@ cco:ont00000314 rdf:type owl:Class ;
                                   owl:onProperty obo:BFO_0000197 ;
                                   owl:someValuesFrom cco:ont00000253
                                 ] ;
-                rdfs:comment "Typically, an IQE will be a complex pattern made up of multiple qualities joined together spatially."@en ;
+                skos:scopeNote "Typically, an IQE will be a complex pattern made up of multiple qualities joined together spatially."@en ;
                 rdfs:label "Information Quality Entity"@en ;
                 skos:altLabel "IQE"@en ;
                 skos:definition "A Quality that concretizes some Information Content Entity."@en ;
@@ -821,7 +822,7 @@ cco:ont00000406 rdf:type owl:Class ;
 cco:ont00000419 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000077 ;
                 rdfs:label "Part Number"@en ;
-                skos:definition "A Code Identifier that designates a type of part whose instances are designed to be part of some Artifact."@en ;
+                skos:definition "A Code Identifier that designates a type of part whose instances are designed to be part of some Material Artifact."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -905,7 +906,7 @@ cco:ont00000589 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000592
 cco:ont00000592 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001163 ;
-                rdfs:comment "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."@en ,
+                skos:scopeNote "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."@en ,
                              "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance (see: 'Reliability Measurement Information Content Entity'), correctness-of-information ('Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."@en ;
                 rdfs:label "Veracity Measurement Information Content Entity"@en ;
                 skos:altLabel "Accuracy of Information"@en ,
@@ -934,7 +935,7 @@ cco:ont00000605 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000626
 cco:ont00000626 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000853 ;
-                rdfs:comment "Since predictions are inherently about not-yet-existant things, the Modal Relation Ontology term 'describes' (i.e. mro:describes) should be used (instead of the standard cco:describes) to relate instances of Predictive Information Content Entity to the entities they are about."@en ;
+                skos:scopeNote "Since predictions are inherently about not-yet-existant things, the Modal Relation Ontology term 'describes' (i.e. mro:describes) should be used (instead of the standard cco:describes) to relate instances of Predictive Information Content Entity to the entities they are about."@en ;
                 rdfs:label "Predictive Information Content Entity"@en ;
                 skos:altLabel "Prediction"@en ,
                               "Prediction Information Content Entity"@en ;
@@ -1012,7 +1013,7 @@ cco:ont00000686 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000692
 cco:ont00000692 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001163 ;
-                rdfs:comment "Every probability measurement is made within a particular context given certain background assumptions."@en ;
+                skos:scopeNote "Every probability measurement is made within a particular context given certain background assumptions."@en ;
                 rdfs:label "Probability Measurement Information Content Entity"@en ;
                 skos:altLabel "Likelihood Measurement"@en ,
                               "Probability Measurement"@en ;
@@ -1033,7 +1034,7 @@ cco:ont00000729 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000731
 cco:ont00000731 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001163 ;
-                rdfs:comment "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."@en ,
+                skos:scopeNote "'Deviation Measurement Information Content Entity' and 'Veracity Measurement Information Content Entity' are complementary notions. Deviation is a measure of whether reality conforms to an ICE (e.g., a plan or prediction), whereas Veracity is a measure of whether a Descriptive ICE conforms to reality."@en ,
                              "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance (see: 'Reliability Measurement Information Content Entity'), correctness-of-information (see: 'Veracity Measurement Information Content Entity'), and adherance-to-expectations ('Deviation Measurement Information Content Entity')."@en ;
                 rdfs:label "Deviation Measurement Information Content Entity"@en ;
                 skos:altLabel "Conformance Measurement"@en ,
@@ -1098,7 +1099,7 @@ cco:ont00000827 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000829
 cco:ont00000829 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000390 ;
-                rdfs:comment """Standards of date, time, and time zone data formats:
+                skos:scopeNote """Standards of date, time, and time zone data formats:
 ISO/WD 8601-2 (http://www.loc.gov/standards/datetime/iso-tc154-wg5_n0039_iso_wd_8601-2_2016-02-16.pdf)
 W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
                              "There is no class 'Time Zone' (the region), only 'Time Zone Identifier' (the designator for some region). Instances of 'Time Zone Identifier' should be related to instances of 'Information Bearing Entity' by means of the object properites 'uses time zone identifier' and 'time zone identifier used by' as appropriate. This is supposed to be analogous to the way we represent the relationship between measurement values and measurement units, where the relevant instance of Information Bearing Entity 'uses measurement unit' some instance of Measurement Unit (i.e., an instance of Information Content Entity)."@en ;
@@ -1130,7 +1131,7 @@ cco:ont00000833 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000845
 cco:ont00000845 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001022 ;
-                rdfs:comment "A percentage is one way to express a proportional measure where the decimal expression of the proportion is multiplied by 100, thus giving the proportional value with respect to a whole of 100. E.g., the ratio of pigs to cows on a farm is 44 to 79 (44:79 or 44/79). The proportion of pigs to total animals is 44 to 123 or 44/123. The percentage of pigs is the decimal equivalent of the proportion (0.36) multiplied by a 100 (36%). The percentage can be expressed as a proportion where the numerator value is transformed for a denominator of 100, i.e., 36 of a 100 animals are pigs (36/100)."@en ,
+                skos:scopeNote "A percentage is one way to express a proportional measure where the decimal expression of the proportion is multiplied by 100, thus giving the proportional value with respect to a whole of 100. E.g., the ratio of pigs to cows on a farm is 44 to 79 (44:79 or 44/79). The proportion of pigs to total animals is 44 to 123 or 44/123. The percentage of pigs is the decimal equivalent of the proportion (0.36) multiplied by a 100 (36%). The percentage can be expressed as a proportion where the numerator value is transformed for a denominator of 100, i.e., 36 of a 100 animals are pigs (36/100)."@en ,
                              "We may want to add either a subclass for Percentage or a data property (has percentage value) that links the percentage expression for a proportion to the relevant IBE."@en ;
                 rdfs:label "Proportional Ratio Measurement Information Content Entity"@en ;
                 skos:definition "A Ratio Measurement Information Content Entity that is a measurement of a portion of a whole (described by the numerator) compared against that whole (described by the denominator) where the whole is a nominally described set of like entities."@en ;
@@ -1277,7 +1278,7 @@ cco:ont00001010 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001163 ;
                 owl:disjointWith cco:ont00001022 ,
                                  cco:ont00001364 ;
-                rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
+                skos:scopeNote "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                 rdfs:label "Ordinal Measurement Information Content Entity"@en ;
                 skos:definition "A Measurement Information Content Entity that consists of a symbol that places an Entity into some rank order."@en ;
                 skos:example "The sentence \"The coldest day in history in Chicago, IL. is January 20, 1985.\" is the carrier of an ordinal measurment."@en ,
@@ -1306,7 +1307,7 @@ cco:ont00001022 rdf:type owl:Class ;
                                     ] ;
                 rdfs:subClassOf cco:ont00001163 ;
                 owl:disjointWith cco:ont00001364 ;
-                rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
+                skos:scopeNote "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                 rdfs:label "Ratio Measurement Information Content Entity"@en ;
                 skos:definition "A Measurement Information Content Entity that consists of a symbol that places a Quality of an Entity onto an interval scale having a true zero value."@en ;
                 skos:example "The sentence \"The temperature reached 240.372 degrees Kelvin on January 20, 1985 in Chicago, IL.\" is the carrier of a ratio measurement as 0 degrees on the Kelvin scale does describe absolute zero."@en ,
@@ -1357,7 +1358,7 @@ cco:ont00001101 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001146
 cco:ont00001146 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001328 ;
-                rdfs:comment "Sidereal Time is the angle measured from an observer's meridian along the celestial equator to the Great Circle that passes through the March equinox and both poles. This angle is usually expressed in Hours, Minutes, and Seconds."@en ;
+                skos:scopeNote "Sidereal Time is the angle measured from an observer's meridian along the celestial equator to the Great Circle that passes through the March equinox and both poles. This angle is usually expressed in Hours, Minutes, and Seconds."@en ;
                 rdfs:label "Sidereal Time Reference System"@en ;
                 skos:definition "A Temporal Reference System that is based on Earth's rate of rotation measured relative to one or more fixed Stars (rather than the Sun)."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1435,7 +1436,7 @@ cco:ont00001238 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001256
 cco:ont00001256 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001163 ;
-                rdfs:comment "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance ('Reliability Measurement Information Content Entity'), correctness-of-information (see: 'Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."@en ;
+                skos:scopeNote "Note, the term 'accuracy' is avoided due to its ambiguity between: correctness-of-performance ('Reliability Measurement Information Content Entity'), correctness-of-information (see: 'Veracity Measurement Information Content Entity'), and adherance-to-expectations (see: 'Deviation Measurement Information Content Entity')."@en ;
                 rdfs:label "Reliability Measurement Information Content Entity"@en ;
                 skos:altLabel "Accuracy of Process"@en ,
                               "Reliability Measurement"@en ;
@@ -1494,7 +1495,7 @@ cco:ont00001351 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001352
 cco:ont00001352 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000829 ;
-                rdfs:comment "Greenwich Mean Time (GMT) is the mean solar time at the Royal Observatory in Greenwich, London and has been superseded by Coordinated Universal Time (UTC)."@en ;
+                skos:scopeNote "Greenwich Mean Time (GMT) is the mean solar time at the Royal Observatory in Greenwich, London and has been superseded by Coordinated Universal Time (UTC)."@en ;
                 rdfs:label "Greenwich Mean Time Zone Identifier"@en ;
                 skos:definition "A Time Zone Identifier that designates a spatial region where the local time is calculated according to the specified offset from Greenwich Mean Time."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1511,7 +1512,7 @@ cco:ont00001364 rdf:type owl:Class ;
                                       rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf cco:ont00001163 ;
-                rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
+                skos:scopeNote "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
                 rdfs:label "Interval Measurement Information Content Entity"@en ;
                 skos:definition "A Measurement Information Content Entity that places a Quality of an Entity onto some interval scale having no true zero value."@en ;
                 skos:example "The sentence \"The temperature reached -27 degrees Fahrenheit on January 20, 1985 in Chicago, IL.\" is the carrier of an interval measurement as 0 degrees on the Fahrenheit scale does not describe absolute zero."@en ;
@@ -1521,7 +1522,7 @@ cco:ont00001364 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00002001
 cco:ont00002001 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000958 ;
-                rdfs:comment "By 'canonical', it is intended that the media format is of a commonly recognized format, such as mass media formats such as books, magazines, and journals, as well as digital media forms (e.g. ebooks), to include, too, file types, such as those recognized by the Internet Assigned Numbers Authority (IANA)'s Media Types standard [RFC2046]." ;
+                skos:scopeNote "By 'canonical', it is intended that the media format is of a commonly recognized format, such as mass media formats such as books, magazines, and journals, as well as digital media forms (e.g. ebooks), to include, too, file types, such as those recognized by the Internet Assigned Numbers Authority (IANA)'s Media Types standard [RFC2046]." ;
                 rdfs:label "Media Content Entity" ;
                 skos:definition "An information content entity presented in a canonical media format."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1635,7 +1636,7 @@ cco:ont00002013 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00002014
 cco:ont00002014 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00002001 ;
-                rdfs:comment "For information on types of barcodes, see: https://www.scandit.com/types-barcodes-choosing-right-barcode/"@en ;
+                skos:scopeNote "For information on types of barcodes, see: https://www.scandit.com/types-barcodes-choosing-right-barcode/"@en ;
                 rdfs:label "Barcode"@en ;
                 skos:definition "A Media Content Entity that represents one or more geometric shapes that have, as part, some Directive Information Content Entity."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Barcode&oldid=1059844765"^^xsd:anyURI ;
@@ -1773,7 +1774,7 @@ cco:ont00002030 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00002031
 cco:ont00002031 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00002020 ;
-                rdfs:comment "Further variants of GS1 DataBar have not been defined here."@en ;
+                skos:scopeNote "Further variants of GS1 DataBar have not been defined here."@en ;
                 rdfs:label "GS1 DataBar Barcode"@en ;
                 skos:definition "A One-Dimensional Barcode that represents 12-14 numerical digits and is used in retail and healthcare."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1833,7 +1834,7 @@ cco:ont00002037 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00002038
 cco:ont00002038 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00002001 ,
-                				[ rdf:type owl:Restriction ;
+                                [ rdf:type owl:Restriction ;
                                   owl:onProperty obo:BFO_0000176 ;
                                   owl:someValuesFrom cco:ont00002039
                                 ] ;
@@ -1940,7 +1941,7 @@ cco:ont00001398 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001403
 cco:ont00001403 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+2"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+2"@en ;
                 rdfs:label "Bravo Time Zone"@en ;
                 cco:ont00001753 "B" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1967,7 +1968,7 @@ cco:ont00001406 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001408
 cco:ont00001408 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-11"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-11"@en ;
                 rdfs:label "X-ray Time Zone"@en ;
                 cco:ont00001753 "X" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1976,7 +1977,7 @@ cco:ont00001408 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001412
 cco:ont00001412 rdf:type owl:NamedIndividual ,
                          cco:ont00001352 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+0"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+0"@en ;
                 rdfs:label "GMT"@en ;
                 skos:altLabel "Greenwich Mean Time"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1985,7 +1986,7 @@ cco:ont00001412 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001414
 cco:ont00001414 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment "TT is an astronomical time standard that is a theoretical ideal designed to be free of the irregularities in Earth's rotation and is primarily used for time measurements of astronomical observations made from the surface of Earth. It was formerly called Terrestrial Dynamical Time (TDT), which was formulated to replace Ephemeris Time (ET)."@en ;
+                skos:scopeNote "TT is an astronomical time standard that is a theoretical ideal designed to be free of the irregularities in Earth's rotation and is primarily used for time measurements of astronomical observations made from the surface of Earth. It was formerly called Terrestrial Dynamical Time (TDT), which was formulated to replace Ephemeris Time (ET)."@en ;
                 rdfs:label "Terrestrial Time"@en ;
                 cco:ont00001753 "TT" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -1994,7 +1995,7 @@ cco:ont00001414 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001417
 cco:ont00001417 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment "ET is an astronomical time scale that was adopted as a standard in 1952 by the IAU but has since been superseded and is no longer actively used. ET is based on the ephemeris second, which was defined as a fraction of the tropical year for 1900 January 01 as calculated using Newcomb's 1895 tables of the Sun. ET was designed to avoid problems caused by variations in Earth's rotational period and was used for Solar System ephemeris calculations until being replaced by Terrestrial Dynamical Time (TDT) in 1979."@en ;
+                skos:scopeNote "ET is an astronomical time scale that was adopted as a standard in 1952 by the IAU but has since been superseded and is no longer actively used. ET is based on the ephemeris second, which was defined as a fraction of the tropical year for 1900 January 01 as calculated using Newcomb's 1895 tables of the Sun. ET was designed to avoid problems caused by variations in Earth's rotational period and was used for Solar System ephemeris calculations until being replaced by Terrestrial Dynamical Time (TDT) in 1979."@en ;
                 rdfs:label "Ephemeris Time"@en ;
                 cco:ont00001753 "ET" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2012,7 +2013,7 @@ cco:ont00001419 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001421
 cco:ont00001421 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-6"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-6"@en ;
                 rdfs:label "Sierra Time Zone"@en ;
                 cco:ont00001753 "S" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2021,7 +2022,7 @@ cco:ont00001421 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001424
 cco:ont00001424 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+1"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+1"@en ;
                 rdfs:label "Alpha Time Zone"@en ;
                 cco:ont00001753 "A" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2030,7 +2031,7 @@ cco:ont00001424 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001430
 cco:ont00001430 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+6"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+6"@en ;
                 rdfs:label "Foxtrot Time Zone"@en ;
                 cco:ont00001753 "F" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2039,7 +2040,7 @@ cco:ont00001430 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001431
 cco:ont00001431 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-10"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-10"@en ;
                 rdfs:label "Whiskey Time Zone"@en ;
                 cco:ont00001753 "W" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2089,7 +2090,7 @@ cco:ont00001440 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001446
 cco:ont00001446 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Mike Time Zone is the same local time as Yankee Time Zone, but is 1 Day (i.e. 24 Hours) ahead of Yankee Time Zone as they are on opposite sides of the International Date Line."@en ,
+                skos:scopeNote "Mike Time Zone is the same local time as Yankee Time Zone, but is 1 Day (i.e. 24 Hours) ahead of Yankee Time Zone as they are on opposite sides of the International Date Line."@en ,
                              "Offset from Universal Coordinated Time = UTC+12"@en ;
                 rdfs:label "Mike Time Zone"@en ;
                 cco:ont00001753 "M" ;
@@ -2099,7 +2100,7 @@ cco:ont00001446 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001454
 cco:ont00001454 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+11"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+11"@en ;
                 rdfs:label "Lima Time Zone"@en ;
                 cco:ont00001753 "L" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2108,7 +2109,7 @@ cco:ont00001454 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001457
 cco:ont00001457 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-4"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-4"@en ;
                 rdfs:label "Quebec Time Zone"@en ;
                 cco:ont00001753 "Q" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2117,7 +2118,7 @@ cco:ont00001457 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001461
 cco:ont00001461 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment "TDB is a linear scaling of Barycentric Coordinate Time (TCB) and is a relativistic coordinate time scale used in astronomy as a time standard that accounts for time dilation when calculating Orbits and Ephemerides of Astronomical Bodies and interplanetary Spacecraft in the Solar System. TDB is a successor of Ephemeris Time (ET) and is nearly equivalent to the time scale Teph used for DE405 planetary and lunar ephemerides generated by the Jet Propulsion Laboratory."@en ;
+                skos:scopeNote "TDB is a linear scaling of Barycentric Coordinate Time (TCB) and is a relativistic coordinate time scale used in astronomy as a time standard that accounts for time dilation when calculating Orbits and Ephemerides of Astronomical Bodies and interplanetary Spacecraft in the Solar System. TDB is a successor of Ephemeris Time (ET) and is nearly equivalent to the time scale Teph used for DE405 planetary and lunar ephemerides generated by the Jet Propulsion Laboratory."@en ;
                 rdfs:label "Barycentric Dynamical Time"@en ;
                 cco:ont00001753 "TDB" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2153,7 +2154,7 @@ cco:ont00001476 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001480
 cco:ont00001480 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+9"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+9"@en ;
                 rdfs:label "India Time Zone"@en ;
                 cco:ont00001753 "I" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2162,7 +2163,7 @@ cco:ont00001480 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001488
 cco:ont00001488 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-7"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-7"@en ;
                 rdfs:label "Tango Time Zone"@en ;
                 cco:ont00001753 "T" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2179,7 +2180,7 @@ cco:ont00001491 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001500
 cco:ont00001500 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+5"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+5"@en ;
                 rdfs:label "Echo Time Zone"@en ;
                 cco:ont00001753 "E" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2196,7 +2197,7 @@ cco:ont00001506 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001516
 cco:ont00001516 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-2"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-2"@en ;
                 rdfs:label "Oscar Time Zone"@en ;
                 cco:ont00001753 "O" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2214,7 +2215,7 @@ cco:ont00001524 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001527
 cco:ont00001527 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+8"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+8"@en ;
                 rdfs:label "Hotel Time Zone"@en ;
                 cco:ont00001753 "H" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2223,7 +2224,7 @@ cco:ont00001527 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001529
 cco:ont00001529 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment """\"TCG is a coordinate time standard intended to be used as the independent variable of time for all calculations pertaining to precession, nutation, the Moon, and artificial satellites of the Earth. It is equivalent to the proper time experienced by a clock at rest in a coordinate frame co-moving with the center of the Earth: that is, a clock that performs exactly the same movements as the Earth but is outside the Earth's gravity well. It is therefore not influenced by the gravitational time dilation caused by the Earth.\"
+                skos:scopeNote """\"TCG is a coordinate time standard intended to be used as the independent variable of time for all calculations pertaining to precession, nutation, the Moon, and artificial satellites of the Earth. It is equivalent to the proper time experienced by a clock at rest in a coordinate frame co-moving with the center of the Earth: that is, a clock that performs exactly the same movements as the Earth but is outside the Earth's gravity well. It is therefore not influenced by the gravitational time dilation caused by the Earth.\"
 From: (https://en.wikipedia.org/wiki/Geocentric_Coordinate_Time)"""@en ;
                 rdfs:label "Geocentric Coordinate Time"@en ;
                 cco:ont00001753 "TCG" ;
@@ -2243,7 +2244,7 @@ cco:ont00001534 rdf:type owl:NamedIndividual ,
 cco:ont00001537 rdf:type owl:NamedIndividual ,
                          cco:ont00000067 ,
                          cco:ont00000630 ;
-                rdfs:comment "UTC is a variant of Universal Time that is calculated by combining Universal Time 1 with International Atomic Time by occasionally adding leap seconds to TAI in order to maintain UTC within 0.9 seconds of UT1. The difference between UTC and UT1 is called DUT1 and always has a value between -0.9 seconds and +0.9 seconds. Coordinated Universal Time is the current basis for civil time and is the reference time for time zones, whose local times are defined based on an offset from UTC."@en ;
+                skos:scopeNote "UTC is a variant of Universal Time that is calculated by combining Universal Time 1 with International Atomic Time by occasionally adding leap seconds to TAI in order to maintain UTC within 0.9 seconds of UT1. The difference between UTC and UT1 is called DUT1 and always has a value between -0.9 seconds and +0.9 seconds. Coordinated Universal Time is the current basis for civil time and is the reference time for time zones, whose local times are defined based on an offset from UTC."@en ;
                 rdfs:label "Coordinated Universal Time"@en ;
                 cco:ont00001753 "UTC" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2261,7 +2262,7 @@ cco:ont00001541 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001548
 cco:ont00001548 rdf:type owl:NamedIndividual ,
                          cco:ont00000630 ;
-                rdfs:comment "UT1R is a variant of Universal Time that is a smoothed version of UT1 by filtering out periodic variations due to tidal waves."@en ;
+                skos:scopeNote "UT1R is a variant of Universal Time that is a smoothed version of UT1 by filtering out periodic variations due to tidal waves."@en ;
                 rdfs:label "Universal Time 1 R"@en ;
                 cco:ont00001753 "UT1R" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2270,7 +2271,7 @@ cco:ont00001548 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001550
 cco:ont00001550 rdf:type owl:NamedIndividual ,
                          cco:ont00000276 ;
-                rdfs:comment "The Julian Calendar was proposed by Julius Caesar as a reform of the Roman Calendar, took effect on 1 January 46 BC, and was the predominant Calendar System in Europe until being largely replaced by the Gregorian Calendar."@en ;
+                skos:scopeNote "The Julian Calendar was proposed by Julius Caesar as a reform of the Roman Calendar, took effect on 1 January 46 BC, and was the predominant Calendar System in Europe until being largely replaced by the Gregorian Calendar."@en ;
                 rdfs:label "Julian Calendar"@en ;
                 skos:definition "A Solar Calendar System that has a regular Year of 365 24-Hour Days divided into 12 Months with a leap day added at the end of February every 4 Years such that the average length of a Julian Year is 365.25 Days."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Julian_calendar&oldid=1063127575"^^xsd:anyURI ;
@@ -2318,7 +2319,7 @@ cco:ont00001570 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001580
 cco:ont00001580 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-3"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-3"@en ;
                 rdfs:label "Papa Time Zone"@en ;
                 cco:ont00001753 "P" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2327,7 +2328,7 @@ cco:ont00001580 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001581
 cco:ont00001581 rdf:type owl:NamedIndividual ,
                          cco:ont00000469 ;
-                rdfs:comment """The ITRS definition fulfills the following conditions:
+                skos:scopeNote """The ITRS definition fulfills the following conditions:
 1. It is geocentric, the center of mass being defined for the whole earth, including oceans and atmosphere.
 2. The unit of length is the metre (SI). This scale is consistent with the TCG time coordinate for a geocentric local frame, in agreement with IAU and IUGG (1991) resolutions. This is obtained by appropriate relativistic modelling.
 3. Its orientation was initially given by the BIH orientation at 1984.0.
@@ -2366,7 +2367,7 @@ cco:ont00001588 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001590
 cco:ont00001590 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment "TAI is a time standard the values of which are generated by calculating the weighted average of the measurements of more than 400 atomic clocks and is based on the International System of Units (SI) definition of one second equals the time it takes a Cesium-133 atom at the ground state to oscillate exactly 9,192,631,770 times. TAI is extremely precise, but does not perfectly synchronize with Earth times, which is why TAI and UT1 are both used to determine UTC. TAI serves as the main realization of TT."@en ;
+                skos:scopeNote "TAI is a time standard the values of which are generated by calculating the weighted average of the measurements of more than 400 atomic clocks and is based on the International System of Units (SI) definition of one second equals the time it takes a Cesium-133 atom at the ground state to oscillate exactly 9,192,631,770 times. TAI is extremely precise, but does not perfectly synchronize with Earth times, which is why TAI and UT1 are both used to determine UTC. TAI serves as the main realization of TT."@en ;
                 rdfs:label "International Atomic Time"@en ;
                 cco:ont00001753 "TAI" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2375,7 +2376,7 @@ cco:ont00001590 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001591
 cco:ont00001591 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-8"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-8"@en ;
                 rdfs:label "Uniform Time Zone"@en ;
                 cco:ont00001753 "U" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2404,7 +2405,7 @@ cco:ont00001599 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001603
 cco:ont00001603 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-1"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-1"@en ;
                 rdfs:label "November Time Zone"@en ;
                 cco:ont00001753 "N" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2413,7 +2414,7 @@ cco:ont00001603 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001607
 cco:ont00001607 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-9"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-9"@en ;
                 rdfs:label "Victor Time Zone"@en ;
                 cco:ont00001753 "V" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2433,7 +2434,7 @@ cco:ont00001615 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001624
 cco:ont00001624 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+7"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+7"@en ;
                 rdfs:label "Golf Time Zone"@en ;
                 cco:ont00001753 "G" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2442,7 +2443,7 @@ cco:ont00001624 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001625
 cco:ont00001625 rdf:type owl:NamedIndividual ,
                          cco:ont00000630 ;
-                rdfs:comment "UT0 is a variant of Universal Time that is measured by observing the diurnal motion of stars or extragalactic radio sources at a specific location on Earth. It does not take into consideration distorting factors, in particular polar motion, such that its value will differ based on the location it is measured at."@en ;
+                skos:scopeNote "UT0 is a variant of Universal Time that is measured by observing the diurnal motion of stars or extragalactic radio sources at a specific location on Earth. It does not take into consideration distorting factors, in particular polar motion, such that its value will differ based on the location it is measured at."@en ;
                 rdfs:label "Universal Time 0"@en ;
                 cco:ont00001753 "UT0" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2465,7 +2466,7 @@ cco:ont00001626 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001628
 cco:ont00001628 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-12"@en ,
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-12"@en ,
                              "Yankee Time Zone is the same local time as Mike Time Zone, but is 1 Day (i.e. 24 Hours) behind Mike Time Zone as they are on opposite sides of the International Date Line."@en ;
                 rdfs:label "Yankee Time Zone"@en ;
                 cco:ont00001753 "Y" ;
@@ -2475,7 +2476,7 @@ cco:ont00001628 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001630
 cco:ont00001630 rdf:type owl:NamedIndividual ,
                          cco:ont00000469 ;
-                rdfs:comment """\"WGS 84 is an Earth-centered, Earth-fixed terrestrial reference system and geodetic datum. WGS 84 is based on a consistent set of constants and model parameters that describe the Earth's size, shape, and gravity and geomagnetic fields. WGS 84 is the standard U.S. Department of Defense definition of a global reference system for geospatial information and is the reference system for the Global Positioning System (GPS). It is compatible with the International Terrestrial Reference System (ITRS).\"
+                skos:scopeNote """\"WGS 84 is an Earth-centered, Earth-fixed terrestrial reference system and geodetic datum. WGS 84 is based on a consistent set of constants and model parameters that describe the Earth's size, shape, and gravity and geomagnetic fields. WGS 84 is the standard U.S. Department of Defense definition of a global reference system for geospatial information and is the reference system for the Global Positioning System (GPS). It is compatible with the International Terrestrial Reference System (ITRS).\"
 From: (http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf)"""@en ;
                 rdfs:label "World Geodetic System 1984"@en ;
                 cco:ont00001753 "WGS 84" ;
@@ -2511,7 +2512,7 @@ cco:ont00001648 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001658
 cco:ont00001658 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment "Teph (the 'eph' is written as subscript) is an ephemeris time argument developed and calculated at the Jet Propulsion Laboratory (JPL) and implemented in a series of numerically integrated Development Ephemerides (DE), including the currently used DE405. Teph is characterized as a relativistic coordinate time that is nearly equivalent to the IAU's definition of TCB, though Teph is not currently an IAU time standard. Teph is used by the JPL to generate the ephemerides it publishes to support spacecraft navigation and astronomy."@en ;
+                skos:scopeNote "Teph (the 'eph' is written as subscript) is an ephemeris time argument developed and calculated at the Jet Propulsion Laboratory (JPL) and implemented in a series of numerically integrated Development Ephemerides (DE), including the currently used DE405. Teph is characterized as a relativistic coordinate time that is nearly equivalent to the IAU's definition of TCB, though Teph is not currently an IAU time standard. Teph is used by the JPL to generate the ephemerides it publishes to support spacecraft navigation and astronomy."@en ;
                 rdfs:label "Jet Propulsion Laboratory Ephemeris Time Argument"@en ;
                 skos:altLabel "JPL Ephemeris Time"@en ;
                 cco:ont00001753 "Teph" ;
@@ -2521,7 +2522,7 @@ cco:ont00001658 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001660
 cco:ont00001660 rdf:type owl:NamedIndividual ,
                          cco:ont00000469 ;
-                rdfs:comment "This global main field model provides magnetic field values for any location on Earth, e.g. for  navigational purposes (declination) or as a standard for core field subtraction for aeromagnetic surveys. An updated version is adopted by International Association of Geomagnetism and Aeronomy (IAGA) every 5 years)."@en ;
+                skos:scopeNote "This global main field model provides magnetic field values for any location on Earth, e.g. for  navigational purposes (declination) or as a standard for core field subtraction for aeromagnetic surveys. An updated version is adopted by International Association of Geomagnetism and Aeronomy (IAGA) every 5 years)."@en ;
                 rdfs:label "International Geomagnetic Reference Field"@en ;
                 cco:ont00001754 "Alken, P., Thébault, E., Beggan, C.D. et al. International Geomagnetic Reference Field: the thirteenth generation. Earth Planets Space 73, 49 (2021). https://doi.org/10.1186/s40623-020-01288-x , https://www.iaga-aiga.org/" .
 
@@ -2538,7 +2539,7 @@ cco:ont00001661 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001666
 cco:ont00001666 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment """\"Barycentric Coordinate Time (TCB, from the French Temps-coordonnée barycentrique) is a coordinate time standard intended to be used as the independent variable of time for all calculations pertaining to orbits of planets, asteroids, comets, and interplanetary spacecraft in the Solar system. It is equivalent to the proper time experienced by a clock at rest in a coordinate frame co-moving with the barycenter of the Solar system: that is, a clock that performs exactly the same movements as the Solar system but is outside the system's gravity well. It is therefore not influenced by the gravitational time dilation caused by the Sun and the rest of the system.\"
+                skos:scopeNote """\"Barycentric Coordinate Time (TCB, from the French Temps-coordonnée barycentrique) is a coordinate time standard intended to be used as the independent variable of time for all calculations pertaining to orbits of planets, asteroids, comets, and interplanetary spacecraft in the Solar system. It is equivalent to the proper time experienced by a clock at rest in a coordinate frame co-moving with the barycenter of the Solar system: that is, a clock that performs exactly the same movements as the Solar system but is outside the system's gravity well. It is therefore not influenced by the gravitational time dilation caused by the Sun and the rest of the system.\"
 From: (https://en.wikipedia.org/wiki/Barycentric_Coordinate_Time)"""@en ;
                 rdfs:label "Barycentric Coordinate Time"@en ;
                 cco:ont00001753 "TCB" ;
@@ -2548,7 +2549,7 @@ From: (https://en.wikipedia.org/wiki/Barycentric_Coordinate_Time)"""@en ;
 ###  https://www.commoncoreontologies.org/ont00001674
 cco:ont00001674 rdf:type owl:NamedIndividual ,
                          cco:ont00000276 ;
-                rdfs:comment "The Gregorian Calendar was instituted by Pope Gregory XIII via papal bull on 24 February 1582 as a reform of the Julian Calendar to stop the drift of the calendar with respect to the equinoxes and solstices. The Gregorian Calendar is currently the most widely used civil Calendar System in the world and is 13 days ahead of the Julian Calendar Date."@en ;
+                skos:scopeNote "The Gregorian Calendar was instituted by Pope Gregory XIII via papal bull on 24 February 1582 as a reform of the Julian Calendar to stop the drift of the calendar with respect to the equinoxes and solstices. The Gregorian Calendar is currently the most widely used civil Calendar System in the world and is 13 days ahead of the Julian Calendar Date."@en ;
                 rdfs:label "Gregorian Calendar"@en ;
                 skos:definition "A Solar Calendar System that has a regular Year of 365 24-Hour Days divided into 12 Months with a leap day added at the end of February every 4 Years except Years that are evenly divisible by 100 but not 400 such that there are 97 leap Years every 400 Years and the average length of a Gregorian Year is 365.2425 Days (365 Days 5 Hours 49 Minutes 12 Seconds)."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Gregorian_calendar&oldid=1062360692"^^xsd:anyURI ;
@@ -2567,7 +2568,7 @@ cco:ont00001691 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001692
 cco:ont00001692 rdf:type owl:NamedIndividual ,
                          cco:ont00001328 ;
-                rdfs:comment """Unix Time is a Temporal Reference System for describing a point in time, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC) Thursday, 1 January 1970 minus the number of leap seconds that have taken place since then.
+                skos:scopeNote """Unix Time is a Temporal Reference System for describing a point in time, defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC) Thursday, 1 January 1970 minus the number of leap seconds that have taken place since then.
 (See: https://en.wikipedia.org/wiki/Unix_time)"""@en ;
                 rdfs:label "Unix Time"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2576,7 +2577,7 @@ cco:ont00001692 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001693
 cco:ont00001693 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+0"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+0"@en ;
                 rdfs:label "Zulu Time Zone"@en ;
                 cco:ont00001753 "Z" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2585,7 +2586,7 @@ cco:ont00001693 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001695
 cco:ont00001695 rdf:type owl:NamedIndividual ,
                          cco:ont00000630 ;
-                rdfs:comment "UT2 is a variant of Universal Time that smooths UT1 by accounting for both polar motion and variations in Earth's rotation due to seasonal factors, such as changes in vegetation and water or snow distribution."@en ;
+                skos:scopeNote "UT2 is a variant of Universal Time that smooths UT1 by accounting for both polar motion and variations in Earth's rotation due to seasonal factors, such as changes in vegetation and water or snow distribution."@en ;
                 rdfs:label "Universal Time 2"@en ;
                 cco:ont00001753 "UT2" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2594,7 +2595,7 @@ cco:ont00001695 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001700
 cco:ont00001700 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Juliet time is used as an indexical to refer to local time without otherwise specifying the time zone."@en ;
+                skos:scopeNote "Juliet time is used as an indexical to refer to local time without otherwise specifying the time zone."@en ;
                 rdfs:label "Juliet Time Zone"@en ;
                 cco:ont00001753 "J" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2632,7 +2633,7 @@ cco:ont00001704 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001712
 cco:ont00001712 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC-5"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC-5"@en ;
                 rdfs:label "Romeo Time Zone"@en ;
                 cco:ont00001753 "R" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2641,7 +2642,7 @@ cco:ont00001712 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001716
 cco:ont00001716 rdf:type owl:NamedIndividual ,
                          cco:ont00000630 ;
-                rdfs:comment "UT1 is a derivation of UT0 that takes into account distortions caused by polar motion and is proportional to the rotation angle of the Earth with respect to distant quasars, specifically, the International Celestial Reference Frame (ICRF). UT1 is currently the most widely used variant of Universal Time and has the same value everywhere on Earth."@en ;
+                skos:scopeNote "UT1 is a derivation of UT0 that takes into account distortions caused by polar motion and is proportional to the rotation angle of the Earth with respect to distant quasars, specifically, the International Celestial Reference Frame (ICRF). UT1 is currently the most widely used variant of Universal Time and has the same value everywhere on Earth."@en ;
                 rdfs:label "Universal Time 1"@en ;
                 skos:altLabel "Astronomical Time"@en ;
                 cco:ont00001753 "UT1" ;
@@ -2651,7 +2652,7 @@ cco:ont00001716 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001723
 cco:ont00001723 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+4"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+4"@en ;
                 rdfs:label "Delta Time Zone"@en ;
                 cco:ont00001753 "D" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2660,7 +2661,7 @@ cco:ont00001723 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001727
 cco:ont00001727 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+10"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+10"@en ;
                 rdfs:label "Kilo Time Zone"@en ;
                 cco:ont00001753 "K" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -2669,10 +2670,10 @@ cco:ont00001727 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001732
 cco:ont00001732 rdf:type owl:NamedIndividual ,
                          cco:ont00001235 ;
-                rdfs:comment "Offset from Universal Coordinated Time = UTC+3"@en ;
+                skos:scopeNote "Offset from Universal Coordinated Time = UTC+3"@en ;
                 rdfs:label "Charlie Time Zone"@en ;
                 cco:ont00001753 "C" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
