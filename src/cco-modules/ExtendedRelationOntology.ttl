@@ -213,16 +213,6 @@ cco:ont00001762 rdf:type owl:AnnotationProperty ;
 obo:BFO_0000199 owl:inverseOf cco:ont00001874 .
 
 
-###  https://www.commoncoreontologies.org/ont00001775
-cco:ont00001775 rdf:type owl:ObjectProperty ;
-                owl:inverseOf cco:ont00001928 ;
-                rdfs:domain obo:BFO_0000004 ;
-                rdfs:range obo:BFO_0000004 ;
-                rdfs:label "is successor of"@en ;
-                skos:definition "x is_successor_of y iff x and y are both instances of Independent Continuant and y is_predecessor_of x. "@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
-
-
 ###  https://www.commoncoreontologies.org/ont00001777
 cco:ont00001777 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:BFO_0000117 ;
@@ -486,17 +476,6 @@ cco:ont00001921 rdf:type owl:ObjectProperty ;
                 rdfs:label "has input"@en ;
                 skos:definition "y has_input x iff x is an instance of Continuant and y is an instance of Process, such that the presence of x at the beginning of y is a necessary condition for the start of y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
-
-
-###  https://www.commoncoreontologies.org/ont00001928
-cco:ont00001928 rdf:type owl:ObjectProperty ;
-                rdfs:domain obo:BFO_0000004 ;
-                rdfs:range obo:BFO_0000004 ;
-                rdfs:label "is predecessor of"@en ;
-                skos:definition "x is_predecessor_of y iff x and y are both instances of Independent Continuant and there is some process p and x is an input to p and y is an output of p."@en ;
-                skos:scopeNote "More informally, x is_predecessor_of y iff y follows or replaces x."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
-
 
 ###  https://www.commoncoreontologies.org/ont00001933
 cco:ont00001933 rdf:type owl:ObjectProperty ;
