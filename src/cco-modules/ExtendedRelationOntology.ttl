@@ -440,7 +440,7 @@ cco:ont00001857 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000015 ;
                 rdfs:range obo:BFO_0000015 ;
                 rdfs:label "is part of process"@en ;
-                skos:definition "x is_part_of_process y iff x and y are instances of Process, such that x occurs during the temporal interval of y, and x either provides an input to y or receives an output of y."@en ;
+                skos:definition "x is_part_of_process y iff x and y are instances of Process, such that x occupies a temporal region that is a proper occurrent part of the temporal interval of y, and x either provides an input to y or receives an output of y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -550,7 +550,7 @@ cco:ont00001933 rdf:type owl:ObjectProperty ;
                 rdfs:domain obo:BFO_0000015 ;
                 rdfs:range obo:BFO_0000015 ;
                 rdfs:label "process starts"@en ;
-                skos:definition "x process_starts y iff x and y are instances of processes, and x is_cause_of y, and i is an instance of a temporal instant, and r is an instance of a temporal interval, and y has starting instance i, and x occurs on r, and r has inside instant i."@en ;
+                skos:definition "x process_starts y iff x and y are instances of processes, and x is_cause_of y, and i is an instance of a temporal instant, and r is an instance of a temporal interval, and y has starting instance i, and x occupies temporal region r, and r has inside instant i."@en ;
                 skos:scopeNote "A process x starts another process y when x causes y while x is still occurring."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
