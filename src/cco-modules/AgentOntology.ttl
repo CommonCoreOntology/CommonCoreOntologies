@@ -268,8 +268,8 @@ cco:ont00001880 rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:ont00001898 ;
                 rdfs:domain cco:ont00001379 ;
                 rdfs:range obo:BFO_0000027 ;
-                rdfs:label "capability of aggregate"@en ;
-                skos:definition "x capability_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en ;
+                rdfs:label "agent capability of aggregate"@en ;
+                skos:definition "x agent capability of aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -279,8 +279,8 @@ cco:ont00001889 rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:ont00001954 ;
                 rdfs:domain cco:ont00001379 ;
                 rdfs:range cco:ont00001017 ;
-                rdfs:label "capability of"@en ;
-                skos:definition "x capability_of y iff y is an instance of Agent and x is an instance of Agent Capability, such that x inheres in y."@en ;
+                rdfs:label "agent capability of"@en ;
+                skos:definition "x agent capability of y iff y is an instance of Agent and x is an instance of Agent Capability, such that x inheres in y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -300,8 +300,8 @@ cco:ont00001898 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001836 ;
                 rdfs:domain obo:BFO_0000027 ;
                 rdfs:range cco:ont00001379 ;
-                rdfs:label "aggregate has capability"@en ;
-                skos:definition "x aggregate has capability y =Def y capability of aggregate x"@en ;
+                rdfs:label "aggregate has agent capability"@en ;
+                skos:definition "x aggregate has agent capability y =Def y agent capability of aggregate x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -395,8 +395,8 @@ cco:ont00001954 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:BFO_0000196 ;
                 rdfs:domain cco:ont00001017 ;
                 rdfs:range cco:ont00001379 ;
-                rdfs:label "has capability"@en ;
-                skos:definition "x has capability y =Def y capability of x"@en ;
+                rdfs:label "has agent capability"@en ;
+                skos:definition "x has agent capability y =Def y agent capability of x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1675,9 +1675,21 @@ cco:ont00001363 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001379
 cco:ont00001379 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000017 ;
+                owl:equivalentClass [ owl:intersectionOf ( cco:ont00002072
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:BFO_0000054 ;
+                                                             owl:someValuesFrom cco:ont00000228
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:BFO_0000197 ;
+                                                             owl:someValuesFrom obo:BFO_0000040
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf cco:ont00002072 ;
                 rdfs:label "Agent Capability"@en ;
-                skos:definition "A Realizable Entity that inheres in a Material Entity in virtue of that Material Entity's capacity to realize it in some Planned Act."@en ;
+                skos:definition "A Capability that inheres in a Material Entity and whose realization is a Planned Act."@en ;
                 cco:ont00001754 "Schlosser, Markus, \"Agency\", The Stanford Encyclopedia of Philosophy (Winter 2019 Edition), Edward N. Zalta (ed.), available at: https://plato.stanford.edu/archives/win2019/entries/agency/"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
