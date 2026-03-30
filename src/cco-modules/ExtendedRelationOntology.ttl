@@ -275,10 +275,11 @@ cco:ont00001782 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001799
 cco:ont00001799 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001809 ;
+                owl:inverseOf cco:ont00001901 ;
                 rdfs:domain obo:BFO_0000023 ;
                 rdfs:range obo:BFO_0000027 ;
-                rdfs:label "role of aggregate"@en ;
-                skos:definition "x role_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Role, and x inheres_in_aggregate y."@en ;
+                rdfs:label "role of object aggregate"@en ;
+                skos:definition "x role of object aggregate y iff x is a Role, y is an Object Aggregate, and x inheres in object aggregate y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -307,15 +308,12 @@ cco:ont00001805 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001809
 cco:ont00001809 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000197 ;
                 owl:inverseOf cco:ont00001836 ;
-                rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( obo:BFO_0000020
-                                            obo:BFO_0000031
-                                          )
-                            ] ;
+                rdfs:domain obo:BFO_0000020 ;
                 rdfs:range obo:BFO_0000027 ;
-                rdfs:label "inheres in aggregate"@en ;
-                skos:definition "x inheres_in_aggregate y iff x is an instance of Specifically Dependent Continuant or Generically Dependent Continuant and y is an instance of Object Aggregate and y aggregate_bearer_of x."@en ;
+                rdfs:label "inheres in object aggregate"@en ;
+                skos:definition "x inheres in object aggregate y iff x is a Specifically Dependent Continuant, y is an Object Aggregate and x inheres in y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -356,8 +354,8 @@ cco:ont00001829 rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:ont00001956 ;
                 rdfs:domain obo:BFO_0000016 ;
                 rdfs:range obo:BFO_0000027 ;
-                rdfs:label "disposition of aggregate"@en ;
-                skos:definition "x disposition_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Disposition, and x inheres_in_aggregate y."@en ;
+                rdfs:label "disposition of object aggregate"@en ;
+                skos:definition "x disposition of object aggregate y iff x is a Disposition, y is an Object Aggregate, and x inheres in object aggregate y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -400,14 +398,11 @@ cco:ont00001834 rdf:type owl:ObjectProperty ;
 
 ###  https://www.commoncoreontologies.org/ont00001836
 cco:ont00001836 rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000196 ;
                 rdfs:domain obo:BFO_0000027 ;
-                rdfs:range [ rdf:type owl:Class ;
-                             owl:unionOf ( obo:BFO_0000020
-                                           obo:BFO_0000031
-                                         )
-                           ] ;
-                rdfs:label "aggregate bearer of"@en ;
-                skos:definition "x aggregate bearer of y =Def y inheres in aggregate x"@en ;
+                rdfs:range obo:BFO_0000020 ;
+                rdfs:label "object aggregate bearer of"@en ;
+                skos:definition "x object aggregate bearer of y =Def y inheres in object aggregate x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -551,18 +546,19 @@ cco:ont00001901 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001836 ;
                 rdfs:domain obo:BFO_0000027 ;
                 rdfs:range obo:BFO_0000023 ;
-                rdfs:label "aggregate has role"@en ;
-                skos:definition "x aggregate_has_role y iff x is an instance of Object Aggregate and y is an instance of Role, such that x aggregate_bearer_of y."@en ;
+                rdfs:label "object aggregate has role"@en ;
+                skos:definition "x object aggregate has role y =Def y role of object aggregate y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001907
 cco:ont00001907 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001836 ;
+                owl:inverseOf cco:ont00001947 ;
                 rdfs:domain obo:BFO_0000027 ;
                 rdfs:range obo:BFO_0000019 ;
-                rdfs:label "aggregate has quality"@en ;
-                skos:definition "x aggregate_has_quality y iff x is an instance of Object Aggregate and y is an instance of Quality, such that x aggregate_bearer_of y."@en ;
+                rdfs:label "object aggregate has quality"@en ;
+                skos:definition "x object aggregate has quality y =Def y quality of object aggregate y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -645,8 +641,8 @@ cco:ont00001947 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001809 ;
                 rdfs:domain obo:BFO_0000019 ;
                 rdfs:range obo:BFO_0000027 ;
-                rdfs:label "quality of aggregate"@en ;
-                skos:definition "x quality_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Quality, and x inheres_in_aggregate y."@en ;
+                rdfs:label "quality of object aggregate"@en ;
+                skos:definition "x quality of object aggregate y iff x is a Quality, y is an Object Aggregate,  and x inheres in object aggregate  y."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -655,8 +651,8 @@ cco:ont00001956 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf cco:ont00001836 ;
                 rdfs:domain obo:BFO_0000027 ;
                 rdfs:range obo:BFO_0000016 ;
-                rdfs:label "aggregate has disposition"@en ;
-                skos:definition "x aggregate has disposition y =Def y disposition of aggregate x"@en ;
+                rdfs:label "object aggregate has disposition"@en ;
+                skos:definition "x object aggregate has disposition y =Def y disposition of object aggregate x"@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
