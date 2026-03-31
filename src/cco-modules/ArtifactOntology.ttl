@@ -47,8 +47,6 @@ cco:ont00000012 rdf:type owl:Class ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-
-
 ###  https://www.commoncoreontologies.org/ont00000015
 cco:ont00000015 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001104 ;
@@ -85,9 +83,21 @@ cco:ont00000020 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000021
 cco:ont00000021 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000995 ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:BFO_0000196 ;
+                                                             owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                  owl:unionOf ( cco:ont00000023
+                                                                                                cco:ont00002074
+                                                                                              )
+                                                                                ]
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:BFO_0000040 ;
                 rdfs:label "Sensor Platform"@en ;
-                skos:definition "A Material Artifact that is designed to support, and in some cases transport, a Sensor during its deployment and functioning."@en ;
+                skos:definition "A Material Entity that bears a Sensor Platform Artifact Function or Sensor Platform Role."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -178,9 +188,9 @@ cco:ont00000043 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000047
 cco:ont00000047 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000598 ;
-                skos:scopeNote "Flow Control Valves are often more complex than a simple Valve and typically include an Actuator that is capable of automatically adjusting the state of the valve in response to signals from a connected Sensor or Controller."@en ;
                 rdfs:label "Flow Control Valve"@en ;
                 skos:definition "A Valve that is designed to regulate the flow or Pressure of a fluid."@en ;
+                skos:scopeNote "Flow Control Valves are often more complex than a simple Valve and typically include an Actuator that is capable of automatically adjusting the state of the valve in response to signals from a connected Sensor or Controller."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Flow_control_valve&oldid=1013438085"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -473,12 +483,12 @@ cco:ont00000117 rdf:type owl:Class ;
 cco:ont00000118 rdf:type owl:Class ;
                 owl:equivalentClass [ owl:intersectionOf ( cco:ont00000965
                                                            [ rdf:type owl:Restriction ;
-                                                             owl:onProperty cco:ont00001942 ;
-                                                             owl:someValuesFrom cco:ont00000323
+                                                             owl:onProperty obo:BFO_0000176 ;
+                                                             owl:someValuesFrom cco:ont00001045
                                                            ]
                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty obo:BFO_0000176 ;
-                                                              owl:someValuesFrom cco:ont00001045
+                                                             owl:onProperty cco:ont00001942 ;
+                                                             owl:someValuesFrom cco:ont00000323
                                                            ]
                                                          ) ;
                                       rdf:type owl:Class
@@ -530,10 +540,10 @@ cco:ont00000132 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000136
 cco:ont00000136 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000995 ;
-                skos:scopeNote "Optical Instruments are typically constructed for the purpose of being used to aid in vision or the analysis of light."@en ;
                 rdfs:label "Optical Instrument"@en ;
                 skos:definition "A Material Artifact that is designed to process light waves."@en ;
-                skos:scopeNote "Light waves can be processed in a variety of ways including via reflection, refraction, diffraction, deflection, focusing, collimation, dispersion, and interference."@en ;
+                skos:scopeNote "Light waves can be processed in a variety of ways including via reflection, refraction, diffraction, deflection, focusing, collimation, dispersion, and interference."@en ,
+                               "Optical Instruments are typically constructed for the purpose of being used to aid in vision or the analysis of light."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Optical_instrument&oldid=1061981216"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -787,9 +797,9 @@ cco:ont00000214 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000215
 cco:ont00000215 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000547 ;
-                skos:scopeNote "A Radio Telescope consists of a specialized Antenna and a Radio Receiver and is typically used to receive radio waves from sources in outer space."@en ;
                 rdfs:label "Radio Telescope"@en ;
                 skos:definition "A Telescope that is designed to aid in the observation of spatially distant Objects by means of collecting and focusing radio waves to form an enhanced image of the Object."@en ;
+                skos:scopeNote "A Radio Telescope consists of a specialized Antenna and a Radio Receiver and is typically used to receive radio waves from sources in outer space."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Radio_telescope&oldid=1052819190"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -858,11 +868,6 @@ cco:ont00000238 rdf:type owl:Class ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-
-
-
-
-
 ###  https://www.commoncoreontologies.org/ont00000243
 cco:ont00000243 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000995 ;
@@ -893,9 +898,9 @@ cco:ont00000247 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000249
 cco:ont00000249 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000995 ;
-                skos:scopeNote "A Shaft is usually used to connect other components of a drive train that cannot be connected directly either because of the distance between them or the need to allow for relative movement between those components."@en ;
                 rdfs:label "Shaft"@en ;
                 skos:definition "A Material Artifact that is designed to rotate and transmit Torque, Power, or Rotational Motion from one machine element to another."@en ;
+                skos:scopeNote "A Shaft is usually used to connect other components of a drive train that cannot be connected directly either because of the distance between them or the need to allow for relative movement between those components."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Shaft&oldid=1023963656"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -934,9 +939,6 @@ cco:ont00000256 rdf:type owl:Class ;
                 rdfs:label "Fluid Control Artifact"@en ;
                 skos:definition "A Material Artifact that is designed to manipulate the flow of a fluid (i.e. a liquid or a gas)."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00000264
@@ -1248,7 +1250,6 @@ cco:ont00000325 rdf:type owl:Class ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-
 ###  https://www.commoncoreontologies.org/ont00000328
 cco:ont00000328 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000870 ;
@@ -1410,10 +1411,10 @@ cco:ont00000355 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000362
 cco:ont00000362 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000533 ;
-                skos:scopeNote "Most rocket engines are also Internal Combustion Engines, however non-combusting forms also exist. For example, an untied balloon full of air that is released and allowed to zoom around the room may be both a Rocket Engine and a Physically Powered Engine."@en ;
                 rdfs:label "Rocket Engine"@en ;
                 skos:altLabel "Thruster"@en ;
                 skos:definition "A Jet Engine that is designed to use only stored Rocket Propellant to form a high speed propulsive jet in order to generate Thrust."@en ;
+                skos:scopeNote "Most rocket engines are also Internal Combustion Engines, however non-combusting forms also exist. For example, an untied balloon full of air that is released and allowed to zoom around the room may be both a Rocket Engine and a Physically Powered Engine."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Rocket_engine&oldid=1063879464"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -1595,9 +1596,6 @@ cco:ont00000428 rdf:type owl:Class ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-
-
-
 ###  https://www.commoncoreontologies.org/ont00000431
 cco:ont00000431 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000746 ;
@@ -1680,9 +1678,9 @@ cco:ont00000452 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000453
 cco:ont00000453 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000995 ;
-                skos:scopeNote "Controlling air quality typically involves temperature control, oxygen replenishment, and removal of moisture, odor, smoke, heat, dust, airborne bacteria, carbon dioxide, and other undesired gases or particulates."@en ;
                 rdfs:label "Environment Control System"@en ;
                 skos:definition "A Material Artifact that is designed to control the temperature, air quality, or other feature of a Site that is relevant to the comfort or operation of entities located within that Site."@en ;
+                skos:scopeNote "Controlling air quality typically involves temperature control, oxygen replenishment, and removal of moisture, odor, smoke, heat, dust, airborne bacteria, carbon dioxide, and other undesired gases or particulates."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -1718,9 +1716,6 @@ cco:ont00000458 rdf:type owl:Class ;
                 skos:definition "A Material Artifact that is designed to connect two Shafts together at their ends for the purpose of transmitting power."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Coupling&oldid=1055718683"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00000466
@@ -1907,9 +1902,9 @@ cco:ont00000526 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000533
 cco:ont00000533 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000056 ;
-                skos:scopeNote "Some (most) jet engines utilize turbines, but some do not. Most rocket engines do not utilize turbines, but some do."@en ;
                 rdfs:label "Jet Engine"@en ;
                 skos:definition "A Reaction Engine that discharges a fast moving jet that generates Thrust by jet propulsion."@en ;
+                skos:scopeNote "Some (most) jet engines utilize turbines, but some do not. Most rocket engines do not utilize turbines, but some do."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Jet_engine&oldid=1060157063"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -1982,14 +1977,12 @@ cco:ont00000552 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000556
 cco:ont00000556 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000040 ;
-                skos:scopeNote "Depending on the nature of the Flight or Mission, the Payload of a Vehicle may include cargo, passengers, flight crew, munitions, scientific instruments or experiments, or other equipment. Extra fuel, when optionally carried, is also considered part of the payload."@en ;
                 rdfs:label "Payload"@en ;
                 skos:definition "A Material Entity that is transported by a Vehicle during an Act of Location Change for the purpose of being delivered to or performing one or more functions at a predefined location."@en ;
-                skos:scopeNote "In each case, the Payload is what provides the immediate reason for performing the Act of Location Change (e.g. transporting the passengers of a commercial airline flight to their destination; transporting food, fuel, oxygen, research equipment, and spare parts to the International Space Station; or conveying an array of sensors, cameras, and communications systems so they can operate during a Sun-Synchronous Earth Orbit)."@en ;
+                skos:scopeNote "Depending on the nature of the Flight or Mission, the Payload of a Vehicle may include cargo, passengers, flight crew, munitions, scientific instruments or experiments, or other equipment. Extra fuel, when optionally carried, is also considered part of the payload."@en ,
+                               "In each case, the Payload is what provides the immediate reason for performing the Act of Location Change (e.g. transporting the passengers of a commercial airline flight to their destination; transporting food, fuel, oxygen, research equipment, and spare parts to the International Space Station; or conveying an array of sensors, cameras, and communications systems so they can operate during a Sun-Synchronous Earth Orbit)."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Payload&oldid=1035953573"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00000561
@@ -2003,9 +1996,21 @@ cco:ont00000561 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000569
 cco:ont00000569 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000736 ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:BFO_0000196 ;
+                                                             owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                  owl:unionOf ( cco:ont00001241
+                                                                                                cco:ont00002073
+                                                                                              )
+                                                                                ]
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:BFO_0000040 ;
                 rdfs:label "Sensor"@en ;
-                skos:definition "A Transducer that is designed to convert incoming energy into a output signal which reliably corresponds to changes in that energy."@en ;
+                skos:definition "A Material Entity that bears a Sensor Function or Sensor Role."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Sensor&oldid=1059883466"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -2053,9 +2058,6 @@ cco:ont00000581 rdf:type owl:Class ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-
-
-
 ###  https://www.commoncoreontologies.org/ont00000586
 cco:ont00000586 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000238 ;
@@ -2088,9 +2090,6 @@ cco:ont00000593 rdf:type owl:Class ;
                 rdfs:label "Portion of Propellant"@en ;
                 skos:definition "A Portion of Material that is designed to be used as an input in a Propulsion Process to produce Thrust."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00000597
@@ -2140,9 +2139,9 @@ cco:ont00000603 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000606
 cco:ont00000606 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000053 ;
-                skos:scopeNote "Trucks vary greatly in their size and power -- ranging from small ultra-light trucks to enormous heavy trucks. Trucks also vary greatly in their configurations -- ranging from very basic flatbeds or box trucks to highly specialized cargo carriers. Trucks may also be configured to mount specialized equipment, such as in the case of fire trucks, concrete mixers, and suction excavators."@en ;
                 rdfs:label "Truck"@en ;
                 skos:definition "A Ground Motor Vehicle that is designed to be used to transport cargo."@en ;
+                skos:scopeNote "Trucks vary greatly in their size and power -- ranging from small ultra-light trucks to enormous heavy trucks. Trucks also vary greatly in their configurations -- ranging from very basic flatbeds or box trucks to highly specialized cargo carriers. Trucks may also be configured to mount specialized equipment, such as in the case of fire trucks, concrete mixers, and suction excavators."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Truck&oldid=1060924486"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -2474,11 +2473,11 @@ cco:ont00000694 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000698
 cco:ont00000698 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000252 ;
-                skos:scopeNote "By increasing the Exhaust Velocity of the gas, the Nozzle increases the Thrust generated."@en ;
                 rdfs:label "Convergent-Divergent Nozzle"@en ;
                 skos:altLabel "CD Nozzle"@en ,
                               "de Laval Nozzle"@en ;
                 skos:definition "A Nozzle that consists of a tube with an asymmetric hourglass shape that is designed to accelerate hot pressurized gas by converting the heat energy of the gas flow into kinetic energy as it passes through the Nozzle Throat to generate increased Exhaust Velocity of the gas as it exits the Nozzle."@en ;
+                skos:scopeNote "By increasing the Exhaust Velocity of the gas, the Nozzle increases the Thrust generated."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=De_Laval_nozzle&oldid=1062746288"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -2657,10 +2656,10 @@ cco:ont00000727 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000728
 cco:ont00000728 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000215 ;
-                skos:scopeNote "The submillimeter waveband is between the far-infrared and microwave wavebands and is typically taken to have a wavelength of between a few hundred micrometers and a millimeter."@en ;
                 rdfs:label "Submillimeter Wavelength Radio Telescope"@en ;
                 skos:altLabel "Microwave Telescope"@en ;
                 skos:definition "A Radio Telescope that is designed to aid in the observation of spatially distant Objects by means of collecting and focusing radio waves from the submillimeter waveband (i.e. microwaves) to form an enhanced image of the Object."@en ;
+                skos:scopeNote "The submillimeter waveband is between the far-infrared and microwave wavebands and is typically taken to have a wavelength of between a few hundred micrometers and a millimeter."@en ;
                 cco:ont00001754 "http://kp12m.as.arizona.edu/docs/what_is_submillimeter.htm, https://en.wikipedia.org/wiki/Submillimetre_astronomy" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -2696,7 +2695,6 @@ cco:ont00000736 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000740
 cco:ont00000740 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000002 ;
-                skos:scopeNote "This class is designed to group continuants according to a very broad criterion and is not intended to be used as a parent class for entities that can be more specifically represented under another class. Hence, Natural Resource may be an appropriate subtype but Money, Oil, and Gold Mine are not."@en ;
                 rdfs:label "Resource"@en ;
                 skos:definition "A Continuant that is owned by, in the possession of, or is otherwise controlled by an Agent such that it could be used by that Agent."@en ;
                 skos:example "a group of interns" ,
@@ -2705,7 +2703,8 @@ cco:ont00000740 rdf:type owl:Class ;
                              "a software program" ,
                              "a sum of money" ,
                              "a vehicle" ;
-                skos:scopeNote "Resources are Resources for some Agent. If no instance of Agent existed, no instance of Resource would exist either. It is not a requirement that something be valuable in order for it to be a Resource. Thus the value of something can drastically change without altering whether that thing is a Resource."@en ;
+                skos:scopeNote "Resources are Resources for some Agent. If no instance of Agent existed, no instance of Resource would exist either. It is not a requirement that something be valuable in order for it to be a Resource. Thus the value of something can drastically change without altering whether that thing is a Resource."@en ,
+                               "This class is designed to group continuants according to a very broad criterion and is not intended to be used as a parent class for entities that can be more specifically represented under another class. Hence, Natural Resource may be an appropriate subtype but Money, Oil, and Gold Mine are not."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -2800,9 +2799,9 @@ cco:ont00000764 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000767
 cco:ont00000767 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000995 ;
-                skos:scopeNote "A Lubrication System typical consists of a reservoir, pump, heat exchanger, filter, regulator, valves, sensors, pipes, and hoses. In some cases it also includes the passageways and openings within the artifact it is designed to lubricate. For example, the oil holes in a bearing and crankshaft."@en ;
                 rdfs:label "Lubrication System"@en ;
                 skos:definition "A Material Artifact that is designed to contain, transfer, and regulate the flow of lubricant to multiple locations in a Material Artifact."@en ;
+                skos:scopeNote "A Lubrication System typical consists of a reservoir, pump, heat exchanger, filter, regulator, valves, sensors, pipes, and hoses. In some cases it also includes the passageways and openings within the artifact it is designed to lubricate. For example, the oil holes in a bearing and crankshaft."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -2949,10 +2948,10 @@ cco:ont00000798 rdf:type owl:Class ;
                                   owl:onProperty obo:BFO_0000176 ;
                                   owl:someValuesFrom cco:ont00000893
                                 ] ;
-                skos:scopeNote "This class continues to use the word ‘bearing’ in its rdfs:label for legacy reasons. It should be understood that all instances of this class are carriers of information content entities and only, strictly speaking, a bearer of their concretizations."@en ;
                 rdfs:label "Information Bearing Artifact"@en ;
                 skos:altLabel "Information Carrying Artifact"@en ;
                 skos:definition "A Material Artifact that carries an Information Content Entity and is designed to do so using a particular format or structure."@en ;
+                skos:scopeNote "This class continues to use the word ‘bearing’ in its rdfs:label for legacy reasons. It should be understood that all instances of this class are carriers of information content entities and only, strictly speaking, a bearer of their concretizations."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -3256,25 +3255,24 @@ cco:ont00000888 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000893
 cco:ont00000893 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000995 ;
-                skos:scopeNote "An empty notebook, when manufactured, is a medium but not yet a carrier of information content. However, a book, in the sense of a novel or collection of philosophical essays or poems, depends necessarily on it carrying some information content. Thus, there are no empty books. Likewise, there are no empty databases, only portions of digital storage that have not yet been configured to carry some information content according to a database software application."@en ;
                 rdfs:label "Information Medium Artifact"@en ;
                 skos:definition "A Material Artifact that is designed to have some Information Bearing Artifact as part."@en ;
                 skos:example "A magnetic hard drive" ,
                              "A notebook" ;
+                skos:scopeNote "An empty notebook, when manufactured, is a medium but not yet a carrier of information content. However, a book, in the sense of a novel or collection of philosophical essays or poems, depends necessarily on it carrying some information content. Thus, there are no empty books. Likewise, there are no empty databases, only portions of digital storage that have not yet been configured to carry some information content according to a database software application."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00000897
 cco:ont00000897 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000457 ;
-                skos:scopeNote "Oxidizers are essential participants in many processes including combustion and rusting. Hence, a portion of oxidizer must always be present along with a portion of fuel in order for combustion to occur."@en ;
                 rdfs:label "Portion of Oxidizer"@en ;
                 skos:altLabel "Portion of Oxidant"@en ,
                               "Portion of Oxidizing Agent"@en ;
                 skos:definition "A Portion of Material that is disposed to steal electrons from other substances (i.e. to oxidize other substances) as a participant in a reduction-oxidation process."@en ;
                 skos:example "oxygen, hydrogen peroxide, chlorine, sulfiric acid, potassium nitrate" ;
+                skos:scopeNote "Oxidizers are essential participants in many processes including combustion and rusting. Hence, a portion of oxidizer must always be present along with a portion of fuel in order for combustion to occur."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
 
 
 ###  https://www.commoncoreontologies.org/ont00000900
@@ -3380,8 +3378,6 @@ cco:ont00000930 rdf:type owl:Class ;
                 skos:definition "A Secondary Cell Electric Battery that has a metal-hydride anode and nickel oxide hydroxide cathode."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Nickel%E2%80%93metal_hydride_battery&oldid=1061626676"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00000932
@@ -3521,8 +3517,6 @@ cco:ont00000963 rdf:type owl:Class ;
 cco:ont00000965 rdf:type owl:Class .
 
 
-
-
 ###  https://www.commoncoreontologies.org/ont00000968
 cco:ont00000968 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000204 ;
@@ -3530,8 +3524,6 @@ cco:ont00000968 rdf:type owl:Class ;
                 skos:definition "A Rifle that is designed to have selective-fire functionality and use an intermediate Cartridge and a detachable magazine."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Assault_rifle&oldid=1063774380"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00000980
@@ -3676,8 +3668,6 @@ cco:ont00001011 rdf:type owl:Class ;
                 skos:definition "A Ground Motor Vehicle that is designed to transport a small number of passengers while traveling on four tired wheels."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Car&oldid=1064116950"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00001013
@@ -3906,10 +3896,10 @@ cco:ont00001064 rdf:type owl:Class ;
                                   owl:onProperty obo:BFO_0000101 ;
                                   owl:someValuesFrom cco:ont00002014
                                 ] ;
-                skos:scopeNote "For information on types of barcodes, see: https://www.scandit.com/types-barcodes-choosing-right-barcode/"@en ;
                 rdfs:label "Material Copy of a Barcode"@en ;
                 skos:altLabel "Barcode"@en ;
                 skos:definition "An Information Bearing Artifact that is designed to carry one or more geometric shapes that concretize some Prescriptive Information Content Entity."@en ;
+                skos:scopeNote "For information on types of barcodes, see: https://www.scandit.com/types-barcodes-choosing-right-barcode/"@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Barcode&oldid=1059844765"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -4165,8 +4155,6 @@ cco:ont00001129 rdf:type owl:Class ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-
-
 ###  https://www.commoncoreontologies.org/ont00001134
 cco:ont00001134 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000995 ;
@@ -4214,9 +4202,9 @@ cco:ont00001140 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001141
 cco:ont00001141 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000023 ;
-                skos:scopeNote "The disposition will typically be a function of an artifact, which is often designed to be part of some Infrastructure system. But not always. In some cases an entity may be repurposed to be an element of some Infrastructure. In those cases it is a capability of that entity that supports the functioning of the system."@en ;
                 rdfs:label "Infrastructure Role"@en ;
                 skos:definition "A Role that inheres in the bearer of a Disposition and has been assigned to an Infrastructure System such that the realization of that Disposition is sometimes part of the functioning of the Infrastructure System."@en ;
+                skos:scopeNote "The disposition will typically be a function of an artifact, which is often designed to be part of some Infrastructure system. But not always. In some cases an entity may be repurposed to be an element of some Infrastructure. In those cases it is a capability of that entity that supports the functioning of the system."@en ;
                 cco:ont00001754 "https://archive.org/details/economicsprincip00osul/page/n489/mode/2up"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -4436,9 +4424,9 @@ cco:ont00001192 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001198
 cco:ont00001198 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000796 ;
-                skos:scopeNote "In American-English, the term 'Railcar' is often used in a broader sense that is interchangeable with 'Railroad Car'."@en ;
                 rdfs:label "Railcar"@en ;
                 skos:definition "A Rail Transport Vehicle that consists of a single self-propelled Vehicle that is not a Train, is designed to transport passengers, and which may also be designed to connect to other Railcars to form a Train."@en ;
+                skos:scopeNote "In American-English, the term 'Railcar' is often used in a broader sense that is interchangeable with 'Railroad Car'."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Railcar&oldid=1063519348"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -4468,8 +4456,6 @@ cco:ont00001207 rdf:type owl:Class ;
                 skos:definition "An Optical Instrument that is designed to focus or disperse a beam of light entering the lens by means of refraction."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/wiki/Lens_(optics)" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00001210
@@ -4605,9 +4591,11 @@ cco:ont00001240 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001241
 cco:ont00001241 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000323 ;
-                rdfs:label "Sensor Artifact Function"@en ;
-                skos:definition "An Artifact Function that is realized in processes wherein its bearer is used to produce an output signal which reliably corresponds to changes in the artifact's environment."@en ;
+                rdfs:subClassOf obo:BFO_0000034 ;
+                rdfs:label "Sensor Function"@en ;
+                skos:definition "A Function that is realized in processes wherein an attribute of its bearer is a proxy for some aspect of its sensing environment."@en ;
+                skos:scopeNote "A proxy in the sense used here is a stand-in used in place of something else, often because the original is unavailable or not directly accessible."@en ,
+                               "Subtypes of Sensor Function should be differentiated based on the type of modality they sense. Where a modality is a specific type of energy, phenomenon, or information input that the Sensor is designed to detect, measure, or otherwise respond to."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Sensor&oldid=1059883466"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -4631,8 +4619,6 @@ cco:ont00001243 rdf:type owl:Class ;
                 rdfs:label "Material Copy of a Document Field"@en ;
                 skos:definition "An Information Bearing Entity that is a part of some document into which carriers of prescribed information can be written or selected."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00001247
@@ -4707,8 +4693,6 @@ cco:ont00001255 rdf:type owl:Class ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-
-
 ###  https://www.commoncoreontologies.org/ont00001265
 cco:ont00001265 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001036 ;
@@ -4717,8 +4701,6 @@ cco:ont00001265 rdf:type owl:Class ;
                 skos:definition "A Communication System that is designed to allow a Person to speak to a large audience."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Public_address_system&oldid=1059177344"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
-
-
 
 
 ###  https://www.commoncoreontologies.org/ont00001270
@@ -4736,6 +4718,7 @@ cco:ont00001271 rdf:type owl:Class ;
                 rdfs:label "Wired Communication Relay Artifact Function"@en ;
                 skos:definition "A Communication Relay Artifact Function that is realized during events in which a Material Artifact is used to first receive and then transmit information by means of wires from one Material Artifact to another for the purpose of communiction."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
 
 ###  https://www.commoncoreontologies.org/ont00001275
 cco:ont00001275 rdf:type owl:Class ;
@@ -4887,9 +4870,9 @@ cco:ont00001316 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001319
 cco:ont00001319 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000427 ;
-                skos:scopeNote "Tank firepower is normally provided by a large-caliber main gun mounted in a rotating turret, which is supported by secondary machine guns. A tank's heavy armour and all-terrain mobility provide protection for both the tank and its crew, allowing it to perform all primary tasks of the armoured troops on the battlefield."@en ;
                 rdfs:label "Tank"@en ;
                 skos:definition "An Armored Fighting Vehicle that is designed to carry heavy firepower, have a powerful Engine, and travel on one or more continuous tracks such that it is suitable for front-line combat and can provide operational maneuverability as well as tactical offensive and defensive capabilities."@en ;
+                skos:scopeNote "Tank firepower is normally provided by a large-caliber main gun mounted in a rotating turret, which is supported by secondary machine guns. A tank's heavy armour and all-terrain mobility provide protection for both the tank and its crew, allowing it to perform all primary tasks of the armoured troops on the battlefield."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Tank&oldid=1060527612"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -5094,11 +5077,11 @@ cco:ont00001382 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001999
 cco:ont00001999 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000323 ;
+                rdfs:label "Filter Function"@en ;
+                skos:definition "An Artifact Function that is realized in a process where entities of a specific type or which have specified properties enter it or pass through it."@en ;
                 skos:scopeNote """Although its basic function remains the same, a Filter can be used in 2 different ways:
 (1) to allow only the desired entities to pass through (e.g. removing dirt from engine oil); or
 (2) to allow everything except the desired entities to pass through (e.g. panning for gold)."""@en ;
-                rdfs:label "Filter Function"@en ;
-                skos:definition "An Artifact Function that is realized in a process where entities of a specific type or which have specified properties enter it or pass through it."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -5146,6 +5129,42 @@ cco:ont00002069 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000323 ;
                 rdfs:label "Image Display Artifact Function"@en ;
                 skos:definition "An Artifact Function that inheres in Material Artifacts that are designed to display an Image."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002073
+cco:ont00002073 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000023 ;
+                rdfs:label "Sensor Role"@en ;
+                skos:definition "A Role that inheres in an entity in virtue of it being used in a process wherein an attribute of its bearer acts as a proxy for some aspect of its sensing environment."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002074
+cco:ont00002074 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000023 ;
+                rdfs:label "Sensor Platform Role"@en ;
+                skos:definition "A Role that inheres in an entity in virtue of it being used to support or convey a Sensor during its deployment and functioning."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002075
+cco:ont00002075 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000015
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:BFO_0000055 ;
+                                                             owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                  owl:unionOf ( cco:ont00001241
+                                                                                                cco:ont00002073
+                                                                                              )
+                                                                                ]
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:BFO_0000015 ;
+                rdfs:label "Sensing Process"@en ;
+                skos:definition "A Process that realizes a Sensor Function or Sensor Role."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
