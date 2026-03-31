@@ -204,6 +204,18 @@ bfo-diff: | $(config.TEMP_DIR)
 	@echo "Full diff written to $(BFO_DIFF_OUT)"
 
 # ---------------------------------------------------------------------------
+# release: Full release preparation pipeline (Steps 5–9 of CCO release process)
+# ---------------------------------------------------------------------------
+
+.PHONY: release
+release: $(ROBOT_FILE) | $(config.TEMP_DIR)
+	@if [ -z '$(VERSION)' ]; then \
+		echo 'ERROR: VERSION is required. Usage: make release VERSION=2.1 [DATE=YYYY-MM-DD]'; \
+		exit 1; \
+	fi
+	@VERSION='$(VERSION)' DATE='$(DATE)' bash scripts/release.sh
+
+# ---------------------------------------------------------------------------
 # T11 — stamp-version: Update owl:versionIRI and owl:versionInfo on all modules
 # ---------------------------------------------------------------------------
 
@@ -266,3 +278,59 @@ build-ccom: $(ROBOT_FILE) | $(config.TEMP_DIR)
 		--language-annotation owl:versionInfo "Depends on http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl, obtained $(DATE)." en \
 		--output $(CCOM_MERGED)
 	@echo "build-ccom complete: $(CCOM_MERGED)"
+
+# ---------------------------------------------------------------------------
+# T13 — build-mro: Rebuild ModalRelationOntology.ttl via ROBOT + Python
+#
+# Steps:
+#   1. Merge all 11 CCO modules + BFO into one source file
+#   2. Extract OPs + DPs with ALL annotations, domain/range, blank-node class
+#      expressions (mro_extract.py — replaces robot filter which strips annotations)
+#   3. SPARQL query generates old→new namespace mapping CSV
+#   4. robot rename rewrites CCO + OBO namespaces to the MRO namespace
+#   5. Python post-processor: fixes curated-in, adds root property,
+#      wires top-level OPs, replaces ontology header
+#   6. Copy final file to src/cco-extensions/ModalRelationOntology.ttl
+#
+# Requires: python3 with rdflib (pip install rdflib)
+# Usage:    make build-mro VERSION=2.1 [DATE=YYYY-MM-DD]
+# ---------------------------------------------------------------------------
+MRO_OUT := src/cco-extensions/ModalRelationOntology.ttl
+
+.PHONY: build-mro
+build-mro: $(ROBOT_FILE) | $(config.TEMP_DIR)
+	@if [ -z '$(VERSION)' ]; then \
+		echo 'ERROR: VERSION is required. Usage: make build-mro VERSION=2.1 [DATE=YYYY-MM-DD]'; \
+		exit 1; \
+	fi
+	@echo "=== MRO Step 1: Merging 11 CCO modules + BFO + FRO + MRO additions ==="
+	java -jar $(ROBOT_FILE) merge \
+		$(foreach f,$(DEV_FILES),--input $(f)) \
+		--input $(BFO_LOCAL) \
+		--input src/cco-extensions/FamilialRelationsOntology.ttl \
+		--input src/cco-extensions/ModalRelationOntologyAdditions.ttl \
+		--catalog src/cco-modules/catalog-v001.xml \
+		--output $(config.TEMP_DIR)/mro-merged.ttl
+	@echo "=== MRO Step 2: Extracting ObjectProperties + DatatypeProperties with all annotations ==="
+	python3 scripts/mro_extract.py \
+		--input  $(config.TEMP_DIR)/mro-merged.ttl \
+		--output $(config.TEMP_DIR)/mro-filtered.ttl
+	@echo "=== MRO Step 3: Generating namespace rename mapping CSV ==="
+	java -jar $(ROBOT_FILE) query \
+		--input $(config.TEMP_DIR)/mro-filtered.ttl \
+		--query scripts/mro_rename.sparql \
+		$(config.TEMP_DIR)/mro-rename-map.csv
+	@echo "=== MRO Step 4: Applying namespace rename ==="
+	java -jar $(ROBOT_FILE) rename \
+		--input $(config.TEMP_DIR)/mro-filtered.ttl \
+		--mappings $(config.TEMP_DIR)/mro-rename-map.csv \
+		--output $(config.TEMP_DIR)/mro-renamed.ttl
+	@echo "=== MRO Step 5: Python post-processing ==="
+	python3 scripts/mro_postprocess.py \
+		--input   $(config.TEMP_DIR)/mro-renamed.ttl \
+		--output  $(config.TEMP_DIR)/mro-final.ttl \
+		--version $(VERSION) \
+		--date    $(DATE)
+	@echo "=== MRO Step 6: Copying to $(MRO_OUT) ==="
+	cp $(config.TEMP_DIR)/mro-final.ttl $(MRO_OUT)
+	@echo "build-mro complete: $(MRO_OUT)"
