@@ -1,0 +1,476 @@
+@prefix : <https://www.commoncoreontologies.org/BarcodeOntology/> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://www.commoncoreontologies.org/BarcodeOntology> .
+
+<https://www.commoncoreontologies.org/BarcodeOntology> rdf:type owl:Ontology ;
+                                                                 owl:versionIRI <https://www.commoncoreontologies.org/2026-25-03/BarcodeOntology> ;
+                                                                 owl:imports <https://www.commoncoreontologies.org/ArtifactOntology> ;
+                                                                 dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
+                                                                 dcterms:rights "CUBRC Inc., see full license."@en ;
+                                                                 rdfs:comment "This ontology is designed to represent barcode information content entities."@en ;
+                                                                 rdfs:label "Barcode Ontology"@en ;
+                                                                 owl:versionInfo "Version 1.0"@en .
+
+###  https://www.commoncoreontologies.org/ont00002015
+cco:ont00002015 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002014 ;
+                rdfs:label "Two-Dimensional Barcode"@en ;
+                skos:definition "A Barcode that represents lines of varying widths, spacing, height, and color that has, as part, some Prescriptive Information Content Entity."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+                
+###  https://www.commoncoreontologies.org/ont00002016
+cco:ont00002016 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002015 ;
+                rdfs:label "Aztec Code"@en ;
+                skos:definition "A Two-Dimensional Barcode that is used by the transportation industry to scan tickets."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002017
+cco:ont00002017 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002015 ;
+                rdfs:label "Data Matrix Code"@en ;
+                skos:definition "A Two-Dimensional Barcode that represents cells arranged in rectangular patterns and is used for marking small items in logistics and operations."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002018
+cco:ont00002018 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002015 ;
+                rdfs:label "QR Code"@en ;
+                skos:definition "A Two-Dimensional Barcode that represents numeric, alphanumeric, binary, or kanji information and is used primarily for tracking and marketing."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002019
+cco:ont00002019 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002015 ;
+                rdfs:label "PDF417 Code"@en ;
+                skos:definition "A Two-Dimensional Barcode that is used in applications that require the storage of huge amounts of data."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002020
+cco:ont00002020 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002014 ;
+                rdfs:label "One-Dimensional Barcode"@en ;
+                skos:definition "A Barcode that represents parallel lines of varying widths and spacing that concretize some Prescriptive Information Content Entity."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002021
+cco:ont00002021 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "Codabar Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents numbers 0-9 and the characters -$:/.+ and is intended for use by logistics and healthcare professionals."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002022
+cco:ont00002022 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "Code 93 Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents 93 ASCII characters and is used in logistics to identify packages in retail inventory, label electornic components, and provide supplementary delivery information."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002023
+cco:ont00002023 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "ITF Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents an even number of numerical characters and is used primarily in packaging and distribution."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002024
+cco:ont00002024 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "MSI Plessey Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents an indefinite number of numerical characters and is used for inventory control and marking storage containers and shelves in warehouse environments."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002025
+cco:ont00002025 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "EAN Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents 8 or 13 numerical digits and is used to scan consumer goods."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002026
+cco:ont00002026 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002025 ;
+                rdfs:label "ISSN Barcode"@en ;
+                skos:definition "An EAN Barcode that is designed to designate a periodical."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002027
+cco:ont00002027 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002025 ;
+                rdfs:label "JAN-13 Barcode"@en ;
+                skos:definition "An EAN Barcode that is designed to designate 13 numerical digits and is used primarily in Japan to designate products at the point of sale."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002028
+cco:ont00002028 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002025 ;
+                rdfs:label "EAN-13 Barcode"@en ;
+                skos:definition "An EAN Barcode that represents 13 numerical digits and is used to designate products at the point of sale."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00002029
+cco:ont00002029 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002025 ;
+                rdfs:label "EAN-8 Barcode"@en ;
+                skos:definition "An EAN Barcode that represents 8 numerical digits and is used to designate products at the point of sale."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002030
+cco:ont00002030 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002025 ;
+                rdfs:label "ISBN Barcode"@en ;
+                skos:definition "An EAN Barcode that is designed to designate a book."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002031
+cco:ont00002031 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                skos:scopeNote "Further variants of GS1 DataBar have not been defined here."@en ;
+                rdfs:label "GS1 DataBar Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents 12-14 numerical digits and is used in retail and healthcare."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002032
+cco:ont00002032 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "Code 39 Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents 39 characters that are numbers 0-9, capital letters A-Z, or the symbols -.$/+% and space and is used primarily in automotive and defense industries."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002033
+cco:ont00002033 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "Code 128 Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents up to 128 ASCII characters and is used primarily in supply chains."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002034
+cco:ont00002034 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002020 ;
+                rdfs:label "UPC Barcode"@en ;
+                skos:definition "A One-Dimensional Barcode that represents 6 or 12 numerical digits and is used to scan consumer goods."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002035
+cco:ont00002035 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002034 ;
+                rdfs:label "UPC-A Barcode"@en ;
+                skos:definition "A UPC Barcode that represents 12 numerical digits."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002036
+cco:ont00002036 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00002034 ;
+                rdfs:label "UPC-E Barcode"@en ;
+                skos:definition "A UPC Barcode that represents 6 numerical digits."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000241
+cco:ont00000241 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00001064 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002015
+                                ] ;
+                rdfs:label "Material Copy of a Two-Dimensional Barcode"@en ;
+                skos:altLabel "Two-Dimensional Barcode"@en ;
+                skos:definition "A Material Copy of a Barcode that is designed to bear lines of varying widths, spacing, height, and color that concretize some Prescriptive Information Content Entity."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000242
+cco:ont00000242 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000241 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002017
+                                ] ;
+                rdfs:label "Material Copy of a Data Matrix Code"@en ;
+                skos:altLabel "Data Matrix Code"@en ;
+                skos:definition "A Material Copy of a Two-Dimensional Barcode that consists of cells arranged in rectangular patterns and is used for marking small items in logistics and operations."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000258
+cco:ont00000258 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00001064 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002020
+                                ] ;
+                rdfs:label "Material Copy of a One-Dimensional Barcode"@en ;
+                skos:altLabel "One-Dimensional Barcode"@en ;
+                skos:definition "A Material Copy of a Barcode that is designed to carry parallel lines of varying widths and spacing that concretize some Prescriptive Information Content Entity."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000326
+cco:ont00000326 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002034
+                                ] ;
+                rdfs:label "Material Copy of a UPC Barcode"@en ;
+                skos:altLabel "UPC Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of 6 or 12 numerical digits and is used to scan consumer goods."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000429
+cco:ont00000429 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002021
+                                ] ;
+                rdfs:label "Material Copy of a Codabar Barcode"@en ;
+                skos:altLabel "Codabar Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of numbers 0-9 and the characters -$:/.+ and is used by logistics and healthcare professionals."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000461
+cco:ont00000461 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000966 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002026
+                                ] ;
+                rdfs:label "Material Copy of a ISSN Barcode"@en ;
+                skos:altLabel "ISSN Barcode"@en ;
+                skos:definition "A Material Copy of an EAN Barcode that is used to designate periodicals."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000559
+cco:ont00000559 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000241 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002018
+                                ] ;
+                rdfs:label "Material Copy of a QR Code"@en ;
+                skos:altLabel "QR Code"@en ;
+                skos:definition "A Material Copy of a Two-Dimensional Barcode that consists of numeric, alphanumeric, binary, or kanji information and is used primarily for tracking and marketing."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+            
+###  https://www.commoncoreontologies.org/ont00000582
+cco:ont00000582 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002022
+                                ] ;
+                rdfs:label "Material Copy of a Code 93 Barcode"@en ;
+                skos:altLabel "Code 93 Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of up to 93 ASCII characters and is used in logistics to identify packages in retail inventory, lable electornic components, and provide supplementary delivery information."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000596
+cco:ont00000596 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000966 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002027
+                                ] ;
+                rdfs:label "Material Copy of a JAN-13 Barcode"@en ;
+                skos:altLabel "JAN-13 Barcode"@en ;
+                skos:definition "A Material Copy of an EAN Barcode that consists of 13 numerical digits and is used primarily in Japan to designate products at the point of sale."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000602
+cco:ont00000602 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002023
+                                ] ;
+                rdfs:label "Material Copy of a ITF Barcode"@en ;
+                skos:altLabel "ITF Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of an even number of numerical characters and is used primarily in packaging and distribution."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00000899
+cco:ont00000899 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002024
+                                ] ;
+                rdfs:label "Material Copy of a MSI Plessey Barcode"@en ;
+                skos:altLabel "MSI Plessey Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of an indefinite number of numerical characters and is used for inventory control and marking storage containers and shelves in warehouse environments."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000931
+cco:ont00000931 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000326 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002035
+                                ] ;
+                rdfs:label "Material Copy of a UPC-A Barcode"@en ;
+                skos:altLabel "UPC-A Barcode"@en ;
+                skos:definition "A Material Copy of a UPC Barcode that consists of 12 numerical digits."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000966
+cco:ont00000966 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002025
+                                ] ;
+                rdfs:label "Material Copy of a EAN Barcode"@en ;
+                skos:altLabel "EAN Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of 8 or 13 numerical digits and is used to scan consumer goods."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000972
+cco:ont00000972 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000966 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002028
+                                ] ;
+                rdfs:label "Material Copy of a EAN-13 Barcode"@en ;
+                skos:altLabel "EAN-13 Barcode"@en ;
+                skos:definition "A Material Copy of an EAN Barcode that consists of 13 numerical digits and is used to designate products at the point of sale."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001012
+cco:ont00001012 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002031
+                                ] ;
+                skos:scopeNote "Further variants of GS1 DataBar have not been defined here."@en ;
+                rdfs:label "Material Copy of a GS1 DataBar Barcode"@en ;
+                skos:altLabel "GS1 DataBar Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of 12-14 numerical digits and is used in retail and healthcare."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001131
+cco:ont00001131 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000966 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002029
+                                ] ;
+                rdfs:label "Material Copy of a EAN-8 Barcode"@en ;
+                skos:altLabel "EAN-8 Barcode"@en ;
+                skos:definition "A Material Copy of an EAN Barcode that consists of 8 numerical digits and is used to designate products at the point of sale."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001209
+cco:ont00001209 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000326 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002036
+                                ] ;
+                rdfs:label "Material Copy of a UPC-E Barcode"@en ;
+                skos:altLabel "UPC-E Barcode"@en ;
+                skos:definition "A Material Copy of a UPC Barcode that consists of 6 numerical digits."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001245
+cco:ont00001245 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000241 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002019
+                                ] ;
+                rdfs:label "Material Copy of a PDF417 Code"@en ;
+                skos:altLabel "PDF417 Code"@en ;
+                skos:definition "A Material Copy of a Two-Dimensional Barcode that is used in applications that require the storage of huge amounts of data."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001260
+cco:ont00001260 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002032
+                                ] ;
+                rdfs:label "Material Copy of a Code 39 Barcode"@en ;
+                skos:altLabel "Code 39 Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of 39 characters that are numbers 0-9, capital letters A-Z, or the symbols -.$/+% and space and is used primarily in automotive and defense industries."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001264
+cco:ont00001264 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000258 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002033
+                                ] ;
+                rdfs:label "Material Copy of a Code 128 Barcode"@en ;
+                skos:altLabel "Code 128 Barcode"@en ;
+                skos:definition "A Material Copy of a One-Dimensional Barcode that consists of up to 128 ASCII characters and is used primarily in supply chains."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001268
+cco:ont00001268 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000966 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002030
+                                ] ;
+                rdfs:label "Material Copy of a ISBN Barcode"@en ;
+                skos:altLabel "ISBN Barcode"@en ;
+                skos:definition "A Material Copy of an EAN Barcode that is used to designate books."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+
+###  https://www.commoncoreontologies.org/ont00000014
+cco:ont00000014 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000241 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000101 ;
+                                  owl:someValuesFrom cco:ont00002016
+                                ] ;
+                rdfs:label "Material Copy of a Aztec Code"@en ;
+                skos:altLabel "Aztec Code"@en ;
+                skos:definition "A Material Copy of a Two-Dimensional Barcode that is used by the transportation industry to scan tickets."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/BarcodeOntology"^^xsd:anyURI .
+
+
+
