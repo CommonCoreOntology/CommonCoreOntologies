@@ -48,7 +48,7 @@ A **repository** is where your project work happens--think of it as your project
 A README is a text file that introduces and explains a project. It is intended for _everyone_, not just the software or ontology developers. Ideally, the README file will include detailed information about the ontology, how to get started with using any of the files, license information and other details. The README is usually on the front page of the GitHub repository.
 
 
-Git repositories typically have a main branch that is not directly edited. Changes are made by creating a **branch** from main, which is essentially a complete copy of the main branch along with its entire history of updates.
+Git repositories typically have a main branch that is not directly edited. Changes are made by creating a **branch** from main, which is essentially a complete copy of the main branch along with its history of updates all the way up to the point of branching.
 
 
 
@@ -72,7 +72,7 @@ When working with branches, you can use a **pull request** to tell others about 
 
 ## Github Workflow 
 
-To illustrate, suppose you want to edit a file from the Common Core Ontologies GitHUb. You should then 'fork' the develop branch of the CCO repository on your personal Github account, so that you can make whatever changes you like.  
+To illustrate, suppose you want to edit a file from the Common Core Ontologies' GitHub. You should then 'fork' the develop branch of the CCO repository on your personal Github account, so that you can make whatever changes you like.  
 
 When you make changes to your personal Github CCO repository then go to save them in GitHub, you will be prompted to either "commit to the main branch' or "create a new branch for this request and start a pull request". You should almost always open a 'pull request'. By opening a pull request, you open the door for your peers to help you refine the submission. That in mind, when you open a pull request, it is good practice to tag others and request they review your work. Once your reviewers have 'approved' your work, you will then 'merge' your work to your personal repository. 
 

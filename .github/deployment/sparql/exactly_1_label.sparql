@@ -1,0 +1,59 @@
+# Title:
+#    Exactly One rdfs:label Per Language Per Ontology Element
+# Constraint Description:
+#    All CCO ontology elements (classes, properties, individuals) must have
+#    exactly one rdfs:label. This query flags:
+#      (a) Elements with NO rdfs:label at all.
+#      (b) Elements with MORE THAN ONE rdfs:label in the same language.
+# Severity:
+#    Error
+# Reference:
+#    CCO Release Process v2, Step 6c
+#    Pattern based on: exactly_1_prefLabel_per_lang.sparql
+# Author:
+#    github.com/shanmukhkalasamudram
+
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?resource ?error
+WHERE {
+  {
+    # Branch (a): missing rdfs:label entirely
+    # All patterns must be self-contained inside each UNION branch so that
+    # ?resource is properly bound before FILTER NOT EXISTS is evaluated.
+    VALUES ?type {
+      owl:Class
+      owl:ObjectProperty
+      owl:AnnotationProperty
+      owl:DatatypeProperty
+      owl:NamedIndividual
+    }
+    ?resource a ?type .
+    FILTER (regex(str(?resource), "https://www.commoncoreontologies.org/"))
+    FILTER (!isBlank(?resource))
+    FILTER NOT EXISTS { ?resource rdfs:label ?anyLbl }
+    BIND (CONCAT("ERROR: Term ", str(?resource), " has no rdfs:label.") AS ?error)
+  }
+  UNION
+  {
+    # Branch (b): more than one rdfs:label in the same language
+    VALUES ?type {
+      owl:Class
+      owl:ObjectProperty
+      owl:AnnotationProperty
+      owl:DatatypeProperty
+      owl:NamedIndividual
+    }
+    ?resource a ?type .
+    FILTER (regex(str(?resource), "https://www.commoncoreontologies.org/"))
+    FILTER (!isBlank(?resource))
+    ?resource rdfs:label ?lbl1 .
+    ?resource rdfs:label ?lbl2 .
+    FILTER (?lbl1 != ?lbl2)
+    FILTER (lang(?lbl1) = lang(?lbl2))
+    FILTER (lang(?lbl1) != "")
+    BIND (CONCAT("ERROR: Term ", str(?resource), " has duplicate rdfs:label values in language '", lang(?lbl1), "': \"", str(?lbl1), "\" and \"", str(?lbl2), "\".") AS ?error)
+  }
+}
+ORDER BY ?resource

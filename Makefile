@@ -74,7 +74,7 @@ setup:
 
 # Download ROBOT JAR
 ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
-$(ROBOT_FILE): setup
+$(ROBOT_FILE): | $(config.LIBRARY_DIR)
 	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
 	chmod +x $@
 
@@ -83,8 +83,21 @@ $(ROBOT_FILE): setup
 reason-individual: $(ROBOT_FILE)
 	for file in $(DEV_FILES); do \
 		echo "Reasoning on $$file..."; \
-		java -jar $(ROBOT_FILE) reason --input $$file --reasoner HermiT; \
+		java -jar $(ROBOT_FILE) reason --input $$file --catalog src/cco-modules/catalog-v001.xml --reasoner HermiT; \
 	done
+
+# Validate OWL DL profile on individual files (Step 6b)
+.PHONY: validate-profile-individual
+validate-profile-individual: $(ROBOT_FILE)
+	for file in $(DEV_FILES); do \
+		echo "Validating OWL DL profile for $$file..."; \
+		java -jar $(ROBOT_FILE) validate-profile --profile DL --input $$file; \
+	done
+
+# Validate OWL DL profile on combined file (Step 6b)
+.PHONY: validate-profile-combined
+validate-profile-combined: $(combined-file) | $(ROBOT_FILE)
+	java -jar $(ROBOT_FILE) validate-profile --profile DL --input $(combined-file)
 
 # Test individual files
 .PHONY: test-individual
@@ -104,10 +117,10 @@ build-combined: $(combined-file)
 
 .PHONY: reason-combined test-combined
 reason-combined: $(combined-file) | $(ROBOT_FILE)
-	java -jar $(ROBOT_FILE) reason --input $(combined-file) --reasoner HermiT
+	java -jar $(ROBOT_FILE) reason --input $(combined-file) --catalog src/cco-modules/catalog-v001.xml --reasoner HermiT
 
 test-combined: $(combined-file) | $(ROBOT_FILE)
-	java -jar $(ROBOT_FILE) verify --input $(combined-file) --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation false || true
+	java -jar $(ROBOT_FILE) verify --input $(combined-file) --catalog src/cco-modules/catalog-v001.xml --output-dir $(config.REPORTS_DIR) --queries $(QUERIES) --fail-on-violation false || true
 
 .PHONY: report-edit
 report-edit: TEST_INPUT = $(EDITOR_BUILD_FILE)
@@ -169,3 +182,155 @@ clean:
 	@[ "${config.REPORTS_DIR}" ] || ( echo ">> config.REPORTS_DIR is not set"; exit 1 )
 	rm -rf $(config.REPORTS_DIR)
 	rm -rf $(combined-file)
+
+BFO_LOCAL   := src/cco-imports/bfo-core.ttl
+BFO_UPSTREAM_URL := http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl
+BFO_UPSTREAM_TMP := $(config.TEMP_DIR)/bfo-upstream-latest.ttl
+BFO_DIFF_OUT := $(config.TEMP_DIR)/bfo-upstream-diff.txt
+
+.PHONY: bfo-diff
+bfo-diff: | $(config.TEMP_DIR)
+	@echo "Fetching BFO upstream from $(BFO_UPSTREAM_URL)..."
+	curl -sSL -o $(BFO_UPSTREAM_TMP) $(BFO_UPSTREAM_URL)
+	@echo "Diffing local $(BFO_LOCAL) against upstream..."
+	@if diff -u $(BFO_LOCAL) $(BFO_UPSTREAM_TMP) > $(BFO_DIFF_OUT) 2>&1; then \
+		echo "BFO DIFF: No changes — local copy is in sync with upstream."; \
+	else \
+		echo "BFO DIFF: Changes detected! Review $(BFO_DIFF_OUT) before release."; \
+		echo "--- Summary (added/removed lines) ---"; \
+		echo "  Lines added  : $$(grep -c '^+[^+]' $(BFO_DIFF_OUT) || echo 0)"; \
+		echo "  Lines removed: $$(grep -c '^-[^-]' $(BFO_DIFF_OUT) || echo 0)"; \
+	fi
+	@echo "Full diff written to $(BFO_DIFF_OUT)"
+
+# ---------------------------------------------------------------------------
+# release: Full release preparation pipeline (Steps 5–9 of CCO release process)
+# ---------------------------------------------------------------------------
+
+.PHONY: release
+release: $(ROBOT_FILE) | $(config.TEMP_DIR)
+	@if [ -z '$(VERSION)' ]; then \
+		echo 'ERROR: VERSION is required. Usage: make release VERSION=2.1 [DATE=YYYY-MM-DD]'; \
+		exit 1; \
+	fi
+	@VERSION='$(VERSION)' DATE='$(DATE)' bash scripts/release.sh
+
+# ---------------------------------------------------------------------------
+# T11 — stamp-version: Update owl:versionIRI and owl:versionInfo on all modules
+# ---------------------------------------------------------------------------
+
+VERSION ?=
+DATE    ?= $(TODAY)
+
+.PHONY: stamp-version
+stamp-version:
+	@if [ -z '$(VERSION)' ]; then \
+		echo 'ERROR: VERSION is required. Usage: make stamp-version VERSION=2.1 [DATE=YYYY-MM-DD]'; \
+		exit 1; \
+	fi
+	@echo "Stamping v$(VERSION) ($(DATE)) on all module files..."
+	@for f in $(DEV_FILES); do \
+		echo "  $$f"; \
+		sed -i '' \
+			-e 's|<https://www\.commoncoreontologies\.org/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/|<https://www.commoncoreontologies.org/$(DATE)/|g' \
+			-e 's|"Version [^"]*"@en|"Version $(VERSION)"@en|g' \
+			"$$f"; \
+	done
+	@echo "  src/cco-merged/CommonCoreOntologiesMerged.ttl"
+	@sed -i '' \
+		-e 's|<https://www\.commoncoreontologies\.org/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/|<https://www.commoncoreontologies.org/$(DATE)/|g' \
+		-e 's|"Version [^"]*"@en|"Version $(VERSION)"@en|g' \
+		src/cco-merged/CommonCoreOntologiesMerged.ttl
+	@echo "stamp-version complete: v$(VERSION) / $(DATE)"
+
+# ---------------------------------------------------------------------------
+# T12 — build-ccom: Rebuild CommonCoreOntologiesMerged.ttl via ROBOT merge
+# ---------------------------------------------------------------------------
+CCOM_MERGED  := src/cco-merged/CommonCoreOntologiesMerged.ttl
+CCOM_IRI     := https://www.commoncoreontologies.org/CommonCoreOntologiesMerged
+CCOM_COMMENT := A stand-alone file containing the eleven mid-level Common Core Ontologies plus BFO. Provided for use-cases where one file representing a specific release of CCO and its imports is desirable.
+CCOM_LICENSE := BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE
+CCOM_RIGHTS  := CUBRC Inc., see full license.
+
+.PHONY: build-ccom
+build-ccom: $(ROBOT_FILE) | $(config.TEMP_DIR)
+	@if [ -z '$(VERSION)' ]; then \
+		echo 'ERROR: VERSION is required. Usage: make build-ccom VERSION=2.1 [DATE=YYYY-MM-DD]'; \
+		exit 1; \
+	fi
+	@echo "Merging 11 CCO modules + BFO via ROBOT merge..."
+	java -jar $(ROBOT_FILE) merge \
+		$(foreach f,$(DEV_FILES),--input $(f)) \
+		--input $(BFO_LOCAL) \
+		--catalog src/cco-merged/catalog-v001.xml \
+		--output $(config.TEMP_DIR)/ccom-raw.ttl
+	@echo "Applying CCOM ontology header (IRI, version, metadata)..."
+	java -jar $(ROBOT_FILE) annotate \
+		--input $(config.TEMP_DIR)/ccom-raw.ttl \
+		--remove-annotations \
+		--ontology-iri $(CCOM_IRI) \
+		--version-iri https://www.commoncoreontologies.org/$(DATE)/CommonCoreOntologiesMerged \
+		--language-annotation rdfs:label "Common Core Ontologies Merged" en \
+		--language-annotation rdfs:comment "$(CCOM_COMMENT)" en \
+		--language-annotation http://purl.org/dc/terms/license "$(CCOM_LICENSE)" en \
+		--language-annotation http://purl.org/dc/terms/rights "$(CCOM_RIGHTS)" en \
+		--language-annotation owl:versionInfo "Version $(VERSION)" en \
+		--language-annotation owl:versionInfo "Depends on http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl, obtained $(DATE)." en \
+		--output $(CCOM_MERGED)
+	@echo "build-ccom complete: $(CCOM_MERGED)"
+
+# ---------------------------------------------------------------------------
+# T13 — build-mro: Rebuild ModalRelationOntology.ttl via ROBOT + Python
+#
+# Steps:
+#   1. Merge all 11 CCO modules + BFO into one source file
+#   2. Extract OPs + DPs with ALL annotations, domain/range, blank-node class
+#      expressions (mro_extract.py — replaces robot filter which strips annotations)
+#   3. SPARQL query generates old→new namespace mapping CSV
+#   4. robot rename rewrites CCO + OBO namespaces to the MRO namespace
+#   5. Python post-processor: fixes curated-in, adds root property,
+#      wires top-level OPs, replaces ontology header
+#   6. Copy final file to src/cco-extensions/ModalRelationOntology.ttl
+#
+# Requires: python3 with rdflib (pip install rdflib)
+# Usage:    make build-mro VERSION=2.1 [DATE=YYYY-MM-DD]
+# ---------------------------------------------------------------------------
+MRO_OUT := src/cco-extensions/ModalRelationOntology.ttl
+
+.PHONY: build-mro
+build-mro: $(ROBOT_FILE) | $(config.TEMP_DIR)
+	@if [ -z '$(VERSION)' ]; then \
+		echo 'ERROR: VERSION is required. Usage: make build-mro VERSION=2.1 [DATE=YYYY-MM-DD]'; \
+		exit 1; \
+	fi
+	@echo "=== MRO Step 1: Merging 11 CCO modules + BFO + FRO + MRO additions ==="
+	java -jar $(ROBOT_FILE) merge \
+		$(foreach f,$(DEV_FILES),--input $(f)) \
+		--input $(BFO_LOCAL) \
+		--input src/cco-extensions/FamilialRelationsOntology.ttl \
+		--input src/cco-extensions/ModalRelationOntologyAdditions.ttl \
+		--catalog src/cco-modules/catalog-v001.xml \
+		--output $(config.TEMP_DIR)/mro-merged.ttl
+	@echo "=== MRO Step 2: Extracting ObjectProperties + DatatypeProperties with all annotations ==="
+	python3 scripts/mro_extract.py \
+		--input  $(config.TEMP_DIR)/mro-merged.ttl \
+		--output $(config.TEMP_DIR)/mro-filtered.ttl
+	@echo "=== MRO Step 3: Generating namespace rename mapping CSV ==="
+	java -jar $(ROBOT_FILE) query \
+		--input $(config.TEMP_DIR)/mro-filtered.ttl \
+		--query scripts/mro_rename.sparql \
+		$(config.TEMP_DIR)/mro-rename-map.csv
+	@echo "=== MRO Step 4: Applying namespace rename ==="
+	java -jar $(ROBOT_FILE) rename \
+		--input $(config.TEMP_DIR)/mro-filtered.ttl \
+		--mappings $(config.TEMP_DIR)/mro-rename-map.csv \
+		--output $(config.TEMP_DIR)/mro-renamed.ttl
+	@echo "=== MRO Step 5: Python post-processing ==="
+	python3 scripts/mro_postprocess.py \
+		--input   $(config.TEMP_DIR)/mro-renamed.ttl \
+		--output  $(config.TEMP_DIR)/mro-final.ttl \
+		--version $(VERSION) \
+		--date    $(DATE)
+	@echo "=== MRO Step 6: Copying to $(MRO_OUT) ==="
+	cp $(config.TEMP_DIR)/mro-final.ttl $(MRO_OUT)
+	@echo "build-mro complete: $(MRO_OUT)"
