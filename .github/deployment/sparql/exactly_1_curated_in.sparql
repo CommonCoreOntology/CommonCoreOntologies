@@ -1,0 +1,56 @@
+# Title:
+#    Exactly One cco:ont00001760 [is curated in ontology] Per Ontology Element
+# Constraint Description:
+#    All CCO ontology elements (classes, properties, individuals) must have
+#    exactly one cco:ont00001760 annotation. This query flags:
+#      (a) Elements with NO cco:ont00001760 annotation at all.
+#      (b) Elements with MORE THAN ONE cco:ont00001760 annotation.
+# Severity:
+#    Error
+# Reference:
+#    CCO Release Process v2, Step 6c
+# Author:
+#    github.com/shanmukhkalasamudram
+
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX cco:  <https://www.commoncoreontologies.org/>
+
+SELECT DISTINCT ?resource ?error
+WHERE {
+  {
+    # Branch (a): missing cco:ont00001760 entirely
+    # All patterns are self-contained inside each UNION branch so that
+    # ?resource is properly bound before FILTER NOT EXISTS is evaluated.
+    VALUES ?type {
+      owl:Class
+      owl:ObjectProperty
+      owl:AnnotationProperty
+      owl:DatatypeProperty
+      owl:NamedIndividual
+    }
+    ?resource a ?type .
+    FILTER (regex(str(?resource), "https://www.commoncoreontologies.org/"))
+    FILTER (!isBlank(?resource))
+    FILTER NOT EXISTS { ?resource cco:ont00001760 ?any }
+    BIND (CONCAT("ERROR: Term ", str(?resource), " is missing cco:ont00001760 [is curated in ontology].") AS ?error)
+  }
+  UNION
+  {
+    # Branch (b): more than one cco:ont00001760 annotation
+    VALUES ?type {
+      owl:Class
+      owl:ObjectProperty
+      owl:AnnotationProperty
+      owl:DatatypeProperty
+      owl:NamedIndividual
+    }
+    ?resource a ?type .
+    FILTER (regex(str(?resource), "https://www.commoncoreontologies.org/"))
+    FILTER (!isBlank(?resource))
+    ?resource cco:ont00001760 ?val1 .
+    ?resource cco:ont00001760 ?val2 .
+    FILTER (STR(?val1) != STR(?val2))
+    BIND (CONCAT("ERROR: Term ", str(?resource), " has duplicate cco:ont00001760 values: <", str(?val1), "> and <", str(?val2), ">.") AS ?error)
+  }
+}
+ORDER BY ?resource
