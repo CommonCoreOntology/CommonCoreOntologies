@@ -13,11 +13,10 @@
 <https://www.commoncoreontologies.org/AgentOntology> rdf:type owl:Ontology ;
                                                                             owl:versionIRI <https://www.commoncoreontologies.org/2024-11-05/AgentOntology> ;
                                                                             owl:imports <https://www.commoncoreontologies.org/InformationEntityOntology> ;
-                                                                            owl:imports <https://www.commoncoreontologies.org/EventOntology> ;
                                                                             dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                             dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                             rdfs:comment "This ontology is designed to represent agents, especially persons and organizations, and their roles."@en ;
-                                                                            rdfs:label "Agent Ontology"@en ; 
+                                                                            rdfs:label "Agent Ontology"@en ;
                                                                             owl:versionInfo "Version 2.0"@en .
 
 #################################################################
@@ -26,6 +25,7 @@
 
 ###  http://purl.org/dc/terms/bibliographicCitation
 dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
+
 
 ###  http://purl.org/dc/terms/created
 dcterms:created rdf:type owl:AnnotationProperty .
@@ -59,62 +59,115 @@ cco:ont00001760 rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-
-### https://www.commoncoreontologies.org/ont00001852
-cco:ont00001852 rdf:type owl:ObjectProperty ;
-rdfs:subPropertyOf obo:BFO_0000056 ;
-owl:inverseOf cco:ont00001949 ;
-rdfs:domain cco:ont00001017 ;
-rdfs:range obo:BFO_0000015 ;
-rdfs:label "accessory in"@en ;
-skos:definition "x is_accessory_in y iff x is an instance of Agent and y is an instance of Process such that x assists another instance of Agent z in the commission of y, and x was not located at the location of y when y occurred, and x is not an agent_in y."@en ;
-cco:ont00001754 "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
-cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+###  https://www.commoncoreontologies.org/ont00001774
+cco:ont00001774 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001902 ;
+                 owl:inverseOf cco:ont00001883 ;
+                 rdfs:label "has brother"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
-### https://www.commoncoreontologies.org/ont00001949
-cco:ont00001949 rdf:type owl:ObjectProperty ;
-rdfs:subPropertyOf obo:BFO_0000057 ;
-rdfs:domain obo:BFO_0000015 ;
-rdfs:range cco:ont00001017 ;
-rdfs:label "has accessory"@en ;
-skos:definition "x has accessory y =Def y accessory in x"@en ;
-cco:ont00001754 "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
-cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+###  https://www.commoncoreontologies.org/ont00001776
+cco:ont00001776 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001945 ;
+                 owl:inverseOf cco:ont00001876 ;
+                 rdfs:label "has grandfather"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
-### https://www.commoncoreontologies.org/ont00001895
-cco:ont00001895 rdf:type owl:ObjectProperty ;
-rdfs:subPropertyOf obo:BFO_0000056 ;
-rdfs:domain cco:ont00001017;
-rdfs:range obo:BFO_0000015 ;
-rdfs:label "accomplice in"@en ;
-skos:definition "Agent x is accomplice_in Process y iff x assists in the commission of y, is located at the location of y, but is not agent_in y."@en ;
-cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
-cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+###  https://www.commoncoreontologies.org/ont00001780
+cco:ont00001780 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001842 ;
+                 owl:inverseOf cco:ont00001786 ;
+                 rdfs:label "has mother"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
-### https://www.commoncoreontologies.org/ont00001830
-cco:ont00001830 rdf:type owl:ObjectProperty ;
-rdfs:subPropertyOf obo:BFO_0000057 ;
-owl:inverseOf cco:ont00001895 ;
-rdfs:domain obo:BFO_0000015 ;
-rdfs:range cco:ont00001017 ;
-rdfs:label "has accomplice"@en ;
-skos:definition "x has accomplice y =Def y accomplice in x"@en ;
-cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
-cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+###  https://www.commoncoreontologies.org/ont00001781
+cco:ont00001781 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001996 ;
+                 owl:inverseOf cco:ont00001979 ;
+                 rdfs:label "has step sister"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
+
+###  https://www.commoncoreontologies.org/ont00001783
+cco:ont00001783 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001945 ;
+                 owl:inverseOf cco:ont00001820 ;
+                 rdfs:label "is granddaughter of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001784
+cco:ont00001784 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 owl:inverseOf cco:ont00001881 ;
+                 rdfs:label "has son in law"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001785
+cco:ont00001785 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001988 ;
+                 rdfs:label "has uncle"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001786
+cco:ont00001786 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001995 ;
+                 rdfs:label "is mother of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001787
 cco:ont00001787 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000056 ;
                  owl:inverseOf cco:ont00001833 ;
-                 rdfs:domain cco:ont00001017 ;
-                 rdfs:range obo:BFO_0000015 ;
                  rdfs:label "agent in"@en ;
                  skos:definition "x agent_in y iff y is an instance of Process and x is an instance of Agent, such that x is causally active in y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001788
+cco:ont00001788 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001789 ;
+                 owl:inverseOf cco:ont00001994 ;
+                 rdfs:label "has paternal aunt"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001789
+cco:ont00001789 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001955 ;
+                 rdfs:label "has aunt"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001790
+cco:ont00001790 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001785 ;
+                 owl:inverseOf cco:ont00001929 ;
+                 rdfs:label "has maternal uncle"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001792
+cco:ont00001792 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001902 ;
+                 owl:inverseOf cco:ont00001851 ;
+                 rdfs:label "has sister"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001793
+cco:ont00001793 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001975 ;
+                 owl:inverseOf cco:ont00001948 ;
+                 rdfs:label "has half sister"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -125,7 +178,7 @@ cco:ont00001794 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001180 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "has subsidiary"@en ;
-                 skos:definition "x has subsidiary y =Def y is subsidiary of x"@en ;
+                 skos:definition "An Organization o1 has_subsidiary Organization o2 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies."@en ;
                  cco:ont00001754 "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -137,7 +190,7 @@ cco:ont00001798 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001262 ;
                  rdfs:range cco:ont00001262 ;
                  rdfs:label "is supervised by"@en ;
-                 skos:definition "x is_supervised_by y iff x and y are both instances of Person and y supervises x."@en ;
+                 skos:definition "A person p1 is supervised by a person p2 by virtue of p1 being directed, managed, or overseen by p2."@en ;
                  cco:ont00001754 "http://en.wiktionary.org/wiki/supervise)" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -154,6 +207,32 @@ cco:ont00001800 rdf:type owl:ObjectProperty ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
+###  https://www.commoncoreontologies.org/ont00001802
+cco:ont00001802 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001804 ;
+                 owl:inverseOf cco:ont00001957 ;
+                 rdfs:label "has husband"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001804
+cco:ont00001804 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001804 ;
+                 rdfs:label "is spouse of"@en ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001806
+cco:ont00001806 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001806 ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:label "is first cousin of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001807
 cco:ont00001807 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001920 ;
@@ -161,7 +240,7 @@ cco:ont00001807 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001324 ;
                  rdfs:label "is required by"@en ;
-                 skos:definition "x is required by y =Def y requires x"@en ;
+                 skos:definition "y is_required_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must occur."@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -169,11 +248,18 @@ cco:ont00001807 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001809
 cco:ont00001809 rdf:type owl:ObjectProperty .
 
+
+###  https://www.commoncoreontologies.org/ont00001812
+cco:ont00001812 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001945 ;
+                 owl:inverseOf cco:ont00001981 ;
+                 rdfs:label "is grandson of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001813
 cco:ont00001813 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001925 ;
-                 rdfs:domain cco:ont00001017 ;
-                 rdfs:range obo:BFO_0000040 ;
                  rdfs:label "uses"@en ;
                  skos:definition "x uses y iff x is an instance of an Agent and y is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein x attempts to accomplish a goal by manipulating, deploying, or leveraging some attribute of y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -185,7 +271,7 @@ cco:ont00001815 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001180 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "is subsidiary of"@en ;
-                 skos:definition "x is_subsidiary_of y iff x and y are both instances of Organization and y controls x by having the capacity to determine the outcome of decisions about the financial and operating policies of x. "@en ;
+                 skos:definition "An Organization o2 is_subsidiary_of Organization o1 iff o1 controls o2 by having the capacity to determine the outcome of decisions about o2's financial and operating policies. "@en ;
                  cco:ont00001754 "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html)" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -196,9 +282,49 @@ cco:ont00001817 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001324 ;
                  rdfs:label "is prohibited by"@en ;
-                 skos:definition "x is prohibited by y =Def y prohibits x"@en ;
+                 skos:definition "y is_prohibited_by y at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y must not occur."@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001818
+cco:ont00001818 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001818 ;
+                 rdfs:label "is in-law of"@en ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001820
+cco:ont00001820 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001850 ;
+                 rdfs:label "has granddaughter"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001823
+cco:ont00001823 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001785 ;
+                 owl:inverseOf cco:ont00001926 ;
+                 rdfs:label "has paternal uncle"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001826
+cco:ont00001826 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 owl:inverseOf cco:ont00001828 ;
+                 rdfs:label "is sister-in-law of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001828
+cco:ont00001828 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 rdfs:label "has sister in law"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
 
 ###  https://www.commoncoreontologies.org/ont00001831
 cco:ont00001831 rdf:type owl:ObjectProperty ;
@@ -213,10 +339,16 @@ cco:ont00001831 rdf:type owl:ObjectProperty ;
 ###  https://www.commoncoreontologies.org/ont00001833
 cco:ont00001833 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000057 ;
-                 rdfs:domain obo:BFO_0000015 ;
-                 rdfs:range cco:ont00001017 ;
                  rdfs:label "has agent"@en ;
-                 skos:definition "x has agent y =Def y agent in x"@en ;
+                 skos:definition "x has_agent y iff x is an instance of Process and y is an instance of Agent, such that y is causally active in x."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001835
+cco:ont00001835 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001842 ;
+                 owl:inverseOf cco:ont00001839 ;
+                 rdfs:label "is son of"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -224,14 +356,46 @@ cco:ont00001833 rdf:type owl:ObjectProperty ;
 cco:ont00001836 rdf:type owl:ObjectProperty .
 
 
+###  https://www.commoncoreontologies.org/ont00001839
+cco:ont00001839 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001995 ;
+                 rdfs:label "has son"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001840
+cco:ont00001840 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001945 ;
+                 owl:inverseOf cco:ont00001882 ;
+                 rdfs:label "has grandmother"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001842
+cco:ont00001842 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001995 ;
+                 rdfs:label "is child of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001843
+cco:ont00001843 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001806 ;
+                 owl:inverseOf cco:ont00001894 ;
+                 rdfs:comment "Comment is_paternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
+                 rdfs:label "is paternal first cousin of"@en ;
+                 skos:definition "Person A is paternal first cousin of Person B iff Person B has father F and F has sibling P and P is parent of Person A."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001844
 cco:ont00001844 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000057 ;
                  owl:inverseOf cco:ont00001993 ;
-                 rdfs:domain cco:ont00000402 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has sender"@en ;
-                 skos:definition "x has sender y =Def y sends x"@en ;
+                 skos:definition "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -244,24 +408,100 @@ cco:ont00001846 rdf:type owl:ObjectProperty ;
                  skos:definition "x is_organizational_context_of y iff x is an instance of an Organization and y is an instance of a Role and z is an instance of a Person, such that z's affiliation with x is a prerequisite for z bearing y, or x ascribes y to the bearer of y."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
+
+###  https://www.commoncoreontologies.org/ont00001849
+cco:ont00001849 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 owl:inverseOf cco:ont00001935 ;
+                 rdfs:label "is father in-law of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001850
+cco:ont00001850 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001945 ;
+                 rdfs:label "is grandparent of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001851
+cco:ont00001851 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001902 ;
+                 rdfs:label "is sister of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001853
+cco:ont00001853 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 owl:inverseOf cco:ont00001885 ;
+                 rdfs:label "is mother in-law of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001854
+cco:ont00001854 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 owl:inverseOf cco:ont00001867 ;
+                 rdfs:label "has daughter in law"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001856
+cco:ont00001856 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001932 ;
+                 rdfs:label "has niece"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001858
+cco:ont00001858 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001842 ;
+                 owl:inverseOf cco:ont00001987 ;
+                 rdfs:label "is daughter of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001859
 cco:ont00001859 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001864 ;
                  rdfs:domain cco:ont00001180 ;
                  rdfs:range cco:ont00001203 ;
                  rdfs:label "is delimited by"@en ;
-                 skos:definition "x is_delimited_by y iff x is an instance of Organization and y is an instance of Delimiting Domain and y delimits x."@en ;
+                 skos:definition "An instance of Organization o1 is_delimited_by some Delimiting Domain dd1 iff dd1 is the area within which o1 can legally operate."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001860
+cco:ont00001860 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001968 ;
+                 rdfs:label "is ancestor of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
 
 ###  https://www.commoncoreontologies.org/ont00001864
 cco:ont00001864 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001203 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "delimits"@en ;
-                 skos:definition "x delimits y =Def y is delimited by x"@en ;
+                 skos:definition "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001865
+cco:ont00001865 rdf:type owl:ObjectProperty ,
+                          owl:SymmetricProperty ;
+                 rdfs:domain cco:ont00001262 ;
+                 rdfs:range cco:ont00001262 ;
+                 rdfs:label "has familial relationship to"@en ;
+                 skos:definition "A relationship between persons by virtue of ancestry or legal union."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
 
 ###  https://www.commoncoreontologies.org/ont00001866
 cco:ont00001866 rdf:type owl:ObjectProperty ;
@@ -271,18 +511,84 @@ cco:ont00001866 rdf:type owl:ObjectProperty ;
                  dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                  dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                  rdfs:label "is interest of"@en ;
-                 skos:definition "x is interest of y =Def y has interest in x" ;
+                 skos:definition "The inverse of has_interest_in. " ;
                  skos:prefLabel "is interest of"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001867
+cco:ont00001867 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 rdfs:label "is daughter in-law of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001871
+cco:ont00001871 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001804 ;
+                 owl:inverseOf cco:ont00001887 ;
+                 rdfs:label "has wife"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001872
+cco:ont00001872 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001996 ;
+                 owl:inverseOf cco:ont00001890 ;
+                 rdfs:label "is step-brother of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001876
+cco:ont00001876 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001850 ;
+                 rdfs:label "is grandfather of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
 
 ###  https://www.commoncoreontologies.org/ont00001880
 cco:ont00001880 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001809 ;
                  owl:inverseOf cco:ont00001898 ;
                  rdfs:domain cco:ont00001379 ;
-                 rdfs:range obo:BFO_0000027 ;
+                 rdfs:range cco:ont00000300 ;
                  rdfs:label "capability of aggregate"@en ;
                  skos:definition "x capability_of_aggregate y iff y is an instance of Object Aggregate and x is an instance of Agent Capability, such that x inheres in aggregate y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001881
+cco:ont00001881 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 rdfs:label "is son in-law of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001882
+cco:ont00001882 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001850 ;
+                 rdfs:label "is grandmother of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001883
+cco:ont00001883 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001902 ;
+                 rdfs:label "is brother of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001885
+cco:ont00001885 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 rdfs:label "has mother in law"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001887
+cco:ont00001887 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001804 ;
+                 rdfs:label "is wife of"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -297,13 +603,86 @@ cco:ont00001889 rdf:type owl:ObjectProperty ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
+###  https://www.commoncoreontologies.org/ont00001890
+cco:ont00001890 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001996 ;
+                 rdfs:label "has step brother"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001891
+cco:ont00001891 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 owl:inverseOf cco:ont00001952 ;
+                 rdfs:label "has brother in law"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001892
+cco:ont00001892 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001876 ;
+                 owl:inverseOf cco:ont00001972 ;
+                 rdfs:label "is paternal grandfather of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001894
+cco:ont00001894 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001806 ;
+                 rdfs:label "has paternal first cousin"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001897
+cco:ont00001897 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001882 ;
+                 owl:inverseOf cco:ont00001960 ;
+                 rdfs:label "is maternal grandmother of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001898
 cco:ont00001898 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf cco:ont00001836 ;
-                 rdfs:domain obo:BFO_0000027 ;
+                 rdfs:domain cco:ont00000300 ;
                  rdfs:range cco:ont00001379 ;
                  rdfs:label "aggregate has capability"@en ;
-                 skos:definition "x aggregate has capability y =Def y capability of aggregate x"@en ;
+                 skos:definition "x aggregate_has_capability y iff x is an instance of Object Aggregate and y is an instance of Agent Capability, such that x is aggregate bearer of y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001902
+cco:ont00001902 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001902 ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:label "is sibling of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001903
+cco:ont00001903 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001876 ;
+                 owl:inverseOf cco:ont00001973 ;
+                 rdfs:label "is maternal grandfather of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001905
+cco:ont00001905 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001975 ;
+                 owl:inverseOf cco:ont00001927 ;
+                 rdfs:label "is half-brother of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001906
+cco:ont00001906 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001806 ;
+                 owl:inverseOf cco:ont00001934 ;
+                 rdfs:comment "Comment is_maternal_first_cousin_of is not a symmetric relationship as is is_first_cousin_of"@en ;
+                 rdfs:label "is maternal first cousin of"@en ;
+                 skos:definition "Person A is maternal first cousin of Person B iff Person B has mother M and M has sibling P and P is parent of Person A."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -323,6 +702,14 @@ cco:ont00001910 rdf:type owl:ObjectProperty ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
+###  https://www.commoncoreontologies.org/ont00001911
+cco:ont00001911 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001882 ;
+                 owl:inverseOf cco:ont00001937 ;
+                 rdfs:label "is paternal grandmother of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001920
 cco:ont00001920 rdf:type owl:ObjectProperty .
 
@@ -331,29 +718,102 @@ cco:ont00001920 rdf:type owl:ObjectProperty .
 cco:ont00001922 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000057 ;
                  owl:inverseOf cco:ont00001978 ;
-                 rdfs:domain cco:ont00000402 ;
                  rdfs:range cco:ont00001017 ;
                  rdfs:label "has recipient"@en ;
-                 skos:definition "x has recipient y =Def y receives x"@en ;
+                 skos:definition "x has_recipient y iff y is an instance of Agent and x is an instance of Act Of Communication, such that y is the recipient and decoder of the InformationContentEntity intended for communication in x."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001925
 cco:ont00001925 rdf:type owl:ObjectProperty ;
-                 rdfs:domain obo:BFO_0000040 ;
-                 rdfs:range cco:ont00001017 ;
                  rdfs:label "is used by"@en ;
-                 skos:definition "x is used by y =Def y uses x"@en ;
+                 skos:definition "x is_used_by y iff y is an instance of an Agent and x is an instance of a Material Entity, such that both x and y participate in some instance of a Process wherein y attempts to accomplish a goal by manipulating, deploying, leveraging some attribute of y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001926
+cco:ont00001926 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001988 ;
+                 rdfs:label "is paternal uncle of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001927
+cco:ont00001927 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001975 ;
+                 rdfs:label "has half brother"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001929
+cco:ont00001929 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001988 ;
+                 rdfs:label "is maternal uncle of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001930
+cco:ont00001930 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001930 ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:label "is second cousin of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001932
+cco:ont00001932 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 rdfs:label "is niece of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001934
+cco:ont00001934 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001806 ;
+                 rdfs:label "has maternal first cousin"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001935
+cco:ont00001935 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 rdfs:label "has father in law"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001937
+cco:ont00001937 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001840 ;
+                 rdfs:label "has paternal grandmother"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001939
 cco:ont00001939 rdf:type owl:ObjectProperty ;
                  owl:inverseOf cco:ont00001977 ;
-                 rdfs:domain cco:ont00001017 ;
-                 rdfs:range cco:ont00001017 ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( cco:ont00001017
+                                             cco:ont00001180
+                                             cco:ont00001262
+                                           )
+                             ] ;
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( cco:ont00001017
+                                            cco:ont00001180
+                                            cco:ont00001262
+                                          )
+                            ] ;
                  rdfs:label "is affiliated with"@en ;
                  skos:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001941
+cco:ont00001941 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001955 ;
+                 owl:inverseOf cco:ont00001958 ;
+                 rdfs:label "is maternal aunt of"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -367,8 +827,39 @@ cco:ont00001943 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001262 ;
                  rdfs:range cco:ont00001262 ;
                  rdfs:label "supervises"@en ;
-                 skos:definition "x supervises y =Def y is supervised by x"@en ;
+                 skos:definition "A person p1 supervises a person p2 by virtue of p1 directing, managing, or overseeing p2."@en ;
                  cco:ont00001754 "http://en.wiktionary.org/wiki/supervise" ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001945
+cco:ont00001945 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 rdfs:label "is grandchild of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001946
+cco:ont00001946 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001842 ;
+                 owl:inverseOf cco:ont00001985 ;
+                 rdfs:label "has father"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001948
+cco:ont00001948 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001975 ;
+                 rdfs:label "is half sister of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001950
+cco:ont00001950 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001950 ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:label "is third cousin of"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -377,7 +868,22 @@ cco:ont00001951 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000023 ;
                  rdfs:range obo:BFO_0000023 ;
                  rdfs:label "has subordinate role"@en ;
-                 skos:definition "x has subordinate role y =Def y is subordinate role to x"@en ;
+                 skos:definition "For all x,y,t: x has subordinate role y at t iff: x is an instance of Role at time t, and y is an instance of Role at time t, and there is some z such that x is realized by z and z is an instance of Process which creates, modifies, transfers, or eliminates some u such that u is a Process Regulation at time t, and u is addressed to the bearer of y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001952
+cco:ont00001952 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001818 ;
+                 rdfs:label "is brother-in-law of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001953
+cco:ont00001953 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001995 ;
+                 rdfs:label "has parent"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -387,7 +893,71 @@ cco:ont00001954 rdf:type owl:ObjectProperty ;
                  rdfs:domain cco:ont00001017 ;
                  rdfs:range cco:ont00001379 ;
                  rdfs:label "has capability"@en ;
-                 skos:definition "x has capability y =Def y capability of x"@en ;
+                 skos:definition "x has_capability y iff x is an instance of Agent and y is an instance of Agent Capability, such that x bearer of y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001955
+cco:ont00001955 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 rdfs:label "is aunt of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001957
+cco:ont00001957 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001804 ;
+                 rdfs:label "is husband of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001958
+cco:ont00001958 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001789 ;
+                 rdfs:label "has maternal aunt"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001960
+cco:ont00001960 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001840 ;
+                 rdfs:label "has maternal grandmother"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001967
+cco:ont00001967 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001969 ;
+                 rdfs:label "is nephew of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001968
+cco:ont00001968 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 rdfs:label "is descendent of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001969
+cco:ont00001969 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 rdfs:label "has nephew"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001972
+cco:ont00001972 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001776 ;
+                 rdfs:label "has paternal grandfather"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001973
+cco:ont00001973 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001776 ;
+                 rdfs:label "has maternal grandfather"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -402,12 +972,31 @@ cco:ont00001974 rdf:type owl:ObjectProperty ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
+###  https://www.commoncoreontologies.org/ont00001975
+cco:ont00001975 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001975 ;
+                 rdf:type owl:SymmetricProperty ;
+                 rdfs:label "is half-sibling of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001977
 cco:ont00001977 rdf:type owl:ObjectProperty ;
-                 rdfs:domain cco:ont00001017 ;
-                 rdfs:range cco:ont00001017 ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( cco:ont00001017
+                                             cco:ont00001180
+                                             cco:ont00001262
+                                           )
+                             ] ;
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( cco:ont00001017
+                                            cco:ont00001180
+                                            cco:ont00001262
+                                          )
+                            ] ;
                  rdfs:label "has affiliate"@en ;
-                 skos:definition "x has affiliate y =Def y is affiliated with x"@en ;
+                 skos:definition "x is_affiliated_with y iff x and y are instances of Agent, such that they have any kind of social or business relationship."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -415,9 +1004,22 @@ cco:ont00001977 rdf:type owl:ObjectProperty ;
 cco:ont00001978 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000056 ;
                  rdfs:domain cco:ont00001017 ;
-                 rdfs:range cco:ont00000402 ;
                  rdfs:label "receives"@en ;
                  skos:definition "x receives y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the recipient and decoder of the InformationContentEntity intended for communication in y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001979
+cco:ont00001979 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001996 ;
+                 rdfs:label "is step-sister of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001981
+cco:ont00001981 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001850 ;
+                 rdfs:label "has grandson"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -428,10 +1030,31 @@ cco:ont00001984 rdf:type owl:ObjectProperty ;
                  dcterms:created "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                  dcterms:creator "https://cubrc.org"^^xsd:anyURI ;
                  rdfs:label "has interest in"@en ;
-                 skos:definition "A relation between an Agent and some Process where the Agent has an interest in that Process."@en ;
-                 skos:editorialNote "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the Agent, or historically of evolutionary benefit to the Agent's ancestors, or facilitates a process the Agent has an interest in for the prior two reasons. The process an Agent has an interest could in many or all ways be harmful to the Agent."@en ;
+                 skos:definition "A relation between an entity and some process where the entity has an interest in that process."@en ;
+                 skos:editorialNote "This term is meant to be weakly normative. The only sense in which the process is of positive normative value is that it's prescribed by the entity, or historically of evolutionary benefit to the entity's ancestors, or facilitates a process the entity has an interest in for the prior two reasons. The process an entity has an interest could in many or all ways be harmful to the entity."@en ;
                  skos:prefLabel "has interest in"@en ;
-                 skos:scopeNote "There are four conditions in which an agent has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) agent x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
+                 skos:scopeNote "There are four conditions in which an entity has an interest in some process. 1) Biological Condition: If a part (including improper part) of an organism has a function, then that organism has an interest in the realization of that function. 2) Artifactual Condition: If a part (including improper part) of an artifact has a function, then some agent or group of agents, at some time, has an interest in the realization of that function. 3) Prescription Condition: If an agent or group of agents has a plan, then it has an interest in the realization of all the processes and process-combinations prescribed by that plan. 4) Facilitation Condition: If (a) x has an interest in the realization of a disposition y, and (b) the realization of a disposition z facilitates the realization of disposition y, then (c) x has an interest in the realization of disposition z, and by 'facilitates' we mean that the occurrence of a process w, which realizes realization of z is either (1) required for y, to realize or (2) would contribute positively to the grade of, y's realization."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001985
+cco:ont00001985 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001995 ;
+                 rdfs:label "is father of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001987
+cco:ont00001987 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001995 ;
+                 rdfs:label "has daughter"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001988
+cco:ont00001988 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 rdfs:label "is uncle of"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -440,7 +1063,7 @@ cco:ont00001992 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000023 ;
                  rdfs:range cco:ont00001180 ;
                  rdfs:label "has organizational context"@en ;
-                 skos:definition "x has organizational context y =Def y is organizational context of x"@en ;
+                 skos:definition "x has_organizational_context y iff y is an instance of an Organization and x is an instance of a Role and z is an instance of a Person, such that z's affiliation with y is a prerequisite for z bearing x or y ascribes x to the bearer of x."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -448,9 +1071,33 @@ cco:ont00001992 rdf:type owl:ObjectProperty ;
 cco:ont00001993 rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf obo:BFO_0000056 ;
                  rdfs:domain cco:ont00001017 ;
-                 rdfs:range cco:ont00000402 ;
                  rdfs:label "sends"@en ;
                  skos:definition "x sends y iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001994
+cco:ont00001994 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001955 ;
+                 rdfs:label "is paternal aunt of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001995
+cco:ont00001995 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 rdfs:domain cco:ont00001262 ;
+                 rdfs:range cco:ont00001262 ;
+                 rdfs:label "is parent of"@en ;
+                 cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001996
+cco:ont00001996 rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf cco:ont00001865 ;
+                 owl:inverseOf cco:ont00001996 ;
+                 rdfs:label "is step-sibling of"@en ;
+                 skos:scopeNote "Given a stronger temporal interpretation, this property may be symmetric. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -460,7 +1107,7 @@ cco:ont00001998 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000015 ;
                  rdfs:range cco:ont00001324 ;
                  rdfs:label "is permitted by"@en ;
-                 skos:definition "x is permitted by y =Def y permits x"@en ;
+                 skos:definition "y is_permitted_by x at t iff: x is an instance of Process Regulation at time t, and y is an instance of Process at time t, and x prescribes that y may occur."@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -554,7 +1201,7 @@ cco:ont00000089 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000102
 cco:ont00000102 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000019 ;
-                 skos:scopeNote "Skin Type is classified according to a reference system such as the Fitzpatrick scale: https://en.wikipedia.org/wiki/Fitzpatrick_scale"@en ;
+                 rdfs:comment "Skin Type is classified according to a reference system such as the Fitzpatrick scale: https://en.wikipedia.org/wiki/Fitzpatrick_scale"@en ;
                  rdfs:label "Skin Type"@en ;
                  skos:definition "A Quality inhering in a portion of skin by virtue of its color and natural tendency to respond to ultraviolet light."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -727,7 +1374,7 @@ cco:ont00000300 rdf:type owl:Class ;
                                    rdf:type owl:Class
                                  ] ;
                  rdfs:label "Group of Agents"@en ;
-                 skos:definition "An Object Aggregate that has only Agents as member parts."@en ;
+                 skos:definition "An Object Aggregate that has only Agents as parts."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -873,7 +1520,7 @@ cco:ont00000473 rdf:type owl:Class ;
 cco:ont00000476 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000965 ;
                  rdfs:label "Objective"@en ;
-                 skos:definition "A Prescriptive Information Content Entity that prescribes some projected state that some Agent intends to achieve."@en ;
+                 skos:definition "A Directive Information Content Entity that prescribes some projected state that some Agent intends to achieve."@en ;
                  cco:ont00001754 "http://en.wikipedia.org/wiki/Objective_(goal)" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1003,7 +1650,7 @@ cco:ont00000564 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000567
 cco:ont00000567 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000487 ;
-                 skos:scopeNote "This is a general term that applies to both military and civilian activities, such as the Geospatial Region within which a company conducts its business."@en ;
+                 rdfs:comment "This is a general term that applies to both military and civilian activities, such as the Geospatial Region within which a company conducts its business."@en ;
                  rdfs:label "Operational Area"@en ;
                  skos:definition "A Geospatial Location in which an Agent conducts some activity."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -1302,7 +1949,7 @@ cco:ont00000914 rdf:type owl:Class ;
                                    owl:allValuesFrom cco:ont00001262
                                  ] ;
                  rdfs:label "Group of Persons"@en ;
-                 skos:definition "A Group of Agents that has only Persons as member parts."@en ;
+                 skos:definition "A Group of Agents that has only Persons as parts."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1345,7 +1992,7 @@ cco:ont00000974 rdf:type owl:Class ;
                                    owl:someValuesFrom cco:ont00000476
                                  ] ;
                  rdfs:label "Plan"@en ;
-                 skos:definition "A Prescriptive Information Content Entity that prescribes some set of intended Intentional Acts through which some Agent expects to achieve some Objective."@en ;
+                 skos:definition "A Directive Information Content Entity that prescribes some set of intended Intentional Acts through which some Agent expects to achieve some Objective."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Plan&oldid=1047320560"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1388,7 +2035,7 @@ cco:ont00000987 rdf:type owl:Class ;
 cco:ont00001006 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000023 ;
                  rdfs:label "Operator Role"@en ;
-                 skos:definition "A Role that inheres in an Agent by virtue of that Agent's responsibilities to operate or control some Material Artifact."@en ;
+                 skos:definition "A Role that inheres in an Agent by virtue of that Agent's responsibilities to operate or control some Artifact."@en ;
                  skos:example "the role of driving a car" ,
                               "the role of flying an airplane" ,
                               "the role of operating a crane" ;
@@ -1451,7 +2098,7 @@ cco:ont00001114 rdf:type owl:Class ;
                                    owl:someValuesFrom cco:ont00001203
                                  ] ;
                  owl:disjointWith cco:ont00001203 ;
-                 skos:scopeNote "Instances of this class are not proper Delimiting Domains, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
+                 rdfs:comment "Instances of this class are not proper Delimiting Domains, but in some cases may have an organization that exercises some control over the region, such as the homeowners' association for a neighborhood."@en ;
                  rdfs:label "Division of Delimiting Domain"@en ;
                  skos:definition "A Geospatial Region that is a fiat division of a Delimiting Domain and not a Delimiting Domain."@en ;
                  skos:example "Flatbush, French Quarter, Western New York, Texas Panhandle, Greater Montreal Area of Quebec, Pacific Northwest, southwest area of Al Anbar Province, Northern Iraq." ;
@@ -1498,7 +2145,7 @@ cco:ont00001164 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001180
 cco:ont00001180 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000300 ;
-                 skos:scopeNote "Members of organizations are either Organizations themselves or individual Persons. Members can bear specific Organization Member Roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the Organization by the organization members."@en ;
+                 rdfs:comment "Members of organizations are either Organizations themselves or individual Persons. Members can bear specific Organization Member Roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the Organization by the organization members."@en ;
                  rdfs:label "Organization"@en ;
                  skos:definition "A Group of Agents which can be the bearer of roles, has members, and has a set of organization rules."@en ;
                  cco:ont00001754 "http://purl.obolibrary.org/obo/OBI_0000245" ;
@@ -1571,7 +2218,7 @@ cco:ont00001239 rdf:type owl:Class ;
                                    owl:allValuesFrom cco:ont00001180
                                  ] ;
                  rdfs:label "Group of Organizations"@en ;
-                 skos:definition "A Group of Agents that has only Organizations as member parts."@en ;
+                 skos:definition "A Group of Agents that has only Organizations as parts."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1630,7 +2277,7 @@ cco:ont00001312 rdf:type owl:Class ;
 cco:ont00001324 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000965 ;
                  rdfs:label "Process Regulation"@en ;
-                 skos:definition "A Prescriptive Information Content Entity that prescribes an Process as required, prohibited, or permitted, and is the output of an Process which realizes some Authority Role."@en ;
+                 skos:definition "A Directive Information Content Entity that prescribes an Process as required, prohibited, or permitted, and is the output of an Process which realizes some Authority Role."@en ;
                  skos:scopeNote "Although regulations often regulate processes which involve agents--as the regulating or regulated participant--it is unclear how causally active an agents need to be in those regulated processes. For example, it is not clear how causally active a human agent is in the process of a traffic light regulating the motion of a self-driving vehicle."@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 

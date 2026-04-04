@@ -11,9 +11,9 @@ Instructions:
 - Then use your favorite diff checker to confirm only that change is being rendered. Different versions of OWL API and Protégé will sometimes cause formatting issues.
 - If you can't prevent the bogus diffs, then make commit the file with a message "Bogus change to render diffs correctly".
 - Better to commit often rather than not enough. Ideally your commits will be have a unified objective. E.g., "changed language tags on all properties", "updated formatting for a few definitions", "deleted class Agent Identifier & fixed related axioms".
-- When you've made changes as dictated by the issue, then perform a PR on `develop`.
+- When you've made changes as dictated by the issue, then perform a MR on `develop`.
 - A set of checks will be run. Any failures need to be addressed before it can be accepted.
-- Only Lead Developers can accept PRs.  
+- Only Lead Developers can accept MRs.  
 
 ## Our Pledge
 

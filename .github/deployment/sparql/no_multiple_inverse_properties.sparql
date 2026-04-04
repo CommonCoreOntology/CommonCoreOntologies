@@ -5,23 +5,21 @@
 # Severity:  
 #    Error
 
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#> 
 
-SELECT DISTINCT ?property ?inverse1 ?inverse2 ?error
+SELECT ?property1 ?property2 ?error
 WHERE
 {
   {
-    { ?property owl:inverseOf ?inverse1 }
-    UNION
-    { ?inverse1 owl:inverseOf ?property }
+    ?property owl:inverseOf ?property1. 
+    ?property owl:inverseOf ?property2. 
+    FILTER (?property1 != ?property2) 
   }
+  UNION
   {
-    { ?property owl:inverseOf ?inverse2 }
-    UNION
-    { ?inverse2 owl:inverseOf ?property }
+    ?property1 owl:inverseOf ?property. 
+    ?property2 owl:inverseOf ?property. 
+    FILTER (?property1 != ?property2) 
   }
-  FILTER (?inverse1 != ?inverse2)
-  FILTER (STR(?inverse1) < STR(?inverse2))
   BIND (concat("ERROR: Object property ", str(?property), " has more than one inverse.") AS ?error)
 }
-ORDER BY ?property
