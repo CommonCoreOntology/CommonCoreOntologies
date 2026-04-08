@@ -258,10 +258,11 @@ build-ccom: $(ROBOT_FILE) | $(config.TEMP_DIR)
 		echo 'ERROR: VERSION is required. Usage: make build-ccom VERSION=2.1 [DATE=YYYY-MM-DD]'; \
 		exit 1; \
 	fi
-	@echo "Merging 11 CCO modules + BFO via ROBOT merge..."
+	@echo "Merging 11 CCO modules + BFO + FamilialRelationsOntology via ROBOT merge..."
 	java -jar $(ROBOT_FILE) merge \
 		$(foreach f,$(DEV_FILES),--input $(f)) \
 		--input $(BFO_LOCAL) \
+		--input src/cco-extensions/FamilialRelationsOntology.ttl \
 		--catalog src/cco-merged/catalog-v001.xml \
 		--output $(config.TEMP_DIR)/ccom-raw.ttl
 	@echo "Applying CCOM ontology header (IRI, version, metadata)..."
