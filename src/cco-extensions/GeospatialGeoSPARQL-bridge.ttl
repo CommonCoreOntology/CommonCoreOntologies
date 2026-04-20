@@ -1,0 +1,147 @@
+@prefix : <https://www.commoncoreontologies.org/GeospatialGeoSPARQL/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@base <https://www.commoncoreontologies.org/GeospatialGeoSPARQL> .
+
+<https://www.commoncoreontologies.org/GeospatialGeoSPARQL> rdf:type owl:Ontology ;
+     owl:versionIRI <https://www.commoncoreontologies.org/2025-11-24/GeospatialGeoSPARQL> ;
+     owl:imports <https://www.commoncoreontologies.org/GeospatialOntology> ;
+     owl:imports <https://www.commoncoreontologies.org/InformationEntityOntology> ;
+     owl:imports <http://www.opengis.net/ont/geosparql> ;
+     dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
+     rdfs:comment """
+     This bridge ontology is designed to link GeoSPARQL and GeospatialOntology, so that CCO applications can use GeoSPARQL datatypes to represent location and shape.
+     """@en ;
+     rdfs:label "Geospatial-GeoSPARQL bridge Ontology"@en ;
+     dcterms:creator <https://orcid.org/0000-0002-3884-3420> , <https://orcid.org/0000-0002-1604-3078> ;
+     dcterms:created "2025-11-24"^^xsd:date ;
+     dcterms:modified "2025-11-24"^^xsd:date ;
+     owl:versionInfo "Version 1.0"@en ;
+     .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+geosparql:hasGeometry 
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf cco:ont00001801 ; # is subject of
+	rdfs:domain geosparql:Feature ;
+	rdfs:range geosparql:Geometry ;
+	skos:definition "A spatial representation for a given feature."@en ;
+	rdfs:label "has geometry"@en ;
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+    .
+
+###  http://www.opengis.net/ont/geosparql#sfWithin
+geosparql:sfWithin
+	a owl:ObjectProperty ;
+    rdfs:subPropertyOf obo:BFO_0000171 ; # located in at some times
+	rdfs:domain geosparql:SpatialObject ;
+	rdfs:range geosparql:SpatialObject ;
+	rdfs:isDefinedBy 
+		: , 
+		<http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations> ,
+		<http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations> ;
+	skos:definition """States that the subject SpatialObject is spatially within the object SpatialObject. DE-9IM: T*F**F***"""@en ;
+	rdfs:seeAlso <http://dbpedia.org/resource/DE-9IM> ;
+	skos:prefLabel "within"@en ;
+.
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#asWKT
+geosparql:asWKT 
+    a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :hasSerialization ;
+	rdfs:domain geosparql:Geometry ;
+	rdfs:range geosparql:wktLiteral ;
+    rdfs:label "as WKT"@en ;
+    skos:definition "A Data Property that has as its range a string formated according to the Well-known text standardization for geometric objects."@en ;
+    skos:example "Polygon ((10 10, 10 20, 20 20, 20 15, 10 10))" ; 
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+    .
+
+###  http://www.opengis.net/ont/geosparql#hasSerialization
+geosparql:hasSerialization 
+    a owl:DatatypeProperty ;
+	rdfs:domain geosparql:Geometry ;
+	rdfs:range rdfs:Literal ;
+	skos:definition "Connects a geometry object with its text-based serialization."@en ;
+	rdfs:label "has serialization"@en ;
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+.
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#wktLiteral
+geosparql:wktLiteral 
+    a rdfs:Datatype ;
+	skos:definition "A Well-known Text serialization of a geometry object."@en ;
+	rdfs:label "Well-known Text Literal"@en ;
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+.
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#SpatialObject
+geosparql:SpatialObject 
+    a owl:Class ;
+    rdfs:subClassOf [ 
+        owl:unionOf ( 
+            obo:BFO_0000002 # continuant  
+            obo:BFO_0000015 # process
+            ) 
+        ] ;
+	skos:definition "Anything spatial (being or having a shape, position or an extent)."@en ;
+	rdfs:label "Spatial Object"@en ;
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+.
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geosparql:Feature 
+    a owl:Class ;
+    owl:equivalentClass [ 
+        owl:unionOf ( 
+            obo:BFO_0000004 # independent continuant  
+            obo:BFO_0000015 # process
+            ) 
+        ] ;
+	owl:disjointWith geosparql:Geometry ;
+	skos:definition "A discrete spatial phenomenon in a universe of discourse."@en ;
+	rdfs:label "Feature"@en ;
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+.
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+geosparql:Geometry 
+    a owl:Class ;
+    rdfs:subClassOf cco:ont00000958 ; # information content entity
+	skos:definition "A coherent set of direct positions in Euclidian space. A direct position holds the coordinates for a position within a Coordinate Reference System (CRS)."@en ;
+	rdfs:label "Geometry"@en ;
+	rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+    cco:ont00001760 "http://www.opengis.net/ont/geosparql"^^xsd:anyURI ;
+.
+
