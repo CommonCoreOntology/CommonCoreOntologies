@@ -4,9 +4,16 @@
 [![license](https://img.shields.io/static/v1?label=license&message=BSD%203.1&color=green&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies?tab=BSD-3-Clause-1-ov-file)
 [![release](https://img.shields.io/static/v1?label=release&message=2.0&color=blue&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v2.0-2024-11-06)
 
-***IMPORTANT NOTE***  
-Starting with version 2.0, CCO IRIs are using a new namespace and have opaque local identifiers for all ontology elements.  
-See [here](https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/develop/documentation/mapping-new-iris) for the mapping file.  
+## RECENT NEWS
+The modernization of repository artifacts, issues, and documentation is underway: 
+* Initial cleanup is expected to be completed by **June 30, 2026**.
+* The first wave of major structural changes (3.0) is expected to be released by **December 31, 2026** and will incorporate GeoSPARQL, QUDT, and the refactoring of information.
+* The second wave of major structural changes (4.0) is expected to be released **June 30, 2027**.
+
+It is the recommendation of the CCO Governance Board that users wait to update following 4.0 release. In the meantime, users who would like to use versions of CCO with the up-to-date changes, are directed to pull from the 'develop' branch. For a high-level overview of planned updates, see the milestones displayed below. See here for an accompanying [slide deck](https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/develop/documentation/user-guides/Beverley%20-%20P%26G%20CCO%20Modernization%20Brief.pptx). 
+
+<img width="990" height="530" alt="image" src="https://github.com/user-attachments/assets/01ad7d63-26e4-4bbe-8a45-19fd5b2946ab" />
+
 
 ## What is CCO?
 
