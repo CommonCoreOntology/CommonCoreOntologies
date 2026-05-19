@@ -1,0 +1,119 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001869.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001869.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001869.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001795
+<https://www.commoncoreontologies.org/ont00001795> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <https://www.commoncoreontologies.org/ont00001869> .
+
+
+###  https://www.commoncoreontologies.org/ont00001869
+<https://www.commoncoreontologies.org/ont00001869> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001971> ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000038> ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000038> ;
+                                                   rdfs:label "interval during"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Temporal Interval INT1 is during some Temporal Interval INT2 iff there exist Temporal Instants inst1, inst2, inst3, and inst4 such that inst1 is the starting instant of INT1, inst2 is the ending instant of INT1, inst3 is the starting instant of INT2, inst4 is the ending instant of INT2, inst3 is before inst1, and inst2 is before inst4."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001971
+<https://www.commoncoreontologies.org/ont00001971> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000038
+<http://purl.obolibrary.org/obo/BFO_0000038> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000085
+<https://www.commoncoreontologies.org/ont00000085> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001058>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000225
+<https://www.commoncoreontologies.org/ont00000225> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000832>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000619
+<https://www.commoncoreontologies.org/ont00000619> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000225>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000800
+<https://www.commoncoreontologies.org/ont00000800> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000619>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000832
+<https://www.commoncoreontologies.org/ont00000832> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001088>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000992
+<https://www.commoncoreontologies.org/ont00000992> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000085>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001058
+<https://www.commoncoreontologies.org/ont00001058> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001869> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000800>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001088
+<https://www.commoncoreontologies.org/ont00001088> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

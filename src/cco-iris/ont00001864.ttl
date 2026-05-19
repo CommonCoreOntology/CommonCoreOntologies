@@ -1,0 +1,86 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001864.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001864.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001864.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001859
+<https://www.commoncoreontologies.org/ont00001859> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <https://www.commoncoreontologies.org/ont00001864> .
+
+
+###  https://www.commoncoreontologies.org/ont00001864
+<https://www.commoncoreontologies.org/ont00001864> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00001203> ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
+                                                   rdfs:label "delimits"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An instance of Delimiting Domain dd1 delimits some Organization o1 iff dd1 is the area within which o1 can legally operate."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000472
+<https://www.commoncoreontologies.org/ont00000472> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001152
+<https://www.commoncoreontologies.org/ont00001152> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001203>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001864> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001335>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001180
+<https://www.commoncoreontologies.org/ont00001180> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001203
+<https://www.commoncoreontologies.org/ont00001203> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000472>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001864> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001180>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001335
+<https://www.commoncoreontologies.org/ont00001335> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

@@ -1,0 +1,97 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000300.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000300.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000300.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000115
+<http://purl.obolibrary.org/obo/BFO_0000115> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001880
+<https://www.commoncoreontologies.org/ont00001880> rdf:type owl:ObjectProperty ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00000300> .
+
+
+###  https://www.commoncoreontologies.org/ont00001898
+<https://www.commoncoreontologies.org/ont00001898> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00000300> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000027
+<http://purl.obolibrary.org/obo/BFO_0000027> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000300
+<https://www.commoncoreontologies.org/ont00000300> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000027> ,
+                                                                   [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000115> ;
+                                                                                            owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001017>
+                                                                                          ]
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000115> ;
+                                                                                            owl:allValuesFrom <https://www.commoncoreontologies.org/ont00001017>
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                                   rdfs:label "Group of Agents"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Object Aggregate that has only Agents as parts."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000914
+<https://www.commoncoreontologies.org/ont00000914> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000300> .
+
+
+###  https://www.commoncoreontologies.org/ont00001017
+<https://www.commoncoreontologies.org/ont00001017> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001062
+<https://www.commoncoreontologies.org/ont00001062> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000300> .
+
+
+###  https://www.commoncoreontologies.org/ont00001180
+<https://www.commoncoreontologies.org/ont00001180> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000300> .
+
+
+###  https://www.commoncoreontologies.org/ont00001183
+<https://www.commoncoreontologies.org/ont00001183> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000300> .
+
+
+###  https://www.commoncoreontologies.org/ont00001239
+<https://www.commoncoreontologies.org/ont00001239> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000300> .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

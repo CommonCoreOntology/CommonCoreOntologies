@@ -1,0 +1,88 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000917.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000917.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000917.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000196
+<http://purl.obolibrary.org/obo/BFO_0000196> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000023
+<http://purl.obolibrary.org/obo/BFO_0000023> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000645
+<https://www.commoncoreontologies.org/ont00000645> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001262>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000917>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000917
+<https://www.commoncoreontologies.org/ont00000917> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;
+                                                   <http://purl.org/dc/terms/bibliographicCitation> "Permanent Residency - Wikipedia. https://en.wikipedia.org/wiki/Permanent_residency. Accessed 10 Feb. 2023." ;
+                                                   <http://purl.org/dc/terms/created> "2023-03-29T20:17:54-04:00"^^xsd:dateTime ;
+                                                   <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                                                   rdfs:label "Permanent Resident Role"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A role inhering in a Person by virtue of that Person being recognized as having legal resident status in a Government Domain in which that person is not a citizen but where they have the right to reside on a permanent basis."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Permanent Resident Role"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/wiki/Permanent_residency" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001262
+<https://www.commoncoreontologies.org/ont00001262> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

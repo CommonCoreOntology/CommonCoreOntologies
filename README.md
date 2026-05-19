@@ -1,9 +1,9 @@
-# The Common Core Ontologies (CCO)
+# CCO PURLS
 
-[![GitHub Actions](https://github.com/CommonCoreOntology/CommonCoreOntologies/actions/workflows/manage_release.yml/badge.svg)](https://github.com/CommonCoreOntology/CommonCoreOntologies/actions/workflows/manage_release.yml)
-[![license](https://img.shields.io/static/v1?label=license&message=BSD%203.1&color=green&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies?tab=BSD-3-Clause-1-ov-file)
-[![release](https://img.shields.io/static/v1?label=release&message=2.0&color=blue&style=flat)](https://github.com/CommonCoreOntology/CommonCoreOntologies/releases/tag/v2.0-2024-11-06)
+This page is for testing the CCO PURL server. 
 
+The CCO home page is located [here](https://commoncoreontology.github.io/cco-webpage/).
+The CCO GitHub repo is located [here](https://github.com/CommonCoreOntology/CommonCoreOntologies).
 ## RECENT NEWS
 The modernization of repository artifacts, issues, and documentation is underway: 
 * Initial cleanup is expected to be completed by **June 30, 2026**.

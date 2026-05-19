@@ -1,0 +1,110 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001855.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001855.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001855.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000178
+<http://purl.obolibrary.org/obo/BFO_0000178> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001810
+<https://www.commoncoreontologies.org/ont00001810> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001855
+<https://www.commoncoreontologies.org/ont00001855> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000178> ,
+                                                                      <https://www.commoncoreontologies.org/ont00001810> ;
+                                                   owl:inverseOf <https://www.commoncoreontologies.org/ont00001944> ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000141> ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000141> ;
+                                                   rdfs:label "has spatial part"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "y has_spatial_part x iff x, y, z, and q are instances of Immaterial Entity, such that for any z connected with x, z is also connected with y, and q is connected with y but not connected with x."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001909
+<https://www.commoncoreontologies.org/ont00001909> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001855> .
+
+
+###  https://www.commoncoreontologies.org/ont00001944
+<https://www.commoncoreontologies.org/ont00001944> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001989
+<https://www.commoncoreontologies.org/ont00001989> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001855> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000141
+<http://purl.obolibrary.org/obo/BFO_0000141> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000068
+<https://www.commoncoreontologies.org/ont00000068> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001855> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001348>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000122
+<https://www.commoncoreontologies.org/ont00000122> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000170
+<https://www.commoncoreontologies.org/ont00000170> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000205
+<https://www.commoncoreontologies.org/ont00000205> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001855> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000170>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000904
+<https://www.commoncoreontologies.org/ont00000904> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001855> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000122>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001348
+<https://www.commoncoreontologies.org/ont00001348> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

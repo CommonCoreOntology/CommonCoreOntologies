@@ -1,0 +1,86 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000176.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000176.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000176.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000196
+<http://purl.obolibrary.org/obo/BFO_0000196> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000176
+<https://www.commoncoreontologies.org/ont00000176> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001180>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000898>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001180> ;
+                                                   <http://purl.org/dc/terms/bibliographicCitation> "Lee, David S., and Brad Glosserman. “How Companies Can Navigate Today’s Geopolitical Risks.” Harvard Business Review, 28 Nov. 2022. hbr.org, https://hbr.org/2022/11/how-companies-can-navigate-todays-geopolitical-risks." ,
+                                                                                                    "University, Utah State. Geopolitical Power | Aggies GO. https://chass.usu.edu/international-studies/aggies-go/power. Accessed 6 Apr. 2023." ;
+                                                   <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
+                                                   <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                                                   rdfs:label "Geopolitical Organization"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Organization that bears a Geopolitical Power Role."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Geopolitical Organization"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://chass.usu.edu/international-studies/aggies-go/power" ,
+                                                                                                      "https://hbr.org/2022/11/how-companies-can-navigate-todays-geopolitical-risks" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00000898
+<https://www.commoncoreontologies.org/ont00000898> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001180
+<https://www.commoncoreontologies.org/ont00001180> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

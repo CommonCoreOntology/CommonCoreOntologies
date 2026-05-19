@@ -1,0 +1,94 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000293.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000293.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000293.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001868
+<https://www.commoncoreontologies.org/ont00001868> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00000293> .
+
+
+###  https://www.commoncoreontologies.org/ont00001914
+<https://www.commoncoreontologies.org/ont00001914> rdf:type owl:ObjectProperty ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00000293> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000203
+<https://www.commoncoreontologies.org/ont00000203> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000293> .
+
+
+###  https://www.commoncoreontologies.org/ont00000293
+<https://www.commoncoreontologies.org/ont00000293> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001163>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001868> ;
+                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000001>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001163> ;
+                                                   owl:disjointWith <https://www.commoncoreontologies.org/ont00001010> ,
+                                                                    <https://www.commoncoreontologies.org/ont00001022> ,
+                                                                    <https://www.commoncoreontologies.org/ont00001364> ;
+                                                   rdfs:comment "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
+                                                   rdfs:label "Nominal Measurement Information Content Entity"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Measurement Information Content Entity that consists of a symbol that classifies Entities according to some shared, possibly arbitrary, characteristic."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "The sentence \"January 20, 1985 was a cold day in Chicago, IL\" is the carrier of a nominal measurement."@en ,
+                                                                                                 "a measurement that classifies automobiles as sedans, coupes, hatchbacks, or convertibles" ,
+                                                                                                 "a measurement that classifies military intelligence as strategic, operational, or tactical" ,
+                                                                                                 "a measurement that classifies rocks as igneous, sedimentary, or metamorphic" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001010
+<https://www.commoncoreontologies.org/ont00001010> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001022
+<https://www.commoncoreontologies.org/ont00001022> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001163
+<https://www.commoncoreontologies.org/ont00001163> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001364
+<https://www.commoncoreontologies.org/ont00001364> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi
