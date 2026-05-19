@@ -1,5 +1,4 @@
 @prefix : <https://www.commoncoreontologies.org/QualityOntology/> .
-@prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -12,13 +11,13 @@
 @base <https://www.commoncoreontologies.org/QualityOntology> .
 
 <https://www.commoncoreontologies.org/QualityOntology> rdf:type owl:Ontology ;
-                                                                              owl:versionIRI <https://www.commoncoreontologies.org/2024-11-06/QualityOntology> ;
+                                                                              owl:versionIRI <https://www.commoncoreontologies.org/2026-04-04/QualityOntology> ;
                                                                               owl:imports <https://www.commoncoreontologies.org/InformationEntityOntology> ;
                                                                               dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                               dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                               rdfs:comment "This ontology is designed to represent a range of attributes of entities especially qualities, realizable entities, and process profiles."@en ;
                                                                               rdfs:label "Quality Ontology"@en ;
-                                                                              owl:versionInfo "Version 2.0"@en .
+                                                                              owl:versionInfo "Version 2.1"@en .
 
 #################################################################
 #    Annotation properties
@@ -300,7 +299,7 @@ cco:ont00000494 rdf:type owl:Class ;
 cco:ont00000512 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000628 ;
                 rdfs:label "Radiation Emissivity"@en ;
-                skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to emit electromagnetic radiation of a given frequency."@en ;
+                skos:definition "A Disposition to Interact with Electromagnetic Radiation that inheres in a bearer in virtue of the capacity of that bearer to emit electromagnetic radiation of a given frequency."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
 
@@ -396,7 +395,7 @@ cco:ont00000607 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000614
 cco:ont00000614 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000019 ;
-                rdfs:comment "'Matter' here can also refer to the inertial energy of an object."@en ,
+                skos:scopeNote "'Matter' here can also refer to the inertial energy of an object."@en ,
                              "Typical unit of measure is the kilogram or pound."@en ;
                 rdfs:label "Mass"@en ;
                 skos:definition "A Quality that inheres in a bearer in virtue of the amount of matter in that bearer."@en ;
@@ -416,8 +415,8 @@ cco:ont00000620 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000628
 cco:ont00000628 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000016 ;
-                rdfs:label "Electromagnetic Radiation Property"@en ;
-                skos:definition "A Disposition that inheres in an bearer in virtue of how that bearer interacts with electromagnetic radiation."@en ;
+                rdfs:label "Disposition to Interact with Electromagnetic Radiation"@en ;
+                skos:definition "A Disposition that inheres in a bearer in virtue of how that bearer interacts with electromagnetic radiation."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
 
@@ -432,7 +431,7 @@ cco:ont00000632 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000633
 cco:ont00000633 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000019 ;
-                rdfs:comment "When an object is \"weighed\", in the typical case, it is done so by taking into account the local force of gravity to determine the object's mass, whose standard of measure is the kilogram. The actual unit of measure of weight is the newton."@en ;
+                skos:scopeNote "When an object is \"weighed\", in the typical case, it is done so by taking into account the local force of gravity to determine the object's mass, whose standard of measure is the kilogram. The actual unit of measure of weight is the newton."@en ;
                 rdfs:label "Weight"@en ;
                 skos:definition "A Quality that inheres in some material entity with a mass in virtue of its location in some gravitational field."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
@@ -503,7 +502,7 @@ cco:ont00000768 rdf:type owl:Class ;
 cco:ont00000784 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000628 ;
                 rdfs:label "Optical Property"@en ;
-                skos:definition "An Electromagnetic Radiation Property that is realized when its bearer interacts with electromagnetic waves within the visible light spectrum."@en ;
+                skos:definition "A Disposition to Interact with Electromagnetic Radiation that is realized when its bearer interacts with electromagnetic waves within the visible light spectrum."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
 
@@ -762,7 +761,7 @@ cco:ont00001118 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001126
 cco:ont00001126 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000784 ;
-                rdfs:comment "There are a variety of photometric measurements, such as luminous flux/power or luminous intensity, whose units are lumen and candela respectively, which attempt to describe properties associated with the perception of light. These are weighted measurements, typically by the luminosity function, as thus exist on the side of information content. It is a point of further development to add the needed intrinsic properties of radiation that such measurements are about."@en ;
+                skos:scopeNote "There are a variety of photometric measurements, such as luminous flux/power or luminous intensity, whose units are lumen and candela respectively, which attempt to describe properties associated with the perception of light. These are weighted measurements, typically by the luminosity function, as thus exist on the side of information content. It is a point of further development to add the needed intrinsic properties of radiation that such measurements are about."@en ;
                 rdfs:label "Luminescent Property"@en ;
                 skos:definition "An Optical Property that inheres in a bearer in virtue of that bearer's capacity to emit visible light, but which isn't the result of the bearer being heated."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Luminescence&oldid=1050169944"^^xsd:anyURI ;
@@ -773,7 +772,7 @@ cco:ont00001126 rdf:type owl:Class ;
 cco:ont00001137 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000628 ;
                 rdfs:label "Radiation Reflectivity"@en ;
-                skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to scatter or reflect electromagnetic radiation of a given frequency."@en ;
+                skos:definition "A Disposition to Interact with Electromagnetic Radiation that inheres in a bearer in virtue of the capacity of that bearer to scatter or reflect electromagnetic radiation of a given frequency."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
 
@@ -880,7 +879,7 @@ cco:ont00001280 rdf:type owl:Class ;
 cco:ont00001291 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000628 ;
                 rdfs:label "Radiation Absorptivity"@en ;
-                skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of the capacity of that bearer to absorb electromagnetic radiation of a given frequency."@en ;
+                skos:definition "A Disposition to Interact with Electromagnetic Radiation that inheres in a bearer in virtue of the capacity of that bearer to absorb electromagnetic radiation of a given frequency."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
 
@@ -955,7 +954,7 @@ cco:ont00001360 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001367
 cco:ont00001367 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001202 ;
-                rdfs:comment "Subclasses of one dimensional extent are included for usability. It is doubtful any of them can be objectively distinguished (on the side of the bearing entity) without some reference to external properties such as orientation and perspective."@en ;
+                skos:scopeNote "Subclasses of one dimensional extent are included for usability. It is doubtful any of them can be objectively distinguished (on the side of the bearing entity) without some reference to external properties such as orientation and perspective."@en ;
                 rdfs:label "One Dimensional Extent"@en ;
                 skos:definition "A Size Quality that inheres in a bearer in virtue of the bearer's extension in one dimension."@en ;
                 cco:ont00001754 "International Organization for Standardization. 2019. Quantities and units -- Part 3: Space and time (ISO 80000-3:2019). International Organization for Standardization. Available at: https://www.iso.org/standard/64974.html."@en ;
@@ -981,9 +980,9 @@ cco:ont00001377 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00001384
 cco:ont00001384 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000628 ;
-                rdfs:comment "Note that it is important to specify the frequency of electromagnetic radiation when representing a bearer's Opacity since a bearer may be Opaque with respect to electromagnetic radiation of one frequency, but be transparent with respect to electromagnetic radiation of another frequency. Unless otherwise stated, statements about a bearer's Opacity are assumed to be about electromagnetic radiation with a frequency in the visible spectrum."@en ;
+                skos:scopeNote "Note that it is important to specify the frequency of electromagnetic radiation when representing a bearer's Opacity since a bearer may be Opaque with respect to electromagnetic radiation of one frequency, but be transparent with respect to electromagnetic radiation of another frequency. Unless otherwise stated, statements about a bearer's Opacity are assumed to be about electromagnetic radiation with a frequency in the visible spectrum."@en ;
                 rdfs:label "Opacity"@en ;
-                skos:definition "An Electromagnetic Radiation Property that inheres in a bearer in virtue of that bearer's capacity to transmit electromagnetic radiation of a given frequency through the bearer instead of reflecting, scattering, or absorbing electromangentic radiation of that frequency."@en ;
+                skos:definition "A Disposition to Interact with Electromagnetic Radiation that inheres in a bearer in virtue of that bearer's capacity to transmit electromagnetic radiation of a given frequency through the bearer instead of reflecting, scattering, or absorbing electromangentic radiation of that frequency."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/wiki/Opacity_(optics)" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
