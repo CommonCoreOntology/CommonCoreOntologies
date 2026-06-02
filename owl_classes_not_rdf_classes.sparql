@@ -1,0 +1,30 @@
+# Title:  
+#    No rdfs:Class only owl:Class
+# Constraint Description:  
+#    Classes must be declared using owl:Class rather than rdfs:Class
+# Severity:  
+#    Error
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT ?class ?label ?warningMessage
+WHERE {
+  ?class a rdfs:Class .
+
+  FILTER (!ISBLANK(?class)) .
+
+  OPTIONAL {
+    ?class rdfs:label ?label .
+  }
+
+  BIND (
+    CONCAT(
+      "Warning: Entity ",
+      COALESCE(STR(?label), STR(?class)),
+      " is declared as rdfs:Class. Use owl:Class instead."
+    )
+    AS ?warningMessage
+  )
+}
