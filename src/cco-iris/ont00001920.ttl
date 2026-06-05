@@ -42,9 +42,10 @@
 <https://www.commoncoreontologies.org/ont00001920> rdf:type owl:ObjectProperty ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001801> ;
                                                    owl:inverseOf <https://www.commoncoreontologies.org/ont00001942> ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000965> ;
                                                    rdfs:label "prescribed by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x prescribed_by y iff y is an instance of Information Content Entity and x is an instance of Entity, such that y serves as a rule or guide for x if x is an Occurrent, or y serves as a model for x if x is a Continuant."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x prescribed by y =Def y prescribes x"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -65,6 +66,10 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+
 
 ###  https://www.commoncoreontologies.org/ont00000965
 <https://www.commoncoreontologies.org/ont00000965> rdf:type owl:Class .

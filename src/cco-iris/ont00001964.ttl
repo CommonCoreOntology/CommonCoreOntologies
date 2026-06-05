@@ -36,15 +36,20 @@
 ###  https://www.commoncoreontologies.org/ont00001964
 <https://www.commoncoreontologies.org/ont00001964> rdf:type owl:ObjectProperty ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001904> ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001364> ;
                                                    rdfs:label "is measured by interval"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "y is_measured_by_interval x iff x is an instance of Information Content Entity and y is an instance of Entity, such that x describes some attribute of y relative to a scale which has uniform intervals but has a zero value that does not correspond to an absence of the attribute being measured."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by interval y =Def y is a interval measurement of x"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 #################################################################
 #    Classes
 #################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+
 
 ###  https://www.commoncoreontologies.org/ont00001364
 <https://www.commoncoreontologies.org/ont00001364> rdf:type owl:Class .

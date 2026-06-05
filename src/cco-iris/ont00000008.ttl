@@ -21,12 +21,24 @@
 
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+<http://purl.obolibrary.org/obo/BFO_0000132> rdf:type owl:ObjectProperty .
+
+
+#################################################################
 #    Classes
 #################################################################
 
 ###  https://www.commoncoreontologies.org/ont00000008
 <https://www.commoncoreontologies.org/ont00000008> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001047> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001047> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000675>
+                                                                   ] ;
                                                    rdfs:label "Sound Frequency"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Frequency that is the rate of Oscillations per second of a Sound Wave."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
@@ -40,6 +52,10 @@
 ###  https://www.commoncoreontologies.org/ont00000530
 <https://www.commoncoreontologies.org/ont00000530> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000008> .
+
+
+###  https://www.commoncoreontologies.org/ont00000675
+<https://www.commoncoreontologies.org/ont00000675> rdf:type owl:Class .
 
 
 ###  https://www.commoncoreontologies.org/ont00001047

@@ -16,6 +16,10 @@
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001760
 <https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
 
@@ -24,12 +28,12 @@
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000132
+<http://purl.obolibrary.org/obo/BFO_0000132> rdf:type owl:ObjectProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001777
 <https://www.commoncoreontologies.org/ont00001777> rdf:type owl:ObjectProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001857
-<https://www.commoncoreontologies.org/ont00001857> rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -62,16 +66,16 @@
 <https://www.commoncoreontologies.org/ont00000752> rdf:type owl:Class ;
                                                    owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000144>
                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001857> ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
                                                                                                 owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000099>
                                                                                               ]
                                                                                             ) ;
                                                                          rdf:type owl:Class
                                                                        ] ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000144> ;
-                                                   rdfs:comment "This is a defined class used to group process profiles of Wave Processes. Note that not every relevant process profile can be asserted as a subtype, however, because they (e.g. Frequency and Amplitude) are applicable to other processes as well (e.g. Oscillation Process)."@en ;
                                                    rdfs:label "Wave Process Profile"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Process Profile of a Wave Process."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "This is a defined class used to group process profiles of Wave Processes. Note that not every relevant process profile can be asserted as a subtype, however, because they (e.g. Frequency and Amplitude) are applicable to other processes as well (e.g. Oscillation Process)."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 

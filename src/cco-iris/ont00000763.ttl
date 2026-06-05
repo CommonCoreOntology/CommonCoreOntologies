@@ -28,6 +28,14 @@
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000117
+<http://purl.obolibrary.org/obo/BFO_0000117> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+<http://purl.obolibrary.org/obo/BFO_0000132> rdf:type owl:ObjectProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001777
 <https://www.commoncoreontologies.org/ont00001777> rdf:type owl:ObjectProperty .
 
@@ -48,14 +56,18 @@
 ###  https://www.commoncoreontologies.org/ont00000712
 <https://www.commoncoreontologies.org/ont00000712> rdf:type owl:Class ;
                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001777> ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000117> ;
                                                                      owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000763>
                                                                    ] .
 
 
 ###  https://www.commoncoreontologies.org/ont00000763
 <https://www.commoncoreontologies.org/ont00000763> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000144> ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000144> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001133>
+                                                                   ] ;
                                                    rdfs:label "Velocity"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Process Profile of an object's Motion that is characterized by its Speed and direction with respect to a frame of reference."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Velocity&oldid=1063300750"^^xsd:anyURI ;
@@ -70,10 +82,14 @@
                                                                    ] .
 
 
+###  https://www.commoncoreontologies.org/ont00001133
+<https://www.commoncoreontologies.org/ont00001133> rdf:type owl:Class .
+
+
 ###  https://www.commoncoreontologies.org/ont00001219
 <https://www.commoncoreontologies.org/ont00001219> rdf:type owl:Class ;
                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001777> ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000117> ;
                                                                      owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000763>
                                                                    ] .
 

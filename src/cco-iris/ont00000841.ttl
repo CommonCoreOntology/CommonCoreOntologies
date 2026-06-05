@@ -25,14 +25,30 @@
 
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000196
+<http://purl.obolibrary.org/obo/BFO_0000196> rdf:type owl:ObjectProperty .
+
+
+#################################################################
 #    Classes
 #################################################################
+
+###  https://www.commoncoreontologies.org/ont00000552
+<https://www.commoncoreontologies.org/ont00000552> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000841>
+                                                                   ] .
+
 
 ###  https://www.commoncoreontologies.org/ont00000841
 <https://www.commoncoreontologies.org/ont00000841> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001153> ;
                                                    rdfs:label "Explosive Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Damaging Artifact Function that is realized in a process in which the structural integrity of an entity is impaired beucase of the rapid increase in volume and release of energy in an extreme manner."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Damaging Artifact Function that is realized in a process in which the structural integrity of an entity is impaired because of the rapid increase in volume and release of energy in an extreme manner."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://www.dictionary.com/browse/explosive" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 

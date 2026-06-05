@@ -28,12 +28,24 @@
 <http://purl.obolibrary.org/obo/BFO_0000124> rdf:type owl:ObjectProperty .
 
 
+###  http://purl.obolibrary.org/obo/BFO_0000183
+<http://purl.obolibrary.org/obo/BFO_0000183> rdf:type owl:ObjectProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
 
-###  http://purl.obolibrary.org/obo/BFO_0000001
-<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+###  http://purl.obolibrary.org/obo/BFO_0000004
+<http://purl.obolibrary.org/obo/BFO_0000004> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000006
+<http://purl.obolibrary.org/obo/BFO_0000006> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000015
+<http://purl.obolibrary.org/obo/BFO_0000015> rdf:type owl:Class .
 
 
 ###  https://www.commoncoreontologies.org/ont00000472
@@ -42,13 +54,30 @@
 
 ###  https://www.commoncoreontologies.org/ont00000487
 <https://www.commoncoreontologies.org/ont00000487> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000472> ,
-                                                                   [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000124> ;
-                                                                     owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000001>
-                                                                   ] ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000472>
+                                                                                              [ rdf:type owl:Class ;
+                                                                                                owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000124> ;
+                                                                                                                owl:someValuesFrom [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000004>
+                                                                                                                                                          [ rdf:type owl:Class ;
+                                                                                                                                                            owl:complementOf <http://purl.obolibrary.org/obo/BFO_0000006>
+                                                                                                                                                          ]
+                                                                                                                                                        ) ;
+                                                                                                                                     rdf:type owl:Class
+                                                                                                                                   ]
+                                                                                                              ]
+                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000183> ;
+                                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000015>
+                                                                                                              ]
+                                                                                                            )
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000472> ;
                                                    rdfs:label "Geospatial Location"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Region that is at which an Entity or Event is located."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Region that is the location of an Independent Continuant (that is not a Spatial Region) or that environs some Process."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
 

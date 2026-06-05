@@ -20,6 +20,10 @@
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001760
 <https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
 
@@ -28,8 +32,8 @@
 #    Object Properties
 #################################################################
 
-###  https://www.commoncoreontologies.org/ont00001777
-<https://www.commoncoreontologies.org/ont00001777> rdf:type owl:ObjectProperty .
+###  http://purl.obolibrary.org/obo/BFO_0000117
+<http://purl.obolibrary.org/obo/BFO_0000117> rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -48,14 +52,14 @@
 <https://www.commoncoreontologies.org/ont00001219> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000144> ,
                                                                    [ rdf:type owl:Restriction ;
-                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001777> ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000117> ;
                                                                      owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000763>
                                                                    ] ;
-                                                   rdfs:comment "Delta-v is not equivalent to and should not be confused with Acceleration, which is the rate of change of Velocity."@en ;
                                                    rdfs:label "Delta-v"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Change in Velocity"@en ,
                                                                                                   "DeltaV"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Process Profile that is the total change in Velocity of an object's Motion."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Delta-v is not equivalent to and should not be confused with Acceleration, which is the rate of change of Velocity."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 

@@ -48,9 +48,10 @@
 <https://www.commoncoreontologies.org/ont00001917> rdf:type owl:ObjectProperty ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001801> ;
                                                    owl:inverseOf <https://www.commoncoreontologies.org/ont00001982> ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000853> ;
                                                    rdfs:label "described by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x described_by y iff y is an instance of Information Content Entity, and x is an instance of Entity, such that y is about the characteristics by which y can be recognized or visualized."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x described by y =Def y describes x"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -61,6 +62,10 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+
 
 ###  https://www.commoncoreontologies.org/ont00000853
 <https://www.commoncoreontologies.org/ont00000853> rdf:type owl:Class .
