@@ -28,12 +28,12 @@
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000132
+<http://purl.obolibrary.org/obo/BFO_0000132> rdf:type owl:ObjectProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001777
 <https://www.commoncoreontologies.org/ont00001777> rdf:type owl:ObjectProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001857
-<https://www.commoncoreontologies.org/ont00001857> rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -42,6 +42,14 @@
 
 ###  http://purl.obolibrary.org/obo/BFO_0000144
 <http://purl.obolibrary.org/obo/BFO_0000144> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000008
+<https://www.commoncoreontologies.org/ont00000008> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000675>
+                                                                   ] .
 
 
 ###  https://www.commoncoreontologies.org/ont00000260
@@ -66,7 +74,7 @@
 <https://www.commoncoreontologies.org/ont00000862> rdf:type owl:Class ;
                                                    owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000144>
                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001857> ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
                                                                                                 owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000675>
                                                                                               ]
                                                                                             ) ;

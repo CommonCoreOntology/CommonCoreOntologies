@@ -12,10 +12,6 @@
 #    Annotation properties
 #################################################################
 
-###  http://www.w3.org/2004/02/skos/core#altLabel
-<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
@@ -26,6 +22,14 @@
 
 ###  https://www.commoncoreontologies.org/ont00001760
 <https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000196
+<http://purl.obolibrary.org/obo/BFO_0000196> rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -43,21 +47,28 @@
 
 ###  https://www.commoncoreontologies.org/ont00000552
 <https://www.commoncoreontologies.org/ont00000552> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000445> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000445> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000196> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000841>
+                                                                   ] ;
                                                    rdfs:label "Explosive Weapon"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Bomb"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Weapon that is designed to inflict harm, damage, or incapacity by means of a violent release of energy caused by the exothermic reaction of an explosive material."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Explosive_weapon&oldid=1062481268"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
-###  https://www.commoncoreontologies.org/ont00000734
-<https://www.commoncoreontologies.org/ont00000734> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000552> .
+###  https://www.commoncoreontologies.org/ont00000841
+<https://www.commoncoreontologies.org/ont00000841> rdf:type owl:Class .
 
 
 ###  https://www.commoncoreontologies.org/ont00000858
 <https://www.commoncoreontologies.org/ont00000858> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000552> .
+
+
+###  https://www.commoncoreontologies.org/ont00002066
+<https://www.commoncoreontologies.org/ont00002066> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000552> .
 
 

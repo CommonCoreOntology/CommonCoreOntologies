@@ -21,6 +21,14 @@
 
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+<http://purl.obolibrary.org/obo/BFO_0000132> rdf:type owl:ObjectProperty .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -28,9 +36,17 @@
 <http://purl.obolibrary.org/obo/BFO_0000144> rdf:type owl:Class .
 
 
+###  https://www.commoncoreontologies.org/ont00000644
+<https://www.commoncoreontologies.org/ont00000644> rdf:type owl:Class .
+
+
 ###  https://www.commoncoreontologies.org/ont00000910
 <https://www.commoncoreontologies.org/ont00000910> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000144> ;
+                                                   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000144> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000644>
+                                                                   ] ;
                                                    rdfs:label "Amplitude"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Process Profile of an Oscillation Process that is the absolute value of the maximum displacement from a zero, equilibrium, or mean value during one cycle of the Oscillation Process."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .

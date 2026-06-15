@@ -16,6 +16,10 @@
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001760
 <https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
 
@@ -45,12 +49,12 @@
 ###  https://www.commoncoreontologies.org/ont00000829
 <https://www.commoncoreontologies.org/ont00000829> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000390> ;
-                                                   rdfs:comment """Standards of date, time, and time zone data formats:
-ISO/WD 8601-2 (http://www.loc.gov/standards/datetime/iso-tc154-wg5_n0039_iso_wd_8601-2_2016-02-16.pdf)
-W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
-                                                                "There is no class 'Time Zone' (the region), only 'Time Zone Identifier' (the designator for some region). Instances of 'Time Zone Identifier' should be related to instances of 'Information Bearing Entity' by means of the object properites 'uses time zone identifier' and 'time zone identifier used by' as appropriate. This is supposed to be analogous to the way we represent the relationship between measurement values and measurement units, where the relevant instance of Information Bearing Entity 'uses measurement unit' some instance of Measurement Unit (i.e., an instance of Information Content Entity)."@en ;
                                                    rdfs:label "Time Zone Identifier"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Spatial Region Identifier that designates the region associated with some uniform standard time for legal, commercial, or social purposes."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> """Standards of date, time, and time zone data formats:
+ISO/WD 8601-2 (http://www.loc.gov/standards/datetime/iso-tc154-wg5_n0039_iso_wd_8601-2_2016-02-16.pdf)
+W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
+                                                                                                   "There is no class 'Time Zone' (the region), only 'Time Zone Identifier' (the designator for some region). Instances of 'Time Zone Identifier' should be related to instances of 'Information Bearing Entity' by means of the object properites 'uses time zone identifier' and 'time zone identifier used by' as appropriate. This is supposed to be analogous to the way we represent the relationship between measurement values and measurement units, where the relevant instance of Information Bearing Entity 'uses measurement unit' some instance of Measurement Unit (i.e., an instance of Information Content Entity)."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 

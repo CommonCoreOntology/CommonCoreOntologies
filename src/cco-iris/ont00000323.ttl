@@ -24,6 +24,10 @@
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000176
+<http://purl.obolibrary.org/obo/BFO_0000176> rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/BFO_0000197
 <http://purl.obolibrary.org/obo/BFO_0000197> rdf:type owl:ObjectProperty .
 
@@ -64,6 +68,10 @@
 <https://www.commoncoreontologies.org/ont00000118> rdf:type owl:Class ;
                                                    owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000965>
                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000176> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001045>
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
                                                                                                 owl:onProperty <https://www.commoncoreontologies.org/ont00001942> ;
                                                                                                 owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000323>
                                                                                               ]
@@ -95,7 +103,7 @@
                                                                      owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000995>
                                                                    ] ;
                                                    rdfs:label "Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Function that inheres in some Artifact in virtue of that Artifact being designed to be used in processes that require that Function to be realized."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Function that inheres in some Material Artifact in virtue of that Material Artifact being designed to be used in processes that require that Function to be realized."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -252,6 +260,10 @@
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> .
 
 
+###  https://www.commoncoreontologies.org/ont00001045
+<https://www.commoncoreontologies.org/ont00001045> rdf:type owl:Class .
+
+
 ###  https://www.commoncoreontologies.org/ont00001070
 <https://www.commoncoreontologies.org/ont00001070> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> .
@@ -302,11 +314,6 @@
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> .
 
 
-###  https://www.commoncoreontologies.org/ont00001241
-<https://www.commoncoreontologies.org/ont00001241> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> .
-
-
 ###  https://www.commoncoreontologies.org/ont00001253
 <https://www.commoncoreontologies.org/ont00001253> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> .
@@ -354,6 +361,11 @@
 
 ###  https://www.commoncoreontologies.org/ont00001999
 <https://www.commoncoreontologies.org/ont00001999> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> .
+
+
+###  https://www.commoncoreontologies.org/ont00002069
+<https://www.commoncoreontologies.org/ont00002069> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> .
 
 

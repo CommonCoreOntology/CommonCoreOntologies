@@ -32,9 +32,10 @@
 <https://www.commoncoreontologies.org/ont00001844> rdf:type owl:ObjectProperty ;
                                                    rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000057> ;
                                                    owl:inverseOf <https://www.commoncoreontologies.org/ont00001993> ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has sender"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "y has_sender x iff x is an instance of Agent and y is an instance of Act Of Communication, such that x is the initiator and encoder of the InformationContentEntity intended for communication in y."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has sender y =Def y sends x"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -45,6 +46,10 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  https://www.commoncoreontologies.org/ont00000402
+<https://www.commoncoreontologies.org/ont00000402> rdf:type owl:Class .
+
 
 ###  https://www.commoncoreontologies.org/ont00001017
 <https://www.commoncoreontologies.org/ont00001017> rdf:type owl:Class .

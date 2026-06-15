@@ -12,6 +12,10 @@
 #    Annotation properties
 #################################################################
 
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001753
 <https://www.commoncoreontologies.org/ont00001753> rdf:type owl:AnnotationProperty .
 
@@ -35,13 +39,13 @@
 ###  https://www.commoncoreontologies.org/ont00001581
 <https://www.commoncoreontologies.org/ont00001581> rdf:type owl:NamedIndividual ,
                                                             <https://www.commoncoreontologies.org/ont00000469> ;
-                                                   rdfs:comment """The ITRS definition fulfills the following conditions:
+                                                   rdfs:label "International Terrestrial Reference System"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> """The ITRS definition fulfills the following conditions:
 1. It is geocentric, the center of mass being defined for the whole earth, including oceans and atmosphere.
 2. The unit of length is the metre (SI). This scale is consistent with the TCG time coordinate for a geocentric local frame, in agreement with IAU and IUGG (1991) resolutions. This is obtained by appropriate relativistic modelling.
 3. Its orientation was initially given by the BIH orientation at 1984.0.
 4. The time evolution of the orientation is ensured by using a no-net-rotation condition with regards to horizontal tectonic motions over the whole earth.
 From: (https://www.iers.org/IERS/EN/Science/ITRS/ITRS.html)"""@en ;
-                                                   rdfs:label "International Terrestrial Reference System"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001753> "ITRS" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 

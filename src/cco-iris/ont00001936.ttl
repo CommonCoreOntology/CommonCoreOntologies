@@ -36,14 +36,47 @@
 ###  https://www.commoncoreontologies.org/ont00001936
 <https://www.commoncoreontologies.org/ont00001936> rdf:type owl:ObjectProperty ;
                                                    rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000056> ;
+                                                   rdfs:domain [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( <http://purl.obolibrary.org/obo/BFO_0000020>
+                                                                               <http://purl.obolibrary.org/obo/BFO_0000031>
+                                                                               [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000004>
+                                                                                                      [ rdf:type owl:Class ;
+                                                                                                        owl:complementOf <http://purl.obolibrary.org/obo/BFO_0000006>
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                                             )
+                                                               ] ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "is object of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "If p is a process and c is a continuant, then c is object of p if and only if the c is part of the projected state that the agent intends to achieve by performing p."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is object of y =Def x participates in y, x is an Independent Continuant (but not a Spatial Region), y is a Process, and y is performed by Agent z and x is part of the projected state that z intends to achieve by performing y."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
 #################################################################
 #    Classes
 #################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000004
+<http://purl.obolibrary.org/obo/BFO_0000004> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000006
+<http://purl.obolibrary.org/obo/BFO_0000006> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000015
+<http://purl.obolibrary.org/obo/BFO_0000015> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000020
+<http://purl.obolibrary.org/obo/BFO_0000020> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000031
+<http://purl.obolibrary.org/obo/BFO_0000031> rdf:type owl:Class .
+
 
 ###  http://purl.obolibrary.org/obo/BFO_0000040
 <http://purl.obolibrary.org/obo/BFO_0000040> rdf:type owl:Class .

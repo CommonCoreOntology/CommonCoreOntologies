@@ -12,13 +12,13 @@
 @base <https://www.commoncoreontologies.org/UnitsOfMeasureOntology> .
 
 <https://www.commoncoreontologies.org/UnitsOfMeasureOntology> rdf:type owl:Ontology ;
-                                                                                     owl:versionIRI <https://www.commoncoreontologies.org/2024-11-06/UnitsOfMeasureOntology> ;
+                                                                                     owl:versionIRI <https://www.commoncoreontologies.org/2026-04-04/UnitsOfMeasureOntology> ;
                                                                                      owl:imports <https://www.commoncoreontologies.org/InformationEntityOntology> ;
                                                                                      dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                                      dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                                      rdfs:comment "This ontology is designed to represent standard measurement units that are used when measuring various attributes of entities."@en ;
                                                                                      rdfs:label "Units of Measure Ontology"@en ;
-                                                                                     owl:versionInfo "Version 2.0"@en .
+                                                                                     owl:versionInfo "Version 2.1"@en .
 
 #################################################################
 #    Annotation properties
@@ -88,7 +88,7 @@ cco:ont00000120 rdf:type owl:Class .
 ###  https://www.commoncoreontologies.org/ont00000140
 cco:ont00000140 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000120 ;
-                 rdfs:comment "The type of particle quantified is typically either atoms or molecules, but may also be protons, neutrons, electrons, quarks, or other particles. The type of particle being measured should always be specified along with the measurement and its unit."@en ;
+                 skos:scopeNote "The type of particle quantified is typically either atoms or molecules, but may also be protons, neutrons, electrons, quarks, or other particles. The type of particle being measured should always be specified along with the measurement and its unit."@en ;
                  rdfs:label "Measurement Unit of Amount of Substance"@en ;
                  skos:altLabel "Measurement Unit of Chemical Amount"@en ,
                                "Measurement Unit of Enplethy"@en ;
@@ -293,7 +293,7 @@ cco:ont00001307 rdf:type owl:Class ;
 cco:ont00001317 rdf:type owl:Class ;
                  rdfs:subClassOf cco:ont00000120 ;
                  rdfs:label "Measurement Unit of Volume"@en ;
-                 skos:definition "A Measurement Unit that is used as a standard for measurement of sites or three-dimensional regions or Geospatial Regions."@en ;
+                 skos:definition "A Measurement Unit that is used as a standard for measurement of sites or three-dimensional spatial regions."@en ;
                  skos:example "cubic feet, cubic meter, quart, liter" ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/UnitsOfMeasureOntology"^^xsd:anyURI .
 
@@ -651,7 +651,7 @@ cco:ont00001478 rdf:type owl:NamedIndividual ,
 ###  https://www.commoncoreontologies.org/ont00001483
 cco:ont00001483 rdf:type owl:NamedIndividual ,
                           cco:ont00000140 ;
-                 rdfs:comment "One mole contains exactly 6.02214076×10^23 elementary entities."@en ;
+                 skos:scopeNote "One mole contains exactly 6.02214076×10^23 elementary entities."@en ;
                  rdfs:label "Mole Measurement Unit"@en ;
                  cco:ont00001738 "mole" ;
                  cco:ont00001740 "mol" ;
