@@ -130,7 +130,7 @@ cco:ont00000027 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000517 ;
                 rdfs:label "Mailing"@en ;
                 skos:altLabel "Act of Mailing"@en ;
-                skos:definition "An Act of Communication by Media in which information and tangible objects, usually written documents, are delivered to destinations around the world."@en ;
+                skos:definition "An Act of Communication by Media in which information concretized in tangible objects, usually written documents, are delivered to recipients."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Mail&oldid=1057401839"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -370,11 +370,11 @@ cco:ont00000148 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000149
 cco:ont00000149 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ;
                 rdfs:label "Instant Messaging"@en ;
                 skos:altLabel "Act of IMing"@en ,
                               "Act of Instant Messaging"@en ;
-                skos:definition "An Act of Communication by Media in which real-time direct text-based communication occurs between two or more people using personal computers or other devices, along with shared Instant Messaging Client Software conveyed over a network, such as the Internet."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which real-time direct text-based communication occurs between two or more Agents using personal computers or other devices, along with shared Instant Messaging Client Software conveyed over a computer network."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Instant_messaging&oldid=1062873579"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -537,10 +537,29 @@ cco:ont00000222 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000228
 cco:ont00000228 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( cco:ont00000005
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:BFO_0000055 ;
+                                                             owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                                         owl:unionOf ( obo:BFO_0000016
+                                                                                                                       obo:BFO_0000023
+                                                                                                                     )
+                                                                                                       ]
+                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty obo:BFO_0000059 ;
+                                                                                                         owl:someValuesFrom cco:ont00000965
+                                                                                                       ]
+                                                                                                     ) ;
+                                                                                  rdf:type owl:Class
+                                                                                ]
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
                 rdfs:subClassOf cco:ont00000005 ;
                 rdfs:label "Planned Act"@en ;
                 skos:altLabel "Intentional Act"@en ;
-                skos:definition "An Act in which at least one Agent plays a causative role and which is prescribed by some Prescriptive Information Content Entity held by at least one of the Agents."@en ;
+                skos:definition "An Act in which at least one Agent plays a causative role and which is prescribed by some Directive Information Content Entity held by at least one of the Agents."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -781,9 +800,9 @@ cco:ont00000354 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000356
 cco:ont00000356 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:subClassOf cco:ont00002077 ;
                 rdfs:label "Act of Publishing Mass Media Article"@en ;
-                skos:definition "An Act of Mass Media Communication involving the preparation and public issuance of a non-fictional essay, especially one included with others in a newspaper, magazine, journal, etc."@en ;
+                skos:definition "An Act of Publishing a non-fictional essay, especially one included with others in a newspaper, magazine, journal, etc."@en ;
                 cco:ont00001754 "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -895,10 +914,10 @@ cco:ont00000384 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000386
 cco:ont00000386 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ;
                 rdfs:label "Webcast"@en ;
                 skos:altLabel "Act of Webcasting"@en ;
-                skos:definition "An Act of Communciation by Media transmitted to an audience over the Internet using streaming media technology to distribute a single content source that may be distributed live or on demand."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which communication with an audience occurs over the Internet using streaming media technology to distribute a single content source that may be distributed live or on demand."@en ;
                 skos:scopeNote "Essentially, webcasting is “broadcasting” over the Internet."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Webcast&oldid=1062685084"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
@@ -970,7 +989,8 @@ cco:ont00000401 rdf:type owl:Class ;
 cco:ont00000402 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000228 ;
                 rdfs:label "Act of Communication"@en ;
-                skos:definition "A Planned Act in which some Information Content Entity is transferred from some Agent to Another."@en ;
+                skos:definition "A Planned Act in which the objective is to create a concretization of some Information Content Entity in one or more recipients."@en ;
+                skos:scopeNote "Act of Communication is not intended to be a success term - a term that only applies when the act it denotes is successful. While successful communication is the goal, it is important that instances of this class can include both better and worse communication acts as well attempted communications that fail altogether."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Communication&oldid=1063752020"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -985,9 +1005,9 @@ cco:ont00000414 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000416
 cco:ont00000416 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:subClassOf cco:ont00002077 ;
                 rdfs:label "Act of Publishing Mass Media Press Release"@en ;
-                skos:definition "An Act of Mass Media Communication involving the preparation and public issuance of an official statement issued to one or more members of the media for the purpose of announcing newsworthy information."@en ;
+                skos:definition "An Act of Publishing an official statement to one or more members of the media for the purpose of announcing newsworthy information."@en ;
                 cco:ont00001754 "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -1082,10 +1102,14 @@ cco:ont00000490 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000492
 cco:ont00000492 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000057 ;
+                                  owl:someValuesFrom cco:ont00002012
+                                ] ;
                 rdfs:label "Email Messaging"@en ;
                 skos:altLabel "Act of Emailing"@en ;
-                skos:definition "An Act of Communication by Media in which text-based communication occurs between two or more people using personal computers or other devices using some Email Client Software conveyed over the Internet."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which digital messages are transmitted and received via Internet Message Format-based communication, or an extension thereof, over a computer network."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Email&oldid=1063646749"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -1153,8 +1177,9 @@ cco:ont00000515 rdf:type owl:Class ;
 ###  https://www.commoncoreontologies.org/ont00000517
 cco:ont00000517 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000402 ;
-                rdfs:label "Act of Communication by Media"@en ;
+                rdfs:label "Act of Communication by Movement of Information Bearing Artifact"@en ;
                 skos:definition "An Act of Communication in which some Material Artifact is used to transfer an Information Bearing Entity from sender(s) to receiver(s)."@en ;
+                skos:scopeNote "An Act of Communication by Movement of Information Bearing Artifact is distinguished by the fact that the Information Content Entity is transferred in virtue of its Information Bearing Artifact being transferred; as opposed to a new copy of the Information Content Entity being created in another bearer. Additional examples include passing notes in class, going door-to-door distributing pamphlets, lending/borrowing your physical copy of a book, etc."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -1359,7 +1384,7 @@ cco:ont00000585 rdf:type owl:Class ;
 cco:ont00000588 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000402 ;
                 rdfs:label "Act of Mass Media Communication"@en ;
-                skos:definition "An Act of Communication intended to reach a large audience using a medium such as the internet, television, radio, newspaper, and magazine."@en ;
+                skos:definition "An Act of Communication intended to reach a large audience using a medium such as the internet, television, radio, newspaper, or magazine."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Media&oldid=1062799283"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -1664,11 +1689,15 @@ cco:ont00000744 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000750
 cco:ont00000750 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000057 ;
+                                  owl:someValuesFrom cco:ont00002010
+                                ] ;
                 rdfs:label "Text Messaging"@en ;
                 skos:altLabel "Act of Text Messaging"@en ,
                               "Act of Texting"@en ;
-                skos:definition "An Act of Communication by Media involving the exchange of brief written messages between fixed-line phone or mobile phone and fixed or portable devices over a network."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which communication occurs through the exchange of brief written messages between fixed-line phone or mobile phone and fixed or portable devices over a network."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Text_messaging&oldid=1062261405"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -1957,10 +1986,10 @@ cco:ont00000855 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000859
 cco:ont00000859 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ;
                 rdfs:label "Television Broadcast"@en ;
                 skos:altLabel "Act of Television Broadcasting"@en ;
-                skos:definition "An Act of Communciation by Media that is transmitted to an audience through a television network."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which communication with an audience occurs via transmissions through a television network."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Television_broadcasting&oldid=1063890047"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2002,10 +2031,10 @@ cco:ont00000865 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000866
 cco:ont00000866 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ;
                 rdfs:label "Radio Broadcast"@en ;
                 skos:altLabel "Act of Radio Broadcasting"@en ;
-                skos:definition "An Act of Communciation by Media that is transmitted to an audience through a radio network."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which communication with an audience is mediated through radio waves transmitted through a radio network."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Radio_network&oldid=1037183126"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2014,7 +2043,8 @@ cco:ont00000866 rdf:type owl:Class ;
 cco:ont00000875 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000402 ;
                 rdfs:label "Act of Personal Communication"@en ;
-                skos:definition "An Act of Communication having a small audience."@en ;
+                skos:definition "An Act of Communication that the sender intends to be received by a small audience."@en ;
+                skos:scopeNote "An Act of Personal Communication is distinct from an Act of Mass Media Communication only in terms of the size of the intended audience. The use of media typically need not require that the communication have a large audience, e.g., a Radio Broadcast on an obscure frequency that you use to communicate with your best friend."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -2277,9 +2307,9 @@ cco:ont00000971 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000977
 cco:ont00000977 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:subClassOf cco:ont00002077 ;
                 rdfs:label "Act of Publishing Mass Media Documentary"@en ;
-                skos:definition "An Act of Mass Media Communication involving the preparation and public issuance of information that provides a factual record or report."@en ;
+                skos:definition "An Act of Publishing a factual record or report."@en ;
                 cco:ont00001754 "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2438,9 +2468,9 @@ cco:ont00001056 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001057
 cco:ont00001057 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:subClassOf cco:ont00002078 ;
                 rdfs:label "Act of Issuing Mass Media Press Release"@en ;
-                skos:definition "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation an official statement issued to one or more members of the media for the purpose of announcing newsworthy information."@en ;
+                skos:definition "An Act of Issuing an official statement to one or more members of the media for the purpose of announcing newsworthy information."@en ;
                 cco:ont00001754 "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2564,7 +2594,10 @@ cco:ont00001112 rdf:type owl:Class ;
 cco:ont00001115 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001190 ;
                 rdfs:label "Private Network Telephone Call"@en ;
-                skos:definition "A Telephone Call transmitted over a network where a closed group of telephones are connected primarily to each other and use a gateway to reach the outside world, usually used inside companies and call centers (a.k.a. private branch exchange (PBX))."@en ;
+                skos:altLabel "Private Branch Exchange Call"@en ;
+                skos:definition "A Telephone Call transmitted over a network where a closed group of telephones are connected primarily to each other and use a gateway to reach the outside world."@en ;
+                skos:scopeNote "Private Network Telephone Calls are typically made within companies or call centers."@en ;
+                cco:ont00001753 "PBX"@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Telephone_network&oldid=1046265527"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2628,11 +2661,15 @@ cco:ont00001136 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001143
 cco:ont00001143 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000057 ;
+                                  owl:someValuesFrom cco:ont00002039
+                                ] ;
                 rdfs:label "Facsimile Transmission"@en ;
                 skos:altLabel "Act of Facsimile Transmission"@en ,
                               "Act of Faxing"@en ;
-                skos:definition "An Act of Communication by Media in which the Information Content Entity that inheres in a Document is transmitted over a Telephone Network."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which a Document Content Entity is transmitted over a Telephone Network."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Fax&oldid=1054674158"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2694,7 +2731,8 @@ cco:ont00001170 rdf:type owl:Class ;
 cco:ont00001171 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001190 ;
                 rdfs:label "Wireless Network Telephone Call"@en ;
-                skos:definition "A Telephone Call transmitted over a network where the telephones are mobile and can move anywhere within the coverage area."@en ;
+                skos:altLabel "Mobile Network Telephone Call"@en ;
+                skos:definition "A Telephone Call transmitted over a network where the telephones are not dependent on a physical connection to the network such that they can continue to operate anywhere within the coverage area."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Telephone_network&oldid=1046265527"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2709,10 +2747,10 @@ cco:ont00001184 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001190
 cco:ont00001190 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000517 ;
+                rdfs:subClassOf cco:ont00002076 ;
                 rdfs:label "Telephone Call"@en ;
                 skos:altLabel "Act of Telephone Calling"@en ;
-                skos:definition "An Act of Communciation by Media transmitted over a telephone network to two or more Persons."@en ;
+                skos:definition "An Act of Communication Mediated by Artifact in which sound is used to communicate over a telephone network to one or more recipients."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Telephone_network&oldid=1046265527"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2874,9 +2912,9 @@ cco:ont00001237 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001244
 cco:ont00001244 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:subClassOf cco:ont00002078 ;
                 rdfs:label "Act of Issuing Mass Media Article"@en ;
-                skos:definition "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation a non-fictional essay, especially one included with others in a newspaper, magazine, or journal."@en ;
+                skos:definition "An Act of Issuing a non-fictional essay, especially one included with others in a newspaper, magazine, or journal."@en ;
                 cco:ont00001754 "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -2913,9 +2951,9 @@ cco:ont00001261 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001263
 cco:ont00001263 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:subClassOf cco:ont00002078 ;
                 rdfs:label "Act of Issuing Mass Media Documentary"@en ;
-                skos:definition "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation information that provides a factual record or report."@en ;
+                skos:definition "An Act of Issuing information that provides a factual record or report."@en ;
                 cco:ont00001754 "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -3170,6 +3208,30 @@ cco:ont00002071 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000433 ;
                 rdfs:label "Act of Employment"@en ;
                 skos:definition "An Act of Association wherein an Agent assigns a set of activities to some Person to be performed in exchange for financial compensation."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002076
+cco:ont00002076 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000402 ;
+                rdfs:label "Act of Communication Mediated by Artifact"@en ;
+                skos:definition "An Act of Communication in which technology is used to create a new copy of the Information Content Entity in the recipient."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002077
+cco:ont00002077 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:label "Act of Publishing"@en ;
+                skos:definition "An Act of Mass Media Communication involving the preparation and public issuance of information."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002078
+cco:ont00002078 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000588 ;
+                rdfs:label "Act of Issuing"@en ;
+                skos:definition "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation some Information Content Entity."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
