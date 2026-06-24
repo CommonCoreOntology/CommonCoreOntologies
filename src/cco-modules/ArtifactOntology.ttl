@@ -1572,9 +1572,9 @@ cco:ont00000420 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00000422
 cco:ont00000422 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000323 ;
+                rdfs:subClassOf cco:ont00000727 ;
                 rdfs:label "Communication Reception Artifact Function"@en ;
-                skos:definition "An Artifact Function that is realized during events in which a Material Artifact is used to receive information that has been transmitted for the purpose of communiction."@en ;
+                skos:definition "A Communication Artifact Function that is realized in a process of receiving information."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -2649,7 +2649,7 @@ cco:ont00000724 rdf:type owl:Class ;
 cco:ont00000727 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000323 ;
                 rdfs:label "Communication Artifact Function"@en ;
-                skos:definition "An Artifact Function that is realized in a process in which meaningful signs are conveyed from one entity to another."@en ;
+                skos:definition "An Artifact Function that is realized in a process in which one or more Information Content Entities are conveyed from one entity to another."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -3041,7 +3041,7 @@ cco:ont00000816 rdf:type owl:Class ;
 cco:ont00000823 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001148 ;
                 rdfs:label "Optical Communication Artifact Function"@en ;
-                skos:definition "An Electromagnetic Communication Artifact Function that is realized in a process that conveys meaningful signs by means of visible light."@en ;
+                skos:definition "An Electromagnetic Communication Artifact Function that is realized in a process that conveys information by means of visible light."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Telecommunications&oldid=1061143810"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -4222,7 +4222,7 @@ cco:ont00001145 rdf:type owl:Class ;
 cco:ont00001148 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00000727 ;
                 rdfs:label "Electromagnetic Communication Artifact Function"@en ;
-                skos:definition "A Communication Artifact Function that is realized in a process that conveys meaningful signs by means of electromagnetic radiation."@en ;
+                skos:definition "A Communication Artifact Function that is realized in a process that conveys information by means of electromagnetic radiation."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Telecommunications&oldid=1061143810"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -4324,9 +4324,17 @@ cco:ont00001168 rdf:type owl:Class ;
 
 ###  https://www.commoncoreontologies.org/ont00001169
 cco:ont00001169 rdf:type owl:Class ;
-                rdfs:subClassOf cco:ont00000323 ;
+                rdfs:subClassOf cco:ont00000727 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000178 ;
+                                  owl:someValuesFrom cco:ont00000422
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000178 ;
+                                  owl:someValuesFrom cco:ont00002079
+                                ] ;
                 rdfs:label "Communication Relay Artifact Function"@en ;
-                skos:definition "An Artifact Function that is realized during events in which a Material Artifact is used to first receive and then transmit information from one Material Artifact to another for the purpose of communiction."@en ;
+                skos:definition "A Communication Artifact Function that is realized in processes of first receiving and then transmitting information."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -4584,7 +4592,7 @@ cco:ont00001234 rdf:type owl:Class ;
 cco:ont00001240 rdf:type owl:Class ;
                 rdfs:subClassOf cco:ont00001148 ;
                 rdfs:label "Radio Communication Artifact Function"@en ;
-                skos:definition "An Electromagnetic Communication Artifact Function that is realized in a process that conveys meaningful signs by means of radio waves."@en ;
+                skos:definition "An Electromagnetic Communication Artifact Function that is realized in a process that conveys information by means of radio waves."@en ;
                 cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Telecommunications&oldid=1061143810"^^xsd:anyURI ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -5165,6 +5173,14 @@ cco:ont00002075 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000015 ;
                 rdfs:label "Sensing Process"@en ;
                 skos:definition "A Process that realizes a Sensor Function or Sensor Role."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002079
+cco:ont00002079 rdf:type owl:Class ;
+                rdfs:subClassOf cco:ont00000727 ;
+                rdfs:label "Communication Transmission Artifact Function"@en ;
+                skos:definition "A Communication Artifact Function that is realized in a process of sending information."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
