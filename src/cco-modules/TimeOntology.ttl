@@ -44,6 +44,26 @@ cco:ont00001760 rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  https://www.commoncoreontologies.org/ont00001779
+cco:ont00002080 rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                owl:inverseOf cco:ont00001848 ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000203 ;
+                rdfs:label "process has first instant"@en ;
+                skos:definition "x process_has_first_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is first_instant_of z, and x occupies_temporal_region z"@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00001779
+cco:ont00002081 rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000203 ;
+                rdfs:label "process has last instant"@en ;
+                skos:definition "x process_has_last_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is last_instant_of z, and x occupies_temporal_region z."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001779
 cco:ont00001779 rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:ont00001848 ;
                 rdfs:domain obo:BFO_0000038 ;
