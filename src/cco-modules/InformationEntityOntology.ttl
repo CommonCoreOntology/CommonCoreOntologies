@@ -435,49 +435,69 @@ cco:ont00001997 rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
+###  https://www.commoncoreontologies.org/ont00001772
+cco:ont00001772 rdf:type owl:DatatypeProperty ;
+                owl:deprecated true ;
+                rdfs:domain cco:ont00000253 ;
+                rdfs:range xsd:boolean ;
+                rdfs:label "has boolean value"@en ;
+                skos:definition "A data property that has as its range a boolean value."@en ;
+                skos:changeNote "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:boolean typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the boolean value affirms, denies, indicates, or otherwise represents."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+
 ###  https://www.commoncoreontologies.org/ont00001765
 cco:ont00001765 rdf:type owl:DatatypeProperty ;
+                owl:deprecated true ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:label "has text value"@en ;
                 skos:definition "A data property that has as its range a string value."@en ;
+                skos:changeNote "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of a string literal. Modelers should instead use a more specific datatype property whose meaning explains what the text records, names, describes, encodes, or otherwise represents."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001767
 cco:ont00001767 rdf:type owl:DatatypeProperty ;
+                owl:deprecated true ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range xsd:dateTime ;
                 rdfs:label "has datetime value"@en ;
                 skos:definition "A data property that has as its value a datetime value."@en ;
+                skos:changeNote "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:dateTime typed literal. Modelers should instead use a more specific datatype property whose meaning explains what date-time value is being recorded, specified, observed, issued, created, modified, or otherwise represented."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001768
 cco:ont00001768 rdf:type owl:DatatypeProperty ;
+                owl:deprecated true ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range xsd:anyURI ;
                 rdfs:label "has URI value"@en ;
                 skos:definition "A data property that has as its range a URI value."@en ;
+                skos:changeNote "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:anyURI typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the URI identifies, locates, references, resolves to, or otherwise represents."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001769
 cco:ont00001769 rdf:type owl:DatatypeProperty ;
+                owl:deprecated true ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range xsd:decimal ;
                 rdfs:label "has decimal value"@en ;
                 skos:definition "A data property that has as its range a decimal value."@en ;
+                skos:changeNote "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:decimal typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the decimal value measures, quantifies, estimates, rates, or otherwise represents."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001770
 cco:ont00001770 rdf:type owl:DatatypeProperty ;
+                owl:deprecated true ;
                 rdfs:domain cco:ont00000253 ;
                 rdfs:range xsd:double ;
                 rdfs:label "has double value"@en ;
                 skos:definition "A data property that has as its range a double value."@en ;
+                skos:changeNote "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:double typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the double value measures, quantifies, estimates, rates, or otherwise represents."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
-
 
 ###  https://www.commoncoreontologies.org/ont00001771
 cco:ont00001771 rdf:type owl:DatatypeProperty ;
@@ -486,24 +506,16 @@ cco:ont00001771 rdf:type owl:DatatypeProperty ;
                 skos:definition "A data property that has as its range a date value."@en ;
                 cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
-
-###  https://www.commoncoreontologies.org/ont00001772
-cco:ont00001772 rdf:type owl:DatatypeProperty ;
-                rdfs:domain cco:ont00000253 ;
-                rdfs:range xsd:boolean ;
-                rdfs:label "has boolean value"@en ;
-                skos:definition "A data property that has as its range a boolean value."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
-
-
 ###  https://www.commoncoreontologies.org/ont00001773
-cco:ont00001773 rdf:type owl:DatatypeProperty ;
-                rdfs:domain cco:ont00000253 ;
-                rdfs:range xsd:integer ;
-                rdfs:label "has integer value"@en ;
-                skos:definition "A data property that has as its range an integer value."@en ;
-                cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
-
+cco:ont00001773
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain cco:ont00000253 ;
+    rdfs:range xsd:integer ;
+    owl:deprecated true ;
+    rdfs:label "has integer value"@en ;
+    skos:definition "A data property that has as its range an integer value."@en ;
+    skos:changeNote "Deprecated because the property does not add semantic content beyond the use of an xsd:integer typed literal. Use a domain-specific datatype property with range xsd:integer where an integer-valued measurement, count, ordinal, identifier component, or other value is intended."@en ;
+    cco:ont00001760 "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 #################################################################
 #    Classes
