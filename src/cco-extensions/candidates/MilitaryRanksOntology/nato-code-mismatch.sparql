@@ -1,0 +1,18 @@
+# Title: 
+#     NATO Code and Label Match
+# Constraint Description: 
+#     NATO code name and label must match   
+# Severity:
+#    Error 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?code ?label ?localName
+WHERE {
+  ?code rdfs:subClassOf+ <http://wwww.ontologylibrary.mil/CommonCore/Mid/MilitaryRanksOntology/NATO_Rank_Code> ;
+        rdfs:label ?label .
+  BIND(STRAFTER(STR(?code), "http://wwww.ontologylibrary.mil/CommonCore/Mid/MilitaryRanksOntology/") AS ?localName)
+  FILTER(LCASE(?localName) != LCASE(STR(?label)))
+}
+ORDER BY ?label
