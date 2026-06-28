@@ -1,0 +1,23 @@
+# Title: 
+#     Insignia Missing Carrier
+# Constraint Description: 
+#     Rank-insignia classes missing a carrier-of relation to a military rank  
+# Severity:
+#    Error 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?insignia ?label
+WHERE {
+  ?insignia a owl:Class ; rdfs:label ?label .
+  FILTER(REGEX(STR(?label), "Rank Insignia$"))
+  FILTER NOT EXISTS {
+    ?insignia (rdfs:subClassOf|owl:equivalentClass)/(owl:intersectionOf/rdf:rest*/rdf:first)? ?restriction .
+    ?restriction a owl:Restriction ;
+                 owl:onProperty obo:RO_0010002 ;
+                 owl:someValuesFrom ?rank .
+    ?rank rdfs:subClassOf* <http://wwww.ontologylibrary.mil/CommonCore/Mid/MilitaryRanksOntology/Military_Rank> .
+  }
+}
+ORDER BY ?label

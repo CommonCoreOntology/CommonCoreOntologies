@@ -1,0 +1,35 @@
+# Title:
+#     Definition Formatting Problems
+# Constraint Description:
+#     Every definition shall have an English language tag, be set as a complete sentence, and terminate in a period. This query checks language tag and final punctuation.
+# Severity:
+#     Warning
+
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?entity ?definition ?problem WHERE {
+  VALUES ?type {
+    owl:Class
+    owl:ObjectProperty
+    owl:DatatypeProperty
+    owl:AnnotationProperty
+  }
+
+  ?entity a ?type ;
+          skos:definition ?definition .
+
+  FILTER(STRSTARTS(STR(?entity), STR(cco:)))
+
+  {
+    FILTER(!LANGMATCHES(LANG(?definition), "en"))
+    BIND("definition does not have an English language tag" AS ?problem)
+  }
+  UNION
+  {
+    FILTER(!REGEX(STR(?definition), "\\.$"))
+    BIND("definition does not terminate in a period" AS ?problem)
+  }
+}
+ORDER BY ?entity ?problem

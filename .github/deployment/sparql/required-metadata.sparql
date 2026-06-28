@@ -1,0 +1,27 @@
+# Title:
+#     Ontology Metadata Cardinality Violation
+# Constraint Description:
+#     Every ontology shall have exactly one license, rights statement, version info statement, and description.
+# Severity:
+#     Error
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?ontology ?property (COUNT(?value) AS ?valueCount) WHERE {
+  ?ontology a owl:Ontology .
+
+  VALUES ?property {
+    dcterms:license
+    dcterms:rights
+    owl:versionInfo
+    dcterms:description
+  }
+
+  OPTIONAL {
+    ?ontology ?property ?value .
+  }
+}
+GROUP BY ?ontology ?property
+HAVING(COUNT(?value) != 1)
+ORDER BY ?ontology ?property

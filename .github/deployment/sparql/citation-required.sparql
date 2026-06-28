@@ -1,0 +1,29 @@
+# Title:
+#     Missing Bibliographic Citation
+# Constraint Description:
+#     Every resource shall have one or more bibliographic citations.
+# Severity:
+#     Error
+
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?entity ?type WHERE {
+  VALUES ?type {
+    owl:Class
+    owl:ObjectProperty
+    owl:DatatypeProperty
+    owl:AnnotationProperty
+    owl:NamedIndividual
+  }
+
+  ?entity a ?type .
+
+  FILTER(STRSTARTS(STR(?entity), STR(cco:)))
+
+  FILTER NOT EXISTS {
+    ?entity dcterms:bibliographicCitation ?citation .
+  }
+}
+ORDER BY ?entity

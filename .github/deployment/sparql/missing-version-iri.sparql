@@ -1,0 +1,17 @@
+# Title:
+#     Ontology Missing Version IRI
+# Constraint Description:
+#     Every ontology in CCO shall have a version IRI.
+# Severity:
+#     Error
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?ontology WHERE {
+  ?ontology a owl:Ontology .
+
+  FILTER NOT EXISTS {
+    ?ontology owl:versionIRI ?versionIRI .
+  }
+}
+ORDER BY ?ontology

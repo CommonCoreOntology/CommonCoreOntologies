@@ -1,0 +1,23 @@
+# Title:
+#     Argument Missing Exact-One Conclusion Restriction
+# Constraint Description:
+#     Detects whether Argument lacks an exact-one hasConclusion restriction to the class Conclusion.
+# Severity:
+#     Error
+
+PREFIX argo: <http://www.github/argumentsontology/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?class ?issue WHERE {
+  BIND(argo:argument AS ?class)
+  FILTER NOT EXISTS {
+    argo:argument rdfs:subClassOf ?r .
+    ?r a owl:Restriction ;
+       owl:onProperty argo:hasConclusion ;
+       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+       owl:onClass argo:conclusion .
+  }
+  BIND("Argument is missing an exact-one hasConclusion restriction to the class Conclusion." AS ?issue)
+}

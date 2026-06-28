@@ -1,0 +1,35 @@
+# Title:
+#     Complex Argument Missing Proper-Part Restrictions
+# Constraint Description:
+#     Detects whether Complex Argument lacks expected proper-part restrictions to Argument.
+# Severity:
+#     Error
+
+PREFIX argo: <http://www.github/argumentsontology/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?class ?missingRestriction ?issue WHERE {
+  BIND(argo:complexargument AS ?class)
+  {
+    FILTER NOT EXISTS {
+      argo:complexargument rdfs:subClassOf ?r .
+      ?r a owl:Restriction ;
+         owl:onProperty argo:hasProperContinuantPart ;
+         owl:someValuesFrom argo:argument .
+    }
+    BIND("hasProperContinuantPart some Argument" AS ?missingRestriction)
+  }
+  UNION
+  {
+    FILTER NOT EXISTS {
+      argo:complexargument rdfs:subClassOf ?r .
+      ?r a owl:Restriction ;
+         owl:onProperty argo:hasProperContinuantPart ;
+         owl:allValuesFrom argo:argument .
+    }
+    BIND("hasProperContinuantPart only Argument" AS ?missingRestriction)
+  }
+  BIND("Complex Argument is missing an expected proper-part restriction." AS ?issue)
+}

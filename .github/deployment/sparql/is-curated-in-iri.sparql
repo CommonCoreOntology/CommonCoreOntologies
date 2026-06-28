@@ -1,0 +1,37 @@
+# Title:
+#     is curated in ontology Cardinality or Value Problem
+# Constraint Description:
+#     Every class, property, and individual shall have exactly one is curated in ontology statement, and its value shall be an ontology IRI.
+# Severity:
+#     Error
+
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?entity ?type (COUNT(?curatedIn) AS ?curatedInCount) ?problem WHERE {
+  VALUES ?type {
+    owl:Class
+    owl:ObjectProperty
+    owl:DatatypeProperty
+    owl:AnnotationProperty
+    owl:NamedIndividual
+  }
+
+  ?entity a ?type .
+
+  FILTER(STRSTARTS(STR(?entity), STR(cco:)))
+
+  OPTIONAL {
+    ?entity cco:ont00001760 ?curatedIn .
+  }
+
+  BIND(
+    IF(COUNT(?curatedIn) != 1,
+       "resource does not have exactly one is curated in ontology statement",
+       "ok")
+    AS ?problem
+  )
+}
+GROUP BY ?entity ?type
+HAVING(COUNT(?curatedIn) != 1)
+ORDER BY ?entity
