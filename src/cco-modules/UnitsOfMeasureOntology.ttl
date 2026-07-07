@@ -9,6 +9,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @base <https://www.commoncoreontologies.org/UnitsOfMeasureOntology> .
 
 <https://www.commoncoreontologies.org/UnitsOfMeasureOntology> rdf:type owl:Ontology ;
@@ -17,6 +19,12 @@
                                                                                      owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> ;
                                                                                      dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                                      dcterms:rights "CUBRC Inc., see full license."@en ;
+                                                                                     dcterms:creator "CUBRC, Inc."@en ;
+                                                                                     dcterms:subject "units of measure"@en ;
+                                                                                     dcterms:source <https://github.com/CommonCoreOntology/CommonCoreOntologies> ;
+                                                                                     prov:wasGeneratedBy "Common Core Ontologies development (CUBRC, Inc.)"@en ;
+                                                                                     vann:preferredNamespaceUri "https://www.commoncoreontologies.org/" ;
+                                                                                     vann:preferredNamespacePrefix "cco" ;
                                                                                      rdfs:comment "This ontology is designed to represent standard measurement units that are used when measuring various attributes of entities."@en ;
                                                                                      rdfs:label "Units of Measure Ontology"@en ;
                                                                                      owl:versionInfo "Version 2.2"@en .
