@@ -393,6 +393,8 @@ build-ccom: $(ROBOT_FILE) | $(config.TEMP_DIR)
 		--language-annotation rdfs:comment "$(CCOM_COMMENT)" en \
 		--language-annotation http://purl.org/dc/terms/license "$(CCOM_LICENSE)" en \
 		--language-annotation http://purl.org/dc/terms/rights "$(CCOM_RIGHTS)" en \
+		--language-annotation http://purl.org/dc/terms/title "Common Core Ontologies Merged" en \
+		--language-annotation http://purl.org/dc/terms/description "$(CCOM_COMMENT)" en \
 		--language-annotation owl:versionInfo "Version $(VERSION)" en \
 		--language-annotation owl:versionInfo "Depends on http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl, obtained $(DATE)." en \
 		--output $(CCOM_MERGED)

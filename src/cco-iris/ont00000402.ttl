@@ -16,6 +16,10 @@
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  https://www.commoncoreontologies.org/ont00001754
 <https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
 
@@ -75,7 +79,8 @@
 <https://www.commoncoreontologies.org/ont00000402> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
                                                    rdfs:label "Act of Communication"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which some Information Content Entity is transferred from some Agent to Another."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which the objective is to create a concretization of some Information Content Entity in one or more recipients."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Act of Communication is not intended to be a success term - a term that only applies when the act it denotes is successful. While successful communication is the goal, it is important that instances of this class can include both better and worse communication acts as well attempted communications that fail altogether."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Communication&oldid=1063752020"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -107,6 +112,11 @@
 
 ###  https://www.commoncoreontologies.org/ont00001374
 <https://www.commoncoreontologies.org/ont00001374> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> .
+
+
+###  https://www.commoncoreontologies.org/ont00002076
+<https://www.commoncoreontologies.org/ont00002076> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> .
 
 

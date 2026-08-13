@@ -25,8 +25,28 @@
 
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000055
+<http://purl.obolibrary.org/obo/BFO_0000055> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000059
+<http://purl.obolibrary.org/obo/BFO_0000059> rdf:type owl:ObjectProperty .
+
+
+#################################################################
 #    Classes
 #################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000016
+<http://purl.obolibrary.org/obo/BFO_0000016> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000023
+<http://purl.obolibrary.org/obo/BFO_0000023> rdf:type owl:Class .
+
 
 ###  https://www.commoncoreontologies.org/ont00000005
 <https://www.commoncoreontologies.org/ont00000005> rdf:type owl:Class .
@@ -54,10 +74,29 @@
 
 ###  https://www.commoncoreontologies.org/ont00000228
 <https://www.commoncoreontologies.org/ont00000228> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000005>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000055> ;
+                                                                                                owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                                                                            owl:unionOf ( <http://purl.obolibrary.org/obo/BFO_0000016>
+                                                                                                                                                          <http://purl.obolibrary.org/obo/BFO_0000023>
+                                                                                                                                                        )
+                                                                                                                                          ]
+                                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000059> ;
+                                                                                                                                            owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000965>
+                                                                                                                                          ]
+                                                                                                                                        ) ;
+                                                                                                                     rdf:type owl:Class
+                                                                                                                   ]
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000005> ;
                                                    rdfs:label "Planned Act"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Intentional Act"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act in which at least one Agent plays a causative role and which is prescribed by some Prescriptive Information Content Entity held by at least one of the Agents."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act in which at least one Agent plays a causative role and which is prescribed by some Directive Information Content Entity held by at least one of the Agents."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -121,6 +160,10 @@
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> .
 
 
+###  https://www.commoncoreontologies.org/ont00000965
+<https://www.commoncoreontologies.org/ont00000965> rdf:type owl:Class .
+
+
 ###  https://www.commoncoreontologies.org/ont00001144
 <https://www.commoncoreontologies.org/ont00001144> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> .
@@ -148,6 +191,11 @@
 
 ###  https://www.commoncoreontologies.org/ont00001327
 <https://www.commoncoreontologies.org/ont00001327> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> .
+
+
+###  https://www.commoncoreontologies.org/ont00002082
+<https://www.commoncoreontologies.org/ont00002082> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> .
 
 
