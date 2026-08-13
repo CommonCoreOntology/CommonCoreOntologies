@@ -11,13 +11,14 @@
 @base <https://www.commoncoreontologies.org/TimeOntology> .
 
 <https://www.commoncoreontologies.org/TimeOntology> rdf:type owl:Ontology ;
-                                                     owl:versionIRI <https://www.commoncoreontologies.org/2026-04-04/TimeOntology> ;
+                                                     owl:versionIRI <https://www.commoncoreontologies.org/2026-08-13/TimeOntology> ;
                                                      owl:imports cco:ExtendedRelationOntology ;
+                                                     owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> ;
                                                      dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                      dcterms:rights "CUBRC Inc., see full license."@en ;
                                                      rdfs:comment "This ontology is designed to represent temporal regions and the relations that hold between them."@en ;
                                                      rdfs:label "Time Ontology"@en ;
-                                                     owl:versionInfo "Version 2.1"@en .
+                                                     owl:versionInfo "Version 2.2"@en .
 
 #################################################################
 #    Annotation properties
@@ -44,6 +45,25 @@ cco:ont00001760 rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  https://www.commoncoreontologies.org/ont00001779
+cco:ont00002080 rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000203 ;
+                rdfs:label "process has first instant"@en ;
+                skos:definition "x process_has_first_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is first_instant_of z, and x occupies_temporal_region z."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
+
+###  https://www.commoncoreontologies.org/ont00001779
+cco:ont00002081 rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain obo:BFO_0000015 ;
+                rdfs:range obo:BFO_0000203 ;
+                rdfs:label "process has last instant"@en ;
+                skos:definition "x process_has_last_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is last_instant_of z, and x occupies_temporal_region z."@en ;
+                cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001779
 cco:ont00001779 rdf:type owl:ObjectProperty ;
                 owl:inverseOf cco:ont00001848 ;
                 rdfs:domain obo:BFO_0000038 ;
@@ -61,7 +81,7 @@ cco:ont00001795 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000202 ;
                  rdfs:range obo:BFO_0000202 ;
                  rdfs:label "has inside interval"@en ;
-                 skos:definition "x has inside interval y =Def y interval during x"@en ;
+                 skos:definition "x has inside interval y =Def y interval during x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -85,7 +105,7 @@ cco:ont00001821 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000202 ;
                  rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval finished by"@en ;
-                 skos:definition "x interval finished by y =Def y interval finishes x"@en ;
+                 skos:definition "x interval finished by y =Def y interval finishes x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -109,7 +129,7 @@ cco:ont00001825 rdf:type owl:ObjectProperty ;
                  rdfs:range obo:BFO_0000202 ;
                  owl:propertyDisjointWith cco:ont00001862 ;
                  rdfs:label "interval overlaps"@en ;
-                 skos:definition "x interval overlaps y =Def y interval overlapped by x"@en ;
+                 skos:definition "x interval overlaps y =Def y interval overlapped by x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -121,7 +141,7 @@ cco:ont00001847 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000202 ;
                  rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval is after"@en ;
-                 skos:definition "x interval is after y =Def y interval is before x"@en ;
+                 skos:definition "x interval is after y =Def y interval is before x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -177,7 +197,7 @@ cco:ont00001875 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000202 ;
                  rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval started by"@en ;
-                 skos:definition "x interval started by y =Def y interval starts x"@en ;
+                 skos:definition "x interval started by y =Def y interval starts x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -202,7 +222,7 @@ cco:ont00001896 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000202 ;
                  rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval meets"@en ;
-                 skos:definition "x interval meets y =Def y interval met by x"@en ;
+                 skos:definition "x interval meets y =Def y interval met by x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -236,7 +256,7 @@ cco:ont00001924 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000202 ;
                  rdfs:range obo:BFO_0000202 ;
                  rdfs:label "interval contains"@en ;
-                 skos:definition "x interval contains y =Def y interval contained by x"@en ;
+                 skos:definition "x interval contains y =Def y interval contained by x."@en ;
                  cco:ont00001754 "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 

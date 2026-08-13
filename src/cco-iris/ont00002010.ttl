@@ -28,6 +28,10 @@
 #    Object Properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/BFO_0000057
+<http://purl.obolibrary.org/obo/BFO_0000057> rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.obolibrary.org/obo/BFO_0000101
 <http://purl.obolibrary.org/obo/BFO_0000101> rdf:type owl:ObjectProperty .
 
@@ -35,6 +39,14 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  https://www.commoncoreontologies.org/ont00000750
+<https://www.commoncoreontologies.org/ont00000750> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000057> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00002010>
+                                                                   ] .
+
 
 ###  https://www.commoncoreontologies.org/ont00001002
 <https://www.commoncoreontologies.org/ont00001002> rdf:type owl:Class ;

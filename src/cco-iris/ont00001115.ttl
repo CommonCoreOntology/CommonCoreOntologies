@@ -12,8 +12,20 @@
 #    Annotation properties
 #################################################################
 
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001753
+<https://www.commoncoreontologies.org/ont00001753> rdf:type owl:AnnotationProperty .
 
 
 ###  https://www.commoncoreontologies.org/ont00001754
@@ -32,7 +44,10 @@
 <https://www.commoncoreontologies.org/ont00001115> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001190> ;
                                                    rdfs:label "Private Network Telephone Call"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Telephone Call transmitted over a network where a closed group of telephones are connected primarily to each other and use a gateway to reach the outside world, usually used inside companies and call centers (a.k.a. private branch exchange (PBX))."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Private Branch Exchange Call"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Telephone Call transmitted over a network where a closed group of telephones are connected primarily to each other and use a gateway to reach the outside world."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Private Network Telephone Calls are typically made within companies or call centers."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001753> "PBX"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Telephone_network&oldid=1046265527"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 

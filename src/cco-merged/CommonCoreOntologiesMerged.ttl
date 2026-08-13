@@ -14,7 +14,8 @@
                                                                    <http://purl.org/dc/terms/title> "Common Core Ontologies Merged"@en ;
                                                                    rdfs:comment "A stand-alone file containing the eleven mid-level Common Core Ontologies plus BFO. Provided for use-cases where one file representing a specific release of CCO and its imports is desirable."@en ;
                                                                    rdfs:label "Common Core Ontologies Merged"@en ;
-                                                                   owl:versionInfo "Version 2.2"@en .
+                                                                   owl:versionInfo "Depends on http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl, obtained 2026-08-13."@en ,
+                                                                                   "Version 2.2"@en .
 
 #################################################################
 #    Annotation properties
@@ -68,6 +69,10 @@
 <http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
@@ -91,7 +96,7 @@
 ###  https://www.commoncoreontologies.org/ont00001735
 <https://www.commoncoreontologies.org/ont00001735> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "query text"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "The text of a query that is associated with a class"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "The text of a query that is associated with a class."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -115,7 +120,7 @@
 ###  https://www.commoncoreontologies.org/ont00001739
 <https://www.commoncoreontologies.org/ont00001739> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "ordinal measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An ordinal measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An ordinal measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001746> .
 
@@ -131,7 +136,7 @@
 ###  https://www.commoncoreontologies.org/ont00001741
 <https://www.commoncoreontologies.org/ont00001741> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "nominal measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A nominal measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A nominal measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001746> .
 
@@ -154,7 +159,7 @@
 ###  https://www.commoncoreontologies.org/ont00001744
 <https://www.commoncoreontologies.org/ont00001744> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "copyright"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An assertion of copyright"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An assertion of copyright."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -169,14 +174,14 @@
 ###  https://www.commoncoreontologies.org/ont00001746
 <https://www.commoncoreontologies.org/ont00001746> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001747
 <https://www.commoncoreontologies.org/ont00001747> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "ratio measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A ratio measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A ratio measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001746> .
 
@@ -854,7 +859,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000004> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000004> ;
                                                    rdfs:label "is successor of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is successor of y =Def y is predecessor of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is successor of y =Def y is predecessor of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -865,7 +870,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "has process part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has process part y =Def y is part of process x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has process part y =Def y is part of process x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -887,7 +892,7 @@
                                                                             )
                                                               ] ;
                                                    rdfs:label "has object"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has object y =Def y is object of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has object y =Def y is object of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -947,7 +952,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:label "has subsidiary"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subsidiary y =Def y is subsidiary of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subsidiary y =Def y is subsidiary of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -959,7 +964,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "has inside interval"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has inside interval y =Def y interval during x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has inside interval y =Def y interval during x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1029,7 +1034,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000958> ;
                                                    rdfs:label "is subject of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is subject of y =Def y is about x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is subject of y =Def y is about x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1051,7 +1056,7 @@
                                                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                                                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
                                                    rdfs:label "is disrupted by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is disrupted by y =Def y disrupts x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is disrupted by y =Def y disrupts x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "is disrupted by"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -1063,7 +1068,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001324> ;
                                                    rdfs:label "is required by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is required by y =Def y requires x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is required by y =Def y requires x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1174,7 +1179,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001324> ;
                                                    rdfs:label "is prohibited by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is prohibited by y =Def y prohibits x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is prohibited by y =Def y prohibits x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1184,7 +1189,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000003> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000003> ;
                                                    rdfs:label "caused by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x caused by y =Def y is cause of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x caused by y =Def y is cause of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1194,7 +1199,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval finished by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval finished by y =Def y interval finishes x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval finished by y =Def y interval finishes x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1227,7 +1232,7 @@
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    owl:propertyDisjointWith <https://www.commoncoreontologies.org/ont00001862> ;
                                                    rdfs:label "interval overlaps"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval overlaps y =Def y interval overlapped by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval overlaps y =Def y interval overlapped by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1263,7 +1268,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has accomplice"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accomplice y =Def y accomplice in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accomplice y =Def y accomplice in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1299,7 +1304,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has agent"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has agent y =Def y agent in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has agent y =Def y agent in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1321,7 +1326,7 @@
                                                                             )
                                                               ] ;
                                                    rdfs:label "affects"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x affects y =Def y is affected by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x affects y =Def y is affected by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1334,7 +1339,7 @@
                                                                             )
                                                               ] ;
                                                    rdfs:label "aggregate bearer of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate bearer of y =Def y inheres in aggregate x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate bearer of y =Def y inheres in aggregate x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1388,7 +1393,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has sender"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has sender y =Def y sends x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has sender y =Def y sends x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1399,7 +1404,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000029> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "is site of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is site of y =Def y occurs at x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is site of y =Def y occurs at x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1420,7 +1425,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval is after"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval is after y =Def y interval is before x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval is after y =Def y interval is before x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1455,7 +1460,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:label "has spatial part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has spatial part y =Def y spatial part of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has spatial part y =Def y spatial part of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -1544,7 +1549,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000120> ;
                                                    rdfs:label "uses measurement unit"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses measurement unit y =Def y is measurement unit of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses measurement unit y =Def y is measurement unit of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1553,7 +1558,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001203> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:label "delimits"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x delimits y =Def y is delimited by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x delimits y =Def y is delimited by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1566,7 +1571,7 @@
                                                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                                                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
                                                    rdfs:label "is interest of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is interest of y =Def y has interest in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is interest of y =Def y has interest in x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "is interest of"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1610,7 +1615,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001069> ;
                                                    rdfs:label "represented by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x represented by y =Def y represents x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x represented by y =Def y represents x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "See notes for inverse property." ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -1624,7 +1629,7 @@
                                                                             )
                                                               ] ;
                                                    rdfs:label "is temporal region of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is temporal region of y =Def y occupies temporal region x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is temporal region of y =Def y occupies temporal region x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#editorialNote> "Leaving this is in ERO for now since BFO2020 has no inverse of occupies-temporal-region yet."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -1636,7 +1641,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval started by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval started by y =Def y interval starts x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval started by y =Def y interval starts x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1659,7 +1664,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:label "is mention of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is mention of y =Def y is mentioned by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is mention of y =Def y is mentioned by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1670,7 +1675,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000686> ;
                                                    rdfs:label "designated by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x designated by y =Def y designates x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x designated by y =Def y designates x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1695,7 +1700,7 @@
                                                                             <http://purl.obolibrary.org/obo/BFO_0000176>
                                                                           ) ;
                                                    rdfs:label "condition described by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x condition described by y =Def y describes condition x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x condition described by y =Def y describes condition x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1776,7 +1781,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval meets"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval meets y =Def y interval met by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval meets y =Def y interval met by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1787,7 +1792,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000027> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001379> ;
                                                    rdfs:label "aggregate has capability"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has capability y =Def y capability of aggregate x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has capability y =Def y capability of aggregate x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1830,7 +1835,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001163> ;
                                                    rdfs:label "is measured by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by y =Def y is a measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by y =Def y is a measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1850,7 +1855,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000829> ;
                                                    rdfs:label "uses time zone identifier"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses time zone identifier y =Def y time zone identifier used by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses time zone identifier y =Def y time zone identifier used by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1860,7 +1865,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:label "has tangential part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has tangential part y =Def y tangential part of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has tangential part y =Def y tangential part of x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -1885,7 +1890,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000398> ;
                                                    rdfs:label "uses reference system"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses reference system y =Def y is reference system of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses reference system y =Def y is reference system of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1895,7 +1900,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000469> ;
                                                    rdfs:label "uses geospatial coordinate reference system"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses geospatial coordinate reference system y =Def y is geospatial coordinate reference system of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses geospatial coordinate reference system y =Def y is geospatial coordinate reference system of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1905,7 +1910,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000293> ;
                                                    rdfs:label "is measured by nominal"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by nominal y =Def y is a nominal measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by nominal y =Def y is a nominal measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1942,7 +1947,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000853> ;
                                                    rdfs:label "described by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x described by y =Def y describes x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x described by y =Def y describes x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1972,7 +1977,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000965> ;
                                                    rdfs:label "prescribed by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x prescribed by y =Def y prescribes x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x prescribed by y =Def y prescribes x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1993,7 +1998,7 @@
                                                                             )
                                                               ] ;
                                                    rdfs:label "has input"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has input y =Def y is input of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has input y =Def y is input of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -2004,7 +2009,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has recipient"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has recipient y =Def y receives x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has recipient y =Def y receives x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2025,7 +2030,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval contains"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval contains y =Def y interval contained by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval contains y =Def y interval contained by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -2035,7 +2040,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000040> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "is used by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is used by y =Def y uses x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is used by y =Def y uses x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2147,7 +2152,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001262> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001262> ;
                                                    rdfs:label "supervises"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x supervises y =Def y is supervised by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x supervises y =Def y is supervised by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://en.wiktionary.org/wiki/supervise" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -2181,7 +2186,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has accessory"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accessory y =Def y accessory in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accessory y =Def y accessory in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -2191,7 +2196,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000023> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000023> ;
                                                    rdfs:label "has subordinate role"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subordinate role y =Def y is subordinate role to x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subordinate role y =Def y is subordinate role to x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2201,7 +2206,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001379> ;
                                                    rdfs:label "has capability"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has capability y =Def y capability of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has capability y =Def y capability of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2211,7 +2216,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000027> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000016> ;
                                                    rdfs:label "aggregate has disposition"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has disposition y =Def y disposition of aggregate x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has disposition y =Def y disposition of aggregate x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -2221,7 +2226,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "inhibits"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x inhibits y =Def y is inhibited by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x inhibits y =Def y is inhibited by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -2241,7 +2246,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "process started by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process started by y =Def y process starts x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process started by y =Def y process starts x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "A process x is started by another process y when y causes x while y is still occurring."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -2252,7 +2257,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001010> ;
                                                    rdfs:label "is measured by ordinal"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ordinal y =Def y is a ordinal measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ordinal y =Def y is a ordinal measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2262,7 +2267,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001364> ;
                                                    rdfs:label "is measured by interval"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by interval y =Def y is a interval measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by interval y =Def y is a interval measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2273,7 +2278,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001022> ;
                                                    rdfs:label "is measured by ratio"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ratio y =Def y is a ratio measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ratio y =Def y is a ratio measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2325,7 +2330,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001175> ;
                                                    rdfs:label "uses language"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses language y =Def y language used in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses language y =Def y language used in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2334,7 +2339,7 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has affiliate"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has affiliate y =Def y is affiliated with x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has affiliate y =Def y is affiliated with x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2416,7 +2421,7 @@
                                                                             )
                                                               ] ;
                                                    rdfs:label "has output"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has output y =Def y is output of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has output y =Def y is output of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=IPO_model&oldid=1024398398"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -2427,7 +2432,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:label "has nontangential part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has nontangential part y =Def y nontangential part of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has nontangential part y =Def y nontangential part of x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -2450,7 +2455,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000023> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:label "has organizational context"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has organizational context y =Def y is organizational context of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has organizational context y =Def y is organizational context of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2480,7 +2485,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001324> ;
                                                    rdfs:label "is permitted by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is permitted by y =Def y permits x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is permitted by y =Def y permits x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -2491,7 +2496,7 @@
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000203> ;
                                                    rdfs:label "process has first instant"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process_has_first_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is first_instant_of z, and x occupies_temporal_region z"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process_has_first_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is first_instant_of z, and x occupies_temporal_region z."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
 
@@ -4181,7 +4186,7 @@
 <https://www.commoncoreontologies.org/ont00000110> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "Mechanical Process"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Process that is the realization of some Disposition of a Material Artifact"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Process that is the realization of some Disposition of a Material Artifact."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -5966,7 +5971,7 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 <https://www.commoncoreontologies.org/ont00000297> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000024> ;
                                                    rdfs:label "Portion of Hydrosphere"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Hydrosphere&oldid=1128848972"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -9492,7 +9497,7 @@ MJD = JD - 2400000.5"""@en ;
                                                    <http://purl.org/dc/terms/bibliographicCitation> "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                                                    <http://purl.org/dc/terms/created> "2023-02-06T10:14:09-05:00"@en ;
                                                    rdfs:label "Material Territory of a Government Domain"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Material Territory of a Government Domain"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -9571,7 +9576,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000670> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001258> ;
                                                    rdfs:label "Distribution Port"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Port that is designed with the cargo handling equipment necessary for the loading and unloading of Watercraft"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Port that is designed with the cargo handling equipment necessary for the loading and unloading of Watercraft."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Port&oldid=1064091505"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/FacilityOntology"^^xsd:anyURI .
 
@@ -10660,7 +10665,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000779> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000024> ;
                                                    rdfs:label "Portion of Cryosphere"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the frozen part of a natural satellite's hydosphere."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "NOAA. “What Is the Cryosphere?” National Ocean Service, 16 June 2024, oceanservice.noaa.gov/facts/cryosphere.html. Accessed 24 Mar. 2026."^^xsd:string ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -13534,7 +13539,7 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
 <https://www.commoncoreontologies.org/ont00001079> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000378> ;
                                                    rdfs:label "Blond"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Color that ranges from nearly white to a light greyish yellow"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Color that ranges from nearly white to a light greyish yellow."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
 
@@ -15984,7 +15989,7 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 <https://www.commoncoreontologies.org/ont00001341> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000024> ;
                                                    rdfs:label "Portion of Geosphere"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Geosphere&oldid=1137306949"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 

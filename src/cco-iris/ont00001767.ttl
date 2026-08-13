@@ -12,6 +12,10 @@
 #    Annotation properties
 #################################################################
 
+###  http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
@@ -29,6 +33,8 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:dateTime ;
                                                    rdfs:label "has datetime value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:dateTime typed literal. Modelers should instead use a more specific datatype property whose meaning explains what date-time value is being recorded, specified, observed, issued, created, modified, or otherwise represented."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its value a datetime value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
