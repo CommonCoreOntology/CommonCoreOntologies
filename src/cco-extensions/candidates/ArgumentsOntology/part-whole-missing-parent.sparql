@@ -1,0 +1,28 @@
+# Title:
+#     Argument Part-Whole Properties Missing Expected BFO Superproperty
+# Constraint Description:
+#     Detects ArgumentOntology part-whole properties that do not have the expected BFO continuant-part superproperty.
+# Severity:
+#     Error
+
+PREFIX argo: <http://www.github/argumentsontology/>
+PREFIX bfo: <http://purl.obolibrary.org/obo/>
+
+SELECT ?property ?expectedSuper ?actualSuper ?issue WHERE {
+  VALUES (?property ?expectedSuper) {
+    (argo:hasConclusion bfo:BFO_0000178)
+    (argo:hasPremise bfo:BFO_0000178)
+    (argo:hasSupposition bfo:BFO_0000178)
+    (argo:hasSubconclusion bfo:BFO_0000178)
+    (argo:hasProperContinuantPart bfo:BFO_0000178)
+    (argo:conclusionIn bfo:BFO_0000176)
+    (argo:premiseIn bfo:BFO_0000176)
+    (argo:suppositionIn bfo:BFO_0000176)
+    (argo:subconclusionIn bfo:BFO_0000176)
+    (argo:properContinuantPartOf bfo:BFO_0000176)
+  }
+  OPTIONAL { ?property rdfs:subPropertyOf ?actualSuper }
+  FILTER(!BOUND(?actualSuper) || ?actualSuper != ?expectedSuper)
+  BIND("Argument part/whole property has missing or unexpected BFO subproperty." AS ?issue)
+}
+ORDER BY ?property

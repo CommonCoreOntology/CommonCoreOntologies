@@ -1,0 +1,43 @@
+# Title:  
+#    No multiple inheritance
+# Constraint Description:  
+#    Classes have at most one immediate asserted parent.
+# Severity:  
+#    Error
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT ?class ?label 
+       (COUNT(DISTINCT ?parent) AS ?parentCount)
+       (GROUP_CONCAT(DISTINCT STR(?parentLabel); separator=" | ") AS ?parentLabels)
+       ?warningMessage
+WHERE {
+  ?class a owl:Class ;
+         rdfs:label ?label ;
+         rdfs:subClassOf ?parent .
+
+  FILTER (!ISBLANK(?class)) .
+  FILTER (!ISBLANK(?parent)) .
+  FILTER (?parent != owl:Thing) .
+  FILTER (?parent != owl:Nothing) .
+  FILTER (?parent != ?class) .
+
+  ?parent a owl:Class .
+
+  OPTIONAL {
+    ?parent rdfs:label ?parentLabel .
+  }
+
+  BIND (
+    CONCAT(
+      "Warning: Class ",
+      STR(?label),
+      " has too many direct asserted superclass parents."
+    )
+    AS ?warningMessage
+  )
+}
+GROUP BY ?class ?label ?warningMessage
+HAVING (COUNT(DISTINCT ?parent) > 2)

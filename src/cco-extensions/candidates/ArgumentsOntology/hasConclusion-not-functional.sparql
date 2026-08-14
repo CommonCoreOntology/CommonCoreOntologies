@@ -1,0 +1,15 @@
+# Title:
+#     hasConclusion Not Functional
+# Constraint Description:
+#     Detects whether hasConclusion is not asserted as owl:FunctionalProperty, despite Argument having an exact-one conclusion restriction.
+# Severity:
+#     Warning
+
+PREFIX argo: <http://www.github/argumentsontology/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?property ?issue WHERE {
+  VALUES ?property { argo:hasConclusion }
+  FILTER NOT EXISTS { ?property a owl:FunctionalProperty }
+  BIND("Argument has an exact-one conclusion restriction, but hasConclusion is not asserted functional; review intended modeling choice." AS ?issue)
+}

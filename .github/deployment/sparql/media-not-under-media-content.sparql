@@ -1,0 +1,25 @@
+# Title:
+#     Media Content Classes Not Under Media Content Entity
+# Constraint Description:
+#     Finds classes whose labels indicate media, documents, messages, images, videos, reports, spreadsheets, or similar content but which are not subclasses of Media Content Entity.
+# Severity:
+#     Error
+
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?class ?label WHERE {
+  ?class a owl:Class ;
+         rdfs:label ?label .
+
+  FILTER(STRSTARTS(STR(?class), STR(cco:)))
+  FILTER(?class != cco:ont00002001) # Media Content Entity
+
+  FILTER(REGEX(STR(?label), "Document|Message|Image|Video|Book|Spreadsheet|Report|Transcript|Certificate|Chart|Database|List", "i"))
+
+  FILTER NOT EXISTS {
+    ?class rdfs:subClassOf+ cco:ont00002001 .
+  }
+}
+ORDER BY ?label

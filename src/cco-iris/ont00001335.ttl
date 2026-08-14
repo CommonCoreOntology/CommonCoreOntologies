@@ -1,0 +1,116 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001335.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001335.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001335.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+<http://www.w3.org/2004/02/skos/core#editorialNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000176
+<http://purl.obolibrary.org/obo/BFO_0000176> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001859
+<https://www.commoncoreontologies.org/ont00001859> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001864
+<https://www.commoncoreontologies.org/ont00001864> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000139
+<https://www.commoncoreontologies.org/ont00000139> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000408
+<https://www.commoncoreontologies.org/ont00000408> rdf:type owl:Class ;
+                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000176> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001335>
+                                                                   ] .
+
+
+###  https://www.commoncoreontologies.org/ont00000532
+<https://www.commoncoreontologies.org/ont00000532> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001335>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001859> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000139>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001335> .
+
+
+###  https://www.commoncoreontologies.org/ont00001152
+<https://www.commoncoreontologies.org/ont00001152> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001203>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001864> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001335>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001180
+<https://www.commoncoreontologies.org/ont00001180> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001203
+<https://www.commoncoreontologies.org/ont00001203> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001335
+<https://www.commoncoreontologies.org/ont00001335> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001180> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001859> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001203>
+                                                                   ] ;
+                                                   <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
+                                                   rdfs:label "Government"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Organization that is the highest legitimate authority delimited by some Delimiting Domain and that exercises executive, legislative, or judicial authority in that Domain."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#editorialNote> "Highest legitimate authority should not be confused with highest legitimate authority of a particular kind. For example, while the judicial branch of the United States government has the highest judicial authority in a Delimiting Domain, it is not the highest legitimate authority delimited by that domain. The combination of executive, judicial, and legislative branches is higher because it wields more legitimate authority than any branch on its own."@en ,
+                                                                                                       "Importantly, the definition states \"highest legitimate authority delimited by some Delimiting Domain\" and not \"highest legitimate authority in some Delimiting Domain.\" The government of Wales is the highest legitimate authority delimited by some Delimiting Domain but it is not the highest legitimate authority in that domain, which would be the government of the United Kingdom."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Government&oldid=1063736308"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

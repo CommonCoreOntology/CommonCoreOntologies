@@ -1,0 +1,117 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001010.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001010.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001010.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00001811
+<https://www.commoncoreontologies.org/ont00001811> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00001010> .
+
+
+###  https://www.commoncoreontologies.org/ont00001963
+<https://www.commoncoreontologies.org/ont00001963> rdf:type owl:ObjectProperty ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00001010> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+<http://purl.obolibrary.org/obo/BFO_0000001> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000164
+<https://www.commoncoreontologies.org/ont00000164> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001010> .
+
+
+###  https://www.commoncoreontologies.org/ont00000186
+<https://www.commoncoreontologies.org/ont00000186> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001010> .
+
+
+###  https://www.commoncoreontologies.org/ont00000293
+<https://www.commoncoreontologies.org/ont00000293> rdf:type owl:Class ;
+                                                   owl:disjointWith <https://www.commoncoreontologies.org/ont00001010> .
+
+
+###  https://www.commoncoreontologies.org/ont00000369
+<https://www.commoncoreontologies.org/ont00000369> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001010> .
+
+
+###  https://www.commoncoreontologies.org/ont00000604
+<https://www.commoncoreontologies.org/ont00000604> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001010> .
+
+
+###  https://www.commoncoreontologies.org/ont00001010
+<https://www.commoncoreontologies.org/ont00001010> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001163>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001811> ;
+                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000001>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001163> ;
+                                                   owl:disjointWith <https://www.commoncoreontologies.org/ont00001022> ,
+                                                                    <https://www.commoncoreontologies.org/ont00001364> ;
+                                                   rdfs:label "Ordinal Measurement Information Content Entity"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Measurement Information Content Entity that consists of a symbol that places an Entity into some rank order."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "The sentence \"The coldest day in history in Chicago, IL. is January 20, 1985.\" is the carrier of an ordinal measurment."@en ,
+                                                                                                 "a measurement that places Geospatial Regions into a rank order of small, medium, large" ,
+                                                                                                 "a measurement that places military units onto a readiness rank order of red, yellow, green" ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Four of the subtypes of measurements used here (Interval, Nominal, Ordinal, and Ratio) were originally defined by S.S. Stevens in the article \"On the Theory of Scales of Measurement\" in Science, Vol. 103 No. 2684 on June 7, 1946. For an introductory article with links to additional content including criticisms and alternate classifications of measurements see https://en.wikipedia.org/wiki/Level_of_measurement"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001022
+<https://www.commoncoreontologies.org/ont00001022> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001041
+<https://www.commoncoreontologies.org/ont00001041> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001010> .
+
+
+###  https://www.commoncoreontologies.org/ont00001163
+<https://www.commoncoreontologies.org/ont00001163> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001364
+<https://www.commoncoreontologies.org/ont00001364> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

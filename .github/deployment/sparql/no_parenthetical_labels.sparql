@@ -1,0 +1,28 @@
+# Title:  
+#    No Parenthetical Labels 
+# Constraint Description:  
+#    No label shall include a parenthetical, such as "tank (vehicle)"
+# Severity:  
+#    Error
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT ?class ?label ?warningMessage
+WHERE {
+  ?class a owl:Class ;
+         rdfs:label ?label .
+
+  FILTER (!ISBLANK(?class)) .
+  FILTER (REGEX(STR(?label), "\\([^\\)]*\\)")) .
+
+  BIND (
+    CONCAT(
+      "Warning: Class ",
+      STR(?label),
+      " has a parenthetical qualifier in its label."
+    )
+    AS ?warningMessage
+  )
+}

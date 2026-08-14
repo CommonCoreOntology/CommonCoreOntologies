@@ -1,0 +1,96 @@
+@prefix : <https://www.commoncoreontologies.org/ont00000662.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00000662.ttl> .
+
+<https://www.commoncoreontologies.org/ont00000662.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001754
+<https://www.commoncoreontologies.org/ont00001754> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000171
+<http://purl.obolibrary.org/obo/BFO_0000171> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.commoncoreontologies.org/ont00000139
+<https://www.commoncoreontologies.org/ont00000139> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000631
+<https://www.commoncoreontologies.org/ont00000631> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000662>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000171> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000139>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000662> .
+
+
+###  https://www.commoncoreontologies.org/ont00000662
+<https://www.commoncoreontologies.org/ont00000662> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001341>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000171> ;
+                                                                                                owl:someValuesFrom <https://www.commoncoreontologies.org/ont00001152>
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001341> ;
+                                                   <http://purl.org/dc/terms/bibliographicCitation> "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
+                                                   <http://purl.org/dc/terms/created> "2023-02-06T10:14:09-05:00"@en ;
+                                                   rdfs:label "Material Territory of a Government Domain"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Material Territory of a Government Domain"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00001152
+<https://www.commoncoreontologies.org/ont00001152> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001341
+<https://www.commoncoreontologies.org/ont00001341> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

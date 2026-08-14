@@ -1,0 +1,29 @@
+# Title:
+#     Temporal Relations Missing Domain or Range
+# Constraint Description:
+#     Finds Time Ontology object properties whose labels indicate temporal relations but which lack an asserted domain or range.
+# Severity:
+#     Warning
+
+PREFIX cco: <https://www.commoncoreontologies.org/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?property ?label ?missing WHERE {
+  ?property a owl:ObjectProperty ;
+            rdfs:label ?label .
+
+  FILTER(STRSTARTS(STR(?property), STR(cco:)))
+  FILTER(REGEX(STR(?label), "interval|instant|inside", "i"))
+
+  {
+    FILTER NOT EXISTS { ?property rdfs:domain ?domain }
+    BIND("missing domain" AS ?missing)
+  }
+  UNION
+  {
+    FILTER NOT EXISTS { ?property rdfs:range ?range }
+    BIND("missing range" AS ?missing)
+  }
+}
+ORDER BY ?label ?missing

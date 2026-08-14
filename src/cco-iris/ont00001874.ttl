@@ -1,0 +1,100 @@
+@prefix : <https://www.commoncoreontologies.org/ont00001874.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.commoncoreontologies.org/ont00001874.ttl> .
+
+<https://www.commoncoreontologies.org/ont00001874.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+<http://www.w3.org/2004/02/skos/core#editorialNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001760
+<https://www.commoncoreontologies.org/ont00001760> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+<http://purl.obolibrary.org/obo/BFO_0000132> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000199
+<http://purl.obolibrary.org/obo/BFO_0000199> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <https://www.commoncoreontologies.org/ont00001874> .
+
+
+###  https://www.commoncoreontologies.org/ont00001857
+<https://www.commoncoreontologies.org/ont00001857> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000015>
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000199> ;
+                                                                                        owl:someValuesFrom [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000008>
+                                                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                                                    owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000132> ;
+                                                                                                                                    owl:someValuesFrom [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000202>
+                                                                                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                                                                                owl:onProperty <https://www.commoncoreontologies.org/ont00001874> ;
+                                                                                                                                                                                owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000015>
+                                                                                                                                                                              ]
+                                                                                                                                                                            ) ;
+                                                                                                                                                         rdf:type owl:Class
+                                                                                                                                                       ]
+                                                                                                                                  ]
+                                                                                                                                ) ;
+                                                                                                             rdf:type owl:Class
+                                                                                                           ]
+                                                                                      ]
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001874
+<https://www.commoncoreontologies.org/ont00001874> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000008> ;
+                                                   rdfs:range [ rdf:type owl:Class ;
+                                                                owl:unionOf ( <http://purl.obolibrary.org/obo/BFO_0000015>
+                                                                              <http://purl.obolibrary.org/obo/BFO_0000035>
+                                                                            )
+                                                              ] ;
+                                                   rdfs:label "is temporal region of"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is temporal region of y =Def y occupies temporal region x."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#editorialNote> "Leaving this is in ERO for now since BFO2020 has no inverse of occupies-temporal-region yet."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000008
+<http://purl.obolibrary.org/obo/BFO_0000008> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000015
+<http://purl.obolibrary.org/obo/BFO_0000015> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000035
+<http://purl.obolibrary.org/obo/BFO_0000035> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000202
+<http://purl.obolibrary.org/obo/BFO_0000202> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

@@ -1,0 +1,23 @@
+# Title: 
+#     Promotion Act Targets Rank
+# Constraint Description: 
+#     Promotion-act classes whose target rank appears only in the label  
+# Severity:
+#    Error 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?act ?actLabel ?targetRank ?targetRankLabel
+WHERE {
+  ?act a owl:Class ; rdfs:label ?actLabel .
+  FILTER(STRSTARTS(STR(?actLabel), "Act of"))
+  FILTER(CONTAINS(STR(?actLabel), "Promotion to"))
+  BIND(REPLACE(STR(?actLabel), "^Act of .*Promotion to ", "") AS ?targetRankLabel)
+  ?targetRank rdfs:label ?targetRankLabel .
+  FILTER NOT EXISTS {
+    ?act (rdfs:subClassOf|owl:equivalentClass)/(owl:intersectionOf/rdf:rest*/rdf:first)? ?restriction .
+    ?restriction a owl:Restriction ; owl:someValuesFrom ?targetRank .
+  }
+}
+ORDER BY ?actLabel
