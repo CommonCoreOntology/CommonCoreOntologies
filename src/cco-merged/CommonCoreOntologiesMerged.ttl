@@ -7,13 +7,15 @@
 @base <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged> .
 
 <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged> rdf:type owl:Ontology ;
-                                                                   owl:versionIRI <https://www.commoncoreontologies.org/2026-04-04/CommonCoreOntologiesMerged> ;
+                                                                   owl:versionIRI <https://www.commoncoreontologies.org/2026-08-13/CommonCoreOntologiesMerged> ;
+                                                                   <http://purl.org/dc/terms/description> "A stand-alone file containing the eleven mid-level Common Core Ontologies plus BFO. Provided for use-cases where one file representing a specific release of CCO and its imports is desirable."@en ;
                                                                    <http://purl.org/dc/terms/license> "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                    <http://purl.org/dc/terms/rights> "CUBRC Inc., see full license."@en ;
+                                                                   <http://purl.org/dc/terms/title> "Common Core Ontologies Merged"@en ;
                                                                    rdfs:comment "A stand-alone file containing the eleven mid-level Common Core Ontologies plus BFO. Provided for use-cases where one file representing a specific release of CCO and its imports is desirable."@en ;
                                                                    rdfs:label "Common Core Ontologies Merged"@en ;
-                                                                   owl:versionInfo "Depends on http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl, obtained 2026-04-04."@en ,
-                                                                                   "Version 2.1"@en .
+                                                                   owl:versionInfo "Depends on http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl, obtained 2026-08-13."@en ,
+                                                                                   "Version 2.2"@en .
 
 #################################################################
 #    Annotation properties
@@ -63,12 +65,12 @@
 <http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
-###  http://www.w3.org/2000/01/rdf-schema#altLabel
-rdfs:altLabel rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.w3.org/2004/02/skos/core#altLabel
 <http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#definition
@@ -94,7 +96,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 ###  https://www.commoncoreontologies.org/ont00001735
 <https://www.commoncoreontologies.org/ont00001735> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "query text"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "The text of a query that is associated with a class"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "The text of a query that is associated with a class."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -118,7 +120,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 ###  https://www.commoncoreontologies.org/ont00001739
 <https://www.commoncoreontologies.org/ont00001739> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "ordinal measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An ordinal measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An ordinal measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001746> .
 
@@ -134,7 +136,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 ###  https://www.commoncoreontologies.org/ont00001741
 <https://www.commoncoreontologies.org/ont00001741> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "nominal measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A nominal measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A nominal measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001746> .
 
@@ -157,7 +159,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 ###  https://www.commoncoreontologies.org/ont00001744
 <https://www.commoncoreontologies.org/ont00001744> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "copyright"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An assertion of copyright"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An assertion of copyright."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -172,14 +174,14 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 ###  https://www.commoncoreontologies.org/ont00001746
 <https://www.commoncoreontologies.org/ont00001746> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001747
 <https://www.commoncoreontologies.org/ont00001747> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "ratio measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A ratio measurement value of an instance of a quality, realizable or process profile"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A ratio measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001746> .
 
@@ -226,7 +228,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 ###  https://www.commoncoreontologies.org/ont00001756
 <https://www.commoncoreontologies.org/ont00001756> rdf:type owl:AnnotationProperty ;
                                                    rdfs:label "interval measurement annotation"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A interval measurement value of an instance of a quality, realizable or process profile "@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A interval measurement value of an instance of a quality, realizable or process profile."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI ;
                                                    rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001746> .
 
@@ -857,7 +859,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000004> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000004> ;
                                                    rdfs:label "is successor of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is successor of y =Def y is predecessor of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is successor of y =Def y is predecessor of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -868,7 +870,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "has process part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has process part y =Def y is part of process x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has process part y =Def y is part of process x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -890,7 +892,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                                             )
                                                               ] ;
                                                    rdfs:label "has object"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has object y =Def y is object of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has object y =Def y is object of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -950,7 +952,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:label "has subsidiary"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subsidiary y =Def y is subsidiary of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subsidiary y =Def y is subsidiary of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -962,7 +964,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "has inside interval"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has inside interval y =Def y interval during x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has inside interval y =Def y interval during x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1032,7 +1034,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000958> ;
                                                    rdfs:label "is subject of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is subject of y =Def y is about x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is subject of y =Def y is about x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1054,7 +1056,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                                                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
                                                    rdfs:label "is disrupted by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is disrupted by y =Def y disrupts x" ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is disrupted by y =Def y disrupts x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "is disrupted by"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -1066,7 +1068,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001324> ;
                                                    rdfs:label "is required by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is required by y =Def y requires x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is required by y =Def y requires x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1144,7 +1146,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:label "is subsidiary of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is_subsidiary_of y iff x and y are both instances of Organization and y controls x by having the capacity to determine the outcome of decisions about the financial and operating policies of x. "@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is_subsidiary_of y iff x and y are both instances of Organization and y controls x by having the capacity to determine the outcome of decisions about the financial and operating policies of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://www.austlii.edu.au/legis/cth/consol_act/ca2001172/s50aa.html)" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1177,7 +1179,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001324> ;
                                                    rdfs:label "is prohibited by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is prohibited by y =Def y prohibits x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is prohibited by y =Def y prohibits x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1187,7 +1189,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000003> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000003> ;
                                                    rdfs:label "caused by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x caused by y =Def y is cause of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x caused by y =Def y is cause of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1197,7 +1199,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval finished by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval finished by y =Def y interval finishes x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval finished by y =Def y interval finishes x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1230,7 +1232,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    owl:propertyDisjointWith <https://www.commoncoreontologies.org/ont00001862> ;
                                                    rdfs:label "interval overlaps"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval overlaps y =Def y interval overlapped by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval overlaps y =Def y interval overlapped by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1266,7 +1268,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has accomplice"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accomplice y =Def y accomplice in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accomplice y =Def y accomplice in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Accomplice&oldid=1002047204"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1302,7 +1304,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has agent"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has agent y =Def y agent in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has agent y =Def y agent in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1324,7 +1326,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                                             )
                                                               ] ;
                                                    rdfs:label "affects"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x affects y =Def y is affected by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x affects y =Def y is affected by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1337,7 +1339,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                                             )
                                                               ] ;
                                                    rdfs:label "aggregate bearer of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate bearer of y =Def y inheres in aggregate x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate bearer of y =Def y inheres in aggregate x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1391,7 +1393,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has sender"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has sender y =Def y sends x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has sender y =Def y sends x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1402,7 +1404,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000029> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "is site of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is site of y =Def y occurs at x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is site of y =Def y occurs at x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -1423,7 +1425,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval is after"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval is after y =Def y interval is before x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval is after y =Def y interval is before x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1458,7 +1460,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:label "has spatial part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has spatial part y =Def y spatial part of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has spatial part y =Def y spatial part of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -1547,7 +1549,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000120> ;
                                                    rdfs:label "uses measurement unit"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses measurement unit y =Def y is measurement unit of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses measurement unit y =Def y is measurement unit of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1556,7 +1558,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001203> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:label "delimits"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x delimits y =Def y is delimited by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x delimits y =Def y is delimited by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Boundary_delimitation&oldid=1039137603"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1569,7 +1571,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    <http://purl.org/dc/terms/created> "2022-12-30T21:32:27-05:00"^^xsd:dateTime ;
                                                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
                                                    rdfs:label "is interest of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is interest of y =Def y has interest in x" ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is interest of y =Def y has interest in x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "is interest of"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -1613,7 +1615,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001069> ;
                                                    rdfs:label "represented by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x represented by y =Def y represents x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x represented by y =Def y represents x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "See notes for inverse property." ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -1627,7 +1629,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                                             )
                                                               ] ;
                                                    rdfs:label "is temporal region of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is temporal region of y =Def y occupies temporal region x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is temporal region of y =Def y occupies temporal region x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#editorialNote> "Leaving this is in ERO for now since BFO2020 has no inverse of occupies-temporal-region yet."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -1639,7 +1641,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval started by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval started by y =Def y interval starts x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval started by y =Def y interval starts x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1662,7 +1664,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:label "is mention of"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is mention of y =Def y is mentioned by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is mention of y =Def y is mentioned by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1673,7 +1675,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000686> ;
                                                    rdfs:label "designated by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x designated by y =Def y designates x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x designated by y =Def y designates x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1698,7 +1700,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                                             <http://purl.obolibrary.org/obo/BFO_0000176>
                                                                           ) ;
                                                    rdfs:label "condition described by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x condition described by y =Def y describes condition x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x condition described by y =Def y describes condition x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1779,7 +1781,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval meets"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval meets y =Def y interval met by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval meets y =Def y interval met by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -1790,7 +1792,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000027> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001379> ;
                                                    rdfs:label "aggregate has capability"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has capability y =Def y capability of aggregate x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has capability y =Def y capability of aggregate x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -1833,7 +1835,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001163> ;
                                                    rdfs:label "is measured by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by y =Def y is a measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by y =Def y is a measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1853,7 +1855,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000829> ;
                                                    rdfs:label "uses time zone identifier"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses time zone identifier y =Def y time zone identifier used by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses time zone identifier y =Def y time zone identifier used by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1863,7 +1865,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:label "has tangential part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has tangential part y =Def y tangential part of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has tangential part y =Def y tangential part of x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -1888,7 +1890,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000398> ;
                                                    rdfs:label "uses reference system"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses reference system y =Def y is reference system of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses reference system y =Def y is reference system of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1898,7 +1900,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000469> ;
                                                    rdfs:label "uses geospatial coordinate reference system"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses geospatial coordinate reference system y =Def y is geospatial coordinate reference system of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses geospatial coordinate reference system y =Def y is geospatial coordinate reference system of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1908,7 +1910,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000293> ;
                                                    rdfs:label "is measured by nominal"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by nominal y =Def y is a nominal measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by nominal y =Def y is a nominal measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1945,7 +1947,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000853> ;
                                                    rdfs:label "described by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x described by y =Def y describes x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x described by y =Def y describes x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1975,7 +1977,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00000965> ;
                                                    rdfs:label "prescribed by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x prescribed by y =Def y prescribes x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x prescribed by y =Def y prescribes x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -1996,7 +1998,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                                             )
                                                               ] ;
                                                    rdfs:label "has input"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has input y =Def y is input of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has input y =Def y is input of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -2007,7 +2009,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has recipient"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has recipient y =Def y receives x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has recipient y =Def y receives x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2028,7 +2030,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000202> ;
                                                    rdfs:label "interval contains"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval contains y =Def y interval contained by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x interval contains y =Def y interval contained by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "J. F. Allen and J. A. G. M. Koomen. Planning using a temporal world model. In Proceedings of the 8th International Joint Conference on Artificial Intelligence (IJCAI-1983)  pages 741–747. Available at: https://www.ijcai.org/Proceedings/83-2/Papers/036.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
@@ -2038,7 +2040,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000040> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "is used by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is used by y =Def y uses x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is used by y =Def y uses x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2150,7 +2152,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001262> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001262> ;
                                                    rdfs:label "supervises"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x supervises y =Def y is supervised by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x supervises y =Def y is supervised by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://en.wiktionary.org/wiki/supervise" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -2184,7 +2186,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has accessory"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accessory y =Def y accessory in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has accessory y =Def y accessory in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://en.wikipedia.org/wiki/Accessory_(legal_term)" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -2194,7 +2196,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000023> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000023> ;
                                                    rdfs:label "has subordinate role"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subordinate role y =Def y is subordinate role to x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has subordinate role y =Def y is subordinate role to x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2204,7 +2206,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001379> ;
                                                    rdfs:label "has capability"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has capability y =Def y capability of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has capability y =Def y capability of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2214,7 +2216,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000027> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000016> ;
                                                    rdfs:label "aggregate has disposition"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has disposition y =Def y disposition of aggregate x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x aggregate has disposition y =Def y disposition of aggregate x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -2224,7 +2226,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "inhibits"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x inhibits y =Def y is inhibited by x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x inhibits y =Def y is inhibited by x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
 
@@ -2244,7 +2246,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "process started by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process started by y =Def y process starts x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process started by y =Def y process starts x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "A process x is started by another process y when y causes x while y is still occurring."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -2255,7 +2257,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001010> ;
                                                    rdfs:label "is measured by ordinal"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ordinal y =Def y is a ordinal measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ordinal y =Def y is a ordinal measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2265,7 +2267,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001364> ;
                                                    rdfs:label "is measured by interval"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by interval y =Def y is a interval measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by interval y =Def y is a interval measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2276,7 +2278,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000001> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001022> ;
                                                    rdfs:label "is measured by ratio"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ratio y =Def y is a ratio measurement of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is measured by ratio y =Def y is a ratio measurement of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2328,7 +2330,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001175> ;
                                                    rdfs:label "uses language"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses language y =Def y language used in x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x uses language y =Def y language used in x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -2337,7 +2339,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001017> ;
                                                    rdfs:label "has affiliate"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has affiliate y =Def y is affiliated with x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has affiliate y =Def y is affiliated with x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2419,7 +2421,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                                             )
                                                               ] ;
                                                    rdfs:label "has output"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has output y =Def y is output of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has output y =Def y is output of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=IPO_model&oldid=1024398398"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
 
@@ -2430,7 +2432,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:range <http://purl.obolibrary.org/obo/BFO_0000141> ;
                                                    rdfs:label "has nontangential part"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has nontangential part y =Def y nontangential part of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has nontangential part y =Def y nontangential part of x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -2453,7 +2455,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000023> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001180> ;
                                                    rdfs:label "has organizational context"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has organizational context y =Def y is organizational context of x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x has organizational context y =Def y is organizational context of x."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
 
@@ -2483,9 +2485,29 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:range <https://www.commoncoreontologies.org/ont00001324> ;
                                                    rdfs:label "is permitted by"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is permitted by y =Def y permits x"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is permitted by y =Def y permits x."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Given a stronger temporal interpretation, this property may be asymmetric and irreflexive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002080
+<https://www.commoncoreontologies.org/ont00002080> rdf:type owl:ObjectProperty ,
+                                                            owl:FunctionalProperty ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000203> ;
+                                                   rdfs:label "process has first instant"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process_has_first_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is first_instant_of z, and x occupies_temporal_region z."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002081
+<https://www.commoncoreontologies.org/ont00002081> rdf:type owl:ObjectProperty ,
+                                                            owl:FunctionalProperty ;
+                                                   rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000203> ;
+                                                   rdfs:label "process has last instant"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x process_has_last_instant y Def= x is a Process, y is a Temporal Instant, and there is some Temporal Region z such that y is last_instant_of z, and x occupies_temporal_region z."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/TimeOntology"^^xsd:anyURI .
 
 
 #################################################################
@@ -2521,6 +2543,8 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 <https://www.commoncoreontologies.org/ont00001765> rdf:type owl:DatatypeProperty ;
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:label "has text value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of a string literal. Modelers should instead use a more specific datatype property whose meaning explains what the text records, names, describes, encodes, or otherwise represents."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its range a string value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -2538,6 +2562,8 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:dateTime ;
                                                    rdfs:label "has datetime value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:dateTime typed literal. Modelers should instead use a more specific datatype property whose meaning explains what date-time value is being recorded, specified, observed, issued, created, modified, or otherwise represented."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its value a datetime value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -2547,6 +2573,8 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:anyURI ;
                                                    rdfs:label "has URI value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:anyURI typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the URI identifies, locates, references, resolves to, or otherwise represents."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its range a URI value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -2556,6 +2584,8 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:decimal ;
                                                    rdfs:label "has decimal value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:decimal typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the decimal value measures, quantifies, estimates, rates, or otherwise represents."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its range a decimal value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -2565,6 +2595,8 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:double ;
                                                    rdfs:label "has double value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:double typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the double value measures, quantifies, estimates, rates, or otherwise represents."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its range a double value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -2582,6 +2614,8 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:boolean ;
                                                    rdfs:label "has boolean value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated without direct replacement because the property is overly generic and does not add semantic content beyond the use of an xsd:boolean typed literal. Modelers should instead use a more specific datatype property whose meaning explains what the boolean value affirms, denies, indicates, or otherwise represents."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its range a boolean value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -2591,6 +2625,8 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:integer ;
                                                    rdfs:label "has integer value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated because the property does not add semantic content beyond the use of an xsd:integer typed literal. Use a domain-specific datatype property with range xsd:integer where an integer-valued measurement, count, ordinal, identifier component, or other value is intended."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its range an integer value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -3031,7 +3067,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 <http://purl.obolibrary.org/obo/BFO_0000144> rdf:type owl:Class ;
                                              rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000003> ;
                                              rdfs:label "Process Profile"@en ;
-                                             <http://www.w3.org/2004/02/skos/core#definition> "An occurrent that is an occurrent part of some process by virtue of the rate, or pattern, or amplitude of change in an attribute of one or more participants of said process."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "An occurrent that is an occurrent part of some process by virtue of the rate, or pattern, or magnitude of change in an attribute of one or more participants of said process."@en ;
                                              <http://www.w3.org/2004/02/skos/core#example> "On a somewhat higher level of complexity are what we shall call rate process profiles, which are the targets of selective abstraction focused not on determinate quality magnitudes plotted over time, but rather on certain ratios between these magnitudes and elapsed times. A speed process profile, for example, is represented by a graph plotting against time the ratio of distance covered per unit of time. Since rates may change, and since such changes, too, may have rates of change, we have to deal here with a hierarchy of process profile universals at successive levels; One important sub-family of rate process profiles is illustrated by the beat or frequency profiles of cyclical processes, illustrated by the 60 beats per minute beating process of John’s heart, or the 120 beats per minute drumming process involved in one of John’s performances in a rock band, and so on. Each such process includes what we shall call a beat process profile instance as part, a subtype of rate process profile in which the salient ratio is not distance covered but rather number of beat cycles per unit of time. Each beat process profile instance instantiates the determinable universal beat process profile. But it also instantiates multiple more specialized universals at lower levels of generality, selected from rate process profilebeat process profileregular beat process profile3 bpm beat process profile4 bpm beat process profileirregular beat process profileincreasing beat process profileand so on.In the case of a regular beat process profile, a rate can be assigned in the simplest possible fashion by dividing the number of cycles by the length of the temporal region occupied by the beating process profile as a whole. Irregular process profiles of this sort, for example as identified in the clinic, or in the readings on an aircraft instrument panel, are often of diagnostic significance.; The simplest type of process profiles are what we shall call ‘quality process profiles’, which are the process profiles which serve as the foci of the sort of selective abstraction that is involved when measurements are made of changes in single qualities, as illustrated, for example, by process profiles of mass, temperature, aortic pressure, and so on."@en ;
                                              <http://www.w3.org/2004/02/skos/core#scopeNote> "b process_profile_of c holds when b proper_occurrent_part_of c& there is some proper_occurrent_part d of c which has no parts in common with b & is mutually dependent on b& is such that b, c and d occupy the same temporal region (axiom label in BFO2 Reference: [094-005])"@en ;
                                              <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
@@ -3358,7 +3394,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
                                                    rdfs:label "Mailing"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Mailing"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication by Media in which information and tangible objects, usually written documents, are delivered to destinations around the world."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication by Media in which information concretized in tangible objects, usually written documents, are delivered to recipients."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Mail&oldid=1057401839"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -4150,7 +4186,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 <https://www.commoncoreontologies.org/ont00000110> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;
                                                    rdfs:label "Mechanical Process"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Process that is the realization of some Disposition of a Material Artifact"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Process that is the realization of some Disposition of a Material Artifact."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -4536,11 +4572,11 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 
 ###  https://www.commoncoreontologies.org/ont00000149
 <https://www.commoncoreontologies.org/ont00000149> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ;
                                                    rdfs:label "Instant Messaging"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of IMing"@en ,
                                                                                                   "Act of Instant Messaging"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication by Media in which real-time direct text-based communication occurs between two or more people using personal computers or other devices, along with shared Instant Messaging Client Software conveyed over a network, such as the Internet."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which real-time direct text-based communication occurs between two or more Agents using personal computers or other devices, along with shared Instant Messaging Client Software conveyed over a computer network."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Instant_messaging&oldid=1062873579"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -4854,7 +4890,7 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000123> ;
                                                    rdfs:label "Act of Thanking"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "An Act of Expressive Communication performed by expressing gratitude."@en ;
-                                                   <https://www.commoncoreontologies.org/ont00001754> " http://www.merriam-webster.com/dictionary/thanks" ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "http://www.merriam-webster.com/dictionary/thanks" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -5285,10 +5321,29 @@ rdfs:altLabel rdf:type owl:AnnotationProperty .
 
 ###  https://www.commoncoreontologies.org/ont00000228
 <https://www.commoncoreontologies.org/ont00000228> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00000005>
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000055> ;
+                                                                                                owl:someValuesFrom [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                                                                                                            owl:unionOf ( <http://purl.obolibrary.org/obo/BFO_0000016>
+                                                                                                                                                          <http://purl.obolibrary.org/obo/BFO_0000023>
+                                                                                                                                                        )
+                                                                                                                                          ]
+                                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000059> ;
+                                                                                                                                            owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000965>
+                                                                                                                                          ]
+                                                                                                                                        ) ;
+                                                                                                                     rdf:type owl:Class
+                                                                                                                   ]
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ] ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000005> ;
                                                    rdfs:label "Planned Act"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Intentional Act"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act in which at least one Agent plays a causative role and which is prescribed by some Prescriptive Information Content Entity held by at least one of the Agents."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act in which at least one Agent plays a causative role and which is prescribed by some Directive Information Content Entity held by at least one of the Agents."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -5916,7 +5971,7 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 <https://www.commoncoreontologies.org/ont00000297> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000024> ;
                                                    rdfs:label "Portion of Hydrosphere"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Hydrosphere&oldid=1128848972"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -6472,9 +6527,9 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 
 ###  https://www.commoncoreontologies.org/ont00000356
 <https://www.commoncoreontologies.org/ont00000356> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002077> ;
                                                    rdfs:label "Act of Publishing Mass Media Article"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving the preparation and public issuance of a non-fictional essay, especially one included with others in a newspaper, magazine, journal, etc."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Publishing a non-fictional essay, especially one included with others in a newspaper, magazine, journal, etc."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -6492,7 +6547,7 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 <https://www.commoncoreontologies.org/ont00000358> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001130> ;
                                                    rdfs:label "Geospatial Region Bounding Box"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Polygon that has some Geospatial Region as a non-tangential proper part."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Polygon that is a boundary of some Geospatial Region that has another Geospatial Region as a non-tangential proper part."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
 
@@ -6695,7 +6750,7 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 <https://www.commoncoreontologies.org/ont00000379> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:label "Act of Representative Communication"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication that commits a speaker to the truth of the expressed proposition."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication that commits a speaker to the truth of the expressed content."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Examples: affirming, alleging, announcing, answering, attributing, claiming, classifying, concurring, confirming, conjecturing, denying, disagreeing, disclosing, disputing, identifying, informing, insisting, predicting, ranking, reporting, stating, stipulating"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Derived (loosely) from: John Searle's Speech Acts: An Essay in the Philosophy of Language" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
@@ -6761,10 +6816,10 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 
 ###  https://www.commoncoreontologies.org/ont00000386
 <https://www.commoncoreontologies.org/ont00000386> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ;
                                                    rdfs:label "Webcast"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Webcasting"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communciation by Media transmitted to an audience over the Internet using streaming media technology to distribute a single content source that may be distributed live or on demand."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which communication with an audience occurs over the Internet using streaming media technology to distribute a single content source that may be distributed live or on demand."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Essentially, webcasting is “broadcasting” over the Internet."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Webcast&oldid=1062685084"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
@@ -6947,7 +7002,8 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 <https://www.commoncoreontologies.org/ont00000402> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
                                                    rdfs:label "Act of Communication"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which some Information Content Entity is transferred from some Agent to Another."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which the objective is to create a concretization of some Information Content Entity in one or more recipients."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Act of Communication is not intended to be a success term - a term that only applies when the act it denotes is successful. While successful communication is the goal, it is important that instances of this class can include both better and worse communication acts as well attempted communications that fail altogether."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Communication&oldid=1063752020"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -7077,9 +7133,9 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 
 ###  https://www.commoncoreontologies.org/ont00000416
 <https://www.commoncoreontologies.org/ont00000416> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002077> ;
                                                    rdfs:label "Act of Publishing Mass Media Press Release"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving the preparation and public issuance of an official statement issued to one or more members of the media for the purpose of announcing newsworthy information."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Publishing an official statement to one or more members of the media for the purpose of announcing newsworthy information."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -7129,9 +7185,9 @@ https://en.wikipedia.org/wiki/Gamma_ray#Naming_conventions_and_overlap_in_termin
 
 ###  https://www.commoncoreontologies.org/ont00000422
 <https://www.commoncoreontologies.org/ont00000422> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000727> ;
                                                    rdfs:label "Communication Reception Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Artifact Function that is realized during events in which a Material Artifact is used to receive information that has been transmitted for the purpose of communiction."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Communication Artifact Function that is realized in a process of receiving information."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -7771,10 +7827,14 @@ MJD = JD - 2400000.5"""@en ;
 
 ###  https://www.commoncoreontologies.org/ont00000492
 <https://www.commoncoreontologies.org/ont00000492> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000057> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00002012>
+                                                                   ] ;
                                                    rdfs:label "Email Messaging"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Emailing"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication by Media in which text-based communication occurs between two or more people using personal computers or other devices using some Email Client Software conveyed over the Internet."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which digital messages are transmitted and received via Internet Message Format-based communication, or an extension thereof, over a computer network."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Email&oldid=1063646749"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -7825,7 +7885,7 @@ MJD = JD - 2400000.5"""@en ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000120> ;
                                                    rdfs:label "Measurement Unit of Force"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Measurement Unit that is used as a standard for measurement of interactions in which the Motion or Velocity of an object is changed, unless the interaction is opposed."@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#example> "newton, dyne, pound force " ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "newton, dyne, pound force" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/UnitsOfMeasureOntology"^^xsd:anyURI .
 
 
@@ -7992,8 +8052,9 @@ MJD = JD - 2400000.5"""@en ;
 ###  https://www.commoncoreontologies.org/ont00000517
 <https://www.commoncoreontologies.org/ont00000517> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> ;
-                                                   rdfs:label "Act of Communication by Media"@en ;
+                                                   rdfs:label "Act of Communication by Movement of Information Bearing Artifact"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication in which some Material Artifact is used to transfer an Information Bearing Entity from sender(s) to receiver(s)."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "An Act of Communication by Movement of Information Bearing Artifact is distinguished by the fact that the Information Content Entity is transferred in virtue of its Information Bearing Artifact being transferred; as opposed to a new copy of the Information Content Entity being created in another bearer. Additional examples include passing notes in class, going door-to-door distributing pamphlets, lending/borrowing your physical copy of a book, etc."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -8311,7 +8372,7 @@ MJD = JD - 2400000.5"""@en ;
 ###  https://www.commoncoreontologies.org/ont00000548
 <https://www.commoncoreontologies.org/ont00000548> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000997> ;
-                                                   <http://purl.org/dc/terms/bibliographicCitation> "Vulnerability | Definition of Vulnerability by Oxford Dictionary on Lexico.Com Also Meaning of Vulnerability. https://web.archive.org/web/20210118111731/https://www.lexico.com/en/definition/vulnerability. Accessed 19 Dec. 2022. " ;
+                                                   <http://purl.org/dc/terms/bibliographicCitation> "Vulnerability | Definition of Vulnerability by Oxford Dictionary on Lexico.Com Also Meaning of Vulnerability. https://web.archive.org/web/20210118111731/https://www.lexico.com/en/definition/vulnerability. Accessed 19 Dec. 2022." ;
                                                    <http://purl.org/dc/terms/creator> "https://cubrc.org"^^xsd:anyURI ;
                                                    rdfs:label "Vulnerability"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Disrupting Disposition the realization of which would disrupt a process that the bearer of the Disrupting Disposition has an interest in."@en ;
@@ -8687,7 +8748,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000588> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:label "Act of Mass Media Communication"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication intended to reach a large audience using a medium such as the internet, television, radio, newspaper, and magazine."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication intended to reach a large audience using a medium such as the internet, television, radio, newspaper, or magazine."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Media&oldid=1062799283"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -9436,7 +9497,7 @@ MJD = JD - 2400000.5"""@en ;
                                                    <http://purl.org/dc/terms/bibliographicCitation> "Convention on Rights and Duties of States (inter-American); December 26, 1933. https://avalon.law.yale.edu/20th_century/intam03.asp. Accessed 6 Apr. 2023." ;
                                                    <http://purl.org/dc/terms/created> "2023-02-06T10:14:09-05:00"@en ;
                                                    rdfs:label "Material Territory of a Government Domain"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "The portions of lithosphere, hydrosphere, or atmosphere that together exactly occupy a Government Domain."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Material Territory of a Government Domain"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://avalon.law.yale.edu/20th_century/intam03.asp" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
@@ -9478,7 +9539,7 @@ MJD = JD - 2400000.5"""@en ;
                                                                        ] ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001262> ;
                                                    rdfs:label "Neutral Person"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Unallied Person" ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Unallied Person"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Person who is the bearer of some Neutral Role."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -9515,7 +9576,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000670> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001258> ;
                                                    rdfs:label "Distribution Port"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Port that is designed with the cargo handling equipment necessary for the loading and unloading of Watercraft"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Port that is designed with the cargo handling equipment necessary for the loading and unloading of Watercraft."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Port&oldid=1064091505"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/FacilityOntology"^^xsd:anyURI .
 
@@ -9655,7 +9716,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000685> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000207> ;
                                                    rdfs:label "Government Domain Border"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Geospatial Boundary that is a boundary of some Government Domain."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A One-Dimensional Geospatial Boundary of some Government Domain."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Border&oldid=1061275162"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -10067,7 +10128,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000727> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> ;
                                                    rdfs:label "Communication Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Artifact Function that is realized in a process in which meaningful signs are conveyed from one entity to another."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Artifact Function that is realized in a process in which one or more Information Content Entities are conveyed from one entity to another."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -10296,11 +10357,15 @@ MJD = JD - 2400000.5"""@en ;
 
 ###  https://www.commoncoreontologies.org/ont00000750
 <https://www.commoncoreontologies.org/ont00000750> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000057> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00002010>
+                                                                   ] ;
                                                    rdfs:label "Text Messaging"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Text Messaging"@en ,
                                                                                                   "Act of Texting"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication by Media involving the exchange of brief written messages between fixed-line phone or mobile phone and fixed or portable devices over a network."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which communication occurs through the exchange of brief written messages between fixed-line phone or mobile phone and fixed or portable devices over a network."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Text_messaging&oldid=1062261405"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -10600,7 +10665,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000779> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000024> ;
                                                    rdfs:label "Portion of Cryosphere"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part of the frozen part of a natural satellite's hydosphere."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "NOAA. “What Is the Cryosphere?” National Ocean Service, 16 June 2024, oceanservice.noaa.gov/facts/cryosphere.html. Accessed 24 Mar. 2026."^^xsd:string ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -11016,7 +11081,7 @@ MJD = JD - 2400000.5"""@en ;
 <https://www.commoncoreontologies.org/ont00000823> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001148> ;
                                                    rdfs:label "Optical Communication Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Electromagnetic Communication Artifact Function that is realized in a process that conveys meaningful signs by means of visible light."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Electromagnetic Communication Artifact Function that is realized in a process that conveys information by means of visible light."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Telecommunications&oldid=1061143810"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -11320,7 +11385,7 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
                                                    owl:disjointWith <https://www.commoncoreontologies.org/ont00000965> ;
                                                    rdfs:label "Descriptive Information Content Entity"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Descriptive ICE"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Information Content Entity that consists of a set of propositions that describe some Entity."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Information Content Entity that describes some Entity."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -11376,10 +11441,10 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
 
 ###  https://www.commoncoreontologies.org/ont00000859
 <https://www.commoncoreontologies.org/ont00000859> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ;
                                                    rdfs:label "Television Broadcast"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Television Broadcasting"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communciation by Media that is transmitted to an audience through a television network."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which communication with an audience occurs via transmissions through a television network."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Television_broadcasting&oldid=1063890047"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -11454,10 +11519,10 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
 
 ###  https://www.commoncoreontologies.org/ont00000866
 <https://www.commoncoreontologies.org/ont00000866> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ;
                                                    rdfs:label "Radio Broadcast"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Radio Broadcasting"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communciation by Media that is transmitted to an audience through a radio network."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which communication with an audience is mediated through radio waves transmitted through a radio network."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Radio_network&oldid=1037183126"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -11541,7 +11606,8 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
 <https://www.commoncoreontologies.org/ont00000875> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:label "Act of Personal Communication"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication having a small audience."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication that the sender intends to be received by a small audience."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "An Act of Personal Communication is distinct from an Act of Mass Media Communication only in terms of the size of the intended audience. The use of media typically need not require that the communication have a large audience, e.g., a Radio Broadcast on an obscure frequency that you use to communicate with your best friend."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
@@ -12376,7 +12442,7 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000958> ;
                                                    rdfs:label "Prescriptive Information Content Entity"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Directive ICE"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Information Content Entity that consists of a set of propositions or images (as in the case of a blueprint) that prescribe some Entity."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Information Content Entity that prescribes some Entity."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
@@ -12465,9 +12531,9 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
 
 ###  https://www.commoncoreontologies.org/ont00000977
 <https://www.commoncoreontologies.org/ont00000977> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002077> ;
                                                    rdfs:label "Act of Publishing Mass Media Documentary"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving the preparation and public issuance of information that provides a factual record or report."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Publishing a factual record or report."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -13233,9 +13299,9 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
 
 ###  https://www.commoncoreontologies.org/ont00001057
 <https://www.commoncoreontologies.org/ont00001057> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002078> ;
                                                    rdfs:label "Act of Issuing Mass Media Press Release"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation an official statement issued to one or more members of the media for the purpose of announcing newsworthy information."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Issuing an official statement to one or more members of the media for the purpose of announcing newsworthy information."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -13289,6 +13355,7 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
                                                    rdfs:label "International Community"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A maximal Group of Geopolitical Organizations engaged in geopolitics with one another."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "International Community"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Instances are context-dependent collectives of international actors, such as states, organizations, institutions, or peoples."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://dictionary.cambridge.org/us/dictionary/english/international-community" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/AgentOntology"^^xsd:anyURI .
 
@@ -13472,7 +13539,7 @@ W3C (https://www.w3.org/TR/NOTE-datetime)"""@en ,
 <https://www.commoncoreontologies.org/ont00001079> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000378> ;
                                                    rdfs:label "Blond"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Color that ranges from nearly white to a light greyish yellow"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Color that ranges from nearly white to a light greyish yellow."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/QualityOntology"^^xsd:anyURI .
 
 
@@ -13811,7 +13878,10 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 <https://www.commoncoreontologies.org/ont00001115> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001190> ;
                                                    rdfs:label "Private Network Telephone Call"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Telephone Call transmitted over a network where a closed group of telephones are connected primarily to each other and use a gateway to reach the outside world, usually used inside companies and call centers (a.k.a. private branch exchange (PBX))."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Private Branch Exchange Call"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Telephone Call transmitted over a network where a closed group of telephones are connected primarily to each other and use a gateway to reach the outside world."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Private Network Telephone Calls are typically made within companies or call centers."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001753> "PBX"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Telephone_network&oldid=1046265527"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -14059,11 +14129,15 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 
 ###  https://www.commoncoreontologies.org/ont00001143
 <https://www.commoncoreontologies.org/ont00001143> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000057> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00002039>
+                                                                   ] ;
                                                    rdfs:label "Facsimile Transmission"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Facsimile Transmission"@en ,
                                                                                                   "Act of Faxing"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication by Media in which the Information Content Entity that inheres in a Document is transmitted over a Telephone Network."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which a Document Content Entity is transmitted over a Telephone Network."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Fax&oldid=1054674158"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -14108,7 +14182,7 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 <https://www.commoncoreontologies.org/ont00001148> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000727> ;
                                                    rdfs:label "Electromagnetic Communication Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Communication Artifact Function that is realized in a process that conveys meaningful signs by means of electromagnetic radiation."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Communication Artifact Function that is realized in a process that conveys information by means of electromagnetic radiation."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Telecommunications&oldid=1061143810"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -14322,9 +14396,17 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 
 ###  https://www.commoncoreontologies.org/ont00001169
 <https://www.commoncoreontologies.org/ont00001169> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000323> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000727> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000178> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000422>
+                                                                   ] ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000178> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00002079>
+                                                                   ] ;
                                                    rdfs:label "Communication Relay Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Artifact Function that is realized during events in which a Material Artifact is used to first receive and then transmit information from one Material Artifact to another for the purpose of communiction."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Communication Artifact Function that is realized in processes of first receiving and then transmitting information."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 
@@ -14340,7 +14422,8 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 <https://www.commoncoreontologies.org/ont00001171> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001190> ;
                                                    rdfs:label "Wireless Network Telephone Call"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Telephone Call transmitted over a network where the telephones are mobile and can move anywhere within the coverage area."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Mobile Network Telephone Call"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Telephone Call transmitted over a network where the telephones are not dependent on a physical connection to the network such that they can continue to operate anywhere within the coverage area."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Telephone_network&oldid=1046265527"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -14509,10 +14592,10 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 
 ###  https://www.commoncoreontologies.org/ont00001190
 <https://www.commoncoreontologies.org/ont00001190> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000517> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002076> ;
                                                    rdfs:label "Telephone Call"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "Act of Telephone Calling"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communciation by Media transmitted over a telephone network to two or more Persons."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication Mediated by Artifact in which sound is used to communicate over a telephone network to one or more recipients."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Telephone_network&oldid=1046265527"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -15009,7 +15092,7 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 <https://www.commoncoreontologies.org/ont00001240> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00001148> ;
                                                    rdfs:label "Radio Communication Artifact Function"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Electromagnetic Communication Artifact Function that is realized in a process that conveys meaningful signs by means of radio waves."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Electromagnetic Communication Artifact Function that is realized in a process that conveys information by means of radio waves."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Telecommunications&oldid=1061143810"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
@@ -15048,9 +15131,9 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 
 ###  https://www.commoncoreontologies.org/ont00001244
 <https://www.commoncoreontologies.org/ont00001244> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002078> ;
                                                    rdfs:label "Act of Issuing Mass Media Article"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation a non-fictional essay, especially one included with others in a newspaper, magazine, or journal."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Issuing a non-fictional essay, especially one included with others in a newspaper, magazine, or journal."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -15208,9 +15291,9 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 
 ###  https://www.commoncoreontologies.org/ont00001263
 <https://www.commoncoreontologies.org/ont00001263> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00002078> ;
                                                    rdfs:label "Act of Issuing Mass Media Documentary"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation information that provides a factual record or report."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Issuing information that provides a factual record or report."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "JC3IEDM-MIRD-DMWG-Edition_3.0.2_20090514" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -15415,7 +15498,7 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
                                                                                                   "Damaged"@en ,
                                                                                                   "Injured"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Stasis of Specifically Dependent Continuant in which some Independent Continuant bears a Quality or Realizable Entity that has suffered impairment (i.e., a decrease or loss) due to a previous action or event such that the Independent Continuant is now of lesser value, usefulness, or functionality."@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "This class can be used to instantiate instances that might otherwise be treated by defined classes such as Damaged Vehicle or Wounded Person. The Independent Continuant and Quality or Realizable Entity are participants of the stasis which can in turn be related to the temporal interval via the occupies temporal region property. "@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "This class can be used to instantiate instances that might otherwise be treated by defined classes such as Damaged Vehicle or Wounded Person; the Independent Continuant and Quality or Realizable Entity are participants of the stasis which can in turn be related to the temporal interval via the occupies temporal region property."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "http://www.thefreedictionary.com/damaged" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
@@ -15906,7 +15989,7 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 <https://www.commoncoreontologies.org/ont00001341> rdf:type owl:Class ;
                                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000024> ;
                                                    rdfs:label "Portion of Geosphere"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Geosphere&oldid=1137306949"^^xsd:anyURI ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -16206,7 +16289,7 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 <https://www.commoncoreontologies.org/ont00001374> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> ;
                                                    rdfs:label "Act of Declarative Communication"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication that changes the reality in accord with the proposition of the declaration."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication that changes the reality in accord with the content of the declaration."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Examples: Baptism, Sentencing a person to imprisonment, Pronouncing a couple husband and wife, Declaring war"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "Derived (loosely) from: John Searle's Speech Acts: An Essay in the Philosophy of Language" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
@@ -16326,7 +16409,7 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 ###  https://www.commoncoreontologies.org/ont00002001
 <https://www.commoncoreontologies.org/ont00002001> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000958> ;
-                                                   rdfs:label "Media Content Entity" ;
+                                                   rdfs:label "Media Content Entity"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "An information content entity presented in a canonical media format."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "By 'canonical', it is intended that the media format is of a commonly recognized format, such as mass media formats such as books, magazines, and journals, as well as digital media forms (e.g. ebooks), to include, too, file types, such as those recognized by the Internet Assigned Numbers Authority (IANA)'s Media Types standard [RFC2046]." ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
@@ -16585,8 +16668,8 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
 ###  https://www.commoncoreontologies.org/ont00002070
 <https://www.commoncoreontologies.org/ont00002070> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000003> ;
-                                                   rdfs:altLabel "Email Box Identifier"@en ;
                                                    rdfs:label "Email Address"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Email Box Identifier"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Designative Name created in order to identify some Email Box as the destination of an email message for the purpose of Email Messaging."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
@@ -16633,6 +16716,57 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
                                                    rdfs:label "Sensing Process"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Process that realizes a Sensor Function or Sensor Role."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002076
+<https://www.commoncoreontologies.org/ont00002076> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000402> ;
+                                                   rdfs:label "Act of Communication Mediated by Artifact"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Communication in which technology is used to create a new copy of the Information Content Entity in the recipient."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002077
+<https://www.commoncoreontologies.org/ont00002077> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:label "Act of Publishing"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving the preparation and public issuance of information."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002078
+<https://www.commoncoreontologies.org/ont00002078> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000588> ;
+                                                   rdfs:label "Act of Issuing"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Mass Media Communication involving sending forth, distributing, or putting into circulation some Information Content Entity."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002079
+<https://www.commoncoreontologies.org/ont00002079> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000727> ;
+                                                   rdfs:label "Communication Transmission Artifact Function"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Communication Artifact Function that is realized in a process of sending information."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002082
+<https://www.commoncoreontologies.org/ont00002082> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                                                   rdfs:label "Act of Refrain"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act in which some Agent avoids or stops themselves from participating in some Planned Act."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "This class is not intended to be further subtyped (e.g. do not add subclasses such as Act of Refrain from Act of Violence)."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://dictionary.cambridge.org/us/dictionary/english/refrain"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+
+
+###  https://www.commoncoreontologies.org/ont00002083
+<https://www.commoncoreontologies.org/ont00002083> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000123> ;
+                                                   rdfs:label "Act of Censuring"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "An Act of Expressive Communication performed by expressing strong disapproval or criticism."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://dictionary.cambridge.org/us/dictionary/english/censure"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 
 #################################################################
@@ -17594,11 +17728,11 @@ Note that the ITU definition of UHF is broader than the definition given by IEEE
                                                    <http://purl.org/dc/terms/contributor> "Donna Jones" ,
                                                                                           "Olivia Hobai" ;
                                                    rdfs:label "Decibel Isotropic Measurement Unit"@en ;
-                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Decibels Over Isotropic" ,
-                                                                                                  "Decibels Over Isotropic Antenna" ,
-                                                                                                  "Decibels Relative to Isotrope" ,
-                                                                                                  "Decibels Relative to Isotropic Radiator" ,
-                                                                                                  "Decibels Relative to an Isotropic Reference Antenna" ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Decibels Over Isotropic"@en ,
+                                                                                                  "Decibels Over Isotropic Antenna"@en ,
+                                                                                                  "Decibels Relative to Isotrope"@en ,
+                                                                                                  "Decibels Relative to Isotropic Radiator"@en ,
+                                                                                                  "Decibels Relative to an Isotropic Reference Antenna"@en ;
                                                    <https://www.commoncoreontologies.org/ont00001740> "dBi" ;
                                                    <https://www.commoncoreontologies.org/ont00001754> "https://shopdelta.eu/dbi-power-gain-of-isotropic-antenna_l2_aid836.html"^^xsd:anyURI ,
                                                                                                       "https://www.techtarget.com/whatis/definition/decibels-relative-to-isotropic-radiator-dBi"^^xsd:anyURI ;
@@ -18898,7 +19032,8 @@ From: (http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf)"""@en ;
                                                             <https://www.commoncoreontologies.org/ont00000469> ;
                                                    rdfs:label "International Geomagnetic Reference Field"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "This global main field model provides magnetic field values for any location on Earth, e.g. for  navigational purposes (declination) or as a standard for core field subtraction for aeromagnetic surveys. An updated version is adopted by International Association of Geomagnetism and Aeronomy (IAGA) every 5 years)."@en ;
-                                                   <https://www.commoncoreontologies.org/ont00001754> "Alken, P., Thébault, E., Beggan, C.D. et al. International Geomagnetic Reference Field: the thirteenth generation. Earth Planets Space 73, 49 (2021). https://doi.org/10.1186/s40623-020-01288-x , https://www.iaga-aiga.org/" .
+                                                   <https://www.commoncoreontologies.org/ont00001754> "Alken, P., Thébault, E., Beggan, C.D. et al. International Geomagnetic Reference Field: the thirteenth generation. Earth Planets Space 73, 49 (2021). https://doi.org/10.1186/s40623-020-01288-x , https://www.iaga-aiga.org/" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
 
 ###  https://www.commoncoreontologies.org/ont00001661

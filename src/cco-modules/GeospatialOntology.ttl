@@ -11,14 +11,14 @@
 @base <https://www.commoncoreontologies.org/GeospatialOntology> .
 
 <https://www.commoncoreontologies.org/GeospatialOntology> rdf:type owl:Ontology ;
-                                                                                 owl:versionIRI <https://www.commoncoreontologies.org/2026-04-04/GeospatialOntology> ;
+                                                                                 owl:versionIRI <https://www.commoncoreontologies.org/2026-08-13/GeospatialOntology> ;
                                                                                  owl:imports <https://www.commoncoreontologies.org/ExtendedRelationOntology> ;
                                                                                  owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl> ;
                                                                                  dcterms:license "BSD 3-Clause: https://github.com/CommonCoreOntology/CommonCoreOntologies/blob/master/LICENSE"@en ;
                                                                                  dcterms:rights "CUBRC Inc., see full license."@en ;
                                                                                  rdfs:comment "This ontology is designed to represent sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them."@en ;
                                                                                  rdfs:label "Geospatial Ontology"@en ;
-                                                                                 owl:versionInfo "Version 2.1"@en .
+                                                                                 owl:versionInfo "Version 2.2"@en .
 
 #################################################################
 #    Annotation properties
@@ -129,7 +129,7 @@ cco:ont00001855 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000141 ;
                  rdfs:range obo:BFO_0000141 ;
                  rdfs:label "has spatial part"@en ;
-                 skos:definition "x has spatial part y =Def y spatial part of x"@en ;
+                 skos:definition "x has spatial part y =Def y spatial part of x."@en ;
                  cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -140,7 +140,7 @@ cco:ont00001909 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000141 ;
                  rdfs:range obo:BFO_0000141 ;
                  rdfs:label "has tangential part"@en ;
-                 skos:definition "x has tangential part y =Def y tangential part of x"@en ;
+                 skos:definition "x has tangential part y =Def y tangential part of x."@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -177,7 +177,7 @@ cco:ont00001989 rdf:type owl:ObjectProperty ;
                  rdfs:domain obo:BFO_0000141 ;
                  rdfs:range obo:BFO_0000141 ;
                  rdfs:label "has nontangential part"@en ;
-                 skos:definition "x has nontangential part y =Def y nontangential part of x"@en ;
+                 skos:definition "x has nontangential part y =Def y nontangential part of x."@en ;
                  skos:scopeNote "Given a stronger temporal interpretation, this property may be transitive. For more info please refer to https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/temporal%20extensions."@en ;
                  cco:ont00001754 "Randell, D. A., Cui, Z. and Cohn, A. G.: 1992, \"A spatial logic based on regions and connection,\" Proc. 3rd Int. Conf. on Knowledge Representation and Reasoning, Morgan Kaufmann, San Mateo, pp. 165-176. Available at: https://www.dpi.inpe.br/gilberto/references/cohn_rcc.pdf"@en ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
@@ -393,7 +393,7 @@ cco:ont00000251 rdf:type owl:Class ;
 cco:ont00000297 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000024 ;
                  rdfs:label "Portion of Hydrosphere"@en ;
-                 skos:definition "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite"@en ;
+                 skos:definition "A fiat object part of the combined mass of water found on, under, and above the surface of a natural satellite."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Hydrosphere&oldid=1128848972"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -532,7 +532,7 @@ cco:ont00000755 rdf:type owl:Class ;
 cco:ont00000779 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000024 ;
                  rdfs:label "Portion of Cryosphere"@en ;
-                 skos:definition "A fiat object part of the frozen part of a natural satellite's hydosphere"@en ;
+                 skos:definition "A fiat object part of the frozen part of a natural satellite's hydosphere."@en ;
                  cco:ont00001754 "NOAA. “What Is the Cryosphere?” National Ocean Service, 16 June 2024, oceanservice.noaa.gov/facts/cryosphere.html. Accessed 24 Mar. 2026."^^xsd:string ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 
@@ -676,7 +676,7 @@ cco:ont00001259 rdf:type owl:Class ;
 cco:ont00001341 rdf:type owl:Class ;
                  rdfs:subClassOf obo:BFO_0000024 ;
                  rdfs:label "Portion of Geosphere"@en ;
-                 skos:definition "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere"@en ;
+                 skos:definition "A fiat object part that is composed of one or more portions of the atmosphere, cryosphere, hydrosphere, or lithosphere."@en ;
                  cco:ont00001754 "https://en.wikipedia.org/w/index.php?title=Geosphere&oldid=1137306949"^^xsd:anyURI ;
                  cco:ont00001760 "https://www.commoncoreontologies.org/GeospatialOntology"^^xsd:anyURI .
 

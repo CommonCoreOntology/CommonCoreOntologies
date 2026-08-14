@@ -12,6 +12,10 @@
 #    Annotation properties
 #################################################################
 
+###  http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
@@ -29,6 +33,8 @@
                                                    rdfs:domain <https://www.commoncoreontologies.org/ont00000253> ;
                                                    rdfs:range xsd:integer ;
                                                    rdfs:label "has integer value"@en ;
+                                                   owl:deprecated "true"^^xsd:boolean ;
+                                                   <http://www.w3.org/2004/02/skos/core#changeNote> "Deprecated because the property does not add semantic content beyond the use of an xsd:integer typed literal. Use a domain-specific datatype property with range xsd:integer where an integer-valued measurement, count, ordinal, identifier component, or other value is intended."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A data property that has as its range an integer value."@en ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
 
