@@ -1,4 +1,4 @@
-name: Build, Test, Draft Release
+name: Build and Test
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - master
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   cache-path: build/lib
@@ -20,12 +20,13 @@ env:
 jobs:
   ontology_release:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Restore cached dependencies
         id: restore-cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: ${{ env.cache-path }}
           key: ${{ runner.os }}-${{ env.cache-key }}
@@ -39,9 +40,13 @@ jobs:
       - name: Capture release information
         id: build_release
         run: |
-          make -d all
           echo "RELEASE_FILE_PATH=$(make output-release-filepath)" >> $GITHUB_OUTPUT
           echo "RELEASE_NAME=$(make output-release-name)" >> $GITHUB_OUTPUT
+
+      - name: Display build information
+        run: |
+          echo "Release name: ${{ steps.build_release.outputs.RELEASE_NAME }}"
+          echo "Release file: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}"
 
       - name: Save artifacts
         uses: actions/upload-artifact@v4
@@ -49,10 +54,11 @@ jobs:
         with:
           name: ontology_release_results
           path: ${{ env.artifacts-path }}
+          if-no-files-found: warn
 
       - name: Save dependencies to cache
         id: save-cache
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         if: always() && steps.restore-cache.outputs.cache-hit != 'true'
         with:
           path: ${{ env.cache-path }}
@@ -60,38 +66,9 @@ jobs:
 
       - name: Get basename of the release file
         id: get_basename
-        run: echo "BASENAME=$(basename ${{ steps.build_release.outputs.RELEASE_FILE_PATH }})" >> $GITHUB_ENV
-
-      - name: Draft GitHub Release
-        uses: actions/create-release@v1
-        id: draft_release
-        with:
-          draft: true
-          prerelease: false
-          release_name: ${{ steps.build_release.outputs.RELEASE_NAME }}
-          tag_name: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload GitHub release build
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.draft_release.outputs.upload_url }}
-          asset_path: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
-          asset_name: ${{ steps.build_release.outputs.RELEASE_FILE_PATH }}
-          asset_content_type: ${{ env.release-build-content-type }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Generate Release Notes
         run: |
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/releases/generate-notes \
-            -f tag_name="${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}" \
-            --jq '.body' > /tmp/release-notes.md
-          gh release edit "${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}" \
-            --notes-file /tmp/release-notes.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "BASENAME=$(basename '${{ steps.build_release.outputs.RELEASE_FILE_PATH }}')" >> $GITHUB_ENV
+
+      - name: Display release artifact basename
+        run: |
+          echo "Release artifact basename: $BASENAME"
