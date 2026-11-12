@@ -1,0 +1,32 @@
+# Title:
+#    Asserted IRI Subjects Must Be in the CCO Namespace
+# Constraint Description:
+#    Any IRI used as the subject of an asserted semantic statement must be in
+#    the CCO namespace. IRIs from dc, dcterms, and skos are ignored because
+#    ROBOT may generate metadata statements about those vocabularies.
+# Severity:
+#     Error
+# Author:
+#	 github.com/jonathanvajda
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?subject ?predicate ?object ?label ?error
+WHERE {
+  ?subject ?predicate ?object .
+
+  FILTER (isIRI(?subject))
+  FILTER (!STRSTARTS(STR(?subject), "https://www.commoncoreontologies.org/"))
+  FILTER (!STRSTARTS(STR(?subject), "http://purl.org/dc/elements/1.1/"))
+  FILTER (!STRSTARTS(STR(?subject), "http://purl.org/dc/terms/"))
+  FILTER (!STRSTARTS(STR(?subject), "http://www.w3.org/2004/02/skos/core#"))
+  FILTER (!STRSTARTS(STR(?subject), "http://purl.obolibrary.org/obo/BFO_"))
+
+  OPTIONAL { ?subject rdfs:label ?label }
+
+  BIND (CONCAT(
+    "ERROR: IRI subject <", STR(?subject),
+    "> is used in an asserted semantic statement but is not in the CCO namespace."
+  ) AS ?error)
+}
+ORDER BY ?subject ?predicate ?object
