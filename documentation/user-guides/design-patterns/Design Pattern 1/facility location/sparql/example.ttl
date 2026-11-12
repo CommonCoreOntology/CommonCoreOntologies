@@ -1,0 +1,101 @@
+# Test data for CQ1–CQ3
+# Imports CCO (which in turn imports BFO), so no need to restate definitions here.
+# For reference, the key classes and properties used are:
+#   - obo:BFO_0000029  (site)       — a three-dimensional immaterial entity
+#   - cco:ont00000192  (Facility)   — a Material Artifact dedicated to a specific purpose
+#   - obo:BFO_0000171  (located in) — occupies a spatial region that is part of another's region
+# Full definitions are in the imported ontologies.
+
+@prefix :     <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/> .
+@prefix cco:  <https://www.commoncoreontologies.org/> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/>
+    rdf:type owl:Ontology ;
+    owl:imports <https://www.commoncoreontologies.org/> .
+
+#################################################################
+#    Sites — location hierarchy (largest → smallest)
+#
+#    NY State
+#      └── New York City       (located_in NY State)
+#      │     └── Manhattan Campus  (located_in NYC)
+#      │           ├── Tower 1     (located_in Manhattan Campus)
+#      │           └── Tower 2     (located_in Manhattan Campus)
+#      └── Buffalo             (located_in NY State)
+#    California
+#      └── Los Angeles         (located_in California)
+#            └── Downtown LA Campus  (located_in LA)
+#    Texas
+#      └── Houston             (located_in Texas)
+#################################################################
+
+# States
+:state_ny       rdf:type obo:BFO_0000029 ; rdfs:label "NY State" .
+:state_ca       rdf:type obo:BFO_0000029 ; rdfs:label "California" .
+:state_tx       rdf:type obo:BFO_0000029 ; rdfs:label "Texas" .
+
+# Cities
+:city_nyc       rdf:type obo:BFO_0000029 ; rdfs:label "New York City" ;
+                obo:BFO_0000171 :state_ny .              # NYC located_in NY State
+
+:city_buffalo   rdf:type obo:BFO_0000029 ; rdfs:label "Buffalo" ;
+                obo:BFO_0000171 :state_ny .              # Buffalo located_in NY State
+
+:city_la        rdf:type obo:BFO_0000029 ; rdfs:label "Los Angeles" ;
+                obo:BFO_0000171 :state_ca .              # LA located_in California
+
+:city_houston   rdf:type obo:BFO_0000029 ; rdfs:label "Houston" ;
+                obo:BFO_0000171 :state_tx .              # Houston located_in Texas
+
+# Campuses
+:campus_manhattan    rdf:type obo:BFO_0000029 ; rdfs:label "Manhattan Campus" ;
+                     obo:BFO_0000171 :city_nyc .         # Manhattan Campus located_in NYC
+
+:campus_downtown_la  rdf:type obo:BFO_0000029 ; rdfs:label "Downtown LA Campus" ;
+                     obo:BFO_0000171 :city_la .          # Downtown LA Campus located_in LA
+
+# Buildings
+:building_tower1  rdf:type obo:BFO_0000029 ; rdfs:label "Tower 1" ;
+                  obo:BFO_0000171 :campus_manhattan .    # Tower 1 located_in Manhattan Campus
+
+:building_tower2  rdf:type obo:BFO_0000029 ; rdfs:label "Tower 2" ;
+                  obo:BFO_0000171 :campus_manhattan .    # Tower 2 located_in Manhattan Campus
+
+#################################################################
+#    Facilities
+#
+#    NYC Main Warehouse        located_in Tower 1
+#    NYC Corporate Office      located_in Tower 2
+#    NYC Research Lab          located_in Manhattan Campus
+#    Buffalo Distribution Ctr  located_in Buffalo
+#    LA Warehouse              located_in Downtown LA Campus
+#    LA Regional Office        located_in Los Angeles
+#    Houston Manufacturing     located_in Houston
+#################################################################
+
+:facility_warehouse_nyc     rdf:type cco:ont00000192 ; rdfs:label "NYC Main Warehouse" ;
+                            obo:BFO_0000171 :building_tower1 .       # NYC Main Warehouse located_in Tower 1
+
+:facility_office_nyc        rdf:type cco:ont00000192 ; rdfs:label "NYC Corporate Office" ;
+                            obo:BFO_0000171 :building_tower2 .       # NYC Corporate Office located_in Tower 2
+
+:facility_lab_nyc           rdf:type cco:ont00000192 ; rdfs:label "NYC Research Lab" ;
+                            obo:BFO_0000171 :campus_manhattan .      # NYC Research Lab located_in Manhattan Campus
+
+:facility_warehouse_buffalo  rdf:type cco:ont00000192 ; rdfs:label "Buffalo Distribution Center" ;
+                             obo:BFO_0000171 :city_buffalo .         # Buffalo Distribution Center located_in Buffalo
+
+:facility_warehouse_la      rdf:type cco:ont00000192 ; rdfs:label "LA Warehouse" ;
+                            obo:BFO_0000171 :campus_downtown_la .    # LA Warehouse located_in Downtown LA Campus
+
+:facility_office_la         rdf:type cco:ont00000192 ; rdfs:label "LA Regional Office" ;
+                            obo:BFO_0000171 :city_la .               # LA Regional Office located_in Los Angeles
+
+:facility_plant_houston     rdf:type cco:ont00000192 ; rdfs:label "Houston Manufacturing Plant" ;
+                            obo:BFO_0000171 :city_houston .          # Houston Manufacturing Plant located_in Houston
+                            

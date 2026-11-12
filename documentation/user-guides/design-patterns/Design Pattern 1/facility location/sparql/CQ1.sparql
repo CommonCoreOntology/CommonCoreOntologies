@@ -1,0 +1,22 @@
+# CQ1: Where is a facility located?
+# Returns the immediate site(s) where a given facility is located
+
+PREFIX rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco:        <https://www.commoncoreontologies.org/>
+PREFIX obo:        <http://purl.obolibrary.org/obo/>
+PREFIX facility:   <https://www.commoncoreontologies.org/ont00000192>
+PREFIX located_in: <http://purl.obolibrary.org/obo/BFO_0000171>
+
+SELECT ?facility ?facilityLabel ?site ?siteLabel
+WHERE {
+
+    # ── Parameter: bind the facility IRI you want to query ──────────────────
+    #BIND(<YOUR_FACILITY_IRI_HERE> AS ?facility)
+
+    BIND(<https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/facility_warehouse_nyc> AS ?facility)
+
+    ?facility a facility: ;
+              rdfs:label ?facilityLabel ;
+              located_in: ?site .
+    ?site rdfs:label ?siteLabel .
+}
