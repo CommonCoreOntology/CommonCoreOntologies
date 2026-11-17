@@ -8,7 +8,7 @@
 PREFIX cco: <https://www.commoncoreontologies.org/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT ?entity ?type (COUNT(?curatedIn) AS ?curatedInCount) ?problem WHERE {
+SELECT ?entity ?type (COUNT(?curatedIn) AS ?curatedInCount) (SUM(IF(BOUND(?curatedIn) && isIRI(?curatedIn), 1, 0)) AS ?iriCuratedInCount) ("resource does not have exactly one is curated in ontology statement whose value is an IRI" AS ?problem) WHERE {
   VALUES ?type {
     owl:Class
     owl:ObjectProperty
@@ -24,14 +24,7 @@ SELECT ?entity ?type (COUNT(?curatedIn) AS ?curatedInCount) ?problem WHERE {
   OPTIONAL {
     ?entity cco:ont00001760 ?curatedIn .
   }
-
-  BIND(
-    IF(COUNT(?curatedIn) != 1,
-       "resource does not have exactly one is curated in ontology statement",
-       "ok")
-    AS ?problem
-  )
 }
 GROUP BY ?entity ?type
-HAVING(COUNT(?curatedIn) != 1)
+HAVING(COUNT(?curatedIn) != 1 || SUM(IF(BOUND(?curatedIn) && isIRI(?curatedIn), 1, 0)) != 1)
 ORDER BY ?entity
