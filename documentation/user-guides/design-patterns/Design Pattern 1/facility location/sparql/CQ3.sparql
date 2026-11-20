@@ -1,0 +1,27 @@
+# CQ3: What are all the facilities located within a site?
+# Finds facilities directly or transitively located within a site
+
+PREFIX rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco:        <https://www.commoncoreontologies.org/>
+PREFIX obo:        <http://purl.obolibrary.org/obo/>
+PREFIX site:       <http://purl.obolibrary.org/obo/BFO_0000029>
+PREFIX facility:   <https://www.commoncoreontologies.org/ont00000192>
+PREFIX located_in: <http://purl.obolibrary.org/obo/BFO_0000171>
+
+SELECT ?targetSite ?targetSiteLabel ?facility ?facilityLabel
+WHERE {
+    
+    # ── Parameter: bind the site IRI you want to query ──────────────────────
+    #BIND(<YOUR_SITE_IRI_HERE> AS ?targetSite)
+
+    BIND(<https://www.commoncoreontologies.org/CommonCoreOntologiesMerged/campus_manhattan> AS ?targetSite)
+
+    ?targetSite rdfs:label ?targetSiteLabel .
+
+    ?facility a facility: ;
+              rdfs:label ?facilityLabel ;
+              located_in:+ ?targetSite .
+
+}
+ORDER BY ASC(?facilityLabel)
+
